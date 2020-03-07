@@ -19,7 +19,7 @@ namespace Pulumi.Azure.AppService
         /// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
         /// </summary>
         [Output("appServiceEnvironmentId")]
-        public Output<string?> AppServiceEnvironmentId { get; private set; } = null!;
+        public Output<string> AppServiceEnvironmentId { get; private set; } = null!;
 
         [Output("isXenon")]
         public Output<bool?> IsXenon { get; private set; } = null!;
@@ -58,13 +58,16 @@ namespace Pulumi.Azure.AppService
         /// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
         /// </summary>
         [Output("perSiteScaling")]
-        public Output<bool?> PerSiteScaling { get; private set; } = null!;
+        public Output<bool> PerSiteScaling { get; private set; } = null!;
+
+        [Output("properties")]
+        public Output<Outputs.PlanProperties> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Is this App Service Plan `Reserved`. Defaults to `false`.
         /// </summary>
         [Output("reserved")]
-        public Output<bool?> Reserved { get; private set; } = null!;
+        public Output<bool> Reserved { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the App Service Plan component.
@@ -82,7 +85,7 @@ namespace Pulumi.Azure.AppService
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -169,6 +172,9 @@ namespace Pulumi.Azure.AppService
         [Input("perSiteScaling")]
         public Input<bool>? PerSiteScaling { get; set; }
 
+        [Input("properties")]
+        public Input<Inputs.PlanPropertiesArgs>? Properties { get; set; }
+
         /// <summary>
         /// Is this App Service Plan `Reserved`. Defaults to `false`.
         /// </summary>
@@ -251,6 +257,9 @@ namespace Pulumi.Azure.AppService
         [Input("perSiteScaling")]
         public Input<bool>? PerSiteScaling { get; set; }
 
+        [Input("properties")]
+        public Input<Inputs.PlanPropertiesGetArgs>? Properties { get; set; }
+
         /// <summary>
         /// Is this App Service Plan `Reserved`. Defaults to `false`.
         /// </summary>
@@ -288,6 +297,56 @@ namespace Pulumi.Azure.AppService
 
     namespace Inputs
     {
+
+    public sealed class PlanPropertiesArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+        /// </summary>
+        [Input("appServiceEnvironmentId")]
+        public Input<string>? AppServiceEnvironmentId { get; set; }
+
+        /// <summary>
+        /// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+        /// </summary>
+        [Input("perSiteScaling")]
+        public Input<bool>? PerSiteScaling { get; set; }
+
+        /// <summary>
+        /// Is this App Service Plan `Reserved`. Defaults to `false`.
+        /// </summary>
+        [Input("reserved")]
+        public Input<bool>? Reserved { get; set; }
+
+        public PlanPropertiesArgs()
+        {
+        }
+    }
+
+    public sealed class PlanPropertiesGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+        /// </summary>
+        [Input("appServiceEnvironmentId")]
+        public Input<string>? AppServiceEnvironmentId { get; set; }
+
+        /// <summary>
+        /// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+        /// </summary>
+        [Input("perSiteScaling")]
+        public Input<bool>? PerSiteScaling { get; set; }
+
+        /// <summary>
+        /// Is this App Service Plan `Reserved`. Defaults to `false`.
+        /// </summary>
+        [Input("reserved")]
+        public Input<bool>? Reserved { get; set; }
+
+        public PlanPropertiesGetArgs()
+        {
+        }
+    }
 
     public sealed class PlanSkuArgs : Pulumi.ResourceArgs
     {
@@ -342,6 +401,34 @@ namespace Pulumi.Azure.AppService
 
     namespace Outputs
     {
+
+    [OutputType]
+    public sealed class PlanProperties
+    {
+        /// <summary>
+        /// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+        /// </summary>
+        public readonly string AppServiceEnvironmentId;
+        /// <summary>
+        /// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+        /// </summary>
+        public readonly bool PerSiteScaling;
+        /// <summary>
+        /// Is this App Service Plan `Reserved`. Defaults to `false`.
+        /// </summary>
+        public readonly bool Reserved;
+
+        [OutputConstructor]
+        private PlanProperties(
+            string appServiceEnvironmentId,
+            bool perSiteScaling,
+            bool reserved)
+        {
+            AppServiceEnvironmentId = appServiceEnvironmentId;
+            PerSiteScaling = perSiteScaling;
+            Reserved = reserved;
+        }
+    }
 
     [OutputType]
     public sealed class PlanSku

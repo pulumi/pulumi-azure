@@ -22,6 +22,12 @@ namespace Pulumi.Azure.LogAnalytics
         public Output<string?> LinkedServiceName { get; private set; } = null!;
 
         /// <summary>
+        /// A `linked_service_properties` block as defined below.
+        /// </summary>
+        [Output("linkedServiceProperties")]
+        public Output<Outputs.LinkedServiceLinkedServiceProperties> LinkedServiceProperties { get; private set; } = null!;
+
+        /// <summary>
         /// The automatically generated name of the Linked Service. This cannot be specified. The format is always `&lt;workspace_name&gt;/&lt;linked_service_name&gt;` e.g. `workspace1/Automation`
         /// </summary>
         [Output("name")]
@@ -34,7 +40,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
+        /// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
         /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
@@ -43,7 +49,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
@@ -104,16 +110,22 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string>? LinkedServiceName { get; set; }
 
         /// <summary>
+        /// A `linked_service_properties` block as defined below.
+        /// </summary>
+        [Input("linkedServiceProperties")]
+        public Input<Inputs.LinkedServiceLinkedServicePropertiesArgs>? LinkedServiceProperties { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
+        /// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
         /// </summary>
-        [Input("resourceId", required: true)]
-        public Input<string> ResourceId { get; set; } = null!;
+        [Input("resourceId")]
+        public Input<string>? ResourceId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -147,6 +159,12 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string>? LinkedServiceName { get; set; }
 
         /// <summary>
+        /// A `linked_service_properties` block as defined below.
+        /// </summary>
+        [Input("linkedServiceProperties")]
+        public Input<Inputs.LinkedServiceLinkedServicePropertiesGetArgs>? LinkedServiceProperties { get; set; }
+
+        /// <summary>
         /// The automatically generated name of the Linked Service. This cannot be specified. The format is always `&lt;workspace_name&gt;/&lt;linked_service_name&gt;` e.g. `workspace1/Automation`
         /// </summary>
         [Input("name")]
@@ -159,7 +177,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
+        /// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
@@ -185,5 +203,54 @@ namespace Pulumi.Azure.LogAnalytics
         public LinkedServiceState()
         {
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class LinkedServiceLinkedServicePropertiesArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
+        /// </summary>
+        [Input("resourceId", required: true)]
+        public Input<string> ResourceId { get; set; } = null!;
+
+        public LinkedServiceLinkedServicePropertiesArgs()
+        {
+        }
+    }
+
+    public sealed class LinkedServiceLinkedServicePropertiesGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
+        /// </summary>
+        [Input("resourceId", required: true)]
+        public Input<string> ResourceId { get; set; } = null!;
+
+        public LinkedServiceLinkedServicePropertiesGetArgs()
+        {
+        }
+    }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class LinkedServiceLinkedServiceProperties
+    {
+        /// <summary>
+        /// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
+        /// </summary>
+        public readonly string ResourceId;
+
+        [OutputConstructor]
+        private LinkedServiceLinkedServiceProperties(string resourceId)
+        {
+            ResourceId = resourceId;
+        }
+    }
     }
 }

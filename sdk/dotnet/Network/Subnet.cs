@@ -38,10 +38,16 @@ namespace Pulumi.Azure.Network
         public Output<bool?> EnforcePrivateLinkEndpointNetworkPolicies { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
+        /// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
         /// </summary>
         [Output("enforcePrivateLinkServiceNetworkPolicies")]
         public Output<bool?> EnforcePrivateLinkServiceNetworkPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// The collection of IP Configurations with IPs within this subnet.
+        /// </summary>
+        [Output("ipConfigurations")]
+        public Output<ImmutableArray<string>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// The name of the subnet. Changing this forces a new resource to be created.
@@ -50,10 +56,22 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Network Security Group to associate with the subnet.
+        /// </summary>
+        [Output("networkSecurityGroupId")]
+        public Output<string?> NetworkSecurityGroupId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Route Table to associate with the subnet.
+        /// </summary>
+        [Output("routeTableId")]
+        public Output<string?> RouteTableId { get; private set; } = null!;
 
         /// <summary>
         /// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
@@ -138,10 +156,22 @@ namespace Pulumi.Azure.Network
         public Input<bool>? EnforcePrivateLinkEndpointNetworkPolicies { get; set; }
 
         /// <summary>
-        /// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
+        /// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
         /// </summary>
         [Input("enforcePrivateLinkServiceNetworkPolicies")]
         public Input<bool>? EnforcePrivateLinkServiceNetworkPolicies { get; set; }
+
+        [Input("ipConfigurations")]
+        private InputList<string>? _ipConfigurations;
+
+        /// <summary>
+        /// The collection of IP Configurations with IPs within this subnet.
+        /// </summary>
+        public InputList<string> IpConfigurations
+        {
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<string>());
+            set => _ipConfigurations = value;
+        }
 
         /// <summary>
         /// The name of the subnet. Changing this forces a new resource to be created.
@@ -150,10 +180,22 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The ID of the Network Security Group to associate with the subnet.
+        /// </summary>
+        [Input("networkSecurityGroupId")]
+        public Input<string>? NetworkSecurityGroupId { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The ID of the Route Table to associate with the subnet.
+        /// </summary>
+        [Input("routeTableId")]
+        public Input<string>? RouteTableId { get; set; }
 
         [Input("serviceEndpoints")]
         private InputList<string>? _serviceEndpoints;
@@ -205,10 +247,22 @@ namespace Pulumi.Azure.Network
         public Input<bool>? EnforcePrivateLinkEndpointNetworkPolicies { get; set; }
 
         /// <summary>
-        /// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
+        /// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
         /// </summary>
         [Input("enforcePrivateLinkServiceNetworkPolicies")]
         public Input<bool>? EnforcePrivateLinkServiceNetworkPolicies { get; set; }
+
+        [Input("ipConfigurations")]
+        private InputList<string>? _ipConfigurations;
+
+        /// <summary>
+        /// The collection of IP Configurations with IPs within this subnet.
+        /// </summary>
+        public InputList<string> IpConfigurations
+        {
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<string>());
+            set => _ipConfigurations = value;
+        }
 
         /// <summary>
         /// The name of the subnet. Changing this forces a new resource to be created.
@@ -217,10 +271,22 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The ID of the Network Security Group to associate with the subnet.
+        /// </summary>
+        [Input("networkSecurityGroupId")]
+        public Input<string>? NetworkSecurityGroupId { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The ID of the Route Table to associate with the subnet.
+        /// </summary>
+        [Input("routeTableId")]
+        public Input<string>? RouteTableId { get; set; }
 
         [Input("serviceEndpoints")]
         private InputList<string>? _serviceEndpoints;

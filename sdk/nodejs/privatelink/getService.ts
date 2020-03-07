@@ -75,6 +75,7 @@ export interface GetServiceResult {
      * The `natIpConfiguration` block as defined below.
      */
     readonly natIpConfigurations: outputs.privatelink.GetServiceNatIpConfiguration[];
+    readonly networkInterfaceIds: string[];
     readonly resourceGroupName: string;
     /**
      * A mapping of tags to assign to the resource.

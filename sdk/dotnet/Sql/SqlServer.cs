@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Sql
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).

@@ -21,7 +21,9 @@ type NsRecord struct {
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS NS Record.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of values that make up the NS record. 
+	// A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
+	Record NsRecordRecordArrayOutput `pulumi:"record"`
+	// A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
 	Records pulumi.StringArrayOutput `pulumi:"records"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -36,9 +38,6 @@ type NsRecord struct {
 // NewNsRecord registers a new resource with the given unique name, arguments, and options.
 func NewNsRecord(ctx *pulumi.Context,
 	name string, args *NsRecordArgs, opts ...pulumi.ResourceOption) (*NsRecord, error) {
-	if args == nil || args.Records == nil {
-		return nil, errors.New("missing required argument 'Records'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -77,7 +76,9 @@ type nsRecordState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS NS Record.
 	Name *string `pulumi:"name"`
-	// A list of values that make up the NS record. 
+	// A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
+	Record []NsRecordRecord `pulumi:"record"`
+	// A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
 	Records []string `pulumi:"records"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -94,7 +95,9 @@ type NsRecordState struct {
 	Fqdn pulumi.StringPtrInput
 	// The name of the DNS NS Record.
 	Name pulumi.StringPtrInput
-	// A list of values that make up the NS record. 
+	// A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
+	Record NsRecordRecordArrayInput
+	// A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
 	Records pulumi.StringArrayInput
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -113,7 +116,9 @@ func (NsRecordState) ElementType() reflect.Type {
 type nsRecordArgs struct {
 	// The name of the DNS NS Record.
 	Name *string `pulumi:"name"`
-	// A list of values that make up the NS record. 
+	// A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
+	Record []NsRecordRecord `pulumi:"record"`
+	// A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
 	Records []string `pulumi:"records"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -129,7 +134,9 @@ type nsRecordArgs struct {
 type NsRecordArgs struct {
 	// The name of the DNS NS Record.
 	Name pulumi.StringPtrInput
-	// A list of values that make up the NS record. 
+	// A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
+	Record NsRecordRecordArrayInput
+	// A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
 	Records pulumi.StringArrayInput
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

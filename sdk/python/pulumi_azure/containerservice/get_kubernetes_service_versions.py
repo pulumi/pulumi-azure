@@ -13,15 +13,12 @@ class GetKubernetesServiceVersionsResult:
     """
     A collection of values returned by getKubernetesServiceVersions.
     """
-    def __init__(__self__, include_preview=None, latest_version=None, location=None, version_prefix=None, versions=None, id=None):
-        if include_preview and not isinstance(include_preview, bool):
-            raise TypeError("Expected argument 'include_preview' to be a bool")
-        __self__.include_preview = include_preview
+    def __init__(__self__, latest_version=None, location=None, version_prefix=None, versions=None, id=None):
         if latest_version and not isinstance(latest_version, str):
             raise TypeError("Expected argument 'latest_version' to be a str")
         __self__.latest_version = latest_version
         """
-        The most recent version available. If `include_preview == false`, this is the most recent non-preview version available.
+        The most recent version available.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -47,18 +44,16 @@ class AwaitableGetKubernetesServiceVersionsResult(GetKubernetesServiceVersionsRe
         if False:
             yield self
         return GetKubernetesServiceVersionsResult(
-            include_preview=self.include_preview,
             latest_version=self.latest_version,
             location=self.location,
             version_prefix=self.version_prefix,
             versions=self.versions,
             id=self.id)
 
-def get_kubernetes_service_versions(include_preview=None,location=None,version_prefix=None,opts=None):
+def get_kubernetes_service_versions(location=None,version_prefix=None,opts=None):
     """
     Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
     
-    :param bool include_preview: Should Preview versions of Kubernetes in AKS be included? Defaults to `true`
     :param str location: Specifies the location in which to query for versions.
     :param str version_prefix: A prefix filter for the versions of Kubernetes which should be returned; for example `1.` will return `1.9` to `1.14`, whereas `1.12` will return `1.12.2`.
 
@@ -66,7 +61,6 @@ def get_kubernetes_service_versions(include_preview=None,location=None,version_p
     """
     __args__ = dict()
 
-    __args__['includePreview'] = include_preview
     __args__['location'] = location
     __args__['versionPrefix'] = version_prefix
     if opts is None:
@@ -76,7 +70,6 @@ def get_kubernetes_service_versions(include_preview=None,location=None,version_p
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions', __args__, opts=opts).value
 
     return AwaitableGetKubernetesServiceVersionsResult(
-        include_preview=__ret__.get('includePreview'),
         latest_version=__ret__.get('latestVersion'),
         location=__ret__.get('location'),
         version_prefix=__ret__.get('versionPrefix'),

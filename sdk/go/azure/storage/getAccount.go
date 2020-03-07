@@ -25,7 +25,7 @@ type LookupAccountArgs struct {
 	// Specifies the name of the Storage Account
 	Name string `pulumi:"name"`
 	// Specifies the name of the resource group the Storage Account is located in.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 
@@ -33,6 +33,8 @@ type LookupAccountArgs struct {
 type LookupAccountResult struct {
 	// The access tier for `BlobStorage` accounts.
 	AccessTier string `pulumi:"accessTier"`
+	// The Encryption Source for this Storage Account.
+	AccountEncryptionSource string `pulumi:"accountEncryptionSource"`
 	// The Kind of account.
 	AccountKind string `pulumi:"accountKind"`
 	// The type of replication used for this storage account.
@@ -41,6 +43,12 @@ type LookupAccountResult struct {
 	AccountTier string `pulumi:"accountTier"`
 	// A `customDomain` block as documented below.
 	CustomDomains []GetAccountCustomDomain `pulumi:"customDomains"`
+	// Are Encryption Services are enabled for Blob storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
+	// for more information.
+	EnableBlobEncryption bool `pulumi:"enableBlobEncryption"`
+	// Are Encryption Services are enabled for File storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
+	// for more information.
+	EnableFileEncryption bool `pulumi:"enableFileEncryption"`
 	// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information.
 	EnableHttpsTrafficOnly bool `pulumi:"enableHttpsTrafficOnly"`

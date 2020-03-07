@@ -10,6 +10,7 @@ from typing import Union
 from .. import utilities, tables
 
 class Credential(pulumi.CustomResource):
+    account_name: pulumi.Output[str]
     automation_account_name: pulumi.Output[str]
     """
     The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
@@ -34,7 +35,7 @@ class Credential(pulumi.CustomResource):
     """
     The username associated with this Automation Credential.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, description=None, name=None, password=None, resource_group_name=None, username=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, automation_account_name=None, description=None, name=None, password=None, resource_group_name=None, username=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Automation Credential.
         
@@ -66,8 +67,7 @@ class Credential(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if automation_account_name is None:
-                raise TypeError("Missing required property 'automation_account_name'")
+            __props__['account_name'] = account_name
             __props__['automation_account_name'] = automation_account_name
             __props__['description'] = description
             __props__['name'] = name
@@ -87,7 +87,7 @@ class Credential(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, automation_account_name=None, description=None, name=None, password=None, resource_group_name=None, username=None):
+    def get(resource_name, id, opts=None, account_name=None, automation_account_name=None, description=None, name=None, password=None, resource_group_name=None, username=None):
         """
         Get an existing Credential resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -107,6 +107,7 @@ class Credential(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["account_name"] = account_name
         __props__["automation_account_name"] = automation_account_name
         __props__["description"] = description
         __props__["name"] = name

@@ -21,6 +21,8 @@ type Table struct {
 	Acls TableAclArrayOutput `pulumi:"acls"`
 	// The name of the storage table. Must be unique within the storage account the table is located.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The name of the resource group in which to create the storage table.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the storage account in which to create the storage table.
 	// Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
@@ -61,6 +63,8 @@ type tableState struct {
 	Acls []TableAcl `pulumi:"acls"`
 	// The name of the storage table. Must be unique within the storage account the table is located.
 	Name *string `pulumi:"name"`
+	// The name of the resource group in which to create the storage table.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the storage account in which to create the storage table.
 	// Changing this forces a new resource to be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
@@ -71,6 +75,8 @@ type TableState struct {
 	Acls TableAclArrayInput
 	// The name of the storage table. Must be unique within the storage account the table is located.
 	Name pulumi.StringPtrInput
+	// The name of the resource group in which to create the storage table.
+	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the storage account in which to create the storage table.
 	// Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringPtrInput
@@ -85,6 +91,8 @@ type tableArgs struct {
 	Acls []TableAcl `pulumi:"acls"`
 	// The name of the storage table. Must be unique within the storage account the table is located.
 	Name *string `pulumi:"name"`
+	// The name of the resource group in which to create the storage table.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the storage account in which to create the storage table.
 	// Changing this forces a new resource to be created.
 	StorageAccountName string `pulumi:"storageAccountName"`
@@ -96,6 +104,8 @@ type TableArgs struct {
 	Acls TableAclArrayInput
 	// The name of the storage table. Must be unique within the storage account the table is located.
 	Name pulumi.StringPtrInput
+	// The name of the resource group in which to create the storage table.
+	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the storage account in which to create the storage table.
 	// Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringInput

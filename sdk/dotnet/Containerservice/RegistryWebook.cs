@@ -70,7 +70,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> Status { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
 
         /// <summary>

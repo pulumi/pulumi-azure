@@ -77,7 +77,7 @@ namespace Pulumi.Azure.EventHub
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.

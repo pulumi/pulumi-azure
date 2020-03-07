@@ -11,6 +11,8 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Associates a Network Security Group with a Subnet within a Virtual Network.
     /// 
+    /// &gt; **NOTE:** Subnet `&lt;-&gt;` Network Security Group associations currently need to be configured on both this resource and using the `network_security_group_id` field on the `azure.network.Subnet` resource. The next major version of the AzureRM Provider (2.0) will remove the `network_security_group_id` field from the `azure.network.Subnet` resource such that this resource is used to link resources in future.
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_network_security_group_association.html.markdown.
     /// </summary>
     public partial class SubnetNetworkSecurityGroupAssociation : Pulumi.CustomResource

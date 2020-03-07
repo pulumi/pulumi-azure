@@ -19,7 +19,7 @@ class MetricAlert(pulumi.CustomResource):
     """
     auto_mitigate: pulumi.Output[bool]
     """
-    Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
+    Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
     """
     criterias: pulumi.Output[list]
     """
@@ -32,7 +32,7 @@ class MetricAlert(pulumi.CustomResource):
         * `operator` (`str`)
         * `values` (`list`)
     
-      * `metricName` (`str`)
+      * `metric_name` (`str`)
       * `metricNamespace` (`str`)
       * `operator` (`str`)
       * `threshold` (`float`)
@@ -80,7 +80,7 @@ class MetricAlert(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input[bool] auto_mitigate: Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
+        :param pulumi.Input[bool] auto_mitigate: Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
         :param pulumi.Input[list] criterias: One or more `criteria` blocks as defined below.
         :param pulumi.Input[str] description: The description of this Metric Alert.
         :param pulumi.Input[bool] enabled: Should this Metric Alert be enabled? Defaults to `true`.
@@ -106,7 +106,7 @@ class MetricAlert(pulumi.CustomResource):
             * `operator` (`pulumi.Input[str]`)
             * `values` (`pulumi.Input[list]`)
         
-          * `metricName` (`pulumi.Input[str]`)
+          * `metric_name` (`pulumi.Input[str]`)
           * `metricNamespace` (`pulumi.Input[str]`)
           * `operator` (`pulumi.Input[str]`)
           * `threshold` (`pulumi.Input[float]`)
@@ -164,7 +164,7 @@ class MetricAlert(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input[bool] auto_mitigate: Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
+        :param pulumi.Input[bool] auto_mitigate: Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
         :param pulumi.Input[list] criterias: One or more `criteria` blocks as defined below.
         :param pulumi.Input[str] description: The description of this Metric Alert.
         :param pulumi.Input[bool] enabled: Should this Metric Alert be enabled? Defaults to `true`.
@@ -190,7 +190,7 @@ class MetricAlert(pulumi.CustomResource):
             * `operator` (`pulumi.Input[str]`)
             * `values` (`pulumi.Input[list]`)
         
-          * `metricName` (`pulumi.Input[str]`)
+          * `metric_name` (`pulumi.Input[str]`)
           * `metricNamespace` (`pulumi.Input[str]`)
           * `operator` (`pulumi.Input[str]`)
           * `threshold` (`pulumi.Input[float]`)

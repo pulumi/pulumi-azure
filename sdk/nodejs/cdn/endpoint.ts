@@ -102,7 +102,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.

@@ -18,8 +18,8 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
         /// </summary>
-        [Output("automationAccountName")]
-        public Output<string> AutomationAccountName { get; private set; } = null!;
+        [Output("accountName")]
+        public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
         /// The desired content of the runbook.
@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Automation
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -130,8 +130,8 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("automationAccountName", required: true)]
-        public Input<string> AutomationAccountName { get; set; } = null!;
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
         /// The desired content of the runbook.
@@ -209,8 +209,8 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("automationAccountName")]
-        public Input<string>? AutomationAccountName { get; set; }
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
 
         /// <summary>
         /// The desired content of the runbook.

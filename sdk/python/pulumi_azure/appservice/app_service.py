@@ -177,6 +177,7 @@ class AppService(pulumi.CustomResource):
       * `ipRestrictions` (`list`)
     
         * `ipAddress` (`str`)
+        * `subnetMask` (`str`)
         * `virtualNetworkSubnetId` (`str`)
     
       * `javaContainer` (`str`)
@@ -192,6 +193,7 @@ class AppService(pulumi.CustomResource):
       * `remoteDebuggingVersion` (`str`)
       * `scmType` (`str`)
       * `use32BitWorkerProcess` (`bool`)
+      * `virtualNetworkName` (`str`)
       * `websocketsEnabled` (`bool`)
       * `windowsFxVersion` (`str`)
     """
@@ -357,6 +359,7 @@ class AppService(pulumi.CustomResource):
           * `ipRestrictions` (`pulumi.Input[list]`)
         
             * `ipAddress` (`pulumi.Input[str]`)
+            * `subnetMask` (`pulumi.Input[str]`)
             * `virtualNetworkSubnetId` (`pulumi.Input[str]`)
         
           * `javaContainer` (`pulumi.Input[str]`)
@@ -372,6 +375,7 @@ class AppService(pulumi.CustomResource):
           * `remoteDebuggingVersion` (`pulumi.Input[str]`)
           * `scmType` (`pulumi.Input[str]`)
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`)
+          * `virtualNetworkName` (`pulumi.Input[str]`)
           * `websocketsEnabled` (`pulumi.Input[bool]`)
           * `windowsFxVersion` (`pulumi.Input[str]`)
         
@@ -574,6 +578,7 @@ class AppService(pulumi.CustomResource):
           * `ipRestrictions` (`pulumi.Input[list]`)
         
             * `ipAddress` (`pulumi.Input[str]`)
+            * `subnetMask` (`pulumi.Input[str]`)
             * `virtualNetworkSubnetId` (`pulumi.Input[str]`)
         
           * `javaContainer` (`pulumi.Input[str]`)
@@ -589,6 +594,7 @@ class AppService(pulumi.CustomResource):
           * `remoteDebuggingVersion` (`pulumi.Input[str]`)
           * `scmType` (`pulumi.Input[str]`)
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`)
+          * `virtualNetworkName` (`pulumi.Input[str]`)
           * `websocketsEnabled` (`pulumi.Input[bool]`)
           * `windowsFxVersion` (`pulumi.Input[str]`)
         

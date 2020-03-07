@@ -40,6 +40,7 @@ class Account(pulumi.CustomResource):
     """
     The endpoint used to connect to the CosmosDB account.
     """
+    failover_policies: pulumi.Output[list]
     geo_locations: pulumi.Output[list]
     """
     Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
@@ -111,7 +112,7 @@ class Account(pulumi.CustomResource):
     """
     A list of write endpoints available for this CosmosDB account.
     """
-    def __init__(__self__, resource_name, opts=None, capabilities=None, consistency_policy=None, enable_automatic_failover=None, enable_multiple_write_locations=None, geo_locations=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, resource_group_name=None, tags=None, virtual_network_rules=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, capabilities=None, consistency_policy=None, enable_automatic_failover=None, enable_multiple_write_locations=None, failover_policies=None, geo_locations=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, resource_group_name=None, tags=None, virtual_network_rules=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a CosmosDB (formally DocumentDB) Account.
         
@@ -141,6 +142,12 @@ class Account(pulumi.CustomResource):
           * `consistencyLevel` (`pulumi.Input[str]`) - The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
           * `maxIntervalInSeconds` (`pulumi.Input[float]`) - When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistency_level` is set to `BoundedStaleness`.
           * `maxStalenessPrefix` (`pulumi.Input[float]`) - When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
+        
+        The **failover_policies** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The ID of the virtual network subnet.
+          * `location` (`pulumi.Input[str]`) - The name of the Azure region to host replicated data.
+          * `priority` (`pulumi.Input[float]`)
         
         The **geo_locations** object supports the following:
         
@@ -178,8 +185,7 @@ class Account(pulumi.CustomResource):
             __props__['consistency_policy'] = consistency_policy
             __props__['enable_automatic_failover'] = enable_automatic_failover
             __props__['enable_multiple_write_locations'] = enable_multiple_write_locations
-            if geo_locations is None:
-                raise TypeError("Missing required property 'geo_locations'")
+            __props__['failover_policies'] = failover_policies
             __props__['geo_locations'] = geo_locations
             __props__['ip_range_filter'] = ip_range_filter
             __props__['is_virtual_network_filter_enabled'] = is_virtual_network_filter_enabled
@@ -209,7 +215,7 @@ class Account(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, capabilities=None, connection_strings=None, consistency_policy=None, enable_automatic_failover=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, resource_group_name=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, virtual_network_rules=None, write_endpoints=None):
+    def get(resource_name, id, opts=None, capabilities=None, connection_strings=None, consistency_policy=None, enable_automatic_failover=None, enable_multiple_write_locations=None, endpoint=None, failover_policies=None, geo_locations=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, resource_group_name=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, virtual_network_rules=None, write_endpoints=None):
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -250,6 +256,12 @@ class Account(pulumi.CustomResource):
           * `maxIntervalInSeconds` (`pulumi.Input[float]`) - When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistency_level` is set to `BoundedStaleness`.
           * `maxStalenessPrefix` (`pulumi.Input[float]`) - When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
         
+        The **failover_policies** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The ID of the virtual network subnet.
+          * `location` (`pulumi.Input[str]`) - The name of the Azure region to host replicated data.
+          * `priority` (`pulumi.Input[float]`)
+        
         The **geo_locations** object supports the following:
         
           * `failoverPriority` (`pulumi.Input[float]`) - The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
@@ -272,6 +284,7 @@ class Account(pulumi.CustomResource):
         __props__["enable_automatic_failover"] = enable_automatic_failover
         __props__["enable_multiple_write_locations"] = enable_multiple_write_locations
         __props__["endpoint"] = endpoint
+        __props__["failover_policies"] = failover_policies
         __props__["geo_locations"] = geo_locations
         __props__["ip_range_filter"] = ip_range_filter
         __props__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled

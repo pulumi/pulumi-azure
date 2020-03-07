@@ -15,11 +15,13 @@ type ZipBlob struct {
 	pulumi.CustomResourceState
 
 	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
+	Attempts pulumi.IntPtrOutput `pulumi:"attempts"`
 	Content pulumi.ArchiveOutput `pulumi:"content"`
 	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	Name pulumi.StringOutput `pulumi:"name"`
 	Parallelism pulumi.IntPtrOutput `pulumi:"parallelism"`
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	Size pulumi.IntPtrOutput `pulumi:"size"`
 	SourceContent pulumi.StringPtrOutput `pulumi:"sourceContent"`
 	SourceUri pulumi.StringPtrOutput `pulumi:"sourceUri"`
@@ -67,11 +69,13 @@ func GetZipBlob(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ZipBlob resources.
 type zipBlobState struct {
 	AccessTier *string `pulumi:"accessTier"`
+	Attempts *int `pulumi:"attempts"`
 	Content pulumi.Archive `pulumi:"content"`
 	ContentType *string `pulumi:"contentType"`
 	Metadata map[string]string `pulumi:"metadata"`
 	Name *string `pulumi:"name"`
 	Parallelism *int `pulumi:"parallelism"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	Size *int `pulumi:"size"`
 	SourceContent *string `pulumi:"sourceContent"`
 	SourceUri *string `pulumi:"sourceUri"`
@@ -83,11 +87,13 @@ type zipBlobState struct {
 
 type ZipBlobState struct {
 	AccessTier pulumi.StringPtrInput
+	Attempts pulumi.IntPtrInput
 	Content pulumi.ArchiveInput
 	ContentType pulumi.StringPtrInput
 	Metadata pulumi.StringMapInput
 	Name pulumi.StringPtrInput
 	Parallelism pulumi.IntPtrInput
+	ResourceGroupName pulumi.StringPtrInput
 	Size pulumi.IntPtrInput
 	SourceContent pulumi.StringPtrInput
 	SourceUri pulumi.StringPtrInput
@@ -103,11 +109,13 @@ func (ZipBlobState) ElementType() reflect.Type {
 
 type zipBlobArgs struct {
 	AccessTier *string `pulumi:"accessTier"`
+	Attempts *int `pulumi:"attempts"`
 	Content pulumi.Archive `pulumi:"content"`
 	ContentType *string `pulumi:"contentType"`
 	Metadata map[string]string `pulumi:"metadata"`
 	Name *string `pulumi:"name"`
 	Parallelism *int `pulumi:"parallelism"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	Size *int `pulumi:"size"`
 	SourceContent *string `pulumi:"sourceContent"`
 	SourceUri *string `pulumi:"sourceUri"`
@@ -119,11 +127,13 @@ type zipBlobArgs struct {
 // The set of arguments for constructing a ZipBlob resource.
 type ZipBlobArgs struct {
 	AccessTier pulumi.StringPtrInput
+	Attempts pulumi.IntPtrInput
 	Content pulumi.ArchiveInput
 	ContentType pulumi.StringPtrInput
 	Metadata pulumi.StringMapInput
 	Name pulumi.StringPtrInput
 	Parallelism pulumi.IntPtrInput
+	ResourceGroupName pulumi.StringPtrInput
 	Size pulumi.IntPtrInput
 	SourceContent pulumi.StringPtrInput
 	SourceUri pulumi.StringPtrInput

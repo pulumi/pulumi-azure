@@ -10,3 +10,4 @@ export * from "./kubernetesCluster";
 export * from "./kubernetesClusterNodePool";
 export * from "./registry";
 export * from "./registryWebook";
+export * from "./service";

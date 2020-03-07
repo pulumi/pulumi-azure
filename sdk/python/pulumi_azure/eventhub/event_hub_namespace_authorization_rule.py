@@ -14,6 +14,7 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
     """
     Grants listen access to this this Authorization Rule. Defaults to `false`.
     """
+    location: pulumi.Output[str]
     manage: pulumi.Output[bool]
     """
     Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
@@ -50,7 +51,7 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
     """
     Grants send access to this this Authorization Rule. Defaults to `false`.
     """
-    def __init__(__self__, resource_name, opts=None, listen=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, listen=None, location=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Authorization Rule for an Event Hub Namespace.
         
@@ -83,6 +84,7 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['listen'] = listen
+            __props__['location'] = location
             __props__['manage'] = manage
             __props__['name'] = name
             if namespace_name is None:
@@ -103,7 +105,7 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, listen=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, send=None):
+    def get(resource_name, id, opts=None, listen=None, location=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, send=None):
         """
         Get an existing EventHubNamespaceAuthorizationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -128,6 +130,7 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["listen"] = listen
+        __props__["location"] = location
         __props__["manage"] = manage
         __props__["name"] = name
         __props__["namespace_name"] = namespace_name

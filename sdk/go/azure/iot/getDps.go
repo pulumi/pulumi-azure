@@ -11,8 +11,8 @@ import (
 // Use this data source to access information about an existing IotHub Device Provisioning Service.
 // 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps.html.markdown.
-func GetDps(ctx *pulumi.Context, args *GetDpsArgs, opts ...pulumi.InvokeOption) (*GetDpsResult, error) {
-	var rv GetDpsResult
+func LookupDps(ctx *pulumi.Context, args *LookupDpsArgs, opts ...pulumi.InvokeOption) (*LookupDpsResult, error) {
+	var rv LookupDpsResult
 	err := ctx.Invoke("azure:iot/getDps:getDps", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -21,7 +21,7 @@ func GetDps(ctx *pulumi.Context, args *GetDpsArgs, opts ...pulumi.InvokeOption) 
 }
 
 // A collection of arguments for invoking getDps.
-type GetDpsArgs struct {
+type LookupDpsArgs struct {
 	// Specifies the name of the Iot Device Provisioning Service resource.
 	Name string `pulumi:"name"`
 	// The name of the resource group under which the Iot Device Provisioning Service is located in.
@@ -31,7 +31,7 @@ type GetDpsArgs struct {
 
 
 // A collection of values returned by getDps.
-type GetDpsResult struct {
+type LookupDpsResult struct {
 	// The allocation policy of the IoT Device Provisioning Service.
 	AllocationPolicy string `pulumi:"allocationPolicy"`
 	// The device endpoint of the IoT Device Provisioning Service.

@@ -43,7 +43,7 @@ export class MetricAlert extends pulumi.CustomResource {
      */
     public readonly actions!: pulumi.Output<outputs.monitoring.MetricAlertAction[] | undefined>;
     /**
-     * Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
+     * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
      */
     public readonly autoMitigate!: pulumi.Output<boolean | undefined>;
     /**
@@ -81,7 +81,7 @@ export class MetricAlert extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
      */
@@ -155,7 +155,7 @@ export interface MetricAlertState {
      */
     readonly actions?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertAction>[]>;
     /**
-     * Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
+     * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
      */
     readonly autoMitigate?: pulumi.Input<boolean>;
     /**
@@ -209,7 +209,7 @@ export interface MetricAlertArgs {
      */
     readonly actions?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertAction>[]>;
     /**
-     * Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
+     * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
      */
     readonly autoMitigate?: pulumi.Input<boolean>;
     /**

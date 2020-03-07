@@ -72,7 +72,7 @@ export class SqlServer extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
      */

@@ -136,6 +136,14 @@ class Service(pulumi.CustomResource):
     """
     A `security` block as defined below.
     
+      * `disableBackendSsl30` (`bool`)
+      * `disableBackendTls10` (`bool`)
+      * `disableBackendTls11` (`bool`)
+      * `disableFrontendSsl30` (`bool`)
+      * `disableFrontendTls10` (`bool`)
+      * `disableFrontendTls11` (`bool`)
+      * `disableTripleDesChipers` (`bool`)
+      * `disableTripleDesCiphers` (`bool`)
       * `enableBackendSsl30` (`bool`)
       * `enableBackendTls10` (`bool`)
       * `enableBackendTls11` (`bool`)
@@ -161,6 +169,13 @@ class Service(pulumi.CustomResource):
         * `enabled` (`bool`)
         * `text` (`str`)
     """
+    sku: pulumi.Output[dict]
+    """
+    A `sku` block as documented below
+    
+      * `capacity` (`float`)
+      * `name` (`str`) - The name of the API Management Service. Changing this forces a new resource to be created.
+    """
     sku_name: pulumi.Output[str]
     """
     `sku_name` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
@@ -169,7 +184,7 @@ class Service(pulumi.CustomResource):
     """
     A mapping of tags assigned to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, additional_locations=None, certificates=None, hostname_configuration=None, identity=None, location=None, name=None, notification_sender_email=None, policy=None, protocols=None, publisher_email=None, publisher_name=None, resource_group_name=None, security=None, sign_in=None, sign_up=None, sku_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, additional_locations=None, certificates=None, hostname_configuration=None, identity=None, location=None, name=None, notification_sender_email=None, policy=None, protocols=None, publisher_email=None, publisher_name=None, resource_group_name=None, security=None, sign_in=None, sign_up=None, sku=None, sku_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an API Management Service.
         
@@ -190,6 +205,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] security: A `security` block as defined below.
         :param pulumi.Input[dict] sign_in: A `sign_in` block as defined below.
         :param pulumi.Input[dict] sign_up: A `sign_up` block as defined below.
+        :param pulumi.Input[dict] sku: A `sku` block as documented below
         :param pulumi.Input[str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
         :param pulumi.Input[dict] tags: A mapping of tags assigned to the resource.
         
@@ -257,6 +273,14 @@ class Service(pulumi.CustomResource):
         
         The **security** object supports the following:
         
+          * `disableBackendSsl30` (`pulumi.Input[bool]`)
+          * `disableBackendTls10` (`pulumi.Input[bool]`)
+          * `disableBackendTls11` (`pulumi.Input[bool]`)
+          * `disableFrontendSsl30` (`pulumi.Input[bool]`)
+          * `disableFrontendTls10` (`pulumi.Input[bool]`)
+          * `disableFrontendTls11` (`pulumi.Input[bool]`)
+          * `disableTripleDesChipers` (`pulumi.Input[bool]`)
+          * `disableTripleDesCiphers` (`pulumi.Input[bool]`)
           * `enableBackendSsl30` (`pulumi.Input[bool]`)
           * `enableBackendTls10` (`pulumi.Input[bool]`)
           * `enableBackendTls11` (`pulumi.Input[bool]`)
@@ -277,6 +301,11 @@ class Service(pulumi.CustomResource):
             * `consentRequired` (`pulumi.Input[bool]`)
             * `enabled` (`pulumi.Input[bool]`)
             * `text` (`pulumi.Input[str]`)
+        
+        The **sku** object supports the following:
+        
+          * `capacity` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - The name of the API Management Service. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management.html.markdown.
         """
@@ -318,8 +347,7 @@ class Service(pulumi.CustomResource):
             __props__['security'] = security
             __props__['sign_in'] = sign_in
             __props__['sign_up'] = sign_up
-            if sku_name is None:
-                raise TypeError("Missing required property 'sku_name'")
+            __props__['sku'] = sku
             __props__['sku_name'] = sku_name
             __props__['tags'] = tags
             __props__['gateway_regional_url'] = None
@@ -335,7 +363,7 @@ class Service(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, additional_locations=None, certificates=None, gateway_regional_url=None, gateway_url=None, hostname_configuration=None, identity=None, location=None, management_api_url=None, name=None, notification_sender_email=None, policy=None, portal_url=None, protocols=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, security=None, sign_in=None, sign_up=None, sku_name=None, tags=None):
+    def get(resource_name, id, opts=None, additional_locations=None, certificates=None, gateway_regional_url=None, gateway_url=None, hostname_configuration=None, identity=None, location=None, management_api_url=None, name=None, notification_sender_email=None, policy=None, portal_url=None, protocols=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, security=None, sign_in=None, sign_up=None, sku=None, sku_name=None, tags=None):
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -364,6 +392,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] security: A `security` block as defined below.
         :param pulumi.Input[dict] sign_in: A `sign_in` block as defined below.
         :param pulumi.Input[dict] sign_up: A `sign_up` block as defined below.
+        :param pulumi.Input[dict] sku: A `sku` block as documented below
         :param pulumi.Input[str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
         :param pulumi.Input[dict] tags: A mapping of tags assigned to the resource.
         
@@ -431,6 +460,14 @@ class Service(pulumi.CustomResource):
         
         The **security** object supports the following:
         
+          * `disableBackendSsl30` (`pulumi.Input[bool]`)
+          * `disableBackendTls10` (`pulumi.Input[bool]`)
+          * `disableBackendTls11` (`pulumi.Input[bool]`)
+          * `disableFrontendSsl30` (`pulumi.Input[bool]`)
+          * `disableFrontendTls10` (`pulumi.Input[bool]`)
+          * `disableFrontendTls11` (`pulumi.Input[bool]`)
+          * `disableTripleDesChipers` (`pulumi.Input[bool]`)
+          * `disableTripleDesCiphers` (`pulumi.Input[bool]`)
           * `enableBackendSsl30` (`pulumi.Input[bool]`)
           * `enableBackendTls10` (`pulumi.Input[bool]`)
           * `enableBackendTls11` (`pulumi.Input[bool]`)
@@ -451,6 +488,11 @@ class Service(pulumi.CustomResource):
             * `consentRequired` (`pulumi.Input[bool]`)
             * `enabled` (`pulumi.Input[bool]`)
             * `text` (`pulumi.Input[str]`)
+        
+        The **sku** object supports the following:
+        
+          * `capacity` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - The name of the API Management Service. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management.html.markdown.
         """
@@ -478,6 +520,7 @@ class Service(pulumi.CustomResource):
         __props__["security"] = security
         __props__["sign_in"] = sign_in
         __props__["sign_up"] = sign_up
+        __props__["sku"] = sku
         __props__["sku_name"] = sku_name
         __props__["tags"] = tags
         return Service(resource_name, opts=opts, __props__=__props__)

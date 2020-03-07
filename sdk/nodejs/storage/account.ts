@@ -43,7 +43,11 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly accessTier!: pulumi.Output<string>;
     /**
-     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+     * The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
+     */
+    public readonly accountEncryptionSource!: pulumi.Output<string | undefined>;
+    /**
+     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
      */
     public readonly accountKind!: pulumi.Output<string | undefined>;
     /**
@@ -54,6 +58,7 @@ export class Account extends pulumi.CustomResource {
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      */
     public readonly accountTier!: pulumi.Output<string>;
+    public readonly accountType!: pulumi.Output<string>;
     /**
      * A `blobProperties` block as defined below.
      */
@@ -63,8 +68,20 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly customDomain!: pulumi.Output<outputs.storage.AccountCustomDomain | undefined>;
     /**
+     * Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
+     */
+    public readonly enableAdvancedThreatProtection!: pulumi.Output<boolean>;
+    /**
+     * Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+     */
+    public readonly enableBlobEncryption!: pulumi.Output<boolean | undefined>;
+    /**
+     * Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+     */
+    public readonly enableFileEncryption!: pulumi.Output<boolean | undefined>;
+    /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
-     * for more information. Defaults to `true`.
+     * for more information.
      */
     public readonly enableHttpsTrafficOnly!: pulumi.Output<boolean | undefined>;
     /**
@@ -224,10 +241,6 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryWebHost!: pulumi.Output<string>;
     /**
-     * A `staticWebsite` block as defined below.
-     */
-    public readonly staticWebsite!: pulumi.Output<outputs.storage.AccountStaticWebsite | undefined>;
-    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string}>;
@@ -245,11 +258,16 @@ export class Account extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as AccountState | undefined;
             inputs["accessTier"] = state ? state.accessTier : undefined;
+            inputs["accountEncryptionSource"] = state ? state.accountEncryptionSource : undefined;
             inputs["accountKind"] = state ? state.accountKind : undefined;
             inputs["accountReplicationType"] = state ? state.accountReplicationType : undefined;
             inputs["accountTier"] = state ? state.accountTier : undefined;
+            inputs["accountType"] = state ? state.accountType : undefined;
             inputs["blobProperties"] = state ? state.blobProperties : undefined;
             inputs["customDomain"] = state ? state.customDomain : undefined;
+            inputs["enableAdvancedThreatProtection"] = state ? state.enableAdvancedThreatProtection : undefined;
+            inputs["enableBlobEncryption"] = state ? state.enableBlobEncryption : undefined;
+            inputs["enableFileEncryption"] = state ? state.enableFileEncryption : undefined;
             inputs["enableHttpsTrafficOnly"] = state ? state.enableHttpsTrafficOnly : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["isHnsEnabled"] = state ? state.isHnsEnabled : undefined;
@@ -290,7 +308,6 @@ export class Account extends pulumi.CustomResource {
             inputs["secondaryTableHost"] = state ? state.secondaryTableHost : undefined;
             inputs["secondaryWebEndpoint"] = state ? state.secondaryWebEndpoint : undefined;
             inputs["secondaryWebHost"] = state ? state.secondaryWebHost : undefined;
-            inputs["staticWebsite"] = state ? state.staticWebsite : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
@@ -304,11 +321,16 @@ export class Account extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accessTier"] = args ? args.accessTier : undefined;
+            inputs["accountEncryptionSource"] = args ? args.accountEncryptionSource : undefined;
             inputs["accountKind"] = args ? args.accountKind : undefined;
             inputs["accountReplicationType"] = args ? args.accountReplicationType : undefined;
             inputs["accountTier"] = args ? args.accountTier : undefined;
+            inputs["accountType"] = args ? args.accountType : undefined;
             inputs["blobProperties"] = args ? args.blobProperties : undefined;
             inputs["customDomain"] = args ? args.customDomain : undefined;
+            inputs["enableAdvancedThreatProtection"] = args ? args.enableAdvancedThreatProtection : undefined;
+            inputs["enableBlobEncryption"] = args ? args.enableBlobEncryption : undefined;
+            inputs["enableFileEncryption"] = args ? args.enableFileEncryption : undefined;
             inputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["isHnsEnabled"] = args ? args.isHnsEnabled : undefined;
@@ -317,7 +339,6 @@ export class Account extends pulumi.CustomResource {
             inputs["networkRules"] = args ? args.networkRules : undefined;
             inputs["queueProperties"] = args ? args.queueProperties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["staticWebsite"] = args ? args.staticWebsite : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["primaryAccessKey"] = undefined /*out*/;
             inputs["primaryBlobConnectionString"] = undefined /*out*/;
@@ -372,7 +393,11 @@ export interface AccountState {
      */
     readonly accessTier?: pulumi.Input<string>;
     /**
-     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+     * The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
+     */
+    readonly accountEncryptionSource?: pulumi.Input<string>;
+    /**
+     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
      */
     readonly accountKind?: pulumi.Input<string>;
     /**
@@ -383,6 +408,7 @@ export interface AccountState {
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      */
     readonly accountTier?: pulumi.Input<string>;
+    readonly accountType?: pulumi.Input<string>;
     /**
      * A `blobProperties` block as defined below.
      */
@@ -392,8 +418,20 @@ export interface AccountState {
      */
     readonly customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain>;
     /**
+     * Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
+     */
+    readonly enableAdvancedThreatProtection?: pulumi.Input<boolean>;
+    /**
+     * Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+     */
+    readonly enableBlobEncryption?: pulumi.Input<boolean>;
+    /**
+     * Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+     */
+    readonly enableFileEncryption?: pulumi.Input<boolean>;
+    /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
-     * for more information. Defaults to `true`.
+     * for more information.
      */
     readonly enableHttpsTrafficOnly?: pulumi.Input<boolean>;
     /**
@@ -553,10 +591,6 @@ export interface AccountState {
      */
     readonly secondaryWebHost?: pulumi.Input<string>;
     /**
-     * A `staticWebsite` block as defined below.
-     */
-    readonly staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite>;
-    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -571,7 +605,11 @@ export interface AccountArgs {
      */
     readonly accessTier?: pulumi.Input<string>;
     /**
-     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+     * The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
+     */
+    readonly accountEncryptionSource?: pulumi.Input<string>;
+    /**
+     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
      */
     readonly accountKind?: pulumi.Input<string>;
     /**
@@ -582,6 +620,7 @@ export interface AccountArgs {
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      */
     readonly accountTier: pulumi.Input<string>;
+    readonly accountType?: pulumi.Input<string>;
     /**
      * A `blobProperties` block as defined below.
      */
@@ -591,8 +630,20 @@ export interface AccountArgs {
      */
     readonly customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain>;
     /**
+     * Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
+     */
+    readonly enableAdvancedThreatProtection?: pulumi.Input<boolean>;
+    /**
+     * Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+     */
+    readonly enableBlobEncryption?: pulumi.Input<boolean>;
+    /**
+     * Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+     */
+    readonly enableFileEncryption?: pulumi.Input<boolean>;
+    /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
-     * for more information. Defaults to `true`.
+     * for more information.
      */
     readonly enableHttpsTrafficOnly?: pulumi.Input<boolean>;
     /**
@@ -623,10 +674,6 @@ export interface AccountArgs {
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * A `staticWebsite` block as defined below.
-     */
-    readonly staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite>;
     /**
      * A mapping of tags to assign to the resource.
      */

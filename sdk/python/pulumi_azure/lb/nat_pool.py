@@ -31,6 +31,7 @@ class NatPool(pulumi.CustomResource):
     """
     The ID of the Load Balancer in which to create the NAT pool.
     """
+    location: pulumi.Output[str]
     name: pulumi.Output[str]
     """
     Specifies the name of the NAT pool.
@@ -43,7 +44,7 @@ class NatPool(pulumi.CustomResource):
     """
     The name of the resource group in which to create the resource.
     """
-    def __init__(__self__, resource_name, opts=None, backend_port=None, frontend_ip_configuration_name=None, frontend_port_end=None, frontend_port_start=None, loadbalancer_id=None, name=None, protocol=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, backend_port=None, frontend_ip_configuration_name=None, frontend_port_end=None, frontend_port_start=None, loadbalancer_id=None, location=None, name=None, protocol=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Load Balancer NAT pool.
         
@@ -96,6 +97,7 @@ class NatPool(pulumi.CustomResource):
             if loadbalancer_id is None:
                 raise TypeError("Missing required property 'loadbalancer_id'")
             __props__['loadbalancer_id'] = loadbalancer_id
+            __props__['location'] = location
             __props__['name'] = name
             if protocol is None:
                 raise TypeError("Missing required property 'protocol'")
@@ -111,7 +113,7 @@ class NatPool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, backend_port=None, frontend_ip_configuration_id=None, frontend_ip_configuration_name=None, frontend_port_end=None, frontend_port_start=None, loadbalancer_id=None, name=None, protocol=None, resource_group_name=None):
+    def get(resource_name, id, opts=None, backend_port=None, frontend_ip_configuration_id=None, frontend_ip_configuration_name=None, frontend_port_end=None, frontend_port_start=None, loadbalancer_id=None, location=None, name=None, protocol=None, resource_group_name=None):
         """
         Get an existing NatPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -139,6 +141,7 @@ class NatPool(pulumi.CustomResource):
         __props__["frontend_port_end"] = frontend_port_end
         __props__["frontend_port_start"] = frontend_port_start
         __props__["loadbalancer_id"] = loadbalancer_id
+        __props__["location"] = location
         __props__["name"] = name
         __props__["protocol"] = protocol
         __props__["resource_group_name"] = resource_group_name

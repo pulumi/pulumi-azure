@@ -44,6 +44,7 @@ class LinkService(pulumi.CustomResource):
       * `privateIpAddressVersion` (`str`)
       * `subnet_id` (`str`)
     """
+    network_interface_ids: pulumi.Output[list]
     resource_group_name: pulumi.Output[str]
     """
     The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
@@ -117,6 +118,7 @@ class LinkService(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['visibility_subscription_ids'] = visibility_subscription_ids
             __props__['alias'] = None
+            __props__['network_interface_ids'] = None
         super(LinkService, __self__).__init__(
             'azure:privatedns/linkService:LinkService',
             resource_name,
@@ -124,7 +126,7 @@ class LinkService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, alias=None, auto_approval_subscription_ids=None, enable_proxy_protocol=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configurations=None, resource_group_name=None, tags=None, visibility_subscription_ids=None):
+    def get(resource_name, id, opts=None, alias=None, auto_approval_subscription_ids=None, enable_proxy_protocol=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configurations=None, network_interface_ids=None, resource_group_name=None, tags=None, visibility_subscription_ids=None):
         """
         Get an existing LinkService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -163,6 +165,7 @@ class LinkService(pulumi.CustomResource):
         __props__["location"] = location
         __props__["name"] = name
         __props__["nat_ip_configurations"] = nat_ip_configurations
+        __props__["network_interface_ids"] = network_interface_ids
         __props__["resource_group_name"] = resource_group_name
         __props__["tags"] = tags
         __props__["visibility_subscription_ids"] = visibility_subscription_ids

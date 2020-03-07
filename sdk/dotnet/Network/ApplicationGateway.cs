@@ -46,6 +46,13 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.ApplicationGatewayCustomErrorConfigurations>> CustomErrorConfigurations { get; private set; } = null!;
 
         /// <summary>
+        /// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        /// &gt; **NOTE:** `disabled_ssl_protocols ` has been deprecated in favour of `disabled_protocols` in the `ssl_policy` block.
+        /// </summary>
+        [Output("disabledSslProtocols")]
+        public Output<ImmutableArray<string>> DisabledSslProtocols { get; private set; } = null!;
+
+        /// <summary>
         /// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
         /// </summary>
         [Output("enableHttp2")]
@@ -145,7 +152,7 @@ namespace Pulumi.Azure.Network
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// One or more `trusted_root_certificate` blocks as defined below.
@@ -269,6 +276,19 @@ namespace Pulumi.Azure.Network
         {
             get => _customErrorConfigurations ?? (_customErrorConfigurations = new InputList<Inputs.ApplicationGatewayCustomErrorConfigurationsArgs>());
             set => _customErrorConfigurations = value;
+        }
+
+        [Input("disabledSslProtocols")]
+        private InputList<string>? _disabledSslProtocols;
+
+        /// <summary>
+        /// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        /// &gt; **NOTE:** `disabled_ssl_protocols ` has been deprecated in favour of `disabled_protocols` in the `ssl_policy` block.
+        /// </summary>
+        public InputList<string> DisabledSslProtocols
+        {
+            get => _disabledSslProtocols ?? (_disabledSslProtocols = new InputList<string>());
+            set => _disabledSslProtocols = value;
         }
 
         /// <summary>
@@ -540,6 +560,19 @@ namespace Pulumi.Azure.Network
         {
             get => _customErrorConfigurations ?? (_customErrorConfigurations = new InputList<Inputs.ApplicationGatewayCustomErrorConfigurationsGetArgs>());
             set => _customErrorConfigurations = value;
+        }
+
+        [Input("disabledSslProtocols")]
+        private InputList<string>? _disabledSslProtocols;
+
+        /// <summary>
+        /// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        /// &gt; **NOTE:** `disabled_ssl_protocols ` has been deprecated in favour of `disabled_protocols` in the `ssl_policy` block.
+        /// </summary>
+        public InputList<string> DisabledSslProtocols
+        {
+            get => _disabledSslProtocols ?? (_disabledSslProtocols = new InputList<string>());
+            set => _disabledSslProtocols = value;
         }
 
         /// <summary>
@@ -832,6 +865,14 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayBackendAddressPoolsArgs : Pulumi.ResourceArgs
     {
+        [Input("fqdnLists")]
+        private InputList<string>? _fqdnLists;
+        public InputList<string> FqdnLists
+        {
+            get => _fqdnLists ?? (_fqdnLists = new InputList<string>());
+            set => _fqdnLists = value;
+        }
+
         [Input("fqdns")]
         private InputList<string>? _fqdns;
         public InputList<string> Fqdns
@@ -845,6 +886,14 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("ipAddressLists")]
+        private InputList<string>? _ipAddressLists;
+        public InputList<string> IpAddressLists
+        {
+            get => _ipAddressLists ?? (_ipAddressLists = new InputList<string>());
+            set => _ipAddressLists = value;
+        }
 
         [Input("ipAddresses")]
         private InputList<string>? _ipAddresses;
@@ -867,6 +916,14 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayBackendAddressPoolsGetArgs : Pulumi.ResourceArgs
     {
+        [Input("fqdnLists")]
+        private InputList<string>? _fqdnLists;
+        public InputList<string> FqdnLists
+        {
+            get => _fqdnLists ?? (_fqdnLists = new InputList<string>());
+            set => _fqdnLists = value;
+        }
+
         [Input("fqdns")]
         private InputList<string>? _fqdns;
         public InputList<string> Fqdns
@@ -880,6 +937,14 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("ipAddressLists")]
+        private InputList<string>? _ipAddressLists;
+        public InputList<string> IpAddressLists
+        {
+            get => _ipAddressLists ?? (_ipAddressLists = new InputList<string>());
+            set => _ipAddressLists = value;
+        }
 
         [Input("ipAddresses")]
         private InputList<string>? _ipAddresses;
@@ -2744,11 +2809,13 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayBackendAddressPools
     {
+        public readonly ImmutableArray<string> FqdnLists;
         public readonly ImmutableArray<string> Fqdns;
         /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
+        public readonly ImmutableArray<string> IpAddressLists;
         public readonly ImmutableArray<string> IpAddresses;
         /// <summary>
         /// The name of the Application Gateway. Changing this forces a new resource to be created.
@@ -2757,13 +2824,17 @@ namespace Pulumi.Azure.Network
 
         [OutputConstructor]
         private ApplicationGatewayBackendAddressPools(
+            ImmutableArray<string> fqdnLists,
             ImmutableArray<string> fqdns,
             string id,
+            ImmutableArray<string> ipAddressLists,
             ImmutableArray<string> ipAddresses,
             string name)
         {
+            FqdnLists = fqdnLists;
             Fqdns = fqdns;
             Id = id;
+            IpAddressLists = ipAddressLists;
             IpAddresses = ipAddresses;
             Name = name;
         }

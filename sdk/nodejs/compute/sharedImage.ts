@@ -81,7 +81,7 @@ export class SharedImage extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the Shared Image.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a SharedImage resource with the given unique name, arguments, and options.

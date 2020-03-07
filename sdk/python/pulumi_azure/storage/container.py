@@ -30,11 +30,19 @@ class Container(pulumi.CustomResource):
     """
     The name of the Container which should be created within the Storage Account.
     """
+    properties: pulumi.Output[dict]
+    """
+    (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
+    """
+    resource_group_name: pulumi.Output[str]
+    """
+    The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
+    """
     storage_account_name: pulumi.Output[str]
     """
     The name of the Storage Account where the Container should be created.
     """
-    def __init__(__self__, resource_name, opts=None, container_access_type=None, metadata=None, name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, container_access_type=None, metadata=None, name=None, resource_group_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Container within an Azure Storage Account.
         
@@ -43,6 +51,7 @@ class Container(pulumi.CustomResource):
         :param pulumi.Input[str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
         :param pulumi.Input[dict] metadata: A mapping of MetaData for this Container.
         :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_container.html.markdown.
@@ -67,11 +76,13 @@ class Container(pulumi.CustomResource):
             __props__['container_access_type'] = container_access_type
             __props__['metadata'] = metadata
             __props__['name'] = name
+            __props__['resource_group_name'] = resource_group_name
             if storage_account_name is None:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__['storage_account_name'] = storage_account_name
             __props__['has_immutability_policy'] = None
             __props__['has_legal_hold'] = None
+            __props__['properties'] = None
         super(Container, __self__).__init__(
             'azure:storage/container:Container',
             resource_name,
@@ -79,7 +90,7 @@ class Container(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, container_access_type=None, has_immutability_policy=None, has_legal_hold=None, metadata=None, name=None, storage_account_name=None):
+    def get(resource_name, id, opts=None, container_access_type=None, has_immutability_policy=None, has_legal_hold=None, metadata=None, name=None, properties=None, resource_group_name=None, storage_account_name=None):
         """
         Get an existing Container resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -92,6 +103,8 @@ class Container(pulumi.CustomResource):
         :param pulumi.Input[bool] has_legal_hold: Is there a Legal Hold configured on this Storage Container?
         :param pulumi.Input[dict] metadata: A mapping of MetaData for this Container.
         :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account.
+        :param pulumi.Input[dict] properties: (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_container.html.markdown.
@@ -104,6 +117,8 @@ class Container(pulumi.CustomResource):
         __props__["has_legal_hold"] = has_legal_hold
         __props__["metadata"] = metadata
         __props__["name"] = name
+        __props__["properties"] = properties
+        __props__["resource_group_name"] = resource_group_name
         __props__["storage_account_name"] = storage_account_name
         return Container(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

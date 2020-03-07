@@ -41,6 +41,8 @@ type LookupSubnetResult struct {
 	EnforcePrivateLinkServiceNetworkPolicies bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The collection of IP Configurations with IPs within this subnet.
+	IpConfigurations []string `pulumi:"ipConfigurations"`
 	Name string `pulumi:"name"`
 	// The ID of the Network Security Group associated with the subnet.
 	NetworkSecurityGroupId string `pulumi:"networkSecurityGroupId"`

@@ -31,6 +31,7 @@ type VirtualWan struct {
 	Office365LocalBreakoutCategory pulumi.StringPtrOutput `pulumi:"office365LocalBreakoutCategory"`
 	// The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	SecurityProviderName pulumi.StringPtrOutput `pulumi:"securityProviderName"`
 	// A mapping of tags to assign to the Virtual WAN.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -80,6 +81,7 @@ type virtualWanState struct {
 	Office365LocalBreakoutCategory *string `pulumi:"office365LocalBreakoutCategory"`
 	// The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	SecurityProviderName *string `pulumi:"securityProviderName"`
 	// A mapping of tags to assign to the Virtual WAN.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -99,6 +101,7 @@ type VirtualWanState struct {
 	Office365LocalBreakoutCategory pulumi.StringPtrInput
 	// The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	SecurityProviderName pulumi.StringPtrInput
 	// A mapping of tags to assign to the Virtual WAN.
 	Tags pulumi.StringMapInput
 }
@@ -122,6 +125,7 @@ type virtualWanArgs struct {
 	Office365LocalBreakoutCategory *string `pulumi:"office365LocalBreakoutCategory"`
 	// The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	SecurityProviderName *string `pulumi:"securityProviderName"`
 	// A mapping of tags to assign to the Virtual WAN.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -142,6 +146,7 @@ type VirtualWanArgs struct {
 	Office365LocalBreakoutCategory pulumi.StringPtrInput
 	// The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	SecurityProviderName pulumi.StringPtrInput
 	// A mapping of tags to assign to the Virtual WAN.
 	Tags pulumi.StringMapInput
 }

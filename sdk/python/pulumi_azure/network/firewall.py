@@ -14,6 +14,7 @@ class Firewall(pulumi.CustomResource):
     """
     A `ip_configuration` block as documented below.
     
+      * `internalPublicIpAddressId` (`str`)
       * `name` (`str`) - Specifies the name of the Firewall. Changing this forces a new resource to be created.
       * `private_ip_address` (`str`) - The private IP address of the Azure Firewall.
       * `publicIpAddressId` (`str`)
@@ -54,6 +55,7 @@ class Firewall(pulumi.CustomResource):
         
         The **ip_configurations** object supports the following:
         
+          * `internalPublicIpAddressId` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Firewall. Changing this forces a new resource to be created.
           * `private_ip_address` (`pulumi.Input[str]`) - The private IP address of the Azure Firewall.
           * `publicIpAddressId` (`pulumi.Input[str]`)
@@ -112,6 +114,7 @@ class Firewall(pulumi.CustomResource):
         
         The **ip_configurations** object supports the following:
         
+          * `internalPublicIpAddressId` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Firewall. Changing this forces a new resource to be created.
           * `private_ip_address` (`pulumi.Input[str]`) - The private IP address of the Azure Firewall.
           * `publicIpAddressId` (`pulumi.Input[str]`)

@@ -10,6 +10,7 @@ from typing import Union
 from .. import utilities, tables
 
 class ElasticPool(pulumi.CustomResource):
+    elastic_pool_properties: pulumi.Output[list]
     location: pulumi.Output[str]
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -124,6 +125,7 @@ class ElasticPool(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['zone_redundant'] = zone_redundant
+            __props__['elastic_pool_properties'] = None
         super(ElasticPool, __self__).__init__(
             'azure:mssql/elasticPool:ElasticPool',
             resource_name,
@@ -131,7 +133,7 @@ class ElasticPool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_database_settings=None, resource_group_name=None, server_name=None, sku=None, tags=None, zone_redundant=None):
+    def get(resource_name, id, opts=None, elastic_pool_properties=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_database_settings=None, resource_group_name=None, server_name=None, sku=None, tags=None, zone_redundant=None):
         """
         Get an existing ElasticPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -150,6 +152,14 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
         
+        The **elastic_pool_properties** object supports the following:
+        
+          * `creationDate` (`pulumi.Input[str]`)
+          * `license_type` (`pulumi.Input[str]`)
+          * `max_size_bytes` (`pulumi.Input[float]`) - The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+          * `state` (`pulumi.Input[str]`)
+          * `zone_redundant` (`pulumi.Input[bool]`) - Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
+        
         The **per_database_settings** object supports the following:
         
           * `maxCapacity` (`pulumi.Input[float]`) - The maximum capacity any one database can consume.
@@ -167,6 +177,7 @@ class ElasticPool(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["elastic_pool_properties"] = elastic_pool_properties
         __props__["location"] = location
         __props__["max_size_bytes"] = max_size_bytes
         __props__["max_size_gb"] = max_size_gb

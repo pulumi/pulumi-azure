@@ -78,7 +78,7 @@ export interface GetPublicIPResult {
     /**
      * A mapping of tags to assigned to the resource.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
     readonly zones: string[];
     /**
      * id is the provider-assigned unique ID for this managed resource.

@@ -75,7 +75,7 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
      */

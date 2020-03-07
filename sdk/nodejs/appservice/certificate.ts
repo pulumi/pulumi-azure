@@ -86,7 +86,7 @@ export class Certificate extends pulumi.CustomResource {
      * The subject name of the certificate.
      */
     public /*out*/ readonly subjectName!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The thumbprint for the certificate.
      */

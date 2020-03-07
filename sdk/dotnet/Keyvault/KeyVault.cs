@@ -9,6 +9,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault
 {
     /// <summary>
+    /// Manages a Key Vault.
+    /// 
+    /// &gt; **NOTE:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `access_policy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
     /// </summary>
     public partial class KeyVault : Pulumi.CustomResource
@@ -56,16 +60,16 @@ namespace Pulumi.Azure.KeyVault
         public Output<Outputs.KeyVaultNetworkAcls> NetworkAcls { get; private set; } = null!;
 
         /// <summary>
-        /// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
-        /// </summary>
-        [Output("purgeProtectionEnabled")]
-        public Output<bool?> PurgeProtectionEnabled { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// ) A `sku` block as described below.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.KeyVaultSku> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
@@ -74,16 +78,10 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
-        /// </summary>
-        [Output("softDeleteEnabled")]
-        public Output<bool?> SoftDeleteEnabled { get; private set; } = null!;
-
-        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
@@ -192,28 +190,22 @@ namespace Pulumi.Azure.KeyVault
         public Input<Inputs.KeyVaultNetworkAclsArgs>? NetworkAcls { get; set; }
 
         /// <summary>
-        /// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
-        /// </summary>
-        [Input("purgeProtectionEnabled")]
-        public Input<bool>? PurgeProtectionEnabled { get; set; }
-
-        /// <summary>
         /// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
+        /// ) A `sku` block as described below.
         /// </summary>
-        [Input("skuName", required: true)]
-        public Input<string> SkuName { get; set; } = null!;
+        [Input("sku")]
+        public Input<Inputs.KeyVaultSkuArgs>? Sku { get; set; }
 
         /// <summary>
-        /// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
+        /// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         /// </summary>
-        [Input("softDeleteEnabled")]
-        public Input<bool>? SoftDeleteEnabled { get; set; }
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -289,28 +281,22 @@ namespace Pulumi.Azure.KeyVault
         public Input<Inputs.KeyVaultNetworkAclsGetArgs>? NetworkAcls { get; set; }
 
         /// <summary>
-        /// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
-        /// </summary>
-        [Input("purgeProtectionEnabled")]
-        public Input<bool>? PurgeProtectionEnabled { get; set; }
-
-        /// <summary>
         /// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
+        /// ) A `sku` block as described below.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.KeyVaultSkuGetArgs>? Sku { get; set; }
+
+        /// <summary>
         /// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
-
-        /// <summary>
-        /// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
-        /// </summary>
-        [Input("softDeleteEnabled")]
-        public Input<bool>? SoftDeleteEnabled { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -503,6 +489,32 @@ namespace Pulumi.Azure.KeyVault
         {
         }
     }
+
+    public sealed class KeyVaultSkuArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public KeyVaultSkuArgs()
+        {
+        }
+    }
+
+    public sealed class KeyVaultSkuGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public KeyVaultSkuGetArgs()
+        {
+        }
+    }
     }
 
     namespace Outputs
@@ -561,6 +573,21 @@ namespace Pulumi.Azure.KeyVault
             DefaultAction = defaultAction;
             IpRules = ipRules;
             VirtualNetworkSubnetIds = virtualNetworkSubnetIds;
+        }
+    }
+
+    [OutputType]
+    public sealed class KeyVaultSku
+    {
+        /// <summary>
+        /// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? Name;
+
+        [OutputConstructor]
+        private KeyVaultSku(string? name)
+        {
+            Name = name;
         }
     }
     }

@@ -49,6 +49,7 @@ export interface GetVirtualNetworkResult {
      * The list of address spaces used by the virtual network.
      */
     readonly addressSpaces: string[];
+    readonly addressSpacesCollection: string[];
     /**
      * The list of DNS servers used by the virtual network.
      */

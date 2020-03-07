@@ -29,6 +29,7 @@ class Queue(pulumi.CustomResource):
     The ISO 8601 timespan duration during which
     duplicates can be detected. Default value is 10 minutes. (`PT10M`)
     """
+    enable_batched_operations: pulumi.Output[bool]
     enable_express: pulumi.Output[bool]
     """
     Boolean flag which controls whether Express Entities
@@ -42,6 +43,11 @@ class Queue(pulumi.CustomResource):
     the queue to be partitioned across multiple message brokers. Changing this forces
     a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
     be set to `true`.
+    """
+    location: pulumi.Output[str]
+    """
+    Specifies the supported Azure location where the resource exists.
+    Changing this forces a new resource to be created.
     """
     lock_duration: pulumi.Output[str]
     """
@@ -85,7 +91,8 @@ class Queue(pulumi.CustomResource):
     The name of the resource group in which to
     create the namespace. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_express=None, enable_partitioning=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, requires_session=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    support_ordering: pulumi.Output[bool]
+    def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, location=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, requires_session=None, resource_group_name=None, support_ordering=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Queue.
         
@@ -106,6 +113,8 @@ class Queue(pulumi.CustomResource):
                the queue to be partitioned across multiple message brokers. Changing this forces
                a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
                be set to `true`.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists.
+               Changing this forces a new resource to be created.
         :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
         :param pulumi.Input[float] max_delivery_count: Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
         :param pulumi.Input[float] max_size_in_megabytes: Integer value which controls the size of
@@ -148,8 +157,10 @@ class Queue(pulumi.CustomResource):
             __props__['dead_lettering_on_message_expiration'] = dead_lettering_on_message_expiration
             __props__['default_message_ttl'] = default_message_ttl
             __props__['duplicate_detection_history_time_window'] = duplicate_detection_history_time_window
+            __props__['enable_batched_operations'] = enable_batched_operations
             __props__['enable_express'] = enable_express
             __props__['enable_partitioning'] = enable_partitioning
+            __props__['location'] = location
             __props__['lock_duration'] = lock_duration
             __props__['max_delivery_count'] = max_delivery_count
             __props__['max_size_in_megabytes'] = max_size_in_megabytes
@@ -162,6 +173,7 @@ class Queue(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['support_ordering'] = support_ordering
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/queue:Queue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Queue, __self__).__init__(
@@ -171,7 +183,7 @@ class Queue(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_express=None, enable_partitioning=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, requires_session=None, resource_group_name=None):
+    def get(resource_name, id, opts=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, location=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, requires_session=None, resource_group_name=None, support_ordering=None):
         """
         Get an existing Queue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -194,6 +206,8 @@ class Queue(pulumi.CustomResource):
                the queue to be partitioned across multiple message brokers. Changing this forces
                a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
                be set to `true`.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists.
+               Changing this forces a new resource to be created.
         :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
         :param pulumi.Input[float] max_delivery_count: Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
         :param pulumi.Input[float] max_size_in_megabytes: Integer value which controls the size of
@@ -222,8 +236,10 @@ class Queue(pulumi.CustomResource):
         __props__["dead_lettering_on_message_expiration"] = dead_lettering_on_message_expiration
         __props__["default_message_ttl"] = default_message_ttl
         __props__["duplicate_detection_history_time_window"] = duplicate_detection_history_time_window
+        __props__["enable_batched_operations"] = enable_batched_operations
         __props__["enable_express"] = enable_express
         __props__["enable_partitioning"] = enable_partitioning
+        __props__["location"] = location
         __props__["lock_duration"] = lock_duration
         __props__["max_delivery_count"] = max_delivery_count
         __props__["max_size_in_megabytes"] = max_size_in_megabytes
@@ -232,6 +248,7 @@ class Queue(pulumi.CustomResource):
         __props__["requires_duplicate_detection"] = requires_duplicate_detection
         __props__["requires_session"] = requires_session
         __props__["resource_group_name"] = resource_group_name
+        __props__["support_ordering"] = support_ordering
         return Queue(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

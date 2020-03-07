@@ -19,11 +19,13 @@ type LinkedService struct {
 
 	// Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspaceName`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
 	LinkedServiceName pulumi.StringPtrOutput `pulumi:"linkedServiceName"`
+	// A `linkedServiceProperties` block as defined below.
+	LinkedServiceProperties LinkedServiceLinkedServicePropertiesOutput `pulumi:"linkedServiceProperties"`
 	// The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
+	// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -36,9 +38,6 @@ func NewLinkedService(ctx *pulumi.Context,
 	name string, args *LinkedServiceArgs, opts ...pulumi.ResourceOption) (*LinkedService, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceId == nil {
-		return nil, errors.New("missing required argument 'ResourceId'")
 	}
 	if args == nil || args.WorkspaceName == nil {
 		return nil, errors.New("missing required argument 'WorkspaceName'")
@@ -70,11 +69,13 @@ func GetLinkedService(ctx *pulumi.Context,
 type linkedServiceState struct {
 	// Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspaceName`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
 	LinkedServiceName *string `pulumi:"linkedServiceName"`
+	// A `linkedServiceProperties` block as defined below.
+	LinkedServiceProperties *LinkedServiceLinkedServiceProperties `pulumi:"linkedServiceProperties"`
 	// The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
+	// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
 	ResourceId *string `pulumi:"resourceId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -85,11 +86,13 @@ type linkedServiceState struct {
 type LinkedServiceState struct {
 	// Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspaceName`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
 	LinkedServiceName pulumi.StringPtrInput
+	// A `linkedServiceProperties` block as defined below.
+	LinkedServiceProperties LinkedServiceLinkedServicePropertiesPtrInput
 	// The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
+	// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
 	ResourceId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -104,10 +107,12 @@ func (LinkedServiceState) ElementType() reflect.Type {
 type linkedServiceArgs struct {
 	// Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspaceName`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
 	LinkedServiceName *string `pulumi:"linkedServiceName"`
+	// A `linkedServiceProperties` block as defined below.
+	LinkedServiceProperties *LinkedServiceLinkedServiceProperties `pulumi:"linkedServiceProperties"`
 	// The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
-	ResourceId string `pulumi:"resourceId"`
+	// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
+	ResourceId *string `pulumi:"resourceId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
@@ -118,10 +123,12 @@ type linkedServiceArgs struct {
 type LinkedServiceArgs struct {
 	// Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspaceName`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
 	LinkedServiceName pulumi.StringPtrInput
+	// A `linkedServiceProperties` block as defined below.
+	LinkedServiceProperties LinkedServiceLinkedServicePropertiesPtrInput
 	// The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
-	ResourceId pulumi.StringInput
+	// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
+	ResourceId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.

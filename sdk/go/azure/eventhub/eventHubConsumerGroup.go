@@ -19,6 +19,7 @@ type EventHubConsumerGroup struct {
 
 	// Specifies the name of the EventHub. Changing this forces a new resource to be created.
 	EventhubName pulumi.StringOutput `pulumi:"eventhubName"`
+	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
@@ -68,6 +69,7 @@ func GetEventHubConsumerGroup(ctx *pulumi.Context,
 type eventHubConsumerGroupState struct {
 	// Specifies the name of the EventHub. Changing this forces a new resource to be created.
 	EventhubName *string `pulumi:"eventhubName"`
+	Location *string `pulumi:"location"`
 	// Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
@@ -81,6 +83,7 @@ type eventHubConsumerGroupState struct {
 type EventHubConsumerGroupState struct {
 	// Specifies the name of the EventHub. Changing this forces a new resource to be created.
 	EventhubName pulumi.StringPtrInput
+	Location pulumi.StringPtrInput
 	// Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
@@ -98,6 +101,7 @@ func (EventHubConsumerGroupState) ElementType() reflect.Type {
 type eventHubConsumerGroupArgs struct {
 	// Specifies the name of the EventHub. Changing this forces a new resource to be created.
 	EventhubName string `pulumi:"eventhubName"`
+	Location *string `pulumi:"location"`
 	// Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
@@ -112,6 +116,7 @@ type eventHubConsumerGroupArgs struct {
 type EventHubConsumerGroupArgs struct {
 	// Specifies the name of the EventHub. Changing this forces a new resource to be created.
 	EventhubName pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.

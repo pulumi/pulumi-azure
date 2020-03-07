@@ -14,6 +14,12 @@ class LinkedService(pulumi.CustomResource):
     """
     Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
     """
+    linked_service_properties: pulumi.Output[dict]
+    """
+    A `linked_service_properties` block as defined below.
+    
+      * `resource_id` (`str`) - The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
+    """
     name: pulumi.Output[str]
     """
     The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
@@ -24,7 +30,7 @@ class LinkedService(pulumi.CustomResource):
     """
     resource_id: pulumi.Output[str]
     """
-    The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
+    The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
     """
     tags: pulumi.Output[dict]
     """
@@ -34,17 +40,22 @@ class LinkedService(pulumi.CustomResource):
     """
     Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, linked_service_name=None, resource_group_name=None, resource_id=None, tags=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, linked_service_name=None, linked_service_properties=None, resource_group_name=None, resource_id=None, tags=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Links a Log Analytics (formally Operational Insights) Workspace to another resource. The (currently) only linkable service is an Azure Automation Account.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] linked_service_name: Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] linked_service_properties: A `linked_service_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_id: The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_id: The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] workspace_name: Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
+        
+        The **linked_service_properties** object supports the following:
+        
+          * `resource_id` (`pulumi.Input[str]`) - The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_linked_service.html.markdown.
         """
@@ -66,11 +77,10 @@ class LinkedService(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['linked_service_name'] = linked_service_name
+            __props__['linked_service_properties'] = linked_service_properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_id is None:
-                raise TypeError("Missing required property 'resource_id'")
             __props__['resource_id'] = resource_id
             __props__['tags'] = tags
             if workspace_name is None:
@@ -84,7 +94,7 @@ class LinkedService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, linked_service_name=None, name=None, resource_group_name=None, resource_id=None, tags=None, workspace_name=None):
+    def get(resource_name, id, opts=None, linked_service_name=None, linked_service_properties=None, name=None, resource_group_name=None, resource_id=None, tags=None, workspace_name=None):
         """
         Get an existing LinkedService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -93,11 +103,16 @@ class LinkedService(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] linked_service_name: Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] linked_service_properties: A `linked_service_properties` block as defined below.
         :param pulumi.Input[str] name: The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_id: The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_id: The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] workspace_name: Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
+        
+        The **linked_service_properties** object supports the following:
+        
+          * `resource_id` (`pulumi.Input[str]`) - The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_linked_service.html.markdown.
         """
@@ -105,6 +120,7 @@ class LinkedService(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["linked_service_name"] = linked_service_name
+        __props__["linked_service_properties"] = linked_service_properties
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["resource_id"] = resource_id

@@ -18,7 +18,7 @@ type Plan struct {
 	pulumi.CustomResourceState
 
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
-	AppServiceEnvironmentId pulumi.StringPtrOutput `pulumi:"appServiceEnvironmentId"`
+	AppServiceEnvironmentId pulumi.StringOutput `pulumi:"appServiceEnvironmentId"`
 	IsXenon pulumi.BoolPtrOutput `pulumi:"isXenon"`
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
@@ -31,9 +31,10 @@ type Plan struct {
 	// Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
-	PerSiteScaling pulumi.BoolPtrOutput `pulumi:"perSiteScaling"`
+	PerSiteScaling pulumi.BoolOutput `pulumi:"perSiteScaling"`
+	Properties PlanPropertiesOutput `pulumi:"properties"`
 	// Is this App Service Plan `Reserved`. Defaults to `false`.
-	Reserved pulumi.BoolPtrOutput `pulumi:"reserved"`
+	Reserved pulumi.BoolOutput `pulumi:"reserved"`
 	// The name of the resource group in which to create the App Service Plan component.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `sku` block as documented below.
@@ -91,6 +92,7 @@ type planState struct {
 	Name *string `pulumi:"name"`
 	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
 	PerSiteScaling *bool `pulumi:"perSiteScaling"`
+	Properties *PlanProperties `pulumi:"properties"`
 	// Is this App Service Plan `Reserved`. Defaults to `false`.
 	Reserved *bool `pulumi:"reserved"`
 	// The name of the resource group in which to create the App Service Plan component.
@@ -117,6 +119,7 @@ type PlanState struct {
 	Name pulumi.StringPtrInput
 	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
 	PerSiteScaling pulumi.BoolPtrInput
+	Properties PlanPropertiesPtrInput
 	// Is this App Service Plan `Reserved`. Defaults to `false`.
 	Reserved pulumi.BoolPtrInput
 	// The name of the resource group in which to create the App Service Plan component.
@@ -145,6 +148,7 @@ type planArgs struct {
 	Name *string `pulumi:"name"`
 	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
 	PerSiteScaling *bool `pulumi:"perSiteScaling"`
+	Properties *PlanProperties `pulumi:"properties"`
 	// Is this App Service Plan `Reserved`. Defaults to `false`.
 	Reserved *bool `pulumi:"reserved"`
 	// The name of the resource group in which to create the App Service Plan component.
@@ -170,6 +174,7 @@ type PlanArgs struct {
 	Name pulumi.StringPtrInput
 	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
 	PerSiteScaling pulumi.BoolPtrInput
+	Properties PlanPropertiesPtrInput
 	// Is this App Service Plan `Reserved`. Defaults to `false`.
 	Reserved pulumi.BoolPtrInput
 	// The name of the resource group in which to create the App Service Plan component.

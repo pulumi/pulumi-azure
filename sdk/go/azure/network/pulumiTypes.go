@@ -234,9 +234,11 @@ func (o ApplicationGatewayAutoscaleConfigurationPtrOutput) MinCapacity() pulumi.
 }
 
 type ApplicationGatewayBackendAddressPool struct {
+	FqdnLists []string `pulumi:"fqdnLists"`
 	Fqdns []string `pulumi:"fqdns"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
+	IpAddressLists []string `pulumi:"ipAddressLists"`
 	IpAddresses []string `pulumi:"ipAddresses"`
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
@@ -250,9 +252,11 @@ type ApplicationGatewayBackendAddressPoolInput interface {
 }
 
 type ApplicationGatewayBackendAddressPoolArgs struct {
+	FqdnLists pulumi.StringArrayInput `pulumi:"fqdnLists"`
 	Fqdns pulumi.StringArrayInput `pulumi:"fqdns"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	IpAddressLists pulumi.StringArrayInput `pulumi:"ipAddressLists"`
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -305,6 +309,10 @@ func (o ApplicationGatewayBackendAddressPoolOutput) ToApplicationGatewayBackendA
 	return o
 }
 
+func (o ApplicationGatewayBackendAddressPoolOutput) FqdnLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ApplicationGatewayBackendAddressPool) []string { return v.FqdnLists }).(pulumi.StringArrayOutput)
+}
+
 func (o ApplicationGatewayBackendAddressPoolOutput) Fqdns() pulumi.StringArrayOutput {
 	return o.ApplyT(func (v ApplicationGatewayBackendAddressPool) []string { return v.Fqdns }).(pulumi.StringArrayOutput)
 }
@@ -312,6 +320,10 @@ func (o ApplicationGatewayBackendAddressPoolOutput) Fqdns() pulumi.StringArrayOu
 // The ID of the Rewrite Rule Set
 func (o ApplicationGatewayBackendAddressPoolOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v ApplicationGatewayBackendAddressPool) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolOutput) IpAddressLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ApplicationGatewayBackendAddressPool) []string { return v.IpAddressLists }).(pulumi.StringArrayOutput)
 }
 
 func (o ApplicationGatewayBackendAddressPoolOutput) IpAddresses() pulumi.StringArrayOutput {
@@ -3835,6 +3847,252 @@ func (o ApplicationGatewayWafConfigurationExclusionArrayOutput) Index(i pulumi.I
 	}).(ApplicationGatewayWafConfigurationExclusionOutput)
 }
 
+type ConnectionMonitorDestination struct {
+	Address *string `pulumi:"address"`
+	Port int `pulumi:"port"`
+	VirtualMachineId *string `pulumi:"virtualMachineId"`
+}
+
+type ConnectionMonitorDestinationInput interface {
+	pulumi.Input
+
+	ToConnectionMonitorDestinationOutput() ConnectionMonitorDestinationOutput
+	ToConnectionMonitorDestinationOutputWithContext(context.Context) ConnectionMonitorDestinationOutput
+}
+
+type ConnectionMonitorDestinationArgs struct {
+	Address pulumi.StringPtrInput `pulumi:"address"`
+	Port pulumi.IntInput `pulumi:"port"`
+	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
+}
+
+func (ConnectionMonitorDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionMonitorDestination)(nil)).Elem()
+}
+
+func (i ConnectionMonitorDestinationArgs) ToConnectionMonitorDestinationOutput() ConnectionMonitorDestinationOutput {
+	return i.ToConnectionMonitorDestinationOutputWithContext(context.Background())
+}
+
+func (i ConnectionMonitorDestinationArgs) ToConnectionMonitorDestinationOutputWithContext(ctx context.Context) ConnectionMonitorDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMonitorDestinationOutput)
+}
+
+func (i ConnectionMonitorDestinationArgs) ToConnectionMonitorDestinationPtrOutput() ConnectionMonitorDestinationPtrOutput {
+	return i.ToConnectionMonitorDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionMonitorDestinationArgs) ToConnectionMonitorDestinationPtrOutputWithContext(ctx context.Context) ConnectionMonitorDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMonitorDestinationOutput).ToConnectionMonitorDestinationPtrOutputWithContext(ctx)
+}
+
+type ConnectionMonitorDestinationPtrInput interface {
+	pulumi.Input
+
+	ToConnectionMonitorDestinationPtrOutput() ConnectionMonitorDestinationPtrOutput
+	ToConnectionMonitorDestinationPtrOutputWithContext(context.Context) ConnectionMonitorDestinationPtrOutput
+}
+
+type connectionMonitorDestinationPtrType ConnectionMonitorDestinationArgs
+
+func ConnectionMonitorDestinationPtr(v *ConnectionMonitorDestinationArgs) ConnectionMonitorDestinationPtrInput {	return (*connectionMonitorDestinationPtrType)(v)
+}
+
+func (*connectionMonitorDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionMonitorDestination)(nil)).Elem()
+}
+
+func (i *connectionMonitorDestinationPtrType) ToConnectionMonitorDestinationPtrOutput() ConnectionMonitorDestinationPtrOutput {
+	return i.ToConnectionMonitorDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionMonitorDestinationPtrType) ToConnectionMonitorDestinationPtrOutputWithContext(ctx context.Context) ConnectionMonitorDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMonitorDestinationPtrOutput)
+}
+
+type ConnectionMonitorDestinationOutput struct { *pulumi.OutputState }
+
+func (ConnectionMonitorDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionMonitorDestination)(nil)).Elem()
+}
+
+func (o ConnectionMonitorDestinationOutput) ToConnectionMonitorDestinationOutput() ConnectionMonitorDestinationOutput {
+	return o
+}
+
+func (o ConnectionMonitorDestinationOutput) ToConnectionMonitorDestinationOutputWithContext(ctx context.Context) ConnectionMonitorDestinationOutput {
+	return o
+}
+
+func (o ConnectionMonitorDestinationOutput) ToConnectionMonitorDestinationPtrOutput() ConnectionMonitorDestinationPtrOutput {
+	return o.ToConnectionMonitorDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionMonitorDestinationOutput) ToConnectionMonitorDestinationPtrOutputWithContext(ctx context.Context) ConnectionMonitorDestinationPtrOutput {
+	return o.ApplyT(func(v ConnectionMonitorDestination) *ConnectionMonitorDestination {
+		return &v
+	}).(ConnectionMonitorDestinationPtrOutput)
+}
+func (o ConnectionMonitorDestinationOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ConnectionMonitorDestination) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionMonitorDestinationOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func (v ConnectionMonitorDestination) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o ConnectionMonitorDestinationOutput) VirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ConnectionMonitorDestination) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionMonitorDestinationPtrOutput struct { *pulumi.OutputState}
+
+func (ConnectionMonitorDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionMonitorDestination)(nil)).Elem()
+}
+
+func (o ConnectionMonitorDestinationPtrOutput) ToConnectionMonitorDestinationPtrOutput() ConnectionMonitorDestinationPtrOutput {
+	return o
+}
+
+func (o ConnectionMonitorDestinationPtrOutput) ToConnectionMonitorDestinationPtrOutputWithContext(ctx context.Context) ConnectionMonitorDestinationPtrOutput {
+	return o
+}
+
+func (o ConnectionMonitorDestinationPtrOutput) Elem() ConnectionMonitorDestinationOutput {
+	return o.ApplyT(func (v *ConnectionMonitorDestination) ConnectionMonitorDestination { return *v }).(ConnectionMonitorDestinationOutput)
+}
+
+func (o ConnectionMonitorDestinationPtrOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ConnectionMonitorDestination) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionMonitorDestinationPtrOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func (v ConnectionMonitorDestination) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o ConnectionMonitorDestinationPtrOutput) VirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ConnectionMonitorDestination) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionMonitorSource struct {
+	Port *int `pulumi:"port"`
+	VirtualMachineId string `pulumi:"virtualMachineId"`
+}
+
+type ConnectionMonitorSourceInput interface {
+	pulumi.Input
+
+	ToConnectionMonitorSourceOutput() ConnectionMonitorSourceOutput
+	ToConnectionMonitorSourceOutputWithContext(context.Context) ConnectionMonitorSourceOutput
+}
+
+type ConnectionMonitorSourceArgs struct {
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	VirtualMachineId pulumi.StringInput `pulumi:"virtualMachineId"`
+}
+
+func (ConnectionMonitorSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionMonitorSource)(nil)).Elem()
+}
+
+func (i ConnectionMonitorSourceArgs) ToConnectionMonitorSourceOutput() ConnectionMonitorSourceOutput {
+	return i.ToConnectionMonitorSourceOutputWithContext(context.Background())
+}
+
+func (i ConnectionMonitorSourceArgs) ToConnectionMonitorSourceOutputWithContext(ctx context.Context) ConnectionMonitorSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMonitorSourceOutput)
+}
+
+func (i ConnectionMonitorSourceArgs) ToConnectionMonitorSourcePtrOutput() ConnectionMonitorSourcePtrOutput {
+	return i.ToConnectionMonitorSourcePtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionMonitorSourceArgs) ToConnectionMonitorSourcePtrOutputWithContext(ctx context.Context) ConnectionMonitorSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMonitorSourceOutput).ToConnectionMonitorSourcePtrOutputWithContext(ctx)
+}
+
+type ConnectionMonitorSourcePtrInput interface {
+	pulumi.Input
+
+	ToConnectionMonitorSourcePtrOutput() ConnectionMonitorSourcePtrOutput
+	ToConnectionMonitorSourcePtrOutputWithContext(context.Context) ConnectionMonitorSourcePtrOutput
+}
+
+type connectionMonitorSourcePtrType ConnectionMonitorSourceArgs
+
+func ConnectionMonitorSourcePtr(v *ConnectionMonitorSourceArgs) ConnectionMonitorSourcePtrInput {	return (*connectionMonitorSourcePtrType)(v)
+}
+
+func (*connectionMonitorSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionMonitorSource)(nil)).Elem()
+}
+
+func (i *connectionMonitorSourcePtrType) ToConnectionMonitorSourcePtrOutput() ConnectionMonitorSourcePtrOutput {
+	return i.ToConnectionMonitorSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *connectionMonitorSourcePtrType) ToConnectionMonitorSourcePtrOutputWithContext(ctx context.Context) ConnectionMonitorSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMonitorSourcePtrOutput)
+}
+
+type ConnectionMonitorSourceOutput struct { *pulumi.OutputState }
+
+func (ConnectionMonitorSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionMonitorSource)(nil)).Elem()
+}
+
+func (o ConnectionMonitorSourceOutput) ToConnectionMonitorSourceOutput() ConnectionMonitorSourceOutput {
+	return o
+}
+
+func (o ConnectionMonitorSourceOutput) ToConnectionMonitorSourceOutputWithContext(ctx context.Context) ConnectionMonitorSourceOutput {
+	return o
+}
+
+func (o ConnectionMonitorSourceOutput) ToConnectionMonitorSourcePtrOutput() ConnectionMonitorSourcePtrOutput {
+	return o.ToConnectionMonitorSourcePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionMonitorSourceOutput) ToConnectionMonitorSourcePtrOutputWithContext(ctx context.Context) ConnectionMonitorSourcePtrOutput {
+	return o.ApplyT(func(v ConnectionMonitorSource) *ConnectionMonitorSource {
+		return &v
+	}).(ConnectionMonitorSourcePtrOutput)
+}
+func (o ConnectionMonitorSourceOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v ConnectionMonitorSource) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o ConnectionMonitorSourceOutput) VirtualMachineId() pulumi.StringOutput {
+	return o.ApplyT(func (v ConnectionMonitorSource) string { return v.VirtualMachineId }).(pulumi.StringOutput)
+}
+
+type ConnectionMonitorSourcePtrOutput struct { *pulumi.OutputState}
+
+func (ConnectionMonitorSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionMonitorSource)(nil)).Elem()
+}
+
+func (o ConnectionMonitorSourcePtrOutput) ToConnectionMonitorSourcePtrOutput() ConnectionMonitorSourcePtrOutput {
+	return o
+}
+
+func (o ConnectionMonitorSourcePtrOutput) ToConnectionMonitorSourcePtrOutputWithContext(ctx context.Context) ConnectionMonitorSourcePtrOutput {
+	return o
+}
+
+func (o ConnectionMonitorSourcePtrOutput) Elem() ConnectionMonitorSourceOutput {
+	return o.ApplyT(func (v *ConnectionMonitorSource) ConnectionMonitorSource { return *v }).(ConnectionMonitorSourceOutput)
+}
+
+func (o ConnectionMonitorSourcePtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v ConnectionMonitorSource) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o ConnectionMonitorSourcePtrOutput) VirtualMachineId() pulumi.StringOutput {
+	return o.ApplyT(func (v ConnectionMonitorSource) string { return v.VirtualMachineId }).(pulumi.StringOutput)
+}
+
 type ExpressRouteCircuitPeeringMicrosoftPeeringConfig struct {
 	AdvertisedPublicPrefixes []string `pulumi:"advertisedPublicPrefixes"`
 }
@@ -4281,11 +4539,12 @@ func (o FirewallApplicationRuleCollectionRuleProtocolArrayOutput) Index(i pulumi
 }
 
 type FirewallIpConfiguration struct {
+	InternalPublicIpAddressId *string `pulumi:"internalPublicIpAddressId"`
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The private IP address of the Azure Firewall.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	PublicIpAddressId string `pulumi:"publicIpAddressId"`
+	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	SubnetId *string `pulumi:"subnetId"`
 }
 
@@ -4297,11 +4556,12 @@ type FirewallIpConfigurationInput interface {
 }
 
 type FirewallIpConfigurationArgs struct {
+	InternalPublicIpAddressId pulumi.StringPtrInput `pulumi:"internalPublicIpAddressId"`
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The private IP address of the Azure Firewall.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
+	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
@@ -4352,6 +4612,10 @@ func (o FirewallIpConfigurationOutput) ToFirewallIpConfigurationOutputWithContex
 	return o
 }
 
+func (o FirewallIpConfigurationOutput) InternalPublicIpAddressId() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v FirewallIpConfiguration) *string { return v.InternalPublicIpAddressId }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the name of the Firewall. Changing this forces a new resource to be created.
 func (o FirewallIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func (v FirewallIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
@@ -4362,8 +4626,8 @@ func (o FirewallIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput
 	return o.ApplyT(func (v FirewallIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-func (o FirewallIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
+func (o FirewallIpConfigurationOutput) PublicIpAddressId() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v FirewallIpConfiguration) *string { return v.PublicIpAddressId }).(pulumi.StringPtrOutput)
 }
 
 func (o FirewallIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
@@ -5035,7 +5299,11 @@ func (o NetworkConnectionMonitorSourcePtrOutput) VirtualMachineId() pulumi.Strin
 }
 
 type NetworkInterfaceIpConfiguration struct {
-	// The name of the Network Interface. Changing this forces a new resource to be created.
+	ApplicationGatewayBackendAddressPoolsIds []string `pulumi:"applicationGatewayBackendAddressPoolsIds"`
+	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
+	LoadBalancerBackendAddressPoolsIds []string `pulumi:"loadBalancerBackendAddressPoolsIds"`
+	LoadBalancerInboundNatRulesIds []string `pulumi:"loadBalancerInboundNatRulesIds"`
+	// The name of the network interface. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	Primary *bool `pulumi:"primary"`
 	// The first private IP address of the network interface.
@@ -5054,7 +5322,11 @@ type NetworkInterfaceIpConfigurationInput interface {
 }
 
 type NetworkInterfaceIpConfigurationArgs struct {
-	// The name of the Network Interface. Changing this forces a new resource to be created.
+	ApplicationGatewayBackendAddressPoolsIds pulumi.StringArrayInput `pulumi:"applicationGatewayBackendAddressPoolsIds"`
+	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
+	LoadBalancerBackendAddressPoolsIds pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolsIds"`
+	LoadBalancerInboundNatRulesIds pulumi.StringArrayInput `pulumi:"loadBalancerInboundNatRulesIds"`
+	// The name of the network interface. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	Primary pulumi.BoolPtrInput `pulumi:"primary"`
 	// The first private IP address of the network interface.
@@ -5112,7 +5384,23 @@ func (o NetworkInterfaceIpConfigurationOutput) ToNetworkInterfaceIpConfiguration
 	return o
 }
 
-// The name of the Network Interface. Changing this forces a new resource to be created.
+func (o NetworkInterfaceIpConfigurationOutput) ApplicationGatewayBackendAddressPoolsIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v NetworkInterfaceIpConfiguration) []string { return v.ApplicationGatewayBackendAddressPoolsIds }).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInterfaceIpConfigurationOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v NetworkInterfaceIpConfiguration) []string { return v.ApplicationSecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInterfaceIpConfigurationOutput) LoadBalancerBackendAddressPoolsIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v NetworkInterfaceIpConfiguration) []string { return v.LoadBalancerBackendAddressPoolsIds }).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInterfaceIpConfigurationOutput) LoadBalancerInboundNatRulesIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v NetworkInterfaceIpConfiguration) []string { return v.LoadBalancerInboundNatRulesIds }).(pulumi.StringArrayOutput)
+}
+
+// The name of the network interface. Changing this forces a new resource to be created.
 func (o NetworkInterfaceIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func (v NetworkInterfaceIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -11175,6 +11463,10 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayWafConfigurationExclusionOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayWafConfigurationExclusionArrayOutput{})
+	pulumi.RegisterOutputType(ConnectionMonitorDestinationOutput{})
+	pulumi.RegisterOutputType(ConnectionMonitorDestinationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionMonitorSourceOutput{})
+	pulumi.RegisterOutputType(ConnectionMonitorSourcePtrOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitSkuOutput{})

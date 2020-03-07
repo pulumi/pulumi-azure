@@ -63,13 +63,13 @@ export class DedicatedHost extends pulumi.CustomResource {
      */
     public readonly platformFaultDomain!: pulumi.Output<number>;
     /**
-     * Specify the sku name of the Dedicated Host. Possible values are `DSv3-Type1`, `DSv3-Type2`, `ESv3-Type1`, `ESv3-Type2`,`FSv2-Type2`. Changing this forces a new resource to be created.
+     * Specify the sku name of the Dedicated Host. Possible values are `DSv3-Type1`, `ESv3-Type1`, `FSv2-Type2`. Changing this forces a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DedicatedHost resource with the given unique name, arguments, and options.
@@ -151,7 +151,7 @@ export interface DedicatedHostState {
      */
     readonly platformFaultDomain?: pulumi.Input<number>;
     /**
-     * Specify the sku name of the Dedicated Host. Possible values are `DSv3-Type1`, `DSv3-Type2`, `ESv3-Type1`, `ESv3-Type2`,`FSv2-Type2`. Changing this forces a new resource to be created.
+     * Specify the sku name of the Dedicated Host. Possible values are `DSv3-Type1`, `ESv3-Type1`, `FSv2-Type2`. Changing this forces a new resource to be created.
      */
     readonly skuName?: pulumi.Input<string>;
     /**
@@ -189,7 +189,7 @@ export interface DedicatedHostArgs {
      */
     readonly platformFaultDomain: pulumi.Input<number>;
     /**
-     * Specify the sku name of the Dedicated Host. Possible values are `DSv3-Type1`, `DSv3-Type2`, `ESv3-Type1`, `ESv3-Type2`,`FSv2-Type2`. Changing this forces a new resource to be created.
+     * Specify the sku name of the Dedicated Host. Possible values are `DSv3-Type1`, `ESv3-Type1`, `FSv2-Type2`. Changing this forces a new resource to be created.
      */
     readonly skuName: pulumi.Input<string>;
     /**

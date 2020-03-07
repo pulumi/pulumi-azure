@@ -42,8 +42,14 @@ type LookupZoneResult struct {
 	NameServers []string `pulumi:"nameServers"`
 	// The number of records already in the zone.
 	NumberOfRecordSets int `pulumi:"numberOfRecordSets"`
+	// A list of Virtual Network ID's that register hostnames in this DNS zone.
+	RegistrationVirtualNetworkIds []string `pulumi:"registrationVirtualNetworkIds"`
+	// A list of Virtual Network ID's that resolve records in this DNS zone.
+	ResolutionVirtualNetworkIds []string `pulumi:"resolutionVirtualNetworkIds"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the EventHub Namespace.
 	Tags map[string]string `pulumi:"tags"`
+	// (**Deprecated**) The type of this DNS zone, such as `Public` or `Private`.
+	ZoneType string `pulumi:"zoneType"`
 }
 

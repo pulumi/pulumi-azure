@@ -19,7 +19,7 @@ type MetricAlert struct {
 
 	// One or more `action` blocks as defined below.
 	Actions MetricAlertActionArrayOutput `pulumi:"actions"`
-	// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
+	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
 	AutoMitigate pulumi.BoolPtrOutput `pulumi:"autoMitigate"`
 	// One or more `criteria` blocks as defined below.
 	Criterias MetricAlertCriteriaArrayOutput `pulumi:"criterias"`
@@ -82,7 +82,7 @@ func GetMetricAlert(ctx *pulumi.Context,
 type metricAlertState struct {
 	// One or more `action` blocks as defined below.
 	Actions []MetricAlertAction `pulumi:"actions"`
-	// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
+	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
 	AutoMitigate *bool `pulumi:"autoMitigate"`
 	// One or more `criteria` blocks as defined below.
 	Criterias []MetricAlertCriteria `pulumi:"criterias"`
@@ -109,7 +109,7 @@ type metricAlertState struct {
 type MetricAlertState struct {
 	// One or more `action` blocks as defined below.
 	Actions MetricAlertActionArrayInput
-	// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
+	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
 	AutoMitigate pulumi.BoolPtrInput
 	// One or more `criteria` blocks as defined below.
 	Criterias MetricAlertCriteriaArrayInput
@@ -140,7 +140,7 @@ func (MetricAlertState) ElementType() reflect.Type {
 type metricAlertArgs struct {
 	// One or more `action` blocks as defined below.
 	Actions []MetricAlertAction `pulumi:"actions"`
-	// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
+	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
 	AutoMitigate *bool `pulumi:"autoMitigate"`
 	// One or more `criteria` blocks as defined below.
 	Criterias []MetricAlertCriteria `pulumi:"criterias"`
@@ -168,7 +168,7 @@ type metricAlertArgs struct {
 type MetricAlertArgs struct {
 	// One or more `action` blocks as defined below.
 	Actions MetricAlertActionArrayInput
-	// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
+	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
 	AutoMitigate pulumi.BoolPtrInput
 	// One or more `criteria` blocks as defined below.
 	Criterias MetricAlertCriteriaArrayInput

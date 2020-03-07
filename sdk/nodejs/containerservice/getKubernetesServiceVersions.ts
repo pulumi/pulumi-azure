@@ -20,7 +20,6 @@ export function getKubernetesServiceVersions(args: GetKubernetesServiceVersionsA
         opts.version = utilities.getVersion();
     }
     const promise: Promise<GetKubernetesServiceVersionsResult> = pulumi.runtime.invoke("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", {
-        "includePreview": args.includePreview,
         "location": args.location,
         "versionPrefix": args.versionPrefix,
     }, opts);
@@ -32,10 +31,6 @@ export function getKubernetesServiceVersions(args: GetKubernetesServiceVersionsA
  * A collection of arguments for invoking getKubernetesServiceVersions.
  */
 export interface GetKubernetesServiceVersionsArgs {
-    /**
-     * Should Preview versions of Kubernetes in AKS be included? Defaults to `true`
-     */
-    readonly includePreview?: boolean;
     /**
      * Specifies the location in which to query for versions.
      */
@@ -50,9 +45,8 @@ export interface GetKubernetesServiceVersionsArgs {
  * A collection of values returned by getKubernetesServiceVersions.
  */
 export interface GetKubernetesServiceVersionsResult {
-    readonly includePreview?: boolean;
     /**
-     * The most recent version available. If `includePreview == false`, this is the most recent non-preview version available.
+     * The most recent version available.
      */
     readonly latestVersion: string;
     readonly location: string;

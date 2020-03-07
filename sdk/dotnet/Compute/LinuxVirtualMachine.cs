@@ -200,7 +200,7 @@ namespace Pulumi.Azure.Compute
         /// A mapping of tags which should be assigned to this Virtual Machine.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A 128-bit identifier which uniquely identifies this Virtual Machine.

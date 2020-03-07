@@ -45,13 +45,17 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly addonProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterAddonProfile>;
     /**
+     * One or more `agentPoolProfile` blocks as defined below.
+     */
+    public readonly agentPoolProfiles!: pulumi.Output<outputs.containerservice.KubernetesClusterAgentPoolProfile[]>;
+    /**
      * The IP ranges to whitelist for incoming traffic to the masters.
      */
     public readonly apiServerAuthorizedIpRanges!: pulumi.Output<string[] | undefined>;
     /**
      * A `defaultNodePool` block as defined below.
      */
-    public readonly defaultNodePool!: pulumi.Output<outputs.containerservice.KubernetesClusterDefaultNodePool>;
+    public readonly defaultNodePool!: pulumi.Output<outputs.containerservice.KubernetesClusterDefaultNodePool | undefined>;
     /**
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
@@ -59,7 +63,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
      */
-    public readonly enablePodSecurityPolicy!: pulumi.Output<boolean | undefined>;
+    public readonly enablePodSecurityPolicy!: pulumi.Output<boolean>;
     /**
      * The FQDN of the Azure Kubernetes Managed Cluster.
      */
@@ -128,7 +132,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * A `windowsProfile` block as defined below.
      */
@@ -147,6 +151,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as KubernetesClusterState | undefined;
             inputs["addonProfile"] = state ? state.addonProfile : undefined;
+            inputs["agentPoolProfiles"] = state ? state.agentPoolProfiles : undefined;
             inputs["apiServerAuthorizedIpRanges"] = state ? state.apiServerAuthorizedIpRanges : undefined;
             inputs["defaultNodePool"] = state ? state.defaultNodePool : undefined;
             inputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
@@ -172,9 +177,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["windowsProfile"] = state ? state.windowsProfile : undefined;
         } else {
             const args = argsOrState as KubernetesClusterArgs | undefined;
-            if (!args || args.defaultNodePool === undefined) {
-                throw new Error("Missing required property 'defaultNodePool'");
-            }
             if (!args || args.dnsPrefix === undefined) {
                 throw new Error("Missing required property 'dnsPrefix'");
             }
@@ -185,6 +187,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'servicePrincipal'");
             }
             inputs["addonProfile"] = args ? args.addonProfile : undefined;
+            inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
             inputs["apiServerAuthorizedIpRanges"] = args ? args.apiServerAuthorizedIpRanges : undefined;
             inputs["defaultNodePool"] = args ? args.defaultNodePool : undefined;
             inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
@@ -228,6 +231,10 @@ export interface KubernetesClusterState {
      * A `addonProfile` block as defined below.
      */
     readonly addonProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfile>;
+    /**
+     * One or more `agentPoolProfile` blocks as defined below.
+     */
+    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterAgentPoolProfile>[]>;
     /**
      * The IP ranges to whitelist for incoming traffic to the masters.
      */
@@ -328,13 +335,17 @@ export interface KubernetesClusterArgs {
      */
     readonly addonProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfile>;
     /**
+     * One or more `agentPoolProfile` blocks as defined below.
+     */
+    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterAgentPoolProfile>[]>;
+    /**
      * The IP ranges to whitelist for incoming traffic to the masters.
      */
     readonly apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `defaultNodePool` block as defined below.
      */
-    readonly defaultNodePool: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePool>;
+    readonly defaultNodePool?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePool>;
     /**
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */

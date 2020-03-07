@@ -309,6 +309,10 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly int Count;
         /// <summary>
+        /// The DNS Prefix of the managed Kubernetes cluster.
+        /// </summary>
+        public readonly string DnsPrefix;
+        /// <summary>
         /// If the auto-scaler is enabled.
         /// </summary>
         public readonly bool EnableAutoScaling;
@@ -358,6 +362,7 @@ namespace Pulumi.Azure.ContainerService
         private GetKubernetesClusterAgentPoolProfilesResult(
             ImmutableArray<string> availabilityZones,
             int count,
+            string dnsPrefix,
             bool enableAutoScaling,
             bool? enableNodePublicIp,
             int maxCount,
@@ -373,6 +378,7 @@ namespace Pulumi.Azure.ContainerService
         {
             AvailabilityZones = availabilityZones;
             Count = count;
+            DnsPrefix = dnsPrefix;
             EnableAutoScaling = enableAutoScaling;
             EnableNodePublicIp = enableNodePublicIp;
             MaxCount = maxCount;

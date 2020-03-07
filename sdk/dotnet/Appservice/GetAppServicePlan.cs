@@ -42,10 +42,6 @@ namespace Pulumi.Azure.AppService
     public sealed class GetAppServicePlanResult
     {
         /// <summary>
-        /// The ID of the App Service Environment where the App Service Plan is located.
-        /// </summary>
-        public readonly string AppServiceEnvironmentId;
-        /// <summary>
         /// A flag that indicates if it's a xenon plan (support for Windows Container)
         /// </summary>
         public readonly bool IsXenon;
@@ -62,18 +58,14 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly int MaximumElasticWorkerCount;
         /// <summary>
-        /// The maximum number of workers supported with the App Service Plan's sku.
+        /// Maximum number of instances that can be assigned to this App Service plan.
         /// </summary>
         public readonly int MaximumNumberOfWorkers;
         public readonly string Name;
         /// <summary>
-        /// Can Apps assigned to this App Service Plan be scaled independently?
+        /// A `properties` block as documented below.
         /// </summary>
-        public readonly bool PerSiteScaling;
-        /// <summary>
-        /// Is this App Service Plan `Reserved`?
-        /// </summary>
-        public readonly bool Reserved;
+        public readonly ImmutableArray<Outputs.GetAppServicePlanPropertiesResult> Properties;
         public readonly string ResourceGroupName;
         /// <summary>
         /// A `sku` block as documented below.
@@ -90,29 +82,25 @@ namespace Pulumi.Azure.AppService
 
         [OutputConstructor]
         private GetAppServicePlanResult(
-            string appServiceEnvironmentId,
             bool isXenon,
             string kind,
             string location,
             int maximumElasticWorkerCount,
             int maximumNumberOfWorkers,
             string name,
-            bool perSiteScaling,
-            bool reserved,
+            ImmutableArray<Outputs.GetAppServicePlanPropertiesResult> properties,
             string resourceGroupName,
             Outputs.GetAppServicePlanSkuResult sku,
             ImmutableDictionary<string, string> tags,
             string id)
         {
-            AppServiceEnvironmentId = appServiceEnvironmentId;
             IsXenon = isXenon;
             Kind = kind;
             Location = location;
             MaximumElasticWorkerCount = maximumElasticWorkerCount;
             MaximumNumberOfWorkers = maximumNumberOfWorkers;
             Name = name;
-            PerSiteScaling = perSiteScaling;
-            Reserved = reserved;
+            Properties = properties;
             ResourceGroupName = resourceGroupName;
             Sku = sku;
             Tags = tags;
@@ -122,6 +110,34 @@ namespace Pulumi.Azure.AppService
 
     namespace Outputs
     {
+
+    [OutputType]
+    public sealed class GetAppServicePlanPropertiesResult
+    {
+        /// <summary>
+        /// The ID of the App Service Environment where the App Service Plan is located.
+        /// </summary>
+        public readonly string AppServiceEnvironmentId;
+        /// <summary>
+        /// Can Apps assigned to this App Service Plan be scaled independently?
+        /// </summary>
+        public readonly bool PerSiteScaling;
+        /// <summary>
+        /// Is this App Service Plan `Reserved`?
+        /// </summary>
+        public readonly bool Reserved;
+
+        [OutputConstructor]
+        private GetAppServicePlanPropertiesResult(
+            string appServiceEnvironmentId,
+            bool perSiteScaling,
+            bool reserved)
+        {
+            AppServiceEnvironmentId = appServiceEnvironmentId;
+            PerSiteScaling = perSiteScaling;
+            Reserved = reserved;
+        }
+    }
 
     [OutputType]
     public sealed class GetAppServicePlanSkuResult

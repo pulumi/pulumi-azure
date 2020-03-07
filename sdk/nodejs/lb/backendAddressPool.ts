@@ -52,6 +52,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
      * The ID of the Load Balancer in which to create the Backend Address Pool.
      */
     public readonly loadbalancerId!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Backend Address Pool.
      */
@@ -76,6 +77,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
             inputs["backendIpConfigurations"] = state ? state.backendIpConfigurations : undefined;
             inputs["loadBalancingRules"] = state ? state.loadBalancingRules : undefined;
             inputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
+            inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
@@ -87,6 +89,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
+            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["backendIpConfigurations"] = undefined /*out*/;
@@ -119,6 +122,7 @@ export interface BackendAddressPoolState {
      * The ID of the Load Balancer in which to create the Backend Address Pool.
      */
     readonly loadbalancerId?: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Backend Address Pool.
      */
@@ -137,6 +141,7 @@ export interface BackendAddressPoolArgs {
      * The ID of the Load Balancer in which to create the Backend Address Pool.
      */
     readonly loadbalancerId: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Backend Address Pool.
      */

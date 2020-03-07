@@ -87,7 +87,7 @@ namespace Pulumi.Azure.AppService
         /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionAppSiteCredentialsResult> SiteCredentials;
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.AppService
             string possibleOutboundIpAddresses,
             string resourceGroupName,
             ImmutableArray<Outputs.GetFunctionAppSiteCredentialsResult> siteCredentials,
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
             string id)
         {
             AppServicePlanId = appServicePlanId;

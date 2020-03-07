@@ -22,6 +22,7 @@ class BackendAddressPool(pulumi.CustomResource):
     """
     The ID of the Load Balancer in which to create the Backend Address Pool.
     """
+    location: pulumi.Output[str]
     name: pulumi.Output[str]
     """
     Specifies the name of the Backend Address Pool.
@@ -30,7 +31,7 @@ class BackendAddressPool(pulumi.CustomResource):
     """
     The name of the resource group in which to create the resource.
     """
-    def __init__(__self__, resource_name, opts=None, loadbalancer_id=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, loadbalancer_id=None, location=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Load Balancer Backend Address Pool.
         
@@ -64,6 +65,7 @@ class BackendAddressPool(pulumi.CustomResource):
             if loadbalancer_id is None:
                 raise TypeError("Missing required property 'loadbalancer_id'")
             __props__['loadbalancer_id'] = loadbalancer_id
+            __props__['location'] = location
             __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -77,7 +79,7 @@ class BackendAddressPool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, backend_ip_configurations=None, load_balancing_rules=None, loadbalancer_id=None, name=None, resource_group_name=None):
+    def get(resource_name, id, opts=None, backend_ip_configurations=None, load_balancing_rules=None, loadbalancer_id=None, location=None, name=None, resource_group_name=None):
         """
         Get an existing BackendAddressPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -99,6 +101,7 @@ class BackendAddressPool(pulumi.CustomResource):
         __props__["backend_ip_configurations"] = backend_ip_configurations
         __props__["load_balancing_rules"] = load_balancing_rules
         __props__["loadbalancer_id"] = loadbalancer_id
+        __props__["location"] = location
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         return BackendAddressPool(resource_name, opts=opts, __props__=__props__)

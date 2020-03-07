@@ -6,6 +6,7 @@
 from .group import *
 from .registry import *
 from .registry_webook import *
+from .service import *
 from .kubernetes_cluster import *
 from .kubernetes_cluster_node_pool import *
 from .get_registry import *

@@ -52,6 +52,12 @@ namespace Pulumi.Azure.Automation
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// ) A `sku` block as described below.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.AccountSku> Sku { get; private set; } = null!;
+
+        /// <summary>
         /// The SKU name of the account - only `Basic` is supported at this time.
         /// </summary>
         [Output("skuName")]
@@ -61,7 +67,7 @@ namespace Pulumi.Azure.Automation
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -128,10 +134,16 @@ namespace Pulumi.Azure.Automation
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// ) A `sku` block as described below.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.AccountSkuArgs>? Sku { get; set; }
+
+        /// <summary>
         /// The SKU name of the account - only `Basic` is supported at this time.
         /// </summary>
-        [Input("skuName", required: true)]
-        public Input<string> SkuName { get; set; } = null!;
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -189,6 +201,12 @@ namespace Pulumi.Azure.Automation
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
+        /// ) A `sku` block as described below.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.AccountSkuGetArgs>? Sku { get; set; }
+
+        /// <summary>
         /// The SKU name of the account - only `Basic` is supported at this time.
         /// </summary>
         [Input("skuName")]
@@ -209,5 +227,54 @@ namespace Pulumi.Azure.Automation
         public AccountState()
         {
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class AccountSkuArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public AccountSkuArgs()
+        {
+        }
+    }
+
+    public sealed class AccountSkuGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public AccountSkuGetArgs()
+        {
+        }
+    }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class AccountSku
+    {
+        /// <summary>
+        /// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? Name;
+
+        [OutputConstructor]
+        private AccountSku(string? name)
+        {
+            Name = name;
+        }
+    }
     }
 }

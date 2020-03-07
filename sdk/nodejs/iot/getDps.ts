@@ -81,7 +81,7 @@ export interface GetDpsResult {
      * The service endpoint of the IoT Device Provisioning Service.
      */
     readonly serviceOperationsHostName: string;
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

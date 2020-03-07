@@ -59,7 +59,7 @@ export interface GetAccountResult {
      * The sku of the Azure Maps Account.
      */
     readonly skuName: string;
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
     /**
      * A unique identifier for the Maps Account.
      */

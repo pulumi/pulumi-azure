@@ -62,6 +62,10 @@ export interface GetSubnetResult {
      * Enable or Disable network policies for the private link service on the subnet.
      */
     readonly enforcePrivateLinkServiceNetworkPolicies: boolean;
+    /**
+     * The collection of IP Configurations with IPs within this subnet.
+     */
+    readonly ipConfigurations: string[];
     readonly name: string;
     /**
      * The ID of the Network Security Group associated with the subnet.

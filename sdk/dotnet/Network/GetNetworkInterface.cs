@@ -61,6 +61,7 @@ namespace Pulumi.Azure.Network
         /// The internal dns name label of the specified Network Interface.
         /// </summary>
         public readonly string InternalDnsNameLabel;
+        public readonly string InternalFqdn;
         /// <summary>
         /// One or more `ip_configuration` blocks as defined below.
         /// </summary>
@@ -110,6 +111,7 @@ namespace Pulumi.Azure.Network
             bool enableAcceleratedNetworking,
             bool enableIpForwarding,
             string internalDnsNameLabel,
+            string internalFqdn,
             ImmutableArray<Outputs.GetNetworkInterfaceIpConfigurationsResult> ipConfigurations,
             string location,
             string macAddress,
@@ -127,6 +129,7 @@ namespace Pulumi.Azure.Network
             EnableAcceleratedNetworking = enableAcceleratedNetworking;
             EnableIpForwarding = enableIpForwarding;
             InternalDnsNameLabel = internalDnsNameLabel;
+            InternalFqdn = internalFqdn;
             IpConfigurations = ipConfigurations;
             Location = location;
             MacAddress = macAddress;

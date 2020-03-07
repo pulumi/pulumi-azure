@@ -19,6 +19,7 @@ type EventHubNamespaceAuthorizationRule struct {
 
 	// Grants listen access to this this Authorization Rule. Defaults to `false`.
 	Listen pulumi.BoolPtrOutput `pulumi:"listen"`
+	Location pulumi.StringOutput `pulumi:"location"`
 	// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage pulumi.BoolPtrOutput `pulumi:"manage"`
 	// Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
@@ -75,6 +76,7 @@ func GetEventHubNamespaceAuthorizationRule(ctx *pulumi.Context,
 type eventHubNamespaceAuthorizationRuleState struct {
 	// Grants listen access to this this Authorization Rule. Defaults to `false`.
 	Listen *bool `pulumi:"listen"`
+	Location *string `pulumi:"location"`
 	// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage *bool `pulumi:"manage"`
 	// Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
@@ -98,6 +100,7 @@ type eventHubNamespaceAuthorizationRuleState struct {
 type EventHubNamespaceAuthorizationRuleState struct {
 	// Grants listen access to this this Authorization Rule. Defaults to `false`.
 	Listen pulumi.BoolPtrInput
+	Location pulumi.StringPtrInput
 	// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage pulumi.BoolPtrInput
 	// Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
@@ -125,6 +128,7 @@ func (EventHubNamespaceAuthorizationRuleState) ElementType() reflect.Type {
 type eventHubNamespaceAuthorizationRuleArgs struct {
 	// Grants listen access to this this Authorization Rule. Defaults to `false`.
 	Listen *bool `pulumi:"listen"`
+	Location *string `pulumi:"location"`
 	// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage *bool `pulumi:"manage"`
 	// Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
@@ -141,6 +145,7 @@ type eventHubNamespaceAuthorizationRuleArgs struct {
 type EventHubNamespaceAuthorizationRuleArgs struct {
 	// Grants listen access to this this Authorization Rule. Defaults to `false`.
 	Listen pulumi.BoolPtrInput
+	Location pulumi.StringPtrInput
 	// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage pulumi.BoolPtrInput
 	// Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.

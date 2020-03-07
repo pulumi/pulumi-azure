@@ -61,7 +61,7 @@ namespace Pulumi.Azure.Compute
         /// A collection of tags which should be applied to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// One or more `target_region` blocks as documented below.

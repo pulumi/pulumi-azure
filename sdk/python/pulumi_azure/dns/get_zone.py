@@ -13,7 +13,7 @@ class GetZoneResult:
     """
     A collection of values returned by getZone.
     """
-    def __init__(__self__, max_number_of_record_sets=None, name=None, name_servers=None, number_of_record_sets=None, resource_group_name=None, tags=None, id=None):
+    def __init__(__self__, max_number_of_record_sets=None, name=None, name_servers=None, number_of_record_sets=None, registration_virtual_network_ids=None, resolution_virtual_network_ids=None, resource_group_name=None, tags=None, zone_type=None, id=None):
         if max_number_of_record_sets and not isinstance(max_number_of_record_sets, float):
             raise TypeError("Expected argument 'max_number_of_record_sets' to be a float")
         __self__.max_number_of_record_sets = max_number_of_record_sets
@@ -35,6 +35,18 @@ class GetZoneResult:
         """
         The number of records already in the zone.
         """
+        if registration_virtual_network_ids and not isinstance(registration_virtual_network_ids, list):
+            raise TypeError("Expected argument 'registration_virtual_network_ids' to be a list")
+        __self__.registration_virtual_network_ids = registration_virtual_network_ids
+        """
+        A list of Virtual Network ID's that register hostnames in this DNS zone.
+        """
+        if resolution_virtual_network_ids and not isinstance(resolution_virtual_network_ids, list):
+            raise TypeError("Expected argument 'resolution_virtual_network_ids' to be a list")
+        __self__.resolution_virtual_network_ids = resolution_virtual_network_ids
+        """
+        A list of Virtual Network ID's that resolve records in this DNS zone.
+        """
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
@@ -43,6 +55,12 @@ class GetZoneResult:
         __self__.tags = tags
         """
         A mapping of tags to assign to the EventHub Namespace.
+        """
+        if zone_type and not isinstance(zone_type, str):
+            raise TypeError("Expected argument 'zone_type' to be a str")
+        __self__.zone_type = zone_type
+        """
+        (**Deprecated**) The type of this DNS zone, such as `Public` or `Private`.
         """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -60,8 +78,11 @@ class AwaitableGetZoneResult(GetZoneResult):
             name=self.name,
             name_servers=self.name_servers,
             number_of_record_sets=self.number_of_record_sets,
+            registration_virtual_network_ids=self.registration_virtual_network_ids,
+            resolution_virtual_network_ids=self.resolution_virtual_network_ids,
             resource_group_name=self.resource_group_name,
             tags=self.tags,
+            zone_type=self.zone_type,
             id=self.id)
 
 def get_zone(name=None,resource_group_name=None,opts=None):
@@ -90,6 +111,9 @@ def get_zone(name=None,resource_group_name=None,opts=None):
         name=__ret__.get('name'),
         name_servers=__ret__.get('nameServers'),
         number_of_record_sets=__ret__.get('numberOfRecordSets'),
+        registration_virtual_network_ids=__ret__.get('registrationVirtualNetworkIds'),
+        resolution_virtual_network_ids=__ret__.get('resolutionVirtualNetworkIds'),
         resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
+        zone_type=__ret__.get('zoneType'),
         id=__ret__.get('id'))

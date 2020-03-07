@@ -39,6 +39,9 @@ type AccessPolicy struct {
 	// be unique for the list of access policies. Changing this forces a new resource
 	// to be created.
 	ObjectId pulumi.StringOutput `pulumi:"objectId"`
+	// The name of the resource group in which to
+	// create the namespace. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// List of secret permissions, must be one or more
 	// from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
 	SecretPermissions pulumi.StringArrayOutput `pulumi:"secretPermissions"`
@@ -48,14 +51,14 @@ type AccessPolicy struct {
 	// for authenticating requests to the key vault. Changing this forces a new resource
 	// to be created.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
+	// Specifies the name of the Key Vault resource. Changing this
+	// forces a new resource to be created.
+	VaultName pulumi.StringOutput `pulumi:"vaultName"`
 }
 
 // NewAccessPolicy registers a new resource with the given unique name, arguments, and options.
 func NewAccessPolicy(ctx *pulumi.Context,
 	name string, args *AccessPolicyArgs, opts ...pulumi.ResourceOption) (*AccessPolicy, error) {
-	if args == nil || args.KeyVaultId == nil {
-		return nil, errors.New("missing required argument 'KeyVaultId'")
-	}
 	if args == nil || args.ObjectId == nil {
 		return nil, errors.New("missing required argument 'ObjectId'")
 	}
@@ -105,6 +108,9 @@ type accessPolicyState struct {
 	// be unique for the list of access policies. Changing this forces a new resource
 	// to be created.
 	ObjectId *string `pulumi:"objectId"`
+	// The name of the resource group in which to
+	// create the namespace. Changing this forces a new resource to be created.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// List of secret permissions, must be one or more
 	// from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
 	SecretPermissions []string `pulumi:"secretPermissions"`
@@ -114,6 +120,9 @@ type accessPolicyState struct {
 	// for authenticating requests to the key vault. Changing this forces a new resource
 	// to be created.
 	TenantId *string `pulumi:"tenantId"`
+	// Specifies the name of the Key Vault resource. Changing this
+	// forces a new resource to be created.
+	VaultName *string `pulumi:"vaultName"`
 }
 
 type AccessPolicyState struct {
@@ -135,6 +144,9 @@ type AccessPolicyState struct {
 	// be unique for the list of access policies. Changing this forces a new resource
 	// to be created.
 	ObjectId pulumi.StringPtrInput
+	// The name of the resource group in which to
+	// create the namespace. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringPtrInput
 	// List of secret permissions, must be one or more
 	// from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
 	SecretPermissions pulumi.StringArrayInput
@@ -144,6 +156,9 @@ type AccessPolicyState struct {
 	// for authenticating requests to the key vault. Changing this forces a new resource
 	// to be created.
 	TenantId pulumi.StringPtrInput
+	// Specifies the name of the Key Vault resource. Changing this
+	// forces a new resource to be created.
+	VaultName pulumi.StringPtrInput
 }
 
 func (AccessPolicyState) ElementType() reflect.Type {
@@ -163,12 +178,15 @@ type accessPolicyArgs struct {
 	KeyPermissions []string `pulumi:"keyPermissions"`
 	// Specifies the id of the Key Vault resource. Changing this
 	// forces a new resource to be created.
-	KeyVaultId string `pulumi:"keyVaultId"`
+	KeyVaultId *string `pulumi:"keyVaultId"`
 	// The object ID of a user, service principal or security
 	// group in the Azure Active Directory tenant for the vault. The object ID must
 	// be unique for the list of access policies. Changing this forces a new resource
 	// to be created.
 	ObjectId string `pulumi:"objectId"`
+	// The name of the resource group in which to
+	// create the namespace. Changing this forces a new resource to be created.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// List of secret permissions, must be one or more
 	// from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
 	SecretPermissions []string `pulumi:"secretPermissions"`
@@ -178,6 +196,9 @@ type accessPolicyArgs struct {
 	// for authenticating requests to the key vault. Changing this forces a new resource
 	// to be created.
 	TenantId string `pulumi:"tenantId"`
+	// Specifies the name of the Key Vault resource. Changing this
+	// forces a new resource to be created.
+	VaultName *string `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a AccessPolicy resource.
@@ -194,12 +215,15 @@ type AccessPolicyArgs struct {
 	KeyPermissions pulumi.StringArrayInput
 	// Specifies the id of the Key Vault resource. Changing this
 	// forces a new resource to be created.
-	KeyVaultId pulumi.StringInput
+	KeyVaultId pulumi.StringPtrInput
 	// The object ID of a user, service principal or security
 	// group in the Azure Active Directory tenant for the vault. The object ID must
 	// be unique for the list of access policies. Changing this forces a new resource
 	// to be created.
 	ObjectId pulumi.StringInput
+	// The name of the resource group in which to
+	// create the namespace. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringPtrInput
 	// List of secret permissions, must be one or more
 	// from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
 	SecretPermissions pulumi.StringArrayInput
@@ -209,6 +233,9 @@ type AccessPolicyArgs struct {
 	// for authenticating requests to the key vault. Changing this forces a new resource
 	// to be created.
 	TenantId pulumi.StringInput
+	// Specifies the name of the Key Vault resource. Changing this
+	// forces a new resource to be created.
+	VaultName pulumi.StringPtrInput
 }
 
 func (AccessPolicyArgs) ElementType() reflect.Type {

@@ -25,6 +25,7 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
     const promise: Promise<GetSecretResult> = pulumi.runtime.invoke("azure:keyvault/getSecret:getSecret", {
         "keyVaultId": args.keyVaultId,
         "name": args.name,
+        "vaultUri": args.vaultUri,
     }, opts);
 
     return pulumi.utils.liftProperties(promise, opts);
@@ -37,11 +38,12 @@ export interface GetSecretArgs {
     /**
      * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource. 
      */
-    readonly keyVaultId: string;
+    readonly keyVaultId?: string;
     /**
      * Specifies the name of the Key Vault Secret.
      */
     readonly name: string;
+    readonly vaultUri?: string;
 }
 
 /**
@@ -62,6 +64,7 @@ export interface GetSecretResult {
      * The value of the Key Vault Secret.
      */
     readonly value: string;
+    readonly vaultUri: string;
     /**
      * The current version of the Key Vault Secret.
      */

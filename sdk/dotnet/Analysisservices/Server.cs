@@ -76,7 +76,7 @@ namespace Pulumi.Azure.AnalysisServices
         public Output<string> Sku { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
 
         /// <summary>

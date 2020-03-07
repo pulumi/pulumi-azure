@@ -89,7 +89,7 @@ export class ActionGroup extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * One or more `voiceReceiver` blocks as defined below.
      */

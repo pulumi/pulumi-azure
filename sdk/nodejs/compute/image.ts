@@ -72,7 +72,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
      */

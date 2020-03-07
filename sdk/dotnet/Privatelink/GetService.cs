@@ -71,6 +71,7 @@ namespace Pulumi.Azure.PrivateLink
         /// The `nat_ip_configuration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceNatIpConfigurationsResult> NatIpConfigurations;
+        public readonly ImmutableArray<string> NetworkInterfaceIds;
         public readonly string ResourceGroupName;
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -94,6 +95,7 @@ namespace Pulumi.Azure.PrivateLink
             string location,
             string name,
             ImmutableArray<Outputs.GetServiceNatIpConfigurationsResult> natIpConfigurations,
+            ImmutableArray<string> networkInterfaceIds,
             string resourceGroupName,
             ImmutableDictionary<string, string> tags,
             ImmutableArray<string> visibilitySubscriptionIds,
@@ -106,6 +108,7 @@ namespace Pulumi.Azure.PrivateLink
             Location = location;
             Name = name;
             NatIpConfigurations = natIpConfigurations;
+            NetworkInterfaceIds = networkInterfaceIds;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
             VisibilitySubscriptionIds = visibilitySubscriptionIds;

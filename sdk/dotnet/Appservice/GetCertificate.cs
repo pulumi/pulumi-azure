@@ -76,7 +76,7 @@ namespace Pulumi.Azure.AppService
         /// The subject name of the certificate.
         /// </summary>
         public readonly string SubjectName;
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The thumbprint for the certificate.
         /// </summary>
@@ -97,7 +97,7 @@ namespace Pulumi.Azure.AppService
             string name,
             string resourceGroupName,
             string subjectName,
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
             string thumbprint,
             string id)
         {

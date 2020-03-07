@@ -97,7 +97,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.

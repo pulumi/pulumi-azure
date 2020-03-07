@@ -32,6 +32,7 @@ type NatPool struct {
 	FrontendPortStart pulumi.IntOutput `pulumi:"frontendPortStart"`
 	// The ID of the Load Balancer in which to create the NAT pool.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
+	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the NAT pool.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
@@ -100,6 +101,7 @@ type natPoolState struct {
 	FrontendPortStart *int `pulumi:"frontendPortStart"`
 	// The ID of the Load Balancer in which to create the NAT pool.
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
+	Location *string `pulumi:"location"`
 	// Specifies the name of the NAT pool.
 	Name *string `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
@@ -120,6 +122,7 @@ type NatPoolState struct {
 	FrontendPortStart pulumi.IntPtrInput
 	// The ID of the Load Balancer in which to create the NAT pool.
 	LoadbalancerId pulumi.StringPtrInput
+	Location pulumi.StringPtrInput
 	// Specifies the name of the NAT pool.
 	Name pulumi.StringPtrInput
 	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
@@ -143,6 +146,7 @@ type natPoolArgs struct {
 	FrontendPortStart int `pulumi:"frontendPortStart"`
 	// The ID of the Load Balancer in which to create the NAT pool.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
+	Location *string `pulumi:"location"`
 	// Specifies the name of the NAT pool.
 	Name *string `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
@@ -163,6 +167,7 @@ type NatPoolArgs struct {
 	FrontendPortStart pulumi.IntInput
 	// The ID of the Load Balancer in which to create the NAT pool.
 	LoadbalancerId pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Specifies the name of the NAT pool.
 	Name pulumi.StringPtrInput
 	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.

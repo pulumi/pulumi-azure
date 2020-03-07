@@ -71,6 +71,7 @@ export class PublicIp extends pulumi.CustomResource {
      * new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly publicIpAddressAllocation!: pulumi.Output<string>;
     /**
      * If specified then public IP address allocated will be provided from the public IP prefix resource.
      */
@@ -91,7 +92,7 @@ export class PublicIp extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * A collection containing the availability zone to allocate the Public IP in.
      */
@@ -117,6 +118,7 @@ export class PublicIp extends pulumi.CustomResource {
             inputs["ipVersion"] = state ? state.ipVersion : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["publicIpAddressAllocation"] = state ? state.publicIpAddressAllocation : undefined;
             inputs["publicIpPrefixId"] = state ? state.publicIpPrefixId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["reverseFqdn"] = state ? state.reverseFqdn : undefined;
@@ -125,9 +127,6 @@ export class PublicIp extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as PublicIpArgs | undefined;
-            if (!args || args.allocationMethod === undefined) {
-                throw new Error("Missing required property 'allocationMethod'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -137,6 +136,7 @@ export class PublicIp extends pulumi.CustomResource {
             inputs["ipVersion"] = args ? args.ipVersion : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["publicIpAddressAllocation"] = args ? args.publicIpAddressAllocation : undefined;
             inputs["publicIpPrefixId"] = args ? args.publicIpPrefixId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["reverseFqdn"] = args ? args.reverseFqdn : undefined;
@@ -194,6 +194,7 @@ export interface PublicIpState {
      * new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    readonly publicIpAddressAllocation?: pulumi.Input<string>;
     /**
      * If specified then public IP address allocated will be provided from the public IP prefix resource.
      */
@@ -228,7 +229,7 @@ export interface PublicIpArgs {
     /**
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      */
-    readonly allocationMethod: pulumi.Input<string>;
+    readonly allocationMethod?: pulumi.Input<string>;
     /**
      * Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      */
@@ -250,6 +251,7 @@ export interface PublicIpArgs {
      * new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    readonly publicIpAddressAllocation?: pulumi.Input<string>;
     /**
      * If specified then public IP address allocated will be provided from the public IP prefix resource.
      */

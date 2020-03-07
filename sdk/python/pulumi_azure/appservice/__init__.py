@@ -8,7 +8,6 @@ from .active_slot import *
 from .certificate import *
 from .certificate_order import *
 from .custom_hostname_binding import *
-from .environment import *
 from .plan import *
 from .slot import *
 from .source_code_token import *
@@ -17,6 +16,5 @@ from .function_app import *
 from .get_app_service import *
 from .get_certificate import *
 from .get_certificate_order import *
-from .get_app_service_environment import *
 from .get_app_service_plan import *
 from .get_function_app import *

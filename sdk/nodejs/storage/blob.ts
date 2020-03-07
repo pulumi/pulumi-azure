@@ -43,6 +43,10 @@ export class Blob extends pulumi.CustomResource {
      */
     public readonly accessTier!: pulumi.Output<string>;
     /**
+     * The number of attempts to make per page or block when uploading. Defaults to `1`.
+     */
+    public readonly attempts!: pulumi.Output<number | undefined>;
+    /**
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
     public readonly contentType!: pulumi.Output<string | undefined>;
@@ -58,6 +62,10 @@ export class Blob extends pulumi.CustomResource {
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
      */
     public readonly parallelism!: pulumi.Output<number | undefined>;
+    /**
+     * The name of the resource group in which to create the storage container.
+     */
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
      */
@@ -106,10 +114,12 @@ export class Blob extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as BlobState | undefined;
             inputs["accessTier"] = state ? state.accessTier : undefined;
+            inputs["attempts"] = state ? state.attempts : undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parallelism"] = state ? state.parallelism : undefined;
+            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["size"] = state ? state.size : undefined;
             inputs["source"] = state ? state.source : undefined;
             inputs["sourceContent"] = state ? state.sourceContent : undefined;
@@ -130,10 +140,12 @@ export class Blob extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             inputs["accessTier"] = args ? args.accessTier : undefined;
+            inputs["attempts"] = args ? args.attempts : undefined;
             inputs["contentType"] = args ? args.contentType : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parallelism"] = args ? args.parallelism : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["size"] = args ? args.size : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["sourceContent"] = args ? args.sourceContent : undefined;
@@ -163,6 +175,10 @@ export interface BlobState {
      */
     readonly accessTier?: pulumi.Input<string>;
     /**
+     * The number of attempts to make per page or block when uploading. Defaults to `1`.
+     */
+    readonly attempts?: pulumi.Input<number>;
+    /**
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
     readonly contentType?: pulumi.Input<string>;
@@ -178,6 +194,10 @@ export interface BlobState {
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
      */
     readonly parallelism?: pulumi.Input<number>;
+    /**
+     * The name of the resource group in which to create the storage container.
+     */
+    readonly resourceGroupName?: pulumi.Input<string>;
     /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
      */
@@ -223,6 +243,10 @@ export interface BlobArgs {
      */
     readonly accessTier?: pulumi.Input<string>;
     /**
+     * The number of attempts to make per page or block when uploading. Defaults to `1`.
+     */
+    readonly attempts?: pulumi.Input<number>;
+    /**
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
     readonly contentType?: pulumi.Input<string>;
@@ -238,6 +262,10 @@ export interface BlobArgs {
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
      */
     readonly parallelism?: pulumi.Input<number>;
+    /**
+     * The name of the resource group in which to create the storage container.
+     */
+    readonly resourceGroupName?: pulumi.Input<string>;
     /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
      */

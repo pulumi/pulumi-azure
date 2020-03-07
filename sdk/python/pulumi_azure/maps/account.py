@@ -28,7 +28,7 @@ class Account(pulumi.CustomResource):
     """
     sku_name: pulumi.Output[str]
     """
-    The sku of the Azure Maps Account. Possible values are `S0` and `S1`.
+    The sku of the Azure Maps Account. Possible values are `s0` and `s1`.
     """
     tags: pulumi.Output[dict]
     """
@@ -46,7 +46,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Azure Maps Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The sku of the Azure Maps Account. Possible values are `S0` and `S1`.
+        :param pulumi.Input[str] sku_name: The sku of the Azure Maps Account. Possible values are `s0` and `s1`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Azure Maps Account.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/maps_account.html.markdown.
@@ -98,7 +98,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] primary_access_key: The primary key used to authenticate and authorize access to the Maps REST APIs.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The secondary key used to authenticate and authorize access to the Maps REST APIs.
-        :param pulumi.Input[str] sku_name: The sku of the Azure Maps Account. Possible values are `S0` and `S1`.
+        :param pulumi.Input[str] sku_name: The sku of the Azure Maps Account. Possible values are `s0` and `s1`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Azure Maps Account.
         :param pulumi.Input[str] x_ms_client_id: A unique identifier for the Maps Account.
 

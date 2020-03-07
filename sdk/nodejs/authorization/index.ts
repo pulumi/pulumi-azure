@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./assignment";
+export * from "./getBuiltinRoleDefinition";
 export * from "./getRoleDefinition";
 export * from "./getUserAssignedIdentity";
 export * from "./roleDefinition";

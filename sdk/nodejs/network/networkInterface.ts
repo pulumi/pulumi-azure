@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Network Interface.
+ * Manages a Network Interface located in a Virtual Network, usually attached to a Virtual Machine.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface.html.markdown.
  */
@@ -39,41 +39,46 @@ export class NetworkInterface extends pulumi.CustomResource {
     }
 
     /**
-     * If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
+     * If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set
      */
-    public /*out*/ readonly appliedDnsServers!: pulumi.Output<string[]>;
+    public readonly appliedDnsServers!: pulumi.Output<string[]>;
     /**
-     * A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+     * List of DNS servers IP addresses to use for this NIC, overrides the VNet-level server list
      */
     public readonly dnsServers!: pulumi.Output<string[]>;
     /**
-     * Should Accelerated Networking be enabled? Defaults to `false`.
+     * Enables Azure Accelerated Networking using SR-IOV. Only certain VM instance sizes are supported. Refer to [Create a Virtual Machine with Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Defaults to `false`.
      */
     public readonly enableAcceleratedNetworking!: pulumi.Output<boolean | undefined>;
     /**
-     * Should IP Forwarding be enabled? Defaults to `false`.
+     * Enables IP Forwarding on the NIC. Defaults to `false`.
      */
     public readonly enableIpForwarding!: pulumi.Output<boolean | undefined>;
     /**
-     * The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
+     * Relative DNS name for this NIC used for internal communications between VMs in the same VNet
      */
     public readonly internalDnsNameLabel!: pulumi.Output<string>;
+    public readonly internalFqdn!: pulumi.Output<string>;
     /**
-     * One or more `ipConfiguration` blocks as defined below.
+     * One or more `ipConfiguration` associated with this NIC as documented below.
      */
     public readonly ipConfigurations!: pulumi.Output<outputs.network.NetworkInterfaceIpConfiguration[]>;
     /**
-     * The location where the Network Interface should exist. Changing this forces a new resource to be created.
+     * The location/region where the network interface is created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The Media Access Control (MAC) Address of the Network Interface.
+     * The media access control (MAC) address of the network interface.
      */
-    public /*out*/ readonly macAddress!: pulumi.Output<string>;
+    public readonly macAddress!: pulumi.Output<string>;
     /**
-     * The name of the Network Interface. Changing this forces a new resource to be created.
+     * The name of the network interface. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ID of the Network Security Group to associate with the network interface.
+     */
+    public readonly networkSecurityGroupId!: pulumi.Output<string | undefined>;
     /**
      * The first private IP address of the network interface.
      */
@@ -83,17 +88,17 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public /*out*/ readonly privateIpAddresses!: pulumi.Output<string[]>;
     /**
-     * The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the network interface. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The ID of the Virtual Machine which this Network Interface is connected to.
+     * Reference to a VM with which this NIC has been associated.
      */
-    public /*out*/ readonly virtualMachineId!: pulumi.Output<string>;
+    public readonly virtualMachineId!: pulumi.Output<string>;
 
     /**
      * Create a NetworkInterface resource with the given unique name, arguments, and options.
@@ -112,10 +117,12 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["enableAcceleratedNetworking"] = state ? state.enableAcceleratedNetworking : undefined;
             inputs["enableIpForwarding"] = state ? state.enableIpForwarding : undefined;
             inputs["internalDnsNameLabel"] = state ? state.internalDnsNameLabel : undefined;
+            inputs["internalFqdn"] = state ? state.internalFqdn : undefined;
             inputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["macAddress"] = state ? state.macAddress : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
             inputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
             inputs["privateIpAddresses"] = state ? state.privateIpAddresses : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -129,20 +136,22 @@ export class NetworkInterface extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["appliedDnsServers"] = args ? args.appliedDnsServers : undefined;
             inputs["dnsServers"] = args ? args.dnsServers : undefined;
             inputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
             inputs["enableIpForwarding"] = args ? args.enableIpForwarding : undefined;
             inputs["internalDnsNameLabel"] = args ? args.internalDnsNameLabel : undefined;
+            inputs["internalFqdn"] = args ? args.internalFqdn : undefined;
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["macAddress"] = args ? args.macAddress : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["appliedDnsServers"] = undefined /*out*/;
-            inputs["macAddress"] = undefined /*out*/;
+            inputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
             inputs["privateIpAddress"] = undefined /*out*/;
             inputs["privateIpAddresses"] = undefined /*out*/;
-            inputs["virtualMachineId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -160,41 +169,46 @@ export class NetworkInterface extends pulumi.CustomResource {
  */
 export interface NetworkInterfaceState {
     /**
-     * If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
+     * If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set
      */
     readonly appliedDnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+     * List of DNS servers IP addresses to use for this NIC, overrides the VNet-level server list
      */
     readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Should Accelerated Networking be enabled? Defaults to `false`.
+     * Enables Azure Accelerated Networking using SR-IOV. Only certain VM instance sizes are supported. Refer to [Create a Virtual Machine with Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Defaults to `false`.
      */
     readonly enableAcceleratedNetworking?: pulumi.Input<boolean>;
     /**
-     * Should IP Forwarding be enabled? Defaults to `false`.
+     * Enables IP Forwarding on the NIC. Defaults to `false`.
      */
     readonly enableIpForwarding?: pulumi.Input<boolean>;
     /**
-     * The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
+     * Relative DNS name for this NIC used for internal communications between VMs in the same VNet
      */
     readonly internalDnsNameLabel?: pulumi.Input<string>;
+    readonly internalFqdn?: pulumi.Input<string>;
     /**
-     * One or more `ipConfiguration` blocks as defined below.
+     * One or more `ipConfiguration` associated with this NIC as documented below.
      */
     readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.NetworkInterfaceIpConfiguration>[]>;
     /**
-     * The location where the Network Interface should exist. Changing this forces a new resource to be created.
+     * The location/region where the network interface is created. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The Media Access Control (MAC) Address of the Network Interface.
+     * The media access control (MAC) address of the network interface.
      */
     readonly macAddress?: pulumi.Input<string>;
     /**
-     * The name of the Network Interface. Changing this forces a new resource to be created.
+     * The name of the network interface. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The ID of the Network Security Group to associate with the network interface.
+     */
+    readonly networkSecurityGroupId?: pulumi.Input<string>;
     /**
      * The first private IP address of the network interface.
      */
@@ -204,7 +218,7 @@ export interface NetworkInterfaceState {
      */
     readonly privateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the network interface. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -212,7 +226,7 @@ export interface NetworkInterfaceState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ID of the Virtual Machine which this Network Interface is connected to.
+     * Reference to a VM with which this NIC has been associated.
      */
     readonly virtualMachineId?: pulumi.Input<string>;
 }
@@ -222,39 +236,56 @@ export interface NetworkInterfaceState {
  */
 export interface NetworkInterfaceArgs {
     /**
-     * A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+     * If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set
+     */
+    readonly appliedDnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of DNS servers IP addresses to use for this NIC, overrides the VNet-level server list
      */
     readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Should Accelerated Networking be enabled? Defaults to `false`.
+     * Enables Azure Accelerated Networking using SR-IOV. Only certain VM instance sizes are supported. Refer to [Create a Virtual Machine with Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Defaults to `false`.
      */
     readonly enableAcceleratedNetworking?: pulumi.Input<boolean>;
     /**
-     * Should IP Forwarding be enabled? Defaults to `false`.
+     * Enables IP Forwarding on the NIC. Defaults to `false`.
      */
     readonly enableIpForwarding?: pulumi.Input<boolean>;
     /**
-     * The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
+     * Relative DNS name for this NIC used for internal communications between VMs in the same VNet
      */
     readonly internalDnsNameLabel?: pulumi.Input<string>;
+    readonly internalFqdn?: pulumi.Input<string>;
     /**
-     * One or more `ipConfiguration` blocks as defined below.
+     * One or more `ipConfiguration` associated with this NIC as documented below.
      */
     readonly ipConfigurations: pulumi.Input<pulumi.Input<inputs.network.NetworkInterfaceIpConfiguration>[]>;
     /**
-     * The location where the Network Interface should exist. Changing this forces a new resource to be created.
+     * The location/region where the network interface is created. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the Network Interface. Changing this forces a new resource to be created.
+     * The media access control (MAC) address of the network interface.
+     */
+    readonly macAddress?: pulumi.Input<string>;
+    /**
+     * The name of the network interface. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
+     * The ID of the Network Security Group to associate with the network interface.
+     */
+    readonly networkSecurityGroupId?: pulumi.Input<string>;
+    /**
+     * The name of the resource group in which to create the network interface. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Reference to a VM with which this NIC has been associated.
+     */
+    readonly virtualMachineId?: pulumi.Input<string>;
 }

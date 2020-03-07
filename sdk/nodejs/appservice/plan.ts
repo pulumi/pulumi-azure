@@ -43,7 +43,7 @@ export class Plan extends pulumi.CustomResource {
     /**
      * The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
      */
-    public readonly appServiceEnvironmentId!: pulumi.Output<string | undefined>;
+    public readonly appServiceEnvironmentId!: pulumi.Output<string>;
     public readonly isXenon!: pulumi.Output<boolean | undefined>;
     /**
      * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
@@ -68,11 +68,12 @@ export class Plan extends pulumi.CustomResource {
     /**
      * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
      */
-    public readonly perSiteScaling!: pulumi.Output<boolean | undefined>;
+    public readonly perSiteScaling!: pulumi.Output<boolean>;
+    public readonly properties!: pulumi.Output<outputs.appservice.PlanProperties>;
     /**
      * Is this App Service Plan `Reserved`. Defaults to `false`.
      */
-    public readonly reserved!: pulumi.Output<boolean | undefined>;
+    public readonly reserved!: pulumi.Output<boolean>;
     /**
      * The name of the resource group in which to create the App Service Plan component.
      */
@@ -84,7 +85,7 @@ export class Plan extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Plan resource with the given unique name, arguments, and options.
@@ -106,6 +107,7 @@ export class Plan extends pulumi.CustomResource {
             inputs["maximumNumberOfWorkers"] = state ? state.maximumNumberOfWorkers : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["perSiteScaling"] = state ? state.perSiteScaling : undefined;
+            inputs["properties"] = state ? state.properties : undefined;
             inputs["reserved"] = state ? state.reserved : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
@@ -125,6 +127,7 @@ export class Plan extends pulumi.CustomResource {
             inputs["maximumElasticWorkerCount"] = args ? args.maximumElasticWorkerCount : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["perSiteScaling"] = args ? args.perSiteScaling : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
             inputs["reserved"] = args ? args.reserved : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -175,6 +178,7 @@ export interface PlanState {
      * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
      */
     readonly perSiteScaling?: pulumi.Input<boolean>;
+    readonly properties?: pulumi.Input<inputs.appservice.PlanProperties>;
     /**
      * Is this App Service Plan `Reserved`. Defaults to `false`.
      */
@@ -222,6 +226,7 @@ export interface PlanArgs {
      * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
      */
     readonly perSiteScaling?: pulumi.Input<boolean>;
+    readonly properties?: pulumi.Input<inputs.appservice.PlanProperties>;
     /**
      * Is this App Service Plan `Reserved`. Defaults to `false`.
      */

@@ -38,11 +38,12 @@ class VirtualWan(pulumi.CustomResource):
     """
     The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
     """
+    security_provider_name: pulumi.Output[str]
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the Virtual WAN.
     """
-    def __init__(__self__, resource_name, opts=None, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, disable_vpn_encryption=None, location=None, name=None, office365_local_breakout_category=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, disable_vpn_encryption=None, location=None, name=None, office365_local_breakout_category=None, resource_group_name=None, security_provider_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Virtual WAN.
         
@@ -85,6 +86,7 @@ class VirtualWan(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['security_provider_name'] = security_provider_name
             __props__['tags'] = tags
         super(VirtualWan, __self__).__init__(
             'azure:network/virtualWan:VirtualWan',
@@ -93,7 +95,7 @@ class VirtualWan(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, disable_vpn_encryption=None, location=None, name=None, office365_local_breakout_category=None, resource_group_name=None, tags=None):
+    def get(resource_name, id, opts=None, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, disable_vpn_encryption=None, location=None, name=None, office365_local_breakout_category=None, resource_group_name=None, security_provider_name=None, tags=None):
         """
         Get an existing VirtualWan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -122,6 +124,7 @@ class VirtualWan(pulumi.CustomResource):
         __props__["name"] = name
         __props__["office365_local_breakout_category"] = office365_local_breakout_category
         __props__["resource_group_name"] = resource_group_name
+        __props__["security_provider_name"] = security_provider_name
         __props__["tags"] = tags
         return VirtualWan(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

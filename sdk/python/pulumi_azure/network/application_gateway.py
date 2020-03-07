@@ -29,8 +29,10 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     One or more `backend_address_pool` blocks as defined below.
     
+      * `fqdnLists` (`list`)
       * `fqdns` (`list`)
       * `id` (`str`) - The ID of the Rewrite Rule Set
+      * `ipAddressLists` (`list`)
       * `ipAddresses` (`list`)
       * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
     """
@@ -69,6 +71,11 @@ class ApplicationGateway(pulumi.CustomResource):
       * `customErrorPageUrl` (`str`)
       * `id` (`str`) - The ID of the Rewrite Rule Set
       * `statusCode` (`str`)
+    """
+    disabled_ssl_protocols: pulumi.Output[list]
+    """
+    A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+    > **NOTE:** `disabled_ssl_protocols ` has been deprecated in favour of `disabled_protocols` in the `ssl_policy` block.
     """
     enable_http2: pulumi.Output[bool]
     """
@@ -318,7 +325,7 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     A collection of availability zones to spread the Application Gateway over.
     """
-    def __init__(__self__, resource_name, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, identity=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, trusted_root_certificates=None, url_path_maps=None, waf_configuration=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, disabled_ssl_protocols=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, identity=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, trusted_root_certificates=None, url_path_maps=None, waf_configuration=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Application Gateway.
         
@@ -329,6 +336,8 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[list] backend_address_pools: One or more `backend_address_pool` blocks as defined below.
         :param pulumi.Input[list] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
         :param pulumi.Input[list] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
+        :param pulumi.Input[list] disabled_ssl_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+               > **NOTE:** `disabled_ssl_protocols ` has been deprecated in favour of `disabled_protocols` in the `ssl_policy` block.
         :param pulumi.Input[bool] enable_http2: Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
         :param pulumi.Input[list] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[list] frontend_ports: One or more `frontend_port` blocks as defined below.
@@ -364,8 +373,10 @@ class ApplicationGateway(pulumi.CustomResource):
         
         The **backend_address_pools** object supports the following:
         
+          * `fqdnLists` (`pulumi.Input[list]`)
           * `fqdns` (`pulumi.Input[list]`)
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
+          * `ipAddressLists` (`pulumi.Input[list]`)
           * `ipAddresses` (`pulumi.Input[list]`)
           * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
         
@@ -623,6 +634,7 @@ class ApplicationGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'backend_http_settings'")
             __props__['backend_http_settings'] = backend_http_settings
             __props__['custom_error_configurations'] = custom_error_configurations
+            __props__['disabled_ssl_protocols'] = disabled_ssl_protocols
             __props__['enable_http2'] = enable_http2
             if frontend_ip_configurations is None:
                 raise TypeError("Missing required property 'frontend_ip_configurations'")
@@ -665,7 +677,7 @@ class ApplicationGateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, identity=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, trusted_root_certificates=None, url_path_maps=None, waf_configuration=None, zones=None):
+    def get(resource_name, id, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, disabled_ssl_protocols=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, identity=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, trusted_root_certificates=None, url_path_maps=None, waf_configuration=None, zones=None):
         """
         Get an existing ApplicationGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -678,6 +690,8 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[list] backend_address_pools: One or more `backend_address_pool` blocks as defined below.
         :param pulumi.Input[list] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
         :param pulumi.Input[list] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
+        :param pulumi.Input[list] disabled_ssl_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+               > **NOTE:** `disabled_ssl_protocols ` has been deprecated in favour of `disabled_protocols` in the `ssl_policy` block.
         :param pulumi.Input[bool] enable_http2: Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
         :param pulumi.Input[list] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[list] frontend_ports: One or more `frontend_port` blocks as defined below.
@@ -713,8 +727,10 @@ class ApplicationGateway(pulumi.CustomResource):
         
         The **backend_address_pools** object supports the following:
         
+          * `fqdnLists` (`pulumi.Input[list]`)
           * `fqdns` (`pulumi.Input[list]`)
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
+          * `ipAddressLists` (`pulumi.Input[list]`)
           * `ipAddresses` (`pulumi.Input[list]`)
           * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
         
@@ -954,6 +970,7 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__["backend_address_pools"] = backend_address_pools
         __props__["backend_http_settings"] = backend_http_settings
         __props__["custom_error_configurations"] = custom_error_configurations
+        __props__["disabled_ssl_protocols"] = disabled_ssl_protocols
         __props__["enable_http2"] = enable_http2
         __props__["frontend_ip_configurations"] = frontend_ip_configurations
         __props__["frontend_ports"] = frontend_ports

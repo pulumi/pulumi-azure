@@ -70,7 +70,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the algorithm used to route traffic, possible values are:
      * - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.

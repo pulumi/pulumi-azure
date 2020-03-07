@@ -22,8 +22,6 @@ func GetKubernetesServiceVersions(ctx *pulumi.Context, args *GetKubernetesServic
 
 // A collection of arguments for invoking getKubernetesServiceVersions.
 type GetKubernetesServiceVersionsArgs struct {
-	// Should Preview versions of Kubernetes in AKS be included? Defaults to `true`
-	IncludePreview *bool `pulumi:"includePreview"`
 	// Specifies the location in which to query for versions.
 	Location string `pulumi:"location"`
 	// A prefix filter for the versions of Kubernetes which should be returned; for example `1.` will return `1.9` to `1.14`, whereas `1.12` will return `1.12.2`.
@@ -35,8 +33,7 @@ type GetKubernetesServiceVersionsArgs struct {
 type GetKubernetesServiceVersionsResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	IncludePreview *bool `pulumi:"includePreview"`
-	// The most recent version available. If `includePreview == false`, this is the most recent non-preview version available.
+	// The most recent version available.
 	LatestVersion string `pulumi:"latestVersion"`
 	Location string `pulumi:"location"`
 	VersionPrefix *string `pulumi:"versionPrefix"`

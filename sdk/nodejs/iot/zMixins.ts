@@ -107,7 +107,7 @@ export class IoTHubEventSubscription extends appservice.EventSubscription<EventH
  */
 export class IoTHubFunction extends appservice.Function<EventHubContext, string, appservice.FunctionDefaultResponse> {
     constructor(name: string, args: IoTHubFunctionArgs) {
-        // The event hub binding does not store the Event Hubs connection string directly.  Instead, the
+       // The event hub binding does not store the Event Hubs connection string directly.  Instead, the
         // connection string is put into the app settings (under whatever key we want). Then, the
         // .connection property of the binding contains the *name* of that app setting key.
         const bindingConnectionKey = pulumi.interpolate`IoTHub${args.iotHub.name}ConnectionKey`;

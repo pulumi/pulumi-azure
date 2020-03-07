@@ -174,7 +174,7 @@ export interface BlobFunctionArgs extends GetBlobFunctionArgs {
 }
 
 export interface BlobEventSubscriptionArgs extends GetBlobFunctionArgs,
-    appservice.CallbackFunctionAppArgs<BlobContext, Buffer, appservice.FunctionDefaultResponse> {
+                                                   appservice.CallbackFunctionAppArgs<BlobContext, Buffer, appservice.FunctionDefaultResponse> {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
      * If none of the two is supplied, the resource group of the Storage Account will be used.
@@ -232,7 +232,7 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
     constructor(
         name: string, container: storage.Container,
         args: BlobEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
-        const resourceGroupName = args.resourceGroupName ?? resolveResourceGroupName(container);
+        const resourceGroupName = appservice.getResourceGroupName(args, container.resourceGroupName);
 
         super("azure:storage:BlobEventSubscription",
             name,
@@ -508,7 +508,7 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
 
         opts = { parent: queue, ...opts };
 
-        const resourceGroupName = args.resourceGroupName ?? resolveResourceGroupName(queue);
+        const resourceGroupName = appservice.getResourceGroupName(args, queue.resourceGroupName);
 
         super("azure:storage:QueueEventSubscription", name, new QueueFunction(name, { ...args, queue }), {
             ...args,
@@ -519,18 +519,15 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
     }
 }
 
-// Given a Queue or a Table, resolve the resource group name of the corresponding storage account
-function resolveResourceGroupName(container: { storageAccountName: pulumi.Output<string>, id: pulumi.Output<string> }) {
-    const account = pulumi.all([container.id, container.storageAccountName]).apply(([_, storageAccountName]) =>
-        storage.getAccount({ name: storageAccountName }, { async: true }));
-    return account.resourceGroupName;
-}
-
 // Given a Queue or a Table, produce App Settings and a Connection String Key relevant to the Storage Account
-function resolveAccount(container: { storageAccountName: pulumi.Output<string>, id: pulumi.Output<string> }) {
+function resolveAccount(container: { storageAccountName: pulumi.Output<string>, resourceGroupName: pulumi.Output<string> }) {
     const connectionKey = pulumi.interpolate`Storage${container.storageAccountName}ConnectionStringKey`;
-    const account = pulumi.all([container.id, container.storageAccountName]).apply(([_, storageAccountName]) =>
-        storage.getAccount({ name: storageAccountName }, { async: true }));
+    const account = pulumi.all([container.resourceGroupName, container.storageAccountName])
+                        .apply(([resourceGroupName, storageAccountName]) =>
+                            storage.getAccount({
+                                resourceGroupName,
+                                name: storageAccountName
+                            }, { async: true }));
 
     const settings = pulumi.all([account.primaryConnectionString, connectionKey]).apply(
         ([connectionString, key]) => ({ [key]: connectionString }));

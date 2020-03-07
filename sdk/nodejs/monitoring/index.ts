@@ -4,6 +4,7 @@
 // Export members:
 export * from "./actionGroup";
 export * from "./activityLogAlert";
+export * from "./alertRule";
 export * from "./autoscaleSetting";
 export * from "./diagnosticSetting";
 export * from "./getActionGroup";
@@ -11,3 +12,4 @@ export * from "./getDiagnosticCategories";
 export * from "./getLogProfile";
 export * from "./logProfile";
 export * from "./metricAlert";
+export * from "./metricAlertRule";

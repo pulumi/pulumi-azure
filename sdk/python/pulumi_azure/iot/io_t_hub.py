@@ -117,6 +117,7 @@ class IoTHub(pulumi.CustomResource):
     
       * `capacity` (`float`)
       * `name` (`str`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+      * `tier` (`str`)
     """
     tags: pulumi.Output[dict]
     """
@@ -194,6 +195,7 @@ class IoTHub(pulumi.CustomResource):
         
           * `capacity` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+          * `tier` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub.html.markdown.
         """
@@ -324,6 +326,7 @@ class IoTHub(pulumi.CustomResource):
         
           * `capacity` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+          * `tier` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub.html.markdown.
         """

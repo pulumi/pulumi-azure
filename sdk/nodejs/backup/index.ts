@@ -3,7 +3,6 @@
 
 // Export members:
 export * from "./containerStorageAccount";
-export * from "./getPolicyVM";
 export * from "./policyFileShare";
 export * from "./policyVM";
 export * from "./protectedFileShare";

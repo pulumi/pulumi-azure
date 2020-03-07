@@ -64,7 +64,7 @@ namespace Pulumi.Azure.EventGrid
         /// The Secondary Shared Access Key associated with the EventGrid Topic.
         /// </summary>
         public readonly string SecondaryAccessKey;
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.EventGrid
             string primaryAccessKey,
             string resourceGroupName,
             string secondaryAccessKey,
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
             string id)
         {
             Endpoint = endpoint;

@@ -19,18 +19,27 @@ type Account struct {
 
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
-	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+	// The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
+	AccountEncryptionSource pulumi.StringPtrOutput `pulumi:"accountEncryptionSource"`
+	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
 	AccountKind pulumi.StringPtrOutput `pulumi:"accountKind"`
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
 	AccountReplicationType pulumi.StringOutput `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringOutput `pulumi:"accountTier"`
+	AccountType pulumi.StringOutput `pulumi:"accountType"`
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesOutput `pulumi:"blobProperties"`
 	// A `customDomain` block as documented below.
 	CustomDomain AccountCustomDomainPtrOutput `pulumi:"customDomain"`
+	// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
+	EnableAdvancedThreatProtection pulumi.BoolOutput `pulumi:"enableAdvancedThreatProtection"`
+	// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+	EnableBlobEncryption pulumi.BoolPtrOutput `pulumi:"enableBlobEncryption"`
+	// Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+	EnableFileEncryption pulumi.BoolPtrOutput `pulumi:"enableFileEncryption"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
-	// for more information. Defaults to `true`.
+	// for more information.
 	EnableHttpsTrafficOnly pulumi.BoolPtrOutput `pulumi:"enableHttpsTrafficOnly"`
 	// A `identity` block as defined below.
 	Identity AccountIdentityOutput `pulumi:"identity"`
@@ -110,8 +119,6 @@ type Account struct {
 	SecondaryWebEndpoint pulumi.StringOutput `pulumi:"secondaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the secondary location.
 	SecondaryWebHost pulumi.StringOutput `pulumi:"secondaryWebHost"`
-	// A `staticWebsite` block as defined below.
-	StaticWebsite AccountStaticWebsitePtrOutput `pulumi:"staticWebsite"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -155,18 +162,27 @@ func GetAccount(ctx *pulumi.Context,
 type accountState struct {
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier *string `pulumi:"accessTier"`
-	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+	// The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
+	AccountEncryptionSource *string `pulumi:"accountEncryptionSource"`
+	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
 	AccountKind *string `pulumi:"accountKind"`
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
 	AccountReplicationType *string `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier *string `pulumi:"accountTier"`
+	AccountType *string `pulumi:"accountType"`
 	// A `blobProperties` block as defined below.
 	BlobProperties *AccountBlobProperties `pulumi:"blobProperties"`
 	// A `customDomain` block as documented below.
 	CustomDomain *AccountCustomDomain `pulumi:"customDomain"`
+	// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
+	EnableAdvancedThreatProtection *bool `pulumi:"enableAdvancedThreatProtection"`
+	// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+	EnableBlobEncryption *bool `pulumi:"enableBlobEncryption"`
+	// Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+	EnableFileEncryption *bool `pulumi:"enableFileEncryption"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
-	// for more information. Defaults to `true`.
+	// for more information.
 	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
 	// A `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
@@ -246,8 +262,6 @@ type accountState struct {
 	SecondaryWebEndpoint *string `pulumi:"secondaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the secondary location.
 	SecondaryWebHost *string `pulumi:"secondaryWebHost"`
-	// A `staticWebsite` block as defined below.
-	StaticWebsite *AccountStaticWebsite `pulumi:"staticWebsite"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -255,18 +269,27 @@ type accountState struct {
 type AccountState struct {
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier pulumi.StringPtrInput
-	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+	// The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
+	AccountEncryptionSource pulumi.StringPtrInput
+	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
 	AccountKind pulumi.StringPtrInput
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
 	AccountReplicationType pulumi.StringPtrInput
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringPtrInput
+	AccountType pulumi.StringPtrInput
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesPtrInput
 	// A `customDomain` block as documented below.
 	CustomDomain AccountCustomDomainPtrInput
+	// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
+	EnableAdvancedThreatProtection pulumi.BoolPtrInput
+	// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+	EnableBlobEncryption pulumi.BoolPtrInput
+	// Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+	EnableFileEncryption pulumi.BoolPtrInput
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
-	// for more information. Defaults to `true`.
+	// for more information.
 	EnableHttpsTrafficOnly pulumi.BoolPtrInput
 	// A `identity` block as defined below.
 	Identity AccountIdentityPtrInput
@@ -346,8 +369,6 @@ type AccountState struct {
 	SecondaryWebEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for web storage in the secondary location.
 	SecondaryWebHost pulumi.StringPtrInput
-	// A `staticWebsite` block as defined below.
-	StaticWebsite AccountStaticWebsitePtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -359,18 +380,27 @@ func (AccountState) ElementType() reflect.Type {
 type accountArgs struct {
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier *string `pulumi:"accessTier"`
-	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+	// The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
+	AccountEncryptionSource *string `pulumi:"accountEncryptionSource"`
+	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
 	AccountKind *string `pulumi:"accountKind"`
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
 	AccountReplicationType string `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier string `pulumi:"accountTier"`
+	AccountType *string `pulumi:"accountType"`
 	// A `blobProperties` block as defined below.
 	BlobProperties *AccountBlobProperties `pulumi:"blobProperties"`
 	// A `customDomain` block as documented below.
 	CustomDomain *AccountCustomDomain `pulumi:"customDomain"`
+	// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
+	EnableAdvancedThreatProtection *bool `pulumi:"enableAdvancedThreatProtection"`
+	// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+	EnableBlobEncryption *bool `pulumi:"enableBlobEncryption"`
+	// Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+	EnableFileEncryption *bool `pulumi:"enableFileEncryption"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
-	// for more information. Defaults to `true`.
+	// for more information.
 	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
 	// A `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
@@ -386,8 +416,6 @@ type accountArgs struct {
 	QueueProperties *AccountQueueProperties `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `staticWebsite` block as defined below.
-	StaticWebsite *AccountStaticWebsite `pulumi:"staticWebsite"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -396,18 +424,27 @@ type accountArgs struct {
 type AccountArgs struct {
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier pulumi.StringPtrInput
-	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+	// The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
+	AccountEncryptionSource pulumi.StringPtrInput
+	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
 	AccountKind pulumi.StringPtrInput
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
 	AccountReplicationType pulumi.StringInput
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringInput
+	AccountType pulumi.StringPtrInput
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesPtrInput
 	// A `customDomain` block as documented below.
 	CustomDomain AccountCustomDomainPtrInput
+	// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
+	EnableAdvancedThreatProtection pulumi.BoolPtrInput
+	// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+	EnableBlobEncryption pulumi.BoolPtrInput
+	// Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+	EnableFileEncryption pulumi.BoolPtrInput
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
-	// for more information. Defaults to `true`.
+	// for more information.
 	EnableHttpsTrafficOnly pulumi.BoolPtrInput
 	// A `identity` block as defined below.
 	Identity AccountIdentityPtrInput
@@ -423,8 +460,6 @@ type AccountArgs struct {
 	QueueProperties AccountQueuePropertiesPtrInput
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A `staticWebsite` block as defined below.
-	StaticWebsite AccountStaticWebsitePtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

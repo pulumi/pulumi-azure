@@ -94,6 +94,10 @@ namespace Pulumi.Azure.ApiManagement
         /// The SCM (Source Code Management) endpoint.
         /// </summary>
         public readonly string ScmUrl;
+        /// <summary>
+        /// A `sku` block as documented below.
+        /// </summary>
+        public readonly Outputs.GetServiceSkuResult Sku;
         public readonly string SkuName;
         /// <summary>
         /// A mapping of tags assigned to the resource.
@@ -120,6 +124,7 @@ namespace Pulumi.Azure.ApiManagement
             string publisherName,
             string resourceGroupName,
             string scmUrl,
+            Outputs.GetServiceSkuResult sku,
             string skuName,
             ImmutableDictionary<string, string> tags,
             string id)
@@ -138,6 +143,7 @@ namespace Pulumi.Azure.ApiManagement
             PublisherName = publisherName;
             ResourceGroupName = resourceGroupName;
             ScmUrl = scmUrl;
+            Sku = sku;
             SkuName = skuName;
             Tags = tags;
             Id = id;
@@ -324,6 +330,28 @@ namespace Pulumi.Azure.ApiManagement
             HostName = hostName;
             KeyVaultId = keyVaultId;
             NegotiateClientCertificate = negotiateClientCertificate;
+        }
+    }
+
+    [OutputType]
+    public sealed class GetServiceSkuResult
+    {
+        /// <summary>
+        /// Specifies the number of units associated with this API Management service.
+        /// </summary>
+        public readonly int Capacity;
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        public readonly string Name;
+
+        [OutputConstructor]
+        private GetServiceSkuResult(
+            int capacity,
+            string name)
+        {
+            Capacity = capacity;
+            Name = name;
         }
     }
     }

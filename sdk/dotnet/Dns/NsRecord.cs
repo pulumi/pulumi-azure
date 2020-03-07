@@ -28,7 +28,13 @@ namespace Pulumi.Azure.Dns
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of values that make up the NS record. 
+        /// A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
+        /// </summary>
+        [Output("record")]
+        public Output<ImmutableArray<Outputs.NsRecordRecord>> Record { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
         /// </summary>
         [Output("records")]
         public Output<ImmutableArray<string>> Records { get; private set; } = null!;
@@ -43,7 +49,7 @@ namespace Pulumi.Azure.Dns
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The Time To Live (TTL) of the DNS record in seconds.
@@ -109,11 +115,23 @@ namespace Pulumi.Azure.Dns
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("records", required: true)]
+        [Input("record")]
+        private InputList<Inputs.NsRecordRecordArgs>? _record;
+
+        /// <summary>
+        /// A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
+        /// </summary>
+        public InputList<Inputs.NsRecordRecordArgs> Record
+        {
+            get => _record ?? (_record = new InputList<Inputs.NsRecordRecordArgs>());
+            set => _record = value;
+        }
+
+        [Input("records")]
         private InputList<string>? _records;
 
         /// <summary>
-        /// A list of values that make up the NS record. 
+        /// A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
         /// </summary>
         public InputList<string> Records
         {
@@ -170,11 +188,23 @@ namespace Pulumi.Azure.Dns
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("record")]
+        private InputList<Inputs.NsRecordRecordGetArgs>? _record;
+
+        /// <summary>
+        /// A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
+        /// </summary>
+        public InputList<Inputs.NsRecordRecordGetArgs> Record
+        {
+            get => _record ?? (_record = new InputList<Inputs.NsRecordRecordGetArgs>());
+            set => _record = value;
+        }
+
         [Input("records")]
         private InputList<string>? _records;
 
         /// <summary>
-        /// A list of values that make up the NS record. 
+        /// A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
         /// </summary>
         public InputList<string> Records
         {
@@ -215,5 +245,45 @@ namespace Pulumi.Azure.Dns
         public NsRecordState()
         {
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class NsRecordRecordArgs : Pulumi.ResourceArgs
+    {
+        [Input("nsdname", required: true)]
+        public Input<string> Nsdname { get; set; } = null!;
+
+        public NsRecordRecordArgs()
+        {
+        }
+    }
+
+    public sealed class NsRecordRecordGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("nsdname", required: true)]
+        public Input<string> Nsdname { get; set; } = null!;
+
+        public NsRecordRecordGetArgs()
+        {
+        }
+    }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class NsRecordRecord
+    {
+        public readonly string Nsdname;
+
+        [OutputConstructor]
+        private NsRecordRecord(string nsdname)
+        {
+            Nsdname = nsdname;
+        }
+    }
     }
 }

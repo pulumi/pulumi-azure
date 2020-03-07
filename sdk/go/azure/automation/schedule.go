@@ -17,6 +17,7 @@ import (
 type Schedule struct {
 	pulumi.CustomResourceState
 
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
 	// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringOutput `pulumi:"automationAccountName"`
 	// A description for this Schedule.
@@ -46,9 +47,6 @@ type Schedule struct {
 // NewSchedule registers a new resource with the given unique name, arguments, and options.
 func NewSchedule(ctx *pulumi.Context,
 	name string, args *ScheduleArgs, opts ...pulumi.ResourceOption) (*Schedule, error) {
-	if args == nil || args.AutomationAccountName == nil {
-		return nil, errors.New("missing required argument 'AutomationAccountName'")
-	}
 	if args == nil || args.Frequency == nil {
 		return nil, errors.New("missing required argument 'Frequency'")
 	}
@@ -80,6 +78,7 @@ func GetSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Schedule resources.
 type scheduleState struct {
+	AccountName *string `pulumi:"accountName"`
 	// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
 	AutomationAccountName *string `pulumi:"automationAccountName"`
 	// A description for this Schedule.
@@ -107,6 +106,7 @@ type scheduleState struct {
 }
 
 type ScheduleState struct {
+	AccountName pulumi.StringPtrInput
 	// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringPtrInput
 	// A description for this Schedule.
@@ -138,8 +138,9 @@ func (ScheduleState) ElementType() reflect.Type {
 }
 
 type scheduleArgs struct {
+	AccountName *string `pulumi:"accountName"`
 	// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
-	AutomationAccountName string `pulumi:"automationAccountName"`
+	AutomationAccountName *string `pulumi:"automationAccountName"`
 	// A description for this Schedule.
 	Description *string `pulumi:"description"`
 	// The end time of the schedule.
@@ -166,8 +167,9 @@ type scheduleArgs struct {
 
 // The set of arguments for constructing a Schedule resource.
 type ScheduleArgs struct {
+	AccountName pulumi.StringPtrInput
 	// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
-	AutomationAccountName pulumi.StringInput
+	AutomationAccountName pulumi.StringPtrInput
 	// A description for this Schedule.
 	Description pulumi.StringPtrInput
 	// The end time of the schedule.

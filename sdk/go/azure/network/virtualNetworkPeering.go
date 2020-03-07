@@ -30,8 +30,8 @@ type VirtualNetworkPeering struct {
 	AllowGatewayTransit pulumi.BoolOutput `pulumi:"allowGatewayTransit"`
 	// Controls if the VMs in the remote
 	// virtual network can access VMs in the local virtual network. Defaults to
-	// true.
-	AllowVirtualNetworkAccess pulumi.BoolPtrOutput `pulumi:"allowVirtualNetworkAccess"`
+	// false.
+	AllowVirtualNetworkAccess pulumi.BoolOutput `pulumi:"allowVirtualNetworkAccess"`
 	// The name of the virtual network peering. Changing this
 	// forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -99,7 +99,7 @@ type virtualNetworkPeeringState struct {
 	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
 	// Controls if the VMs in the remote
 	// virtual network can access VMs in the local virtual network. Defaults to
-	// true.
+	// false.
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
 	// The name of the virtual network peering. Changing this
 	// forces a new resource to be created.
@@ -132,7 +132,7 @@ type VirtualNetworkPeeringState struct {
 	AllowGatewayTransit pulumi.BoolPtrInput
 	// Controls if the VMs in the remote
 	// virtual network can access VMs in the local virtual network. Defaults to
-	// true.
+	// false.
 	AllowVirtualNetworkAccess pulumi.BoolPtrInput
 	// The name of the virtual network peering. Changing this
 	// forces a new resource to be created.
@@ -169,7 +169,7 @@ type virtualNetworkPeeringArgs struct {
 	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
 	// Controls if the VMs in the remote
 	// virtual network can access VMs in the local virtual network. Defaults to
-	// true.
+	// false.
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
 	// The name of the virtual network peering. Changing this
 	// forces a new resource to be created.
@@ -203,7 +203,7 @@ type VirtualNetworkPeeringArgs struct {
 	AllowGatewayTransit pulumi.BoolPtrInput
 	// Controls if the VMs in the remote
 	// virtual network can access VMs in the local virtual network. Defaults to
-	// true.
+	// false.
 	AllowVirtualNetworkAccess pulumi.BoolPtrInput
 	// The name of the virtual network peering. Changing this
 	// forces a new resource to be created.

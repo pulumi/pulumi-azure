@@ -57,7 +57,7 @@ export class PtrRecord extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */

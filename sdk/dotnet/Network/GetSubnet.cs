@@ -59,6 +59,10 @@ namespace Pulumi.Azure.Network
         /// Enable or Disable network policies for the private link service on the subnet.
         /// </summary>
         public readonly bool EnforcePrivateLinkServiceNetworkPolicies;
+        /// <summary>
+        /// The collection of IP Configurations with IPs within this subnet.
+        /// </summary>
+        public readonly ImmutableArray<string> IpConfigurations;
         public readonly string Name;
         /// <summary>
         /// The ID of the Network Security Group associated with the subnet.
@@ -84,6 +88,7 @@ namespace Pulumi.Azure.Network
             string addressPrefix,
             bool enforcePrivateLinkEndpointNetworkPolicies,
             bool enforcePrivateLinkServiceNetworkPolicies,
+            ImmutableArray<string> ipConfigurations,
             string name,
             string networkSecurityGroupId,
             string resourceGroupName,
@@ -95,6 +100,7 @@ namespace Pulumi.Azure.Network
             AddressPrefix = addressPrefix;
             EnforcePrivateLinkEndpointNetworkPolicies = enforcePrivateLinkEndpointNetworkPolicies;
             EnforcePrivateLinkServiceNetworkPolicies = enforcePrivateLinkServiceNetworkPolicies;
+            IpConfigurations = ipConfigurations;
             Name = name;
             NetworkSecurityGroupId = networkSecurityGroupId;
             ResourceGroupName = resourceGroupName;

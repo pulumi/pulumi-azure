@@ -42,6 +42,7 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
     public readonly eventhubName!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
      */
@@ -72,6 +73,7 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as EventHubConsumerGroupState | undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
+            inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -88,6 +90,7 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eventhubName"] = args ? args.eventhubName : undefined;
+            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -112,6 +115,7 @@ export interface EventHubConsumerGroupState {
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
     readonly eventhubName?: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
      */
@@ -138,6 +142,7 @@ export interface EventHubConsumerGroupArgs {
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
     readonly eventhubName: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
      */

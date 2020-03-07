@@ -61,7 +61,7 @@ export class VirtualHub extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the Virtual Hub.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of a Virtual WAN within which the Virtual Hub should be created.
      */

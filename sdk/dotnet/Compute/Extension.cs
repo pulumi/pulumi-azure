@@ -28,6 +28,13 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> AutoUpgradeMinorVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The location where the extension is created. Changing
+        /// this forces a new resource to be created.
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the virtual machine extension peering. Changing
         /// this forces a new resource to be created.
         /// </summary>
@@ -49,6 +56,14 @@ namespace Pulumi.Azure.Compute
         public Output<string> Publisher { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the resource group in which to
+        /// create the virtual network. Changing this forces a new resource to be
+        /// created.
+        /// </summary>
+        [Output("resourceGroupName")]
+        public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
         /// The settings passed to the extension, these are
         /// specified as a JSON object in a string.
         /// </summary>
@@ -59,7 +74,7 @@ namespace Pulumi.Azure.Compute
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of extension, available types for a publisher can
@@ -76,10 +91,19 @@ namespace Pulumi.Azure.Compute
         public Output<string> TypeHandlerVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Virtual Machine. Changing this forces a new resource to be created
+        /// The resource ID of the virtual machine. This value replaces
+        /// `location`, `resource_group_name` and `virtual_machine_name`. Changing this forces a new
+        /// resource to be created
         /// </summary>
         [Output("virtualMachineId")]
         public Output<string> VirtualMachineId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual machine. Changing
+        /// this forces a new resource to be created.
+        /// </summary>
+        [Output("virtualMachineName")]
+        public Output<string> VirtualMachineName { get; private set; } = null!;
 
 
         /// <summary>
@@ -135,6 +159,13 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
 
         /// <summary>
+        /// The location where the extension is created. Changing
+        /// this forces a new resource to be created.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// The name of the virtual machine extension peering. Changing
         /// this forces a new resource to be created.
         /// </summary>
@@ -154,6 +185,14 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group in which to
+        /// create the virtual network. Changing this forces a new resource to be
+        /// created.
+        /// </summary>
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// The settings passed to the extension, these are
@@ -189,10 +228,19 @@ namespace Pulumi.Azure.Compute
         public Input<string> TypeHandlerVersion { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Virtual Machine. Changing this forces a new resource to be created
+        /// The resource ID of the virtual machine. This value replaces
+        /// `location`, `resource_group_name` and `virtual_machine_name`. Changing this forces a new
+        /// resource to be created
         /// </summary>
-        [Input("virtualMachineId", required: true)]
-        public Input<string> VirtualMachineId { get; set; } = null!;
+        [Input("virtualMachineId")]
+        public Input<string>? VirtualMachineId { get; set; }
+
+        /// <summary>
+        /// The name of the virtual machine. Changing
+        /// this forces a new resource to be created.
+        /// </summary>
+        [Input("virtualMachineName")]
+        public Input<string>? VirtualMachineName { get; set; }
 
         public ExtensionArgs()
         {
@@ -207,6 +255,13 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("autoUpgradeMinorVersion")]
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
+
+        /// <summary>
+        /// The location where the extension is created. Changing
+        /// this forces a new resource to be created.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the virtual machine extension peering. Changing
@@ -228,6 +283,14 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("publisher")]
         public Input<string>? Publisher { get; set; }
+
+        /// <summary>
+        /// The name of the resource group in which to
+        /// create the virtual network. Changing this forces a new resource to be
+        /// created.
+        /// </summary>
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// The settings passed to the extension, these are
@@ -263,10 +326,19 @@ namespace Pulumi.Azure.Compute
         public Input<string>? TypeHandlerVersion { get; set; }
 
         /// <summary>
-        /// The ID of the Virtual Machine. Changing this forces a new resource to be created
+        /// The resource ID of the virtual machine. This value replaces
+        /// `location`, `resource_group_name` and `virtual_machine_name`. Changing this forces a new
+        /// resource to be created
         /// </summary>
         [Input("virtualMachineId")]
         public Input<string>? VirtualMachineId { get; set; }
+
+        /// <summary>
+        /// The name of the virtual machine. Changing
+        /// this forces a new resource to be created.
+        /// </summary>
+        [Input("virtualMachineName")]
+        public Input<string>? VirtualMachineName { get; set; }
 
         public ExtensionState()
         {

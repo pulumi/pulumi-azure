@@ -95,7 +95,7 @@ export interface GetDatabaseResult {
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

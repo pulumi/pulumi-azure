@@ -44,7 +44,7 @@ class Program
             {
                 StorageAccountName = storageAccount.Name,
                 StorageContainerName = container.Name,
-                Type = "Block",
+                Type = "block",
                 Content = new FileArchive("wwwroot"),
             });
 

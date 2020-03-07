@@ -91,7 +91,7 @@ export interface GetManagedDiskResult {
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
     /**
      * A list of Availability Zones where the Managed Disk exists.
      */

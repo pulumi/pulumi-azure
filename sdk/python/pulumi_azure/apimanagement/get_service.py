@@ -13,7 +13,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, additional_locations=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, sku_name=None, tags=None, id=None):
+    def __init__(__self__, additional_locations=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, sku=None, sku_name=None, tags=None, id=None):
         if additional_locations and not isinstance(additional_locations, list):
             raise TypeError("Expected argument 'additional_locations' to be a list")
         __self__.additional_locations = additional_locations
@@ -95,6 +95,12 @@ class GetServiceResult:
         """
         The SCM (Source Code Management) endpoint.
         """
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        __self__.sku = sku
+        """
+        A `sku` block as documented below.
+        """
         if sku_name and not isinstance(sku_name, str):
             raise TypeError("Expected argument 'sku_name' to be a str")
         __self__.sku_name = sku_name
@@ -130,6 +136,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             publisher_name=self.publisher_name,
             resource_group_name=self.resource_group_name,
             scm_url=self.scm_url,
+            sku=self.sku,
             sku_name=self.sku_name,
             tags=self.tags,
             id=self.id)
@@ -168,6 +175,7 @@ def get_service(name=None,resource_group_name=None,opts=None):
         publisher_name=__ret__.get('publisherName'),
         resource_group_name=__ret__.get('resourceGroupName'),
         scm_url=__ret__.get('scmUrl'),
+        sku=__ret__.get('sku'),
         sku_name=__ret__.get('skuName'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

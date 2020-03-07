@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Waf
         /// A mapping of tags to assign to the Web Application Firewall Policy.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
 
         /// <summary>

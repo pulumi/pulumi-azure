@@ -85,7 +85,7 @@ export class HadoopCluster extends pulumi.CustomResource {
     /**
      * A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */

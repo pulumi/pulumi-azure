@@ -11,6 +11,118 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+type AccountSku struct {
+	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+}
+
+type AccountSkuInput interface {
+	pulumi.Input
+
+	ToAccountSkuOutput() AccountSkuOutput
+	ToAccountSkuOutputWithContext(context.Context) AccountSkuOutput
+}
+
+type AccountSkuArgs struct {
+	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (AccountSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountSku)(nil)).Elem()
+}
+
+func (i AccountSkuArgs) ToAccountSkuOutput() AccountSkuOutput {
+	return i.ToAccountSkuOutputWithContext(context.Background())
+}
+
+func (i AccountSkuArgs) ToAccountSkuOutputWithContext(ctx context.Context) AccountSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSkuOutput)
+}
+
+func (i AccountSkuArgs) ToAccountSkuPtrOutput() AccountSkuPtrOutput {
+	return i.ToAccountSkuPtrOutputWithContext(context.Background())
+}
+
+func (i AccountSkuArgs) ToAccountSkuPtrOutputWithContext(ctx context.Context) AccountSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSkuOutput).ToAccountSkuPtrOutputWithContext(ctx)
+}
+
+type AccountSkuPtrInput interface {
+	pulumi.Input
+
+	ToAccountSkuPtrOutput() AccountSkuPtrOutput
+	ToAccountSkuPtrOutputWithContext(context.Context) AccountSkuPtrOutput
+}
+
+type accountSkuPtrType AccountSkuArgs
+
+func AccountSkuPtr(v *AccountSkuArgs) AccountSkuPtrInput {	return (*accountSkuPtrType)(v)
+}
+
+func (*accountSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountSku)(nil)).Elem()
+}
+
+func (i *accountSkuPtrType) ToAccountSkuPtrOutput() AccountSkuPtrOutput {
+	return i.ToAccountSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *accountSkuPtrType) ToAccountSkuPtrOutputWithContext(ctx context.Context) AccountSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSkuPtrOutput)
+}
+
+type AccountSkuOutput struct { *pulumi.OutputState }
+
+func (AccountSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountSku)(nil)).Elem()
+}
+
+func (o AccountSkuOutput) ToAccountSkuOutput() AccountSkuOutput {
+	return o
+}
+
+func (o AccountSkuOutput) ToAccountSkuOutputWithContext(ctx context.Context) AccountSkuOutput {
+	return o
+}
+
+func (o AccountSkuOutput) ToAccountSkuPtrOutput() AccountSkuPtrOutput {
+	return o.ToAccountSkuPtrOutputWithContext(context.Background())
+}
+
+func (o AccountSkuOutput) ToAccountSkuPtrOutputWithContext(ctx context.Context) AccountSkuPtrOutput {
+	return o.ApplyT(func(v AccountSku) *AccountSku {
+		return &v
+	}).(AccountSkuPtrOutput)
+}
+// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+func (o AccountSkuOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AccountSku) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type AccountSkuPtrOutput struct { *pulumi.OutputState}
+
+func (AccountSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountSku)(nil)).Elem()
+}
+
+func (o AccountSkuPtrOutput) ToAccountSkuPtrOutput() AccountSkuPtrOutput {
+	return o
+}
+
+func (o AccountSkuPtrOutput) ToAccountSkuPtrOutputWithContext(ctx context.Context) AccountSkuPtrOutput {
+	return o
+}
+
+func (o AccountSkuPtrOutput) Elem() AccountSkuOutput {
+	return o.ApplyT(func (v *AccountSku) AccountSku { return *v }).(AccountSkuOutput)
+}
+
+// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+func (o AccountSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AccountSku) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
 type ModuleModuleLink struct {
 	Hash *ModuleModuleLinkHash `pulumi:"hash"`
 	// The uri of the module content (zip or nupkg).
@@ -594,6 +706,8 @@ func (o ScheduleMonthlyOccurrenceArrayOutput) Index(i pulumi.IntInput) ScheduleM
 }
 
 func init() {
+	pulumi.RegisterOutputType(AccountSkuOutput{})
+	pulumi.RegisterOutputType(AccountSkuPtrOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkPtrOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkHashOutput{})

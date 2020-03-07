@@ -43,6 +43,7 @@ class PublicIp(pulumi.CustomResource):
     Specifies the name of the Public IP resource . Changing this forces a
     new resource to be created.
     """
+    public_ip_address_allocation: pulumi.Output[str]
     public_ip_prefix_id: pulumi.Output[str]
     """
     If specified then public IP address allocated will be provided from the public IP prefix resource.
@@ -68,7 +69,7 @@ class PublicIp(pulumi.CustomResource):
     """
     A collection containing the availability zone to allocate the Public IP in.
     """
-    def __init__(__self__, resource_name, opts=None, allocation_method=None, domain_name_label=None, idle_timeout_in_minutes=None, ip_version=None, location=None, name=None, public_ip_prefix_id=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allocation_method=None, domain_name_label=None, idle_timeout_in_minutes=None, ip_version=None, location=None, name=None, public_ip_address_allocation=None, public_ip_prefix_id=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Public IP Address.
         
@@ -108,14 +109,13 @@ class PublicIp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if allocation_method is None:
-                raise TypeError("Missing required property 'allocation_method'")
             __props__['allocation_method'] = allocation_method
             __props__['domain_name_label'] = domain_name_label
             __props__['idle_timeout_in_minutes'] = idle_timeout_in_minutes
             __props__['ip_version'] = ip_version
             __props__['location'] = location
             __props__['name'] = name
+            __props__['public_ip_address_allocation'] = public_ip_address_allocation
             __props__['public_ip_prefix_id'] = public_ip_prefix_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -133,7 +133,7 @@ class PublicIp(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allocation_method=None, domain_name_label=None, fqdn=None, idle_timeout_in_minutes=None, ip_address=None, ip_version=None, location=None, name=None, public_ip_prefix_id=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None):
+    def get(resource_name, id, opts=None, allocation_method=None, domain_name_label=None, fqdn=None, idle_timeout_in_minutes=None, ip_address=None, ip_version=None, location=None, name=None, public_ip_address_allocation=None, public_ip_prefix_id=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None):
         """
         Get an existing PublicIp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -171,6 +171,7 @@ class PublicIp(pulumi.CustomResource):
         __props__["ip_version"] = ip_version
         __props__["location"] = location
         __props__["name"] = name
+        __props__["public_ip_address_allocation"] = public_ip_address_allocation
         __props__["public_ip_prefix_id"] = public_ip_prefix_id
         __props__["resource_group_name"] = resource_group_name
         __props__["reverse_fqdn"] = reverse_fqdn

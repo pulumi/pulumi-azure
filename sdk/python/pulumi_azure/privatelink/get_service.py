@@ -13,7 +13,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, alias=None, auto_approval_subscription_ids=None, enable_proxy_protocol=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configurations=None, resource_group_name=None, tags=None, visibility_subscription_ids=None, id=None):
+    def __init__(__self__, alias=None, auto_approval_subscription_ids=None, enable_proxy_protocol=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configurations=None, network_interface_ids=None, resource_group_name=None, tags=None, visibility_subscription_ids=None, id=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         __self__.alias = alias
@@ -56,6 +56,9 @@ class GetServiceResult:
         """
         The `nat_ip_configuration` block as defined below.
         """
+        if network_interface_ids and not isinstance(network_interface_ids, list):
+            raise TypeError("Expected argument 'network_interface_ids' to be a list")
+        __self__.network_interface_ids = network_interface_ids
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
@@ -90,6 +93,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             location=self.location,
             name=self.name,
             nat_ip_configurations=self.nat_ip_configurations,
+            network_interface_ids=self.network_interface_ids,
             resource_group_name=self.resource_group_name,
             tags=self.tags,
             visibility_subscription_ids=self.visibility_subscription_ids,
@@ -124,6 +128,7 @@ def get_service(name=None,resource_group_name=None,opts=None):
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         nat_ip_configurations=__ret__.get('natIpConfigurations'),
+        network_interface_ids=__ret__.get('networkInterfaceIds'),
         resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
         visibility_subscription_ids=__ret__.get('visibilitySubscriptionIds'),

@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Sql
         /// <summary>
         /// A mapping of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Sql
             bool readScale,
             string resourceGroupName,
             string serverName,
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
             string id)
         {
             Collation = collation;

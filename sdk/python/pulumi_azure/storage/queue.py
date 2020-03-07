@@ -18,11 +18,15 @@ class Queue(pulumi.CustomResource):
     """
     The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
     """
+    resource_group_name: pulumi.Output[str]
+    """
+    The name of the resource group in which to create the storage queue.
+    """
     storage_account_name: pulumi.Output[str]
     """
     Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, metadata=None, name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, metadata=None, name=None, resource_group_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Queue within an Azure Storage Account.
         
@@ -30,6 +34,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] metadata: A mapping of MetaData which should be assigned to this Storage Queue.
         :param pulumi.Input[str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage queue.
         :param pulumi.Input[str] storage_account_name: Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_queue.html.markdown.
@@ -53,6 +58,7 @@ class Queue(pulumi.CustomResource):
 
             __props__['metadata'] = metadata
             __props__['name'] = name
+            __props__['resource_group_name'] = resource_group_name
             if storage_account_name is None:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__['storage_account_name'] = storage_account_name
@@ -63,7 +69,7 @@ class Queue(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, metadata=None, name=None, storage_account_name=None):
+    def get(resource_name, id, opts=None, metadata=None, name=None, resource_group_name=None, storage_account_name=None):
         """
         Get an existing Queue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -73,6 +79,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] metadata: A mapping of MetaData which should be assigned to this Storage Queue.
         :param pulumi.Input[str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage queue.
         :param pulumi.Input[str] storage_account_name: Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_queue.html.markdown.
@@ -82,6 +89,7 @@ class Queue(pulumi.CustomResource):
         __props__ = dict()
         __props__["metadata"] = metadata
         __props__["name"] = name
+        __props__["resource_group_name"] = resource_group_name
         __props__["storage_account_name"] = storage_account_name
         return Queue(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

@@ -57,7 +57,7 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the availability zones in which the Azure Firewall should be created.
      */

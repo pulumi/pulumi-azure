@@ -27,6 +27,7 @@ class EventHub(pulumi.CustomResource):
       * `sizeLimitInBytes` (`float`)
       * `skipEmptyArchives` (`bool`)
     """
+    location: pulumi.Output[str]
     message_retention: pulumi.Output[float]
     """
     Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
@@ -51,7 +52,7 @@ class EventHub(pulumi.CustomResource):
     """
     The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, capture_description=None, message_retention=None, name=None, namespace_name=None, partition_count=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, capture_description=None, location=None, message_retention=None, name=None, namespace_name=None, partition_count=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Event Hubs as a nested resource within a Event Hubs namespace.
         
@@ -99,6 +100,7 @@ class EventHub(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['capture_description'] = capture_description
+            __props__['location'] = location
             if message_retention is None:
                 raise TypeError("Missing required property 'message_retention'")
             __props__['message_retention'] = message_retention
@@ -120,7 +122,7 @@ class EventHub(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, capture_description=None, message_retention=None, name=None, namespace_name=None, partition_count=None, partition_ids=None, resource_group_name=None):
+    def get(resource_name, id, opts=None, capture_description=None, location=None, message_retention=None, name=None, namespace_name=None, partition_count=None, partition_ids=None, resource_group_name=None):
         """
         Get an existing EventHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -157,6 +159,7 @@ class EventHub(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["capture_description"] = capture_description
+        __props__["location"] = location
         __props__["message_retention"] = message_retention
         __props__["name"] = name
         __props__["namespace_name"] = namespace_name

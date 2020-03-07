@@ -23,6 +23,9 @@ namespace Pulumi.Azure.ServiceBus
         [Output("autoDeleteOnIdle")]
         public Output<string> AutoDeleteOnIdle { get; private set; } = null!;
 
+        [Output("deadLetteringOnFilterEvaluationExceptions")]
+        public Output<bool?> DeadLetteringOnFilterEvaluationExceptions { get; private set; } = null!;
+
         /// <summary>
         /// Boolean flag which controls
         /// whether the Subscription has dead letter support when a message expires. Defaults
@@ -57,6 +60,13 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Output("forwardTo")]
         public Output<string?> ForwardTo { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the supported Azure location where the resource exists.
+        /// Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// The lock duration for the subscription, maximum
@@ -161,6 +171,9 @@ namespace Pulumi.Azure.ServiceBus
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
 
+        [Input("deadLetteringOnFilterEvaluationExceptions")]
+        public Input<bool>? DeadLetteringOnFilterEvaluationExceptions { get; set; }
+
         /// <summary>
         /// Boolean flag which controls
         /// whether the Subscription has dead letter support when a message expires. Defaults
@@ -195,6 +208,13 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("forwardTo")]
         public Input<string>? ForwardTo { get; set; }
+
+        /// <summary>
+        /// Specifies the supported Azure location where the resource exists.
+        /// Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The lock duration for the subscription, maximum
@@ -260,6 +280,9 @@ namespace Pulumi.Azure.ServiceBus
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
 
+        [Input("deadLetteringOnFilterEvaluationExceptions")]
+        public Input<bool>? DeadLetteringOnFilterEvaluationExceptions { get; set; }
+
         /// <summary>
         /// Boolean flag which controls
         /// whether the Subscription has dead letter support when a message expires. Defaults
@@ -294,6 +317,13 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("forwardTo")]
         public Input<string>? ForwardTo { get; set; }
+
+        /// <summary>
+        /// Specifies the supported Azure location where the resource exists.
+        /// Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The lock duration for the subscription, maximum

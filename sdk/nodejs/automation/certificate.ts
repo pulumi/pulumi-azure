@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -36,9 +38,6 @@ export class Certificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
-    /**
-     * The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
-     */
     public readonly automationAccountName!: pulumi.Output<string>;
     /**
      * Base64 encoded value of the certificate.
@@ -115,9 +114,6 @@ export class Certificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Certificate resources.
  */
 export interface CertificateState {
-    /**
-     * The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
-     */
     readonly automationAccountName?: pulumi.Input<string>;
     /**
      * Base64 encoded value of the certificate.
@@ -146,9 +142,6 @@ export interface CertificateState {
  * The set of arguments for constructing a Certificate resource.
  */
 export interface CertificateArgs {
-    /**
-     * The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
-     */
     readonly automationAccountName: pulumi.Input<string>;
     /**
      * Base64 encoded value of the certificate.

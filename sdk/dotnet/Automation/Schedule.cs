@@ -15,6 +15,9 @@ namespace Pulumi.Azure.Automation
     /// </summary>
     public partial class Schedule : Pulumi.CustomResource
     {
+        [Output("accountName")]
+        public Output<string> AccountName { get; private set; } = null!;
+
         /// <summary>
         /// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
         /// </summary>
@@ -133,11 +136,14 @@ namespace Pulumi.Azure.Automation
 
     public sealed class ScheduleArgs : Pulumi.ResourceArgs
     {
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
+
         /// <summary>
         /// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("automationAccountName", required: true)]
-        public Input<string> AutomationAccountName { get; set; } = null!;
+        [Input("automationAccountName")]
+        public Input<string>? AutomationAccountName { get; set; }
 
         /// <summary>
         /// A description for this Schedule.
@@ -230,6 +236,9 @@ namespace Pulumi.Azure.Automation
 
     public sealed class ScheduleState : Pulumi.ResourceArgs
     {
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
+
         /// <summary>
         /// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
         /// </summary>

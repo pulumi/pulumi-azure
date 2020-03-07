@@ -36,6 +36,10 @@ class EventHubNamespace(pulumi.CustomResource):
     """
     The secondary access key for the authorization rule `RootManageSharedAccessKey`.
     """
+    kafka_enabled: pulumi.Output[bool]
+    """
+    Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
+    """
     location: pulumi.Output[str]
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -53,7 +57,7 @@ class EventHubNamespace(pulumi.CustomResource):
     A `network_rulesets` block as defined below.
     
       * `defaultAction` (`str`)
-      * `ipRules` (`list`)
+      * `ipRule` (`dict`)
     
         * `action` (`str`)
         * `ipMask` (`str`)
@@ -75,7 +79,7 @@ class EventHubNamespace(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, auto_inflate_enabled=None, capacity=None, location=None, maximum_throughput_units=None, name=None, network_rulesets=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_inflate_enabled=None, capacity=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, network_rulesets=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EventHub Namespace.
         
@@ -83,6 +87,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
         :param pulumi.Input[float] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
+        :param pulumi.Input[bool] kafka_enabled: Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
@@ -94,7 +99,7 @@ class EventHubNamespace(pulumi.CustomResource):
         The **network_rulesets** object supports the following:
         
           * `defaultAction` (`pulumi.Input[str]`)
-          * `ipRules` (`pulumi.Input[list]`)
+          * `ipRule` (`pulumi.Input[dict]`)
         
             * `action` (`pulumi.Input[str]`)
             * `ipMask` (`pulumi.Input[str]`)
@@ -125,6 +130,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
             __props__['auto_inflate_enabled'] = auto_inflate_enabled
             __props__['capacity'] = capacity
+            __props__['kafka_enabled'] = kafka_enabled
             __props__['location'] = location
             __props__['maximum_throughput_units'] = maximum_throughput_units
             __props__['name'] = name
@@ -147,7 +153,7 @@ class EventHubNamespace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, location=None, maximum_throughput_units=None, name=None, network_rulesets=None, resource_group_name=None, sku=None, tags=None):
+    def get(resource_name, id, opts=None, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, network_rulesets=None, resource_group_name=None, sku=None, tags=None):
         """
         Get an existing EventHubNamespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -163,6 +169,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[str] default_secondary_connection_string: The secondary connection string for the
                authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
+        :param pulumi.Input[bool] kafka_enabled: Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
@@ -174,7 +181,7 @@ class EventHubNamespace(pulumi.CustomResource):
         The **network_rulesets** object supports the following:
         
           * `defaultAction` (`pulumi.Input[str]`)
-          * `ipRules` (`pulumi.Input[list]`)
+          * `ipRule` (`pulumi.Input[dict]`)
         
             * `action` (`pulumi.Input[str]`)
             * `ipMask` (`pulumi.Input[str]`)
@@ -195,6 +202,7 @@ class EventHubNamespace(pulumi.CustomResource):
         __props__["default_primary_key"] = default_primary_key
         __props__["default_secondary_connection_string"] = default_secondary_connection_string
         __props__["default_secondary_key"] = default_secondary_key
+        __props__["kafka_enabled"] = kafka_enabled
         __props__["location"] = location
         __props__["maximum_throughput_units"] = maximum_throughput_units
         __props__["name"] = name

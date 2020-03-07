@@ -11,6 +11,8 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Associates a Route Table with a Subnet within a Virtual Network.
     /// 
+    /// &gt; **NOTE:** Subnet `&lt;-&gt;` Route Table associations currently need to be configured on both this resource and using the `route_table_id` field on the `azure.network.Subnet` resource. The next major version of the AzureRM Provider (2.0) will remove the `route_table_id` field from the `azure.network.Subnet` resource such that this resource is used to link resources in future.
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_route_table_association.html.markdown.
     /// </summary>
     public partial class SubnetRouteTableAssociation : Pulumi.CustomResource

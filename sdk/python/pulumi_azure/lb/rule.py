@@ -51,6 +51,7 @@ class Rule(pulumi.CustomResource):
     """
     The ID of the Load Balancer in which to create the Rule.
     """
+    location: pulumi.Output[str]
     name: pulumi.Output[str]
     """
     Specifies the name of the LB Rule.
@@ -67,7 +68,7 @@ class Rule(pulumi.CustomResource):
     """
     The name of the resource group in which to create the resource.
     """
-    def __init__(__self__, resource_name, opts=None, backend_address_pool_id=None, backend_port=None, disable_outbound_snat=None, enable_floating_ip=None, enable_tcp_reset=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, name=None, probe_id=None, protocol=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, backend_address_pool_id=None, backend_port=None, disable_outbound_snat=None, enable_floating_ip=None, enable_tcp_reset=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, location=None, name=None, probe_id=None, protocol=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Load Balancer Rule.
         
@@ -127,6 +128,7 @@ class Rule(pulumi.CustomResource):
             if loadbalancer_id is None:
                 raise TypeError("Missing required property 'loadbalancer_id'")
             __props__['loadbalancer_id'] = loadbalancer_id
+            __props__['location'] = location
             __props__['name'] = name
             __props__['probe_id'] = probe_id
             if protocol is None:
@@ -143,7 +145,7 @@ class Rule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, backend_address_pool_id=None, backend_port=None, disable_outbound_snat=None, enable_floating_ip=None, enable_tcp_reset=None, frontend_ip_configuration_id=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, name=None, probe_id=None, protocol=None, resource_group_name=None):
+    def get(resource_name, id, opts=None, backend_address_pool_id=None, backend_port=None, disable_outbound_snat=None, enable_floating_ip=None, enable_tcp_reset=None, frontend_ip_configuration_id=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, location=None, name=None, probe_id=None, protocol=None, resource_group_name=None):
         """
         Get an existing Rule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -182,6 +184,7 @@ class Rule(pulumi.CustomResource):
         __props__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
         __props__["load_distribution"] = load_distribution
         __props__["loadbalancer_id"] = loadbalancer_id
+        __props__["location"] = location
         __props__["name"] = name
         __props__["probe_id"] = probe_id
         __props__["protocol"] = protocol

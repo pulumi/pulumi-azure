@@ -109,11 +109,7 @@ class Database(pulumi.CustomResource):
       * `storage_endpoint` (`str`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
       * `useServerDefault` (`str`) - Should the default server policy be used? Defaults to `Disabled`.
     """
-    zone_redundant: pulumi.Output[bool]
-    """
-    Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
-    """
-    def __init__(__self__, resource_name, opts=None, collation=None, create_mode=None, edition=None, elastic_pool_name=None, import_=None, location=None, max_size_bytes=None, name=None, read_scale=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None, threat_detection_policy=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, collation=None, create_mode=None, edition=None, elastic_pool_name=None, import_=None, location=None, max_size_bytes=None, name=None, read_scale=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None, threat_detection_policy=None, __props__=None, __name__=None, __opts__=None):
         """
         Allows you to manage an Azure SQL Database
         
@@ -138,7 +134,6 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] source_database_id: The URI of the source database if `create_mode` value is not `Default`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
-        :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         
         The **import_** object supports the following:
         
@@ -202,7 +197,6 @@ class Database(pulumi.CustomResource):
             __props__['source_database_id'] = source_database_id
             __props__['tags'] = tags
             __props__['threat_detection_policy'] = threat_detection_policy
-            __props__['zone_redundant'] = zone_redundant
             __props__['creation_date'] = None
             __props__['default_secondary_location'] = None
             __props__['encryption'] = None
@@ -213,7 +207,7 @@ class Database(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, collation=None, create_mode=None, creation_date=None, default_secondary_location=None, edition=None, elastic_pool_name=None, encryption=None, import_=None, location=None, max_size_bytes=None, name=None, read_scale=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None, threat_detection_policy=None, zone_redundant=None):
+    def get(resource_name, id, opts=None, collation=None, create_mode=None, creation_date=None, default_secondary_location=None, edition=None, elastic_pool_name=None, encryption=None, import_=None, location=None, max_size_bytes=None, name=None, read_scale=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None, threat_detection_policy=None):
         """
         Get an existing Database resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -242,7 +236,6 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] source_database_id: The URI of the source database if `create_mode` value is not `Default`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
-        :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         
         The **import_** object supports the following:
         
@@ -291,7 +284,6 @@ class Database(pulumi.CustomResource):
         __props__["source_database_id"] = source_database_id
         __props__["tags"] = tags
         __props__["threat_detection_policy"] = threat_detection_policy
-        __props__["zone_redundant"] = zone_redundant
         return Database(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

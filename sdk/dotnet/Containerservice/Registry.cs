@@ -73,10 +73,13 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+        /// The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
+
+        [Output("storageAccount")]
+        public Output<Outputs.RegistryStorageAccount?> StorageAccount { get; private set; } = null!;
 
         /// <summary>
         /// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
@@ -88,7 +91,7 @@ namespace Pulumi.Azure.ContainerService
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -179,10 +182,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+        /// The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
+
+        [Input("storageAccount")]
+        public Input<Inputs.RegistryStorageAccountArgs>? StorageAccount { get; set; }
 
         /// <summary>
         /// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
@@ -270,10 +276,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+        /// The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
+
+        [Input("storageAccount")]
+        public Input<Inputs.RegistryStorageAccountGetArgs>? StorageAccount { get; set; }
 
         /// <summary>
         /// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
@@ -450,6 +459,38 @@ namespace Pulumi.Azure.ContainerService
         {
         }
     }
+
+    public sealed class RegistryStorageAccountArgs : Pulumi.ResourceArgs
+    {
+        [Input("accessKey", required: true)]
+        public Input<string> AccessKey { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public RegistryStorageAccountArgs()
+        {
+        }
+    }
+
+    public sealed class RegistryStorageAccountGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("accessKey", required: true)]
+        public Input<string> AccessKey { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public RegistryStorageAccountGetArgs()
+        {
+        }
+    }
     }
 
     namespace Outputs
@@ -524,6 +565,25 @@ namespace Pulumi.Azure.ContainerService
         {
             Action = action;
             SubnetId = subnetId;
+        }
+    }
+
+    [OutputType]
+    public sealed class RegistryStorageAccount
+    {
+        public readonly string AccessKey;
+        /// <summary>
+        /// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string Name;
+
+        [OutputConstructor]
+        private RegistryStorageAccount(
+            string accessKey,
+            string name)
+        {
+            AccessKey = accessKey;
+            Name = name;
         }
     }
     }

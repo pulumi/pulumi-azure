@@ -72,6 +72,7 @@ export class NatRule extends pulumi.CustomResource {
      * The ID of the Load Balancer in which to create the NAT Rule.
      */
     public readonly loadbalancerId!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the NAT Rule.
      */
@@ -106,6 +107,7 @@ export class NatRule extends pulumi.CustomResource {
             inputs["frontendPort"] = state ? state.frontendPort : undefined;
             inputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
             inputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
+            inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["protocol"] = state ? state.protocol : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -136,6 +138,7 @@ export class NatRule extends pulumi.CustomResource {
             inputs["frontendPort"] = args ? args.frontendPort : undefined;
             inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
             inputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
+            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["protocol"] = args ? args.protocol : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -187,6 +190,7 @@ export interface NatRuleState {
      * The ID of the Load Balancer in which to create the NAT Rule.
      */
     readonly loadbalancerId?: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the NAT Rule.
      */
@@ -233,6 +237,7 @@ export interface NatRuleArgs {
      * The ID of the Load Balancer in which to create the NAT Rule.
      */
     readonly loadbalancerId: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the NAT Rule.
      */

@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Iot
         /// The service endpoint of the IoT Device Provisioning Service.
         /// </summary>
         public readonly string ServiceOperationsHostName;
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Iot
             string name,
             string resourceGroupName,
             string serviceOperationsHostName,
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
             string id)
         {
             AllocationPolicy = allocationPolicy;

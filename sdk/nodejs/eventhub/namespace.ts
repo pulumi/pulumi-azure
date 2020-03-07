@@ -81,7 +81,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
      */

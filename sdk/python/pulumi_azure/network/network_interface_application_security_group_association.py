@@ -14,17 +14,22 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
     """
     The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
     """
+    ip_configuration_name: pulumi.Output[str]
+    """
+    The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
+    """
     network_interface_id: pulumi.Output[str]
     """
     The ID of the Network Interface. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, application_security_group_id=None, network_interface_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, application_security_group_id=None, ip_configuration_name=None, network_interface_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages the association between a Network Interface and a Application Security Group.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_security_group_id: The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ip_configuration_name: The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_application_security_group_association.html.markdown.
@@ -49,6 +54,9 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
             if application_security_group_id is None:
                 raise TypeError("Missing required property 'application_security_group_id'")
             __props__['application_security_group_id'] = application_security_group_id
+            if ip_configuration_name is None:
+                raise TypeError("Missing required property 'ip_configuration_name'")
+            __props__['ip_configuration_name'] = ip_configuration_name
             if network_interface_id is None:
                 raise TypeError("Missing required property 'network_interface_id'")
             __props__['network_interface_id'] = network_interface_id
@@ -59,7 +67,7 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, application_security_group_id=None, network_interface_id=None):
+    def get(resource_name, id, opts=None, application_security_group_id=None, ip_configuration_name=None, network_interface_id=None):
         """
         Get an existing NetworkInterfaceApplicationSecurityGroupAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -68,6 +76,7 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_security_group_id: The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ip_configuration_name: The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_application_security_group_association.html.markdown.
@@ -76,6 +85,7 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
 
         __props__ = dict()
         __props__["application_security_group_id"] = application_security_group_id
+        __props__["ip_configuration_name"] = ip_configuration_name
         __props__["network_interface_id"] = network_interface_id
         return NetworkInterfaceApplicationSecurityGroupAssociation(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

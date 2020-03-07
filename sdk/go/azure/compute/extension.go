@@ -25,6 +25,9 @@ type Extension struct {
 	// Specifies if the platform deploys
 	// the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion pulumi.BoolPtrOutput `pulumi:"autoUpgradeMinorVersion"`
+	// The location where the extension is created. Changing
+	// this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -34,6 +37,10 @@ type Extension struct {
 	// The publisher of the extension, available publishers
 	// can be found by using the Azure CLI.
 	Publisher pulumi.StringOutput `pulumi:"publisher"`
+	// The name of the resource group in which to
+	// create the virtual network. Changing this forces a new resource to be
+	// created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The settings passed to the extension, these are
 	// specified as a JSON object in a string.
 	Settings pulumi.StringPtrOutput `pulumi:"settings"`
@@ -45,8 +52,13 @@ type Extension struct {
 	// Specifies the version of the extension to
 	// use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringOutput `pulumi:"typeHandlerVersion"`
-	// The ID of the Virtual Machine. Changing this forces a new resource to be created
+	// The resource ID of the virtual machine. This value replaces
+	// `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
+	// resource to be created
 	VirtualMachineId pulumi.StringOutput `pulumi:"virtualMachineId"`
+	// The name of the virtual machine. Changing
+	// this forces a new resource to be created.
+	VirtualMachineName pulumi.StringOutput `pulumi:"virtualMachineName"`
 }
 
 // NewExtension registers a new resource with the given unique name, arguments, and options.
@@ -60,9 +72,6 @@ func NewExtension(ctx *pulumi.Context,
 	}
 	if args == nil || args.TypeHandlerVersion == nil {
 		return nil, errors.New("missing required argument 'TypeHandlerVersion'")
-	}
-	if args == nil || args.VirtualMachineId == nil {
-		return nil, errors.New("missing required argument 'VirtualMachineId'")
 	}
 	if args == nil {
 		args = &ExtensionArgs{}
@@ -92,6 +101,9 @@ type extensionState struct {
 	// Specifies if the platform deploys
 	// the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// The location where the extension is created. Changing
+	// this forces a new resource to be created.
+	Location *string `pulumi:"location"`
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -101,6 +113,10 @@ type extensionState struct {
 	// The publisher of the extension, available publishers
 	// can be found by using the Azure CLI.
 	Publisher *string `pulumi:"publisher"`
+	// The name of the resource group in which to
+	// create the virtual network. Changing this forces a new resource to be
+	// created.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The settings passed to the extension, these are
 	// specified as a JSON object in a string.
 	Settings *string `pulumi:"settings"`
@@ -112,14 +128,22 @@ type extensionState struct {
 	// Specifies the version of the extension to
 	// use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
-	// The ID of the Virtual Machine. Changing this forces a new resource to be created
+	// The resource ID of the virtual machine. This value replaces
+	// `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
+	// resource to be created
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
+	// The name of the virtual machine. Changing
+	// this forces a new resource to be created.
+	VirtualMachineName *string `pulumi:"virtualMachineName"`
 }
 
 type ExtensionState struct {
 	// Specifies if the platform deploys
 	// the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
+	// The location where the extension is created. Changing
+	// this forces a new resource to be created.
+	Location pulumi.StringPtrInput
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -129,6 +153,10 @@ type ExtensionState struct {
 	// The publisher of the extension, available publishers
 	// can be found by using the Azure CLI.
 	Publisher pulumi.StringPtrInput
+	// The name of the resource group in which to
+	// create the virtual network. Changing this forces a new resource to be
+	// created.
+	ResourceGroupName pulumi.StringPtrInput
 	// The settings passed to the extension, these are
 	// specified as a JSON object in a string.
 	Settings pulumi.StringPtrInput
@@ -140,8 +168,13 @@ type ExtensionState struct {
 	// Specifies the version of the extension to
 	// use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringPtrInput
-	// The ID of the Virtual Machine. Changing this forces a new resource to be created
+	// The resource ID of the virtual machine. This value replaces
+	// `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
+	// resource to be created
 	VirtualMachineId pulumi.StringPtrInput
+	// The name of the virtual machine. Changing
+	// this forces a new resource to be created.
+	VirtualMachineName pulumi.StringPtrInput
 }
 
 func (ExtensionState) ElementType() reflect.Type {
@@ -152,6 +185,9 @@ type extensionArgs struct {
 	// Specifies if the platform deploys
 	// the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// The location where the extension is created. Changing
+	// this forces a new resource to be created.
+	Location *string `pulumi:"location"`
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -161,6 +197,10 @@ type extensionArgs struct {
 	// The publisher of the extension, available publishers
 	// can be found by using the Azure CLI.
 	Publisher string `pulumi:"publisher"`
+	// The name of the resource group in which to
+	// create the virtual network. Changing this forces a new resource to be
+	// created.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The settings passed to the extension, these are
 	// specified as a JSON object in a string.
 	Settings *string `pulumi:"settings"`
@@ -172,8 +212,13 @@ type extensionArgs struct {
 	// Specifies the version of the extension to
 	// use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
-	// The ID of the Virtual Machine. Changing this forces a new resource to be created
-	VirtualMachineId string `pulumi:"virtualMachineId"`
+	// The resource ID of the virtual machine. This value replaces
+	// `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
+	// resource to be created
+	VirtualMachineId *string `pulumi:"virtualMachineId"`
+	// The name of the virtual machine. Changing
+	// this forces a new resource to be created.
+	VirtualMachineName *string `pulumi:"virtualMachineName"`
 }
 
 // The set of arguments for constructing a Extension resource.
@@ -181,6 +226,9 @@ type ExtensionArgs struct {
 	// Specifies if the platform deploys
 	// the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
+	// The location where the extension is created. Changing
+	// this forces a new resource to be created.
+	Location pulumi.StringPtrInput
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -190,6 +238,10 @@ type ExtensionArgs struct {
 	// The publisher of the extension, available publishers
 	// can be found by using the Azure CLI.
 	Publisher pulumi.StringInput
+	// The name of the resource group in which to
+	// create the virtual network. Changing this forces a new resource to be
+	// created.
+	ResourceGroupName pulumi.StringPtrInput
 	// The settings passed to the extension, these are
 	// specified as a JSON object in a string.
 	Settings pulumi.StringPtrInput
@@ -201,8 +253,13 @@ type ExtensionArgs struct {
 	// Specifies the version of the extension to
 	// use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringInput
-	// The ID of the Virtual Machine. Changing this forces a new resource to be created
-	VirtualMachineId pulumi.StringInput
+	// The resource ID of the virtual machine. This value replaces
+	// `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
+	// resource to be created
+	VirtualMachineId pulumi.StringPtrInput
+	// The name of the virtual machine. Changing
+	// this forces a new resource to be created.
+	VirtualMachineName pulumi.StringPtrInput
 }
 
 func (ExtensionArgs) ElementType() reflect.Type {

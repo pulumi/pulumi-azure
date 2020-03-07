@@ -29,6 +29,8 @@ type Account struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// ) A `sku` block as described below.
+	Sku AccountSkuOutput `pulumi:"sku"`
 	// The SKU name of the account - only `Basic` is supported at this time.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
@@ -40,9 +42,6 @@ func NewAccount(ctx *pulumi.Context,
 	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SkuName == nil {
-		return nil, errors.New("missing required argument 'SkuName'")
 	}
 	if args == nil {
 		args = &AccountArgs{}
@@ -81,6 +80,8 @@ type accountState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// ) A `sku` block as described below.
+	Sku *AccountSku `pulumi:"sku"`
 	// The SKU name of the account - only `Basic` is supported at this time.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
@@ -100,6 +101,8 @@ type AccountState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// ) A `sku` block as described below.
+	Sku AccountSkuPtrInput
 	// The SKU name of the account - only `Basic` is supported at this time.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -117,8 +120,10 @@ type accountArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// ) A `sku` block as described below.
+	Sku *AccountSku `pulumi:"sku"`
 	// The SKU name of the account - only `Basic` is supported at this time.
-	SkuName string `pulumi:"skuName"`
+	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -131,8 +136,10 @@ type AccountArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// ) A `sku` block as described below.
+	Sku AccountSkuPtrInput
 	// The SKU name of the account - only `Basic` is supported at this time.
-	SkuName pulumi.StringInput
+	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

@@ -11,6 +11,174 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+type LinkEndpointPrivateServiceConnection struct {
+	// Does the Private Link Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
+	IsManualConnection bool `pulumi:"isManualConnection"`
+	// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The ID of the Private Link Enabled Remote Resource which this Private Link Endpoint should be connected to. Changing this forces a new resource to be created.
+	PrivateConnectionResourceId string `pulumi:"privateConnectionResourceId"`
+	// A message passed to the owner of the remote resource when the private link endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
+	RequestMessage *string `pulumi:"requestMessage"`
+	// A list of subresource names which the Private Link Endpoint is able to connect to. Changing this forces a new resource to be created.
+	SubresourceNames []string `pulumi:"subresourceNames"`
+}
+
+type LinkEndpointPrivateServiceConnectionInput interface {
+	pulumi.Input
+
+	ToLinkEndpointPrivateServiceConnectionOutput() LinkEndpointPrivateServiceConnectionOutput
+	ToLinkEndpointPrivateServiceConnectionOutputWithContext(context.Context) LinkEndpointPrivateServiceConnectionOutput
+}
+
+type LinkEndpointPrivateServiceConnectionArgs struct {
+	// Does the Private Link Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
+	IsManualConnection pulumi.BoolInput `pulumi:"isManualConnection"`
+	// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the Private Link Enabled Remote Resource which this Private Link Endpoint should be connected to. Changing this forces a new resource to be created.
+	PrivateConnectionResourceId pulumi.StringInput `pulumi:"privateConnectionResourceId"`
+	// A message passed to the owner of the remote resource when the private link endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
+	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
+	// A list of subresource names which the Private Link Endpoint is able to connect to. Changing this forces a new resource to be created.
+	SubresourceNames pulumi.StringArrayInput `pulumi:"subresourceNames"`
+}
+
+func (LinkEndpointPrivateServiceConnectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkEndpointPrivateServiceConnection)(nil)).Elem()
+}
+
+func (i LinkEndpointPrivateServiceConnectionArgs) ToLinkEndpointPrivateServiceConnectionOutput() LinkEndpointPrivateServiceConnectionOutput {
+	return i.ToLinkEndpointPrivateServiceConnectionOutputWithContext(context.Background())
+}
+
+func (i LinkEndpointPrivateServiceConnectionArgs) ToLinkEndpointPrivateServiceConnectionOutputWithContext(ctx context.Context) LinkEndpointPrivateServiceConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkEndpointPrivateServiceConnectionOutput)
+}
+
+func (i LinkEndpointPrivateServiceConnectionArgs) ToLinkEndpointPrivateServiceConnectionPtrOutput() LinkEndpointPrivateServiceConnectionPtrOutput {
+	return i.ToLinkEndpointPrivateServiceConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i LinkEndpointPrivateServiceConnectionArgs) ToLinkEndpointPrivateServiceConnectionPtrOutputWithContext(ctx context.Context) LinkEndpointPrivateServiceConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkEndpointPrivateServiceConnectionOutput).ToLinkEndpointPrivateServiceConnectionPtrOutputWithContext(ctx)
+}
+
+type LinkEndpointPrivateServiceConnectionPtrInput interface {
+	pulumi.Input
+
+	ToLinkEndpointPrivateServiceConnectionPtrOutput() LinkEndpointPrivateServiceConnectionPtrOutput
+	ToLinkEndpointPrivateServiceConnectionPtrOutputWithContext(context.Context) LinkEndpointPrivateServiceConnectionPtrOutput
+}
+
+type linkEndpointPrivateServiceConnectionPtrType LinkEndpointPrivateServiceConnectionArgs
+
+func LinkEndpointPrivateServiceConnectionPtr(v *LinkEndpointPrivateServiceConnectionArgs) LinkEndpointPrivateServiceConnectionPtrInput {	return (*linkEndpointPrivateServiceConnectionPtrType)(v)
+}
+
+func (*linkEndpointPrivateServiceConnectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkEndpointPrivateServiceConnection)(nil)).Elem()
+}
+
+func (i *linkEndpointPrivateServiceConnectionPtrType) ToLinkEndpointPrivateServiceConnectionPtrOutput() LinkEndpointPrivateServiceConnectionPtrOutput {
+	return i.ToLinkEndpointPrivateServiceConnectionPtrOutputWithContext(context.Background())
+}
+
+func (i *linkEndpointPrivateServiceConnectionPtrType) ToLinkEndpointPrivateServiceConnectionPtrOutputWithContext(ctx context.Context) LinkEndpointPrivateServiceConnectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkEndpointPrivateServiceConnectionPtrOutput)
+}
+
+type LinkEndpointPrivateServiceConnectionOutput struct { *pulumi.OutputState }
+
+func (LinkEndpointPrivateServiceConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkEndpointPrivateServiceConnection)(nil)).Elem()
+}
+
+func (o LinkEndpointPrivateServiceConnectionOutput) ToLinkEndpointPrivateServiceConnectionOutput() LinkEndpointPrivateServiceConnectionOutput {
+	return o
+}
+
+func (o LinkEndpointPrivateServiceConnectionOutput) ToLinkEndpointPrivateServiceConnectionOutputWithContext(ctx context.Context) LinkEndpointPrivateServiceConnectionOutput {
+	return o
+}
+
+func (o LinkEndpointPrivateServiceConnectionOutput) ToLinkEndpointPrivateServiceConnectionPtrOutput() LinkEndpointPrivateServiceConnectionPtrOutput {
+	return o.ToLinkEndpointPrivateServiceConnectionPtrOutputWithContext(context.Background())
+}
+
+func (o LinkEndpointPrivateServiceConnectionOutput) ToLinkEndpointPrivateServiceConnectionPtrOutputWithContext(ctx context.Context) LinkEndpointPrivateServiceConnectionPtrOutput {
+	return o.ApplyT(func(v LinkEndpointPrivateServiceConnection) *LinkEndpointPrivateServiceConnection {
+		return &v
+	}).(LinkEndpointPrivateServiceConnectionPtrOutput)
+}
+// Does the Private Link Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
+func (o LinkEndpointPrivateServiceConnectionOutput) IsManualConnection() pulumi.BoolOutput {
+	return o.ApplyT(func (v LinkEndpointPrivateServiceConnection) bool { return v.IsManualConnection }).(pulumi.BoolOutput)
+}
+
+// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+func (o LinkEndpointPrivateServiceConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func (v LinkEndpointPrivateServiceConnection) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the Private Link Enabled Remote Resource which this Private Link Endpoint should be connected to. Changing this forces a new resource to be created.
+func (o LinkEndpointPrivateServiceConnectionOutput) PrivateConnectionResourceId() pulumi.StringOutput {
+	return o.ApplyT(func (v LinkEndpointPrivateServiceConnection) string { return v.PrivateConnectionResourceId }).(pulumi.StringOutput)
+}
+
+// A message passed to the owner of the remote resource when the private link endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
+func (o LinkEndpointPrivateServiceConnectionOutput) RequestMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v LinkEndpointPrivateServiceConnection) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
+}
+
+// A list of subresource names which the Private Link Endpoint is able to connect to. Changing this forces a new resource to be created.
+func (o LinkEndpointPrivateServiceConnectionOutput) SubresourceNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v LinkEndpointPrivateServiceConnection) []string { return v.SubresourceNames }).(pulumi.StringArrayOutput)
+}
+
+type LinkEndpointPrivateServiceConnectionPtrOutput struct { *pulumi.OutputState}
+
+func (LinkEndpointPrivateServiceConnectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkEndpointPrivateServiceConnection)(nil)).Elem()
+}
+
+func (o LinkEndpointPrivateServiceConnectionPtrOutput) ToLinkEndpointPrivateServiceConnectionPtrOutput() LinkEndpointPrivateServiceConnectionPtrOutput {
+	return o
+}
+
+func (o LinkEndpointPrivateServiceConnectionPtrOutput) ToLinkEndpointPrivateServiceConnectionPtrOutputWithContext(ctx context.Context) LinkEndpointPrivateServiceConnectionPtrOutput {
+	return o
+}
+
+func (o LinkEndpointPrivateServiceConnectionPtrOutput) Elem() LinkEndpointPrivateServiceConnectionOutput {
+	return o.ApplyT(func (v *LinkEndpointPrivateServiceConnection) LinkEndpointPrivateServiceConnection { return *v }).(LinkEndpointPrivateServiceConnectionOutput)
+}
+
+// Does the Private Link Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
+func (o LinkEndpointPrivateServiceConnectionPtrOutput) IsManualConnection() pulumi.BoolOutput {
+	return o.ApplyT(func (v LinkEndpointPrivateServiceConnection) bool { return v.IsManualConnection }).(pulumi.BoolOutput)
+}
+
+// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+func (o LinkEndpointPrivateServiceConnectionPtrOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func (v LinkEndpointPrivateServiceConnection) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the Private Link Enabled Remote Resource which this Private Link Endpoint should be connected to. Changing this forces a new resource to be created.
+func (o LinkEndpointPrivateServiceConnectionPtrOutput) PrivateConnectionResourceId() pulumi.StringOutput {
+	return o.ApplyT(func (v LinkEndpointPrivateServiceConnection) string { return v.PrivateConnectionResourceId }).(pulumi.StringOutput)
+}
+
+// A message passed to the owner of the remote resource when the private link endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
+func (o LinkEndpointPrivateServiceConnectionPtrOutput) RequestMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v LinkEndpointPrivateServiceConnection) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
+}
+
+// A list of subresource names which the Private Link Endpoint is able to connect to. Changing this forces a new resource to be created.
+func (o LinkEndpointPrivateServiceConnectionPtrOutput) SubresourceNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v LinkEndpointPrivateServiceConnection) []string { return v.SubresourceNames }).(pulumi.StringArrayOutput)
+}
+
 type LinkServiceNatIpConfiguration struct {
 	// Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
@@ -321,6 +489,8 @@ func (o SRVRecordRecordArrayOutput) Index(i pulumi.IntInput) SRVRecordRecordOutp
 }
 
 func init() {
+	pulumi.RegisterOutputType(LinkEndpointPrivateServiceConnectionOutput{})
+	pulumi.RegisterOutputType(LinkEndpointPrivateServiceConnectionPtrOutput{})
 	pulumi.RegisterOutputType(LinkServiceNatIpConfigurationOutput{})
 	pulumi.RegisterOutputType(LinkServiceNatIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(MxRecordRecordOutput{})

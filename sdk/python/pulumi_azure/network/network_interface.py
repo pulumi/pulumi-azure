@@ -12,29 +12,34 @@ from .. import utilities, tables
 class NetworkInterface(pulumi.CustomResource):
     applied_dns_servers: pulumi.Output[list]
     """
-    If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
+    If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set
     """
     dns_servers: pulumi.Output[list]
     """
-    A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+    List of DNS servers IP addresses to use for this NIC, overrides the VNet-level server list
     """
     enable_accelerated_networking: pulumi.Output[bool]
     """
-    Should Accelerated Networking be enabled? Defaults to `false`.
+    Enables Azure Accelerated Networking using SR-IOV. Only certain VM instance sizes are supported. Refer to [Create a Virtual Machine with Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Defaults to `false`.
     """
     enable_ip_forwarding: pulumi.Output[bool]
     """
-    Should IP Forwarding be enabled? Defaults to `false`.
+    Enables IP Forwarding on the NIC. Defaults to `false`.
     """
     internal_dns_name_label: pulumi.Output[str]
     """
-    The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
+    Relative DNS name for this NIC used for internal communications between VMs in the same VNet
     """
+    internal_fqdn: pulumi.Output[str]
     ip_configurations: pulumi.Output[list]
     """
-    One or more `ip_configuration` blocks as defined below.
+    One or more `ip_configuration` associated with this NIC as documented below.
     
-      * `name` (`str`) - The name of the Network Interface. Changing this forces a new resource to be created.
+      * `applicationGatewayBackendAddressPoolsIds` (`list`)
+      * `applicationSecurityGroupIds` (`list`)
+      * `loadBalancerBackendAddressPoolsIds` (`list`)
+      * `loadBalancerInboundNatRulesIds` (`list`)
+      * `name` (`str`) - The name of the network interface. Changing this forces a new resource to be created.
       * `primary` (`bool`)
       * `private_ip_address` (`str`) - The first private IP address of the network interface.
       * `privateIpAddressAllocation` (`str`)
@@ -44,15 +49,19 @@ class NetworkInterface(pulumi.CustomResource):
     """
     location: pulumi.Output[str]
     """
-    The location where the Network Interface should exist. Changing this forces a new resource to be created.
+    The location/region where the network interface is created. Changing this forces a new resource to be created.
     """
     mac_address: pulumi.Output[str]
     """
-    The Media Access Control (MAC) Address of the Network Interface.
+    The media access control (MAC) address of the network interface.
     """
     name: pulumi.Output[str]
     """
-    The name of the Network Interface. Changing this forces a new resource to be created.
+    The name of the network interface. Changing this forces a new resource to be created.
+    """
+    network_security_group_id: pulumi.Output[str]
+    """
+    The ID of the Network Security Group to associate with the network interface.
     """
     private_ip_address: pulumi.Output[str]
     """
@@ -64,7 +73,7 @@ class NetworkInterface(pulumi.CustomResource):
     """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
+    The name of the resource group in which to create the network interface. Changing this forces a new resource to be created.
     """
     tags: pulumi.Output[dict]
     """
@@ -72,27 +81,35 @@ class NetworkInterface(pulumi.CustomResource):
     """
     virtual_machine_id: pulumi.Output[str]
     """
-    The ID of the Virtual Machine which this Network Interface is connected to.
+    Reference to a VM with which this NIC has been associated.
     """
-    def __init__(__self__, resource_name, opts=None, dns_servers=None, enable_accelerated_networking=None, enable_ip_forwarding=None, internal_dns_name_label=None, ip_configurations=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, applied_dns_servers=None, dns_servers=None, enable_accelerated_networking=None, enable_ip_forwarding=None, internal_dns_name_label=None, internal_fqdn=None, ip_configurations=None, location=None, mac_address=None, name=None, network_security_group_id=None, resource_group_name=None, tags=None, virtual_machine_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a Network Interface.
+        Manages a Network Interface located in a Virtual Network, usually attached to a Virtual Machine.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
-        :param pulumi.Input[bool] enable_accelerated_networking: Should Accelerated Networking be enabled? Defaults to `false`.
-        :param pulumi.Input[bool] enable_ip_forwarding: Should IP Forwarding be enabled? Defaults to `false`.
-        :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
-        :param pulumi.Input[list] ip_configurations: One or more `ip_configuration` blocks as defined below.
-        :param pulumi.Input[str] location: The location where the Network Interface should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Network Interface. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
+        :param pulumi.Input[list] applied_dns_servers: If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set
+        :param pulumi.Input[list] dns_servers: List of DNS servers IP addresses to use for this NIC, overrides the VNet-level server list
+        :param pulumi.Input[bool] enable_accelerated_networking: Enables Azure Accelerated Networking using SR-IOV. Only certain VM instance sizes are supported. Refer to [Create a Virtual Machine with Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Defaults to `false`.
+        :param pulumi.Input[bool] enable_ip_forwarding: Enables IP Forwarding on the NIC. Defaults to `false`.
+        :param pulumi.Input[str] internal_dns_name_label: Relative DNS name for this NIC used for internal communications between VMs in the same VNet
+        :param pulumi.Input[list] ip_configurations: One or more `ip_configuration` associated with this NIC as documented below.
+        :param pulumi.Input[str] location: The location/region where the network interface is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mac_address: The media access control (MAC) address of the network interface.
+        :param pulumi.Input[str] name: The name of the network interface. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group to associate with the network interface.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the network interface. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] virtual_machine_id: Reference to a VM with which this NIC has been associated.
         
         The **ip_configurations** object supports the following:
         
-          * `name` (`pulumi.Input[str]`) - The name of the Network Interface. Changing this forces a new resource to be created.
+          * `applicationGatewayBackendAddressPoolsIds` (`pulumi.Input[list]`)
+          * `applicationSecurityGroupIds` (`pulumi.Input[list]`)
+          * `loadBalancerBackendAddressPoolsIds` (`pulumi.Input[list]`)
+          * `loadBalancerInboundNatRulesIds` (`pulumi.Input[list]`)
+          * `name` (`pulumi.Input[str]`) - The name of the network interface. Changing this forces a new resource to be created.
           * `primary` (`pulumi.Input[bool]`)
           * `private_ip_address` (`pulumi.Input[str]`) - The first private IP address of the network interface.
           * `privateIpAddressAllocation` (`pulumi.Input[str]`)
@@ -119,24 +136,26 @@ class NetworkInterface(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['applied_dns_servers'] = applied_dns_servers
             __props__['dns_servers'] = dns_servers
             __props__['enable_accelerated_networking'] = enable_accelerated_networking
             __props__['enable_ip_forwarding'] = enable_ip_forwarding
             __props__['internal_dns_name_label'] = internal_dns_name_label
+            __props__['internal_fqdn'] = internal_fqdn
             if ip_configurations is None:
                 raise TypeError("Missing required property 'ip_configurations'")
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
+            __props__['mac_address'] = mac_address
             __props__['name'] = name
+            __props__['network_security_group_id'] = network_security_group_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['applied_dns_servers'] = None
-            __props__['mac_address'] = None
+            __props__['virtual_machine_id'] = virtual_machine_id
             __props__['private_ip_address'] = None
             __props__['private_ip_addresses'] = None
-            __props__['virtual_machine_id'] = None
         super(NetworkInterface, __self__).__init__(
             'azure:network/networkInterface:NetworkInterface',
             resource_name,
@@ -144,7 +163,7 @@ class NetworkInterface(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, applied_dns_servers=None, dns_servers=None, enable_accelerated_networking=None, enable_ip_forwarding=None, internal_dns_name_label=None, ip_configurations=None, location=None, mac_address=None, name=None, private_ip_address=None, private_ip_addresses=None, resource_group_name=None, tags=None, virtual_machine_id=None):
+    def get(resource_name, id, opts=None, applied_dns_servers=None, dns_servers=None, enable_accelerated_networking=None, enable_ip_forwarding=None, internal_dns_name_label=None, internal_fqdn=None, ip_configurations=None, location=None, mac_address=None, name=None, network_security_group_id=None, private_ip_address=None, private_ip_addresses=None, resource_group_name=None, tags=None, virtual_machine_id=None):
         """
         Get an existing NetworkInterface resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -152,24 +171,29 @@ class NetworkInterface(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] applied_dns_servers: If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
-        :param pulumi.Input[list] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
-        :param pulumi.Input[bool] enable_accelerated_networking: Should Accelerated Networking be enabled? Defaults to `false`.
-        :param pulumi.Input[bool] enable_ip_forwarding: Should IP Forwarding be enabled? Defaults to `false`.
-        :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
-        :param pulumi.Input[list] ip_configurations: One or more `ip_configuration` blocks as defined below.
-        :param pulumi.Input[str] location: The location where the Network Interface should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] mac_address: The Media Access Control (MAC) Address of the Network Interface.
-        :param pulumi.Input[str] name: The name of the Network Interface. Changing this forces a new resource to be created.
+        :param pulumi.Input[list] applied_dns_servers: If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set
+        :param pulumi.Input[list] dns_servers: List of DNS servers IP addresses to use for this NIC, overrides the VNet-level server list
+        :param pulumi.Input[bool] enable_accelerated_networking: Enables Azure Accelerated Networking using SR-IOV. Only certain VM instance sizes are supported. Refer to [Create a Virtual Machine with Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Defaults to `false`.
+        :param pulumi.Input[bool] enable_ip_forwarding: Enables IP Forwarding on the NIC. Defaults to `false`.
+        :param pulumi.Input[str] internal_dns_name_label: Relative DNS name for this NIC used for internal communications between VMs in the same VNet
+        :param pulumi.Input[list] ip_configurations: One or more `ip_configuration` associated with this NIC as documented below.
+        :param pulumi.Input[str] location: The location/region where the network interface is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mac_address: The media access control (MAC) address of the network interface.
+        :param pulumi.Input[str] name: The name of the network interface. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group to associate with the network interface.
         :param pulumi.Input[str] private_ip_address: The first private IP address of the network interface.
         :param pulumi.Input[list] private_ip_addresses: The private IP addresses of the network interface.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the network interface. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine which this Network Interface is connected to.
+        :param pulumi.Input[str] virtual_machine_id: Reference to a VM with which this NIC has been associated.
         
         The **ip_configurations** object supports the following:
         
-          * `name` (`pulumi.Input[str]`) - The name of the Network Interface. Changing this forces a new resource to be created.
+          * `applicationGatewayBackendAddressPoolsIds` (`pulumi.Input[list]`)
+          * `applicationSecurityGroupIds` (`pulumi.Input[list]`)
+          * `loadBalancerBackendAddressPoolsIds` (`pulumi.Input[list]`)
+          * `loadBalancerInboundNatRulesIds` (`pulumi.Input[list]`)
+          * `name` (`pulumi.Input[str]`) - The name of the network interface. Changing this forces a new resource to be created.
           * `primary` (`pulumi.Input[bool]`)
           * `private_ip_address` (`pulumi.Input[str]`) - The first private IP address of the network interface.
           * `privateIpAddressAllocation` (`pulumi.Input[str]`)
@@ -187,10 +211,12 @@ class NetworkInterface(pulumi.CustomResource):
         __props__["enable_accelerated_networking"] = enable_accelerated_networking
         __props__["enable_ip_forwarding"] = enable_ip_forwarding
         __props__["internal_dns_name_label"] = internal_dns_name_label
+        __props__["internal_fqdn"] = internal_fqdn
         __props__["ip_configurations"] = ip_configurations
         __props__["location"] = location
         __props__["mac_address"] = mac_address
         __props__["name"] = name
+        __props__["network_security_group_id"] = network_security_group_id
         __props__["private_ip_address"] = private_ip_address
         __props__["private_ip_addresses"] = private_ip_addresses
         __props__["resource_group_name"] = resource_group_name

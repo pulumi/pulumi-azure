@@ -47,15 +47,15 @@ export class PublicIpPrefix extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
+     * Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+     * Specifies the number of bits of the prefix. The value can be set between 24 (256 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
      */
     public readonly prefixLength!: pulumi.Output<number | undefined>;
     /**
-     * The name of the resource group in which to create the Public IP Prefix.
+     * The name of the resource group in which to create the public IP.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -65,9 +65,9 @@ export class PublicIpPrefix extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
-     * A collection containing the availability zone to allocate the Public IP Prefix in.
+     * A collection containing the availability zone to allocate the Public IP in.
      */
     public readonly zones!: pulumi.Output<string | undefined>;
 
@@ -129,15 +129,15 @@ export interface PublicIpPrefixState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
+     * Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+     * Specifies the number of bits of the prefix. The value can be set between 24 (256 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
      */
     readonly prefixLength?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to create the Public IP Prefix.
+     * The name of the resource group in which to create the public IP.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -149,7 +149,7 @@ export interface PublicIpPrefixState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A collection containing the availability zone to allocate the Public IP Prefix in.
+     * A collection containing the availability zone to allocate the Public IP in.
      */
     readonly zones?: pulumi.Input<string>;
 }
@@ -163,15 +163,15 @@ export interface PublicIpPrefixArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
+     * Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+     * Specifies the number of bits of the prefix. The value can be set between 24 (256 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
      */
     readonly prefixLength?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to create the Public IP Prefix.
+     * The name of the resource group in which to create the public IP.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
@@ -183,7 +183,7 @@ export interface PublicIpPrefixArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A collection containing the availability zone to allocate the Public IP Prefix in.
+     * A collection containing the availability zone to allocate the Public IP in.
      */
     readonly zones?: pulumi.Input<string>;
 }

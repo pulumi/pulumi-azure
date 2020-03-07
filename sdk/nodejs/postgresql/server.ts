@@ -62,6 +62,7 @@ export class Server extends pulumi.CustomResource {
      * The name of the resource group in which to create the PostgreSQL Server. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    public readonly sku!: pulumi.Output<outputs.postgresql.ServerSku>;
     /**
      * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
      */
@@ -77,7 +78,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
      */
@@ -101,6 +102,7 @@ export class Server extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["sku"] = state ? state.sku : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["sslEnforcement"] = state ? state.sslEnforcement : undefined;
             inputs["storageProfile"] = state ? state.storageProfile : undefined;
@@ -117,9 +119,6 @@ export class Server extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.skuName === undefined) {
-                throw new Error("Missing required property 'skuName'");
-            }
             if (!args || args.sslEnforcement === undefined) {
                 throw new Error("Missing required property 'sslEnforcement'");
             }
@@ -134,6 +133,7 @@ export class Server extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["sslEnforcement"] = args ? args.sslEnforcement : undefined;
             inputs["storageProfile"] = args ? args.storageProfile : undefined;
@@ -180,6 +180,7 @@ export interface ServerState {
      * The name of the resource group in which to create the PostgreSQL Server. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    readonly sku?: pulumi.Input<inputs.postgresql.ServerSku>;
     /**
      * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
      */
@@ -226,10 +227,11 @@ export interface ServerArgs {
      * The name of the resource group in which to create the PostgreSQL Server. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    readonly sku?: pulumi.Input<inputs.postgresql.ServerSku>;
     /**
      * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
      */
-    readonly skuName: pulumi.Input<string>;
+    readonly skuName?: pulumi.Input<string>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
      */

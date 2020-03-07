@@ -65,7 +65,7 @@ class AutoscaleSetting(pulumi.CustomResource):
     
         * `metricTrigger` (`dict`)
     
-          * `metricName` (`str`)
+          * `metric_name` (`str`)
           * `metricResourceId` (`str`)
           * `operator` (`str`)
           * `statistic` (`str`)
@@ -147,7 +147,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         
             * `metricTrigger` (`pulumi.Input[dict]`)
         
-              * `metricName` (`pulumi.Input[str]`)
+              * `metric_name` (`pulumi.Input[str]`)
               * `metricResourceId` (`pulumi.Input[str]`)
               * `operator` (`pulumi.Input[str]`)
               * `statistic` (`pulumi.Input[str]`)
@@ -259,7 +259,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         
             * `metricTrigger` (`pulumi.Input[dict]`)
         
-              * `metricName` (`pulumi.Input[str]`)
+              * `metric_name` (`pulumi.Input[str]`)
               * `metricResourceId` (`pulumi.Input[str]`)
               * `operator` (`pulumi.Input[str]`)
               * `statistic` (`pulumi.Input[str]`)

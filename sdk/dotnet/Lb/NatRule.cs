@@ -67,6 +67,9 @@ namespace Pulumi.Azure.Lb
         [Output("loadbalancerId")]
         public Output<string> LoadbalancerId { get; private set; } = null!;
 
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the name of the NAT Rule.
         /// </summary>
@@ -173,6 +176,9 @@ namespace Pulumi.Azure.Lb
         [Input("loadbalancerId", required: true)]
         public Input<string> LoadbalancerId { get; set; } = null!;
 
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
         /// <summary>
         /// Specifies the name of the NAT Rule.
         /// </summary>
@@ -245,6 +251,9 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("loadbalancerId")]
         public Input<string>? LoadbalancerId { get; set; }
+
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Specifies the name of the NAT Rule.

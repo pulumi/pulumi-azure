@@ -46,6 +46,18 @@ namespace Pulumi.Azure.Storage
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
+        /// </summary>
+        [Output("properties")]
+        public Output<ImmutableDictionary<string, string>> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
+        /// </summary>
+        [Output("resourceGroupName")]
+        public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Storage Account where the Container should be created.
         /// </summary>
         [Output("storageAccountName")]
@@ -122,6 +134,12 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
+        /// </summary>
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
         /// The name of the Storage Account where the Container should be created.
         /// </summary>
         [Input("storageAccountName", required: true)]
@@ -169,6 +187,24 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("properties")]
+        private InputMap<string>? _properties;
+
+        /// <summary>
+        /// (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
+        /// </summary>
+        public InputMap<string> Properties
+        {
+            get => _properties ?? (_properties = new InputMap<string>());
+            set => _properties = value;
+        }
+
+        /// <summary>
+        /// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
+        /// </summary>
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// The name of the Storage Account where the Container should be created.

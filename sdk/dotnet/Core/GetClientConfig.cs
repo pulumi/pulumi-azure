@@ -24,6 +24,8 @@ namespace Pulumi.Azure.Core
     {
         public readonly string ClientId;
         public readonly string ObjectId;
+        public readonly string ServicePrincipalApplicationId;
+        public readonly string ServicePrincipalObjectId;
         public readonly string SubscriptionId;
         public readonly string TenantId;
         /// <summary>
@@ -35,12 +37,16 @@ namespace Pulumi.Azure.Core
         private GetClientConfigResult(
             string clientId,
             string objectId,
+            string servicePrincipalApplicationId,
+            string servicePrincipalObjectId,
             string subscriptionId,
             string tenantId,
             string id)
         {
             ClientId = clientId;
             ObjectId = objectId;
+            ServicePrincipalApplicationId = servicePrincipalApplicationId;
+            ServicePrincipalObjectId = servicePrincipalObjectId;
             SubscriptionId = subscriptionId;
             TenantId = tenantId;
             Id = id;

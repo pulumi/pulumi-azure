@@ -57,6 +57,9 @@ namespace Pulumi.Azure.Cognitive
         [Output("secondaryAccessKey")]
         public Output<string> SecondaryAccessKey { get; private set; } = null!;
 
+        [Output("sku")]
+        public Output<Outputs.AccountSku> Sku { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
         /// </summary>
@@ -67,7 +70,7 @@ namespace Pulumi.Azure.Cognitive
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -139,11 +142,14 @@ namespace Pulumi.Azure.Cognitive
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("sku")]
+        public Input<Inputs.AccountSkuArgs>? Sku { get; set; }
+
         /// <summary>
         /// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
         /// </summary>
-        [Input("skuName", required: true)]
-        public Input<string> SkuName { get; set; } = null!;
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -206,6 +212,9 @@ namespace Pulumi.Azure.Cognitive
         [Input("secondaryAccessKey")]
         public Input<string>? SecondaryAccessKey { get; set; }
 
+        [Input("sku")]
+        public Input<Inputs.AccountSkuGetArgs>? Sku { get; set; }
+
         /// <summary>
         /// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
         /// </summary>
@@ -227,5 +236,64 @@ namespace Pulumi.Azure.Cognitive
         public AccountState()
         {
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class AccountSkuArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("tier", required: true)]
+        public Input<string> Tier { get; set; } = null!;
+
+        public AccountSkuArgs()
+        {
+        }
+    }
+
+    public sealed class AccountSkuGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("tier", required: true)]
+        public Input<string> Tier { get; set; } = null!;
+
+        public AccountSkuGetArgs()
+        {
+        }
+    }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class AccountSku
+    {
+        /// <summary>
+        /// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string Name;
+        public readonly string Tier;
+
+        [OutputConstructor]
+        private AccountSku(
+            string name,
+            string tier)
+        {
+            Name = name;
+            Tier = tier;
+        }
+    }
     }
 }

@@ -53,6 +53,9 @@ namespace Pulumi.Azure.EventHub
         [Output("enableExpress")]
         public Output<bool?> EnableExpress { get; private set; } = null!;
 
+        [Output("enableFilteringMessagesBeforePublishing")]
+        public Output<bool?> EnableFilteringMessagesBeforePublishing { get; private set; } = null!;
+
         /// <summary>
         /// Boolean flag which controls whether to enable
         /// the topic to be partitioned across multiple message brokers. Defaults to false.
@@ -60,6 +63,13 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Output("enablePartitioning")]
         public Output<bool?> EnablePartitioning { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the supported Azure location where the resource exists.
+        /// Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// Integer value which controls the size of
@@ -193,6 +203,9 @@ namespace Pulumi.Azure.EventHub
         [Input("enableExpress")]
         public Input<bool>? EnableExpress { get; set; }
 
+        [Input("enableFilteringMessagesBeforePublishing")]
+        public Input<bool>? EnableFilteringMessagesBeforePublishing { get; set; }
+
         /// <summary>
         /// Boolean flag which controls whether to enable
         /// the topic to be partitioned across multiple message brokers. Defaults to false.
@@ -200,6 +213,13 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("enablePartitioning")]
         public Input<bool>? EnablePartitioning { get; set; }
+
+        /// <summary>
+        /// Specifies the supported Azure location where the resource exists.
+        /// Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Integer value which controls the size of
@@ -294,6 +314,9 @@ namespace Pulumi.Azure.EventHub
         [Input("enableExpress")]
         public Input<bool>? EnableExpress { get; set; }
 
+        [Input("enableFilteringMessagesBeforePublishing")]
+        public Input<bool>? EnableFilteringMessagesBeforePublishing { get; set; }
+
         /// <summary>
         /// Boolean flag which controls whether to enable
         /// the topic to be partitioned across multiple message brokers. Defaults to false.
@@ -301,6 +324,13 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("enablePartitioning")]
         public Input<bool>? EnablePartitioning { get; set; }
+
+        /// <summary>
+        /// Specifies the supported Azure location where the resource exists.
+        /// Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Integer value which controls the size of

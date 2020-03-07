@@ -10,7 +10,7 @@ from typing import Union
 from .. import utilities, tables
 
 class RunBook(pulumi.CustomResource):
-    automation_account_name: pulumi.Output[str]
+    account_name: pulumi.Output[str]
     """
     The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
     """
@@ -62,13 +62,13 @@ class RunBook(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, content=None, description=None, location=None, log_progress=None, log_verbose=None, name=None, publish_content_link=None, resource_group_name=None, runbook_type=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, content=None, description=None, location=None, log_progress=None, log_verbose=None, name=None, publish_content_link=None, resource_group_name=None, runbook_type=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Automation Runbook.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] account_name: The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content: The desired content of the runbook.
         :param pulumi.Input[str] description: A description for this credential.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -109,9 +109,9 @@ class RunBook(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if automation_account_name is None:
-                raise TypeError("Missing required property 'automation_account_name'")
-            __props__['automation_account_name'] = automation_account_name
+            if account_name is None:
+                raise TypeError("Missing required property 'account_name'")
+            __props__['account_name'] = account_name
             __props__['content'] = content
             __props__['description'] = description
             __props__['location'] = location
@@ -139,7 +139,7 @@ class RunBook(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, automation_account_name=None, content=None, description=None, location=None, log_progress=None, log_verbose=None, name=None, publish_content_link=None, resource_group_name=None, runbook_type=None, tags=None):
+    def get(resource_name, id, opts=None, account_name=None, content=None, description=None, location=None, log_progress=None, log_verbose=None, name=None, publish_content_link=None, resource_group_name=None, runbook_type=None, tags=None):
         """
         Get an existing RunBook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -147,7 +147,7 @@ class RunBook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] account_name: The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content: The desired content of the runbook.
         :param pulumi.Input[str] description: A description for this credential.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -174,7 +174,7 @@ class RunBook(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
-        __props__["automation_account_name"] = automation_account_name
+        __props__["account_name"] = account_name
         __props__["content"] = content
         __props__["description"] = description
         __props__["location"] = location

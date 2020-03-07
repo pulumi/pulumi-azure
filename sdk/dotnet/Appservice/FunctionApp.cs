@@ -133,7 +133,7 @@ namespace Pulumi.Azure.AppService
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The runtime version associated with the Function App. Defaults to `~1`.
@@ -957,6 +957,12 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? Use32BitWorkerProcess { get; set; }
 
         /// <summary>
+        /// The name of the Virtual Network which this App Service should be attached to.
+        /// </summary>
+        [Input("virtualNetworkName")]
+        public Input<string>? VirtualNetworkName { get; set; }
+
+        /// <summary>
         /// Should WebSockets be enabled?
         /// </summary>
         [Input("websocketsEnabled")]
@@ -1058,6 +1064,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("use32BitWorkerProcess")]
         public Input<bool>? Use32BitWorkerProcess { get; set; }
+
+        /// <summary>
+        /// The name of the Virtual Network which this App Service should be attached to.
+        /// </summary>
+        [Input("virtualNetworkName")]
+        public Input<string>? VirtualNetworkName { get; set; }
 
         /// <summary>
         /// Should WebSockets be enabled?
@@ -1361,6 +1373,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly bool? Use32BitWorkerProcess;
         /// <summary>
+        /// The name of the Virtual Network which this App Service should be attached to.
+        /// </summary>
+        public readonly string? VirtualNetworkName;
+        /// <summary>
         /// Should WebSockets be enabled?
         /// </summary>
         public readonly bool? WebsocketsEnabled;
@@ -1375,6 +1391,7 @@ namespace Pulumi.Azure.AppService
             string linuxFxVersion,
             string minTlsVersion,
             bool? use32BitWorkerProcess,
+            string? virtualNetworkName,
             bool? websocketsEnabled)
         {
             AlwaysOn = alwaysOn;
@@ -1385,6 +1402,7 @@ namespace Pulumi.Azure.AppService
             LinuxFxVersion = linuxFxVersion;
             MinTlsVersion = minTlsVersion;
             Use32BitWorkerProcess = use32BitWorkerProcess;
+            VirtualNetworkName = virtualNetworkName;
             WebsocketsEnabled = websocketsEnabled;
         }
     }

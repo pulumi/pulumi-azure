@@ -43,15 +43,13 @@ type LookupKeyVaultResult struct {
 	Id string `pulumi:"id"`
 	// The Azure Region in which the Key Vault exists.
 	Location string `pulumi:"location"`
+	// The name of the SKU used for this Key Vault.
 	Name string `pulumi:"name"`
 	NetworkAcls []GetKeyVaultNetworkAcl `pulumi:"networkAcls"`
-	// Is purge protection enabled on this Key Vault?
-	PurgeProtectionEnabled bool `pulumi:"purgeProtectionEnabled"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Name of the SKU used for this Key Vault.
+	// A `sku` block as described below.
+	Sku GetKeyVaultSku `pulumi:"sku"`
 	SkuName string `pulumi:"skuName"`
-	// Is soft delete enabled on this Key Vault? 
-	SoftDeleteEnabled bool `pulumi:"softDeleteEnabled"`
 	// A mapping of tags assigned to the Key Vault.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure Active Directory Tenant ID used to authenticate requests for this Key Vault.

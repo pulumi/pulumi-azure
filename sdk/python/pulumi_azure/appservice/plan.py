@@ -39,6 +39,7 @@ class Plan(pulumi.CustomResource):
     """
     Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
     """
+    properties: pulumi.Output[dict]
     reserved: pulumi.Output[bool]
     """
     Is this App Service Plan `Reserved`. Defaults to `false`.
@@ -59,7 +60,7 @@ class Plan(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, app_service_environment_id=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, name=None, per_site_scaling=None, reserved=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_service_environment_id=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, name=None, per_site_scaling=None, properties=None, reserved=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an App Service Plan component.
         
@@ -75,6 +76,12 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component.
         :param pulumi.Input[dict] sku: A `sku` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **properties** object supports the following:
+        
+          * `app_service_environment_id` (`pulumi.Input[str]`) - The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+          * `per_site_scaling` (`pulumi.Input[bool]`) - Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+          * `reserved` (`pulumi.Input[bool]`) - Is this App Service Plan `Reserved`. Defaults to `false`.
         
         The **sku** object supports the following:
         
@@ -108,6 +115,7 @@ class Plan(pulumi.CustomResource):
             __props__['maximum_elastic_worker_count'] = maximum_elastic_worker_count
             __props__['name'] = name
             __props__['per_site_scaling'] = per_site_scaling
+            __props__['properties'] = properties
             __props__['reserved'] = reserved
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -124,7 +132,7 @@ class Plan(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_service_environment_id=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, per_site_scaling=None, reserved=None, resource_group_name=None, sku=None, tags=None):
+    def get(resource_name, id, opts=None, app_service_environment_id=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, per_site_scaling=None, properties=None, reserved=None, resource_group_name=None, sku=None, tags=None):
         """
         Get an existing Plan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -143,6 +151,12 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component.
         :param pulumi.Input[dict] sku: A `sku` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **properties** object supports the following:
+        
+          * `app_service_environment_id` (`pulumi.Input[str]`) - The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+          * `per_site_scaling` (`pulumi.Input[bool]`) - Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+          * `reserved` (`pulumi.Input[bool]`) - Is this App Service Plan `Reserved`. Defaults to `false`.
         
         The **sku** object supports the following:
         
@@ -163,6 +177,7 @@ class Plan(pulumi.CustomResource):
         __props__["maximum_number_of_workers"] = maximum_number_of_workers
         __props__["name"] = name
         __props__["per_site_scaling"] = per_site_scaling
+        __props__["properties"] = properties
         __props__["reserved"] = reserved
         __props__["resource_group_name"] = resource_group_name
         __props__["sku"] = sku

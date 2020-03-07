@@ -58,7 +58,7 @@ namespace Pulumi.Azure.DevTest
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.

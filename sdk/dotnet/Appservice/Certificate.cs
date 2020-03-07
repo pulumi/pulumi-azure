@@ -88,7 +88,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> SubjectName { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The thumbprint for the certificate.

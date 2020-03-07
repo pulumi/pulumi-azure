@@ -13,7 +13,7 @@ class GetNetworkInterfaceResult:
     """
     A collection of values returned by getNetworkInterface.
     """
-    def __init__(__self__, applied_dns_servers=None, dns_servers=None, enable_accelerated_networking=None, enable_ip_forwarding=None, internal_dns_name_label=None, ip_configurations=None, location=None, mac_address=None, name=None, network_security_group_id=None, private_ip_address=None, private_ip_addresses=None, resource_group_name=None, tags=None, virtual_machine_id=None, id=None):
+    def __init__(__self__, applied_dns_servers=None, dns_servers=None, enable_accelerated_networking=None, enable_ip_forwarding=None, internal_dns_name_label=None, internal_fqdn=None, ip_configurations=None, location=None, mac_address=None, name=None, network_security_group_id=None, private_ip_address=None, private_ip_addresses=None, resource_group_name=None, tags=None, virtual_machine_id=None, id=None):
         if applied_dns_servers and not isinstance(applied_dns_servers, list):
             raise TypeError("Expected argument 'applied_dns_servers' to be a list")
         __self__.applied_dns_servers = applied_dns_servers
@@ -44,6 +44,9 @@ class GetNetworkInterfaceResult:
         """
         The internal dns name label of the specified Network Interface.
         """
+        if internal_fqdn and not isinstance(internal_fqdn, str):
+            raise TypeError("Expected argument 'internal_fqdn' to be a str")
+        __self__.internal_fqdn = internal_fqdn
         if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError("Expected argument 'ip_configurations' to be a list")
         __self__.ip_configurations = ip_configurations
@@ -118,6 +121,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             enable_accelerated_networking=self.enable_accelerated_networking,
             enable_ip_forwarding=self.enable_ip_forwarding,
             internal_dns_name_label=self.internal_dns_name_label,
+            internal_fqdn=self.internal_fqdn,
             ip_configurations=self.ip_configurations,
             location=self.location,
             mac_address=self.mac_address,
@@ -155,6 +159,7 @@ def get_network_interface(name=None,resource_group_name=None,opts=None):
         enable_accelerated_networking=__ret__.get('enableAcceleratedNetworking'),
         enable_ip_forwarding=__ret__.get('enableIpForwarding'),
         internal_dns_name_label=__ret__.get('internalDnsNameLabel'),
+        internal_fqdn=__ret__.get('internalFqdn'),
         ip_configurations=__ret__.get('ipConfigurations'),
         location=__ret__.get('location'),
         mac_address=__ret__.get('macAddress'),

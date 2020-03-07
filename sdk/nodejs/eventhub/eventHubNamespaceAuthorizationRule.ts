@@ -42,6 +42,7 @@ export class EventHubNamespaceAuthorizationRule extends pulumi.CustomResource {
      * Grants listen access to this this Authorization Rule. Defaults to `false`.
      */
     public readonly listen!: pulumi.Output<boolean | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
@@ -92,6 +93,7 @@ export class EventHubNamespaceAuthorizationRule extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as EventHubNamespaceAuthorizationRuleState | undefined;
             inputs["listen"] = state ? state.listen : undefined;
+            inputs["location"] = state ? state.location : undefined;
             inputs["manage"] = state ? state.manage : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
@@ -110,6 +112,7 @@ export class EventHubNamespaceAuthorizationRule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["listen"] = args ? args.listen : undefined;
+            inputs["location"] = args ? args.location : undefined;
             inputs["manage"] = args ? args.manage : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
@@ -139,6 +142,7 @@ export interface EventHubNamespaceAuthorizationRuleState {
      * Grants listen access to this this Authorization Rule. Defaults to `false`.
      */
     readonly listen?: pulumi.Input<boolean>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
@@ -185,6 +189,7 @@ export interface EventHubNamespaceAuthorizationRuleArgs {
      * Grants listen access to this this Authorization Rule. Defaults to `false`.
      */
     readonly listen?: pulumi.Input<boolean>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */

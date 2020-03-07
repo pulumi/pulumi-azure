@@ -13,12 +13,18 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, custom_domains=None, enable_https_traffic_only=None, is_hns_enabled=None, location=None, name=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, tags=None, id=None):
+    def __init__(__self__, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, custom_domains=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, is_hns_enabled=None, location=None, name=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, tags=None, id=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         __self__.access_tier = access_tier
         """
         The access tier for `BlobStorage` accounts.
+        """
+        if account_encryption_source and not isinstance(account_encryption_source, str):
+            raise TypeError("Expected argument 'account_encryption_source' to be a str")
+        __self__.account_encryption_source = account_encryption_source
+        """
+        The Encryption Source for this Storage Account.
         """
         if account_kind and not isinstance(account_kind, str):
             raise TypeError("Expected argument 'account_kind' to be a str")
@@ -43,6 +49,20 @@ class GetAccountResult:
         __self__.custom_domains = custom_domains
         """
         A `custom_domain` block as documented below.
+        """
+        if enable_blob_encryption and not isinstance(enable_blob_encryption, bool):
+            raise TypeError("Expected argument 'enable_blob_encryption' to be a bool")
+        __self__.enable_blob_encryption = enable_blob_encryption
+        """
+        Are Encryption Services are enabled for Blob storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
+        for more information.
+        """
+        if enable_file_encryption and not isinstance(enable_file_encryption, bool):
+            raise TypeError("Expected argument 'enable_file_encryption' to be a bool")
+        __self__.enable_file_encryption = enable_file_encryption
+        """
+        Are Encryption Services are enabled for File storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
+        for more information.
         """
         if enable_https_traffic_only and not isinstance(enable_https_traffic_only, bool):
             raise TypeError("Expected argument 'enable_https_traffic_only' to be a bool")
@@ -283,10 +303,13 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             access_tier=self.access_tier,
+            account_encryption_source=self.account_encryption_source,
             account_kind=self.account_kind,
             account_replication_type=self.account_replication_type,
             account_tier=self.account_tier,
             custom_domains=self.custom_domains,
+            enable_blob_encryption=self.enable_blob_encryption,
+            enable_file_encryption=self.enable_file_encryption,
             enable_https_traffic_only=self.enable_https_traffic_only,
             is_hns_enabled=self.is_hns_enabled,
             location=self.location,
@@ -348,10 +371,13 @@ def get_account(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetAccountResult(
         access_tier=__ret__.get('accessTier'),
+        account_encryption_source=__ret__.get('accountEncryptionSource'),
         account_kind=__ret__.get('accountKind'),
         account_replication_type=__ret__.get('accountReplicationType'),
         account_tier=__ret__.get('accountTier'),
         custom_domains=__ret__.get('customDomains'),
+        enable_blob_encryption=__ret__.get('enableBlobEncryption'),
+        enable_file_encryption=__ret__.get('enableFileEncryption'),
         enable_https_traffic_only=__ret__.get('enableHttpsTrafficOnly'),
         is_hns_enabled=__ret__.get('isHnsEnabled'),
         location=__ret__.get('location'),

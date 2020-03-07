@@ -115,7 +115,7 @@ namespace Pulumi.Azure.ServiceFabric
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.

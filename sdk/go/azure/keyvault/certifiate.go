@@ -33,6 +33,7 @@ type Certifiate struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
 	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
+	VaultUri pulumi.StringOutput `pulumi:"vaultUri"`
 	// The current version of the Key Vault Certificate.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -42,9 +43,6 @@ func NewCertifiate(ctx *pulumi.Context,
 	name string, args *CertifiateArgs, opts ...pulumi.ResourceOption) (*Certifiate, error) {
 	if args == nil || args.CertificatePolicy == nil {
 		return nil, errors.New("missing required argument 'CertificatePolicy'")
-	}
-	if args == nil || args.KeyVaultId == nil {
-		return nil, errors.New("missing required argument 'KeyVaultId'")
 	}
 	if args == nil {
 		args = &CertifiateArgs{}
@@ -87,6 +85,7 @@ type certifiateState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
 	Thumbprint *string `pulumi:"thumbprint"`
+	VaultUri *string `pulumi:"vaultUri"`
 	// The current version of the Key Vault Certificate.
 	Version *string `pulumi:"version"`
 }
@@ -108,6 +107,7 @@ type CertifiateState struct {
 	Tags pulumi.StringMapInput
 	// The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
 	Thumbprint pulumi.StringPtrInput
+	VaultUri pulumi.StringPtrInput
 	// The current version of the Key Vault Certificate.
 	Version pulumi.StringPtrInput
 }
@@ -122,11 +122,12 @@ type certifiateArgs struct {
 	// A `certificatePolicy` block as defined below.
 	CertificatePolicy CertifiateCertificatePolicy `pulumi:"certificatePolicy"`
 	// The ID of the Key Vault where the Certificate should be created.
-	KeyVaultId string `pulumi:"keyVaultId"`
+	KeyVaultId *string `pulumi:"keyVaultId"`
 	// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	VaultUri *string `pulumi:"vaultUri"`
 }
 
 // The set of arguments for constructing a Certifiate resource.
@@ -136,11 +137,12 @@ type CertifiateArgs struct {
 	// A `certificatePolicy` block as defined below.
 	CertificatePolicy CertifiateCertificatePolicyInput
 	// The ID of the Key Vault where the Certificate should be created.
-	KeyVaultId pulumi.StringInput
+	KeyVaultId pulumi.StringPtrInput
 	// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	VaultUri pulumi.StringPtrInput
 }
 
 func (CertifiateArgs) ElementType() reflect.Type {

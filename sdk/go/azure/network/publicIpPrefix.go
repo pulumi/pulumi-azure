@@ -21,17 +21,17 @@ type PublicIpPrefix struct {
 	IpPrefix pulumi.StringOutput `pulumi:"ipPrefix"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
+	// Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+	// Specifies the number of bits of the prefix. The value can be set between 24 (256 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
 	PrefixLength pulumi.IntPtrOutput `pulumi:"prefixLength"`
-	// The name of the resource group in which to create the Public IP Prefix.
+	// The name of the resource group in which to create the public IP.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A collection containing the availability zone to allocate the Public IP Prefix in.
+	// A collection containing the availability zone to allocate the Public IP in.
 	Zones pulumi.StringPtrOutput `pulumi:"zones"`
 }
 
@@ -70,17 +70,17 @@ type publicIpPrefixState struct {
 	IpPrefix *string `pulumi:"ipPrefix"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
+	// Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+	// Specifies the number of bits of the prefix. The value can be set between 24 (256 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
 	PrefixLength *int `pulumi:"prefixLength"`
-	// The name of the resource group in which to create the Public IP Prefix.
+	// The name of the resource group in which to create the public IP.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A collection containing the availability zone to allocate the Public IP Prefix in.
+	// A collection containing the availability zone to allocate the Public IP in.
 	Zones *string `pulumi:"zones"`
 }
 
@@ -89,17 +89,17 @@ type PublicIpPrefixState struct {
 	IpPrefix pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
+	// Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+	// Specifies the number of bits of the prefix. The value can be set between 24 (256 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
 	PrefixLength pulumi.IntPtrInput
-	// The name of the resource group in which to create the Public IP Prefix.
+	// The name of the resource group in which to create the public IP.
 	ResourceGroupName pulumi.StringPtrInput
 	// The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A collection containing the availability zone to allocate the Public IP Prefix in.
+	// A collection containing the availability zone to allocate the Public IP in.
 	Zones pulumi.StringPtrInput
 }
 
@@ -110,17 +110,17 @@ func (PublicIpPrefixState) ElementType() reflect.Type {
 type publicIpPrefixArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
+	// Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+	// Specifies the number of bits of the prefix. The value can be set between 24 (256 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
 	PrefixLength *int `pulumi:"prefixLength"`
-	// The name of the resource group in which to create the Public IP Prefix.
+	// The name of the resource group in which to create the public IP.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A collection containing the availability zone to allocate the Public IP Prefix in.
+	// A collection containing the availability zone to allocate the Public IP in.
 	Zones *string `pulumi:"zones"`
 }
 
@@ -128,17 +128,17 @@ type publicIpPrefixArgs struct {
 type PublicIpPrefixArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
+	// Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+	// Specifies the number of bits of the prefix. The value can be set between 24 (256 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
 	PrefixLength pulumi.IntPtrInput
-	// The name of the resource group in which to create the Public IP Prefix.
+	// The name of the resource group in which to create the public IP.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A collection containing the availability zone to allocate the Public IP Prefix in.
+	// A collection containing the availability zone to allocate the Public IP in.
 	Zones pulumi.StringPtrInput
 }
 

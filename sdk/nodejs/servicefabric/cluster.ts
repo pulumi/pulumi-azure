@@ -105,7 +105,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
      */

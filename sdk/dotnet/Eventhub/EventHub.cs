@@ -21,6 +21,9 @@ namespace Pulumi.Azure.EventHub
         [Output("captureDescription")]
         public Output<Outputs.EventHubCaptureDescription?> CaptureDescription { get; private set; } = null!;
 
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
         /// </summary>
@@ -109,6 +112,9 @@ namespace Pulumi.Azure.EventHub
         [Input("captureDescription")]
         public Input<Inputs.EventHubCaptureDescriptionArgs>? CaptureDescription { get; set; }
 
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
         /// <summary>
         /// Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
         /// </summary>
@@ -151,6 +157,9 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("captureDescription")]
         public Input<Inputs.EventHubCaptureDescriptionGetArgs>? CaptureDescription { get; set; }
+
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.

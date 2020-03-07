@@ -559,7 +559,7 @@ func (o EventHubCaptureDescriptionDestinationOutput) StorageAccountId() pulumi.S
 
 type EventHubNamespaceNetworkRulesets struct {
 	DefaultAction string `pulumi:"defaultAction"`
-	IpRules []EventHubNamespaceNetworkRulesetsIpRule `pulumi:"ipRules"`
+	IpRule *EventHubNamespaceNetworkRulesetsIpRule `pulumi:"ipRule"`
 	VirtualNetworkRules []EventHubNamespaceNetworkRulesetsVirtualNetworkRule `pulumi:"virtualNetworkRules"`
 }
 
@@ -572,7 +572,7 @@ type EventHubNamespaceNetworkRulesetsInput interface {
 
 type EventHubNamespaceNetworkRulesetsArgs struct {
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
-	IpRules EventHubNamespaceNetworkRulesetsIpRuleArrayInput `pulumi:"ipRules"`
+	IpRule EventHubNamespaceNetworkRulesetsIpRulePtrInput `pulumi:"ipRule"`
 	VirtualNetworkRules EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
 }
 
@@ -647,8 +647,8 @@ func (o EventHubNamespaceNetworkRulesetsOutput) DefaultAction() pulumi.StringOut
 	return o.ApplyT(func (v EventHubNamespaceNetworkRulesets) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
 
-func (o EventHubNamespaceNetworkRulesetsOutput) IpRules() EventHubNamespaceNetworkRulesetsIpRuleArrayOutput {
-	return o.ApplyT(func (v EventHubNamespaceNetworkRulesets) []EventHubNamespaceNetworkRulesetsIpRule { return v.IpRules }).(EventHubNamespaceNetworkRulesetsIpRuleArrayOutput)
+func (o EventHubNamespaceNetworkRulesetsOutput) IpRule() EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
+	return o.ApplyT(func (v EventHubNamespaceNetworkRulesets) *EventHubNamespaceNetworkRulesetsIpRule { return v.IpRule }).(EventHubNamespaceNetworkRulesetsIpRulePtrOutput)
 }
 
 func (o EventHubNamespaceNetworkRulesetsOutput) VirtualNetworkRules() EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput {
@@ -677,8 +677,8 @@ func (o EventHubNamespaceNetworkRulesetsPtrOutput) DefaultAction() pulumi.String
 	return o.ApplyT(func (v EventHubNamespaceNetworkRulesets) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
 
-func (o EventHubNamespaceNetworkRulesetsPtrOutput) IpRules() EventHubNamespaceNetworkRulesetsIpRuleArrayOutput {
-	return o.ApplyT(func (v EventHubNamespaceNetworkRulesets) []EventHubNamespaceNetworkRulesetsIpRule { return v.IpRules }).(EventHubNamespaceNetworkRulesetsIpRuleArrayOutput)
+func (o EventHubNamespaceNetworkRulesetsPtrOutput) IpRule() EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
+	return o.ApplyT(func (v EventHubNamespaceNetworkRulesets) *EventHubNamespaceNetworkRulesetsIpRule { return v.IpRule }).(EventHubNamespaceNetworkRulesetsIpRulePtrOutput)
 }
 
 func (o EventHubNamespaceNetworkRulesetsPtrOutput) VirtualNetworkRules() EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput {
@@ -714,25 +714,36 @@ func (i EventHubNamespaceNetworkRulesetsIpRuleArgs) ToEventHubNamespaceNetworkRu
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceNetworkRulesetsIpRuleOutput)
 }
 
-type EventHubNamespaceNetworkRulesetsIpRuleArrayInput interface {
+func (i EventHubNamespaceNetworkRulesetsIpRuleArgs) ToEventHubNamespaceNetworkRulesetsIpRulePtrOutput() EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
+	return i.ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(context.Background())
+}
+
+func (i EventHubNamespaceNetworkRulesetsIpRuleArgs) ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceNetworkRulesetsIpRuleOutput).ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(ctx)
+}
+
+type EventHubNamespaceNetworkRulesetsIpRulePtrInput interface {
 	pulumi.Input
 
-	ToEventHubNamespaceNetworkRulesetsIpRuleArrayOutput() EventHubNamespaceNetworkRulesetsIpRuleArrayOutput
-	ToEventHubNamespaceNetworkRulesetsIpRuleArrayOutputWithContext(context.Context) EventHubNamespaceNetworkRulesetsIpRuleArrayOutput
+	ToEventHubNamespaceNetworkRulesetsIpRulePtrOutput() EventHubNamespaceNetworkRulesetsIpRulePtrOutput
+	ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(context.Context) EventHubNamespaceNetworkRulesetsIpRulePtrOutput
 }
 
-type EventHubNamespaceNetworkRulesetsIpRuleArray []EventHubNamespaceNetworkRulesetsIpRuleInput
+type eventHubNamespaceNetworkRulesetsIpRulePtrType EventHubNamespaceNetworkRulesetsIpRuleArgs
 
-func (EventHubNamespaceNetworkRulesetsIpRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventHubNamespaceNetworkRulesetsIpRule)(nil)).Elem()
+func EventHubNamespaceNetworkRulesetsIpRulePtr(v *EventHubNamespaceNetworkRulesetsIpRuleArgs) EventHubNamespaceNetworkRulesetsIpRulePtrInput {	return (*eventHubNamespaceNetworkRulesetsIpRulePtrType)(v)
 }
 
-func (i EventHubNamespaceNetworkRulesetsIpRuleArray) ToEventHubNamespaceNetworkRulesetsIpRuleArrayOutput() EventHubNamespaceNetworkRulesetsIpRuleArrayOutput {
-	return i.ToEventHubNamespaceNetworkRulesetsIpRuleArrayOutputWithContext(context.Background())
+func (*eventHubNamespaceNetworkRulesetsIpRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventHubNamespaceNetworkRulesetsIpRule)(nil)).Elem()
 }
 
-func (i EventHubNamespaceNetworkRulesetsIpRuleArray) ToEventHubNamespaceNetworkRulesetsIpRuleArrayOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsIpRuleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceNetworkRulesetsIpRuleArrayOutput)
+func (i *eventHubNamespaceNetworkRulesetsIpRulePtrType) ToEventHubNamespaceNetworkRulesetsIpRulePtrOutput() EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
+	return i.ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(context.Background())
+}
+
+func (i *eventHubNamespaceNetworkRulesetsIpRulePtrType) ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceNetworkRulesetsIpRulePtrOutput)
 }
 
 type EventHubNamespaceNetworkRulesetsIpRuleOutput struct { *pulumi.OutputState }
@@ -749,6 +760,15 @@ func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) ToEventHubNamespaceNetwork
 	return o
 }
 
+func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) ToEventHubNamespaceNetworkRulesetsIpRulePtrOutput() EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
+	return o.ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(context.Background())
+}
+
+func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
+	return o.ApplyT(func(v EventHubNamespaceNetworkRulesetsIpRule) *EventHubNamespaceNetworkRulesetsIpRule {
+		return &v
+	}).(EventHubNamespaceNetworkRulesetsIpRulePtrOutput)
+}
 func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v EventHubNamespaceNetworkRulesetsIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
@@ -757,24 +777,30 @@ func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) IpMask() pulumi.StringOutp
 	return o.ApplyT(func (v EventHubNamespaceNetworkRulesetsIpRule) string { return v.IpMask }).(pulumi.StringOutput)
 }
 
-type EventHubNamespaceNetworkRulesetsIpRuleArrayOutput struct { *pulumi.OutputState}
+type EventHubNamespaceNetworkRulesetsIpRulePtrOutput struct { *pulumi.OutputState}
 
-func (EventHubNamespaceNetworkRulesetsIpRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventHubNamespaceNetworkRulesetsIpRule)(nil)).Elem()
+func (EventHubNamespaceNetworkRulesetsIpRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventHubNamespaceNetworkRulesetsIpRule)(nil)).Elem()
 }
 
-func (o EventHubNamespaceNetworkRulesetsIpRuleArrayOutput) ToEventHubNamespaceNetworkRulesetsIpRuleArrayOutput() EventHubNamespaceNetworkRulesetsIpRuleArrayOutput {
+func (o EventHubNamespaceNetworkRulesetsIpRulePtrOutput) ToEventHubNamespaceNetworkRulesetsIpRulePtrOutput() EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
 	return o
 }
 
-func (o EventHubNamespaceNetworkRulesetsIpRuleArrayOutput) ToEventHubNamespaceNetworkRulesetsIpRuleArrayOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsIpRuleArrayOutput {
+func (o EventHubNamespaceNetworkRulesetsIpRulePtrOutput) ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
 	return o
 }
 
-func (o EventHubNamespaceNetworkRulesetsIpRuleArrayOutput) Index(i pulumi.IntInput) EventHubNamespaceNetworkRulesetsIpRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) EventHubNamespaceNetworkRulesetsIpRule {
-		return vs[0].([]EventHubNamespaceNetworkRulesetsIpRule)[vs[1].(int)]
-	}).(EventHubNamespaceNetworkRulesetsIpRuleOutput)
+func (o EventHubNamespaceNetworkRulesetsIpRulePtrOutput) Elem() EventHubNamespaceNetworkRulesetsIpRuleOutput {
+	return o.ApplyT(func (v *EventHubNamespaceNetworkRulesetsIpRule) EventHubNamespaceNetworkRulesetsIpRule { return *v }).(EventHubNamespaceNetworkRulesetsIpRuleOutput)
+}
+
+func (o EventHubNamespaceNetworkRulesetsIpRulePtrOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v EventHubNamespaceNetworkRulesetsIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+func (o EventHubNamespaceNetworkRulesetsIpRulePtrOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func (v EventHubNamespaceNetworkRulesetsIpRule) string { return v.IpMask }).(pulumi.StringOutput)
 }
 
 type EventHubNamespaceNetworkRulesetsVirtualNetworkRule struct {
@@ -1944,7 +1970,7 @@ func init() {
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsOutput{})
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsPtrOutput{})
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsIpRuleOutput{})
-	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsIpRuleArrayOutput{})
+	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsIpRulePtrOutput{})
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput{})
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionEventhubEndpointOutput{})

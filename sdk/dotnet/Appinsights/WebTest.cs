@@ -83,7 +83,7 @@ namespace Pulumi.Azure.AppInsights
         /// Resource tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Seconds until this WebTest will timeout and fail. Default is `30`.

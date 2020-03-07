@@ -550,7 +550,7 @@ function createFunctionAppParts(name: string,
     const zipBlob = new storageMod.ZipBlob(name, {
         storageAccountName: account.name,
         storageContainerName: container.name,
-        type: "Block",
+        type: "block",
         content: args.archive,
     }, opts);
 

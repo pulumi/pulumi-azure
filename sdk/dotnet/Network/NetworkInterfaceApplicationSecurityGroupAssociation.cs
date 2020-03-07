@@ -22,6 +22,12 @@ namespace Pulumi.Azure.Network
         public Output<string> ApplicationSecurityGroupId { get; private set; } = null!;
 
         /// <summary>
+        /// The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("ipConfigurationName")]
+        public Output<string> IpConfigurationName { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Network Interface. Changing this forces a new resource to be created.
         /// </summary>
         [Output("networkInterfaceId")]
@@ -80,6 +86,12 @@ namespace Pulumi.Azure.Network
         public Input<string> ApplicationSecurityGroupId { get; set; } = null!;
 
         /// <summary>
+        /// The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("ipConfigurationName", required: true)]
+        public Input<string> IpConfigurationName { get; set; } = null!;
+
+        /// <summary>
         /// The ID of the Network Interface. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkInterfaceId", required: true)]
@@ -97,6 +109,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("applicationSecurityGroupId")]
         public Input<string>? ApplicationSecurityGroupId { get; set; }
+
+        /// <summary>
+        /// The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("ipConfigurationName")]
+        public Input<string>? IpConfigurationName { get; set; }
 
         /// <summary>
         /// The ID of the Network Interface. Changing this forces a new resource to be created.

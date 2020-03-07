@@ -40,6 +40,7 @@ type Rule struct {
 	LoadDistribution pulumi.StringOutput `pulumi:"loadDistribution"`
 	// The ID of the Load Balancer in which to create the Rule.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
+	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the LB Rule.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A reference to a Probe used by this Load Balancing Rule.
@@ -117,6 +118,7 @@ type ruleState struct {
 	LoadDistribution *string `pulumi:"loadDistribution"`
 	// The ID of the Load Balancer in which to create the Rule.
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
+	Location *string `pulumi:"location"`
 	// Specifies the name of the LB Rule.
 	Name *string `pulumi:"name"`
 	// A reference to a Probe used by this Load Balancing Rule.
@@ -149,6 +151,7 @@ type RuleState struct {
 	LoadDistribution pulumi.StringPtrInput
 	// The ID of the Load Balancer in which to create the Rule.
 	LoadbalancerId pulumi.StringPtrInput
+	Location pulumi.StringPtrInput
 	// Specifies the name of the LB Rule.
 	Name pulumi.StringPtrInput
 	// A reference to a Probe used by this Load Balancing Rule.
@@ -184,6 +187,7 @@ type ruleArgs struct {
 	LoadDistribution *string `pulumi:"loadDistribution"`
 	// The ID of the Load Balancer in which to create the Rule.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
+	Location *string `pulumi:"location"`
 	// Specifies the name of the LB Rule.
 	Name *string `pulumi:"name"`
 	// A reference to a Probe used by this Load Balancing Rule.
@@ -216,6 +220,7 @@ type RuleArgs struct {
 	LoadDistribution pulumi.StringPtrInput
 	// The ID of the Load Balancer in which to create the Rule.
 	LoadbalancerId pulumi.StringInput
+	Location pulumi.StringPtrInput
 	// Specifies the name of the LB Rule.
 	Name pulumi.StringPtrInput
 	// A reference to a Probe used by this Load Balancing Rule.

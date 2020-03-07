@@ -33,6 +33,7 @@ type LinkService struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more (up to 8) `natIpConfiguration` block as defined below.
 	NatIpConfigurations LinkServiceNatIpConfigurationArrayOutput `pulumi:"natIpConfigurations"`
+	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
@@ -92,6 +93,7 @@ type linkServiceState struct {
 	Name *string `pulumi:"name"`
 	// One or more (up to 8) `natIpConfiguration` block as defined below.
 	NatIpConfigurations []LinkServiceNatIpConfiguration `pulumi:"natIpConfigurations"`
+	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
@@ -115,6 +117,7 @@ type LinkServiceState struct {
 	Name pulumi.StringPtrInput
 	// One or more (up to 8) `natIpConfiguration` block as defined below.
 	NatIpConfigurations LinkServiceNatIpConfigurationArrayInput
+	NetworkInterfaceIds pulumi.StringArrayInput
 	// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.

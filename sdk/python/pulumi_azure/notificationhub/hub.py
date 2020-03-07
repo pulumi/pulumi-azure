@@ -16,7 +16,7 @@ class Hub(pulumi.CustomResource):
     
       * `applicationMode` (`str`)
       * `bundleId` (`str`)
-      * `keyId` (`str`)
+      * `key_id` (`str`)
       * `teamId` (`str`)
       * `token` (`str`)
     """
@@ -59,7 +59,7 @@ class Hub(pulumi.CustomResource):
         
           * `applicationMode` (`pulumi.Input[str]`)
           * `bundleId` (`pulumi.Input[str]`)
-          * `keyId` (`pulumi.Input[str]`)
+          * `key_id` (`pulumi.Input[str]`)
           * `teamId` (`pulumi.Input[str]`)
           * `token` (`pulumi.Input[str]`)
         
@@ -122,7 +122,7 @@ class Hub(pulumi.CustomResource):
         
           * `applicationMode` (`pulumi.Input[str]`)
           * `bundleId` (`pulumi.Input[str]`)
-          * `keyId` (`pulumi.Input[str]`)
+          * `key_id` (`pulumi.Input[str]`)
           * `teamId` (`pulumi.Input[str]`)
           * `token` (`pulumi.Input[str]`)
         

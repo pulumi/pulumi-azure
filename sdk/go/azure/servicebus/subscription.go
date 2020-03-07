@@ -21,6 +21,7 @@ type Subscription struct {
 	// Subscription is automatically deleted, minimum of 5 minutes. Provided in the
 	// TimeSpan format.
 	AutoDeleteOnIdle pulumi.StringOutput `pulumi:"autoDeleteOnIdle"`
+	DeadLetteringOnFilterEvaluationExceptions pulumi.BoolPtrOutput `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
 	// Boolean flag which controls
 	// whether the Subscription has dead letter support when a message expires. Defaults
 	// to false.
@@ -36,6 +37,9 @@ type Subscription struct {
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrOutput `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo pulumi.StringPtrOutput `pulumi:"forwardTo"`
+	// Specifies the supported Azure location where the resource exists.
+	// Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
 	// The lock duration for the subscription, maximum
 	// supported value is 5 minutes. Defaults to 1 minute.
 	LockDuration pulumi.StringOutput `pulumi:"lockDuration"`
@@ -103,6 +107,7 @@ type subscriptionState struct {
 	// Subscription is automatically deleted, minimum of 5 minutes. Provided in the
 	// TimeSpan format.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	DeadLetteringOnFilterEvaluationExceptions *bool `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
 	// Boolean flag which controls
 	// whether the Subscription has dead letter support when a message expires. Defaults
 	// to false.
@@ -118,6 +123,9 @@ type subscriptionState struct {
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo *string `pulumi:"forwardTo"`
+	// Specifies the supported Azure location where the resource exists.
+	// Changing this forces a new resource to be created.
+	Location *string `pulumi:"location"`
 	// The lock duration for the subscription, maximum
 	// supported value is 5 minutes. Defaults to 1 minute.
 	LockDuration *string `pulumi:"lockDuration"`
@@ -146,6 +154,7 @@ type SubscriptionState struct {
 	// Subscription is automatically deleted, minimum of 5 minutes. Provided in the
 	// TimeSpan format.
 	AutoDeleteOnIdle pulumi.StringPtrInput
+	DeadLetteringOnFilterEvaluationExceptions pulumi.BoolPtrInput
 	// Boolean flag which controls
 	// whether the Subscription has dead letter support when a message expires. Defaults
 	// to false.
@@ -161,6 +170,9 @@ type SubscriptionState struct {
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo pulumi.StringPtrInput
+	// Specifies the supported Azure location where the resource exists.
+	// Changing this forces a new resource to be created.
+	Location pulumi.StringPtrInput
 	// The lock duration for the subscription, maximum
 	// supported value is 5 minutes. Defaults to 1 minute.
 	LockDuration pulumi.StringPtrInput
@@ -193,6 +205,7 @@ type subscriptionArgs struct {
 	// Subscription is automatically deleted, minimum of 5 minutes. Provided in the
 	// TimeSpan format.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	DeadLetteringOnFilterEvaluationExceptions *bool `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
 	// Boolean flag which controls
 	// whether the Subscription has dead letter support when a message expires. Defaults
 	// to false.
@@ -208,6 +221,9 @@ type subscriptionArgs struct {
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo *string `pulumi:"forwardTo"`
+	// Specifies the supported Azure location where the resource exists.
+	// Changing this forces a new resource to be created.
+	Location *string `pulumi:"location"`
 	// The lock duration for the subscription, maximum
 	// supported value is 5 minutes. Defaults to 1 minute.
 	LockDuration *string `pulumi:"lockDuration"`
@@ -237,6 +253,7 @@ type SubscriptionArgs struct {
 	// Subscription is automatically deleted, minimum of 5 minutes. Provided in the
 	// TimeSpan format.
 	AutoDeleteOnIdle pulumi.StringPtrInput
+	DeadLetteringOnFilterEvaluationExceptions pulumi.BoolPtrInput
 	// Boolean flag which controls
 	// whether the Subscription has dead letter support when a message expires. Defaults
 	// to false.
@@ -252,6 +269,9 @@ type SubscriptionArgs struct {
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo pulumi.StringPtrInput
+	// Specifies the supported Azure location where the resource exists.
+	// Changing this forces a new resource to be created.
+	Location pulumi.StringPtrInput
 	// The lock duration for the subscription, maximum
 	// supported value is 5 minutes. Defaults to 1 minute.
 	LockDuration pulumi.StringPtrInput

@@ -57,11 +57,14 @@ namespace Pulumi.Azure.Network
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        [Output("securityProviderName")]
+        public Output<string?> SecurityProviderName { get; private set; } = null!;
+
         /// <summary>
         /// A mapping of tags to assign to the Virtual WAN.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -151,6 +154,9 @@ namespace Pulumi.Azure.Network
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("securityProviderName")]
+        public Input<string>? SecurityProviderName { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -211,6 +217,9 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        [Input("securityProviderName")]
+        public Input<string>? SecurityProviderName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

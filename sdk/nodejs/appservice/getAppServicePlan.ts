@@ -46,10 +46,6 @@ export interface GetAppServicePlanArgs {
  */
 export interface GetAppServicePlanResult {
     /**
-     * The ID of the App Service Environment where the App Service Plan is located.
-     */
-    readonly appServiceEnvironmentId: string;
-    /**
      * A flag that indicates if it's a xenon plan (support for Windows Container)
      */
     readonly isXenon: boolean;
@@ -66,18 +62,14 @@ export interface GetAppServicePlanResult {
      */
     readonly maximumElasticWorkerCount: number;
     /**
-     * The maximum number of workers supported with the App Service Plan's sku.
+     * Maximum number of instances that can be assigned to this App Service plan.
      */
     readonly maximumNumberOfWorkers: number;
     readonly name: string;
     /**
-     * Can Apps assigned to this App Service Plan be scaled independently?
+     * A `properties` block as documented below.
      */
-    readonly perSiteScaling: boolean;
-    /**
-     * Is this App Service Plan `Reserved`?
-     */
-    readonly reserved: boolean;
+    readonly properties: outputs.appservice.GetAppServicePlanProperty[];
     readonly resourceGroupName: string;
     /**
      * A `sku` block as documented below.

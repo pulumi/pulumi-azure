@@ -100,7 +100,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of the Virtual Network Gateway. Valid options are
      * `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.

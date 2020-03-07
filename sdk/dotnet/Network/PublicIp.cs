@@ -64,6 +64,9 @@ namespace Pulumi.Azure.Network
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("publicIpAddressAllocation")]
+        public Output<string> PublicIpAddressAllocation { get; private set; } = null!;
+
         /// <summary>
         /// If specified then public IP address allocated will be provided from the public IP prefix resource.
         /// </summary>
@@ -93,7 +96,7 @@ namespace Pulumi.Azure.Network
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A collection containing the availability zone to allocate the Public IP in.
@@ -150,8 +153,8 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
         /// </summary>
-        [Input("allocationMethod", required: true)]
-        public Input<string> AllocationMethod { get; set; } = null!;
+        [Input("allocationMethod")]
+        public Input<string>? AllocationMethod { get; set; }
 
         /// <summary>
         /// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
@@ -183,6 +186,9 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("publicIpAddressAllocation")]
+        public Input<string>? PublicIpAddressAllocation { get; set; }
 
         /// <summary>
         /// If specified then public IP address allocated will be provided from the public IP prefix resource.
@@ -282,6 +288,9 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("publicIpAddressAllocation")]
+        public Input<string>? PublicIpAddressAllocation { get; set; }
 
         /// <summary>
         /// If specified then public IP address allocated will be provided from the public IP prefix resource.

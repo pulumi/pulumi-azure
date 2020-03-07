@@ -85,7 +85,7 @@ export interface GetFunctionAppResult {
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
     readonly siteCredentials: outputs.appservice.GetFunctionAppSiteCredential[];
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

@@ -2076,6 +2076,7 @@ type AppServiceSiteConfig struct {
 	RemoteDebuggingVersion *string `pulumi:"remoteDebuggingVersion"`
 	ScmType *string `pulumi:"scmType"`
 	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
+	VirtualNetworkName *string `pulumi:"virtualNetworkName"`
 	WebsocketsEnabled *bool `pulumi:"websocketsEnabled"`
 	WindowsFxVersion *string `pulumi:"windowsFxVersion"`
 }
@@ -2110,6 +2111,7 @@ type AppServiceSiteConfigArgs struct {
 	RemoteDebuggingVersion pulumi.StringPtrInput `pulumi:"remoteDebuggingVersion"`
 	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
 	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
+	VirtualNetworkName pulumi.StringPtrInput `pulumi:"virtualNetworkName"`
 	WebsocketsEnabled pulumi.BoolPtrInput `pulumi:"websocketsEnabled"`
 	WindowsFxVersion pulumi.StringPtrInput `pulumi:"windowsFxVersion"`
 }
@@ -2269,6 +2271,10 @@ func (o AppServiceSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput
 	return o.ApplyT(func (v AppServiceSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
 }
 
+func (o AppServiceSiteConfigOutput) VirtualNetworkName() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AppServiceSiteConfig) *string { return v.VirtualNetworkName }).(pulumi.StringPtrOutput)
+}
+
 func (o AppServiceSiteConfigOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v AppServiceSiteConfig) *bool { return v.WebsocketsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -2381,6 +2387,10 @@ func (o AppServiceSiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
 
 func (o AppServiceSiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v AppServiceSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
+}
+
+func (o AppServiceSiteConfigPtrOutput) VirtualNetworkName() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AppServiceSiteConfig) *string { return v.VirtualNetworkName }).(pulumi.StringPtrOutput)
 }
 
 func (o AppServiceSiteConfigPtrOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
@@ -2511,6 +2521,7 @@ func (o AppServiceSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOu
 
 type AppServiceSiteConfigIpRestriction struct {
 	IpAddress *string `pulumi:"ipAddress"`
+	SubnetMask *string `pulumi:"subnetMask"`
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -2523,6 +2534,7 @@ type AppServiceSiteConfigIpRestrictionInput interface {
 
 type AppServiceSiteConfigIpRestrictionArgs struct {
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	SubnetMask pulumi.StringPtrInput `pulumi:"subnetMask"`
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -2575,6 +2587,10 @@ func (o AppServiceSiteConfigIpRestrictionOutput) ToAppServiceSiteConfigIpRestric
 
 func (o AppServiceSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v AppServiceSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o AppServiceSiteConfigIpRestrictionOutput) SubnetMask() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AppServiceSiteConfigIpRestriction) *string { return v.SubnetMask }).(pulumi.StringPtrOutput)
 }
 
 func (o AppServiceSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
@@ -4178,6 +4194,8 @@ type FunctionAppSiteConfig struct {
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
+	// The name of the Virtual Network which this App Service should be attached to.
+	VirtualNetworkName *string `pulumi:"virtualNetworkName"`
 	// Should WebSockets be enabled?
 	WebsocketsEnabled *bool `pulumi:"websocketsEnabled"`
 }
@@ -4206,6 +4224,8 @@ type FunctionAppSiteConfigArgs struct {
 	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
 	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
+	// The name of the Virtual Network which this App Service should be attached to.
+	VirtualNetworkName pulumi.StringPtrInput `pulumi:"virtualNetworkName"`
 	// Should WebSockets be enabled?
 	WebsocketsEnabled pulumi.BoolPtrInput `pulumi:"websocketsEnabled"`
 }
@@ -4317,6 +4337,11 @@ func (o FunctionAppSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutpu
 	return o.ApplyT(func (v FunctionAppSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the Virtual Network which this App Service should be attached to.
+func (o FunctionAppSiteConfigOutput) VirtualNetworkName() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v FunctionAppSiteConfig) *string { return v.VirtualNetworkName }).(pulumi.StringPtrOutput)
+}
+
 // Should WebSockets be enabled?
 func (o FunctionAppSiteConfigOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v FunctionAppSiteConfig) *bool { return v.WebsocketsEnabled }).(pulumi.BoolPtrOutput)
@@ -4378,6 +4403,11 @@ func (o FunctionAppSiteConfigPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 // Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 func (o FunctionAppSiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v FunctionAppSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the Virtual Network which this App Service should be attached to.
+func (o FunctionAppSiteConfigPtrOutput) VirtualNetworkName() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v FunctionAppSiteConfig) *string { return v.VirtualNetworkName }).(pulumi.StringPtrOutput)
 }
 
 // Should WebSockets be enabled?
@@ -4691,6 +4721,146 @@ func (o FunctionAppSiteCredentialArrayOutput) Index(i pulumi.IntInput) FunctionA
 	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FunctionAppSiteCredential {
 		return vs[0].([]FunctionAppSiteCredential)[vs[1].(int)]
 	}).(FunctionAppSiteCredentialOutput)
+}
+
+type PlanProperties struct {
+	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+	AppServiceEnvironmentId *string `pulumi:"appServiceEnvironmentId"`
+	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+	PerSiteScaling *bool `pulumi:"perSiteScaling"`
+	// Is this App Service Plan `Reserved`. Defaults to `false`.
+	Reserved *bool `pulumi:"reserved"`
+}
+
+type PlanPropertiesInput interface {
+	pulumi.Input
+
+	ToPlanPropertiesOutput() PlanPropertiesOutput
+	ToPlanPropertiesOutputWithContext(context.Context) PlanPropertiesOutput
+}
+
+type PlanPropertiesArgs struct {
+	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+	AppServiceEnvironmentId pulumi.StringPtrInput `pulumi:"appServiceEnvironmentId"`
+	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+	PerSiteScaling pulumi.BoolPtrInput `pulumi:"perSiteScaling"`
+	// Is this App Service Plan `Reserved`. Defaults to `false`.
+	Reserved pulumi.BoolPtrInput `pulumi:"reserved"`
+}
+
+func (PlanPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanProperties)(nil)).Elem()
+}
+
+func (i PlanPropertiesArgs) ToPlanPropertiesOutput() PlanPropertiesOutput {
+	return i.ToPlanPropertiesOutputWithContext(context.Background())
+}
+
+func (i PlanPropertiesArgs) ToPlanPropertiesOutputWithContext(ctx context.Context) PlanPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanPropertiesOutput)
+}
+
+func (i PlanPropertiesArgs) ToPlanPropertiesPtrOutput() PlanPropertiesPtrOutput {
+	return i.ToPlanPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i PlanPropertiesArgs) ToPlanPropertiesPtrOutputWithContext(ctx context.Context) PlanPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanPropertiesOutput).ToPlanPropertiesPtrOutputWithContext(ctx)
+}
+
+type PlanPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToPlanPropertiesPtrOutput() PlanPropertiesPtrOutput
+	ToPlanPropertiesPtrOutputWithContext(context.Context) PlanPropertiesPtrOutput
+}
+
+type planPropertiesPtrType PlanPropertiesArgs
+
+func PlanPropertiesPtr(v *PlanPropertiesArgs) PlanPropertiesPtrInput {	return (*planPropertiesPtrType)(v)
+}
+
+func (*planPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanProperties)(nil)).Elem()
+}
+
+func (i *planPropertiesPtrType) ToPlanPropertiesPtrOutput() PlanPropertiesPtrOutput {
+	return i.ToPlanPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *planPropertiesPtrType) ToPlanPropertiesPtrOutputWithContext(ctx context.Context) PlanPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanPropertiesPtrOutput)
+}
+
+type PlanPropertiesOutput struct { *pulumi.OutputState }
+
+func (PlanPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanProperties)(nil)).Elem()
+}
+
+func (o PlanPropertiesOutput) ToPlanPropertiesOutput() PlanPropertiesOutput {
+	return o
+}
+
+func (o PlanPropertiesOutput) ToPlanPropertiesOutputWithContext(ctx context.Context) PlanPropertiesOutput {
+	return o
+}
+
+func (o PlanPropertiesOutput) ToPlanPropertiesPtrOutput() PlanPropertiesPtrOutput {
+	return o.ToPlanPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o PlanPropertiesOutput) ToPlanPropertiesPtrOutputWithContext(ctx context.Context) PlanPropertiesPtrOutput {
+	return o.ApplyT(func(v PlanProperties) *PlanProperties {
+		return &v
+	}).(PlanPropertiesPtrOutput)
+}
+// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+func (o PlanPropertiesOutput) AppServiceEnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v PlanProperties) *string { return v.AppServiceEnvironmentId }).(pulumi.StringPtrOutput)
+}
+
+// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+func (o PlanPropertiesOutput) PerSiteScaling() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v PlanProperties) *bool { return v.PerSiteScaling }).(pulumi.BoolPtrOutput)
+}
+
+// Is this App Service Plan `Reserved`. Defaults to `false`.
+func (o PlanPropertiesOutput) Reserved() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v PlanProperties) *bool { return v.Reserved }).(pulumi.BoolPtrOutput)
+}
+
+type PlanPropertiesPtrOutput struct { *pulumi.OutputState}
+
+func (PlanPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanProperties)(nil)).Elem()
+}
+
+func (o PlanPropertiesPtrOutput) ToPlanPropertiesPtrOutput() PlanPropertiesPtrOutput {
+	return o
+}
+
+func (o PlanPropertiesPtrOutput) ToPlanPropertiesPtrOutputWithContext(ctx context.Context) PlanPropertiesPtrOutput {
+	return o
+}
+
+func (o PlanPropertiesPtrOutput) Elem() PlanPropertiesOutput {
+	return o.ApplyT(func (v *PlanProperties) PlanProperties { return *v }).(PlanPropertiesOutput)
+}
+
+// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+func (o PlanPropertiesPtrOutput) AppServiceEnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v PlanProperties) *string { return v.AppServiceEnvironmentId }).(pulumi.StringPtrOutput)
+}
+
+// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+func (o PlanPropertiesPtrOutput) PerSiteScaling() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v PlanProperties) *bool { return v.PerSiteScaling }).(pulumi.BoolPtrOutput)
+}
+
+// Is this App Service Plan `Reserved`. Defaults to `false`.
+func (o PlanPropertiesPtrOutput) Reserved() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v PlanProperties) *bool { return v.Reserved }).(pulumi.BoolPtrOutput)
 }
 
 type PlanSku struct {
@@ -6705,6 +6875,8 @@ type SlotSiteConfig struct {
 	ScmType *string `pulumi:"scmType"`
 	// Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
+	// The name of the Virtual Network which this App Service Slot should be attached to.
+	VirtualNetworkName *string `pulumi:"virtualNetworkName"`
 	// Should WebSockets be enabled?
 	WebsocketsEnabled *bool `pulumi:"websocketsEnabled"`
 	WindowsFxVersion *string `pulumi:"windowsFxVersion"`
@@ -6760,6 +6932,8 @@ type SlotSiteConfigArgs struct {
 	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
 	// Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
+	// The name of the Virtual Network which this App Service Slot should be attached to.
+	VirtualNetworkName pulumi.StringPtrInput `pulumi:"virtualNetworkName"`
 	// Should WebSockets be enabled?
 	WebsocketsEnabled pulumi.BoolPtrInput `pulumi:"websocketsEnabled"`
 	WindowsFxVersion pulumi.StringPtrInput `pulumi:"windowsFxVersion"`
@@ -6940,6 +7114,11 @@ func (o SlotSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v SlotSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the Virtual Network which this App Service Slot should be attached to.
+func (o SlotSiteConfigOutput) VirtualNetworkName() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v SlotSiteConfig) *string { return v.VirtualNetworkName }).(pulumi.StringPtrOutput)
+}
+
 // Should WebSockets be enabled?
 func (o SlotSiteConfigOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v SlotSiteConfig) *bool { return v.WebsocketsEnabled }).(pulumi.BoolPtrOutput)
@@ -7075,6 +7254,11 @@ func (o SlotSiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v SlotSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the Virtual Network which this App Service Slot should be attached to.
+func (o SlotSiteConfigPtrOutput) VirtualNetworkName() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v SlotSiteConfig) *string { return v.VirtualNetworkName }).(pulumi.StringPtrOutput)
+}
+
 // Should WebSockets be enabled?
 func (o SlotSiteConfigPtrOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v SlotSiteConfig) *bool { return v.WebsocketsEnabled }).(pulumi.BoolPtrOutput)
@@ -7204,6 +7388,7 @@ func (o SlotSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOutput {
 
 type SlotSiteConfigIpRestriction struct {
 	IpAddress *string `pulumi:"ipAddress"`
+	SubnetMask *string `pulumi:"subnetMask"`
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -7216,6 +7401,7 @@ type SlotSiteConfigIpRestrictionInput interface {
 
 type SlotSiteConfigIpRestrictionArgs struct {
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	SubnetMask pulumi.StringPtrInput `pulumi:"subnetMask"`
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -7268,6 +7454,10 @@ func (o SlotSiteConfigIpRestrictionOutput) ToSlotSiteConfigIpRestrictionOutputWi
 
 func (o SlotSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v SlotSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o SlotSiteConfigIpRestrictionOutput) SubnetMask() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v SlotSiteConfigIpRestriction) *string { return v.SubnetMask }).(pulumi.StringPtrOutput)
 }
 
 func (o SlotSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
@@ -7499,6 +7689,113 @@ func (o GetAppServiceConnectionStringArrayOutput) Index(i pulumi.IntInput) GetAp
 	}).(GetAppServiceConnectionStringOutput)
 }
 
+type GetAppServicePlanProperty struct {
+	// The ID of the App Service Environment where the App Service Plan is located.
+	AppServiceEnvironmentId string `pulumi:"appServiceEnvironmentId"`
+	// Can Apps assigned to this App Service Plan be scaled independently?
+	PerSiteScaling bool `pulumi:"perSiteScaling"`
+	// Is this App Service Plan `Reserved`?
+	Reserved bool `pulumi:"reserved"`
+}
+
+type GetAppServicePlanPropertyInput interface {
+	pulumi.Input
+
+	ToGetAppServicePlanPropertyOutput() GetAppServicePlanPropertyOutput
+	ToGetAppServicePlanPropertyOutputWithContext(context.Context) GetAppServicePlanPropertyOutput
+}
+
+type GetAppServicePlanPropertyArgs struct {
+	// The ID of the App Service Environment where the App Service Plan is located.
+	AppServiceEnvironmentId pulumi.StringInput `pulumi:"appServiceEnvironmentId"`
+	// Can Apps assigned to this App Service Plan be scaled independently?
+	PerSiteScaling pulumi.BoolInput `pulumi:"perSiteScaling"`
+	// Is this App Service Plan `Reserved`?
+	Reserved pulumi.BoolInput `pulumi:"reserved"`
+}
+
+func (GetAppServicePlanPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppServicePlanProperty)(nil)).Elem()
+}
+
+func (i GetAppServicePlanPropertyArgs) ToGetAppServicePlanPropertyOutput() GetAppServicePlanPropertyOutput {
+	return i.ToGetAppServicePlanPropertyOutputWithContext(context.Background())
+}
+
+func (i GetAppServicePlanPropertyArgs) ToGetAppServicePlanPropertyOutputWithContext(ctx context.Context) GetAppServicePlanPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppServicePlanPropertyOutput)
+}
+
+type GetAppServicePlanPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetAppServicePlanPropertyArrayOutput() GetAppServicePlanPropertyArrayOutput
+	ToGetAppServicePlanPropertyArrayOutputWithContext(context.Context) GetAppServicePlanPropertyArrayOutput
+}
+
+type GetAppServicePlanPropertyArray []GetAppServicePlanPropertyInput
+
+func (GetAppServicePlanPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppServicePlanProperty)(nil)).Elem()
+}
+
+func (i GetAppServicePlanPropertyArray) ToGetAppServicePlanPropertyArrayOutput() GetAppServicePlanPropertyArrayOutput {
+	return i.ToGetAppServicePlanPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppServicePlanPropertyArray) ToGetAppServicePlanPropertyArrayOutputWithContext(ctx context.Context) GetAppServicePlanPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppServicePlanPropertyArrayOutput)
+}
+
+type GetAppServicePlanPropertyOutput struct { *pulumi.OutputState }
+
+func (GetAppServicePlanPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppServicePlanProperty)(nil)).Elem()
+}
+
+func (o GetAppServicePlanPropertyOutput) ToGetAppServicePlanPropertyOutput() GetAppServicePlanPropertyOutput {
+	return o
+}
+
+func (o GetAppServicePlanPropertyOutput) ToGetAppServicePlanPropertyOutputWithContext(ctx context.Context) GetAppServicePlanPropertyOutput {
+	return o
+}
+
+// The ID of the App Service Environment where the App Service Plan is located.
+func (o GetAppServicePlanPropertyOutput) AppServiceEnvironmentId() pulumi.StringOutput {
+	return o.ApplyT(func (v GetAppServicePlanProperty) string { return v.AppServiceEnvironmentId }).(pulumi.StringOutput)
+}
+
+// Can Apps assigned to this App Service Plan be scaled independently?
+func (o GetAppServicePlanPropertyOutput) PerSiteScaling() pulumi.BoolOutput {
+	return o.ApplyT(func (v GetAppServicePlanProperty) bool { return v.PerSiteScaling }).(pulumi.BoolOutput)
+}
+
+// Is this App Service Plan `Reserved`?
+func (o GetAppServicePlanPropertyOutput) Reserved() pulumi.BoolOutput {
+	return o.ApplyT(func (v GetAppServicePlanProperty) bool { return v.Reserved }).(pulumi.BoolOutput)
+}
+
+type GetAppServicePlanPropertyArrayOutput struct { *pulumi.OutputState}
+
+func (GetAppServicePlanPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppServicePlanProperty)(nil)).Elem()
+}
+
+func (o GetAppServicePlanPropertyArrayOutput) ToGetAppServicePlanPropertyArrayOutput() GetAppServicePlanPropertyArrayOutput {
+	return o
+}
+
+func (o GetAppServicePlanPropertyArrayOutput) ToGetAppServicePlanPropertyArrayOutputWithContext(ctx context.Context) GetAppServicePlanPropertyArrayOutput {
+	return o
+}
+
+func (o GetAppServicePlanPropertyArrayOutput) Index(i pulumi.IntInput) GetAppServicePlanPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetAppServicePlanProperty {
+		return vs[0].([]GetAppServicePlanProperty)[vs[1].(int)]
+	}).(GetAppServicePlanPropertyOutput)
+}
+
 type GetAppServicePlanSku struct {
 	// Specifies the number of workers associated with this App Service Plan.
 	Capacity int `pulumi:"capacity"`
@@ -7608,6 +7905,8 @@ type GetAppServiceSiteConfig struct {
 	ScmType string `pulumi:"scmType"`
 	// Does the App Service run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess bool `pulumi:"use32BitWorkerProcess"`
+	// The name of the Virtual Network which this App Service is attached to.
+	VirtualNetworkName string `pulumi:"virtualNetworkName"`
 	// Are WebSockets enabled for this App Service?
 	WebsocketsEnabled bool `pulumi:"websocketsEnabled"`
 	// Windows Container Docker Image for the AppService.
@@ -7664,6 +7963,8 @@ type GetAppServiceSiteConfigArgs struct {
 	ScmType pulumi.StringInput `pulumi:"scmType"`
 	// Does the App Service run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess pulumi.BoolInput `pulumi:"use32BitWorkerProcess"`
+	// The name of the Virtual Network which this App Service is attached to.
+	VirtualNetworkName pulumi.StringInput `pulumi:"virtualNetworkName"`
 	// Are WebSockets enabled for this App Service?
 	WebsocketsEnabled pulumi.BoolInput `pulumi:"websocketsEnabled"`
 	// Windows Container Docker Image for the AppService.
@@ -7822,6 +8123,11 @@ func (o GetAppServiceSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolOutput
 	return o.ApplyT(func (v GetAppServiceSiteConfig) bool { return v.Use32BitWorkerProcess }).(pulumi.BoolOutput)
 }
 
+// The name of the Virtual Network which this App Service is attached to.
+func (o GetAppServiceSiteConfigOutput) VirtualNetworkName() pulumi.StringOutput {
+	return o.ApplyT(func (v GetAppServiceSiteConfig) string { return v.VirtualNetworkName }).(pulumi.StringOutput)
+}
+
 // Are WebSockets enabled for this App Service?
 func (o GetAppServiceSiteConfigOutput) WebsocketsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func (v GetAppServiceSiteConfig) bool { return v.WebsocketsEnabled }).(pulumi.BoolOutput)
@@ -7953,6 +8259,8 @@ func (o GetAppServiceSiteConfigCorArrayOutput) Index(i pulumi.IntInput) GetAppSe
 type GetAppServiceSiteConfigIpRestriction struct {
 	// The IP Address used for this IP Restriction.
 	IpAddress string `pulumi:"ipAddress"`
+	// The Subnet mask used for this IP Restriction.
+	SubnetMask string `pulumi:"subnetMask"`
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -7966,6 +8274,8 @@ type GetAppServiceSiteConfigIpRestrictionInput interface {
 type GetAppServiceSiteConfigIpRestrictionArgs struct {
 	// The IP Address used for this IP Restriction.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// The Subnet mask used for this IP Restriction.
+	SubnetMask pulumi.StringInput `pulumi:"subnetMask"`
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -8019,6 +8329,11 @@ func (o GetAppServiceSiteConfigIpRestrictionOutput) ToGetAppServiceSiteConfigIpR
 // The IP Address used for this IP Restriction.
 func (o GetAppServiceSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func (v GetAppServiceSiteConfigIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The Subnet mask used for this IP Restriction.
+func (o GetAppServiceSiteConfigIpRestrictionOutput) SubnetMask() pulumi.StringOutput {
+	return o.ApplyT(func (v GetAppServiceSiteConfigIpRestriction) string { return v.SubnetMask }).(pulumi.StringOutput)
 }
 
 func (o GetAppServiceSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
@@ -8620,6 +8935,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionAppSiteConfigIpRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(FunctionAppSiteCredentialOutput{})
 	pulumi.RegisterOutputType(FunctionAppSiteCredentialArrayOutput{})
+	pulumi.RegisterOutputType(PlanPropertiesOutput{})
+	pulumi.RegisterOutputType(PlanPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PlanSkuOutput{})
 	pulumi.RegisterOutputType(PlanSkuPtrOutput{})
 	pulumi.RegisterOutputType(SlotAuthSettingsOutput{})
@@ -8660,6 +8977,8 @@ func init() {
 	pulumi.RegisterOutputType(SlotSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(GetAppServiceConnectionStringOutput{})
 	pulumi.RegisterOutputType(GetAppServiceConnectionStringArrayOutput{})
+	pulumi.RegisterOutputType(GetAppServicePlanPropertyOutput{})
+	pulumi.RegisterOutputType(GetAppServicePlanPropertyArrayOutput{})
 	pulumi.RegisterOutputType(GetAppServicePlanSkuOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteConfigOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteConfigArrayOutput{})

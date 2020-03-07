@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("example", {
  *     location: "global",
- *     microsoftAppId: current.clientId,
+ *     microsoftAppId: current.servicePrincipalApplicationId,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "F0",
  * });
@@ -97,7 +97,7 @@ export class ChannelsRegistration extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ChannelsRegistration resource with the given unique name, arguments, and options.

@@ -22,6 +22,8 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
         """
         Associates a Network Security Group with a Subnet within a Virtual Network.
         
+        > **NOTE:** Subnet `<->` Network Security Group associations currently need to be configured on both this resource and using the `network_security_group_id` field on the `network.Subnet` resource. The next major version of the AzureRM Provider (2.0) will remove the `network_security_group_id` field from the `network.Subnet` resource such that this resource is used to link resources in future.
+        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.

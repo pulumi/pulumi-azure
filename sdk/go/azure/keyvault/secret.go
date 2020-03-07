@@ -34,6 +34,7 @@ type Secret struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the value of the Key Vault Secret.
 	Value pulumi.StringOutput `pulumi:"value"`
+	VaultUri pulumi.StringOutput `pulumi:"vaultUri"`
 	// The current version of the Key Vault Secret.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -41,9 +42,6 @@ type Secret struct {
 // NewSecret registers a new resource with the given unique name, arguments, and options.
 func NewSecret(ctx *pulumi.Context,
 	name string, args *SecretArgs, opts ...pulumi.ResourceOption) (*Secret, error) {
-	if args == nil || args.KeyVaultId == nil {
-		return nil, errors.New("missing required argument 'KeyVaultId'")
-	}
 	if args == nil || args.Value == nil {
 		return nil, errors.New("missing required argument 'Value'")
 	}
@@ -86,6 +84,7 @@ type secretState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the value of the Key Vault Secret.
 	Value *string `pulumi:"value"`
+	VaultUri *string `pulumi:"vaultUri"`
 	// The current version of the Key Vault Secret.
 	Version *string `pulumi:"version"`
 }
@@ -105,6 +104,7 @@ type SecretState struct {
 	Tags pulumi.StringMapInput
 	// Specifies the value of the Key Vault Secret.
 	Value pulumi.StringPtrInput
+	VaultUri pulumi.StringPtrInput
 	// The current version of the Key Vault Secret.
 	Version pulumi.StringPtrInput
 }
@@ -119,7 +119,7 @@ type secretArgs struct {
 	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
 	ExpirationDate *string `pulumi:"expirationDate"`
 	// The ID of the Key Vault where the Secret should be created.
-	KeyVaultId string `pulumi:"keyVaultId"`
+	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
@@ -128,6 +128,7 @@ type secretArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the value of the Key Vault Secret.
 	Value string `pulumi:"value"`
+	VaultUri *string `pulumi:"vaultUri"`
 }
 
 // The set of arguments for constructing a Secret resource.
@@ -137,7 +138,7 @@ type SecretArgs struct {
 	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
 	ExpirationDate pulumi.StringPtrInput
 	// The ID of the Key Vault where the Secret should be created.
-	KeyVaultId pulumi.StringInput
+	KeyVaultId pulumi.StringPtrInput
 	// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
@@ -146,6 +147,7 @@ type SecretArgs struct {
 	Tags pulumi.StringMapInput
 	// Specifies the value of the Key Vault Secret.
 	Value pulumi.StringInput
+	VaultUri pulumi.StringPtrInput
 }
 
 func (SecretArgs) ElementType() reflect.Type {

@@ -29,9 +29,10 @@ storageContainer.onBlobEvent("newImage", {
 // Put a sample HTML file
 const sampleFile = new azure.storage.Blob("test.html", {
     name: "test.html",
+    resourceGroupName: resourceGroup.name,
     storageAccountName: storageAccount.name,
     storageContainerName: storageContainer.name,
-    type: "Block",
+    type: "block",
     source: "./test.html",
     contentType: "text/html",
 });

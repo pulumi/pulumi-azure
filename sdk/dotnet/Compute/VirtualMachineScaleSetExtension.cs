@@ -9,6 +9,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute
 {
     /// <summary>
+    /// &gt; **NOTE:** **This resource is in Beta** and as such the Schema can change in Minor versions of the Provider.
+    /// 
     /// Manages an Extension for a Virtual Machine Scale Set.
     /// 
     /// &gt; **NOTE:** This resource is not intended to be used with the `azure.compute.ScaleSet` resource - instead it's intended for this to be used with the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources.

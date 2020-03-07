@@ -14,6 +14,10 @@ class Blob(pulumi.CustomResource):
     """
     The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
     """
+    attempts: pulumi.Output[float]
+    """
+    The number of attempts to make per page or block when uploading. Defaults to `1`.
+    """
     content_type: pulumi.Output[str]
     """
     The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
@@ -29,6 +33,10 @@ class Blob(pulumi.CustomResource):
     parallelism: pulumi.Output[float]
     """
     The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+    """
+    resource_group_name: pulumi.Output[str]
+    """
+    The name of the resource group in which to create the storage container.
     """
     size: pulumi.Output[float]
     """
@@ -64,17 +72,19 @@ class Blob(pulumi.CustomResource):
     """
     The URL of the blob
     """
-    def __init__(__self__, resource_name, opts=None, access_tier=None, content_type=None, metadata=None, name=None, parallelism=None, size=None, source=None, source_content=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_tier=None, attempts=None, content_type=None, metadata=None, name=None, parallelism=None, resource_group_name=None, size=None, source=None, source_content=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Blob within a Storage Container.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
+        :param pulumi.Input[float] attempts: The number of attempts to make per page or block when uploading. Defaults to `1`.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[dict] metadata: A map of custom blob metadata.
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located.
         :param pulumi.Input[float] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage container.
         :param pulumi.Input[float] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
         :param pulumi.Input[str] source: An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
         :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
@@ -105,10 +115,12 @@ class Blob(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['access_tier'] = access_tier
+            __props__['attempts'] = attempts
             __props__['content_type'] = content_type
             __props__['metadata'] = metadata
             __props__['name'] = name
             __props__['parallelism'] = parallelism
+            __props__['resource_group_name'] = resource_group_name
             __props__['size'] = size
             __props__['source'] = source
             __props__['source_content'] = source_content
@@ -130,7 +142,7 @@ class Blob(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, access_tier=None, content_type=None, metadata=None, name=None, parallelism=None, size=None, source=None, source_content=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, url=None):
+    def get(resource_name, id, opts=None, access_tier=None, attempts=None, content_type=None, metadata=None, name=None, parallelism=None, resource_group_name=None, size=None, source=None, source_content=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, url=None):
         """
         Get an existing Blob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -139,10 +151,12 @@ class Blob(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
+        :param pulumi.Input[float] attempts: The number of attempts to make per page or block when uploading. Defaults to `1`.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[dict] metadata: A map of custom blob metadata.
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located.
         :param pulumi.Input[float] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage container.
         :param pulumi.Input[float] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
         :param pulumi.Input[str] source: An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
         :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
@@ -160,10 +174,12 @@ class Blob(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["access_tier"] = access_tier
+        __props__["attempts"] = attempts
         __props__["content_type"] = content_type
         __props__["metadata"] = metadata
         __props__["name"] = name
         __props__["parallelism"] = parallelism
+        __props__["resource_group_name"] = resource_group_name
         __props__["size"] = size
         __props__["source"] = source
         __props__["source_content"] = source_content

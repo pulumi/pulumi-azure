@@ -29,6 +29,7 @@ type Server struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	Sku ServerSkuOutput `pulumi:"sku"`
 	// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
@@ -52,9 +53,6 @@ func NewServer(ctx *pulumi.Context,
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SkuName == nil {
-		return nil, errors.New("missing required argument 'SkuName'")
 	}
 	if args == nil || args.SslEnforcement == nil {
 		return nil, errors.New("missing required argument 'SslEnforcement'")
@@ -102,6 +100,7 @@ type serverState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	Sku *ServerSku `pulumi:"sku"`
 	// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
 	SkuName *string `pulumi:"skuName"`
 	// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
@@ -127,6 +126,7 @@ type ServerState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	Sku ServerSkuPtrInput
 	// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
 	SkuName pulumi.StringPtrInput
 	// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
@@ -154,8 +154,9 @@ type serverArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Sku *ServerSku `pulumi:"sku"`
 	// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
-	SkuName string `pulumi:"skuName"`
+	SkuName *string `pulumi:"skuName"`
 	// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
 	SslEnforcement string `pulumi:"sslEnforcement"`
 	// A `storageProfile` block as defined below.
@@ -178,8 +179,9 @@ type ServerArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	Sku ServerSkuPtrInput
 	// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
-	SkuName pulumi.StringInput
+	SkuName pulumi.StringPtrInput
 	// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
 	SslEnforcement pulumi.StringInput
 	// A `storageProfile` block as defined below.

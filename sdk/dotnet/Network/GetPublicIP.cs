@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A mapping of tags to assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly ImmutableArray<string> Zones;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Network
             string resourceGroupName,
             string reverseFqdn,
             string sku,
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
             ImmutableArray<string> zones,
             string id)
         {

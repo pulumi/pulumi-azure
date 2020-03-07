@@ -63,6 +63,7 @@ export class NatPool extends pulumi.CustomResource {
      * The ID of the Load Balancer in which to create the NAT pool.
      */
     public readonly loadbalancerId!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the NAT pool.
      */
@@ -94,6 +95,7 @@ export class NatPool extends pulumi.CustomResource {
             inputs["frontendPortEnd"] = state ? state.frontendPortEnd : undefined;
             inputs["frontendPortStart"] = state ? state.frontendPortStart : undefined;
             inputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
+            inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["protocol"] = state ? state.protocol : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -125,6 +127,7 @@ export class NatPool extends pulumi.CustomResource {
             inputs["frontendPortEnd"] = args ? args.frontendPortEnd : undefined;
             inputs["frontendPortStart"] = args ? args.frontendPortStart : undefined;
             inputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
+            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["protocol"] = args ? args.protocol : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -166,6 +169,7 @@ export interface NatPoolState {
      * The ID of the Load Balancer in which to create the NAT pool.
      */
     readonly loadbalancerId?: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the NAT pool.
      */
@@ -204,6 +208,7 @@ export interface NatPoolArgs {
      * The ID of the Load Balancer in which to create the NAT pool.
      */
     readonly loadbalancerId: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the NAT pool.
      */

@@ -168,7 +168,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */

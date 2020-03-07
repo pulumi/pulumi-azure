@@ -27,6 +27,9 @@ type ApplicationGateway struct {
 	BackendHttpSettings ApplicationGatewayBackendHttpSettingArrayOutput `pulumi:"backendHttpSettings"`
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayOutput `pulumi:"customErrorConfigurations"`
+	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+	// > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
+	DisabledSslProtocols pulumi.StringArrayOutput `pulumi:"disabledSslProtocols"`
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 pulumi.BoolPtrOutput `pulumi:"enableHttp2"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
@@ -136,6 +139,9 @@ type applicationGatewayState struct {
 	BackendHttpSettings []ApplicationGatewayBackendHttpSetting `pulumi:"backendHttpSettings"`
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations []ApplicationGatewayCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
+	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+	// > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
+	DisabledSslProtocols []string `pulumi:"disabledSslProtocols"`
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 *bool `pulumi:"enableHttp2"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
@@ -191,6 +197,9 @@ type ApplicationGatewayState struct {
 	BackendHttpSettings ApplicationGatewayBackendHttpSettingArrayInput
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayInput
+	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+	// > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
+	DisabledSslProtocols pulumi.StringArrayInput
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 pulumi.BoolPtrInput
 	// One or more `frontendIpConfiguration` blocks as defined below.
@@ -250,6 +259,9 @@ type applicationGatewayArgs struct {
 	BackendHttpSettings []ApplicationGatewayBackendHttpSetting `pulumi:"backendHttpSettings"`
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations []ApplicationGatewayCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
+	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+	// > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
+	DisabledSslProtocols []string `pulumi:"disabledSslProtocols"`
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 *bool `pulumi:"enableHttp2"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
@@ -306,6 +318,9 @@ type ApplicationGatewayArgs struct {
 	BackendHttpSettings ApplicationGatewayBackendHttpSettingArrayInput
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayInput
+	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+	// > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
+	DisabledSslProtocols pulumi.StringArrayInput
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 pulumi.BoolPtrInput
 	// One or more `frontendIpConfiguration` blocks as defined below.

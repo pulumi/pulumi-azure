@@ -26,6 +26,8 @@ type GetClientConfigResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	ObjectId string `pulumi:"objectId"`
+	ServicePrincipalApplicationId string `pulumi:"servicePrincipalApplicationId"`
+	ServicePrincipalObjectId string `pulumi:"servicePrincipalObjectId"`
 	SubscriptionId string `pulumi:"subscriptionId"`
 	TenantId string `pulumi:"tenantId"`
 }

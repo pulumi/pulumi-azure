@@ -51,6 +51,9 @@ namespace Pulumi.Azure.MariaDB
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        [Output("sku")]
+        public Output<Outputs.ServerSku> Sku { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
         /// </summary>
@@ -73,7 +76,7 @@ namespace Pulumi.Azure.MariaDB
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the version of MariaDB to use. Possible values are `10.2` and `10.3`. Changing this forces a new resource to be created.
@@ -157,11 +160,14 @@ namespace Pulumi.Azure.MariaDB
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("sku")]
+        public Input<Inputs.ServerSkuArgs>? Sku { get; set; }
+
         /// <summary>
         /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
         /// </summary>
-        [Input("skuName", required: true)]
-        public Input<string> SkuName { get; set; } = null!;
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
 
         /// <summary>
         /// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
@@ -236,6 +242,9 @@ namespace Pulumi.Azure.MariaDB
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("sku")]
+        public Input<Inputs.ServerSkuGetArgs>? Sku { get; set; }
+
         /// <summary>
         /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
         /// </summary>
@@ -280,6 +289,50 @@ namespace Pulumi.Azure.MariaDB
     namespace Inputs
     {
 
+    public sealed class ServerSkuArgs : Pulumi.ResourceArgs
+    {
+        [Input("capacity", required: true)]
+        public Input<int> Capacity { get; set; } = null!;
+
+        [Input("family", required: true)]
+        public Input<string> Family { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("tier", required: true)]
+        public Input<string> Tier { get; set; } = null!;
+
+        public ServerSkuArgs()
+        {
+        }
+    }
+
+    public sealed class ServerSkuGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("capacity", required: true)]
+        public Input<int> Capacity { get; set; } = null!;
+
+        [Input("family", required: true)]
+        public Input<string> Family { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("tier", required: true)]
+        public Input<string> Tier { get; set; } = null!;
+
+        public ServerSkuGetArgs()
+        {
+        }
+    }
+
     public sealed class ServerStorageProfileArgs : Pulumi.ResourceArgs
     {
         [Input("autoGrow")]
@@ -321,6 +374,31 @@ namespace Pulumi.Azure.MariaDB
 
     namespace Outputs
     {
+
+    [OutputType]
+    public sealed class ServerSku
+    {
+        public readonly int Capacity;
+        public readonly string Family;
+        /// <summary>
+        /// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string Name;
+        public readonly string Tier;
+
+        [OutputConstructor]
+        private ServerSku(
+            int capacity,
+            string family,
+            string name,
+            string tier)
+        {
+            Capacity = capacity;
+            Family = family;
+            Name = name;
+            Tier = tier;
+        }
+    }
 
     [OutputType]
     public sealed class ServerStorageProfile

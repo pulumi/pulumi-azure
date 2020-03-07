@@ -5,10 +5,10 @@
 # Export this package's modules as members:
 from .application_gateway import *
 from .application_security_group import *
+from .connection_monitor import *
 from .express_route_circuit import *
 from .express_route_circuit_authorization import *
 from .express_route_circuit_peering import *
-from .express_route_gateway import *
 from .firewall import *
 from .firewall_application_rule_collection import *
 from .firewall_nat_rule_collection import *
@@ -22,7 +22,6 @@ from .network_interface_application_gateway_backend_address_pool_association imp
 from .network_interface_application_security_group_association import *
 from .network_interface_backend_address_pool_association import *
 from .network_interface_nat_rule_association import *
-from .network_interface_security_group_association import *
 from .network_packet_capture import *
 from .profile import *
 from .network_security_group import *

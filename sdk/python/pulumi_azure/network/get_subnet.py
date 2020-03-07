@@ -13,7 +13,7 @@ class GetSubnetResult:
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, address_prefix=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None, id=None):
+    def __init__(__self__, address_prefix=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, ip_configurations=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None, id=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         __self__.address_prefix = address_prefix
@@ -31,6 +31,12 @@ class GetSubnetResult:
         __self__.enforce_private_link_service_network_policies = enforce_private_link_service_network_policies
         """
         Enable or Disable network policies for the private link service on the subnet.
+        """
+        if ip_configurations and not isinstance(ip_configurations, list):
+            raise TypeError("Expected argument 'ip_configurations' to be a list")
+        __self__.ip_configurations = ip_configurations
+        """
+        The collection of IP Configurations with IPs within this subnet.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -74,6 +80,7 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             address_prefix=self.address_prefix,
             enforce_private_link_endpoint_network_policies=self.enforce_private_link_endpoint_network_policies,
             enforce_private_link_service_network_policies=self.enforce_private_link_service_network_policies,
+            ip_configurations=self.ip_configurations,
             name=self.name,
             network_security_group_id=self.network_security_group_id,
             resource_group_name=self.resource_group_name,
@@ -107,6 +114,7 @@ def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts
         address_prefix=__ret__.get('addressPrefix'),
         enforce_private_link_endpoint_network_policies=__ret__.get('enforcePrivateLinkEndpointNetworkPolicies'),
         enforce_private_link_service_network_policies=__ret__.get('enforcePrivateLinkServiceNetworkPolicies'),
+        ip_configurations=__ret__.get('ipConfigurations'),
         name=__ret__.get('name'),
         network_security_group_id=__ret__.get('networkSecurityGroupId'),
         resource_group_name=__ret__.get('resourceGroupName'),

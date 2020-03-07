@@ -61,7 +61,7 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the Point-to-Site VPN Gateway.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
      */

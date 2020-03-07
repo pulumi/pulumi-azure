@@ -14,6 +14,7 @@ class Group(pulumi.CustomResource):
     """
     The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
     
+      * `command` (`str`)
       * `commands` (`list`)
       * `cpu` (`float`)
       * `environmentVariables` (`dict`)
@@ -40,11 +41,13 @@ class Group(pulumi.CustomResource):
     
       * `memory` (`float`)
       * `name` (`str`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
+      * `port` (`float`)
       * `ports` (`list`)
     
         * `port` (`float`)
         * `protocol` (`str`)
     
+      * `protocol` (`str`)
       * `readinessProbe` (`dict`)
     
         * `execs` (`list`)
@@ -163,6 +166,7 @@ class Group(pulumi.CustomResource):
         
         The **containers** object supports the following:
         
+          * `command` (`pulumi.Input[str]`)
           * `commands` (`pulumi.Input[list]`)
           * `cpu` (`pulumi.Input[float]`)
           * `environmentVariables` (`pulumi.Input[dict]`)
@@ -189,11 +193,13 @@ class Group(pulumi.CustomResource):
         
           * `memory` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
+          * `port` (`pulumi.Input[float]`)
           * `ports` (`pulumi.Input[list]`)
         
             * `port` (`pulumi.Input[float]`)
             * `protocol` (`pulumi.Input[str]`)
         
+          * `protocol` (`pulumi.Input[str]`)
           * `readinessProbe` (`pulumi.Input[dict]`)
         
             * `execs` (`pulumi.Input[list]`)
@@ -313,6 +319,7 @@ class Group(pulumi.CustomResource):
         
         The **containers** object supports the following:
         
+          * `command` (`pulumi.Input[str]`)
           * `commands` (`pulumi.Input[list]`)
           * `cpu` (`pulumi.Input[float]`)
           * `environmentVariables` (`pulumi.Input[dict]`)
@@ -339,11 +346,13 @@ class Group(pulumi.CustomResource):
         
           * `memory` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
+          * `port` (`pulumi.Input[float]`)
           * `ports` (`pulumi.Input[list]`)
         
             * `port` (`pulumi.Input[float]`)
             * `protocol` (`pulumi.Input[str]`)
         
+          * `protocol` (`pulumi.Input[str]`)
           * `readinessProbe` (`pulumi.Input[dict]`)
         
             * `execs` (`pulumi.Input[list]`)

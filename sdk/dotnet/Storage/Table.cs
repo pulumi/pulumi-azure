@@ -28,6 +28,12 @@ namespace Pulumi.Azure.Storage
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the resource group in which to create the storage table.
+        /// </summary>
+        [Output("resourceGroupName")]
+        public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the storage account in which to create the storage table.
         /// Changing this forces a new resource to be created.
         /// </summary>
@@ -99,6 +105,12 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The name of the resource group in which to create the storage table.
+        /// </summary>
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
         /// Specifies the storage account in which to create the storage table.
         /// Changing this forces a new resource to be created.
         /// </summary>
@@ -129,6 +141,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The name of the resource group in which to create the storage table.
+        /// </summary>
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// Specifies the storage account in which to create the storage table.

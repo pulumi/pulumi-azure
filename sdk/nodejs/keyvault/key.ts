@@ -81,7 +81,8 @@ export class Key extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly vaultUri!: pulumi.Output<string>;
     /**
      * The current version of the Key Vault Key.
      */
@@ -118,6 +119,7 @@ export class Key extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["notBeforeDate"] = state ? state.notBeforeDate : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["vaultUri"] = state ? state.vaultUri : undefined;
             inputs["version"] = state ? state.version : undefined;
             inputs["x"] = state ? state.x : undefined;
             inputs["y"] = state ? state.y : undefined;
@@ -129,9 +131,6 @@ export class Key extends pulumi.CustomResource {
             if (!args || args.keyType === undefined) {
                 throw new Error("Missing required property 'keyType'");
             }
-            if (!args || args.keyVaultId === undefined) {
-                throw new Error("Missing required property 'keyVaultId'");
-            }
             inputs["curve"] = args ? args.curve : undefined;
             inputs["expirationDate"] = args ? args.expirationDate : undefined;
             inputs["keyOpts"] = args ? args.keyOpts : undefined;
@@ -141,6 +140,7 @@ export class Key extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["notBeforeDate"] = args ? args.notBeforeDate : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["vaultUri"] = args ? args.vaultUri : undefined;
             inputs["e"] = undefined /*out*/;
             inputs["n"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
@@ -206,6 +206,7 @@ export interface KeyState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly vaultUri?: pulumi.Input<string>;
     /**
      * The current version of the Key Vault Key.
      */
@@ -247,7 +248,7 @@ export interface KeyArgs {
     /**
      * The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
      */
-    readonly keyVaultId: pulumi.Input<string>;
+    readonly keyVaultId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
      */
@@ -260,4 +261,5 @@ export interface KeyArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly vaultUri?: pulumi.Input<string>;
 }

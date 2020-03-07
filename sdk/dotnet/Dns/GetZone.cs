@@ -56,11 +56,23 @@ namespace Pulumi.Azure.Dns
         /// The number of records already in the zone.
         /// </summary>
         public readonly int NumberOfRecordSets;
+        /// <summary>
+        /// A list of Virtual Network ID's that register hostnames in this DNS zone.
+        /// </summary>
+        public readonly ImmutableArray<string> RegistrationVirtualNetworkIds;
+        /// <summary>
+        /// A list of Virtual Network ID's that resolve records in this DNS zone.
+        /// </summary>
+        public readonly ImmutableArray<string> ResolutionVirtualNetworkIds;
         public readonly string ResourceGroupName;
         /// <summary>
         /// A mapping of tags to assign to the EventHub Namespace.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// (**Deprecated**) The type of this DNS zone, such as `Public` or `Private`.
+        /// </summary>
+        public readonly string ZoneType;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -72,16 +84,22 @@ namespace Pulumi.Azure.Dns
             string name,
             ImmutableArray<string> nameServers,
             int numberOfRecordSets,
+            ImmutableArray<string> registrationVirtualNetworkIds,
+            ImmutableArray<string> resolutionVirtualNetworkIds,
             string resourceGroupName,
             ImmutableDictionary<string, string> tags,
+            string zoneType,
             string id)
         {
             MaxNumberOfRecordSets = maxNumberOfRecordSets;
             Name = name;
             NameServers = nameServers;
             NumberOfRecordSets = numberOfRecordSets;
+            RegistrationVirtualNetworkIds = registrationVirtualNetworkIds;
+            ResolutionVirtualNetworkIds = resolutionVirtualNetworkIds;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
+            ZoneType = zoneType;
             Id = id;
         }
     }

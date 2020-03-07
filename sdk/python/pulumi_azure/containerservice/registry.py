@@ -59,8 +59,9 @@ class Registry(pulumi.CustomResource):
     """
     sku: pulumi.Output[str]
     """
-    The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+    The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
     """
+    storage_account: pulumi.Output[dict]
     storage_account_id: pulumi.Output[str]
     """
     The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
@@ -69,7 +70,7 @@ class Registry(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, admin_enabled=None, georeplication_locations=None, location=None, name=None, network_rule_set=None, resource_group_name=None, sku=None, storage_account_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, admin_enabled=None, georeplication_locations=None, location=None, name=None, network_rule_set=None, resource_group_name=None, sku=None, storage_account=None, storage_account_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Container Registry.
         
@@ -84,7 +85,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+        :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         
@@ -100,6 +101,11 @@ class Registry(pulumi.CustomResource):
         
             * `action` (`pulumi.Input[str]`) - The behaviour for requests matching this rule. At this time the only supported value is `Allow`
             * `subnet_id` (`pulumi.Input[str]`) - The subnet id from which requests will match the rule.
+        
+        The **storage_account** object supports the following:
+        
+          * `accessKey` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Container Registry. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_registry.html.markdown.
         """
@@ -129,6 +135,7 @@ class Registry(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
+            __props__['storage_account'] = storage_account
             __props__['storage_account_id'] = storage_account_id
             __props__['tags'] = tags
             __props__['admin_password'] = None
@@ -141,7 +148,7 @@ class Registry(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, admin_enabled=None, admin_password=None, admin_username=None, georeplication_locations=None, location=None, login_server=None, name=None, network_rule_set=None, resource_group_name=None, sku=None, storage_account_id=None, tags=None):
+    def get(resource_name, id, opts=None, admin_enabled=None, admin_password=None, admin_username=None, georeplication_locations=None, location=None, login_server=None, name=None, network_rule_set=None, resource_group_name=None, sku=None, storage_account=None, storage_account_id=None, tags=None):
         """
         Get an existing Registry resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -158,7 +165,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+        :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         
@@ -174,6 +181,11 @@ class Registry(pulumi.CustomResource):
         
             * `action` (`pulumi.Input[str]`) - The behaviour for requests matching this rule. At this time the only supported value is `Allow`
             * `subnet_id` (`pulumi.Input[str]`) - The subnet id from which requests will match the rule.
+        
+        The **storage_account** object supports the following:
+        
+          * `accessKey` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Container Registry. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_registry.html.markdown.
         """
@@ -190,6 +202,7 @@ class Registry(pulumi.CustomResource):
         __props__["network_rule_set"] = network_rule_set
         __props__["resource_group_name"] = resource_group_name
         __props__["sku"] = sku
+        __props__["storage_account"] = storage_account
         __props__["storage_account_id"] = storage_account_id
         __props__["tags"] = tags
         return Registry(resource_name, opts=opts, __props__=__props__)

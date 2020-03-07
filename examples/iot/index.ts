@@ -10,6 +10,7 @@ const iotHub = new iot.IoTHub("test", {
     sku: {
         capacity: 1,
         name: "S1",
+        tier: "Standard",
     },
     fallbackRoute: {
         source: "DeviceMessages", 

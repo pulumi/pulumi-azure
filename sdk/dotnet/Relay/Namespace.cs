@@ -64,6 +64,12 @@ namespace Pulumi.Azure.Relay
         public Output<string> SecondaryKey { get; private set; } = null!;
 
         /// <summary>
+        /// ) A `sku` block as described below.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.NamespaceSku> Sku { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the SKU to use. At this time the only supported value is `Standard`.
         /// </summary>
         [Output("skuName")]
@@ -73,7 +79,7 @@ namespace Pulumi.Azure.Relay
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -140,10 +146,16 @@ namespace Pulumi.Azure.Relay
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// ) A `sku` block as described below.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.NamespaceSkuArgs>? Sku { get; set; }
+
+        /// <summary>
         /// The name of the SKU to use. At this time the only supported value is `Standard`.
         /// </summary>
-        [Input("skuName", required: true)]
-        public Input<string> SkuName { get; set; } = null!;
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -213,6 +225,12 @@ namespace Pulumi.Azure.Relay
         public Input<string>? SecondaryKey { get; set; }
 
         /// <summary>
+        /// ) A `sku` block as described below.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.NamespaceSkuGetArgs>? Sku { get; set; }
+
+        /// <summary>
         /// The name of the SKU to use. At this time the only supported value is `Standard`.
         /// </summary>
         [Input("skuName")]
@@ -233,5 +251,54 @@ namespace Pulumi.Azure.Relay
         public NamespaceState()
         {
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class NamespaceSkuArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public NamespaceSkuArgs()
+        {
+        }
+    }
+
+    public sealed class NamespaceSkuGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public NamespaceSkuGetArgs()
+        {
+        }
+    }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class NamespaceSku
+    {
+        /// <summary>
+        /// Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string Name;
+
+        [OutputConstructor]
+        private NamespaceSku(string name)
+        {
+            Name = name;
+        }
+    }
     }
 }

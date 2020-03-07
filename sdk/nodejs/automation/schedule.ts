@@ -38,6 +38,7 @@ export class Schedule extends pulumi.CustomResource {
         return obj['__pulumiType'] === Schedule.__pulumiType;
     }
 
+    public readonly accountName!: pulumi.Output<string>;
     /**
      * The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
      */
@@ -99,6 +100,7 @@ export class Schedule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ScheduleState | undefined;
+            inputs["accountName"] = state ? state.accountName : undefined;
             inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["expiryTime"] = state ? state.expiryTime : undefined;
@@ -113,15 +115,13 @@ export class Schedule extends pulumi.CustomResource {
             inputs["weekDays"] = state ? state.weekDays : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
-            if (!args || args.automationAccountName === undefined) {
-                throw new Error("Missing required property 'automationAccountName'");
-            }
             if (!args || args.frequency === undefined) {
                 throw new Error("Missing required property 'frequency'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["accountName"] = args ? args.accountName : undefined;
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["expiryTime"] = args ? args.expiryTime : undefined;
@@ -150,6 +150,7 @@ export class Schedule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Schedule resources.
  */
 export interface ScheduleState {
+    readonly accountName?: pulumi.Input<string>;
     /**
      * The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
      */
@@ -204,10 +205,11 @@ export interface ScheduleState {
  * The set of arguments for constructing a Schedule resource.
  */
 export interface ScheduleArgs {
+    readonly accountName?: pulumi.Input<string>;
     /**
      * The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    readonly automationAccountName?: pulumi.Input<string>;
     /**
      * A description for this Schedule.
      */

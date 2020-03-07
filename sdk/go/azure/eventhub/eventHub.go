@@ -19,6 +19,7 @@ type EventHub struct {
 
 	// A `captureDescription` block as defined below.
 	CaptureDescription EventHubCaptureDescriptionPtrOutput `pulumi:"captureDescription"`
+	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
 	MessageRetention pulumi.IntOutput `pulumi:"messageRetention"`
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
@@ -75,6 +76,7 @@ func GetEventHub(ctx *pulumi.Context,
 type eventHubState struct {
 	// A `captureDescription` block as defined below.
 	CaptureDescription *EventHubCaptureDescription `pulumi:"captureDescription"`
+	Location *string `pulumi:"location"`
 	// Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
 	MessageRetention *int `pulumi:"messageRetention"`
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
@@ -92,6 +94,7 @@ type eventHubState struct {
 type EventHubState struct {
 	// A `captureDescription` block as defined below.
 	CaptureDescription EventHubCaptureDescriptionPtrInput
+	Location pulumi.StringPtrInput
 	// Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
 	MessageRetention pulumi.IntPtrInput
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
@@ -113,6 +116,7 @@ func (EventHubState) ElementType() reflect.Type {
 type eventHubArgs struct {
 	// A `captureDescription` block as defined below.
 	CaptureDescription *EventHubCaptureDescription `pulumi:"captureDescription"`
+	Location *string `pulumi:"location"`
 	// Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
 	MessageRetention int `pulumi:"messageRetention"`
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
@@ -129,6 +133,7 @@ type eventHubArgs struct {
 type EventHubArgs struct {
 	// A `captureDescription` block as defined below.
 	CaptureDescription EventHubCaptureDescriptionPtrInput
+	Location pulumi.StringPtrInput
 	// Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
 	MessageRetention pulumi.IntInput
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.

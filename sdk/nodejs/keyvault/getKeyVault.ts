@@ -65,21 +65,17 @@ export interface GetKeyVaultResult {
      * The Azure Region in which the Key Vault exists.
      */
     readonly location: string;
+    /**
+     * The name of the SKU used for this Key Vault.
+     */
     readonly name: string;
     readonly networkAcls: outputs.keyvault.GetKeyVaultNetworkAcl[];
-    /**
-     * Is purge protection enabled on this Key Vault?
-     */
-    readonly purgeProtectionEnabled: boolean;
     readonly resourceGroupName: string;
     /**
-     * The Name of the SKU used for this Key Vault.
+     * A `sku` block as described below.
      */
+    readonly sku: outputs.keyvault.GetKeyVaultSku;
     readonly skuName: string;
-    /**
-     * Is soft delete enabled on this Key Vault? 
-     */
-    readonly softDeleteEnabled: boolean;
     /**
      * A mapping of tags assigned to the Key Vault.
      */
