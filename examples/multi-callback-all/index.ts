@@ -102,7 +102,6 @@ const iotHub = new azure.iot.IoTHub("iothub", {
     sku: {
         capacity: 1,
         name: "S1",
-        tier: "Standard",
     },
     fallbackRoute: {
         source: "DeviceMessages",
