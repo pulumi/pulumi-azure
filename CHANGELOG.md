@@ -8,6 +8,8 @@ CHANGELOG
   Please note that a number of the old deprecated resources have been removed as well as
   a number of deprecated properties on resources. You can check the full list of
   changes in the [upstream CHANGELOG](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md)
+* Set the default version of Azure Functions runtime to ~3 and Node.js to ~12.
+  ([#478](https://github.com/pulumi/pulumi-azure/pull/478))
 
 ---
 
