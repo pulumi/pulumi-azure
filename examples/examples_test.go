@@ -255,8 +255,8 @@ func TestAccCosmosDb(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           path.Join(getCwd(t), "cosmosdb"),
-			RunUpdateTest: true,
-		})
+			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
+	})
 
 	integration.ProgramTest(t, &test)
 }

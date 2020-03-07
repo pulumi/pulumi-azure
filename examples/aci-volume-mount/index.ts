@@ -25,7 +25,7 @@ const containerGroup = new azure.containerservice.Group("containergroup", {
             image: "seanmckenna/aci-hellofiles",
             cpu: 1,
             memory: 1.5,
-            ports: [{port: 80, protocol: "tcp"}],
+            ports: [{port: 80, protocol: "TCP"}],
             volumes: [{
                 name: "logs",
                 mountPath: "/aci/logs",
