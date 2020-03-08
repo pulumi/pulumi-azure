@@ -547,7 +547,7 @@ function createFunctionAppParts(name: string,
         containerAccessType: "private",
     }, opts);
 
-    const zipBlob = new storageMod.ZipBlob(name, {
+    const zipBlob = new storageMod.Blob(name, {
         storageAccountName: account.name,
         storageContainerName: container.name,
         type: "Block",
@@ -601,7 +601,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
     /**
      * The blob containing all the code for this FunctionApp.
      */
-    public readonly zipBlob: storageForTypesOnly.ZipBlob;
+    public readonly zipBlob: storageForTypesOnly.Blob;
     /**
      * The plan this Function App runs under.
      */
@@ -652,7 +652,7 @@ export abstract class PackagedFunctionApp extends pulumi.ComponentResource {
     /**
      * The blob containing all the code for this FunctionApp.
      */
-    public readonly zipBlob: storageForTypesOnly.ZipBlob;
+    public readonly zipBlob: storageForTypesOnly.Blob;
     /**
      * The plan this Function App runs under.
      */

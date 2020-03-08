@@ -19,7 +19,6 @@ import { Blob } from "./blob";
 import { Container } from "./container";
 import { Queue } from "./queue";
 import { Table } from "./table";
-import { ZipBlob } from "./zipBlob";
 
 import * as appservice from "../appservice";
 import * as core from "../core";
@@ -30,7 +29,7 @@ import * as storage from "../storage";
  * @param blob Blob to construct URL for.
  * @param account Storage account.
  */
-export function signedBlobReadUrl(blob: Blob | ZipBlob, account: Account): pulumi.Output<string> {
+export function signedBlobReadUrl(blob: Blob, account: Account): pulumi.Output<string> {
 
     // Choose a fixed, far-future expiration date for signed blob URLs. The shared access signature
     // (SAS) we generate for the Azure storage blob must remain valid for as long as the Function

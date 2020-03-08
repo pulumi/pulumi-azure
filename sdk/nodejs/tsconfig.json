@@ -585,7 +585,6 @@
         "storage/table.ts",
         "storage/tableEntity.ts",
         "storage/zMixins.ts",
-        "storage/zipBlob.ts",
         "streamanalytics/functionJavaScriptUDF.ts",
         "streamanalytics/getJob.ts",
         "streamanalytics/index.ts",

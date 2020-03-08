@@ -15,7 +15,6 @@ from .share import *
 from .share_directory import *
 from .table import *
 from .table_entity import *
-from .zip_blob import *
 from .get_account import *
 from .get_account_blob_container_sas import *
 from .get_account_sas import *

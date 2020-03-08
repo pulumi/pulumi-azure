@@ -1,6 +1,7 @@
-// Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
+// Copyright 2016-2020, Pulumi Corporation.  All rights reserved.
 
 import * as azure from "@pulumi/azure";
+import * as pulumi from "@pulumi/pulumi";
 
 const resourceGroup = new azure.core.ResourceGroup("resourcegroup");
 
@@ -32,7 +33,7 @@ const sampleFile = new azure.storage.Blob("test.html", {
     storageAccountName: storageAccount.name,
     storageContainerName: storageContainer.name,
     type: "Block",
-    source: "./test.html",
+    content: new pulumi.asset.FileAsset("./test.html"),
     contentType: "text/html",
 });
 
