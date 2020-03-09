@@ -82,6 +82,7 @@
         "appservice/sourceCodeToken.ts",
         "appservice/virtualNetworkSwiftConnection.ts",
         "appservice/zMixins.ts",
+        "appservice/zMixins_durable.ts",
         "appservice/zMixins_http.ts",
         "appservice/zMixins_timer.ts",
         "authorization/assignment.ts",
