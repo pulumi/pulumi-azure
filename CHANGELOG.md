@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 2.0.0 (2020-03-10)
 * BREAKING: Upgrade to v2.0.0 of the AzureRM Terraform Provider
   Please note that a number of the old deprecated resources have been removed as well as
   a number of deprecated properties on resources. You can check the full list of
@@ -11,8 +16,6 @@ CHANGELOG
 * BREAKING: Support assets and archives in azure.storage.Blob, deprecate azure.storage.ZipBlob resource.
   ([#479](https://github.com/pulumi/pulumi-azure/pull/479), [#482](https://github.com/pulumi/pulumi-azure/pull/482))
 * Update AppService Mixins to match AppService SiteConfig parameters
-
----
 
 ## 1.14.0 (2020-02-12)
 * Upgrade to v1.44.0 of the AzureRM Terraform Provider
