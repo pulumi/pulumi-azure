@@ -26,6 +26,16 @@ func TestAccMinimal(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccDurableFunctions(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: path.Join(getCwd(t), "durable-functions"),
+			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestAccEventgrid(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
