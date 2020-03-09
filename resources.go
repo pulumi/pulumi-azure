@@ -16,6 +16,7 @@ package azure
 
 import (
 	"fmt"
+	"github.com/pulumi/pulumi/pkg/resource"
 	"os"
 	"strings"
 	"unicode"
@@ -1073,7 +1074,6 @@ func Provider() tfbridge.ProviderInfo {
 						},
 					}),
 					"source": {
-						Name: "content",
 						Asset: &tfbridge.AssetTranslation{
 							Kind: tfbridge.FileAsset,
 						},
@@ -1634,6 +1634,32 @@ func Provider() tfbridge.ProviderInfo {
 					CSharpName: "KeyVaultCertificate",
 				},
 			}})
+
+	// Deprecated, remove in 3.0.
+	prov.P.ResourcesMap["azurerm_storage_zipblob"] = prov.P.ResourcesMap["azurerm_storage_blob"]
+	prov.Resources["azurerm_storage_zipblob"] = &tfbridge.ResourceInfo{
+		Tok:                azureResource(azureStorage, "ZipBlob"),
+		DeprecationMessage: "ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.",
+		Fields: map[string]*tfbridge.SchemaInfo{
+			"source": {
+				Name: "content",
+				Asset: &tfbridge.AssetTranslation{
+					Kind:   tfbridge.FileArchive,
+					Format: resource.ZIPArchive,
+				},
+			},
+			// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#storage
+			// Max length of a container name is 1024.
+			azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+				Separator: "",
+				Maxlen:    1024,
+				Randlen:   8,
+				Transform: func(name string) string {
+					return strings.ToLower(name)
+				},
+			}),
+		},
+	}
 
 	// Provide default values for certain resource properties, to improve usability:
 	//     1) For all resources with `name` properties, we will add an auto-name property.  Make sure to skip those

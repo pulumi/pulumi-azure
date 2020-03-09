@@ -551,7 +551,7 @@ function createFunctionAppParts(name: string,
         storageAccountName: account.name,
         storageContainerName: container.name,
         type: "Block",
-        content: args.archive,
+        source: args.archive,
     }, opts);
 
     const codeBlobUrl = storageMod.signedBlobReadUrl(zipBlob, account);

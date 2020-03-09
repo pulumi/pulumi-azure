@@ -54,8 +54,8 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
         /// </summary>
-        [Output("content")]
-        public Output<AssetOrArchive?> Content { get; private set; } = null!;
+        [Output("source")]
+        public Output<AssetOrArchive?> Source { get; private set; } = null!;
 
         /// <summary>
         /// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
@@ -186,8 +186,8 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
         /// </summary>
-        [Input("content")]
-        public Input<AssetOrArchive>? Content { get; set; }
+        [Input("source")]
+        public Input<AssetOrArchive>? Source { get; set; }
 
         /// <summary>
         /// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
@@ -273,8 +273,8 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
         /// </summary>
-        [Input("content")]
-        public Input<AssetOrArchive>? Content { get; set; }
+        [Input("source")]
+        public Input<AssetOrArchive>? Source { get; set; }
 
         /// <summary>
         /// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.

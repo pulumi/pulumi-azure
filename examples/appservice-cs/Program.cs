@@ -45,7 +45,7 @@ class Program
                 StorageAccountName = storageAccount.Name,
                 StorageContainerName = container.Name,
                 Type = "Block",
-                Content = new FileArchive("wwwroot"),
+                Source = new FileArchive("wwwroot")
             });
 
             var codeBlobUrl = SharedAccessSignature.SignedBlobReadUrl(blob, storageAccount);

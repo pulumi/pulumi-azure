@@ -33,7 +33,7 @@ const sampleFile = new azure.storage.Blob("test.html", {
     storageAccountName: storageAccount.name,
     storageContainerName: storageContainer.name,
     type: "Block",
-    content: new pulumi.asset.FileAsset("./test.html"),
+    source: new pulumi.asset.FileAsset("./test.html"),
     contentType: "text/html",
 });
 
