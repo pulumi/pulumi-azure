@@ -1635,8 +1635,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			}})
 
-	// TODO[pulumi/pulumi#280]: Until we can pass an Archive as an Asset, create a resource type
-	// specifically for uploading ZIP blobs to Azure storage.
+	// Deprecated, remove in 3.0.
 	prov.P.ResourcesMap["azurerm_storage_zipblob"] = prov.P.ResourcesMap["azurerm_storage_blob"]
 	prov.Resources["azurerm_storage_zipblob"] = &tfbridge.ResourceInfo{
 		Tok:                azureResource(azureStorage, "ZipBlob"),

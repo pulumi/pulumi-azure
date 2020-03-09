@@ -8,8 +8,8 @@ CHANGELOG
   changes in the [upstream CHANGELOG](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md)
 * BREAKING: Set the default version of Azure Functions runtime to ~3 and Node.js to ~12.
   ([#478](https://github.com/pulumi/pulumi-azure/pull/478))
-* BREAKING: Support assets and archives in azure.storage.Blob, retire azure.storage.ZipBlob resource.
-  ([#479](https://github.com/pulumi/pulumi-azure/pull/479))
+* BREAKING: Support assets and archives in azure.storage.Blob, deprecate azure.storage.ZipBlob resource.
+  ([#479](https://github.com/pulumi/pulumi-azure/pull/479), [#482](https://github.com/pulumi/pulumi-azure/pull/482))
 * Update AppService Mixins to match AppService SiteConfig parameters
 
 ---
