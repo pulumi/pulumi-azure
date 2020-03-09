@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-/** @deprecated Use Blob resource instead */
+/** @deprecated ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead. */
 export class ZipBlob extends pulumi.CustomResource {
     /**
      * Get an existing ZipBlob resource's state with the given name, ID, and optional extra
@@ -17,7 +17,7 @@ export class ZipBlob extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ZipBlobState, opts?: pulumi.CustomResourceOptions): ZipBlob {
-        pulumi.log.warn("ZipBlob is deprecated: Use Blob resource instead")
+        pulumi.log.warn("ZipBlob is deprecated: ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.")
         return new ZipBlob(name, <any>state, { ...opts, id: id });
     }
 
@@ -56,11 +56,11 @@ export class ZipBlob extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Use Blob resource instead */
+    /** @deprecated ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead. */
     constructor(name: string, args: ZipBlobArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated Use Blob resource instead */
+    /** @deprecated ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead. */
     constructor(name: string, argsOrState?: ZipBlobArgs | ZipBlobState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ZipBlob is deprecated: Use Blob resource instead")
+        pulumi.log.warn("ZipBlob is deprecated: ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ZipBlobState | undefined;
