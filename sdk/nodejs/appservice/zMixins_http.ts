@@ -66,7 +66,7 @@ export interface HttpHostSettings extends mod.HostSettings {
  */
 export type ExtendedHttpResponse = HttpResponse | { response: HttpResponse; [key: string]: any };
 
-export interface HttpFunctionArgs extends mod.CallbackFunctionArgs<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse> {
+export interface HttpFunctionArgs extends mod.CallbackFunctionArgs<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse | void> {
     /**
      * Defines the route template, controlling to which request URLs your function responds. The
      * default value if none is provided is <functionname>.
@@ -80,7 +80,7 @@ export interface HttpFunctionArgs extends mod.CallbackFunctionArgs<mod.Context<H
     methods?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
-export interface HttpEventSubscriptionArgs extends HttpFunctionArgs, mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse> {
+export interface HttpEventSubscriptionArgs extends HttpFunctionArgs, mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse | void> {
     /**
      * Host settings specific to the HTTP plugin. These values can be provided here, or defaults will
      * be used in their place.
@@ -98,7 +98,7 @@ interface HttpBindingDefinition extends mod.BindingDefinition {
  * An Azure Function exposed via an HTTP endpoint that is implemented on top of a
  * JavaScript/TypeScript callback function.
  */
-export class HttpEventSubscription extends mod.EventSubscription<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse> {
+export class HttpEventSubscription extends mod.EventSubscription<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse | void> {
     /**
      * Endpoint where this FunctionApp can be invoked.
      */
@@ -117,7 +117,7 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
 /**
  * Azure Function triggered by HTTP requests.
  */
-export class HttpFunction extends mod.Function<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse> {
+export class HttpFunction extends mod.Function<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse | void> {
     constructor(name: string, args: HttpFunctionArgs) {
         const trigger = {
             authLevel: "anonymous",
@@ -128,24 +128,36 @@ export class HttpFunction extends mod.Function<mod.Context<HttpResponse>, HttpRe
             methods: args.methods,
         } as mod.InputBindingDefinition;
 
-        // There are two modes to return an HTTP response:
-        // 1. When there's no other output bindings, take the returned value of the callback,
+        // There are three modes to return an HTTP response:
+        // 1. The caller already specified an output binding for http.
+        //    In this case, we do not add our own.
+        // 2. When there's no other output bindings, take the returned value of the callback,
         //    so the binding has to be named '$return' (mandated by Azure Functions)
-        // 2. When there are other output bindings, it's a property of the returned value
+        // 3. When there are other output bindings, it's a property of the returned value
         //    with a fixed name 'response' (picked by us)
-        const response = {
-            binding: {
-                type: "http",
-                direction: "out",
-                name: args.outputs && args.outputs.length > 0 ? "response" : "$return",
-            } as mod.OutputBindingDefinition,
-            settings: {},
-        };
+
+        const callerDefinedOutputs = args.outputs || [];
+
+        const extendedOutputs = pulumi.output(callerDefinedOutputs).apply(outputs => {
+            if(outputs.some(o => o.binding.type.toLowerCase() === "http")){
+                return outputs;
+            }
+            const response = {
+                binding: {
+                    type: "http",
+                    direction: "out",
+                    name: outputs && outputs.length > 0 ? "response" : "$return",
+                } as mod.OutputBindingDefinition,
+                settings: {},
+            };
+
+            return [response, ...outputs];
+        });
 
         // Include HTTP response into the list of output bindings
         const extendedArgs = {
             ...args,
-            outputs: [response, ...args.outputs || []],
+            outputs: extendedOutputs,
         };
 
         super(name, trigger, extendedArgs);
