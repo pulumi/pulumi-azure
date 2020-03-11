@@ -12,9 +12,9 @@ import (
 )
 
 // Promotes an App Service Slot to Production within an App Service.
-// 
+//
 // > **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_active_slot.html.markdown.
 type ActiveSlot struct {
 	pulumi.CustomResourceState

@@ -43,7 +43,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     A `ipsec_policy` block which is documented below.
     Only a single policy can be defined for a connection. For details on
     custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
-    
+
       * `dhGroup` (`str`)
       * `ikeEncryption` (`str`)
       * `ikeIntegrity` (`str`)
@@ -117,7 +117,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, authorization_key=None, connection_protocol=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, ipsec_policy=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, routing_weight=None, shared_key=None, tags=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a connection in an existing Virtual Network Gateway.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway_connection.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: The authorization key associated with the
@@ -164,9 +166,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] virtual_network_gateway_id: The ID of the Virtual Network Gateway
                in which the connection will be created. Changing the gateway forces a new
                resource to be created.
-        
+
         The **ipsec_policy** object supports the following:
-        
+
           * `dhGroup` (`pulumi.Input[str]`)
           * `ikeEncryption` (`pulumi.Input[str]`)
           * `ikeIntegrity` (`pulumi.Input[str]`)
@@ -175,8 +177,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
           * `pfsGroup` (`pulumi.Input[str]`)
           * `saDatasize` (`pulumi.Input[float]`)
           * `saLifetime` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway_connection.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -229,7 +229,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         """
         Get an existing VirtualNetworkGatewayConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -277,9 +277,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] virtual_network_gateway_id: The ID of the Virtual Network Gateway
                in which the connection will be created. Changing the gateway forces a new
                resource to be created.
-        
+
         The **ipsec_policy** object supports the following:
-        
+
           * `dhGroup` (`pulumi.Input[str]`)
           * `ikeEncryption` (`pulumi.Input[str]`)
           * `ikeIntegrity` (`pulumi.Input[str]`)
@@ -288,12 +288,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
           * `pfsGroup` (`pulumi.Input[str]`)
           * `saDatasize` (`pulumi.Input[float]`)
           * `saLifetime` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway_connection.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["authorization_key"] = authorization_key
         __props__["connection_protocol"] = connection_protocol
         __props__["enable_bgp"] = enable_bgp

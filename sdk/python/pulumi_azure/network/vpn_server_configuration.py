@@ -13,7 +13,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
     azure_active_directory_authentications: pulumi.Output[list]
     """
     A `azure_active_directory_authentication` block as defined below.
-    
+
       * `audience` (`str`)
       * `issuer` (`str`)
       * `tenant` (`str`)
@@ -21,21 +21,21 @@ class VpnServerConfiguration(pulumi.CustomResource):
     client_revoked_certificates: pulumi.Output[list]
     """
     One or more `client_revoked_certificate` blocks as defined below.
-    
+
       * `name` (`str`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
       * `thumbprint` (`str`)
     """
     client_root_certificates: pulumi.Output[list]
     """
     One or more `client_root_certificate` blocks as defined below.
-    
+
       * `name` (`str`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
       * `publicCertData` (`str`)
     """
     ipsec_policy: pulumi.Output[dict]
     """
     A `ipsec_policy` block as defined below.
-    
+
       * `dhGroup` (`str`)
       * `ikeEncryption` (`str`)
       * `ikeIntegrity` (`str`)
@@ -56,16 +56,14 @@ class VpnServerConfiguration(pulumi.CustomResource):
     radius_server: pulumi.Output[dict]
     """
     A `radius_server` block as defined below.
-    
+
       * `address` (`str`)
       * `client_root_certificates` (`list`) - One or more `client_root_certificate` blocks as defined below.
-    
         * `name` (`str`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
         * `thumbprint` (`str`)
-    
+
       * `secret` (`str`)
       * `serverRootCertificates` (`list`)
-    
         * `name` (`str`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
         * `publicCertData` (`str`)
     """
@@ -88,7 +86,9 @@ class VpnServerConfiguration(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, azure_active_directory_authentications=None, client_revoked_certificates=None, client_root_certificates=None, ipsec_policy=None, location=None, name=None, radius_server=None, resource_group_name=None, tags=None, vpn_authentication_types=None, vpn_protocols=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a VPN Server Configuration.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/vpn_server_configuration.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] azure_active_directory_authentications: A `azure_active_directory_authentication` block as defined below.
@@ -102,25 +102,25 @@ class VpnServerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpn_authentication_types: A list of one of more Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
         :param pulumi.Input[list] vpn_protocols: A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
-        
+
         The **azure_active_directory_authentications** object supports the following:
-        
+
           * `audience` (`pulumi.Input[str]`)
           * `issuer` (`pulumi.Input[str]`)
           * `tenant` (`pulumi.Input[str]`)
-        
+
         The **client_revoked_certificates** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
           * `thumbprint` (`pulumi.Input[str]`)
-        
+
         The **client_root_certificates** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
           * `publicCertData` (`pulumi.Input[str]`)
-        
+
         The **ipsec_policy** object supports the following:
-        
+
           * `dhGroup` (`pulumi.Input[str]`)
           * `ikeEncryption` (`pulumi.Input[str]`)
           * `ikeIntegrity` (`pulumi.Input[str]`)
@@ -129,22 +129,18 @@ class VpnServerConfiguration(pulumi.CustomResource):
           * `pfsGroup` (`pulumi.Input[str]`)
           * `saDataSizeKilobytes` (`pulumi.Input[float]`)
           * `saLifetimeSeconds` (`pulumi.Input[float]`)
-        
+
         The **radius_server** object supports the following:
-        
+
           * `address` (`pulumi.Input[str]`)
           * `client_root_certificates` (`pulumi.Input[list]`) - One or more `client_root_certificate` blocks as defined below.
-        
             * `name` (`pulumi.Input[str]`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
             * `thumbprint` (`pulumi.Input[str]`)
-        
+
           * `secret` (`pulumi.Input[str]`)
           * `serverRootCertificates` (`pulumi.Input[list]`)
-        
             * `name` (`pulumi.Input[str]`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
             * `publicCertData` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/vpn_server_configuration.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -189,7 +185,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
         """
         Get an existing VpnServerConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,25 +200,25 @@ class VpnServerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpn_authentication_types: A list of one of more Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
         :param pulumi.Input[list] vpn_protocols: A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
-        
+
         The **azure_active_directory_authentications** object supports the following:
-        
+
           * `audience` (`pulumi.Input[str]`)
           * `issuer` (`pulumi.Input[str]`)
           * `tenant` (`pulumi.Input[str]`)
-        
+
         The **client_revoked_certificates** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
           * `thumbprint` (`pulumi.Input[str]`)
-        
+
         The **client_root_certificates** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
           * `publicCertData` (`pulumi.Input[str]`)
-        
+
         The **ipsec_policy** object supports the following:
-        
+
           * `dhGroup` (`pulumi.Input[str]`)
           * `ikeEncryption` (`pulumi.Input[str]`)
           * `ikeIntegrity` (`pulumi.Input[str]`)
@@ -231,26 +227,23 @@ class VpnServerConfiguration(pulumi.CustomResource):
           * `pfsGroup` (`pulumi.Input[str]`)
           * `saDataSizeKilobytes` (`pulumi.Input[float]`)
           * `saLifetimeSeconds` (`pulumi.Input[float]`)
-        
+
         The **radius_server** object supports the following:
-        
+
           * `address` (`pulumi.Input[str]`)
           * `client_root_certificates` (`pulumi.Input[list]`) - One or more `client_root_certificate` blocks as defined below.
-        
             * `name` (`pulumi.Input[str]`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
             * `thumbprint` (`pulumi.Input[str]`)
-        
+
           * `secret` (`pulumi.Input[str]`)
           * `serverRootCertificates` (`pulumi.Input[list]`)
-        
             * `name` (`pulumi.Input[str]`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
             * `publicCertData` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/vpn_server_configuration.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["azure_active_directory_authentications"] = azure_active_directory_authentications
         __props__["client_revoked_certificates"] = client_revoked_certificates
         __props__["client_root_certificates"] = client_root_certificates

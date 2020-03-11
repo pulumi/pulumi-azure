@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a NetApp Volume.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_volume.html.markdown.
 type Volume struct {
 	pulumi.CustomResourceState

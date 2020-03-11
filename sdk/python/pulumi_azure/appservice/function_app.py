@@ -21,44 +21,39 @@ class FunctionApp(pulumi.CustomResource):
     auth_settings: pulumi.Output[dict]
     """
     A `auth_settings` block as defined below.
-    
+
       * `activeDirectory` (`dict`)
-    
         * `allowedAudiences` (`list`)
-        * `client_id` (`str`)
-        * `client_secret` (`str`)
-    
+        * `clientId` (`str`)
+        * `clientSecret` (`str`)
+
       * `additionalLoginParams` (`dict`)
       * `allowedExternalRedirectUrls` (`list`)
       * `defaultProvider` (`str`)
       * `enabled` (`bool`) - Is the Function App enabled?
       * `facebook` (`dict`)
-    
         * `app_id` (`str`)
-        * `app_secret` (`str`)
+        * `appSecret` (`str`)
         * `oauthScopes` (`list`)
-    
+
       * `google` (`dict`)
-    
-        * `client_id` (`str`)
-        * `client_secret` (`str`)
+        * `clientId` (`str`)
+        * `clientSecret` (`str`)
         * `oauthScopes` (`list`)
-    
+
       * `issuer` (`str`)
       * `microsoft` (`dict`)
-    
-        * `client_id` (`str`)
-        * `client_secret` (`str`)
+        * `clientId` (`str`)
+        * `clientSecret` (`str`)
         * `oauthScopes` (`list`)
-    
+
       * `runtimeVersion` (`str`)
       * `tokenRefreshExtensionHours` (`float`)
       * `tokenStoreEnabled` (`bool`)
       * `twitter` (`dict`)
-    
         * `consumerKey` (`str`)
         * `consumerSecret` (`str`)
-    
+
       * `unauthenticatedClientAction` (`str`)
     """
     client_affinity_enabled: pulumi.Output[bool]
@@ -68,7 +63,7 @@ class FunctionApp(pulumi.CustomResource):
     connection_strings: pulumi.Output[list]
     """
     An `connection_string` block as defined below.
-    
+
       * `name` (`str`) - The name of the Connection String.
       * `type` (`str`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
       * `value` (`str`) - The value for the Connection String.
@@ -92,10 +87,10 @@ class FunctionApp(pulumi.CustomResource):
     identity: pulumi.Output[dict]
     """
     An `identity` block as defined below.
-    
+
       * `identityIds` (`list`)
-      * `principalId` (`str`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
-      * `tenantId` (`str`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+      * `principal_id` (`str`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+      * `tenant_id` (`str`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
       * `type` (`str`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
     """
     kind: pulumi.Output[str]
@@ -125,20 +120,18 @@ class FunctionApp(pulumi.CustomResource):
     site_config: pulumi.Output[dict]
     """
     A `site_config` object as defined below.
-    
+
       * `alwaysOn` (`bool`) - Should the Function App be loaded at all times? Defaults to `false`.
       * `cors` (`dict`) - A `cors` block as defined below.
-    
         * `allowedOrigins` (`list`)
         * `supportCredentials` (`bool`)
-    
+
       * `ftpsState` (`str`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
       * `http2Enabled` (`bool`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
       * `ipRestrictions` (`list`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
-    
-        * `ipAddress` (`str`)
+        * `ip_address` (`str`)
         * `subnet_id` (`str`)
-    
+
       * `linuxFxVersion` (`str`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
       * `minTlsVersion` (`str`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
       * `use32BitWorkerProcess` (`bool`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
@@ -147,7 +140,7 @@ class FunctionApp(pulumi.CustomResource):
     site_credentials: pulumi.Output[list]
     """
     A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-    
+
       * `password` (`str`) - The password associated with the username, which can be used to publish to this App Service.
       * `username` (`str`) - The username which can be used to publish to this App Service
     """
@@ -166,7 +159,9 @@ class FunctionApp(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, storage_connection_string=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Function App.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/function_app.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App.
@@ -185,82 +180,73 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] storage_connection_string: The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
-        
+
         The **auth_settings** object supports the following:
-        
+
           * `activeDirectory` (`pulumi.Input[dict]`)
-        
             * `allowedAudiences` (`pulumi.Input[list]`)
-            * `client_id` (`pulumi.Input[str]`)
-            * `client_secret` (`pulumi.Input[str]`)
-        
+            * `clientId` (`pulumi.Input[str]`)
+            * `clientSecret` (`pulumi.Input[str]`)
+
           * `additionalLoginParams` (`pulumi.Input[dict]`)
           * `allowedExternalRedirectUrls` (`pulumi.Input[list]`)
           * `defaultProvider` (`pulumi.Input[str]`)
           * `enabled` (`pulumi.Input[bool]`) - Is the Function App enabled?
           * `facebook` (`pulumi.Input[dict]`)
-        
             * `app_id` (`pulumi.Input[str]`)
-            * `app_secret` (`pulumi.Input[str]`)
+            * `appSecret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
-        
+
           * `google` (`pulumi.Input[dict]`)
-        
-            * `client_id` (`pulumi.Input[str]`)
-            * `client_secret` (`pulumi.Input[str]`)
+            * `clientId` (`pulumi.Input[str]`)
+            * `clientSecret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
-        
+
           * `issuer` (`pulumi.Input[str]`)
           * `microsoft` (`pulumi.Input[dict]`)
-        
-            * `client_id` (`pulumi.Input[str]`)
-            * `client_secret` (`pulumi.Input[str]`)
+            * `clientId` (`pulumi.Input[str]`)
+            * `clientSecret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
-        
+
           * `runtimeVersion` (`pulumi.Input[str]`)
           * `tokenRefreshExtensionHours` (`pulumi.Input[float]`)
           * `tokenStoreEnabled` (`pulumi.Input[bool]`)
           * `twitter` (`pulumi.Input[dict]`)
-        
             * `consumerKey` (`pulumi.Input[str]`)
             * `consumerSecret` (`pulumi.Input[str]`)
-        
+
           * `unauthenticatedClientAction` (`pulumi.Input[str]`)
-        
+
         The **connection_strings** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the Connection String.
           * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
           * `value` (`pulumi.Input[str]`) - The value for the Connection String.
-        
+
         The **identity** object supports the following:
-        
+
           * `identityIds` (`pulumi.Input[list]`)
-          * `principalId` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
-          * `tenantId` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+          * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+          * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
           * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
-        
+
         The **site_config** object supports the following:
-        
+
           * `alwaysOn` (`pulumi.Input[bool]`) - Should the Function App be loaded at all times? Defaults to `false`.
           * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
-        
             * `allowedOrigins` (`pulumi.Input[list]`)
             * `supportCredentials` (`pulumi.Input[bool]`)
-        
+
           * `ftpsState` (`pulumi.Input[str]`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
           * `http2Enabled` (`pulumi.Input[bool]`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
           * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
-        
-            * `ipAddress` (`pulumi.Input[str]`)
+            * `ip_address` (`pulumi.Input[str]`)
             * `subnet_id` (`pulumi.Input[str]`)
-        
+
           * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
           * `minTlsVersion` (`pulumi.Input[str]`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/function_app.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -317,7 +303,7 @@ class FunctionApp(pulumi.CustomResource):
         """
         Get an existing FunctionApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -342,91 +328,83 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] storage_connection_string: The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
-        
+
         The **auth_settings** object supports the following:
-        
+
           * `activeDirectory` (`pulumi.Input[dict]`)
-        
             * `allowedAudiences` (`pulumi.Input[list]`)
-            * `client_id` (`pulumi.Input[str]`)
-            * `client_secret` (`pulumi.Input[str]`)
-        
+            * `clientId` (`pulumi.Input[str]`)
+            * `clientSecret` (`pulumi.Input[str]`)
+
           * `additionalLoginParams` (`pulumi.Input[dict]`)
           * `allowedExternalRedirectUrls` (`pulumi.Input[list]`)
           * `defaultProvider` (`pulumi.Input[str]`)
           * `enabled` (`pulumi.Input[bool]`) - Is the Function App enabled?
           * `facebook` (`pulumi.Input[dict]`)
-        
             * `app_id` (`pulumi.Input[str]`)
-            * `app_secret` (`pulumi.Input[str]`)
+            * `appSecret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
-        
+
           * `google` (`pulumi.Input[dict]`)
-        
-            * `client_id` (`pulumi.Input[str]`)
-            * `client_secret` (`pulumi.Input[str]`)
+            * `clientId` (`pulumi.Input[str]`)
+            * `clientSecret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
-        
+
           * `issuer` (`pulumi.Input[str]`)
           * `microsoft` (`pulumi.Input[dict]`)
-        
-            * `client_id` (`pulumi.Input[str]`)
-            * `client_secret` (`pulumi.Input[str]`)
+            * `clientId` (`pulumi.Input[str]`)
+            * `clientSecret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
-        
+
           * `runtimeVersion` (`pulumi.Input[str]`)
           * `tokenRefreshExtensionHours` (`pulumi.Input[float]`)
           * `tokenStoreEnabled` (`pulumi.Input[bool]`)
           * `twitter` (`pulumi.Input[dict]`)
-        
             * `consumerKey` (`pulumi.Input[str]`)
             * `consumerSecret` (`pulumi.Input[str]`)
-        
+
           * `unauthenticatedClientAction` (`pulumi.Input[str]`)
-        
+
         The **connection_strings** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the Connection String.
           * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
           * `value` (`pulumi.Input[str]`) - The value for the Connection String.
-        
+
         The **identity** object supports the following:
-        
+
           * `identityIds` (`pulumi.Input[list]`)
-          * `principalId` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
-          * `tenantId` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+          * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+          * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
           * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
-        
+
         The **site_config** object supports the following:
-        
+
           * `alwaysOn` (`pulumi.Input[bool]`) - Should the Function App be loaded at all times? Defaults to `false`.
           * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
-        
             * `allowedOrigins` (`pulumi.Input[list]`)
             * `supportCredentials` (`pulumi.Input[bool]`)
-        
+
           * `ftpsState` (`pulumi.Input[str]`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
           * `http2Enabled` (`pulumi.Input[bool]`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
           * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
-        
-            * `ipAddress` (`pulumi.Input[str]`)
+            * `ip_address` (`pulumi.Input[str]`)
             * `subnet_id` (`pulumi.Input[str]`)
-        
+
           * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
           * `minTlsVersion` (`pulumi.Input[str]`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
-        
+
         The **site_credentials** object supports the following:
-        
+
           * `password` (`pulumi.Input[str]`) - The password associated with the username, which can be used to publish to this App Service.
           * `username` (`pulumi.Input[str]`) - The username which can be used to publish to this App Service
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/function_app.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["app_service_plan_id"] = app_service_plan_id
         __props__["app_settings"] = app_settings
         __props__["auth_settings"] = auth_settings

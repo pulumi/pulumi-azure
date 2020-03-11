@@ -13,7 +13,7 @@ class Hub(pulumi.CustomResource):
     apns_credential: pulumi.Output[dict]
     """
     A `apns_credential` block as defined below.
-    
+
       * `applicationMode` (`str`)
       * `bundleId` (`str`)
       * `keyId` (`str`)
@@ -23,7 +23,7 @@ class Hub(pulumi.CustomResource):
     gcm_credential: pulumi.Output[dict]
     """
     A `gcm_credential` block as defined below.
-    
+
       * `api_key` (`str`)
     """
     location: pulumi.Output[str]
@@ -45,7 +45,9 @@ class Hub(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, apns_credential=None, gcm_credential=None, location=None, name=None, namespace_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Notification Hub within a Notification Hub Namespace.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] apns_credential: A `apns_credential` block as defined below.
@@ -54,20 +56,18 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name to use for this Notification Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
-        
+
         The **apns_credential** object supports the following:
-        
+
           * `applicationMode` (`pulumi.Input[str]`)
           * `bundleId` (`pulumi.Input[str]`)
           * `keyId` (`pulumi.Input[str]`)
           * `teamId` (`pulumi.Input[str]`)
           * `token` (`pulumi.Input[str]`)
-        
-        The **gcm_credential** object supports the following:
-        
-          * `api_key` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub.html.markdown.
+        The **gcm_credential** object supports the following:
+
+          * `api_key` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -107,7 +107,7 @@ class Hub(pulumi.CustomResource):
         """
         Get an existing Hub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,24 +117,23 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name to use for this Notification Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
-        
+
         The **apns_credential** object supports the following:
-        
+
           * `applicationMode` (`pulumi.Input[str]`)
           * `bundleId` (`pulumi.Input[str]`)
           * `keyId` (`pulumi.Input[str]`)
           * `teamId` (`pulumi.Input[str]`)
           * `token` (`pulumi.Input[str]`)
-        
-        The **gcm_credential** object supports the following:
-        
-          * `api_key` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub.html.markdown.
+        The **gcm_credential** object supports the following:
+
+          * `api_key` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["apns_credential"] = apns_credential
         __props__["gcm_credential"] = gcm_credential
         __props__["location"] = location

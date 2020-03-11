@@ -13,7 +13,7 @@ class GetApiResult:
     """
     A collection of values returned by getApi.
     """
-    def __init__(__self__, api_management_name=None, description=None, display_name=None, is_current=None, is_online=None, name=None, path=None, protocols=None, resource_group_name=None, revision=None, service_url=None, soap_pass_through=None, subscription_key_parameter_names=None, version=None, version_set_id=None, id=None):
+    def __init__(__self__, api_management_name=None, description=None, display_name=None, id=None, is_current=None, is_online=None, name=None, path=None, protocols=None, resource_group_name=None, revision=None, service_url=None, soap_pass_through=None, subscription_key_parameter_names=None, version=None, version_set_id=None):
         if api_management_name and not isinstance(api_management_name, str):
             raise TypeError("Expected argument 'api_management_name' to be a str")
         __self__.api_management_name = api_management_name
@@ -28,6 +28,12 @@ class GetApiResult:
         __self__.display_name = display_name
         """
         The display name of the API.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if is_current and not isinstance(is_current, bool):
             raise TypeError("Expected argument 'is_current' to be a bool")
@@ -92,12 +98,6 @@ class GetApiResult:
         """
         The ID of the Version Set which this API is associated with.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetApiResult(GetApiResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -107,6 +107,7 @@ class AwaitableGetApiResult(GetApiResult):
             api_management_name=self.api_management_name,
             description=self.description,
             display_name=self.display_name,
+            id=self.id,
             is_current=self.is_current,
             is_online=self.is_online,
             name=self.name,
@@ -118,21 +119,22 @@ class AwaitableGetApiResult(GetApiResult):
             soap_pass_through=self.soap_pass_through,
             subscription_key_parameter_names=self.subscription_key_parameter_names,
             version=self.version,
-            version_set_id=self.version_set_id,
-            id=self.id)
+            version_set_id=self.version_set_id)
 
 def get_api(api_management_name=None,name=None,resource_group_name=None,revision=None,opts=None):
     """
     Use this data source to access information about an existing API Management API.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api.html.markdown.
+
+
     :param str api_management_name: The name of the API Management Service in which the API Management API exists.
     :param str name: The name of the API Management API.
     :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
     :param str revision: The Revision of the API Management API.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['apiManagementName'] = api_management_name
     __args__['name'] = name
@@ -148,6 +150,7 @@ def get_api(api_management_name=None,name=None,resource_group_name=None,revision
         api_management_name=__ret__.get('apiManagementName'),
         description=__ret__.get('description'),
         display_name=__ret__.get('displayName'),
+        id=__ret__.get('id'),
         is_current=__ret__.get('isCurrent'),
         is_online=__ret__.get('isOnline'),
         name=__ret__.get('name'),
@@ -159,5 +162,4 @@ def get_api(api_management_name=None,name=None,resource_group_name=None,revision
         soap_pass_through=__ret__.get('soapPassThrough'),
         subscription_key_parameter_names=__ret__.get('subscriptionKeyParameterNames'),
         version=__ret__.get('version'),
-        version_set_id=__ret__.get('versionSetId'),
-        id=__ret__.get('id'))
+        version_set_id=__ret__.get('versionSetId'))

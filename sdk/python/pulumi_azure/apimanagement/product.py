@@ -53,7 +53,9 @@ class Product(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, api_management_name=None, approval_required=None, description=None, display_name=None, product_id=None, published=None, resource_group_name=None, subscription_required=None, subscriptions_limit=None, terms=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an API Management Product.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
@@ -66,8 +68,6 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[bool] subscription_required: Is a Subscription required to access API's included in this Product?
         :param pulumi.Input[float] subscriptions_limit: The number of subscriptions a user can have to this Product at the same time.
         :param pulumi.Input[str] terms: The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,7 +119,7 @@ class Product(pulumi.CustomResource):
         """
         Get an existing Product resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,12 +133,11 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[bool] subscription_required: Is a Subscription required to access API's included in this Product?
         :param pulumi.Input[float] subscriptions_limit: The number of subscriptions a user can have to this Product at the same time.
         :param pulumi.Input[str] terms: The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["api_management_name"] = api_management_name
         __props__["approval_required"] = approval_required
         __props__["description"] = description

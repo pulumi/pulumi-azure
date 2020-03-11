@@ -13,7 +13,7 @@ class GetRoleDefinitionResult:
     """
     A collection of values returned by getRoleDefinition.
     """
-    def __init__(__self__, assignable_scopes=None, description=None, name=None, permissions=None, role_definition_id=None, scope=None, type=None, id=None):
+    def __init__(__self__, assignable_scopes=None, description=None, id=None, name=None, permissions=None, role_definition_id=None, scope=None, type=None):
         if assignable_scopes and not isinstance(assignable_scopes, list):
             raise TypeError("Expected argument 'assignable_scopes' to be a list")
         __self__.assignable_scopes = assignable_scopes
@@ -25,6 +25,12 @@ class GetRoleDefinitionResult:
         __self__.description = description
         """
         the Description of the built-in Role.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -47,12 +53,6 @@ class GetRoleDefinitionResult:
         """
         the Type of the Role.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -61,24 +61,26 @@ class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
         return GetRoleDefinitionResult(
             assignable_scopes=self.assignable_scopes,
             description=self.description,
+            id=self.id,
             name=self.name,
             permissions=self.permissions,
             role_definition_id=self.role_definition_id,
             scope=self.scope,
-            type=self.type,
-            id=self.id)
+            type=self.type)
 
 def get_role_definition(name=None,role_definition_id=None,scope=None,opts=None):
     """
     Use this data source to access information about an existing Role Definition.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition.html.markdown.
+
+
     :param str name: Specifies the Name of either a built-in or custom Role Definition.
     :param str role_definition_id: Specifies the ID of the Role Definition as a UUID/GUID.
     :param str scope: Specifies the Scope at which the Custom Role Definition exists.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['roleDefinitionId'] = role_definition_id
@@ -92,9 +94,9 @@ def get_role_definition(name=None,role_definition_id=None,scope=None,opts=None):
     return AwaitableGetRoleDefinitionResult(
         assignable_scopes=__ret__.get('assignableScopes'),
         description=__ret__.get('description'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         permissions=__ret__.get('permissions'),
         role_definition_id=__ret__.get('roleDefinitionId'),
         scope=__ret__.get('scope'),
-        type=__ret__.get('type'),
-        id=__ret__.get('id'))
+        type=__ret__.get('type'))

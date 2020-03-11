@@ -13,7 +13,7 @@ class GetSharedImageResult:
     """
     A collection of values returned by getSharedImage.
     """
-    def __init__(__self__, description=None, eula=None, gallery_name=None, identifiers=None, location=None, name=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, tags=None, id=None):
+    def __init__(__self__, description=None, eula=None, gallery_name=None, id=None, identifiers=None, location=None, name=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         __self__.description = description
@@ -29,6 +29,12 @@ class GetSharedImageResult:
         if gallery_name and not isinstance(gallery_name, str):
             raise TypeError("Expected argument 'gallery_name' to be a str")
         __self__.gallery_name = gallery_name
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if identifiers and not isinstance(identifiers, list):
             raise TypeError("Expected argument 'identifiers' to be a list")
         __self__.identifiers = identifiers
@@ -71,12 +77,6 @@ class GetSharedImageResult:
         """
         A mapping of tags assigned to the Shared Image.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetSharedImageResult(GetSharedImageResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -86,6 +86,7 @@ class AwaitableGetSharedImageResult(GetSharedImageResult):
             description=self.description,
             eula=self.eula,
             gallery_name=self.gallery_name,
+            id=self.id,
             identifiers=self.identifiers,
             location=self.location,
             name=self.name,
@@ -93,20 +94,21 @@ class AwaitableGetSharedImageResult(GetSharedImageResult):
             privacy_statement_uri=self.privacy_statement_uri,
             release_note_uri=self.release_note_uri,
             resource_group_name=self.resource_group_name,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_shared_image(gallery_name=None,name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image.html.markdown.
+
+
     :param str gallery_name: The name of the Shared Image Gallery in which the Shared Image exists.
     :param str name: The name of the Shared Image.
     :param str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['galleryName'] = gallery_name
     __args__['name'] = name
@@ -121,6 +123,7 @@ def get_shared_image(gallery_name=None,name=None,resource_group_name=None,opts=N
         description=__ret__.get('description'),
         eula=__ret__.get('eula'),
         gallery_name=__ret__.get('galleryName'),
+        id=__ret__.get('id'),
         identifiers=__ret__.get('identifiers'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
@@ -128,5 +131,4 @@ def get_shared_image(gallery_name=None,name=None,resource_group_name=None,opts=N
         privacy_statement_uri=__ret__.get('privacyStatementUri'),
         release_note_uri=__ret__.get('releaseNoteUri'),
         resource_group_name=__ret__.get('resourceGroupName'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

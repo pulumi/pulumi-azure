@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Authorization Rule for an Event Hub Namespace.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_namespace_authorization_rule.html.markdown.
 type EventHubNamespaceAuthorizationRule struct {
 	pulumi.CustomResourceState

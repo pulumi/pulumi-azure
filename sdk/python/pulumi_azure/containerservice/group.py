@@ -13,56 +13,49 @@ class Group(pulumi.CustomResource):
     containers: pulumi.Output[list]
     """
     The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
-    
+
       * `commands` (`list`)
       * `cpu` (`float`)
       * `environmentVariables` (`dict`)
       * `gpu` (`dict`)
-    
         * `count` (`float`)
         * `sku` (`str`)
-    
+
       * `image` (`str`)
       * `livenessProbe` (`dict`)
-    
         * `execs` (`list`)
         * `failureThreshold` (`float`)
         * `httpGets` (`list`)
-    
           * `path` (`str`)
           * `port` (`float`)
           * `scheme` (`str`)
-    
+
         * `initialDelaySeconds` (`float`)
         * `periodSeconds` (`float`)
         * `successThreshold` (`float`)
         * `timeoutSeconds` (`float`)
-    
+
       * `memory` (`float`)
       * `name` (`str`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
       * `ports` (`list`)
-    
         * `port` (`float`)
         * `protocol` (`str`)
-    
+
       * `readinessProbe` (`dict`)
-    
         * `execs` (`list`)
         * `failureThreshold` (`float`)
         * `httpGets` (`list`)
-    
           * `path` (`str`)
           * `port` (`float`)
           * `scheme` (`str`)
-    
+
         * `initialDelaySeconds` (`float`)
         * `periodSeconds` (`float`)
         * `successThreshold` (`float`)
         * `timeoutSeconds` (`float`)
-    
+
       * `secureEnvironmentVariables` (`dict`)
       * `volumes` (`list`)
-    
         * `mountPath` (`str`)
         * `name` (`str`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
         * `readOnly` (`bool`)
@@ -73,12 +66,11 @@ class Group(pulumi.CustomResource):
     diagnostics: pulumi.Output[dict]
     """
     A `diagnostics` block as documented below.
-    
+
       * `logAnalytics` (`dict`)
-    
         * `logType` (`str`)
         * `metadata` (`dict`)
-        * `workspaceId` (`str`)
+        * `workspace_id` (`str`)
         * `workspaceKey` (`str`)
     """
     dns_name_label: pulumi.Output[str]
@@ -92,15 +84,15 @@ class Group(pulumi.CustomResource):
     identity: pulumi.Output[dict]
     """
     An `identity` block as defined below.
-    
+
       * `identityIds` (`list`)
-      * `principal_id` (`str`)
+      * `principalId` (`str`)
       * `type` (`str`)
     """
     image_registry_credentials: pulumi.Output[list]
     """
     A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
-    
+
       * `password` (`str`)
       * `server` (`str`)
       * `username` (`str`)
@@ -144,7 +136,9 @@ class Group(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, containers=None, diagnostics=None, dns_name_label=None, identity=None, image_registry_credentials=None, ip_address_type=None, location=None, name=None, network_profile_id=None, os_type=None, resource_group_name=None, restart_policy=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages as an Azure Container Group instance.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
@@ -160,87 +154,77 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-        
+
         The **containers** object supports the following:
-        
+
           * `commands` (`pulumi.Input[list]`)
           * `cpu` (`pulumi.Input[float]`)
           * `environmentVariables` (`pulumi.Input[dict]`)
           * `gpu` (`pulumi.Input[dict]`)
-        
             * `count` (`pulumi.Input[float]`)
             * `sku` (`pulumi.Input[str]`)
-        
+
           * `image` (`pulumi.Input[str]`)
           * `livenessProbe` (`pulumi.Input[dict]`)
-        
             * `execs` (`pulumi.Input[list]`)
             * `failureThreshold` (`pulumi.Input[float]`)
             * `httpGets` (`pulumi.Input[list]`)
-        
               * `path` (`pulumi.Input[str]`)
               * `port` (`pulumi.Input[float]`)
               * `scheme` (`pulumi.Input[str]`)
-        
+
             * `initialDelaySeconds` (`pulumi.Input[float]`)
             * `periodSeconds` (`pulumi.Input[float]`)
             * `successThreshold` (`pulumi.Input[float]`)
             * `timeoutSeconds` (`pulumi.Input[float]`)
-        
+
           * `memory` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
           * `ports` (`pulumi.Input[list]`)
-        
             * `port` (`pulumi.Input[float]`)
             * `protocol` (`pulumi.Input[str]`)
-        
+
           * `readinessProbe` (`pulumi.Input[dict]`)
-        
             * `execs` (`pulumi.Input[list]`)
             * `failureThreshold` (`pulumi.Input[float]`)
             * `httpGets` (`pulumi.Input[list]`)
-        
               * `path` (`pulumi.Input[str]`)
               * `port` (`pulumi.Input[float]`)
               * `scheme` (`pulumi.Input[str]`)
-        
+
             * `initialDelaySeconds` (`pulumi.Input[float]`)
             * `periodSeconds` (`pulumi.Input[float]`)
             * `successThreshold` (`pulumi.Input[float]`)
             * `timeoutSeconds` (`pulumi.Input[float]`)
-        
+
           * `secureEnvironmentVariables` (`pulumi.Input[dict]`)
           * `volumes` (`pulumi.Input[list]`)
-        
             * `mountPath` (`pulumi.Input[str]`)
             * `name` (`pulumi.Input[str]`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
             * `readOnly` (`pulumi.Input[bool]`)
             * `shareName` (`pulumi.Input[str]`)
             * `storageAccountKey` (`pulumi.Input[str]`)
             * `storageAccountName` (`pulumi.Input[str]`)
-        
+
         The **diagnostics** object supports the following:
-        
+
           * `logAnalytics` (`pulumi.Input[dict]`)
-        
             * `logType` (`pulumi.Input[str]`)
             * `metadata` (`pulumi.Input[dict]`)
-            * `workspaceId` (`pulumi.Input[str]`)
+            * `workspace_id` (`pulumi.Input[str]`)
             * `workspaceKey` (`pulumi.Input[str]`)
-        
+
         The **identity** object supports the following:
-        
+
           * `identityIds` (`pulumi.Input[list]`)
-          * `principal_id` (`pulumi.Input[str]`)
+          * `principalId` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
-        
+
         The **image_registry_credentials** object supports the following:
-        
+
           * `password` (`pulumi.Input[str]`)
           * `server` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -291,7 +275,7 @@ class Group(pulumi.CustomResource):
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -310,91 +294,82 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-        
+
         The **containers** object supports the following:
-        
+
           * `commands` (`pulumi.Input[list]`)
           * `cpu` (`pulumi.Input[float]`)
           * `environmentVariables` (`pulumi.Input[dict]`)
           * `gpu` (`pulumi.Input[dict]`)
-        
             * `count` (`pulumi.Input[float]`)
             * `sku` (`pulumi.Input[str]`)
-        
+
           * `image` (`pulumi.Input[str]`)
           * `livenessProbe` (`pulumi.Input[dict]`)
-        
             * `execs` (`pulumi.Input[list]`)
             * `failureThreshold` (`pulumi.Input[float]`)
             * `httpGets` (`pulumi.Input[list]`)
-        
               * `path` (`pulumi.Input[str]`)
               * `port` (`pulumi.Input[float]`)
               * `scheme` (`pulumi.Input[str]`)
-        
+
             * `initialDelaySeconds` (`pulumi.Input[float]`)
             * `periodSeconds` (`pulumi.Input[float]`)
             * `successThreshold` (`pulumi.Input[float]`)
             * `timeoutSeconds` (`pulumi.Input[float]`)
-        
+
           * `memory` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
           * `ports` (`pulumi.Input[list]`)
-        
             * `port` (`pulumi.Input[float]`)
             * `protocol` (`pulumi.Input[str]`)
-        
+
           * `readinessProbe` (`pulumi.Input[dict]`)
-        
             * `execs` (`pulumi.Input[list]`)
             * `failureThreshold` (`pulumi.Input[float]`)
             * `httpGets` (`pulumi.Input[list]`)
-        
               * `path` (`pulumi.Input[str]`)
               * `port` (`pulumi.Input[float]`)
               * `scheme` (`pulumi.Input[str]`)
-        
+
             * `initialDelaySeconds` (`pulumi.Input[float]`)
             * `periodSeconds` (`pulumi.Input[float]`)
             * `successThreshold` (`pulumi.Input[float]`)
             * `timeoutSeconds` (`pulumi.Input[float]`)
-        
+
           * `secureEnvironmentVariables` (`pulumi.Input[dict]`)
           * `volumes` (`pulumi.Input[list]`)
-        
             * `mountPath` (`pulumi.Input[str]`)
             * `name` (`pulumi.Input[str]`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
             * `readOnly` (`pulumi.Input[bool]`)
             * `shareName` (`pulumi.Input[str]`)
             * `storageAccountKey` (`pulumi.Input[str]`)
             * `storageAccountName` (`pulumi.Input[str]`)
-        
+
         The **diagnostics** object supports the following:
-        
+
           * `logAnalytics` (`pulumi.Input[dict]`)
-        
             * `logType` (`pulumi.Input[str]`)
             * `metadata` (`pulumi.Input[dict]`)
-            * `workspaceId` (`pulumi.Input[str]`)
+            * `workspace_id` (`pulumi.Input[str]`)
             * `workspaceKey` (`pulumi.Input[str]`)
-        
+
         The **identity** object supports the following:
-        
+
           * `identityIds` (`pulumi.Input[list]`)
-          * `principal_id` (`pulumi.Input[str]`)
+          * `principalId` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
-        
+
         The **image_registry_credentials** object supports the following:
-        
+
           * `password` (`pulumi.Input[str]`)
           * `server` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["containers"] = containers
         __props__["diagnostics"] = diagnostics
         __props__["dns_name_label"] = dns_name_label

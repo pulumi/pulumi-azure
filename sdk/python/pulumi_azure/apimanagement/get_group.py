@@ -13,7 +13,7 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, api_management_name=None, description=None, display_name=None, external_id=None, name=None, resource_group_name=None, type=None, id=None):
+    def __init__(__self__, api_management_name=None, description=None, display_name=None, external_id=None, id=None, name=None, resource_group_name=None, type=None):
         if api_management_name and not isinstance(api_management_name, str):
             raise TypeError("Expected argument 'api_management_name' to be a str")
         __self__.api_management_name = api_management_name
@@ -35,6 +35,12 @@ class GetGroupResult:
         """
         The identifier of the external Group.
         """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -47,12 +53,6 @@ class GetGroupResult:
         """
         The type of this API Management Group, such as `custom` or `external`.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetGroupResult(GetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -63,22 +63,24 @@ class AwaitableGetGroupResult(GetGroupResult):
             description=self.description,
             display_name=self.display_name,
             external_id=self.external_id,
+            id=self.id,
             name=self.name,
             resource_group_name=self.resource_group_name,
-            type=self.type,
-            id=self.id)
+            type=self.type)
 
 def get_group(api_management_name=None,name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing API Management Group.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_group.html.markdown.
+
+
     :param str api_management_name: The Name of the API Management Service in which this Group exists.
     :param str name: The Name of the API Management Group.
     :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_group.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['apiManagementName'] = api_management_name
     __args__['name'] = name
@@ -94,7 +96,7 @@ def get_group(api_management_name=None,name=None,resource_group_name=None,opts=N
         description=__ret__.get('description'),
         display_name=__ret__.get('displayName'),
         external_id=__ret__.get('externalId'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
-        type=__ret__.get('type'),
-        id=__ret__.get('id'))
+        type=__ret__.get('type'))

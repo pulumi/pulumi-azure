@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Custom Trigger within a Logic App Workflow
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_custom.html.markdown.
 type TriggerCustom struct {
 	pulumi.CustomResourceState

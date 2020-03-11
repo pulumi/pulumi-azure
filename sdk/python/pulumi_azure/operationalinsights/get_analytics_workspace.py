@@ -13,7 +13,13 @@ class GetAnalyticsWorkspaceResult:
     """
     A collection of values returned by getAnalyticsWorkspace.
     """
-    def __init__(__self__, location=None, name=None, portal_url=None, primary_shared_key=None, resource_group_name=None, retention_in_days=None, secondary_shared_key=None, sku=None, tags=None, workspace_id=None, id=None):
+    def __init__(__self__, id=None, location=None, name=None, portal_url=None, primary_shared_key=None, resource_group_name=None, retention_in_days=None, secondary_shared_key=None, sku=None, tags=None, workspace_id=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -65,18 +71,13 @@ class GetAnalyticsWorkspaceResult:
         """
         The Workspace (or Customer) ID for the Log Analytics Workspace.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAnalyticsWorkspaceResult(GetAnalyticsWorkspaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetAnalyticsWorkspaceResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             portal_url=self.portal_url,
@@ -86,19 +87,20 @@ class AwaitableGetAnalyticsWorkspaceResult(GetAnalyticsWorkspaceResult):
             secondary_shared_key=self.secondary_shared_key,
             sku=self.sku,
             tags=self.tags,
-            workspace_id=self.workspace_id,
-            id=self.id)
+            workspace_id=self.workspace_id)
 
 def get_analytics_workspace(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
-    
-    :param str name: Specifies the name of the Log Analytics Workspace.
-    :param str resource_group_name: The name of the resource group in which the Log Analytics workspace is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/log_analytics_workspace.html.markdown.
+
+
+    :param str name: Specifies the name of the Log Analytics Workspace.
+    :param str resource_group_name: The name of the resource group in which the Log Analytics workspace is located in.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -109,6 +111,7 @@ def get_analytics_workspace(name=None,resource_group_name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace', __args__, opts=opts).value
 
     return AwaitableGetAnalyticsWorkspaceResult(
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         portal_url=__ret__.get('portalUrl'),
@@ -118,5 +121,4 @@ def get_analytics_workspace(name=None,resource_group_name=None,opts=None):
         secondary_shared_key=__ret__.get('secondarySharedKey'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
-        workspace_id=__ret__.get('workspaceId'),
-        id=__ret__.get('id'))
+        workspace_id=__ret__.get('workspaceId'))

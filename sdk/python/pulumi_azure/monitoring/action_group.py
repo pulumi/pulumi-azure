@@ -13,7 +13,7 @@ class ActionGroup(pulumi.CustomResource):
     arm_role_receivers: pulumi.Output[list]
     """
     One or more `arm_role_receiver` blocks as defined below.
-    
+
       * `name` (`str`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
       * `roleId` (`str`) - The arm role id.
       * `useCommonAlertSchema` (`bool`) - Enables or disables the common alert schema.
@@ -21,7 +21,7 @@ class ActionGroup(pulumi.CustomResource):
     automation_runbook_receivers: pulumi.Output[list]
     """
     One or more `automation_runbook_receiver` blocks as defined below.
-    
+
       * `automationAccountId` (`str`) - The automation account ID which holds this runbook and authenticates to Azure resources.
       * `isGlobalRunbook` (`bool`) - Indicates whether this instance is global runbook.
       * `name` (`str`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
@@ -33,14 +33,14 @@ class ActionGroup(pulumi.CustomResource):
     azure_app_push_receivers: pulumi.Output[list]
     """
     One or more `azure_app_push_receiver` blocks as defined below.
-    
+
       * `email_address` (`str`) - The email address of this receiver.
       * `name` (`str`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
     """
     azure_function_receivers: pulumi.Output[list]
     """
     One or more `azure_function_receiver` blocks as defined below.
-    
+
       * `functionAppResourceId` (`str`)
       * `functionName` (`str`) - The function name in the function app.
       * `httpTriggerUrl` (`str`) - The http trigger url where http request sent to.
@@ -50,7 +50,7 @@ class ActionGroup(pulumi.CustomResource):
     email_receivers: pulumi.Output[list]
     """
     One or more `email_receiver` blocks as defined below.
-    
+
       * `email_address` (`str`) - The email address of this receiver.
       * `name` (`str`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
       * `useCommonAlertSchema` (`bool`) - Enables or disables the common alert schema.
@@ -62,17 +62,17 @@ class ActionGroup(pulumi.CustomResource):
     itsm_receivers: pulumi.Output[list]
     """
     One or more `itsm_receiver` blocks as defined below.
-    
+
       * `connectionId` (`str`) - The unique connection identifier of the ITSM connection.
       * `name` (`str`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
       * `region` (`str`) - The region of the workspace.
       * `ticketConfiguration` (`str`) - A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
-      * `workspaceId` (`str`) - The Azure Log Analytics workspace ID where this connection is defined.
+      * `workspace_id` (`str`) - The Azure Log Analytics workspace ID where this connection is defined.
     """
     logic_app_receivers: pulumi.Output[list]
     """
     One or more `logic_app_receiver` blocks as defined below.
-    
+
       * `callbackUrl` (`str`) - The callback url where http request sent to.
       * `name` (`str`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
       * `resource_id` (`str`) - The Azure resource ID of the logic app.
@@ -93,7 +93,7 @@ class ActionGroup(pulumi.CustomResource):
     sms_receivers: pulumi.Output[list]
     """
     One or more `sms_receiver` blocks as defined below.
-    
+
       * `countryCode` (`str`) - The country code of the voice receiver.
       * `name` (`str`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
       * `phoneNumber` (`str`) - The phone number of the voice receiver.
@@ -105,7 +105,7 @@ class ActionGroup(pulumi.CustomResource):
     voice_receivers: pulumi.Output[list]
     """
     One or more `voice_receiver` blocks as defined below.
-    
+
       * `countryCode` (`str`) - The country code of the voice receiver.
       * `name` (`str`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
       * `phoneNumber` (`str`) - The phone number of the voice receiver.
@@ -113,7 +113,7 @@ class ActionGroup(pulumi.CustomResource):
     webhook_receivers: pulumi.Output[list]
     """
     One or more `webhook_receiver` blocks as defined below.
-    
+
       * `name` (`str`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
       * `service_uri` (`str`) - The URI where webhooks should be sent.
       * `useCommonAlertSchema` (`bool`) - Enables or disables the common alert schema.
@@ -121,7 +121,9 @@ class ActionGroup(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, arm_role_receivers=None, automation_runbook_receivers=None, azure_app_push_receivers=None, azure_function_receivers=None, email_receivers=None, enabled=None, itsm_receivers=None, logic_app_receivers=None, name=None, resource_group_name=None, short_name=None, sms_receivers=None, tags=None, voice_receivers=None, webhook_receivers=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Action Group within Azure Monitor.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_action_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] arm_role_receivers: One or more `arm_role_receiver` blocks as defined below.
@@ -139,15 +141,15 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[list] voice_receivers: One or more `voice_receiver` blocks as defined below.
         :param pulumi.Input[list] webhook_receivers: One or more `webhook_receiver` blocks as defined below.
-        
+
         The **arm_role_receivers** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `roleId` (`pulumi.Input[str]`) - The arm role id.
           * `useCommonAlertSchema` (`pulumi.Input[bool]`) - Enables or disables the common alert schema.
-        
+
         The **automation_runbook_receivers** object supports the following:
-        
+
           * `automationAccountId` (`pulumi.Input[str]`) - The automation account ID which holds this runbook and authenticates to Azure resources.
           * `isGlobalRunbook` (`pulumi.Input[bool]`) - Indicates whether this instance is global runbook.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
@@ -155,60 +157,58 @@ class ActionGroup(pulumi.CustomResource):
           * `service_uri` (`pulumi.Input[str]`) - The URI where webhooks should be sent.
           * `useCommonAlertSchema` (`pulumi.Input[bool]`) - Enables or disables the common alert schema.
           * `webhookResourceId` (`pulumi.Input[str]`) - The resource id for webhook linked to this runbook.
-        
+
         The **azure_app_push_receivers** object supports the following:
-        
+
           * `email_address` (`pulumi.Input[str]`) - The email address of this receiver.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-        
+
         The **azure_function_receivers** object supports the following:
-        
+
           * `functionAppResourceId` (`pulumi.Input[str]`)
           * `functionName` (`pulumi.Input[str]`) - The function name in the function app.
           * `httpTriggerUrl` (`pulumi.Input[str]`) - The http trigger url where http request sent to.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `useCommonAlertSchema` (`pulumi.Input[bool]`) - Enables or disables the common alert schema.
-        
+
         The **email_receivers** object supports the following:
-        
+
           * `email_address` (`pulumi.Input[str]`) - The email address of this receiver.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `useCommonAlertSchema` (`pulumi.Input[bool]`) - Enables or disables the common alert schema.
-        
+
         The **itsm_receivers** object supports the following:
-        
+
           * `connectionId` (`pulumi.Input[str]`) - The unique connection identifier of the ITSM connection.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `region` (`pulumi.Input[str]`) - The region of the workspace.
           * `ticketConfiguration` (`pulumi.Input[str]`) - A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
-          * `workspaceId` (`pulumi.Input[str]`) - The Azure Log Analytics workspace ID where this connection is defined.
-        
+          * `workspace_id` (`pulumi.Input[str]`) - The Azure Log Analytics workspace ID where this connection is defined.
+
         The **logic_app_receivers** object supports the following:
-        
+
           * `callbackUrl` (`pulumi.Input[str]`) - The callback url where http request sent to.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `resource_id` (`pulumi.Input[str]`) - The Azure resource ID of the logic app.
           * `useCommonAlertSchema` (`pulumi.Input[bool]`) - Enables or disables the common alert schema.
-        
+
         The **sms_receivers** object supports the following:
-        
+
           * `countryCode` (`pulumi.Input[str]`) - The country code of the voice receiver.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `phoneNumber` (`pulumi.Input[str]`) - The phone number of the voice receiver.
-        
+
         The **voice_receivers** object supports the following:
-        
+
           * `countryCode` (`pulumi.Input[str]`) - The country code of the voice receiver.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `phoneNumber` (`pulumi.Input[str]`) - The phone number of the voice receiver.
-        
+
         The **webhook_receivers** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `service_uri` (`pulumi.Input[str]`) - The URI where webhooks should be sent.
           * `useCommonAlertSchema` (`pulumi.Input[bool]`) - Enables or disables the common alert schema.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_action_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -257,7 +257,7 @@ class ActionGroup(pulumi.CustomResource):
         """
         Get an existing ActionGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -276,15 +276,15 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[list] voice_receivers: One or more `voice_receiver` blocks as defined below.
         :param pulumi.Input[list] webhook_receivers: One or more `webhook_receiver` blocks as defined below.
-        
+
         The **arm_role_receivers** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `roleId` (`pulumi.Input[str]`) - The arm role id.
           * `useCommonAlertSchema` (`pulumi.Input[bool]`) - Enables or disables the common alert schema.
-        
+
         The **automation_runbook_receivers** object supports the following:
-        
+
           * `automationAccountId` (`pulumi.Input[str]`) - The automation account ID which holds this runbook and authenticates to Azure resources.
           * `isGlobalRunbook` (`pulumi.Input[bool]`) - Indicates whether this instance is global runbook.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
@@ -292,64 +292,63 @@ class ActionGroup(pulumi.CustomResource):
           * `service_uri` (`pulumi.Input[str]`) - The URI where webhooks should be sent.
           * `useCommonAlertSchema` (`pulumi.Input[bool]`) - Enables or disables the common alert schema.
           * `webhookResourceId` (`pulumi.Input[str]`) - The resource id for webhook linked to this runbook.
-        
+
         The **azure_app_push_receivers** object supports the following:
-        
+
           * `email_address` (`pulumi.Input[str]`) - The email address of this receiver.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-        
+
         The **azure_function_receivers** object supports the following:
-        
+
           * `functionAppResourceId` (`pulumi.Input[str]`)
           * `functionName` (`pulumi.Input[str]`) - The function name in the function app.
           * `httpTriggerUrl` (`pulumi.Input[str]`) - The http trigger url where http request sent to.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `useCommonAlertSchema` (`pulumi.Input[bool]`) - Enables or disables the common alert schema.
-        
+
         The **email_receivers** object supports the following:
-        
+
           * `email_address` (`pulumi.Input[str]`) - The email address of this receiver.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `useCommonAlertSchema` (`pulumi.Input[bool]`) - Enables or disables the common alert schema.
-        
+
         The **itsm_receivers** object supports the following:
-        
+
           * `connectionId` (`pulumi.Input[str]`) - The unique connection identifier of the ITSM connection.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `region` (`pulumi.Input[str]`) - The region of the workspace.
           * `ticketConfiguration` (`pulumi.Input[str]`) - A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
-          * `workspaceId` (`pulumi.Input[str]`) - The Azure Log Analytics workspace ID where this connection is defined.
-        
+          * `workspace_id` (`pulumi.Input[str]`) - The Azure Log Analytics workspace ID where this connection is defined.
+
         The **logic_app_receivers** object supports the following:
-        
+
           * `callbackUrl` (`pulumi.Input[str]`) - The callback url where http request sent to.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `resource_id` (`pulumi.Input[str]`) - The Azure resource ID of the logic app.
           * `useCommonAlertSchema` (`pulumi.Input[bool]`) - Enables or disables the common alert schema.
-        
+
         The **sms_receivers** object supports the following:
-        
+
           * `countryCode` (`pulumi.Input[str]`) - The country code of the voice receiver.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `phoneNumber` (`pulumi.Input[str]`) - The phone number of the voice receiver.
-        
+
         The **voice_receivers** object supports the following:
-        
+
           * `countryCode` (`pulumi.Input[str]`) - The country code of the voice receiver.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `phoneNumber` (`pulumi.Input[str]`) - The phone number of the voice receiver.
-        
+
         The **webhook_receivers** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `service_uri` (`pulumi.Input[str]`) - The URI where webhooks should be sent.
           * `useCommonAlertSchema` (`pulumi.Input[bool]`) - Enables or disables the common alert schema.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_action_group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arm_role_receivers"] = arm_role_receivers
         __props__["automation_runbook_receivers"] = automation_runbook_receivers
         __props__["azure_app_push_receivers"] = azure_app_push_receivers

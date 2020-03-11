@@ -13,12 +13,18 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, endpoint=None, name=None, primary_key=None, resource_group_name=None, secondary_key=None, id=None):
+    def __init__(__self__, endpoint=None, id=None, name=None, primary_key=None, resource_group_name=None, secondary_key=None):
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         __self__.endpoint = endpoint
         """
         The Endpoint for this Auomation Account.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -38,12 +44,6 @@ class GetAccountResult:
         """
         The Secondary Access Key for the Automation Account.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAccountResult(GetAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -51,22 +51,24 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             endpoint=self.endpoint,
+            id=self.id,
             name=self.name,
             primary_key=self.primary_key,
             resource_group_name=self.resource_group_name,
-            secondary_key=self.secondary_key,
-            id=self.id)
+            secondary_key=self.secondary_key)
 
 def get_account(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Automation Account.
-    
-    :param str name: The name of the Automation Account.
-    :param str resource_group_name: Specifies the name of the Resource Group where the Automation Account exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_account.html.markdown.
+
+
+    :param str name: The name of the Automation Account.
+    :param str resource_group_name: Specifies the name of the Resource Group where the Automation Account exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -78,8 +80,8 @@ def get_account(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetAccountResult(
         endpoint=__ret__.get('endpoint'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         primary_key=__ret__.get('primaryKey'),
         resource_group_name=__ret__.get('resourceGroupName'),
-        secondary_key=__ret__.get('secondaryKey'),
-        id=__ret__.get('id'))
+        secondary_key=__ret__.get('secondaryKey'))

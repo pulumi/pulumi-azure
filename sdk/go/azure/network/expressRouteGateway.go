@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an ExpressRoute gateway.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_gateway.html.markdown.
 type ExpressRouteGateway struct {
 	pulumi.CustomResourceState

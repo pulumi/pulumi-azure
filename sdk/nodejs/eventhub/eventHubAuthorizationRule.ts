@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Event Hubs authorization Rule within an Event Hub.
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_authorization_rule_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_authorization_rule.html.markdown.
  */
 export class EventHubAuthorizationRule extends pulumi.CustomResource {
     /**

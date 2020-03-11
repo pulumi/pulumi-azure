@@ -25,7 +25,7 @@ class FailoverGroup(pulumi.CustomResource):
     partner_servers: pulumi.Output[list]
     """
     A list of secondary servers as documented below
-    
+
       * `id` (`str`) - the SQL server ID
       * `location` (`str`) - the location of the failover group.
       * `role` (`str`) - local replication role of the failover group instance.
@@ -33,14 +33,14 @@ class FailoverGroup(pulumi.CustomResource):
     read_write_endpoint_failover_policy: pulumi.Output[dict]
     """
     A read/write policy as documented below
-    
+
       * `graceMinutes` (`float`) - Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
       * `mode` (`str`) - Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
     """
     readonly_endpoint_failover_policy: pulumi.Output[dict]
     """
     a read-only policy as documented below
-    
+
       * `mode` (`str`) - Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
     """
     resource_group_name: pulumi.Output[str]
@@ -62,7 +62,9 @@ class FailoverGroup(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, databases=None, name=None, partner_servers=None, read_write_endpoint_failover_policy=None, readonly_endpoint_failover_policy=None, resource_group_name=None, server_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a failover group of databases on a collection of Azure SQL servers.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_failover_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] databases: A list of database ids to add to the failover group
@@ -73,23 +75,21 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the SQL server
         :param pulumi.Input[str] server_name: The name of the primary SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **partner_servers** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`) - the SQL server ID
           * `location` (`pulumi.Input[str]`) - the location of the failover group.
           * `role` (`pulumi.Input[str]`) - local replication role of the failover group instance.
-        
+
         The **read_write_endpoint_failover_policy** object supports the following:
-        
+
           * `graceMinutes` (`pulumi.Input[float]`) - Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
           * `mode` (`pulumi.Input[str]`) - Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
-        
-        The **readonly_endpoint_failover_policy** object supports the following:
-        
-          * `mode` (`pulumi.Input[str]`) - Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_failover_group.html.markdown.
+        The **readonly_endpoint_failover_policy** object supports the following:
+
+          * `mode` (`pulumi.Input[str]`) - Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -137,7 +137,7 @@ class FailoverGroup(pulumi.CustomResource):
         """
         Get an existing FailoverGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,27 +151,26 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[str] role: local replication role of the failover group instance.
         :param pulumi.Input[str] server_name: The name of the primary SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **partner_servers** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`) - the SQL server ID
           * `location` (`pulumi.Input[str]`) - the location of the failover group.
           * `role` (`pulumi.Input[str]`) - local replication role of the failover group instance.
-        
+
         The **read_write_endpoint_failover_policy** object supports the following:
-        
+
           * `graceMinutes` (`pulumi.Input[float]`) - Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
           * `mode` (`pulumi.Input[str]`) - Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
-        
-        The **readonly_endpoint_failover_policy** object supports the following:
-        
-          * `mode` (`pulumi.Input[str]`) - Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_failover_group.html.markdown.
+        The **readonly_endpoint_failover_policy** object supports the following:
+
+          * `mode` (`pulumi.Input[str]`) - Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["databases"] = databases
         __props__["location"] = location
         __props__["name"] = name

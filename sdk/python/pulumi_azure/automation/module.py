@@ -17,12 +17,11 @@ class Module(pulumi.CustomResource):
     module_link: pulumi.Output[dict]
     """
     The published Module link.
-    
+
       * `hash` (`dict`)
-    
         * `algorithm` (`str`)
         * `value` (`str`)
-    
+
       * `uri` (`str`) - The uri of the module content (zip or nupkg).
     """
     name: pulumi.Output[str]
@@ -36,24 +35,23 @@ class Module(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, automation_account_name=None, module_link=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Automation Module.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_module.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] module_link: The published Module link.
         :param pulumi.Input[str] name: Specifies the name of the Module. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
-        
+
         The **module_link** object supports the following:
-        
+
           * `hash` (`pulumi.Input[dict]`)
-        
             * `algorithm` (`pulumi.Input[str]`)
             * `value` (`pulumi.Input[str]`)
-        
-          * `uri` (`pulumi.Input[str]`) - The uri of the module content (zip or nupkg).
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_module.html.markdown.
+          * `uri` (`pulumi.Input[str]`) - The uri of the module content (zip or nupkg).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -93,7 +91,7 @@ class Module(pulumi.CustomResource):
         """
         Get an existing Module resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -101,21 +99,19 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[dict] module_link: The published Module link.
         :param pulumi.Input[str] name: Specifies the name of the Module. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
-        
+
         The **module_link** object supports the following:
-        
+
           * `hash` (`pulumi.Input[dict]`)
-        
             * `algorithm` (`pulumi.Input[str]`)
             * `value` (`pulumi.Input[str]`)
-        
-          * `uri` (`pulumi.Input[str]`) - The uri of the module content (zip or nupkg).
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_module.html.markdown.
+          * `uri` (`pulumi.Input[str]`) - The uri of the module content (zip or nupkg).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["automation_account_name"] = automation_account_name
         __props__["module_link"] = module_link
         __props__["name"] = name

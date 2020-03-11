@@ -25,16 +25,16 @@ class SourceCodeToken(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, token=None, token_secret=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an App Service source control token.
-        
+
         > **NOTE:** Source Control Tokens are configured at the subscription level, not on each App Service - as such this can only be configured Subscription-wide
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_source_control_token.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] token: The OAuth access token.
         :param pulumi.Input[str] token_secret: The OAuth access token secret.
         :param pulumi.Input[str] type: The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_source_control_token.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,19 +71,18 @@ class SourceCodeToken(pulumi.CustomResource):
         """
         Get an existing SourceCodeToken resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] token: The OAuth access token.
         :param pulumi.Input[str] token_secret: The OAuth access token secret.
         :param pulumi.Input[str] type: The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_source_control_token.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["token"] = token
         __props__["token_secret"] = token_secret
         __props__["type"] = type

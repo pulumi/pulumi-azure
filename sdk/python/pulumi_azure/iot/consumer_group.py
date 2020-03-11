@@ -29,15 +29,15 @@ class ConsumerGroup(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, eventhub_endpoint_name=None, iothub_name=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Consumer Group within an IotHub
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_consumer_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] eventhub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] iothub_name: The name of the IoT Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of this Consumer Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_consumer_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,7 +77,7 @@ class ConsumerGroup(pulumi.CustomResource):
         """
         Get an existing ConsumerGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -85,12 +85,11 @@ class ConsumerGroup(pulumi.CustomResource):
         :param pulumi.Input[str] iothub_name: The name of the IoT Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of this Consumer Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_consumer_group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["eventhub_endpoint_name"] = eventhub_endpoint_name
         __props__["iothub_name"] = iothub_name
         __props__["name"] = name

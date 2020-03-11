@@ -12,7 +12,7 @@ import (
 )
 
 // Enables you to manage DNS AAAA Records within Azure Private DNS.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_aaaa_record.html.markdown.
 type AAAARecord struct {
 	pulumi.CustomResourceState

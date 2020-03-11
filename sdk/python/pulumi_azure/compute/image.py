@@ -13,7 +13,7 @@ class Image(pulumi.CustomResource):
     data_disks: pulumi.Output[list]
     """
     One or more `data_disk` elements as defined below.
-    
+
       * `blobUri` (`str`) - Specifies the URI in Azure storage of the blob that you want to use to create the image.
       * `caching` (`str`) - Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
       * `lun` (`float`) - Specifies the logical unit number of the data disk.
@@ -37,7 +37,7 @@ class Image(pulumi.CustomResource):
     os_disk: pulumi.Output[dict]
     """
     One or more `os_disk` elements as defined below.
-    
+
       * `blobUri` (`str`) - Specifies the URI in Azure storage of the blob that you want to use to create the image.
       * `caching` (`str`) - Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
       * `managed_disk_id` (`str`) - Specifies the ID of the managed disk resource that you want to use to create the image.
@@ -65,7 +65,9 @@ class Image(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, data_disks=None, hyper_v_generation=None, location=None, name=None, os_disk=None, resource_group_name=None, source_virtual_machine_id=None, tags=None, zone_resilient=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a custom virtual machine image that can be used to create virtual machines.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/image.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] data_disks: One or more `data_disk` elements as defined below.
@@ -80,25 +82,23 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_resilient: Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
-        
+
         The **data_disks** object supports the following:
-        
+
           * `blobUri` (`pulumi.Input[str]`) - Specifies the URI in Azure storage of the blob that you want to use to create the image.
           * `caching` (`pulumi.Input[str]`) - Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
           * `lun` (`pulumi.Input[float]`) - Specifies the logical unit number of the data disk.
           * `managed_disk_id` (`pulumi.Input[str]`) - Specifies the ID of the managed disk resource that you want to use to create the image.
           * `sizeGb` (`pulumi.Input[float]`) - Specifies the size of the image to be created. The target size can't be smaller than the source size.
-        
+
         The **os_disk** object supports the following:
-        
+
           * `blobUri` (`pulumi.Input[str]`) - Specifies the URI in Azure storage of the blob that you want to use to create the image.
           * `caching` (`pulumi.Input[str]`) - Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
           * `managed_disk_id` (`pulumi.Input[str]`) - Specifies the ID of the managed disk resource that you want to use to create the image.
           * `osState` (`pulumi.Input[str]`) - Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
           * `os_type` (`pulumi.Input[str]`) - Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
           * `sizeGb` (`pulumi.Input[float]`) - Specifies the size of the image to be created. The target size can't be smaller than the source size.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/image.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -139,7 +139,7 @@ class Image(pulumi.CustomResource):
         """
         Get an existing Image resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,29 +155,28 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_resilient: Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
-        
+
         The **data_disks** object supports the following:
-        
+
           * `blobUri` (`pulumi.Input[str]`) - Specifies the URI in Azure storage of the blob that you want to use to create the image.
           * `caching` (`pulumi.Input[str]`) - Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
           * `lun` (`pulumi.Input[float]`) - Specifies the logical unit number of the data disk.
           * `managed_disk_id` (`pulumi.Input[str]`) - Specifies the ID of the managed disk resource that you want to use to create the image.
           * `sizeGb` (`pulumi.Input[float]`) - Specifies the size of the image to be created. The target size can't be smaller than the source size.
-        
+
         The **os_disk** object supports the following:
-        
+
           * `blobUri` (`pulumi.Input[str]`) - Specifies the URI in Azure storage of the blob that you want to use to create the image.
           * `caching` (`pulumi.Input[str]`) - Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
           * `managed_disk_id` (`pulumi.Input[str]`) - Specifies the ID of the managed disk resource that you want to use to create the image.
           * `osState` (`pulumi.Input[str]`) - Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
           * `os_type` (`pulumi.Input[str]`) - Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
           * `sizeGb` (`pulumi.Input[float]`) - Specifies the size of the image to be created. The target size can't be smaller than the source size.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/image.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["data_disks"] = data_disks
         __props__["hyper_v_generation"] = hyper_v_generation
         __props__["location"] = location

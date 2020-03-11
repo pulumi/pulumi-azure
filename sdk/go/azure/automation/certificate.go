@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Automation Certificate.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_certificate.html.markdown.
 type Certificate struct {
 	pulumi.CustomResourceState

@@ -12,8 +12,8 @@ import (
 )
 
 // Assigns a given Principal (User or Application) to a given Role.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_assignment_legacy.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_assignment.html.markdown.
 type Assignment struct {
 	pulumi.CustomResourceState
 

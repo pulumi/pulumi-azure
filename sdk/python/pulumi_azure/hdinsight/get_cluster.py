@@ -13,7 +13,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, cluster_version=None, component_versions=None, edge_ssh_endpoint=None, gateways=None, https_endpoint=None, kind=None, location=None, name=None, resource_group_name=None, ssh_endpoint=None, tags=None, tier=None, id=None):
+    def __init__(__self__, cluster_version=None, component_versions=None, edge_ssh_endpoint=None, gateways=None, https_endpoint=None, id=None, kind=None, location=None, name=None, resource_group_name=None, ssh_endpoint=None, tags=None, tier=None):
         if cluster_version and not isinstance(cluster_version, str):
             raise TypeError("Expected argument 'cluster_version' to be a str")
         __self__.cluster_version = cluster_version
@@ -43,6 +43,12 @@ class GetClusterResult:
         __self__.https_endpoint = https_endpoint
         """
         The HTTPS Endpoint for this HDInsight Cluster.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
@@ -80,12 +86,6 @@ class GetClusterResult:
         """
         The SKU / Tier of this HDInsight Cluster.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -97,25 +97,27 @@ class AwaitableGetClusterResult(GetClusterResult):
             edge_ssh_endpoint=self.edge_ssh_endpoint,
             gateways=self.gateways,
             https_endpoint=self.https_endpoint,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
             ssh_endpoint=self.ssh_endpoint,
             tags=self.tags,
-            tier=self.tier,
-            id=self.id)
+            tier=self.tier)
 
 def get_cluster(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing HDInsight Cluster.
-    
-    :param str name: Specifies the name of this HDInsight Cluster.
-    :param str resource_group_name: Specifies the name of the Resource Group in which this HDInsight Cluster exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/hdinsight_cluster.html.markdown.
+
+
+    :param str name: Specifies the name of this HDInsight Cluster.
+    :param str resource_group_name: Specifies the name of the Resource Group in which this HDInsight Cluster exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -131,11 +133,11 @@ def get_cluster(name=None,resource_group_name=None,opts=None):
         edge_ssh_endpoint=__ret__.get('edgeSshEndpoint'),
         gateways=__ret__.get('gateways'),
         https_endpoint=__ret__.get('httpsEndpoint'),
+        id=__ret__.get('id'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
         ssh_endpoint=__ret__.get('sshEndpoint'),
         tags=__ret__.get('tags'),
-        tier=__ret__.get('tier'),
-        id=__ret__.get('id'))
+        tier=__ret__.get('tier'))

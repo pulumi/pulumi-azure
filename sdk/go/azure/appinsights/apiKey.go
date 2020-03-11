@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Application Insights API key.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_api_key.html.markdown.
 type ApiKey struct {
 	pulumi.CustomResourceState

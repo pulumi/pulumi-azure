@@ -13,7 +13,7 @@ class GetSnapshotResult:
     """
     A collection of values returned by getSnapshot.
     """
-    def __init__(__self__, creation_option=None, disk_size_gb=None, encryption_settings=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_id=None, time_created=None, id=None):
+    def __init__(__self__, creation_option=None, disk_size_gb=None, encryption_settings=None, id=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_id=None, time_created=None):
         if creation_option and not isinstance(creation_option, str):
             raise TypeError("Expected argument 'creation_option' to be a str")
         __self__.creation_option = creation_option
@@ -26,6 +26,12 @@ class GetSnapshotResult:
         if encryption_settings and not isinstance(encryption_settings, list):
             raise TypeError("Expected argument 'encryption_settings' to be a list")
         __self__.encryption_settings = encryption_settings
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -56,12 +62,6 @@ class GetSnapshotResult:
         if time_created and not isinstance(time_created, str):
             raise TypeError("Expected argument 'time_created' to be a str")
         __self__.time_created = time_created
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetSnapshotResult(GetSnapshotResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -71,25 +71,27 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             creation_option=self.creation_option,
             disk_size_gb=self.disk_size_gb,
             encryption_settings=self.encryption_settings,
+            id=self.id,
             name=self.name,
             os_type=self.os_type,
             resource_group_name=self.resource_group_name,
             source_resource_id=self.source_resource_id,
             source_uri=self.source_uri,
             storage_account_id=self.storage_account_id,
-            time_created=self.time_created,
-            id=self.id)
+            time_created=self.time_created)
 
 def get_snapshot(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Snapshot.
-    
-    :param str name: Specifies the name of the Snapshot.
-    :param str resource_group_name: Specifies the name of the resource group the Snapshot is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/snapshot.html.markdown.
+
+
+    :param str name: Specifies the name of the Snapshot.
+    :param str resource_group_name: Specifies the name of the resource group the Snapshot is located in.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -103,11 +105,11 @@ def get_snapshot(name=None,resource_group_name=None,opts=None):
         creation_option=__ret__.get('creationOption'),
         disk_size_gb=__ret__.get('diskSizeGb'),
         encryption_settings=__ret__.get('encryptionSettings'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         os_type=__ret__.get('osType'),
         resource_group_name=__ret__.get('resourceGroupName'),
         source_resource_id=__ret__.get('sourceResourceId'),
         source_uri=__ret__.get('sourceUri'),
         storage_account_id=__ret__.get('storageAccountId'),
-        time_created=__ret__.get('timeCreated'),
-        id=__ret__.get('id'))
+        time_created=__ret__.get('timeCreated'))

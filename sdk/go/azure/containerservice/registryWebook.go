@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Azure Container Registry Webhook.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_registry_webhook.html.markdown.
 type RegistryWebook struct {
 	pulumi.CustomResourceState

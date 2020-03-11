@@ -13,12 +13,18 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, account_endpoint=None, key_vault_references=None, location=None, name=None, pool_allocation_mode=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, storage_account_id=None, tags=None, id=None):
+    def __init__(__self__, account_endpoint=None, id=None, key_vault_references=None, location=None, name=None, pool_allocation_mode=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, storage_account_id=None, tags=None):
         if account_endpoint and not isinstance(account_endpoint, str):
             raise TypeError("Expected argument 'account_endpoint' to be a str")
         __self__.account_endpoint = account_endpoint
         """
         The account endpoint used to interact with the Batch service.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if key_vault_references and not isinstance(key_vault_references, list):
             raise TypeError("Expected argument 'key_vault_references' to be a list")
@@ -71,12 +77,6 @@ class GetAccountResult:
         """
         A map of tags assigned to the Batch account.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAccountResult(GetAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -84,6 +84,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             account_endpoint=self.account_endpoint,
+            id=self.id,
             key_vault_references=self.key_vault_references,
             location=self.location,
             name=self.name,
@@ -92,19 +93,20 @@ class AwaitableGetAccountResult(GetAccountResult):
             resource_group_name=self.resource_group_name,
             secondary_access_key=self.secondary_access_key,
             storage_account_id=self.storage_account_id,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_account(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Batch Account.
-    
-    :param str name: The name of the Batch account.
-    :param str resource_group_name: The Name of the Resource Group where this Batch account exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_account.html.markdown.
+
+
+    :param str name: The name of the Batch account.
+    :param str resource_group_name: The Name of the Resource Group where this Batch account exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -116,6 +118,7 @@ def get_account(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetAccountResult(
         account_endpoint=__ret__.get('accountEndpoint'),
+        id=__ret__.get('id'),
         key_vault_references=__ret__.get('keyVaultReferences'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
@@ -124,5 +127,4 @@ def get_account(name=None,resource_group_name=None,opts=None):
         resource_group_name=__ret__.get('resourceGroupName'),
         secondary_access_key=__ret__.get('secondaryAccessKey'),
         storage_account_id=__ret__.get('storageAccountId'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

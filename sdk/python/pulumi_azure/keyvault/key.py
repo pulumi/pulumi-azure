@@ -69,7 +69,9 @@ class Key(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, curve=None, expiration_date=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, name=None, not_before_date=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Key Vault Key.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_key.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
@@ -81,8 +83,6 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_key.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -132,7 +132,7 @@ class Key(pulumi.CustomResource):
         """
         Get an existing Key resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,12 +150,11 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] version: The current version of the Key Vault Key.
         :param pulumi.Input[str] x: The EC X component of this Key Vault Key.
         :param pulumi.Input[str] y: The EC Y component of this Key Vault Key.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_key.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["curve"] = curve
         __props__["e"] = e
         __props__["expiration_date"] = expiration_date

@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a SQL Server Table Dataset inside a Azure Data Factory.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_dataset_sql_server_table.html.markdown.
 type DatasetSqlServerTable struct {
 	pulumi.CustomResourceState

@@ -49,7 +49,9 @@ class Schedule(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, daily_recurrence=None, hourly_recurrence=None, lab_name=None, location=None, name=None, notification_settings=None, resource_group_name=None, status=None, tags=None, task_type=None, time_zone_id=None, weekly_recurrence=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages automated startup and shutdown schedules for Azure Dev Test Lab.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_schedule.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] lab_name: The name of the dev test lab. Changing this forces a new resource to be created.
@@ -60,27 +62,25 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] task_type: The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
         :param pulumi.Input[str] time_zone_id: The time zone ID (e.g. Pacific Standard time).
-        
+
         The **daily_recurrence** object supports the following:
-        
+
           * `time` (`pulumi.Input[str]`) - The time each day when the schedule takes effect.
-        
+
         The **hourly_recurrence** object supports the following:
-        
+
           * `minute` (`pulumi.Input[float]`)
-        
+
         The **notification_settings** object supports the following:
-        
+
           * `status` (`pulumi.Input[str]`) - The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
           * `timeInMinutes` (`pulumi.Input[float]`) - Time in minutes before event at which notification will be sent.
           * `webhookUrl` (`pulumi.Input[str]`) - The webhook URL to which the notification will be sent.
-        
-        The **weekly_recurrence** object supports the following:
-        
-          * `time` (`pulumi.Input[str]`) - The time each day when the schedule takes effect.
-          * `week_days` (`pulumi.Input[list]`) - A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_schedule.html.markdown.
+        The **weekly_recurrence** object supports the following:
+
+          * `time` (`pulumi.Input[str]`) - The time each day when the schedule takes effect.
+          * `weekDays` (`pulumi.Input[list]`) - A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -132,7 +132,7 @@ class Schedule(pulumi.CustomResource):
         """
         Get an existing Schedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,31 +144,30 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] task_type: The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
         :param pulumi.Input[str] time_zone_id: The time zone ID (e.g. Pacific Standard time).
-        
+
         The **daily_recurrence** object supports the following:
-        
+
           * `time` (`pulumi.Input[str]`) - The time each day when the schedule takes effect.
-        
+
         The **hourly_recurrence** object supports the following:
-        
+
           * `minute` (`pulumi.Input[float]`)
-        
+
         The **notification_settings** object supports the following:
-        
+
           * `status` (`pulumi.Input[str]`) - The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
           * `timeInMinutes` (`pulumi.Input[float]`) - Time in minutes before event at which notification will be sent.
           * `webhookUrl` (`pulumi.Input[str]`) - The webhook URL to which the notification will be sent.
-        
-        The **weekly_recurrence** object supports the following:
-        
-          * `time` (`pulumi.Input[str]`) - The time each day when the schedule takes effect.
-          * `week_days` (`pulumi.Input[list]`) - A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_schedule.html.markdown.
+        The **weekly_recurrence** object supports the following:
+
+          * `time` (`pulumi.Input[str]`) - The time each day when the schedule takes effect.
+          * `weekDays` (`pulumi.Input[list]`) - A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["daily_recurrence"] = daily_recurrence
         __props__["hourly_recurrence"] = hourly_recurrence
         __props__["lab_name"] = lab_name

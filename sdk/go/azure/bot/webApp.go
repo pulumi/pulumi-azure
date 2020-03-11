@@ -12,8 +12,8 @@ import (
 )
 
 // Manages a Bot Web App.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_web_app.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_web_app.markdown.
 type WebApp struct {
 	pulumi.CustomResourceState
 

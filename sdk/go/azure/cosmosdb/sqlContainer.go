@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a SQL Container within a Cosmos DB Account.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_sql_container.html.markdown.
 type SqlContainer struct {
 	pulumi.CustomResourceState

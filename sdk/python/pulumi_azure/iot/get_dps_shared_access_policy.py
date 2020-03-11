@@ -13,7 +13,13 @@ class GetDpsSharedAccessPolicyResult:
     """
     A collection of values returned by getDpsSharedAccessPolicy.
     """
-    def __init__(__self__, iothub_dps_name=None, name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, id=None):
+    def __init__(__self__, id=None, iothub_dps_name=None, name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if iothub_dps_name and not isinstance(iothub_dps_name, str):
             raise TypeError("Expected argument 'iothub_dps_name' to be a str")
         __self__.iothub_dps_name = iothub_dps_name
@@ -47,38 +53,34 @@ class GetDpsSharedAccessPolicyResult:
         """
         The secondary key used to create the authentication token.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetDpsSharedAccessPolicyResult(GetDpsSharedAccessPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetDpsSharedAccessPolicyResult(
+            id=self.id,
             iothub_dps_name=self.iothub_dps_name,
             name=self.name,
             primary_connection_string=self.primary_connection_string,
             primary_key=self.primary_key,
             resource_group_name=self.resource_group_name,
             secondary_connection_string=self.secondary_connection_string,
-            secondary_key=self.secondary_key,
-            id=self.id)
+            secondary_key=self.secondary_key)
 
 def get_dps_shared_access_policy(iothub_dps_name=None,name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing IotHub Device Provisioning Service Shared Access Policy
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps_shared_access_policy.html.markdown.
+
+
     :param str iothub_dps_name: Specifies the name of the IoT Hub Device Provisioning service to which the Shared Access Policy belongs.
     :param str name: Specifies the name of the IotHub Shared Access Policy.
     :param str resource_group_name: Specifies the name of the resource group under which the IotHub Shared Access Policy resource exists.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps_shared_access_policy.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['iothubDpsName'] = iothub_dps_name
     __args__['name'] = name
@@ -90,11 +92,11 @@ def get_dps_shared_access_policy(iothub_dps_name=None,name=None,resource_group_n
     __ret__ = pulumi.runtime.invoke('azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy', __args__, opts=opts).value
 
     return AwaitableGetDpsSharedAccessPolicyResult(
+        id=__ret__.get('id'),
         iothub_dps_name=__ret__.get('iothubDpsName'),
         name=__ret__.get('name'),
         primary_connection_string=__ret__.get('primaryConnectionString'),
         primary_key=__ret__.get('primaryKey'),
         resource_group_name=__ret__.get('resourceGroupName'),
         secondary_connection_string=__ret__.get('secondaryConnectionString'),
-        secondary_key=__ret__.get('secondaryKey'),
-        id=__ret__.get('id'))
+        secondary_key=__ret__.get('secondaryKey'))

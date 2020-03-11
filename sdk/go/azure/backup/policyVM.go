@@ -12,8 +12,8 @@ import (
 )
 
 // Manages an Azure Backup VM Backup Policy.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_policy_vm.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_policy_vm.markdown.
 type PolicyVM struct {
 	pulumi.CustomResourceState
 

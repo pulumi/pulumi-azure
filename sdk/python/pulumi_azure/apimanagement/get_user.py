@@ -13,7 +13,7 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, api_management_name=None, email=None, first_name=None, last_name=None, note=None, resource_group_name=None, state=None, user_id=None, id=None):
+    def __init__(__self__, api_management_name=None, email=None, first_name=None, id=None, last_name=None, note=None, resource_group_name=None, state=None, user_id=None):
         if api_management_name and not isinstance(api_management_name, str):
             raise TypeError("Expected argument 'api_management_name' to be a str")
         __self__.api_management_name = api_management_name
@@ -28,6 +28,12 @@ class GetUserResult:
         __self__.first_name = first_name
         """
         The First Name for the User.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if last_name and not isinstance(last_name, str):
             raise TypeError("Expected argument 'last_name' to be a str")
@@ -53,12 +59,6 @@ class GetUserResult:
         if user_id and not isinstance(user_id, str):
             raise TypeError("Expected argument 'user_id' to be a str")
         __self__.user_id = user_id
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetUserResult(GetUserResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -68,24 +68,26 @@ class AwaitableGetUserResult(GetUserResult):
             api_management_name=self.api_management_name,
             email=self.email,
             first_name=self.first_name,
+            id=self.id,
             last_name=self.last_name,
             note=self.note,
             resource_group_name=self.resource_group_name,
             state=self.state,
-            user_id=self.user_id,
-            id=self.id)
+            user_id=self.user_id)
 
 def get_user(api_management_name=None,resource_group_name=None,user_id=None,opts=None):
     """
     Use this data source to access information about an existing API Management User.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_user.html.markdown.
+
+
     :param str api_management_name: The Name of the API Management Service in which this User exists.
     :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
     :param str user_id: The Identifier for the User.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_user.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['apiManagementName'] = api_management_name
     __args__['resourceGroupName'] = resource_group_name
@@ -100,9 +102,9 @@ def get_user(api_management_name=None,resource_group_name=None,user_id=None,opts
         api_management_name=__ret__.get('apiManagementName'),
         email=__ret__.get('email'),
         first_name=__ret__.get('firstName'),
+        id=__ret__.get('id'),
         last_name=__ret__.get('lastName'),
         note=__ret__.get('note'),
         resource_group_name=__ret__.get('resourceGroupName'),
         state=__ret__.get('state'),
-        user_id=__ret__.get('userId'),
-        id=__ret__.get('id'))
+        user_id=__ret__.get('userId'))

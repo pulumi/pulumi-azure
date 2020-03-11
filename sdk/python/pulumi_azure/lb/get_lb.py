@@ -13,12 +13,18 @@ class GetLBResult:
     """
     A collection of values returned by getLB.
     """
-    def __init__(__self__, frontend_ip_configurations=None, location=None, name=None, private_ip_address=None, private_ip_addresses=None, resource_group_name=None, sku=None, tags=None, id=None):
+    def __init__(__self__, frontend_ip_configurations=None, id=None, location=None, name=None, private_ip_address=None, private_ip_addresses=None, resource_group_name=None, sku=None, tags=None):
         if frontend_ip_configurations and not isinstance(frontend_ip_configurations, list):
             raise TypeError("Expected argument 'frontend_ip_configurations' to be a list")
         __self__.frontend_ip_configurations = frontend_ip_configurations
         """
         (Optional) A `frontend_ip_configuration` block as documented below.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -59,12 +65,6 @@ class GetLBResult:
         """
         A mapping of tags assigned to the resource.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetLBResult(GetLBResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -72,25 +72,27 @@ class AwaitableGetLBResult(GetLBResult):
             yield self
         return GetLBResult(
             frontend_ip_configurations=self.frontend_ip_configurations,
+            id=self.id,
             location=self.location,
             name=self.name,
             private_ip_address=self.private_ip_address,
             private_ip_addresses=self.private_ip_addresses,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_lb(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Load Balancer
-    
-    :param str name: Specifies the name of the Load Balancer.
-    :param str resource_group_name: The name of the Resource Group in which the Load Balancer exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb.html.markdown.
+
+
+    :param str name: Specifies the name of the Load Balancer.
+    :param str resource_group_name: The name of the Resource Group in which the Load Balancer exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -102,11 +104,11 @@ def get_lb(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetLBResult(
         frontend_ip_configurations=__ret__.get('frontendIpConfigurations'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         private_ip_address=__ret__.get('privateIpAddress'),
         private_ip_addresses=__ret__.get('privateIpAddresses'),
         resource_group_name=__ret__.get('resourceGroupName'),
         sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

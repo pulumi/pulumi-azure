@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Diagnostic Setting for an existing Resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_diagnostic_setting.html.markdown.
 type DiagnosticSetting struct {
 	pulumi.CustomResourceState

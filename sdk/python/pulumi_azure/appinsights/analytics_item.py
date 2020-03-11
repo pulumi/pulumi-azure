@@ -49,7 +49,9 @@ class AnalyticsItem(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, application_insights_id=None, content=None, function_alias=None, name=None, scope=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Application Insights Analytics Item component.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_analytics_item.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created.
@@ -58,8 +60,6 @@ class AnalyticsItem(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Application Insights Analytics Item. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions.
         :param pulumi.Input[str] type: The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_analytics_item.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -106,7 +106,7 @@ class AnalyticsItem(pulumi.CustomResource):
         """
         Get an existing AnalyticsItem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,12 +119,11 @@ class AnalyticsItem(pulumi.CustomResource):
         :param pulumi.Input[str] time_modified: A string containing the time the Analytics Item was last modified.
         :param pulumi.Input[str] type: The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version: A string indicating the version of the query format
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_analytics_item.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["application_insights_id"] = application_insights_id
         __props__["content"] = content
         __props__["function_alias"] = function_alias

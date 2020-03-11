@@ -12,9 +12,9 @@ import (
 )
 
 // Manages a NetApp Account.
-// 
+//
 // > **NOTE:** Azure allows only one active directory can be joined to a single subscription at a time for NetApp Account.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_account.html.markdown.
 type Account struct {
 	pulumi.CustomResourceState

@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an API Management API Policy
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_policy.html.markdown.
 type ApiPolicy struct {
 	pulumi.CustomResourceState

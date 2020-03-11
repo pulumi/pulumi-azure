@@ -13,7 +13,7 @@ class VpnGateway(pulumi.CustomResource):
     bgp_settings: pulumi.Output[list]
     """
     A `bgp_settings` block as defined below.
-    
+
       * `asn` (`float`)
       * `bgpPeeringAddress` (`str`) - The Address which should be used for the BGP Peering.
       * `peerWeight` (`float`)
@@ -45,7 +45,9 @@ class VpnGateway(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, bgp_settings=None, location=None, name=None, resource_group_name=None, scale_unit=None, tags=None, virtual_hub_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a VPN Gateway within a Virtual Hub, which enables Site-to-Site communication.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/vpn_gateway.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] bgp_settings: A `bgp_settings` block as defined below.
@@ -55,14 +57,12 @@ class VpnGateway(pulumi.CustomResource):
         :param pulumi.Input[float] scale_unit: The Scale Unit for this VPN Gateway. Defaults to `1`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the VPN Gateway.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
-        
+
         The **bgp_settings** object supports the following:
-        
+
           * `asn` (`pulumi.Input[float]`)
           * `bgpPeeringAddress` (`pulumi.Input[str]`) - The Address which should be used for the BGP Peering.
           * `peerWeight` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/vpn_gateway.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -103,7 +103,7 @@ class VpnGateway(pulumi.CustomResource):
         """
         Get an existing VpnGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,18 +114,17 @@ class VpnGateway(pulumi.CustomResource):
         :param pulumi.Input[float] scale_unit: The Scale Unit for this VPN Gateway. Defaults to `1`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the VPN Gateway.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
-        
+
         The **bgp_settings** object supports the following:
-        
+
           * `asn` (`pulumi.Input[float]`)
           * `bgpPeeringAddress` (`pulumi.Input[str]`) - The Address which should be used for the BGP Peering.
           * `peerWeight` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/vpn_gateway.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["bgp_settings"] = bgp_settings
         __props__["location"] = location
         __props__["name"] = name

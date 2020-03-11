@@ -13,7 +13,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, additional_locations=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, sku_name=None, tags=None, id=None):
+    def __init__(__self__, additional_locations=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, sku_name=None, tags=None):
         if additional_locations and not isinstance(additional_locations, list):
             raise TypeError("Expected argument 'additional_locations' to be a list")
         __self__.additional_locations = additional_locations
@@ -37,6 +37,12 @@ class GetServiceResult:
         __self__.hostname_configurations = hostname_configurations
         """
         A `hostname_configuration` block as defined below.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -104,12 +110,6 @@ class GetServiceResult:
         """
         A mapping of tags assigned to the resource.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -120,6 +120,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             gateway_regional_url=self.gateway_regional_url,
             gateway_url=self.gateway_url,
             hostname_configurations=self.hostname_configurations,
+            id=self.id,
             location=self.location,
             management_api_url=self.management_api_url,
             name=self.name,
@@ -131,19 +132,20 @@ class AwaitableGetServiceResult(GetServiceResult):
             resource_group_name=self.resource_group_name,
             scm_url=self.scm_url,
             sku_name=self.sku_name,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_service(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing API Management Service.
-    
-    :param str name: The name of the API Management service.
-    :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management.html.markdown.
+
+
+    :param str name: The name of the API Management service.
+    :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -158,6 +160,7 @@ def get_service(name=None,resource_group_name=None,opts=None):
         gateway_regional_url=__ret__.get('gatewayRegionalUrl'),
         gateway_url=__ret__.get('gatewayUrl'),
         hostname_configurations=__ret__.get('hostnameConfigurations'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         management_api_url=__ret__.get('managementApiUrl'),
         name=__ret__.get('name'),
@@ -169,5 +172,4 @@ def get_service(name=None,resource_group_name=None,opts=None):
         resource_group_name=__ret__.get('resourceGroupName'),
         scm_url=__ret__.get('scmUrl'),
         sku_name=__ret__.get('skuName'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Automation DSC Configuration.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_dsc_configuration.html.markdown.
 type DscConfiguration struct {
 	pulumi.CustomResourceState

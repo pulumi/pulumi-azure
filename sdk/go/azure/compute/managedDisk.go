@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a managed disk.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_disk.html.markdown.
 type ManagedDisk struct {
 	pulumi.CustomResourceState

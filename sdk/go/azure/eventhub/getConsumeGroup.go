@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_consumer_group.html.markdown.
 func GetConsumeGroup(ctx *pulumi.Context, args *GetConsumeGroupArgs, opts ...pulumi.InvokeOption) (*GetConsumeGroupResult, error) {
 	var rv GetConsumeGroupResult

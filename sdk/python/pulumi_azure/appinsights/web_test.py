@@ -61,7 +61,9 @@ class WebTest(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, application_insights_id=None, configuration=None, description=None, enabled=None, frequency=None, geo_locations=None, kind=None, location=None, name=None, resource_group_name=None, retry_enabled=None, tags=None, timeout=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Application Insights WebTest.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_web_test.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
@@ -76,8 +78,6 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
         :param pulumi.Input[dict] tags: Resource tags.
         :param pulumi.Input[float] timeout: Seconds until this WebTest will timeout and fail. Default is `30`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_web_test.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -131,7 +131,7 @@ class WebTest(pulumi.CustomResource):
         """
         Get an existing WebTest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,12 +147,11 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
         :param pulumi.Input[dict] tags: Resource tags.
         :param pulumi.Input[float] timeout: Seconds until this WebTest will timeout and fail. Default is `30`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_web_test.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["application_insights_id"] = application_insights_id
         __props__["configuration"] = configuration
         __props__["description"] = description

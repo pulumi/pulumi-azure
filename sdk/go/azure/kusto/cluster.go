@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Kusto (also known as Azure Data Explorer) Cluster
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_cluster.html.markdown.
 type Cluster struct {
 	pulumi.CustomResourceState

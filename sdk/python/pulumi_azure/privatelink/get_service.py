@@ -13,7 +13,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, alias=None, auto_approval_subscription_ids=None, enable_proxy_protocol=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configurations=None, resource_group_name=None, tags=None, visibility_subscription_ids=None, id=None):
+    def __init__(__self__, alias=None, auto_approval_subscription_ids=None, enable_proxy_protocol=None, id=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configurations=None, resource_group_name=None, tags=None, visibility_subscription_ids=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         __self__.alias = alias
@@ -31,6 +31,12 @@ class GetServiceResult:
         __self__.enable_proxy_protocol = enable_proxy_protocol
         """
         Does the Private Link Service support the Proxy Protocol?
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if load_balancer_frontend_ip_configuration_ids and not isinstance(load_balancer_frontend_ip_configuration_ids, list):
             raise TypeError("Expected argument 'load_balancer_frontend_ip_configuration_ids' to be a list")
@@ -71,12 +77,6 @@ class GetServiceResult:
         """
         The list of subscription(s) globally unique identifiers(GUID) that will be able to see the private link service.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -86,27 +86,29 @@ class AwaitableGetServiceResult(GetServiceResult):
             alias=self.alias,
             auto_approval_subscription_ids=self.auto_approval_subscription_ids,
             enable_proxy_protocol=self.enable_proxy_protocol,
+            id=self.id,
             load_balancer_frontend_ip_configuration_ids=self.load_balancer_frontend_ip_configuration_ids,
             location=self.location,
             name=self.name,
             nat_ip_configurations=self.nat_ip_configurations,
             resource_group_name=self.resource_group_name,
             tags=self.tags,
-            visibility_subscription_ids=self.visibility_subscription_ids,
-            id=self.id)
+            visibility_subscription_ids=self.visibility_subscription_ids)
 
 def get_service(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Private Link Service.
-    
+
     > **NOTE** Private Link is currently in Public Preview.
-    
-    :param str name: The name of the private link service.
-    :param str resource_group_name: The name of the resource group in which the private link service resides.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service.html.markdown.
+
+
+    :param str name: The name of the private link service.
+    :param str resource_group_name: The name of the resource group in which the private link service resides.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -120,11 +122,11 @@ def get_service(name=None,resource_group_name=None,opts=None):
         alias=__ret__.get('alias'),
         auto_approval_subscription_ids=__ret__.get('autoApprovalSubscriptionIds'),
         enable_proxy_protocol=__ret__.get('enableProxyProtocol'),
+        id=__ret__.get('id'),
         load_balancer_frontend_ip_configuration_ids=__ret__.get('loadBalancerFrontendIpConfigurationIds'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         nat_ip_configurations=__ret__.get('natIpConfigurations'),
         resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
-        visibility_subscription_ids=__ret__.get('visibilitySubscriptionIds'),
-        id=__ret__.get('id'))
+        visibility_subscription_ids=__ret__.get('visibilitySubscriptionIds'))

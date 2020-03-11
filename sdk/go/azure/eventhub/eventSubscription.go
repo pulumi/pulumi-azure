@@ -12,8 +12,8 @@ import (
 )
 
 // Manages an EventGrid Event Subscription
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_event_subscription_legacy.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_event_subscription.html.markdown.
 type EventSubscription struct {
 	pulumi.CustomResourceState
 

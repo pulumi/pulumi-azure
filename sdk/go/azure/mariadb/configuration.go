@@ -12,7 +12,7 @@ import (
 )
 
 // Sets a MariaDB Configuration value on a MariaDB Server.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mariadb_configuration.html.markdown.
 type Configuration struct {
 	pulumi.CustomResourceState

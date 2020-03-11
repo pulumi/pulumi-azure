@@ -13,7 +13,7 @@ class KeyVault(pulumi.CustomResource):
     access_policies: pulumi.Output[list]
     """
     [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
-    
+
       * `application_id` (`str`)
       * `certificate_permissions` (`list`)
       * `key_permissions` (`list`)
@@ -45,7 +45,7 @@ class KeyVault(pulumi.CustomResource):
     network_acls: pulumi.Output[dict]
     """
     A `network_acls` block as defined below.
-    
+
       * `bypass` (`str`)
       * `defaultAction` (`str`)
       * `ipRules` (`list`)
@@ -82,7 +82,6 @@ class KeyVault(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, name=None, network_acls=None, purge_protection_enabled=None, resource_group_name=None, sku_name=None, soft_delete_enabled=None, tags=None, tenant_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a KeyVault resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] access_policies: [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
@@ -98,9 +97,9 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[bool] soft_delete_enabled: Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-        
+
         The **access_policies** object supports the following:
-        
+
           * `application_id` (`pulumi.Input[str]`)
           * `certificate_permissions` (`pulumi.Input[list]`)
           * `key_permissions` (`pulumi.Input[list]`)
@@ -108,15 +107,13 @@ class KeyVault(pulumi.CustomResource):
           * `secret_permissions` (`pulumi.Input[list]`)
           * `storage_permissions` (`pulumi.Input[list]`)
           * `tenant_id` (`pulumi.Input[str]`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-        
+
         The **network_acls** object supports the following:
-        
+
           * `bypass` (`pulumi.Input[str]`)
           * `defaultAction` (`pulumi.Input[str]`)
           * `ipRules` (`pulumi.Input[list]`)
           * `virtualNetworkSubnetIds` (`pulumi.Input[list]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -166,7 +163,7 @@ class KeyVault(pulumi.CustomResource):
         """
         Get an existing KeyVault resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,9 +181,9 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param pulumi.Input[str] vault_uri: The URI of the Key Vault, used for performing operations on keys and secrets.
-        
+
         The **access_policies** object supports the following:
-        
+
           * `application_id` (`pulumi.Input[str]`)
           * `certificate_permissions` (`pulumi.Input[list]`)
           * `key_permissions` (`pulumi.Input[list]`)
@@ -194,19 +191,18 @@ class KeyVault(pulumi.CustomResource):
           * `secret_permissions` (`pulumi.Input[list]`)
           * `storage_permissions` (`pulumi.Input[list]`)
           * `tenant_id` (`pulumi.Input[str]`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-        
+
         The **network_acls** object supports the following:
-        
+
           * `bypass` (`pulumi.Input[str]`)
           * `defaultAction` (`pulumi.Input[str]`)
           * `ipRules` (`pulumi.Input[list]`)
           * `virtualNetworkSubnetIds` (`pulumi.Input[list]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["access_policies"] = access_policies
         __props__["enabled_for_deployment"] = enabled_for_deployment
         __props__["enabled_for_disk_encryption"] = enabled_for_disk_encryption

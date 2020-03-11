@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_diagnostic_categories.html.markdown.
 func GetDiagnosticCategories(ctx *pulumi.Context, args *GetDiagnosticCategoriesArgs, opts ...pulumi.InvokeOption) (*GetDiagnosticCategoriesResult, error) {
 	var rv GetDiagnosticCategoriesResult

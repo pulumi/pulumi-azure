@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a NetApp Snapshot.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_snapshot.html.markdown.
 type Snapshot struct {
 	pulumi.CustomResourceState

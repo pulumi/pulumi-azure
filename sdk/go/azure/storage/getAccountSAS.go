@@ -9,12 +9,12 @@ import (
 )
 
 // Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account.
-// 
+//
 // Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account.
-// 
+//
 // Note that this is an [Account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-an-account-sas)
 // and *not* a [Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_sas.html.markdown.
 func GetAccountSAS(ctx *pulumi.Context, args *GetAccountSASArgs, opts ...pulumi.InvokeOption) (*GetAccountSASResult, error) {
 	var rv GetAccountSASResult

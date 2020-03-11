@@ -13,7 +13,7 @@ class GetAppServiceResult:
     """
     A collection of values returned by getAppService.
     """
-    def __init__(__self__, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_configs=None, site_credentials=None, source_controls=None, tags=None, id=None):
+    def __init__(__self__, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, id=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_configs=None, site_credentials=None, source_controls=None, tags=None):
         if app_service_plan_id and not isinstance(app_service_plan_id, str):
             raise TypeError("Expected argument 'app_service_plan_id' to be a str")
         __self__.app_service_plan_id = app_service_plan_id
@@ -62,6 +62,12 @@ class GetAppServiceResult:
         """
         Can the App Service only be accessed via HTTPS?
         """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -107,12 +113,6 @@ class GetAppServiceResult:
         """
         A mapping of tags to assign to the resource.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAppServiceResult(GetAppServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -127,6 +127,7 @@ class AwaitableGetAppServiceResult(GetAppServiceResult):
             default_site_hostname=self.default_site_hostname,
             enabled=self.enabled,
             https_only=self.https_only,
+            id=self.id,
             location=self.location,
             name=self.name,
             outbound_ip_addresses=self.outbound_ip_addresses,
@@ -135,19 +136,20 @@ class AwaitableGetAppServiceResult(GetAppServiceResult):
             site_configs=self.site_configs,
             site_credentials=self.site_credentials,
             source_controls=self.source_controls,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_app_service(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing App Service.
-    
-    :param str name: The name of the App Service.
-    :param str resource_group_name: The Name of the Resource Group where the App Service exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service.html.markdown.
+
+
+    :param str name: The name of the App Service.
+    :param str resource_group_name: The Name of the Resource Group where the App Service exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -166,6 +168,7 @@ def get_app_service(name=None,resource_group_name=None,opts=None):
         default_site_hostname=__ret__.get('defaultSiteHostname'),
         enabled=__ret__.get('enabled'),
         https_only=__ret__.get('httpsOnly'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         outbound_ip_addresses=__ret__.get('outboundIpAddresses'),
@@ -174,5 +177,4 @@ def get_app_service(name=None,resource_group_name=None,opts=None):
         site_configs=__ret__.get('siteConfigs'),
         site_credentials=__ret__.get('siteCredentials'),
         source_controls=__ret__.get('sourceControls'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_topic_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_topic.html.markdown.
  */
 export class EventGridTopic extends pulumi.CustomResource {
     /**

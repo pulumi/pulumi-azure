@@ -61,7 +61,9 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, enrollment_read=None, enrollment_write=None, iothub_dps_name=None, name=None, registration_read=None, registration_write=None, resource_group_name=None, service_config=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an IotHub Device Provisioning Service Shared Access Policy
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps_shared_access_policy.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enrollment_read: Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
@@ -72,8 +74,6 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] registration_write: Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_config: Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps_shared_access_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,7 +119,7 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
         """
         Get an existing DpsSharedAccessPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,12 +135,11 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string of the Shared Access Policy.
         :param pulumi.Input[str] secondary_key: The secondary key used to create the authentication token.
         :param pulumi.Input[bool] service_config: Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps_shared_access_policy.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["enrollment_read"] = enrollment_read
         __props__["enrollment_write"] = enrollment_write
         __props__["iothub_dps_name"] = iothub_dps_name

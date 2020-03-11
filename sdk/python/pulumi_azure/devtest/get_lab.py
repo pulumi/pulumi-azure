@@ -13,7 +13,7 @@ class GetLabResult:
     """
     A collection of values returned by getLab.
     """
-    def __init__(__self__, artifacts_storage_account_id=None, default_premium_storage_account_id=None, default_storage_account_id=None, key_vault_id=None, location=None, name=None, premium_data_disk_storage_account_id=None, resource_group_name=None, storage_type=None, tags=None, unique_identifier=None, id=None):
+    def __init__(__self__, artifacts_storage_account_id=None, default_premium_storage_account_id=None, default_storage_account_id=None, id=None, key_vault_id=None, location=None, name=None, premium_data_disk_storage_account_id=None, resource_group_name=None, storage_type=None, tags=None, unique_identifier=None):
         if artifacts_storage_account_id and not isinstance(artifacts_storage_account_id, str):
             raise TypeError("Expected argument 'artifacts_storage_account_id' to be a str")
         __self__.artifacts_storage_account_id = artifacts_storage_account_id
@@ -31,6 +31,12 @@ class GetLabResult:
         __self__.default_storage_account_id = default_storage_account_id
         """
         The ID of the Default Storage Account for this Dev Test Lab.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if key_vault_id and not isinstance(key_vault_id, str):
             raise TypeError("Expected argument 'key_vault_id' to be a str")
@@ -74,12 +80,6 @@ class GetLabResult:
         """
         The unique immutable identifier of the Dev Test Lab.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetLabResult(GetLabResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -89,6 +89,7 @@ class AwaitableGetLabResult(GetLabResult):
             artifacts_storage_account_id=self.artifacts_storage_account_id,
             default_premium_storage_account_id=self.default_premium_storage_account_id,
             default_storage_account_id=self.default_storage_account_id,
+            id=self.id,
             key_vault_id=self.key_vault_id,
             location=self.location,
             name=self.name,
@@ -96,19 +97,20 @@ class AwaitableGetLabResult(GetLabResult):
             resource_group_name=self.resource_group_name,
             storage_type=self.storage_type,
             tags=self.tags,
-            unique_identifier=self.unique_identifier,
-            id=self.id)
+            unique_identifier=self.unique_identifier)
 
 def get_lab(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Dev Test Lab.
-    
-    :param str name: The name of the Dev Test Lab.
-    :param str resource_group_name: The Name of the Resource Group where the Dev Test Lab exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_lab.html.markdown.
+
+
+    :param str name: The name of the Dev Test Lab.
+    :param str resource_group_name: The Name of the Resource Group where the Dev Test Lab exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -122,6 +124,7 @@ def get_lab(name=None,resource_group_name=None,opts=None):
         artifacts_storage_account_id=__ret__.get('artifactsStorageAccountId'),
         default_premium_storage_account_id=__ret__.get('defaultPremiumStorageAccountId'),
         default_storage_account_id=__ret__.get('defaultStorageAccountId'),
+        id=__ret__.get('id'),
         key_vault_id=__ret__.get('keyVaultId'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
@@ -129,5 +132,4 @@ def get_lab(name=None,resource_group_name=None,opts=None):
         resource_group_name=__ret__.get('resourceGroupName'),
         storage_type=__ret__.get('storageType'),
         tags=__ret__.get('tags'),
-        unique_identifier=__ret__.get('uniqueIdentifier'),
-        id=__ret__.get('id'))
+        unique_identifier=__ret__.get('uniqueIdentifier'))

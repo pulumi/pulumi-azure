@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an IotHub Device Provisioning Service.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps.html.markdown.
 type IotHubDps struct {
 	pulumi.CustomResourceState

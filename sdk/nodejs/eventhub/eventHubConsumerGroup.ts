@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_consumer_group_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_consumer_group.html.markdown.
  */
 export class EventHubConsumerGroup extends pulumi.CustomResource {
     /**

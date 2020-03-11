@@ -13,12 +13,18 @@ class GetAccessPolicyResult:
     """
     A collection of values returned by getAccessPolicy.
     """
-    def __init__(__self__, certificate_permissions=None, key_permissions=None, name=None, secret_permissions=None, id=None):
+    def __init__(__self__, certificate_permissions=None, id=None, key_permissions=None, name=None, secret_permissions=None):
         if certificate_permissions and not isinstance(certificate_permissions, list):
             raise TypeError("Expected argument 'certificate_permissions' to be a list")
         __self__.certificate_permissions = certificate_permissions
         """
         the certificate permissions for the access policy
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if key_permissions and not isinstance(key_permissions, list):
             raise TypeError("Expected argument 'key_permissions' to be a list")
@@ -35,12 +41,6 @@ class GetAccessPolicyResult:
         """
         the secret permissions for the access policy
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAccessPolicyResult(GetAccessPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -48,22 +48,24 @@ class AwaitableGetAccessPolicyResult(GetAccessPolicyResult):
             yield self
         return GetAccessPolicyResult(
             certificate_permissions=self.certificate_permissions,
+            id=self.id,
             key_permissions=self.key_permissions,
             name=self.name,
-            secret_permissions=self.secret_permissions,
-            id=self.id)
+            secret_permissions=self.secret_permissions)
 
 def get_access_policy(name=None,opts=None):
     """
     Use this data source to access information about the permissions from the Management Key Vault Templates.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_access_policy.html.markdown.
+
+
     :param str name: Specifies the name of the Management Template. Possible values are: `Key Management`,
            `Secret Management`, `Certificate Management`, `Key & Secret Management`, `Key & Certificate Management`,
            `Secret & Certificate Management`,  `Key, Secret, & Certificate Management`
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_access_policy.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -74,7 +76,7 @@ def get_access_policy(name=None,opts=None):
 
     return AwaitableGetAccessPolicyResult(
         certificate_permissions=__ret__.get('certificatePermissions'),
+        id=__ret__.get('id'),
         key_permissions=__ret__.get('keyPermissions'),
         name=__ret__.get('name'),
-        secret_permissions=__ret__.get('secretPermissions'),
-        id=__ret__.get('id'))
+        secret_permissions=__ret__.get('secretPermissions'))

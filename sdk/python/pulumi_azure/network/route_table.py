@@ -29,7 +29,7 @@ class RouteTable(pulumi.CustomResource):
     routes: pulumi.Output[list]
     """
     [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
-    
+
       * `address_prefix` (`str`) - The destination CIDR to which the route applies, such as 10.1.0.0/16
       * `name` (`str`) - The name of the route.
       * `next_hop_in_ip_address` (`str`) - Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
@@ -46,7 +46,9 @@ class RouteTable(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, disable_bgp_route_propagation=None, location=None, name=None, resource_group_name=None, routes=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Route Table
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/route_table.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] disable_bgp_route_propagation: Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
@@ -55,15 +57,13 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
         :param pulumi.Input[list] routes: [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **routes** object supports the following:
-        
+
           * `address_prefix` (`pulumi.Input[str]`) - The destination CIDR to which the route applies, such as 10.1.0.0/16
           * `name` (`pulumi.Input[str]`) - The name of the route.
           * `next_hop_in_ip_address` (`pulumi.Input[str]`) - Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
           * `next_hop_type` (`pulumi.Input[str]`) - The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/route_table.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -102,7 +102,7 @@ class RouteTable(pulumi.CustomResource):
         """
         Get an existing RouteTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,19 +113,18 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[list] routes: [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
         :param pulumi.Input[list] subnets: The collection of Subnets associated with this route table.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **routes** object supports the following:
-        
+
           * `address_prefix` (`pulumi.Input[str]`) - The destination CIDR to which the route applies, such as 10.1.0.0/16
           * `name` (`pulumi.Input[str]`) - The name of the route.
           * `next_hop_in_ip_address` (`pulumi.Input[str]`) - Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
           * `next_hop_type` (`pulumi.Input[str]`) - The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/route_table.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["disable_bgp_route_propagation"] = disable_bgp_route_propagation
         __props__["location"] = location
         __props__["name"] = name

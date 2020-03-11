@@ -13,7 +13,7 @@ class GetNamespaceResult:
     """
     A collection of values returned by getNamespace.
     """
-    def __init__(__self__, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None, id=None):
+    def __init__(__self__, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, id=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None):
         if capacity and not isinstance(capacity, float):
             raise TypeError("Expected argument 'capacity' to be a float")
         __self__.capacity = capacity
@@ -46,6 +46,12 @@ class GetNamespaceResult:
         """
         The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -76,12 +82,6 @@ class GetNamespaceResult:
         """
         Whether or not this ServiceBus Namespace is zone redundant.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetNamespaceResult(GetNamespaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -93,24 +93,26 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             default_primary_key=self.default_primary_key,
             default_secondary_connection_string=self.default_secondary_connection_string,
             default_secondary_key=self.default_secondary_key,
+            id=self.id,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
             tags=self.tags,
-            zone_redundant=self.zone_redundant,
-            id=self.id)
+            zone_redundant=self.zone_redundant)
 
 def get_namespace(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing ServiceBus Namespace.
-    
-    :param str name: Specifies the name of the ServiceBus Namespace.
-    :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace.html.markdown.
+
+
+    :param str name: Specifies the name of the ServiceBus Namespace.
+    :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -126,10 +128,10 @@ def get_namespace(name=None,resource_group_name=None,opts=None):
         default_primary_key=__ret__.get('defaultPrimaryKey'),
         default_secondary_connection_string=__ret__.get('defaultSecondaryConnectionString'),
         default_secondary_key=__ret__.get('defaultSecondaryKey'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
-        zone_redundant=__ret__.get('zoneRedundant'),
-        id=__ret__.get('id'))
+        zone_redundant=__ret__.get('zoneRedundant'))

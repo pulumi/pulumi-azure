@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about all the Subscriptions currently available.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscriptions.html.markdown.
 func GetSubscriptions(ctx *pulumi.Context, args *GetSubscriptionsArgs, opts ...pulumi.InvokeOption) (*GetSubscriptionsResult, error) {
 	var rv GetSubscriptionsResult

@@ -13,7 +13,7 @@ class GetPolicyDefintionResult:
     """
     A collection of values returned by getPolicyDefintion.
     """
-    def __init__(__self__, description=None, display_name=None, management_group_id=None, metadata=None, name=None, parameters=None, policy_rule=None, policy_type=None, type=None, id=None):
+    def __init__(__self__, description=None, display_name=None, id=None, management_group_id=None, metadata=None, name=None, parameters=None, policy_rule=None, policy_type=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         __self__.description = description
@@ -23,6 +23,12 @@ class GetPolicyDefintionResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         __self__.display_name = display_name
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if management_group_id and not isinstance(management_group_id, str):
             raise TypeError("Expected argument 'management_group_id' to be a str")
         __self__.management_group_id = management_group_id
@@ -62,12 +68,6 @@ class GetPolicyDefintionResult:
         """
         The Type of Policy.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetPolicyDefintionResult(GetPolicyDefintionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -76,25 +76,27 @@ class AwaitableGetPolicyDefintionResult(GetPolicyDefintionResult):
         return GetPolicyDefintionResult(
             description=self.description,
             display_name=self.display_name,
+            id=self.id,
             management_group_id=self.management_group_id,
             metadata=self.metadata,
             name=self.name,
             parameters=self.parameters,
             policy_rule=self.policy_rule,
             policy_type=self.policy_type,
-            type=self.type,
-            id=self.id)
+            type=self.type)
 
 def get_policy_defintion(display_name=None,management_group_id=None,opts=None):
     """
     Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
-    
-    :param str display_name: Specifies the name of the Policy Definition.
-    :param str management_group_id: Only retrieve Policy Definitions from this Management Group.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/policy_definition.html.markdown.
+
+
+    :param str display_name: Specifies the name of the Policy Definition.
+    :param str management_group_id: Only retrieve Policy Definitions from this Management Group.
     """
     __args__ = dict()
+
 
     __args__['displayName'] = display_name
     __args__['managementGroupId'] = management_group_id
@@ -107,11 +109,11 @@ def get_policy_defintion(display_name=None,management_group_id=None,opts=None):
     return AwaitableGetPolicyDefintionResult(
         description=__ret__.get('description'),
         display_name=__ret__.get('displayName'),
+        id=__ret__.get('id'),
         management_group_id=__ret__.get('managementGroupId'),
         metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
         parameters=__ret__.get('parameters'),
         policy_rule=__ret__.get('policyRule'),
         policy_type=__ret__.get('policyType'),
-        type=__ret__.get('type'),
-        id=__ret__.get('id'))
+        type=__ret__.get('type'))

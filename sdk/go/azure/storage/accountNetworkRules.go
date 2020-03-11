@@ -12,13 +12,13 @@ import (
 )
 
 // Manages network rules inside of a Azure Storage Account.
-// 
+//
 // > **NOTE:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. Spurious changes will occur if both are used against the same Storage Account.
-// 
+//
 // > **NOTE:** Only one `storage.AccountNetworkRules` can be tied to an `storage.Account`. Spurious changes will occur if more than `storage.AccountNetworkRules` is tied to the same `storage.Account`.
-// 
+//
 // > **NOTE:** Deleting this resource updates the storage account back to the default values it had when the storage account was created.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account_network_rules.html.markdown.
 type AccountNetworkRules struct {
 	pulumi.CustomResourceState

@@ -13,16 +13,16 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
     catalog_info: pulumi.Output[dict]
     """
     A `catalog_info` block as defined below.
-    
-      * `administratorLogin` (`str`)
+
+      * `administrator_login` (`str`)
       * `administratorPassword` (`str`)
-      * `pricing_tier` (`str`)
+      * `pricingTier` (`str`)
       * `serverEndpoint` (`str`)
     """
     custom_setup_script: pulumi.Output[dict]
     """
     A `custom_setup_script` block as defined below.
-    
+
       * `blobContainerUri` (`str`)
       * `sasToken` (`str`)
     """
@@ -66,14 +66,16 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
     vnet_integration: pulumi.Output[dict]
     """
     A `vnet_integration` block as defined below.
-    
+
       * `subnetName` (`str`)
       * `vnetId` (`str`)
     """
     def __init__(__self__, resource_name, opts=None, catalog_info=None, custom_setup_script=None, data_factory_name=None, description=None, edition=None, license_type=None, location=None, max_parallel_executions_per_node=None, name=None, node_size=None, number_of_nodes=None, resource_group_name=None, vnet_integration=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Data Factory Managed Integration Runtime.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_integration_runtime_managed.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] catalog_info: A `catalog_info` block as defined below.
@@ -88,25 +90,23 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         :param pulumi.Input[float] number_of_nodes: Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] vnet_integration: A `vnet_integration` block as defined below.
-        
+
         The **catalog_info** object supports the following:
-        
-          * `administratorLogin` (`pulumi.Input[str]`)
+
+          * `administrator_login` (`pulumi.Input[str]`)
           * `administratorPassword` (`pulumi.Input[str]`)
-          * `pricing_tier` (`pulumi.Input[str]`)
+          * `pricingTier` (`pulumi.Input[str]`)
           * `serverEndpoint` (`pulumi.Input[str]`)
-        
+
         The **custom_setup_script** object supports the following:
-        
+
           * `blobContainerUri` (`pulumi.Input[str]`)
           * `sasToken` (`pulumi.Input[str]`)
-        
+
         The **vnet_integration** object supports the following:
-        
+
           * `subnetName` (`pulumi.Input[str]`)
           * `vnetId` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_integration_runtime_managed.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -155,7 +155,7 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         """
         Get an existing IntegrationRuntimeManaged resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,29 +171,28 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         :param pulumi.Input[float] number_of_nodes: Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] vnet_integration: A `vnet_integration` block as defined below.
-        
+
         The **catalog_info** object supports the following:
-        
-          * `administratorLogin` (`pulumi.Input[str]`)
+
+          * `administrator_login` (`pulumi.Input[str]`)
           * `administratorPassword` (`pulumi.Input[str]`)
-          * `pricing_tier` (`pulumi.Input[str]`)
+          * `pricingTier` (`pulumi.Input[str]`)
           * `serverEndpoint` (`pulumi.Input[str]`)
-        
+
         The **custom_setup_script** object supports the following:
-        
+
           * `blobContainerUri` (`pulumi.Input[str]`)
           * `sasToken` (`pulumi.Input[str]`)
-        
+
         The **vnet_integration** object supports the following:
-        
+
           * `subnetName` (`pulumi.Input[str]`)
           * `vnetId` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_integration_runtime_managed.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["catalog_info"] = catalog_info
         __props__["custom_setup_script"] = custom_setup_script
         __props__["data_factory_name"] = data_factory_name

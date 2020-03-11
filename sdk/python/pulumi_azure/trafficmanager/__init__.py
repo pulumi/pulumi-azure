@@ -4,5 +4,5 @@
 
 # Export this package's modules as members:
 from .endpoint import *
-from .profile import *
 from .get_geographical_location import *
+from .profile import *

@@ -12,7 +12,7 @@ import (
 )
 
 // Associates a Network Security Group with a Subnet within a Virtual Network.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_network_security_group_association.html.markdown.
 type SubnetNetworkSecurityGroupAssociation struct {
 	pulumi.CustomResourceState

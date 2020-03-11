@@ -53,7 +53,9 @@ class TriggerSchedule(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, annotations=None, data_factory_name=None, end_time=None, frequency=None, interval=None, name=None, pipeline_name=None, pipeline_parameters=None, resource_group_name=None, start_time=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Trigger Schedule inside a Azure Data Factory.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_trigger_schedule.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] annotations: List of tags that can be used for describing the Data Factory Schedule Trigger.
@@ -66,8 +68,6 @@ class TriggerSchedule(pulumi.CustomResource):
         :param pulumi.Input[dict] pipeline_parameters: The pipeline parameters that the trigger will act upon.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
         :param pulumi.Input[str] start_time: The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_trigger_schedule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -113,7 +113,7 @@ class TriggerSchedule(pulumi.CustomResource):
         """
         Get an existing TriggerSchedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,12 +127,11 @@ class TriggerSchedule(pulumi.CustomResource):
         :param pulumi.Input[dict] pipeline_parameters: The pipeline parameters that the trigger will act upon.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
         :param pulumi.Input[str] start_time: The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_trigger_schedule.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["annotations"] = annotations
         __props__["data_factory_name"] = data_factory_name
         __props__["end_time"] = end_time

@@ -38,7 +38,7 @@ class Database(pulumi.CustomResource):
     import_: pulumi.Output[dict]
     """
     A Database Import block as documented below. `create_mode` must be set to `Default`.
-    
+
       * `administrator_login` (`str`) - Specifies the name of the SQL administrator.
       * `administrator_login_password` (`str`) - Specifies the password of the SQL administrator.
       * `authenticationType` (`str`) - Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
@@ -99,14 +99,14 @@ class Database(pulumi.CustomResource):
     threat_detection_policy: pulumi.Output[dict]
     """
     Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
-    
-      * `disabled_alerts` (`list`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-      * `email_account_admins` (`str`) - Should the account administrators be emailed when this alert is triggered?
-      * `email_addresses` (`list`) - A list of email addresses which alerts should be sent to.
-      * `retention_days` (`float`) - Specifies the number of days to keep in the Threat Detection audit logs.
+
+      * `disabledAlerts` (`list`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+      * `emailAccountAdmins` (`str`) - Should the account administrators be emailed when this alert is triggered?
+      * `emailAddresses` (`list`) - A list of email addresses which alerts should be sent to.
+      * `retentionDays` (`float`) - Specifies the number of days to keep in the Threat Detection audit logs.
       * `state` (`str`) - The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
-      * `storage_account_access_key` (`str`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-      * `storage_endpoint` (`str`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+      * `storageAccountAccessKey` (`str`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+      * `storageEndpoint` (`str`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
       * `useServerDefault` (`str`) - Should the default server policy be used? Defaults to `Disabled`.
     """
     zone_redundant: pulumi.Output[bool]
@@ -116,7 +116,9 @@ class Database(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, collation=None, create_mode=None, edition=None, elastic_pool_name=None, import_=None, location=None, max_size_bytes=None, name=None, read_scale=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None, threat_detection_policy=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
         """
         Allows you to manage an Azure SQL Database
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_database.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collation: The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
@@ -139,9 +141,9 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
-        
+
         The **import_** object supports the following:
-        
+
           * `administrator_login` (`pulumi.Input[str]`) - Specifies the name of the SQL administrator.
           * `administrator_login_password` (`pulumi.Input[str]`) - Specifies the password of the SQL administrator.
           * `authenticationType` (`pulumi.Input[str]`) - Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
@@ -149,19 +151,17 @@ class Database(pulumi.CustomResource):
           * `storageKey` (`pulumi.Input[str]`) - Specifies the access key for the storage account.
           * `storageKeyType` (`pulumi.Input[str]`) - Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
           * `storageUri` (`pulumi.Input[str]`) - Specifies the blob URI of the .bacpac file.
-        
-        The **threat_detection_policy** object supports the following:
-        
-          * `disabled_alerts` (`pulumi.Input[list]`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-          * `email_account_admins` (`pulumi.Input[str]`) - Should the account administrators be emailed when this alert is triggered?
-          * `email_addresses` (`pulumi.Input[list]`) - A list of email addresses which alerts should be sent to.
-          * `retention_days` (`pulumi.Input[float]`) - Specifies the number of days to keep in the Threat Detection audit logs.
-          * `state` (`pulumi.Input[str]`) - The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
-          * `storage_account_access_key` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-          * `storage_endpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
-          * `useServerDefault` (`pulumi.Input[str]`) - Should the default server policy be used? Defaults to `Disabled`.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_database.html.markdown.
+        The **threat_detection_policy** object supports the following:
+
+          * `disabledAlerts` (`pulumi.Input[list]`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+          * `emailAccountAdmins` (`pulumi.Input[str]`) - Should the account administrators be emailed when this alert is triggered?
+          * `emailAddresses` (`pulumi.Input[list]`) - A list of email addresses which alerts should be sent to.
+          * `retentionDays` (`pulumi.Input[float]`) - Specifies the number of days to keep in the Threat Detection audit logs.
+          * `state` (`pulumi.Input[str]`) - The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+          * `storageAccountAccessKey` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+          * `storageEndpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+          * `useServerDefault` (`pulumi.Input[str]`) - Should the default server policy be used? Defaults to `Disabled`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -217,7 +217,7 @@ class Database(pulumi.CustomResource):
         """
         Get an existing Database resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -243,9 +243,9 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
-        
+
         The **import_** object supports the following:
-        
+
           * `administrator_login` (`pulumi.Input[str]`) - Specifies the name of the SQL administrator.
           * `administrator_login_password` (`pulumi.Input[str]`) - Specifies the password of the SQL administrator.
           * `authenticationType` (`pulumi.Input[str]`) - Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
@@ -253,23 +253,22 @@ class Database(pulumi.CustomResource):
           * `storageKey` (`pulumi.Input[str]`) - Specifies the access key for the storage account.
           * `storageKeyType` (`pulumi.Input[str]`) - Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
           * `storageUri` (`pulumi.Input[str]`) - Specifies the blob URI of the .bacpac file.
-        
-        The **threat_detection_policy** object supports the following:
-        
-          * `disabled_alerts` (`pulumi.Input[list]`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-          * `email_account_admins` (`pulumi.Input[str]`) - Should the account administrators be emailed when this alert is triggered?
-          * `email_addresses` (`pulumi.Input[list]`) - A list of email addresses which alerts should be sent to.
-          * `retention_days` (`pulumi.Input[float]`) - Specifies the number of days to keep in the Threat Detection audit logs.
-          * `state` (`pulumi.Input[str]`) - The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
-          * `storage_account_access_key` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-          * `storage_endpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
-          * `useServerDefault` (`pulumi.Input[str]`) - Should the default server policy be used? Defaults to `Disabled`.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_database.html.markdown.
+        The **threat_detection_policy** object supports the following:
+
+          * `disabledAlerts` (`pulumi.Input[list]`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+          * `emailAccountAdmins` (`pulumi.Input[str]`) - Should the account administrators be emailed when this alert is triggered?
+          * `emailAddresses` (`pulumi.Input[list]`) - A list of email addresses which alerts should be sent to.
+          * `retentionDays` (`pulumi.Input[float]`) - Specifies the number of days to keep in the Threat Detection audit logs.
+          * `state` (`pulumi.Input[str]`) - The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+          * `storageAccountAccessKey` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+          * `storageEndpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+          * `useServerDefault` (`pulumi.Input[str]`) - Should the default server policy be used? Defaults to `Disabled`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["collation"] = collation
         __props__["create_mode"] = create_mode
         __props__["creation_date"] = creation_date

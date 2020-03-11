@@ -13,12 +13,18 @@ class GetSubscriptionResult:
     """
     A collection of values returned by getSubscription.
     """
-    def __init__(__self__, display_name=None, location_placement_id=None, quota_id=None, spending_limit=None, state=None, subscription_id=None, tenant_id=None, id=None):
+    def __init__(__self__, display_name=None, id=None, location_placement_id=None, quota_id=None, spending_limit=None, state=None, subscription_id=None, tenant_id=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         __self__.display_name = display_name
         """
         The subscription display name.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if location_placement_id and not isinstance(location_placement_id, str):
             raise TypeError("Expected argument 'location_placement_id' to be a str")
@@ -56,12 +62,6 @@ class GetSubscriptionResult:
         """
         The subscription tenant ID.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetSubscriptionResult(GetSubscriptionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -69,23 +69,25 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
             yield self
         return GetSubscriptionResult(
             display_name=self.display_name,
+            id=self.id,
             location_placement_id=self.location_placement_id,
             quota_id=self.quota_id,
             spending_limit=self.spending_limit,
             state=self.state,
             subscription_id=self.subscription_id,
-            tenant_id=self.tenant_id,
-            id=self.id)
+            tenant_id=self.tenant_id)
 
 def get_subscription(subscription_id=None,opts=None):
     """
     Use this data source to access information about an existing Subscription.
-    
-    :param str subscription_id: Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscription.html.markdown.
+
+
+    :param str subscription_id: Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used.
     """
     __args__ = dict()
+
 
     __args__['subscriptionId'] = subscription_id
     if opts is None:
@@ -96,10 +98,10 @@ def get_subscription(subscription_id=None,opts=None):
 
     return AwaitableGetSubscriptionResult(
         display_name=__ret__.get('displayName'),
+        id=__ret__.get('id'),
         location_placement_id=__ret__.get('locationPlacementId'),
         quota_id=__ret__.get('quotaId'),
         spending_limit=__ret__.get('spendingLimit'),
         state=__ret__.get('state'),
         subscription_id=__ret__.get('subscriptionId'),
-        tenant_id=__ret__.get('tenantId'),
-        id=__ret__.get('id'))
+        tenant_id=__ret__.get('tenantId'))

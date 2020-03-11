@@ -13,7 +13,7 @@ class GetMariaDbServerResult:
     """
     A collection of values returned by getMariaDbServer.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, fqdn=None, location=None, name=None, resource_group_name=None, sku_name=None, ssl_enforcement=None, storage_profiles=None, tags=None, version=None, id=None):
+    def __init__(__self__, administrator_login=None, administrator_login_password=None, fqdn=None, id=None, location=None, name=None, resource_group_name=None, sku_name=None, ssl_enforcement=None, storage_profiles=None, tags=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         __self__.administrator_login = administrator_login
@@ -31,6 +31,12 @@ class GetMariaDbServerResult:
         __self__.fqdn = fqdn
         """
         The FQDN of the MariaDB Server.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -75,12 +81,6 @@ class GetMariaDbServerResult:
         """
         The version of MariaDB being used.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetMariaDbServerResult(GetMariaDbServerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -90,6 +90,7 @@ class AwaitableGetMariaDbServerResult(GetMariaDbServerResult):
             administrator_login=self.administrator_login,
             administrator_login_password=self.administrator_login_password,
             fqdn=self.fqdn,
+            id=self.id,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
@@ -97,19 +98,20 @@ class AwaitableGetMariaDbServerResult(GetMariaDbServerResult):
             ssl_enforcement=self.ssl_enforcement,
             storage_profiles=self.storage_profiles,
             tags=self.tags,
-            version=self.version,
-            id=self.id)
+            version=self.version)
 
 def get_maria_db_server(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing MariaDB Server.
-    
-    :param str name: The name of the MariaDB Server to retrieve information about.
-    :param str resource_group_name: The name of the resource group where the MariaDB Server exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mariadb_server.html.markdown.
+
+
+    :param str name: The name of the MariaDB Server to retrieve information about.
+    :param str resource_group_name: The name of the resource group where the MariaDB Server exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -123,6 +125,7 @@ def get_maria_db_server(name=None,resource_group_name=None,opts=None):
         administrator_login=__ret__.get('administratorLogin'),
         administrator_login_password=__ret__.get('administratorLoginPassword'),
         fqdn=__ret__.get('fqdn'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
@@ -130,5 +133,4 @@ def get_maria_db_server(name=None,resource_group_name=None,opts=None):
         ssl_enforcement=__ret__.get('sslEnforcement'),
         storage_profiles=__ret__.get('storageProfiles'),
         tags=__ret__.get('tags'),
-        version=__ret__.get('version'),
-        id=__ret__.get('id'))
+        version=__ret__.get('version'))

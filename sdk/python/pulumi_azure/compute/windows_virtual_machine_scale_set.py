@@ -13,13 +13,13 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     additional_capabilities: pulumi.Output[dict]
     """
     A `additional_capabilities` block as defined below.
-    
+
       * `ultraSsdEnabled` (`bool`)
     """
     additional_unattend_contents: pulumi.Output[list]
     """
     One or more `additional_unattend_content` blocks as defined below.
-    
+
       * `content` (`str`)
       * `setting` (`str`)
     """
@@ -34,14 +34,14 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     automatic_os_upgrade_policy: pulumi.Output[dict]
     """
     A `automatic_os_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic`.
-    
+
       * `disableAutomaticRollback` (`bool`)
       * `enableAutomaticOsUpgrade` (`bool`)
     """
     boot_diagnostics: pulumi.Output[dict]
     """
     A `boot_diagnostics` block as defined below.
-    
+
       * `storageAccountUri` (`str`)
     """
     computer_name_prefix: pulumi.Output[str]
@@ -55,7 +55,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     data_disks: pulumi.Output[list]
     """
     One or more `data_disk` blocks as defined below.
-    
+
       * `caching` (`str`)
       * `disk_encryption_set_id` (`str`)
       * `disk_size_gb` (`float`)
@@ -82,7 +82,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     identity: pulumi.Output[dict]
     """
     A `identity` block as defined below.
-    
+
       * `identityIds` (`list`)
       * `principal_id` (`str`) - The ID of the System Managed Service Principal.
       * `type` (`str`)
@@ -110,12 +110,11 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     network_interfaces: pulumi.Output[list]
     """
     One or more `network_interface` blocks as defined below.
-    
+
       * `dnsServers` (`list`)
       * `enableAcceleratedNetworking` (`bool`)
       * `enableIpForwarding` (`bool`)
       * `ipConfigurations` (`list`)
-    
         * `applicationGatewayBackendAddressPoolIds` (`list`)
         * `applicationSecurityGroupIds` (`list`)
         * `loadBalancerBackendAddressPoolIds` (`list`)
@@ -123,20 +122,18 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         * `name` (`str`) - The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
         * `primary` (`bool`)
         * `public_ip_addresses` (`list`)
-    
           * `domainNameLabel` (`str`)
-          * `idleTimeoutInMinutes` (`float`)
+          * `idle_timeout_in_minutes` (`float`)
           * `ipTags` (`list`)
-    
             * `tag` (`str`)
             * `type` (`str`)
-    
+
           * `name` (`str`) - The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
           * `publicIpPrefixId` (`str`)
-    
+
         * `subnet_id` (`str`)
         * `version` (`str`)
-    
+
       * `name` (`str`) - The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
       * `networkSecurityGroupId` (`str`)
       * `primary` (`bool`)
@@ -144,12 +141,11 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     os_disk: pulumi.Output[dict]
     """
     An `os_disk` block as defined below.
-    
+
       * `caching` (`str`)
       * `diffDiskSettings` (`dict`)
-    
         * `option` (`str`)
-    
+
       * `disk_encryption_set_id` (`str`)
       * `disk_size_gb` (`float`)
       * `storage_account_type` (`str`)
@@ -179,7 +175,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     rolling_upgrade_policy: pulumi.Output[dict]
     """
     A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
-    
+
       * `maxBatchInstancePercent` (`float`)
       * `maxUnhealthyInstancePercent` (`float`)
       * `maxUnhealthyUpgradedInstancePercent` (`float`)
@@ -188,13 +184,12 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     secrets: pulumi.Output[list]
     """
     One or more `secret` blocks as defined below.
-    
+
       * `certificates` (`list`)
-    
         * `store` (`str`)
         * `url` (`str`)
-    
-      * `keyVaultId` (`str`)
+
+      * `key_vault_id` (`str`)
     """
     single_placement_group: pulumi.Output[bool]
     """
@@ -211,7 +206,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     source_image_reference: pulumi.Output[dict]
     """
     A `source_image_reference` block as defined below.
-    
+
       * `offer` (`str`)
       * `publisher` (`str`)
       * `sku` (`str`) - The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
@@ -236,7 +231,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     winrm_listeners: pulumi.Output[list]
     """
     One or more `winrm_listener` blocks as defined below.
-    
+
       * `certificateUrl` (`str`)
       * `protocol` (`str`)
     """
@@ -251,7 +246,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, additional_capabilities=None, additional_unattend_contents=None, admin_password=None, admin_username=None, automatic_os_upgrade_policy=None, boot_diagnostics=None, computer_name_prefix=None, custom_data=None, data_disks=None, do_not_run_extensions_on_overprovisioned_machines=None, enable_automatic_updates=None, eviction_policy=None, health_probe_id=None, identity=None, instances=None, license_type=None, location=None, max_bid_price=None, name=None, network_interfaces=None, os_disk=None, overprovision=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, rolling_upgrade_policy=None, secrets=None, single_placement_group=None, sku=None, source_image_id=None, source_image_reference=None, tags=None, timezone=None, upgrade_mode=None, winrm_listeners=None, zone_balance=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a WindowsVirtualMachineScaleSet resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] additional_capabilities: A `additional_capabilities` block as defined below.
@@ -292,47 +286,46 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[list] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[list] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
-        
+
         The **additional_capabilities** object supports the following:
-        
+
           * `ultraSsdEnabled` (`pulumi.Input[bool]`)
-        
+
         The **additional_unattend_contents** object supports the following:
-        
+
           * `content` (`pulumi.Input[str]`)
           * `setting` (`pulumi.Input[str]`)
-        
+
         The **automatic_os_upgrade_policy** object supports the following:
-        
+
           * `disableAutomaticRollback` (`pulumi.Input[bool]`)
           * `enableAutomaticOsUpgrade` (`pulumi.Input[bool]`)
-        
+
         The **boot_diagnostics** object supports the following:
-        
+
           * `storageAccountUri` (`pulumi.Input[str]`)
-        
+
         The **data_disks** object supports the following:
-        
+
           * `caching` (`pulumi.Input[str]`)
           * `disk_encryption_set_id` (`pulumi.Input[str]`)
           * `disk_size_gb` (`pulumi.Input[float]`)
           * `lun` (`pulumi.Input[float]`)
           * `storage_account_type` (`pulumi.Input[str]`)
           * `write_accelerator_enabled` (`pulumi.Input[bool]`)
-        
+
         The **identity** object supports the following:
-        
+
           * `identityIds` (`pulumi.Input[list]`)
           * `principal_id` (`pulumi.Input[str]`) - The ID of the System Managed Service Principal.
           * `type` (`pulumi.Input[str]`)
-        
+
         The **network_interfaces** object supports the following:
-        
+
           * `dnsServers` (`pulumi.Input[list]`)
           * `enableAcceleratedNetworking` (`pulumi.Input[bool]`)
           * `enableIpForwarding` (`pulumi.Input[bool]`)
           * `ipConfigurations` (`pulumi.Input[list]`)
-        
             * `applicationGatewayBackendAddressPoolIds` (`pulumi.Input[list]`)
             * `applicationSecurityGroupIds` (`pulumi.Input[list]`)
             * `loadBalancerBackendAddressPoolIds` (`pulumi.Input[list]`)
@@ -340,71 +333,65 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
             * `primary` (`pulumi.Input[bool]`)
             * `public_ip_addresses` (`pulumi.Input[list]`)
-        
               * `domainNameLabel` (`pulumi.Input[str]`)
-              * `idleTimeoutInMinutes` (`pulumi.Input[float]`)
+              * `idle_timeout_in_minutes` (`pulumi.Input[float]`)
               * `ipTags` (`pulumi.Input[list]`)
-        
                 * `tag` (`pulumi.Input[str]`)
                 * `type` (`pulumi.Input[str]`)
-        
+
               * `name` (`pulumi.Input[str]`) - The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
               * `publicIpPrefixId` (`pulumi.Input[str]`)
-        
+
             * `subnet_id` (`pulumi.Input[str]`)
             * `version` (`pulumi.Input[str]`)
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
           * `networkSecurityGroupId` (`pulumi.Input[str]`)
           * `primary` (`pulumi.Input[bool]`)
-        
+
         The **os_disk** object supports the following:
-        
+
           * `caching` (`pulumi.Input[str]`)
           * `diffDiskSettings` (`pulumi.Input[dict]`)
-        
             * `option` (`pulumi.Input[str]`)
-        
+
           * `disk_encryption_set_id` (`pulumi.Input[str]`)
           * `disk_size_gb` (`pulumi.Input[float]`)
           * `storage_account_type` (`pulumi.Input[str]`)
           * `write_accelerator_enabled` (`pulumi.Input[bool]`)
-        
+
         The **plan** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
           * `product` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
-        
+
         The **rolling_upgrade_policy** object supports the following:
-        
+
           * `maxBatchInstancePercent` (`pulumi.Input[float]`)
           * `maxUnhealthyInstancePercent` (`pulumi.Input[float]`)
           * `maxUnhealthyUpgradedInstancePercent` (`pulumi.Input[float]`)
           * `pauseTimeBetweenBatches` (`pulumi.Input[str]`)
-        
+
         The **secrets** object supports the following:
-        
+
           * `certificates` (`pulumi.Input[list]`)
-        
             * `store` (`pulumi.Input[str]`)
             * `url` (`pulumi.Input[str]`)
-        
-          * `keyVaultId` (`pulumi.Input[str]`)
-        
+
+          * `key_vault_id` (`pulumi.Input[str]`)
+
         The **source_image_reference** object supports the following:
-        
+
           * `offer` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
           * `sku` (`pulumi.Input[str]`) - The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
           * `version` (`pulumi.Input[str]`)
-        
+
         The **winrm_listeners** object supports the following:
-        
+
           * `certificateUrl` (`pulumi.Input[str]`)
           * `protocol` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/windows_virtual_machine_scale_set.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -488,7 +475,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         """
         Get an existing WindowsVirtualMachineScaleSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -531,47 +518,46 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[list] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[list] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
-        
+
         The **additional_capabilities** object supports the following:
-        
+
           * `ultraSsdEnabled` (`pulumi.Input[bool]`)
-        
+
         The **additional_unattend_contents** object supports the following:
-        
+
           * `content` (`pulumi.Input[str]`)
           * `setting` (`pulumi.Input[str]`)
-        
+
         The **automatic_os_upgrade_policy** object supports the following:
-        
+
           * `disableAutomaticRollback` (`pulumi.Input[bool]`)
           * `enableAutomaticOsUpgrade` (`pulumi.Input[bool]`)
-        
+
         The **boot_diagnostics** object supports the following:
-        
+
           * `storageAccountUri` (`pulumi.Input[str]`)
-        
+
         The **data_disks** object supports the following:
-        
+
           * `caching` (`pulumi.Input[str]`)
           * `disk_encryption_set_id` (`pulumi.Input[str]`)
           * `disk_size_gb` (`pulumi.Input[float]`)
           * `lun` (`pulumi.Input[float]`)
           * `storage_account_type` (`pulumi.Input[str]`)
           * `write_accelerator_enabled` (`pulumi.Input[bool]`)
-        
+
         The **identity** object supports the following:
-        
+
           * `identityIds` (`pulumi.Input[list]`)
           * `principal_id` (`pulumi.Input[str]`) - The ID of the System Managed Service Principal.
           * `type` (`pulumi.Input[str]`)
-        
+
         The **network_interfaces** object supports the following:
-        
+
           * `dnsServers` (`pulumi.Input[list]`)
           * `enableAcceleratedNetworking` (`pulumi.Input[bool]`)
           * `enableIpForwarding` (`pulumi.Input[bool]`)
           * `ipConfigurations` (`pulumi.Input[list]`)
-        
             * `applicationGatewayBackendAddressPoolIds` (`pulumi.Input[list]`)
             * `applicationSecurityGroupIds` (`pulumi.Input[list]`)
             * `loadBalancerBackendAddressPoolIds` (`pulumi.Input[list]`)
@@ -579,75 +565,70 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
             * `primary` (`pulumi.Input[bool]`)
             * `public_ip_addresses` (`pulumi.Input[list]`)
-        
               * `domainNameLabel` (`pulumi.Input[str]`)
-              * `idleTimeoutInMinutes` (`pulumi.Input[float]`)
+              * `idle_timeout_in_minutes` (`pulumi.Input[float]`)
               * `ipTags` (`pulumi.Input[list]`)
-        
                 * `tag` (`pulumi.Input[str]`)
                 * `type` (`pulumi.Input[str]`)
-        
+
               * `name` (`pulumi.Input[str]`) - The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
               * `publicIpPrefixId` (`pulumi.Input[str]`)
-        
+
             * `subnet_id` (`pulumi.Input[str]`)
             * `version` (`pulumi.Input[str]`)
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
           * `networkSecurityGroupId` (`pulumi.Input[str]`)
           * `primary` (`pulumi.Input[bool]`)
-        
+
         The **os_disk** object supports the following:
-        
+
           * `caching` (`pulumi.Input[str]`)
           * `diffDiskSettings` (`pulumi.Input[dict]`)
-        
             * `option` (`pulumi.Input[str]`)
-        
+
           * `disk_encryption_set_id` (`pulumi.Input[str]`)
           * `disk_size_gb` (`pulumi.Input[float]`)
           * `storage_account_type` (`pulumi.Input[str]`)
           * `write_accelerator_enabled` (`pulumi.Input[bool]`)
-        
+
         The **plan** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
           * `product` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
-        
+
         The **rolling_upgrade_policy** object supports the following:
-        
+
           * `maxBatchInstancePercent` (`pulumi.Input[float]`)
           * `maxUnhealthyInstancePercent` (`pulumi.Input[float]`)
           * `maxUnhealthyUpgradedInstancePercent` (`pulumi.Input[float]`)
           * `pauseTimeBetweenBatches` (`pulumi.Input[str]`)
-        
+
         The **secrets** object supports the following:
-        
+
           * `certificates` (`pulumi.Input[list]`)
-        
             * `store` (`pulumi.Input[str]`)
             * `url` (`pulumi.Input[str]`)
-        
-          * `keyVaultId` (`pulumi.Input[str]`)
-        
+
+          * `key_vault_id` (`pulumi.Input[str]`)
+
         The **source_image_reference** object supports the following:
-        
+
           * `offer` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
           * `sku` (`pulumi.Input[str]`) - The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
           * `version` (`pulumi.Input[str]`)
-        
+
         The **winrm_listeners** object supports the following:
-        
+
           * `certificateUrl` (`pulumi.Input[str]`)
           * `protocol` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/windows_virtual_machine_scale_set.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["additional_capabilities"] = additional_capabilities
         __props__["additional_unattend_contents"] = additional_unattend_contents
         __props__["admin_password"] = admin_password

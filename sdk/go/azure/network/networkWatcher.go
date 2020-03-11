@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Network Watcher.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_watcher.html.markdown.
 type NetworkWatcher struct {
 	pulumi.CustomResourceState

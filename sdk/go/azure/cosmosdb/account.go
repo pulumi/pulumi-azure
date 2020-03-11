@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a CosmosDB (formally DocumentDB) Account.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_account.html.markdown.
 type Account struct {
 	pulumi.CustomResourceState

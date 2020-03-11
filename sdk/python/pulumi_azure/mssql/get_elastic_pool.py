@@ -13,7 +13,13 @@ class GetElasticPoolResult:
     """
     A collection of values returned by getElasticPool.
     """
-    def __init__(__self__, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_db_max_capacity=None, per_db_min_capacity=None, resource_group_name=None, server_name=None, tags=None, zone_redundant=None, id=None):
+    def __init__(__self__, id=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_db_max_capacity=None, per_db_min_capacity=None, resource_group_name=None, server_name=None, tags=None, zone_redundant=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -65,18 +71,13 @@ class GetElasticPoolResult:
         """
         Whether or not this elastic pool is zone redundant.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetElasticPoolResult(GetElasticPoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetElasticPoolResult(
+            id=self.id,
             location=self.location,
             max_size_bytes=self.max_size_bytes,
             max_size_gb=self.max_size_gb,
@@ -86,20 +87,21 @@ class AwaitableGetElasticPoolResult(GetElasticPoolResult):
             resource_group_name=self.resource_group_name,
             server_name=self.server_name,
             tags=self.tags,
-            zone_redundant=self.zone_redundant,
-            id=self.id)
+            zone_redundant=self.zone_redundant)
 
 def get_elastic_pool(name=None,resource_group_name=None,server_name=None,opts=None):
     """
     Use this data source to access information about an existing SQL elastic pool.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mssql_elasticpool.html.markdown.
+
+
     :param str name: The name of the elastic pool.
     :param str resource_group_name: The name of the resource group which contains the elastic pool.
     :param str server_name: The name of the SQL Server which contains the elastic pool.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mssql_elasticpool.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -111,6 +113,7 @@ def get_elastic_pool(name=None,resource_group_name=None,server_name=None,opts=No
     __ret__ = pulumi.runtime.invoke('azure:mssql/getElasticPool:getElasticPool', __args__, opts=opts).value
 
     return AwaitableGetElasticPoolResult(
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         max_size_bytes=__ret__.get('maxSizeBytes'),
         max_size_gb=__ret__.get('maxSizeGb'),
@@ -120,5 +123,4 @@ def get_elastic_pool(name=None,resource_group_name=None,server_name=None,opts=No
         resource_group_name=__ret__.get('resourceGroupName'),
         server_name=__ret__.get('serverName'),
         tags=__ret__.get('tags'),
-        zone_redundant=__ret__.get('zoneRedundant'),
-        id=__ret__.get('id'))
+        zone_redundant=__ret__.get('zoneRedundant'))

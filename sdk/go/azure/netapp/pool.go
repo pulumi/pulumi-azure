@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Pool within a NetApp Account.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_pool.html.markdown.
 type Pool struct {
 	pulumi.CustomResourceState

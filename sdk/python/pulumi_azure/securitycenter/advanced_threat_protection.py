@@ -21,13 +21,13 @@ class AdvancedThreatProtection(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, enabled=None, target_resource_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a resources Advanced Threat Protection setting.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/advanced_threat_protection.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Should Advanced Threat Protection be enabled on this resource?
         :param pulumi.Input[str] target_resource_id: The ID of the Azure Resource which to enable Advanced Threat Protection on. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/advanced_threat_protection.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,18 +63,17 @@ class AdvancedThreatProtection(pulumi.CustomResource):
         """
         Get an existing AdvancedThreatProtection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Should Advanced Threat Protection be enabled on this resource?
         :param pulumi.Input[str] target_resource_id: The ID of the Azure Resource which to enable Advanced Threat Protection on. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/advanced_threat_protection.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["enabled"] = enabled
         __props__["target_resource_id"] = target_resource_id
         return AdvancedThreatProtection(resource_name, opts=opts, __props__=__props__)

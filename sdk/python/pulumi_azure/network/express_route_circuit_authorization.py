@@ -35,7 +35,9 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, express_route_circuit_name=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an ExpressRoute Circuit Authorization.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit_authorization.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] express_route_circuit_name: The name of the Express Route Circuit in which to create the Authorization.
@@ -43,8 +45,6 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
                new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the ExpressRoute circuit. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit_authorization.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,7 +83,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         """
         Get an existing ExpressRouteCircuitAuthorization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -94,12 +94,11 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
                new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the ExpressRoute circuit. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit_authorization.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["authorization_key"] = authorization_key
         __props__["authorization_use_status"] = authorization_use_status
         __props__["express_route_circuit_name"] = express_route_circuit_name

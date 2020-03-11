@@ -33,7 +33,9 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, alternate_name=None, name=None, namespace_name=None, partner_namespace_id=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Disaster Recovery Config for an Event Hub Namespace.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_namespace_disaster_recovery_config.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alternate_name: An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
@@ -41,8 +43,6 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partner_namespace_id: The ID of the EventHub Namespace to replicate to.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_namespace_disaster_recovery_config.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,7 +83,7 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         """
         Get an existing EventhubNamespaceDisasterRecoveryConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -92,12 +92,11 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partner_namespace_id: The ID of the EventHub Namespace to replicate to.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_namespace_disaster_recovery_config.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["alternate_name"] = alternate_name
         __props__["name"] = name
         __props__["namespace_name"] = namespace_name

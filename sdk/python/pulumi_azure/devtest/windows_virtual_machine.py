@@ -25,7 +25,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     gallery_image_reference: pulumi.Output[dict]
     """
     A `gallery_image_reference` block as defined below.
-    
+
       * `offer` (`str`)
       * `publisher` (`str`)
       * `sku` (`str`)
@@ -34,7 +34,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     inbound_nat_rules: pulumi.Output[list]
     """
     One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
-    
+
       * `backendPort` (`float`)
       * `frontendPort` (`float`) - The frontend port associated with this Inbound NAT Rule.
       * `protocol` (`str`)
@@ -94,7 +94,9 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, allow_claim=None, disallow_public_ip_address=None, gallery_image_reference=None, inbound_nat_rules=None, lab_name=None, lab_subnet_name=None, lab_virtual_network_id=None, location=None, name=None, notes=None, password=None, resource_group_name=None, size=None, storage_type=None, tags=None, username=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Windows Virtual Machine within a Dev Test Lab.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_windows_virtual_machine.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.
@@ -113,21 +115,19 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] username: The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
-        
+
         The **gallery_image_reference** object supports the following:
-        
+
           * `offer` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
           * `sku` (`pulumi.Input[str]`)
           * `version` (`pulumi.Input[str]`)
-        
+
         The **inbound_nat_rules** object supports the following:
-        
+
           * `backendPort` (`pulumi.Input[float]`)
           * `frontendPort` (`pulumi.Input[float]`) - The frontend port associated with this Inbound NAT Rule.
           * `protocol` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_windows_virtual_machine.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -193,7 +193,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         """
         Get an existing WindowsVirtualMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,25 +215,24 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of the Virtual Machine.
         :param pulumi.Input[str] username: The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
-        
+
         The **gallery_image_reference** object supports the following:
-        
+
           * `offer` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
           * `sku` (`pulumi.Input[str]`)
           * `version` (`pulumi.Input[str]`)
-        
+
         The **inbound_nat_rules** object supports the following:
-        
+
           * `backendPort` (`pulumi.Input[float]`)
           * `frontendPort` (`pulumi.Input[float]`) - The frontend port associated with this Inbound NAT Rule.
           * `protocol` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_windows_virtual_machine.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allow_claim"] = allow_claim
         __props__["disallow_public_ip_address"] = disallow_public_ip_address
         __props__["fqdn"] = fqdn

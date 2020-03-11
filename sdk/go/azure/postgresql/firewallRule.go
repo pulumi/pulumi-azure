@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Firewall Rule for a PostgreSQL Server
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/postgresql_firewall_rule.html.markdown.
 type FirewallRule struct {
 	pulumi.CustomResourceState

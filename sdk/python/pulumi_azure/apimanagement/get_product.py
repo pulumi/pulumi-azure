@@ -13,7 +13,7 @@ class GetProductResult:
     """
     A collection of values returned by getProduct.
     """
-    def __init__(__self__, api_management_name=None, approval_required=None, description=None, display_name=None, product_id=None, published=None, resource_group_name=None, subscription_required=None, subscriptions_limit=None, terms=None, id=None):
+    def __init__(__self__, api_management_name=None, approval_required=None, description=None, display_name=None, id=None, product_id=None, published=None, resource_group_name=None, subscription_required=None, subscriptions_limit=None, terms=None):
         if api_management_name and not isinstance(api_management_name, str):
             raise TypeError("Expected argument 'api_management_name' to be a str")
         __self__.api_management_name = api_management_name
@@ -34,6 +34,12 @@ class GetProductResult:
         __self__.display_name = display_name
         """
         The Display Name for this API Management Product.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if product_id and not isinstance(product_id, str):
             raise TypeError("Expected argument 'product_id' to be a str")
@@ -65,12 +71,6 @@ class GetProductResult:
         """
         Any Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetProductResult(GetProductResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -81,25 +81,27 @@ class AwaitableGetProductResult(GetProductResult):
             approval_required=self.approval_required,
             description=self.description,
             display_name=self.display_name,
+            id=self.id,
             product_id=self.product_id,
             published=self.published,
             resource_group_name=self.resource_group_name,
             subscription_required=self.subscription_required,
             subscriptions_limit=self.subscriptions_limit,
-            terms=self.terms,
-            id=self.id)
+            terms=self.terms)
 
 def get_product(api_management_name=None,product_id=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing API Management Product.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_product.html.markdown.
+
+
     :param str api_management_name: The Name of the API Management Service in which this Product exists.
     :param str product_id: The Identifier for the API Management Product.
     :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_product.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['apiManagementName'] = api_management_name
     __args__['productId'] = product_id
@@ -115,10 +117,10 @@ def get_product(api_management_name=None,product_id=None,resource_group_name=Non
         approval_required=__ret__.get('approvalRequired'),
         description=__ret__.get('description'),
         display_name=__ret__.get('displayName'),
+        id=__ret__.get('id'),
         product_id=__ret__.get('productId'),
         published=__ret__.get('published'),
         resource_group_name=__ret__.get('resourceGroupName'),
         subscription_required=__ret__.get('subscriptionRequired'),
         subscriptions_limit=__ret__.get('subscriptionsLimit'),
-        terms=__ret__.get('terms'),
-        id=__ret__.get('id'))
+        terms=__ret__.get('terms'))

@@ -13,7 +13,13 @@ class GetPolicyVMResult:
     """
     A collection of values returned by getPolicyVM.
     """
-    def __init__(__self__, name=None, recovery_vault_name=None, resource_group_name=None, tags=None, id=None):
+    def __init__(__self__, id=None, name=None, recovery_vault_name=None, resource_group_name=None, tags=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -29,35 +35,31 @@ class GetPolicyVMResult:
         """
         A mapping of tags assigned to the resource.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetPolicyVMResult(GetPolicyVMResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetPolicyVMResult(
+            id=self.id,
             name=self.name,
             recovery_vault_name=self.recovery_vault_name,
             resource_group_name=self.resource_group_name,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_policy_vm(name=None,recovery_vault_name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing VM Backup Policy.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/backup_policy_vm.markdown.
+
+
     :param str name: Specifies the name of the VM Backup Policy.
     :param str recovery_vault_name: Specifies the name of the Recovery Services Vault.
     :param str resource_group_name: The name of the resource group in which the VM Backup Policy resides.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/backup_policy_vm.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['recoveryVaultName'] = recovery_vault_name
@@ -69,8 +71,8 @@ def get_policy_vm(name=None,recovery_vault_name=None,resource_group_name=None,op
     __ret__ = pulumi.runtime.invoke('azure:backup/getPolicyVM:getPolicyVM', __args__, opts=opts).value
 
     return AwaitableGetPolicyVMResult(
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         recovery_vault_name=__ret__.get('recoveryVaultName'),
         resource_group_name=__ret__.get('resourceGroupName'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

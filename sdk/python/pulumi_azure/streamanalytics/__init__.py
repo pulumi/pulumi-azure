@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .function_java_script_udf import *
+from .get_job import *
 from .job import *
 from .output_blob import *
 from .output_event_hub import *
@@ -14,4 +15,3 @@ from .reference_input_blob import *
 from .stream_input_blob import *
 from .stream_input_event_hub import *
 from .stream_input_iot_hub import *
-from .get_job import *

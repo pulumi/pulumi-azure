@@ -12,11 +12,11 @@ import (
 )
 
 // Manages a network security group that contains a list of network security rules.  Network security groups enable inbound or outbound traffic to be enabled or denied.
-// 
+//
 // > **NOTE on Network Security Groups and Network Security Rules:** This provider currently
 // provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
 // At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_security_group.html.markdown.
 type NetworkSecurityGroup struct {
 	pulumi.CustomResourceState

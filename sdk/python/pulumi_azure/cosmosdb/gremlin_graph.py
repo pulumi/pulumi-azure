@@ -17,7 +17,7 @@ class GremlinGraph(pulumi.CustomResource):
     conflict_resolution_policies: pulumi.Output[list]
     """
     The conflict resolution policy for the graph. One or more `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
-    
+
       * `conflictResolutionPath` (`str`)
       * `conflictResolutionProcedure` (`str`)
       * `mode` (`str`)
@@ -29,7 +29,7 @@ class GremlinGraph(pulumi.CustomResource):
     index_policies: pulumi.Output[list]
     """
     The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
-    
+
       * `automatic` (`bool`)
       * `excludedPaths` (`list`)
       * `includedPaths` (`list`)
@@ -51,13 +51,15 @@ class GremlinGraph(pulumi.CustomResource):
     unique_keys: pulumi.Output[list]
     """
     One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
-    
+
       * `paths` (`list`)
     """
     def __init__(__self__, resource_name, opts=None, account_name=None, conflict_resolution_policies=None, database_name=None, index_policies=None, name=None, partition_key_path=None, resource_group_name=None, throughput=None, unique_keys=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Gremlin Graph within a Cosmos DB Account.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_gremlin_graph.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
@@ -68,25 +70,23 @@ class GremlinGraph(pulumi.CustomResource):
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[list] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
-        
+
         The **conflict_resolution_policies** object supports the following:
-        
+
           * `conflictResolutionPath` (`pulumi.Input[str]`)
           * `conflictResolutionProcedure` (`pulumi.Input[str]`)
           * `mode` (`pulumi.Input[str]`)
-        
+
         The **index_policies** object supports the following:
-        
+
           * `automatic` (`pulumi.Input[bool]`)
           * `excludedPaths` (`pulumi.Input[list]`)
           * `includedPaths` (`pulumi.Input[list]`)
           * `indexingMode` (`pulumi.Input[str]`)
-        
-        The **unique_keys** object supports the following:
-        
-          * `paths` (`pulumi.Input[list]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_gremlin_graph.html.markdown.
+        The **unique_keys** object supports the following:
+
+          * `paths` (`pulumi.Input[list]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -135,7 +135,7 @@ class GremlinGraph(pulumi.CustomResource):
         """
         Get an existing GremlinGraph resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,29 +147,28 @@ class GremlinGraph(pulumi.CustomResource):
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[list] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
-        
+
         The **conflict_resolution_policies** object supports the following:
-        
+
           * `conflictResolutionPath` (`pulumi.Input[str]`)
           * `conflictResolutionProcedure` (`pulumi.Input[str]`)
           * `mode` (`pulumi.Input[str]`)
-        
+
         The **index_policies** object supports the following:
-        
+
           * `automatic` (`pulumi.Input[bool]`)
           * `excludedPaths` (`pulumi.Input[list]`)
           * `includedPaths` (`pulumi.Input[list]`)
           * `indexingMode` (`pulumi.Input[str]`)
-        
-        The **unique_keys** object supports the following:
-        
-          * `paths` (`pulumi.Input[list]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_gremlin_graph.html.markdown.
+        The **unique_keys** object supports the following:
+
+          * `paths` (`pulumi.Input[list]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["account_name"] = account_name
         __props__["conflict_resolution_policies"] = conflict_resolution_policies
         __props__["database_name"] = database_name

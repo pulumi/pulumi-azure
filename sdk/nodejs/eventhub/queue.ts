@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a ServiceBus Queue.
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue.html.markdown.
  */
 export class Queue extends pulumi.CustomResource {
     /**

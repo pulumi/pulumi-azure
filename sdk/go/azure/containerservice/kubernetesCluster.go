@@ -12,9 +12,9 @@ import (
 )
 
 // Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
-// 
+//
 // > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster.html.markdown.
 type KubernetesCluster struct {
 	pulumi.CustomResourceState

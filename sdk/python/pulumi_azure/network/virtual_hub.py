@@ -29,7 +29,7 @@ class VirtualHub(pulumi.CustomResource):
     routes: pulumi.Output[list]
     """
     One or more `route` blocks as defined below.
-    
+
       * `addressPrefixes` (`list`)
       * `nextHopIpAddress` (`str`)
     """
@@ -44,7 +44,9 @@ class VirtualHub(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, address_prefix=None, location=None, name=None, resource_group_name=None, routes=None, tags=None, virtual_wan_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Virtual Hub within a Virtual WAN.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_hub.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The Address Prefix which should be used for this Virtual Hub.
@@ -54,13 +56,11 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[list] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Virtual Hub.
         :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created.
-        
+
         The **routes** object supports the following:
-        
+
           * `addressPrefixes` (`pulumi.Input[list]`)
           * `nextHopIpAddress` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_hub.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -103,7 +103,7 @@ class VirtualHub(pulumi.CustomResource):
         """
         Get an existing VirtualHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,17 +114,16 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[list] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Virtual Hub.
         :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created.
-        
+
         The **routes** object supports the following:
-        
+
           * `addressPrefixes` (`pulumi.Input[list]`)
           * `nextHopIpAddress` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_hub.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["address_prefix"] = address_prefix
         __props__["location"] = location
         __props__["name"] = name

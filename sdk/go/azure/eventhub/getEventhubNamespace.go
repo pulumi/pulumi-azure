@@ -9,8 +9,8 @@ import (
 )
 
 // Use this data source to access information about an existing EventHub Namespace.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace_legacy.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace.html.markdown.
 func GetEventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs, opts ...pulumi.InvokeOption) (*GetEventhubNamespaceResult, error) {
 	var rv GetEventhubNamespaceResult
 	err := ctx.Invoke("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args, &rv, opts...)

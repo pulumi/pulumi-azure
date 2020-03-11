@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Function App.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/function_app.html.markdown.
 type FunctionApp struct {
 	pulumi.CustomResourceState

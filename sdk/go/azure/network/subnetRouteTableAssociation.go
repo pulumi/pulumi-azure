@@ -12,7 +12,7 @@ import (
 )
 
 // Associates a Route Table with a Subnet within a Virtual Network.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_route_table_association.html.markdown.
 type SubnetRouteTableAssociation struct {
 	pulumi.CustomResourceState

@@ -13,12 +13,18 @@ class GetLogProfileResult:
     """
     A collection of values returned by getLogProfile.
     """
-    def __init__(__self__, categories=None, locations=None, name=None, retention_policies=None, servicebus_rule_id=None, storage_account_id=None, id=None):
+    def __init__(__self__, categories=None, id=None, locations=None, name=None, retention_policies=None, servicebus_rule_id=None, storage_account_id=None):
         if categories and not isinstance(categories, list):
             raise TypeError("Expected argument 'categories' to be a list")
         __self__.categories = categories
         """
         List of categories of the logs.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if locations and not isinstance(locations, list):
             raise TypeError("Expected argument 'locations' to be a list")
@@ -44,12 +50,6 @@ class GetLogProfileResult:
         """
         The resource id of the storage account in which the Activity Log is stored.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetLogProfileResult(GetLogProfileResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -57,22 +57,24 @@ class AwaitableGetLogProfileResult(GetLogProfileResult):
             yield self
         return GetLogProfileResult(
             categories=self.categories,
+            id=self.id,
             locations=self.locations,
             name=self.name,
             retention_policies=self.retention_policies,
             servicebus_rule_id=self.servicebus_rule_id,
-            storage_account_id=self.storage_account_id,
-            id=self.id)
+            storage_account_id=self.storage_account_id)
 
 def get_log_profile(name=None,opts=None):
     """
     Use this data source to access the properties of a Log Profile.
-    
-    :param str name: Specifies the Name of the Log Profile.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_log_profile.html.markdown.
+
+
+    :param str name: Specifies the Name of the Log Profile.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -83,9 +85,9 @@ def get_log_profile(name=None,opts=None):
 
     return AwaitableGetLogProfileResult(
         categories=__ret__.get('categories'),
+        id=__ret__.get('id'),
         locations=__ret__.get('locations'),
         name=__ret__.get('name'),
         retention_policies=__ret__.get('retentionPolicies'),
         servicebus_rule_id=__ret__.get('servicebusRuleId'),
-        storage_account_id=__ret__.get('storageAccountId'),
-        id=__ret__.get('id'))
+        storage_account_id=__ret__.get('storageAccountId'))

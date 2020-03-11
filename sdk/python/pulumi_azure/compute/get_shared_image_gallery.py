@@ -13,12 +13,18 @@ class GetSharedImageGalleryResult:
     """
     A collection of values returned by getSharedImageGallery.
     """
-    def __init__(__self__, description=None, location=None, name=None, resource_group_name=None, tags=None, unique_name=None, id=None):
+    def __init__(__self__, description=None, id=None, location=None, name=None, resource_group_name=None, tags=None, unique_name=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         __self__.description = description
         """
         A description for the Shared Image Gallery.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -41,12 +47,6 @@ class GetSharedImageGalleryResult:
         """
         The unique name assigned to the Shared Image Gallery.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetSharedImageGalleryResult(GetSharedImageGalleryResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -54,23 +54,25 @@ class AwaitableGetSharedImageGalleryResult(GetSharedImageGalleryResult):
             yield self
         return GetSharedImageGalleryResult(
             description=self.description,
+            id=self.id,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
             tags=self.tags,
-            unique_name=self.unique_name,
-            id=self.id)
+            unique_name=self.unique_name)
 
 def get_shared_image_gallery(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Shared Image Gallery.
-    
-    :param str name: The name of the Shared Image Gallery.
-    :param str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_gallery.html.markdown.
+
+
+    :param str name: The name of the Shared Image Gallery.
+    :param str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -82,9 +84,9 @@ def get_shared_image_gallery(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetSharedImageGalleryResult(
         description=__ret__.get('description'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
-        unique_name=__ret__.get('uniqueName'),
-        id=__ret__.get('id'))
+        unique_name=__ret__.get('uniqueName'))

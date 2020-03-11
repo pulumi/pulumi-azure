@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Load Balancer Resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb.html.markdown.
 type LoadBalancer struct {
 	pulumi.CustomResourceState

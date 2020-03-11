@@ -13,7 +13,7 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, expiration_date=None, friendly_name=None, host_names=None, issue_date=None, issuer=None, location=None, name=None, resource_group_name=None, subject_name=None, tags=None, thumbprint=None, id=None):
+    def __init__(__self__, expiration_date=None, friendly_name=None, host_names=None, id=None, issue_date=None, issuer=None, location=None, name=None, resource_group_name=None, subject_name=None, tags=None, thumbprint=None):
         if expiration_date and not isinstance(expiration_date, str):
             raise TypeError("Expected argument 'expiration_date' to be a str")
         __self__.expiration_date = expiration_date
@@ -31,6 +31,12 @@ class GetCertificateResult:
         __self__.host_names = host_names
         """
         List of host names the certificate applies to.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if issue_date and not isinstance(issue_date, str):
             raise TypeError("Expected argument 'issue_date' to be a str")
@@ -68,12 +74,6 @@ class GetCertificateResult:
         """
         The thumbprint for the certificate.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetCertificateResult(GetCertificateResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -83,6 +83,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             expiration_date=self.expiration_date,
             friendly_name=self.friendly_name,
             host_names=self.host_names,
+            id=self.id,
             issue_date=self.issue_date,
             issuer=self.issuer,
             location=self.location,
@@ -90,19 +91,20 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             resource_group_name=self.resource_group_name,
             subject_name=self.subject_name,
             tags=self.tags,
-            thumbprint=self.thumbprint,
-            id=self.id)
+            thumbprint=self.thumbprint)
 
 def get_certificate(name=None,resource_group_name=None,tags=None,opts=None):
     """
     Use this data source to access information about an App Service Certificate.
-    
-    :param str name: Specifies the name of the certificate.
-    :param str resource_group_name: The name of the resource group in which to create the certificate.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate.html.markdown.
+
+
+    :param str name: Specifies the name of the certificate.
+    :param str resource_group_name: The name of the resource group in which to create the certificate.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -117,6 +119,7 @@ def get_certificate(name=None,resource_group_name=None,tags=None,opts=None):
         expiration_date=__ret__.get('expirationDate'),
         friendly_name=__ret__.get('friendlyName'),
         host_names=__ret__.get('hostNames'),
+        id=__ret__.get('id'),
         issue_date=__ret__.get('issueDate'),
         issuer=__ret__.get('issuer'),
         location=__ret__.get('location'),
@@ -124,5 +127,4 @@ def get_certificate(name=None,resource_group_name=None,tags=None,opts=None):
         resource_group_name=__ret__.get('resourceGroupName'),
         subject_name=__ret__.get('subjectName'),
         tags=__ret__.get('tags'),
-        thumbprint=__ret__.get('thumbprint'),
-        id=__ret__.get('id'))
+        thumbprint=__ret__.get('thumbprint'))

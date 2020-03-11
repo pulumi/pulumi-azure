@@ -13,7 +13,13 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, name=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, sku_name=None, tags=None, x_ms_client_id=None, id=None):
+    def __init__(__self__, id=None, name=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, sku_name=None, tags=None, x_ms_client_id=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -47,37 +53,33 @@ class GetAccountResult:
         """
         A unique identifier for the Maps Account.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAccountResult(GetAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetAccountResult(
+            id=self.id,
             name=self.name,
             primary_access_key=self.primary_access_key,
             resource_group_name=self.resource_group_name,
             secondary_access_key=self.secondary_access_key,
             sku_name=self.sku_name,
             tags=self.tags,
-            x_ms_client_id=self.x_ms_client_id,
-            id=self.id)
+            x_ms_client_id=self.x_ms_client_id)
 
 def get_account(name=None,resource_group_name=None,tags=None,opts=None):
     """
     Use this data source to access information about an existing Azure Maps Account.
-    
-    :param str name: Specifies the name of the Maps Account.
-    :param str resource_group_name: Specifies the name of the Resource Group in which the Maps Account is located.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/maps_account.html.markdown.
+
+
+    :param str name: Specifies the name of the Maps Account.
+    :param str resource_group_name: Specifies the name of the Resource Group in which the Maps Account is located.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -89,11 +91,11 @@ def get_account(name=None,resource_group_name=None,tags=None,opts=None):
     __ret__ = pulumi.runtime.invoke('azure:maps/getAccount:getAccount', __args__, opts=opts).value
 
     return AwaitableGetAccountResult(
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         primary_access_key=__ret__.get('primaryAccessKey'),
         resource_group_name=__ret__.get('resourceGroupName'),
         secondary_access_key=__ret__.get('secondaryAccessKey'),
         sku_name=__ret__.get('skuName'),
         tags=__ret__.get('tags'),
-        x_ms_client_id=__ret__.get('xMsClientId'),
-        id=__ret__.get('id'))
+        x_ms_client_id=__ret__.get('xMsClientId'))

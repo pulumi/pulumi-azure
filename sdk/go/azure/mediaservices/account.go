@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Media Services Account.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/media_services_account.html.markdown.
 type Account struct {
 	pulumi.CustomResourceState

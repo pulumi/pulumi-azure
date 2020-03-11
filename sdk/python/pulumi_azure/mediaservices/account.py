@@ -25,27 +25,27 @@ class Account(pulumi.CustomResource):
     storage_accounts: pulumi.Output[list]
     """
     One or more `storage_account` blocks as defined below.
-    
+
       * `id` (`str`) - The ID of the Media Services Account.
       * `isPrimary` (`bool`)
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, storage_accounts=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Media Services Account.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/media_services_account.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[list] storage_accounts: One or more `storage_account` blocks as defined below.
-        
+
         The **storage_accounts** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`) - The ID of the Media Services Account.
           * `isPrimary` (`pulumi.Input[bool]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/media_services_account.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,7 +83,7 @@ class Account(pulumi.CustomResource):
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -91,17 +91,16 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[list] storage_accounts: One or more `storage_account` blocks as defined below.
-        
+
         The **storage_accounts** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`) - The ID of the Media Services Account.
           * `isPrimary` (`pulumi.Input[bool]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/media_services_account.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["location"] = location
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name

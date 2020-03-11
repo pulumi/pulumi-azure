@@ -12,8 +12,8 @@ import (
 )
 
 // Manages Azure Backup for an Azure VM
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_protected_vm.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_protected_vm.markdown.
 type ProtectedVM struct {
 	pulumi.CustomResourceState
 

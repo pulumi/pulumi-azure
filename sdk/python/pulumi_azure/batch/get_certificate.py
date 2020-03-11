@@ -13,7 +13,7 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, account_name=None, format=None, name=None, public_data=None, resource_group_name=None, thumbprint=None, thumbprint_algorithm=None, id=None):
+    def __init__(__self__, account_name=None, format=None, id=None, name=None, public_data=None, resource_group_name=None, thumbprint=None, thumbprint_algorithm=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         __self__.account_name = account_name
@@ -22,6 +22,12 @@ class GetCertificateResult:
         __self__.format = format
         """
         The format of the certificate, such as `Cer` or `Pfx`.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -47,12 +53,6 @@ class GetCertificateResult:
         """
         The algorithm of the certificate thumbprint.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetCertificateResult(GetCertificateResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -61,24 +61,26 @@ class AwaitableGetCertificateResult(GetCertificateResult):
         return GetCertificateResult(
             account_name=self.account_name,
             format=self.format,
+            id=self.id,
             name=self.name,
             public_data=self.public_data,
             resource_group_name=self.resource_group_name,
             thumbprint=self.thumbprint,
-            thumbprint_algorithm=self.thumbprint_algorithm,
-            id=self.id)
+            thumbprint_algorithm=self.thumbprint_algorithm)
 
 def get_certificate(account_name=None,name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing certificate in a Batch Account.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_certificate.html.markdown.
+
+
     :param str account_name: The name of the Batch account.
     :param str name: The name of the Batch certificate.
     :param str resource_group_name: The Name of the Resource Group where this Batch account exists.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_certificate.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['accountName'] = account_name
     __args__['name'] = name
@@ -92,9 +94,9 @@ def get_certificate(account_name=None,name=None,resource_group_name=None,opts=No
     return AwaitableGetCertificateResult(
         account_name=__ret__.get('accountName'),
         format=__ret__.get('format'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         public_data=__ret__.get('publicData'),
         resource_group_name=__ret__.get('resourceGroupName'),
         thumbprint=__ret__.get('thumbprint'),
-        thumbprint_algorithm=__ret__.get('thumbprintAlgorithm'),
-        id=__ret__.get('id'))
+        thumbprint_algorithm=__ret__.get('thumbprintAlgorithm'))

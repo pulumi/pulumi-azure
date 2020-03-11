@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Azure Data Factory Managed Integration Runtime.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_integration_runtime_managed.html.markdown.
 type IntegrationRuntimeManaged struct {
 	pulumi.CustomResourceState

@@ -13,10 +13,16 @@ class GetConsumeGroupResult:
     """
     A collection of values returned by getConsumeGroup.
     """
-    def __init__(__self__, eventhub_name=None, location=None, name=None, namespace_name=None, resource_group_name=None, user_metadata=None, id=None):
+    def __init__(__self__, eventhub_name=None, id=None, location=None, name=None, namespace_name=None, resource_group_name=None, user_metadata=None):
         if eventhub_name and not isinstance(eventhub_name, str):
             raise TypeError("Expected argument 'eventhub_name' to be a str")
         __self__.eventhub_name = eventhub_name
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -35,12 +41,6 @@ class GetConsumeGroupResult:
         """
         Specifies the user metadata.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetConsumeGroupResult(GetConsumeGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -48,25 +48,27 @@ class AwaitableGetConsumeGroupResult(GetConsumeGroupResult):
             yield self
         return GetConsumeGroupResult(
             eventhub_name=self.eventhub_name,
+            id=self.id,
             location=self.location,
             name=self.name,
             namespace_name=self.namespace_name,
             resource_group_name=self.resource_group_name,
-            user_metadata=self.user_metadata,
-            id=self.id)
+            user_metadata=self.user_metadata)
 
 def get_consume_group(eventhub_name=None,name=None,namespace_name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_consumer_group.html.markdown.
+
+
     :param str eventhub_name: Specifies the name of the EventHub.
     :param str name: Specifies the name of the EventHub Consumer Group resource.
     :param str namespace_name: Specifies the name of the grandparent EventHub Namespace.
     :param str resource_group_name: The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_consumer_group.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['eventhubName'] = eventhub_name
     __args__['name'] = name
@@ -80,9 +82,9 @@ def get_consume_group(eventhub_name=None,name=None,namespace_name=None,resource_
 
     return AwaitableGetConsumeGroupResult(
         eventhub_name=__ret__.get('eventhubName'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         namespace_name=__ret__.get('namespaceName'),
         resource_group_name=__ret__.get('resourceGroupName'),
-        user_metadata=__ret__.get('userMetadata'),
-        id=__ret__.get('id'))
+        user_metadata=__ret__.get('userMetadata'))

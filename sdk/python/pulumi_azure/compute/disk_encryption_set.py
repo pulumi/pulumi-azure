@@ -13,9 +13,9 @@ class DiskEncryptionSet(pulumi.CustomResource):
     identity: pulumi.Output[dict]
     """
     A `identity` block defined below.
-    
+
       * `principal_id` (`str`) - The (Client) ID of the Service Principal.
-      * `tenantId` (`str`) - The ID of the Tenant the Service Principal is assigned in.
+      * `tenant_id` (`str`) - The ID of the Tenant the Service Principal is assigned in.
       * `type` (`str`)
     """
     key_vault_key_id: pulumi.Output[str]
@@ -41,7 +41,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, identity=None, key_vault_key_id=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a DiskEncryptionSet resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] identity: A `identity` block defined below.
@@ -50,14 +49,12 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Disk Encryption Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Disk Encryption Set.
-        
-        The **identity** object supports the following:
-        
-          * `principal_id` (`pulumi.Input[str]`) - The (Client) ID of the Service Principal.
-          * `tenantId` (`pulumi.Input[str]`) - The ID of the Tenant the Service Principal is assigned in.
-          * `type` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/disk_encryption_set.html.markdown.
+        The **identity** object supports the following:
+
+          * `principal_id` (`pulumi.Input[str]`) - The (Client) ID of the Service Principal.
+          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the Service Principal is assigned in.
+          * `type` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -99,7 +96,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
         """
         Get an existing DiskEncryptionSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -109,18 +106,17 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Disk Encryption Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Disk Encryption Set.
-        
-        The **identity** object supports the following:
-        
-          * `principal_id` (`pulumi.Input[str]`) - The (Client) ID of the Service Principal.
-          * `tenantId` (`pulumi.Input[str]`) - The ID of the Tenant the Service Principal is assigned in.
-          * `type` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/disk_encryption_set.html.markdown.
+        The **identity** object supports the following:
+
+          * `principal_id` (`pulumi.Input[str]`) - The (Client) ID of the Service Principal.
+          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the Service Principal is assigned in.
+          * `type` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["identity"] = identity
         __props__["key_vault_key_id"] = key_vault_key_id
         __props__["location"] = location

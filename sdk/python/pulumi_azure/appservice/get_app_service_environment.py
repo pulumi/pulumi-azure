@@ -13,12 +13,18 @@ class GetAppServiceEnvironmentResult:
     """
     A collection of values returned by getAppServiceEnvironment.
     """
-    def __init__(__self__, front_end_scale_factor=None, name=None, pricing_tier=None, resource_group_name=None, tags=None, id=None):
+    def __init__(__self__, front_end_scale_factor=None, id=None, name=None, pricing_tier=None, resource_group_name=None, tags=None):
         if front_end_scale_factor and not isinstance(front_end_scale_factor, float):
             raise TypeError("Expected argument 'front_end_scale_factor' to be a float")
         __self__.front_end_scale_factor = front_end_scale_factor
         """
         The number of app instances per App Service Environment Front End
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -38,12 +44,6 @@ class GetAppServiceEnvironmentResult:
         """
         A mapping of tags assigned to the resource.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAppServiceEnvironmentResult(GetAppServiceEnvironmentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -51,22 +51,24 @@ class AwaitableGetAppServiceEnvironmentResult(GetAppServiceEnvironmentResult):
             yield self
         return GetAppServiceEnvironmentResult(
             front_end_scale_factor=self.front_end_scale_factor,
+            id=self.id,
             name=self.name,
             pricing_tier=self.pricing_tier,
             resource_group_name=self.resource_group_name,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_app_service_environment(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing App Service Environment
-    
-    :param str name: The name of the App Service Environment.
-    :param str resource_group_name: The Name of the Resource Group where the App Service Environment exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_environment.html.markdown.
+
+
+    :param str name: The name of the App Service Environment.
+    :param str resource_group_name: The Name of the Resource Group where the App Service Environment exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -78,8 +80,8 @@ def get_app_service_environment(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetAppServiceEnvironmentResult(
         front_end_scale_factor=__ret__.get('frontEndScaleFactor'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         pricing_tier=__ret__.get('pricingTier'),
         resource_group_name=__ret__.get('resourceGroupName'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

@@ -25,17 +25,17 @@ class StoreFile(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, account_name=None, local_file_path=None, remote_file_path=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Azure Data Lake Store File.
-        
+
         > **Note:** If you want to change the data in the remote file without changing the `local_file_path`, then
         taint the resource so the `datalake.StoreFile` gets recreated with the new data.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store_file.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Specifies the name of the Data Lake Store for which the File should created.
         :param pulumi.Input[str] local_file_path: The path to the local file to be added to the Data Lake Store.
         :param pulumi.Input[str] remote_file_path: The path created for the file on the Data Lake Store.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store_file.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,19 +74,18 @@ class StoreFile(pulumi.CustomResource):
         """
         Get an existing StoreFile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Specifies the name of the Data Lake Store for which the File should created.
         :param pulumi.Input[str] local_file_path: The path to the local file to be added to the Data Lake Store.
         :param pulumi.Input[str] remote_file_path: The path created for the file on the Data Lake Store.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store_file.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["account_name"] = account_name
         __props__["local_file_path"] = local_file_path
         __props__["remote_file_path"] = remote_file_path

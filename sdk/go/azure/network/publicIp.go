@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Public IP Address.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/public_ip.html.markdown.
 type PublicIp struct {
 	pulumi.CustomResourceState

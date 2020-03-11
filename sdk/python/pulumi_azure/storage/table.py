@@ -13,13 +13,12 @@ class Table(pulumi.CustomResource):
     acls: pulumi.Output[list]
     """
     One or more `acl` blocks as defined below.
-    
+
       * `access_policies` (`list`)
-    
         * `expiry` (`str`)
         * `permissions` (`str`)
         * `start` (`str`)
-    
+
       * `id` (`str`) - The ID of the Table within the Storage Account.
     """
     name: pulumi.Output[str]
@@ -34,25 +33,24 @@ class Table(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, acls=None, name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Table within an Azure Storage Account.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_table.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] name: The name of the storage table. Must be unique within the storage account the table is located.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table.
                Changing this forces a new resource to be created.
-        
+
         The **acls** object supports the following:
-        
+
           * `access_policies` (`pulumi.Input[list]`)
-        
             * `expiry` (`pulumi.Input[str]`)
             * `permissions` (`pulumi.Input[str]`)
             * `start` (`pulumi.Input[str]`)
-        
-          * `id` (`pulumi.Input[str]`) - The ID of the Table within the Storage Account.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_table.html.markdown.
+          * `id` (`pulumi.Input[str]`) - The ID of the Table within the Storage Account.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,7 +85,7 @@ class Table(pulumi.CustomResource):
         """
         Get an existing Table resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -95,22 +93,20 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the storage table. Must be unique within the storage account the table is located.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table.
                Changing this forces a new resource to be created.
-        
+
         The **acls** object supports the following:
-        
+
           * `access_policies` (`pulumi.Input[list]`)
-        
             * `expiry` (`pulumi.Input[str]`)
             * `permissions` (`pulumi.Input[str]`)
             * `start` (`pulumi.Input[str]`)
-        
-          * `id` (`pulumi.Input[str]`) - The ID of the Table within the Storage Account.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_table.html.markdown.
+          * `id` (`pulumi.Input[str]`) - The ID of the Table within the Storage Account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["acls"] = acls
         __props__["name"] = name
         __props__["storage_account_name"] = storage_account_name

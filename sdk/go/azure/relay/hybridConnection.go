@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Azure Relay Hybrid Connection.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/relay_hybrid_connection.html.markdown.
 type HybridConnection struct {
 	pulumi.CustomResourceState

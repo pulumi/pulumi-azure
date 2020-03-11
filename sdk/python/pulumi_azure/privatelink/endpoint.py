@@ -21,7 +21,7 @@ class Endpoint(pulumi.CustomResource):
     private_service_connection: pulumi.Output[dict]
     """
     A `private_service_connection` block as defined below.
-    
+
       * `isManualConnection` (`bool`) - Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
       * `name` (`str`) - Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
       * `privateConnectionResourceId` (`str`) - The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
@@ -39,11 +39,13 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, location=None, name=None, private_service_connection=None, resource_group_name=None, subnet_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Private Endpoint.
-        
+
         > **NOTE** Private Endpoint is currently in Public Preview.
-        
+
         Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. The service could be an Azure service such as Azure Storage, SQL, etc. or your own Private Link Service.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_endpoint.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -51,16 +53,14 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[dict] private_service_connection: A `private_service_connection` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
-        
+
         The **private_service_connection** object supports the following:
-        
+
           * `isManualConnection` (`pulumi.Input[bool]`) - Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
           * `name` (`pulumi.Input[str]`) - Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
           * `privateConnectionResourceId` (`pulumi.Input[str]`) - The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
           * `requestMessage` (`pulumi.Input[str]`) - A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
           * `subresourceNames` (`pulumi.Input[list]`) - A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_endpoint.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -101,7 +101,7 @@ class Endpoint(pulumi.CustomResource):
         """
         Get an existing Endpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,20 +110,19 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[dict] private_service_connection: A `private_service_connection` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
-        
+
         The **private_service_connection** object supports the following:
-        
+
           * `isManualConnection` (`pulumi.Input[bool]`) - Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
           * `name` (`pulumi.Input[str]`) - Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
           * `privateConnectionResourceId` (`pulumi.Input[str]`) - The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
           * `requestMessage` (`pulumi.Input[str]`) - A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
           * `subresourceNames` (`pulumi.Input[list]`) - A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_endpoint.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["location"] = location
         __props__["name"] = name
         __props__["private_service_connection"] = private_service_connection

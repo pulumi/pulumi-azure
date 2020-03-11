@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Hostname Binding within an App Service.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_custom_hostname_binding.html.markdown.
 type CustomHostnameBinding struct {
 	pulumi.CustomResourceState

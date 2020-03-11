@@ -12,7 +12,7 @@ import (
 )
 
 // Manages automated startup and shutdown schedules for Azure Dev Test Lab.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_schedule.html.markdown.
 type Schedule struct {
 	pulumi.CustomResourceState

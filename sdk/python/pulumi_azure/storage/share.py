@@ -13,13 +13,12 @@ class Share(pulumi.CustomResource):
     acls: pulumi.Output[list]
     """
     One or more `acl` blocks as defined below.
-    
+
       * `access_policies` (`list`)
-    
         * `expiry` (`str`)
         * `permissions` (`str`)
         * `start` (`str`)
-    
+
       * `id` (`str`) - The ID of the File Share.
     """
     metadata: pulumi.Output[dict]
@@ -46,7 +45,9 @@ class Share(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, acls=None, metadata=None, name=None, quota=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a File Share within Azure Storage.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] acls: One or more `acl` blocks as defined below.
@@ -55,18 +56,15 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[float] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.
                Changing this forces a new resource to be created.
-        
+
         The **acls** object supports the following:
-        
+
           * `access_policies` (`pulumi.Input[list]`)
-        
             * `expiry` (`pulumi.Input[str]`)
             * `permissions` (`pulumi.Input[str]`)
             * `start` (`pulumi.Input[str]`)
-        
-          * `id` (`pulumi.Input[str]`) - The ID of the File Share.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share.html.markdown.
+          * `id` (`pulumi.Input[str]`) - The ID of the File Share.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -104,7 +102,7 @@ class Share(pulumi.CustomResource):
         """
         Get an existing Share resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,22 +113,20 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] url: The URL of the File Share
-        
+
         The **acls** object supports the following:
-        
+
           * `access_policies` (`pulumi.Input[list]`)
-        
             * `expiry` (`pulumi.Input[str]`)
             * `permissions` (`pulumi.Input[str]`)
             * `start` (`pulumi.Input[str]`)
-        
-          * `id` (`pulumi.Input[str]`) - The ID of the File Share.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share.html.markdown.
+          * `id` (`pulumi.Input[str]`) - The ID of the File Share.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["acls"] = acls
         __props__["metadata"] = metadata
         __props__["name"] = name

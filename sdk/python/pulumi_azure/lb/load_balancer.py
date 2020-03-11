@@ -13,7 +13,7 @@ class LoadBalancer(pulumi.CustomResource):
     frontend_ip_configurations: pulumi.Output[list]
     """
     One or multiple `frontend_ip_configuration` blocks as documented below.
-    
+
       * `id` (`str`) - The id of the Frontend IP Configuration.
       * `inbound_nat_rules` (`list`)
       * `load_balancer_rules` (`list`)
@@ -57,7 +57,9 @@ class LoadBalancer(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, frontend_ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Load Balancer Resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] frontend_ip_configurations: One or multiple `frontend_ip_configuration` blocks as documented below.
@@ -66,9 +68,9 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Load Balancer.
         :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **frontend_ip_configurations** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`) - The id of the Frontend IP Configuration.
           * `inbound_nat_rules` (`pulumi.Input[list]`)
           * `load_balancer_rules` (`pulumi.Input[list]`)
@@ -80,8 +82,6 @@ class LoadBalancer(pulumi.CustomResource):
           * `publicIpPrefixId` (`pulumi.Input[str]`) - The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
           * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet which should be associated with the IP Configuration.
           * `zones` (`pulumi.Input[str]`) - A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,7 +121,7 @@ class LoadBalancer(pulumi.CustomResource):
         """
         Get an existing LoadBalancer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,9 +133,9 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Load Balancer.
         :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **frontend_ip_configurations** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`) - The id of the Frontend IP Configuration.
           * `inbound_nat_rules` (`pulumi.Input[list]`)
           * `load_balancer_rules` (`pulumi.Input[list]`)
@@ -147,12 +147,11 @@ class LoadBalancer(pulumi.CustomResource):
           * `publicIpPrefixId` (`pulumi.Input[str]`) - The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
           * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet which should be associated with the IP Configuration.
           * `zones` (`pulumi.Input[str]`) - A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["frontend_ip_configurations"] = frontend_ip_configurations
         __props__["location"] = location
         __props__["name"] = name

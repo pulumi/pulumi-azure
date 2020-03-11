@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Pipeline inside a Azure Data Factory.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_pipeline.html.markdown.
 type Pipeline struct {
 	pulumi.CustomResourceState

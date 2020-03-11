@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Public IP Prefix.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip_prefix.html.markdown.
 func LookupPublicIpPrefix(ctx *pulumi.Context, args *LookupPublicIpPrefixArgs, opts ...pulumi.InvokeOption) (*LookupPublicIpPrefixResult, error) {
 	var rv LookupPublicIpPrefixResult

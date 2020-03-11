@@ -13,13 +13,19 @@ class GetPublicIPsResult:
     """
     A collection of values returned by getPublicIPs.
     """
-    def __init__(__self__, allocation_type=None, attached=None, name_prefix=None, public_ips=None, resource_group_name=None, id=None):
+    def __init__(__self__, allocation_type=None, attached=None, id=None, name_prefix=None, public_ips=None, resource_group_name=None):
         if allocation_type and not isinstance(allocation_type, str):
             raise TypeError("Expected argument 'allocation_type' to be a str")
         __self__.allocation_type = allocation_type
         if attached and not isinstance(attached, bool):
             raise TypeError("Expected argument 'attached' to be a bool")
         __self__.attached = attached
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if name_prefix and not isinstance(name_prefix, str):
             raise TypeError("Expected argument 'name_prefix' to be a str")
         __self__.name_prefix = name_prefix
@@ -32,12 +38,6 @@ class GetPublicIPsResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetPublicIPsResult(GetPublicIPsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -46,23 +46,25 @@ class AwaitableGetPublicIPsResult(GetPublicIPsResult):
         return GetPublicIPsResult(
             allocation_type=self.allocation_type,
             attached=self.attached,
+            id=self.id,
             name_prefix=self.name_prefix,
             public_ips=self.public_ips,
-            resource_group_name=self.resource_group_name,
-            id=self.id)
+            resource_group_name=self.resource_group_name)
 
 def get_public_i_ps(allocation_type=None,attached=None,name_prefix=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about a set of existing Public IP Addresses.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ips.html.markdown.
+
+
     :param str allocation_type: The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
     :param bool attached: Filter to include IP Addresses which are attached to a device, such as a VM/LB (`true`) or unattached (`false`).
     :param str name_prefix: A prefix match used for the IP Addresses `name` field, case sensitive.
     :param str resource_group_name: Specifies the name of the resource group.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ips.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['allocationType'] = allocation_type
     __args__['attached'] = attached
@@ -77,7 +79,7 @@ def get_public_i_ps(allocation_type=None,attached=None,name_prefix=None,resource
     return AwaitableGetPublicIPsResult(
         allocation_type=__ret__.get('allocationType'),
         attached=__ret__.get('attached'),
+        id=__ret__.get('id'),
         name_prefix=__ret__.get('namePrefix'),
         public_ips=__ret__.get('publicIps'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        id=__ret__.get('id'))
+        resource_group_name=__ret__.get('resourceGroupName'))

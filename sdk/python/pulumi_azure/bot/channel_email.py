@@ -33,9 +33,11 @@ class ChannelEmail(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, bot_name=None, email_address=None, email_password=None, location=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Email integration for a Bot Channel
-        
+
         > **Note** A bot can only have a single Email Channel associated with it.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_email.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -43,8 +45,6 @@ class ChannelEmail(pulumi.CustomResource):
         :param pulumi.Input[str] email_password: The email password that the Bot will authenticate with.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_email.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,7 +87,7 @@ class ChannelEmail(pulumi.CustomResource):
         """
         Get an existing ChannelEmail resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -96,12 +96,11 @@ class ChannelEmail(pulumi.CustomResource):
         :param pulumi.Input[str] email_password: The email password that the Bot will authenticate with.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_email.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["bot_name"] = bot_name
         __props__["email_address"] = email_address
         __props__["email_password"] = email_password

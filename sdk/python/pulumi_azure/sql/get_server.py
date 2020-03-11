@@ -13,7 +13,7 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, administrator_login=None, fqdn=None, identities=None, location=None, name=None, resource_group_name=None, tags=None, version=None, id=None):
+    def __init__(__self__, administrator_login=None, fqdn=None, id=None, identities=None, location=None, name=None, resource_group_name=None, tags=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         __self__.administrator_login = administrator_login
@@ -25,6 +25,12 @@ class GetServerResult:
         __self__.fqdn = fqdn
         """
         The fully qualified domain name of the SQL Server.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if identities and not isinstance(identities, list):
             raise TypeError("Expected argument 'identities' to be a list")
@@ -56,12 +62,6 @@ class GetServerResult:
         """
         The version of the SQL Server.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetServerResult(GetServerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -70,24 +70,26 @@ class AwaitableGetServerResult(GetServerResult):
         return GetServerResult(
             administrator_login=self.administrator_login,
             fqdn=self.fqdn,
+            id=self.id,
             identities=self.identities,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
             tags=self.tags,
-            version=self.version,
-            id=self.id)
+            version=self.version)
 
 def get_server(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing SQL Azure Database Server.
-    
-    :param str name: The name of the SQL Server.
-    :param str resource_group_name: Specifies the name of the Resource Group where the SQL Server exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_server.html.markdown.
+
+
+    :param str name: The name of the SQL Server.
+    :param str resource_group_name: Specifies the name of the Resource Group where the SQL Server exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -100,10 +102,10 @@ def get_server(name=None,resource_group_name=None,opts=None):
     return AwaitableGetServerResult(
         administrator_login=__ret__.get('administratorLogin'),
         fqdn=__ret__.get('fqdn'),
+        id=__ret__.get('id'),
         identities=__ret__.get('identities'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
-        version=__ret__.get('version'),
-        id=__ret__.get('id'))
+        version=__ret__.get('version'))

@@ -37,7 +37,9 @@ class Application(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, account_name=None, allow_updates=None, default_version=None, display_name=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages Azure Batch Application instance.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_application.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Batch account. Changing this forces a new resource to be created.
@@ -46,8 +48,6 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name for the application.
         :param pulumi.Input[str] name: The name of the application. This must be unique within the account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_application.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,7 +87,7 @@ class Application(pulumi.CustomResource):
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -97,12 +97,11 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name for the application.
         :param pulumi.Input[str] name: The name of the application. This must be unique within the account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_application.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["account_name"] = account_name
         __props__["allow_updates"] = allow_updates
         __props__["default_version"] = default_version

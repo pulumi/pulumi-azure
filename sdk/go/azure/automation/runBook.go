@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Automation Runbook.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_runbook.html.markdown.
 type RunBook struct {
 	pulumi.CustomResourceState

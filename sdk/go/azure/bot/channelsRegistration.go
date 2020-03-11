@@ -12,8 +12,8 @@ import (
 )
 
 // Manages a Bot Channels Registration.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channels_registration.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channels_registration.markdown.
 type ChannelsRegistration struct {
 	pulumi.CustomResourceState
 

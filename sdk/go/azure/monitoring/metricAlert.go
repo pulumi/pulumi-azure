@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Metric Alert within Azure Monitor.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_metric_alert.html.markdown.
 type MetricAlert struct {
 	pulumi.CustomResourceState

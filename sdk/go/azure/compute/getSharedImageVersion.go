@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_version.html.markdown.
 func LookupSharedImageVersion(ctx *pulumi.Context, args *LookupSharedImageVersionArgs, opts ...pulumi.InvokeOption) (*LookupSharedImageVersionResult, error) {
 	var rv LookupSharedImageVersionResult

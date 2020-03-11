@@ -13,10 +13,16 @@ class GetClientConfigResult:
     """
     A collection of values returned by getClientConfig.
     """
-    def __init__(__self__, client_id=None, object_id=None, subscription_id=None, tenant_id=None, id=None):
+    def __init__(__self__, client_id=None, id=None, object_id=None, subscription_id=None, tenant_id=None):
         if client_id and not isinstance(client_id, str):
             raise TypeError("Expected argument 'client_id' to be a str")
         __self__.client_id = client_id
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if object_id and not isinstance(object_id, str):
             raise TypeError("Expected argument 'object_id' to be a str")
         __self__.object_id = object_id
@@ -26,12 +32,6 @@ class GetClientConfigResult:
         if tenant_id and not isinstance(tenant_id, str):
             raise TypeError("Expected argument 'tenant_id' to be a str")
         __self__.tenant_id = tenant_id
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetClientConfigResult(GetClientConfigResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -39,10 +39,10 @@ class AwaitableGetClientConfigResult(GetClientConfigResult):
             yield self
         return GetClientConfigResult(
             client_id=self.client_id,
+            id=self.id,
             object_id=self.object_id,
             subscription_id=self.subscription_id,
-            tenant_id=self.tenant_id,
-            id=self.id)
+            tenant_id=self.tenant_id)
 
 def get_client_config(opts=None):
     """
@@ -52,6 +52,7 @@ def get_client_config(opts=None):
     """
     __args__ = dict()
 
+
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -60,7 +61,7 @@ def get_client_config(opts=None):
 
     return AwaitableGetClientConfigResult(
         client_id=__ret__.get('clientId'),
+        id=__ret__.get('id'),
         object_id=__ret__.get('objectId'),
         subscription_id=__ret__.get('subscriptionId'),
-        tenant_id=__ret__.get('tenantId'),
-        id=__ret__.get('id'))
+        tenant_id=__ret__.get('tenantId'))

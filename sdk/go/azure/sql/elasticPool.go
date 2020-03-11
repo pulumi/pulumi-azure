@@ -12,9 +12,9 @@ import (
 )
 
 // Allows you to manage an Azure SQL Elastic Pool.
-// 
+//
 // > **NOTE:** -  This version of the `Elasticpool` resource is being **deprecated** and should no longer be used. Please use the mssql.ElasticPool version instead.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_elasticpool.html.markdown.
 type ElasticPool struct {
 	pulumi.CustomResourceState

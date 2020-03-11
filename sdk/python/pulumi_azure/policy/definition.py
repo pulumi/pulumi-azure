@@ -59,9 +59,11 @@ class Definition(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, display_name=None, management_group_id=None, metadata=None, mode=None, name=None, parameters=None, policy_rule=None, policy_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a policy rule definition on a management group or your provider subscription.
-        
+
         Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_definition.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the policy definition.
@@ -83,8 +85,6 @@ class Definition(pulumi.CustomResource):
                a then block.
         :param pulumi.Input[str] policy_type: The policy type.  The value can be "BuiltIn", "Custom"
                or "NotSpecified". Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_definition.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -129,7 +129,7 @@ class Definition(pulumi.CustomResource):
         """
         Get an existing Definition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,12 +152,11 @@ class Definition(pulumi.CustomResource):
                a then block.
         :param pulumi.Input[str] policy_type: The policy type.  The value can be "BuiltIn", "Custom"
                or "NotSpecified". Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_definition.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["description"] = description
         __props__["display_name"] = display_name
         __props__["management_group_id"] = management_group_id

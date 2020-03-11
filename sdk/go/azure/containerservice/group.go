@@ -12,7 +12,7 @@ import (
 )
 
 // Manages as an Azure Container Group instance.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_group.html.markdown.
 type Group struct {
 	pulumi.CustomResourceState

@@ -88,7 +88,9 @@ class Queue(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_express=None, enable_partitioning=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, requires_session=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Queue.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the
@@ -124,8 +126,6 @@ class Queue(pulumi.CustomResource):
                Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the namespace. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue_legacy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -173,7 +173,7 @@ class Queue(pulumi.CustomResource):
         """
         Get an existing Queue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,12 +210,11 @@ class Queue(pulumi.CustomResource):
                Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the namespace. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue_legacy.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["auto_delete_on_idle"] = auto_delete_on_idle
         __props__["dead_lettering_on_message_expiration"] = dead_lettering_on_message_expiration
         __props__["default_message_ttl"] = default_message_ttl

@@ -13,7 +13,7 @@ class ReplicatedVM(pulumi.CustomResource):
     managed_disks: pulumi.Output[list]
     """
     One or more `managed_disk` block.
-    
+
       * `diskId` (`str`)
       * `stagingStorageAccountId` (`str`)
       * `targetDiskType` (`str`)
@@ -64,7 +64,9 @@ class ReplicatedVM(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, managed_disks=None, name=None, recovery_replication_policy_id=None, recovery_vault_name=None, resource_group_name=None, source_recovery_fabric_name=None, source_recovery_protection_container_name=None, source_vm_id=None, target_availability_set_id=None, target_recovery_fabric_id=None, target_recovery_protection_container_id=None, target_resource_group_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A replicated VM keeps a copiously updated image of the VM in another region in order to be able to start the VM in that region in case of a disaster.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_replicated_vm.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] managed_disks: One or more `managed_disk` block.
@@ -78,16 +80,14 @@ class ReplicatedVM(pulumi.CustomResource):
         :param pulumi.Input[str] target_recovery_fabric_id: Id of fabric where the VM replication should be handled when a failover is done.
         :param pulumi.Input[str] target_recovery_protection_container_id: Id of protection container where the VM replication should be created when a failover is done.
         :param pulumi.Input[str] target_resource_group_id: Id of resource group where the VM should be created when a failover is done.
-        
+
         The **managed_disks** object supports the following:
-        
+
           * `diskId` (`pulumi.Input[str]`)
           * `stagingStorageAccountId` (`pulumi.Input[str]`)
           * `targetDiskType` (`pulumi.Input[str]`)
           * `targetReplicaDiskType` (`pulumi.Input[str]`)
           * `target_resource_group_id` (`pulumi.Input[str]`) - Id of resource group where the VM should be created when a failover is done.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_replicated_vm.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -147,7 +147,7 @@ class ReplicatedVM(pulumi.CustomResource):
         """
         Get an existing ReplicatedVM resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,20 +162,19 @@ class ReplicatedVM(pulumi.CustomResource):
         :param pulumi.Input[str] target_recovery_fabric_id: Id of fabric where the VM replication should be handled when a failover is done.
         :param pulumi.Input[str] target_recovery_protection_container_id: Id of protection container where the VM replication should be created when a failover is done.
         :param pulumi.Input[str] target_resource_group_id: Id of resource group where the VM should be created when a failover is done.
-        
+
         The **managed_disks** object supports the following:
-        
+
           * `diskId` (`pulumi.Input[str]`)
           * `stagingStorageAccountId` (`pulumi.Input[str]`)
           * `targetDiskType` (`pulumi.Input[str]`)
           * `targetReplicaDiskType` (`pulumi.Input[str]`)
           * `target_resource_group_id` (`pulumi.Input[str]`) - Id of resource group where the VM should be created when a failover is done.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_replicated_vm.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["managed_disks"] = managed_disks
         __props__["name"] = name
         __props__["recovery_replication_policy_id"] = recovery_replication_policy_id

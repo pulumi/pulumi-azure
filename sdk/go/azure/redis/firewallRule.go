@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Firewall Rule associated with a Redis Cache.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_firewall_rule.html.markdown.
 type FirewallRule struct {
 	pulumi.CustomResourceState

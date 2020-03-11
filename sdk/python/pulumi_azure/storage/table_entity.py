@@ -35,7 +35,9 @@ class TableEntity(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, entity=None, partition_key=None, row_key=None, storage_account_name=None, table_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Entity within a Table in an Azure Storage Account.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_table_entity.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] entity: A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
@@ -45,8 +47,6 @@ class TableEntity(pulumi.CustomResource):
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] table_name: The name of the storage table in which to create the storage table entity.
                Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_table_entity.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,7 +91,7 @@ class TableEntity(pulumi.CustomResource):
         """
         Get an existing TableEntity resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -102,12 +102,11 @@ class TableEntity(pulumi.CustomResource):
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] table_name: The name of the storage table in which to create the storage table entity.
                Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_table_entity.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["entity"] = entity
         __props__["partition_key"] = partition_key
         __props__["row_key"] = row_key
