@@ -18,6 +18,8 @@ type EndpointPrivateServiceConnection struct {
 	Name string `pulumi:"name"`
 	// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	PrivateConnectionResourceId string `pulumi:"privateConnectionResourceId"`
+	// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
 	RequestMessage *string `pulumi:"requestMessage"`
 	// A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
@@ -38,6 +40,8 @@ type EndpointPrivateServiceConnectionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	PrivateConnectionResourceId pulumi.StringInput `pulumi:"privateConnectionResourceId"`
+	// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
 	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
 	// A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
@@ -126,6 +130,11 @@ func (o EndpointPrivateServiceConnectionOutput) PrivateConnectionResourceId() pu
 	return o.ApplyT(func (v EndpointPrivateServiceConnection) string { return v.PrivateConnectionResourceId }).(pulumi.StringOutput)
 }
 
+// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+func (o EndpointPrivateServiceConnectionOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v EndpointPrivateServiceConnection) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
 // A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
 func (o EndpointPrivateServiceConnectionOutput) RequestMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v EndpointPrivateServiceConnection) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
@@ -167,6 +176,11 @@ func (o EndpointPrivateServiceConnectionPtrOutput) Name() pulumi.StringOutput {
 // The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
 func (o EndpointPrivateServiceConnectionPtrOutput) PrivateConnectionResourceId() pulumi.StringOutput {
 	return o.ApplyT(func (v EndpointPrivateServiceConnection) string { return v.PrivateConnectionResourceId }).(pulumi.StringOutput)
+}
+
+// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+func (o EndpointPrivateServiceConnectionPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v EndpointPrivateServiceConnection) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.

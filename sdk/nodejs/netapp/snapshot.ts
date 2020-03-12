@@ -59,6 +59,10 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
      */
     public readonly volumeName!: pulumi.Output<string>;
@@ -80,6 +84,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["poolName"] = state ? state.poolName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["volumeName"] = state ? state.volumeName : undefined;
         } else {
             const args = argsOrState as SnapshotArgs | undefined;
@@ -100,6 +105,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["volumeName"] = args ? args.volumeName : undefined;
         }
         if (!opts) {
@@ -138,6 +144,10 @@ export interface SnapshotState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
      */
     readonly volumeName?: pulumi.Input<string>;
@@ -167,6 +177,10 @@ export interface SnapshotArgs {
      * The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
      */

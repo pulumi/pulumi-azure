@@ -17,6 +17,12 @@ namespace Pulumi.Azure.PrivateDns
     public partial class CnameRecord : Pulumi.CustomResource
     {
         /// <summary>
+        /// The FQDN of the DNS CNAME Record.
+        /// </summary>
+        [Output("fqdn")]
+        public Output<string> Fqdn { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the DNS CNAME Record.
         /// </summary>
         [Output("name")]
@@ -141,6 +147,12 @@ namespace Pulumi.Azure.PrivateDns
 
     public sealed class CnameRecordState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The FQDN of the DNS CNAME Record.
+        /// </summary>
+        [Input("fqdn")]
+        public Input<string>? Fqdn { get; set; }
+
         /// <summary>
         /// The name of the DNS CNAME Record.
         /// </summary>

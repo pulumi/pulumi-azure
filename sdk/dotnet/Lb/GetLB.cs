@@ -123,6 +123,10 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         public readonly string PrivateIpAddressAllocation;
         /// <summary>
+        /// The Private IP Address Version, either `IPv4` or `IPv6`.
+        /// </summary>
+        public readonly string PrivateIpAddressVersion;
+        /// <summary>
         /// The ID of a  Public IP Address which is associated with this Load Balancer.
         /// </summary>
         public readonly string PublicIpAddressId;
@@ -141,6 +145,7 @@ namespace Pulumi.Azure.Lb
             string name,
             string privateIpAddress,
             string privateIpAddressAllocation,
+            string privateIpAddressVersion,
             string publicIpAddressId,
             string subnetId,
             ImmutableArray<string> zones)
@@ -149,6 +154,7 @@ namespace Pulumi.Azure.Lb
             Name = name;
             PrivateIpAddress = privateIpAddress;
             PrivateIpAddressAllocation = privateIpAddressAllocation;
+            PrivateIpAddressVersion = privateIpAddressVersion;
             PublicIpAddressId = publicIpAddressId;
             SubnetId = subnetId;
             Zones = zones;

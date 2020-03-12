@@ -171,9 +171,10 @@ func (o AccountActiveDirectoryPtrOutput) Username() pulumi.StringOutput {
 
 type VolumeExportPolicyRule struct {
 	AllowedClients []string `pulumi:"allowedClients"`
-	CifsEnabled bool `pulumi:"cifsEnabled"`
-	Nfsv3Enabled bool `pulumi:"nfsv3Enabled"`
-	Nfsv4Enabled bool `pulumi:"nfsv4Enabled"`
+	CifsEnabled *bool `pulumi:"cifsEnabled"`
+	Nfsv3Enabled *bool `pulumi:"nfsv3Enabled"`
+	Nfsv4Enabled *bool `pulumi:"nfsv4Enabled"`
+	ProtocolsEnabled *string `pulumi:"protocolsEnabled"`
 	RuleIndex int `pulumi:"ruleIndex"`
 	UnixReadOnly *bool `pulumi:"unixReadOnly"`
 	UnixReadWrite *bool `pulumi:"unixReadWrite"`
@@ -188,9 +189,10 @@ type VolumeExportPolicyRuleInput interface {
 
 type VolumeExportPolicyRuleArgs struct {
 	AllowedClients pulumi.StringArrayInput `pulumi:"allowedClients"`
-	CifsEnabled pulumi.BoolInput `pulumi:"cifsEnabled"`
-	Nfsv3Enabled pulumi.BoolInput `pulumi:"nfsv3Enabled"`
-	Nfsv4Enabled pulumi.BoolInput `pulumi:"nfsv4Enabled"`
+	CifsEnabled pulumi.BoolPtrInput `pulumi:"cifsEnabled"`
+	Nfsv3Enabled pulumi.BoolPtrInput `pulumi:"nfsv3Enabled"`
+	Nfsv4Enabled pulumi.BoolPtrInput `pulumi:"nfsv4Enabled"`
+	ProtocolsEnabled pulumi.StringPtrInput `pulumi:"protocolsEnabled"`
 	RuleIndex pulumi.IntInput `pulumi:"ruleIndex"`
 	UnixReadOnly pulumi.BoolPtrInput `pulumi:"unixReadOnly"`
 	UnixReadWrite pulumi.BoolPtrInput `pulumi:"unixReadWrite"`
@@ -247,16 +249,20 @@ func (o VolumeExportPolicyRuleOutput) AllowedClients() pulumi.StringArrayOutput 
 	return o.ApplyT(func (v VolumeExportPolicyRule) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
 }
 
-func (o VolumeExportPolicyRuleOutput) CifsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) bool { return v.CifsEnabled }).(pulumi.BoolOutput)
+func (o VolumeExportPolicyRuleOutput) CifsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v VolumeExportPolicyRule) *bool { return v.CifsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o VolumeExportPolicyRuleOutput) Nfsv3Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) bool { return v.Nfsv3Enabled }).(pulumi.BoolOutput)
+func (o VolumeExportPolicyRuleOutput) Nfsv3Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v VolumeExportPolicyRule) *bool { return v.Nfsv3Enabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o VolumeExportPolicyRuleOutput) Nfsv4Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) bool { return v.Nfsv4Enabled }).(pulumi.BoolOutput)
+func (o VolumeExportPolicyRuleOutput) Nfsv4Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v VolumeExportPolicyRule) *bool { return v.Nfsv4Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o VolumeExportPolicyRuleOutput) ProtocolsEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v VolumeExportPolicyRule) *string { return v.ProtocolsEnabled }).(pulumi.StringPtrOutput)
 }
 
 func (o VolumeExportPolicyRuleOutput) RuleIndex() pulumi.IntOutput {

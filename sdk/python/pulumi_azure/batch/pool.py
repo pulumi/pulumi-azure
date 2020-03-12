@@ -80,6 +80,7 @@ class Pool(pulumi.CustomResource):
 
         * `protocol` (`str`)
 
+      * `publicIps` (`list`)
       * `subnet_id` (`str`)
     """
     node_agent_sku_id: pulumi.Output[str]
@@ -193,6 +194,7 @@ class Pool(pulumi.CustomResource):
 
             * `protocol` (`pulumi.Input[str]`)
 
+          * `publicIps` (`pulumi.Input[list]`)
           * `subnet_id` (`pulumi.Input[str]`)
 
         The **start_task** object supports the following:
@@ -339,6 +341,7 @@ class Pool(pulumi.CustomResource):
 
             * `protocol` (`pulumi.Input[str]`)
 
+          * `publicIps` (`pulumi.Input[list]`)
           * `subnet_id` (`pulumi.Input[str]`)
 
         The **start_task** object supports the following:

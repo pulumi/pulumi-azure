@@ -87,6 +87,10 @@ namespace Pulumi.Azure.Redis
         /// The Primary Access Key for the Redis Instance
         /// </summary>
         public readonly string PrimaryAccessKey;
+        /// <summary>
+        /// The primary connection string of the Redis Instance.
+        /// </summary>
+        public readonly string PrimaryConnectionString;
         public readonly string PrivateStaticIpAddress;
         /// <summary>
         /// A `redis_configuration` block as defined below.
@@ -97,6 +101,10 @@ namespace Pulumi.Azure.Redis
         /// The Secondary Access Key for the Redis Instance
         /// </summary>
         public readonly string SecondaryAccessKey;
+        /// <summary>
+        /// The secondary connection string of the Redis Instance.
+        /// </summary>
+        public readonly string SecondaryConnectionString;
         public readonly int ShardCount;
         /// <summary>
         /// The SKU of Redis used. Possible values are `Basic`, `Standard` and `Premium`.
@@ -126,10 +134,12 @@ namespace Pulumi.Azure.Redis
             ImmutableArray<Outputs.GetCachePatchSchedulesResult> patchSchedules,
             int port,
             string primaryAccessKey,
+            string primaryConnectionString,
             string privateStaticIpAddress,
             ImmutableArray<Outputs.GetCacheRedisConfigurationsResult> redisConfigurations,
             string resourceGroupName,
             string secondaryAccessKey,
+            string secondaryConnectionString,
             int shardCount,
             string skuName,
             int sslPort,
@@ -148,10 +158,12 @@ namespace Pulumi.Azure.Redis
             PatchSchedules = patchSchedules;
             Port = port;
             PrimaryAccessKey = primaryAccessKey;
+            PrimaryConnectionString = primaryConnectionString;
             PrivateStaticIpAddress = privateStaticIpAddress;
             RedisConfigurations = redisConfigurations;
             ResourceGroupName = resourceGroupName;
             SecondaryAccessKey = secondaryAccessKey;
+            SecondaryConnectionString = secondaryConnectionString;
             ShardCount = shardCount;
             SkuName = skuName;
             SslPort = sslPort;

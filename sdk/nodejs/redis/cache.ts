@@ -107,6 +107,10 @@ export class Cache extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
     /**
+     * The primary connection string of the Redis Instance.
+     */
+    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
+    /**
      * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
      */
     public readonly privateStaticIpAddress!: pulumi.Output<string>;
@@ -123,6 +127,10 @@ export class Cache extends pulumi.CustomResource {
      * The Secondary Access Key for the Redis Instance
      */
     public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
+    /**
+     * The secondary connection string of the Redis Instance.
+     */
+    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
     /**
      * *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
      */
@@ -170,10 +178,12 @@ export class Cache extends pulumi.CustomResource {
             inputs["patchSchedules"] = state ? state.patchSchedules : undefined;
             inputs["port"] = state ? state.port : undefined;
             inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
+            inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
             inputs["privateStaticIpAddress"] = state ? state.privateStaticIpAddress : undefined;
             inputs["redisConfiguration"] = state ? state.redisConfiguration : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
+            inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
             inputs["shardCount"] = state ? state.shardCount : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["sslPort"] = state ? state.sslPort : undefined;
@@ -212,7 +222,9 @@ export class Cache extends pulumi.CustomResource {
             inputs["hostname"] = undefined /*out*/;
             inputs["port"] = undefined /*out*/;
             inputs["primaryAccessKey"] = undefined /*out*/;
+            inputs["primaryConnectionString"] = undefined /*out*/;
             inputs["secondaryAccessKey"] = undefined /*out*/;
+            inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["sslPort"] = undefined /*out*/;
         }
         if (!opts) {
@@ -272,6 +284,10 @@ export interface CacheState {
      */
     readonly primaryAccessKey?: pulumi.Input<string>;
     /**
+     * The primary connection string of the Redis Instance.
+     */
+    readonly primaryConnectionString?: pulumi.Input<string>;
+    /**
      * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
      */
     readonly privateStaticIpAddress?: pulumi.Input<string>;
@@ -288,6 +304,10 @@ export interface CacheState {
      * The Secondary Access Key for the Redis Instance
      */
     readonly secondaryAccessKey?: pulumi.Input<string>;
+    /**
+     * The secondary connection string of the Redis Instance.
+     */
+    readonly secondaryConnectionString?: pulumi.Input<string>;
     /**
      * *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
      */

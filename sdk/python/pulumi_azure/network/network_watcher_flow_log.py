@@ -42,6 +42,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
     A `traffic_analytics` block as documented below.
 
       * `enabled` (`bool`) - Boolean flag to enable/disable traffic analytics.
+      * `intervalInMinutes` (`float`) - How frequently service should do flow analytics in minutes.
       * `workspace_id` (`str`) - The resource guid of the attached workspace.
       * `workspaceRegion` (`str`) - The location of the attached workspace.
       * `workspace_resource_id` (`str`) - The resource ID of the attached workspace.
@@ -75,6 +76,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         The **traffic_analytics** object supports the following:
 
           * `enabled` (`pulumi.Input[bool]`) - Boolean flag to enable/disable traffic analytics.
+          * `intervalInMinutes` (`pulumi.Input[float]`) - How frequently service should do flow analytics in minutes.
           * `workspace_id` (`pulumi.Input[str]`) - The resource guid of the attached workspace.
           * `workspaceRegion` (`pulumi.Input[str]`) - The location of the attached workspace.
           * `workspace_resource_id` (`pulumi.Input[str]`) - The resource ID of the attached workspace.
@@ -148,6 +150,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         The **traffic_analytics** object supports the following:
 
           * `enabled` (`pulumi.Input[bool]`) - Boolean flag to enable/disable traffic analytics.
+          * `intervalInMinutes` (`pulumi.Input[float]`) - How frequently service should do flow analytics in minutes.
           * `workspace_id` (`pulumi.Input[str]`) - The resource guid of the attached workspace.
           * `workspaceRegion` (`pulumi.Input[str]`) - The location of the attached workspace.
           * `workspace_resource_id` (`pulumi.Input[str]`) - The resource ID of the attached workspace.

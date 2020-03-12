@@ -62,6 +62,7 @@ export interface GetVolumeResult {
     readonly location: string;
     readonly name: string;
     readonly poolName: string;
+    readonly protocols: string[];
     readonly resourceGroupName: string;
     /**
      * The service level of the file system.

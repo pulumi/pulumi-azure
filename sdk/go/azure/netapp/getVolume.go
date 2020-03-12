@@ -42,6 +42,7 @@ type LookupVolumeResult struct {
 	Location string `pulumi:"location"`
 	Name string `pulumi:"name"`
 	PoolName string `pulumi:"poolName"`
+	Protocols []string `pulumi:"protocols"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The service level of the file system.
 	ServiceLevel string `pulumi:"serviceLevel"`

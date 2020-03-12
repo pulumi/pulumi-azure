@@ -105,6 +105,12 @@ namespace Pulumi.Azure.Redis
         public Output<string> PrimaryAccessKey { get; private set; } = null!;
 
         /// <summary>
+        /// The primary connection string of the Redis Instance.
+        /// </summary>
+        [Output("primaryConnectionString")]
+        public Output<string> PrimaryConnectionString { get; private set; } = null!;
+
+        /// <summary>
         /// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
         /// </summary>
         [Output("privateStaticIpAddress")]
@@ -128,6 +134,12 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         [Output("secondaryAccessKey")]
         public Output<string> SecondaryAccessKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The secondary connection string of the Redis Instance.
+        /// </summary>
+        [Output("secondaryConnectionString")]
+        public Output<string> SecondaryConnectionString { get; private set; } = null!;
 
         /// <summary>
         /// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
@@ -390,6 +402,12 @@ namespace Pulumi.Azure.Redis
         public Input<string>? PrimaryAccessKey { get; set; }
 
         /// <summary>
+        /// The primary connection string of the Redis Instance.
+        /// </summary>
+        [Input("primaryConnectionString")]
+        public Input<string>? PrimaryConnectionString { get; set; }
+
+        /// <summary>
         /// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateStaticIpAddress")]
@@ -413,6 +431,12 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         [Input("secondaryAccessKey")]
         public Input<string>? SecondaryAccessKey { get; set; }
+
+        /// <summary>
+        /// The secondary connection string of the Redis Instance.
+        /// </summary>
+        [Input("secondaryConnectionString")]
+        public Input<string>? SecondaryConnectionString { get; set; }
 
         /// <summary>
         /// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.

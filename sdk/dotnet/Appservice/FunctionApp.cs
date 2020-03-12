@@ -95,6 +95,12 @@ namespace Pulumi.Azure.AppService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A string indicating the Operating System type for this function app. 
+        /// </summary>
+        [Output("osType")]
+        public Output<string?> OsType { get; private set; } = null!;
+
+        /// <summary>
         /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         /// </summary>
         [Output("outboundIpAddresses")]
@@ -267,6 +273,12 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// A string indicating the Operating System type for this function app. 
+        /// </summary>
+        [Input("osType")]
+        public Input<string>? OsType { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the Function App.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -398,6 +410,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// A string indicating the Operating System type for this function app. 
+        /// </summary>
+        [Input("osType")]
+        public Input<string>? OsType { get; set; }
 
         /// <summary>
         /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`

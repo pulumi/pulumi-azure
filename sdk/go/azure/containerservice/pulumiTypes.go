@@ -2160,8 +2160,11 @@ type KubernetesClusterDefaultNodePool struct {
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	NodeCount *int `pulumi:"nodeCount"`
+	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	NodeTaints []string `pulumi:"nodeTaints"`
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	Type *string `pulumi:"type"`
 	VmSize string `pulumi:"vmSize"`
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
@@ -2184,8 +2187,11 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
+	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
 	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
 	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
 	VnetSubnetId pulumi.StringPtrInput `pulumi:"vnetSubnetId"`
@@ -2291,12 +2297,21 @@ func (o KubernetesClusterDefaultNodePoolOutput) NodeCount() pulumi.IntPtrOutput 
 	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
 }
 
+func (o KubernetesClusterDefaultNodePoolOutput) NodeLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
+}
+
 func (o KubernetesClusterDefaultNodePoolOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolOutput) OsDiskSizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.OsDiskSizeGb }).(pulumi.IntPtrOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o KubernetesClusterDefaultNodePoolOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolOutput) Type() pulumi.StringPtrOutput {
@@ -2362,12 +2377,21 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeCount() pulumi.IntPtrOutp
 	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
 }
 
+func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
+}
+
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskSizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.OsDiskSizeGb }).(pulumi.IntPtrOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Type() pulumi.StringPtrOutput {
@@ -4607,12 +4631,15 @@ type GetKubernetesClusterAgentPoolProfile struct {
 	MinCount int `pulumi:"minCount"`
 	// The name of the managed Kubernetes Cluster.
 	Name string `pulumi:"name"`
+	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// The list of Kubernetes taints which are applied to nodes in the agent pool
 	NodeTaints []string `pulumi:"nodeTaints"`
 	// The size of the Agent VM's Operating System Disk in GB.
 	OsDiskSizeGb int `pulumi:"osDiskSizeGb"`
 	// The Operating System used for the Agents.
 	OsType string `pulumi:"osType"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The type of the Agent Pool.
 	Type string `pulumi:"type"`
 	// The size of each VM in the Agent Pool (e.g. `Standard_F1`).
@@ -4644,12 +4671,15 @@ type GetKubernetesClusterAgentPoolProfileArgs struct {
 	MinCount pulumi.IntInput `pulumi:"minCount"`
 	// The name of the managed Kubernetes Cluster.
 	Name pulumi.StringInput `pulumi:"name"`
+	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
 	// The list of Kubernetes taints which are applied to nodes in the agent pool
 	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
 	// The size of the Agent VM's Operating System Disk in GB.
 	OsDiskSizeGb pulumi.IntInput `pulumi:"osDiskSizeGb"`
 	// The Operating System used for the Agents.
 	OsType pulumi.StringInput `pulumi:"osType"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The type of the Agent Pool.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The size of each VM in the Agent Pool (e.g. `Standard_F1`).
@@ -4744,6 +4774,10 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o GetKubernetesClusterAgentPoolProfileOutput) NodeLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
+}
+
 // The list of Kubernetes taints which are applied to nodes in the agent pool
 func (o GetKubernetesClusterAgentPoolProfileOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
@@ -4757,6 +4791,11 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) OsDiskSizeGb() pulumi.IntOut
 // The Operating System used for the Agents.
 func (o GetKubernetesClusterAgentPoolProfileOutput) OsType() pulumi.StringOutput {
 	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) string { return v.OsType }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o GetKubernetesClusterAgentPoolProfileOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The type of the Agent Pool.

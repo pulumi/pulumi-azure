@@ -37,6 +37,10 @@ export class CnameRecord extends pulumi.CustomResource {
     }
 
     /**
+     * The FQDN of the DNS CNAME Record.
+     */
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    /**
      * The name of the DNS CNAME Record.
      */
     public readonly name!: pulumi.Output<string>;
@@ -70,6 +74,7 @@ export class CnameRecord extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as CnameRecordState | undefined;
+            inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["record"] = state ? state.record : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -96,6 +101,7 @@ export class CnameRecord extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
+            inputs["fqdn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -112,6 +118,10 @@ export class CnameRecord extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CnameRecord resources.
  */
 export interface CnameRecordState {
+    /**
+     * The FQDN of the DNS CNAME Record.
+     */
+    readonly fqdn?: pulumi.Input<string>;
     /**
      * The name of the DNS CNAME Record.
      */

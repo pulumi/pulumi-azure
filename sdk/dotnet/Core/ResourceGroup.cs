@@ -10,28 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Core
 {
     /// <summary>
-    /// Manages a resource group on Azure.
+    /// Manages a Resource Group.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/resource_group.html.markdown.
     /// </summary>
     public partial class ResourceGroup : Pulumi.CustomResource
     {
         /// <summary>
-        /// The location where the resource group should be created.
-        /// For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
+        /// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. Must be unique on your
-        /// Azure subscription.
+        /// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags which should be assigned to the Resource Group.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -83,15 +81,13 @@ namespace Pulumi.Azure.Core
     public sealed class ResourceGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The location where the resource group should be created.
-        /// For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
+        /// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource group. Must be unique on your
-        /// Azure subscription.
+        /// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -100,7 +96,7 @@ namespace Pulumi.Azure.Core
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags which should be assigned to the Resource Group.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -116,15 +112,13 @@ namespace Pulumi.Azure.Core
     public sealed class ResourceGroupState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The location where the resource group should be created.
-        /// For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
+        /// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource group. Must be unique on your
-        /// Azure subscription.
+        /// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -133,7 +127,7 @@ namespace Pulumi.Azure.Core
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags which should be assigned to the Resource Group.
         /// </summary>
         public InputMap<string> Tags
         {

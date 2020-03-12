@@ -43,6 +43,8 @@ type FunctionApp struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Connection String.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A string indicating the Operating System type for this function app. 
+	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
@@ -124,6 +126,8 @@ type functionAppState struct {
 	Location *string `pulumi:"location"`
 	// The name of the Connection String.
 	Name *string `pulumi:"name"`
+	// A string indicating the Operating System type for this function app. 
+	OsType *string `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
@@ -169,6 +173,8 @@ type FunctionAppState struct {
 	Location pulumi.StringPtrInput
 	// The name of the Connection String.
 	Name pulumi.StringPtrInput
+	// A string indicating the Operating System type for this function app. 
+	OsType pulumi.StringPtrInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringPtrInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
@@ -214,6 +220,8 @@ type functionAppArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the Connection String.
 	Name *string `pulumi:"name"`
+	// A string indicating the Operating System type for this function app. 
+	OsType *string `pulumi:"osType"`
 	// The name of the resource group in which to create the Function App.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
@@ -250,6 +258,8 @@ type FunctionAppArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the Connection String.
 	Name pulumi.StringPtrInput
+	// A string indicating the Operating System type for this function app. 
+	OsType pulumi.StringPtrInput
 	// The name of the resource group in which to create the Function App.
 	ResourceGroupName pulumi.StringInput
 	// A `siteConfig` object as defined below.

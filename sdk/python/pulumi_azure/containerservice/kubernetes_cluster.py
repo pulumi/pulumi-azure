@@ -48,8 +48,10 @@ class KubernetesCluster(pulumi.CustomResource):
       * `min_count` (`float`)
       * `name` (`str`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
       * `node_count` (`float`)
+      * `node_labels` (`dict`)
       * `node_taints` (`list`)
       * `os_disk_size_gb` (`float`)
+      * `tags` (`dict`) - A mapping of tags to assign to the resource.
       * `type` (`str`)
       * `vm_size` (`str`)
       * `vnet_subnet_id` (`str`)
@@ -148,7 +150,7 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     private_fqdn: pulumi.Output[str]
     """
-    The FQDN for the Kubernetes Cluster when private link has been enabled, which is is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+    The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
     """
     private_link_enabled: pulumi.Output[bool]
     resource_group_name: pulumi.Output[str]
@@ -243,8 +245,10 @@ class KubernetesCluster(pulumi.CustomResource):
           * `min_count` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
           * `node_count` (`pulumi.Input[float]`)
+          * `node_labels` (`pulumi.Input[dict]`)
           * `node_taints` (`pulumi.Input[list]`)
           * `os_disk_size_gb` (`pulumi.Input[float]`)
+          * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the resource.
           * `type` (`pulumi.Input[str]`)
           * `vm_size` (`pulumi.Input[str]`)
           * `vnet_subnet_id` (`pulumi.Input[str]`)
@@ -378,7 +382,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+        :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] role_based_access_control: A `role_based_access_control` block.
         :param pulumi.Input[dict] service_principal: A `service_principal` block as documented below.
@@ -415,8 +419,10 @@ class KubernetesCluster(pulumi.CustomResource):
           * `min_count` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
           * `node_count` (`pulumi.Input[float]`)
+          * `node_labels` (`pulumi.Input[dict]`)
           * `node_taints` (`pulumi.Input[list]`)
           * `os_disk_size_gb` (`pulumi.Input[float]`)
+          * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the resource.
           * `type` (`pulumi.Input[str]`)
           * `vm_size` (`pulumi.Input[str]`)
           * `vnet_subnet_id` (`pulumi.Input[str]`)

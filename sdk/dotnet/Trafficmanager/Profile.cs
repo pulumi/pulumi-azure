@@ -17,8 +17,7 @@ namespace Pulumi.Azure.TrafficManager
     public partial class Profile : Pulumi.CustomResource
     {
         /// <summary>
-        /// This block specifies the DNS configuration of the
-        /// Profile, it supports the fields documented below.
+        /// This block specifies the DNS configuration of the Profile, it supports the fields documented below.
         /// </summary>
         [Output("dnsConfig")]
         public Output<Outputs.ProfileDnsConfig> DnsConfig { get; private set; } = null!;
@@ -30,29 +29,25 @@ namespace Pulumi.Azure.TrafficManager
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
-        /// This block specifies the Endpoint monitoring
-        /// configuration for the Profile, it supports the fields documented below.
+        /// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         /// </summary>
         [Output("monitorConfig")]
         public Output<Outputs.ProfileMonitorConfig> MonitorConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the virtual network. Changing this forces a
-        /// new resource to be created.
+        /// The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the profile, can be set to either
-        /// `Enabled` or `Disabled`. Defaults to `Enabled`.
+        /// The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         /// </summary>
         [Output("profileStatus")]
         public Output<string> ProfileStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the virtual network.
+        /// The name of the resource group in which to create the Traffic Manager profile.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -65,12 +60,6 @@ namespace Pulumi.Azure.TrafficManager
 
         /// <summary>
         /// Specifies the algorithm used to route traffic, possible values are:
-        /// - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
-        /// - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
-        /// - `Performance` - Traffic is routed via the User's closest Endpoint
-        /// - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
-        /// - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
-        /// - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
         /// </summary>
         [Output("trafficRoutingMethod")]
         public Output<string> TrafficRoutingMethod { get; private set; } = null!;
@@ -122,36 +111,31 @@ namespace Pulumi.Azure.TrafficManager
     public sealed class ProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This block specifies the DNS configuration of the
-        /// Profile, it supports the fields documented below.
+        /// This block specifies the DNS configuration of the Profile, it supports the fields documented below.
         /// </summary>
         [Input("dnsConfig", required: true)]
         public Input<Inputs.ProfileDnsConfigArgs> DnsConfig { get; set; } = null!;
 
         /// <summary>
-        /// This block specifies the Endpoint monitoring
-        /// configuration for the Profile, it supports the fields documented below.
+        /// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         /// </summary>
         [Input("monitorConfig", required: true)]
         public Input<Inputs.ProfileMonitorConfigArgs> MonitorConfig { get; set; } = null!;
 
         /// <summary>
-        /// The name of the virtual network. Changing this forces a
-        /// new resource to be created.
+        /// The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The status of the profile, can be set to either
-        /// `Enabled` or `Disabled`. Defaults to `Enabled`.
+        /// The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         /// </summary>
         [Input("profileStatus")]
         public Input<string>? ProfileStatus { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the virtual network.
+        /// The name of the resource group in which to create the Traffic Manager profile.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -170,12 +154,6 @@ namespace Pulumi.Azure.TrafficManager
 
         /// <summary>
         /// Specifies the algorithm used to route traffic, possible values are:
-        /// - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
-        /// - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
-        /// - `Performance` - Traffic is routed via the User's closest Endpoint
-        /// - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
-        /// - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
-        /// - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
         /// </summary>
         [Input("trafficRoutingMethod", required: true)]
         public Input<string> TrafficRoutingMethod { get; set; } = null!;
@@ -188,8 +166,7 @@ namespace Pulumi.Azure.TrafficManager
     public sealed class ProfileState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This block specifies the DNS configuration of the
-        /// Profile, it supports the fields documented below.
+        /// This block specifies the DNS configuration of the Profile, it supports the fields documented below.
         /// </summary>
         [Input("dnsConfig")]
         public Input<Inputs.ProfileDnsConfigGetArgs>? DnsConfig { get; set; }
@@ -201,29 +178,25 @@ namespace Pulumi.Azure.TrafficManager
         public Input<string>? Fqdn { get; set; }
 
         /// <summary>
-        /// This block specifies the Endpoint monitoring
-        /// configuration for the Profile, it supports the fields documented below.
+        /// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         /// </summary>
         [Input("monitorConfig")]
         public Input<Inputs.ProfileMonitorConfigGetArgs>? MonitorConfig { get; set; }
 
         /// <summary>
-        /// The name of the virtual network. Changing this forces a
-        /// new resource to be created.
+        /// The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The status of the profile, can be set to either
-        /// `Enabled` or `Disabled`. Defaults to `Enabled`.
+        /// The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         /// </summary>
         [Input("profileStatus")]
         public Input<string>? ProfileStatus { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the virtual network.
+        /// The name of the resource group in which to create the Traffic Manager profile.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -242,12 +215,6 @@ namespace Pulumi.Azure.TrafficManager
 
         /// <summary>
         /// Specifies the algorithm used to route traffic, possible values are:
-        /// - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
-        /// - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
-        /// - `Performance` - Traffic is routed via the User's closest Endpoint
-        /// - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
-        /// - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
-        /// - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
         /// </summary>
         [Input("trafficRoutingMethod")]
         public Input<string>? TrafficRoutingMethod { get; set; }

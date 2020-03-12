@@ -73,6 +73,9 @@ namespace Pulumi.Azure.Sql
         [Output("maxSizeBytes")]
         public Output<string> MaxSizeBytes { get; private set; } = null!;
 
+        [Output("maxSizeGb")]
+        public Output<string> MaxSizeGb { get; private set; } = null!;
+
         /// <summary>
         /// The name of the database.
         /// </summary>
@@ -234,6 +237,9 @@ namespace Pulumi.Azure.Sql
         [Input("maxSizeBytes")]
         public Input<string>? MaxSizeBytes { get; set; }
 
+        [Input("maxSizeGb")]
+        public Input<string>? MaxSizeGb { get; set; }
+
         /// <summary>
         /// The name of the database.
         /// </summary>
@@ -376,6 +382,9 @@ namespace Pulumi.Azure.Sql
         /// </summary>
         [Input("maxSizeBytes")]
         public Input<string>? MaxSizeBytes { get; set; }
+
+        [Input("maxSizeGb")]
+        public Input<string>? MaxSizeGb { get; set; }
 
         /// <summary>
         /// The name of the database.

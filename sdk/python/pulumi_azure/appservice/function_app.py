@@ -105,6 +105,10 @@ class FunctionApp(pulumi.CustomResource):
     """
     The name of the Connection String.
     """
+    os_type: pulumi.Output[str]
+    """
+    A string indicating the Operating System type for this function app. 
+    """
     outbound_ip_addresses: pulumi.Output[str]
     """
     A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
@@ -156,7 +160,7 @@ class FunctionApp(pulumi.CustomResource):
     """
     The runtime version associated with the Function App. Defaults to `~1`.
     """
-    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, storage_connection_string=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, location=None, name=None, os_type=None, resource_group_name=None, site_config=None, storage_connection_string=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Function App.
 
@@ -175,6 +179,7 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[dict] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Connection String.
+        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. 
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App.
         :param pulumi.Input[dict] site_config: A `site_config` object as defined below.
         :param pulumi.Input[str] storage_connection_string: The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
@@ -278,6 +283,7 @@ class FunctionApp(pulumi.CustomResource):
             __props__['identity'] = identity
             __props__['location'] = location
             __props__['name'] = name
+            __props__['os_type'] = os_type
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -299,7 +305,7 @@ class FunctionApp(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, default_hostname=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, kind=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, storage_connection_string=None, tags=None, version=None):
+    def get(resource_name, id, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, default_hostname=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, kind=None, location=None, name=None, os_type=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, storage_connection_string=None, tags=None, version=None):
         """
         Get an existing FunctionApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -320,6 +326,7 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] kind: The Function App kind - such as `functionapp,linux,container`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Connection String.
+        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. 
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App.
@@ -418,6 +425,7 @@ class FunctionApp(pulumi.CustomResource):
         __props__["kind"] = kind
         __props__["location"] = location
         __props__["name"] = name
+        __props__["os_type"] = os_type
         __props__["outbound_ip_addresses"] = outbound_ip_addresses
         __props__["possible_outbound_ip_addresses"] = possible_outbound_ip_addresses
         __props__["resource_group_name"] = resource_group_name

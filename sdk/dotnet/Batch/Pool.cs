@@ -570,6 +570,14 @@ namespace Pulumi.Azure.Batch
             set => _endpointConfigurations = value;
         }
 
+        [Input("publicIps")]
+        private InputList<string>? _publicIps;
+        public InputList<string> PublicIps
+        {
+            get => _publicIps ?? (_publicIps = new InputList<string>());
+            set => _publicIps = value;
+        }
+
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -678,6 +686,14 @@ namespace Pulumi.Azure.Batch
         {
             get => _endpointConfigurations ?? (_endpointConfigurations = new InputList<PoolNetworkConfigurationEndpointConfigurationsGetArgs>());
             set => _endpointConfigurations = value;
+        }
+
+        [Input("publicIps")]
+        private InputList<string>? _publicIps;
+        public InputList<string> PublicIps
+        {
+            get => _publicIps ?? (_publicIps = new InputList<string>());
+            set => _publicIps = value;
         }
 
         [Input("subnetId", required: true)]
@@ -1013,14 +1029,17 @@ namespace Pulumi.Azure.Batch
     public sealed class PoolNetworkConfiguration
     {
         public readonly ImmutableArray<PoolNetworkConfigurationEndpointConfigurations> EndpointConfigurations;
+        public readonly ImmutableArray<string> PublicIps;
         public readonly string SubnetId;
 
         [OutputConstructor]
         private PoolNetworkConfiguration(
             ImmutableArray<PoolNetworkConfigurationEndpointConfigurations> endpointConfigurations,
+            ImmutableArray<string> publicIps,
             string subnetId)
         {
             EndpointConfigurations = endpointConfigurations;
+            PublicIps = publicIps;
             SubnetId = subnetId;
         }
     }

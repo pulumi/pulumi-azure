@@ -12,8 +12,7 @@ from .. import utilities, tables
 class Profile(pulumi.CustomResource):
     dns_config: pulumi.Output[dict]
     """
-    This block specifies the DNS configuration of the
-    Profile, it supports the fields documented below.
+    This block specifies the DNS configuration of the Profile, it supports the fields documented below.
 
       * `relativeName` (`str`)
       * `ttl` (`float`)
@@ -24,8 +23,7 @@ class Profile(pulumi.CustomResource):
     """
     monitor_config: pulumi.Output[dict]
     """
-    This block specifies the Endpoint monitoring
-    configuration for the Profile, it supports the fields documented below.
+    This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
 
       * `expectedStatusCodeRanges` (`list`)
       * `interval_in_seconds` (`float`)
@@ -37,18 +35,15 @@ class Profile(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The name of the virtual network. Changing this forces a
-    new resource to be created.
+    The name of the Traffic Manager profile. Changing this forces a new resource to be created.
     """
     profile_status: pulumi.Output[str]
     """
-    The status of the profile, can be set to either
-    `Enabled` or `Disabled`. Defaults to `Enabled`.
+    The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
     """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the resource group in which to
-    create the virtual network.
+    The name of the resource group in which to create the Traffic Manager profile.
     """
     tags: pulumi.Output[dict]
     """
@@ -57,12 +52,6 @@ class Profile(pulumi.CustomResource):
     traffic_routing_method: pulumi.Output[str]
     """
     Specifies the algorithm used to route traffic, possible values are:
-    - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
-    - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
-    - `Performance` - Traffic is routed via the User's closest Endpoint
-    - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
-    - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
-    - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
     """
     def __init__(__self__, resource_name, opts=None, dns_config=None, monitor_config=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -72,24 +61,13 @@ class Profile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] dns_config: This block specifies the DNS configuration of the
-               Profile, it supports the fields documented below.
-        :param pulumi.Input[dict] monitor_config: This block specifies the Endpoint monitoring
-               configuration for the Profile, it supports the fields documented below.
-        :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a
-               new resource to be created.
-        :param pulumi.Input[str] profile_status: The status of the profile, can be set to either
-               `Enabled` or `Disabled`. Defaults to `Enabled`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the virtual network.
+        :param pulumi.Input[dict] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+        :param pulumi.Input[dict] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+        :param pulumi.Input[str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic, possible values are:
-               - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
-               - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
-               - `Performance` - Traffic is routed via the User's closest Endpoint
-               - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
-               - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
-               - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
 
         The **dns_config** object supports the following:
 
@@ -154,25 +132,14 @@ class Profile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] dns_config: This block specifies the DNS configuration of the
-               Profile, it supports the fields documented below.
+        :param pulumi.Input[dict] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.
         :param pulumi.Input[str] fqdn: The FQDN of the created Profile.
-        :param pulumi.Input[dict] monitor_config: This block specifies the Endpoint monitoring
-               configuration for the Profile, it supports the fields documented below.
-        :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a
-               new resource to be created.
-        :param pulumi.Input[str] profile_status: The status of the profile, can be set to either
-               `Enabled` or `Disabled`. Defaults to `Enabled`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the virtual network.
+        :param pulumi.Input[dict] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+        :param pulumi.Input[str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic, possible values are:
-               - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
-               - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
-               - `Performance` - Traffic is routed via the User's closest Endpoint
-               - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
-               - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
-               - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
 
         The **dns_config** object supports the following:
 

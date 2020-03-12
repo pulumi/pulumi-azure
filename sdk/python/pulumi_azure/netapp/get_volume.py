@@ -13,7 +13,7 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, account_name=None, id=None, location=None, name=None, pool_name=None, resource_group_name=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None):
+    def __init__(__self__, account_name=None, id=None, location=None, name=None, pool_name=None, protocols=None, resource_group_name=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         __self__.account_name = account_name
@@ -35,6 +35,9 @@ class GetVolumeResult:
         if pool_name and not isinstance(pool_name, str):
             raise TypeError("Expected argument 'pool_name' to be a str")
         __self__.pool_name = pool_name
+        if protocols and not isinstance(protocols, list):
+            raise TypeError("Expected argument 'protocols' to be a list")
+        __self__.protocols = protocols
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
@@ -73,6 +76,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             location=self.location,
             name=self.name,
             pool_name=self.pool_name,
+            protocols=self.protocols,
             resource_group_name=self.resource_group_name,
             service_level=self.service_level,
             storage_quota_in_gb=self.storage_quota_in_gb,
@@ -110,6 +114,7 @@ def get_volume(account_name=None,name=None,pool_name=None,resource_group_name=No
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         pool_name=__ret__.get('poolName'),
+        protocols=__ret__.get('protocols'),
         resource_group_name=__ret__.get('resourceGroupName'),
         service_level=__ret__.get('serviceLevel'),
         storage_quota_in_gb=__ret__.get('storageQuotaInGb'),

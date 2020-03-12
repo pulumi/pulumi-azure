@@ -61,6 +61,7 @@ namespace Pulumi.Azure.NetApp
         public readonly string Location;
         public readonly string Name;
         public readonly string PoolName;
+        public readonly ImmutableArray<string> Protocols;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The service level of the file system.
@@ -89,6 +90,7 @@ namespace Pulumi.Azure.NetApp
             string location,
             string name,
             string poolName,
+            ImmutableArray<string> protocols,
             string resourceGroupName,
             string serviceLevel,
             int storageQuotaInGb,
@@ -100,6 +102,7 @@ namespace Pulumi.Azure.NetApp
             Location = location;
             Name = name;
             PoolName = poolName;
+            Protocols = protocols;
             ResourceGroupName = resourceGroupName;
             ServiceLevel = serviceLevel;
             StorageQuotaInGb = storageQuotaInGb;

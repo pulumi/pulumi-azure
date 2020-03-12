@@ -25,6 +25,7 @@ class Endpoint(pulumi.CustomResource):
       * `isManualConnection` (`bool`) - Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
       * `name` (`str`) - Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
       * `privateConnectionResourceId` (`str`) - The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
+      * `private_ip_address` (`str`) - The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
       * `requestMessage` (`str`) - A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
       * `subresourceNames` (`list`) - A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
     """
@@ -59,6 +60,7 @@ class Endpoint(pulumi.CustomResource):
           * `isManualConnection` (`pulumi.Input[bool]`) - Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
           * `name` (`pulumi.Input[str]`) - Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
           * `privateConnectionResourceId` (`pulumi.Input[str]`) - The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
+          * `private_ip_address` (`pulumi.Input[str]`) - The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
           * `requestMessage` (`pulumi.Input[str]`) - A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
           * `subresourceNames` (`pulumi.Input[list]`) - A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         """
@@ -116,6 +118,7 @@ class Endpoint(pulumi.CustomResource):
           * `isManualConnection` (`pulumi.Input[bool]`) - Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
           * `name` (`pulumi.Input[str]`) - Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
           * `privateConnectionResourceId` (`pulumi.Input[str]`) - The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
+          * `private_ip_address` (`pulumi.Input[str]`) - The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
           * `requestMessage` (`pulumi.Input[str]`) - A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
           * `subresourceNames` (`pulumi.Input[list]`) - A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         """

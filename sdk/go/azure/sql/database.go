@@ -36,6 +36,7 @@ type Database struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	MaxSizeBytes pulumi.StringOutput `pulumi:"maxSizeBytes"`
+	MaxSizeGb pulumi.StringOutput `pulumi:"maxSizeGb"`
 	// The name of the database.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
@@ -116,6 +117,7 @@ type databaseState struct {
 	Location *string `pulumi:"location"`
 	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	MaxSizeBytes *string `pulumi:"maxSizeBytes"`
+	MaxSizeGb *string `pulumi:"maxSizeGb"`
 	// The name of the database.
 	Name *string `pulumi:"name"`
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
@@ -163,6 +165,7 @@ type DatabaseState struct {
 	Location pulumi.StringPtrInput
 	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	MaxSizeBytes pulumi.StringPtrInput
+	MaxSizeGb pulumi.StringPtrInput
 	// The name of the database.
 	Name pulumi.StringPtrInput
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
@@ -209,6 +212,7 @@ type databaseArgs struct {
 	Location *string `pulumi:"location"`
 	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	MaxSizeBytes *string `pulumi:"maxSizeBytes"`
+	MaxSizeGb *string `pulumi:"maxSizeGb"`
 	// The name of the database.
 	Name *string `pulumi:"name"`
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
@@ -252,6 +256,7 @@ type DatabaseArgs struct {
 	Location pulumi.StringPtrInput
 	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	MaxSizeBytes pulumi.StringPtrInput
+	MaxSizeGb pulumi.StringPtrInput
 	// The name of the database.
 	Name pulumi.StringPtrInput
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).

@@ -44,7 +44,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
     """
     type_handler_version: pulumi.Output[str]
     """
-    Specifies the version of the Script Handler which should be used.
+    Specifies the version of the extension to use, available versions can be found using the Azure CLI.
     """
     virtual_machine_scale_set_id: pulumi.Output[str]
     """
@@ -68,7 +68,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[str] publisher: Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[str] settings: A JSON String which specifies Settings for the Extension.
         :param pulumi.Input[str] type: Specifies the Type of the Extension. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type_handler_version: Specifies the version of the Script Handler which should be used.
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
@@ -129,7 +129,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[str] publisher: Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[str] settings: A JSON String which specifies Settings for the Extension.
         :param pulumi.Input[str] type: Specifies the Type of the Extension. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type_handler_version: Specifies the version of the Script Handler which should be used.
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

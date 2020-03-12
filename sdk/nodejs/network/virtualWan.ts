@@ -70,6 +70,10 @@ export class VirtualWan extends pulumi.CustomResource {
      * A mapping of tags to assign to the Virtual WAN.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+     */
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualWan resource with the given unique name, arguments, and options.
@@ -91,6 +95,7 @@ export class VirtualWan extends pulumi.CustomResource {
             inputs["office365LocalBreakoutCategory"] = state ? state.office365LocalBreakoutCategory : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as VirtualWanArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
@@ -104,6 +109,7 @@ export class VirtualWan extends pulumi.CustomResource {
             inputs["office365LocalBreakoutCategory"] = args ? args.office365LocalBreakoutCategory : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
         }
         if (!opts) {
             opts = {}
@@ -152,6 +158,10 @@ export interface VirtualWanState {
      * A mapping of tags to assign to the Virtual WAN.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+     */
+    readonly type?: pulumi.Input<string>;
 }
 
 /**
@@ -190,4 +200,8 @@ export interface VirtualWanArgs {
      * A mapping of tags to assign to the Virtual WAN.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+     */
+    readonly type?: pulumi.Input<string>;
 }

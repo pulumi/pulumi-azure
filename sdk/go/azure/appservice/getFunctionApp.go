@@ -47,6 +47,8 @@ type LookupFunctionAppResult struct {
 	Location string `pulumi:"location"`
 	// The name of the Connection String.
 	Name string `pulumi:"name"`
+	// A string indicating the Operating System type for this function app.
+	OsType string `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses.
 	OutboundIpAddresses string `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses, not all of which are necessarily in use. Superset of `outboundIpAddresses`.

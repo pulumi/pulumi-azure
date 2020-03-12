@@ -762,6 +762,160 @@ func (o FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput) Mode() pulumi.Stri
 	return o.ApplyT(func (v FailoverGroupReadonlyEndpointFailoverPolicy) string { return v.Mode }).(pulumi.StringOutput)
 }
 
+type SqlServerExtendedAuditingPolicy struct {
+	// (Optional) Specifies the number of days to retain logs for in the storage account.
+	RetentionInDays *int `pulumi:"retentionInDays"`
+	// (Required)  Specifies the access key to use for the auditing storage account.
+	StorageAccountAccessKey string `pulumi:"storageAccountAccessKey"`
+	// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
+	// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+	StorageEndpoint string `pulumi:"storageEndpoint"`
+}
+
+type SqlServerExtendedAuditingPolicyInput interface {
+	pulumi.Input
+
+	ToSqlServerExtendedAuditingPolicyOutput() SqlServerExtendedAuditingPolicyOutput
+	ToSqlServerExtendedAuditingPolicyOutputWithContext(context.Context) SqlServerExtendedAuditingPolicyOutput
+}
+
+type SqlServerExtendedAuditingPolicyArgs struct {
+	// (Optional) Specifies the number of days to retain logs for in the storage account.
+	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
+	// (Required)  Specifies the access key to use for the auditing storage account.
+	StorageAccountAccessKey pulumi.StringInput `pulumi:"storageAccountAccessKey"`
+	// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput `pulumi:"storageAccountAccessKeyIsSecondary"`
+	// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+	StorageEndpoint pulumi.StringInput `pulumi:"storageEndpoint"`
+}
+
+func (SqlServerExtendedAuditingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlServerExtendedAuditingPolicy)(nil)).Elem()
+}
+
+func (i SqlServerExtendedAuditingPolicyArgs) ToSqlServerExtendedAuditingPolicyOutput() SqlServerExtendedAuditingPolicyOutput {
+	return i.ToSqlServerExtendedAuditingPolicyOutputWithContext(context.Background())
+}
+
+func (i SqlServerExtendedAuditingPolicyArgs) ToSqlServerExtendedAuditingPolicyOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlServerExtendedAuditingPolicyOutput)
+}
+
+func (i SqlServerExtendedAuditingPolicyArgs) ToSqlServerExtendedAuditingPolicyPtrOutput() SqlServerExtendedAuditingPolicyPtrOutput {
+	return i.ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i SqlServerExtendedAuditingPolicyArgs) ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlServerExtendedAuditingPolicyOutput).ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(ctx)
+}
+
+type SqlServerExtendedAuditingPolicyPtrInput interface {
+	pulumi.Input
+
+	ToSqlServerExtendedAuditingPolicyPtrOutput() SqlServerExtendedAuditingPolicyPtrOutput
+	ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(context.Context) SqlServerExtendedAuditingPolicyPtrOutput
+}
+
+type sqlServerExtendedAuditingPolicyPtrType SqlServerExtendedAuditingPolicyArgs
+
+func SqlServerExtendedAuditingPolicyPtr(v *SqlServerExtendedAuditingPolicyArgs) SqlServerExtendedAuditingPolicyPtrInput {	return (*sqlServerExtendedAuditingPolicyPtrType)(v)
+}
+
+func (*sqlServerExtendedAuditingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlServerExtendedAuditingPolicy)(nil)).Elem()
+}
+
+func (i *sqlServerExtendedAuditingPolicyPtrType) ToSqlServerExtendedAuditingPolicyPtrOutput() SqlServerExtendedAuditingPolicyPtrOutput {
+	return i.ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlServerExtendedAuditingPolicyPtrType) ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlServerExtendedAuditingPolicyPtrOutput)
+}
+
+type SqlServerExtendedAuditingPolicyOutput struct { *pulumi.OutputState }
+
+func (SqlServerExtendedAuditingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlServerExtendedAuditingPolicy)(nil)).Elem()
+}
+
+func (o SqlServerExtendedAuditingPolicyOutput) ToSqlServerExtendedAuditingPolicyOutput() SqlServerExtendedAuditingPolicyOutput {
+	return o
+}
+
+func (o SqlServerExtendedAuditingPolicyOutput) ToSqlServerExtendedAuditingPolicyOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyOutput {
+	return o
+}
+
+func (o SqlServerExtendedAuditingPolicyOutput) ToSqlServerExtendedAuditingPolicyPtrOutput() SqlServerExtendedAuditingPolicyPtrOutput {
+	return o.ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o SqlServerExtendedAuditingPolicyOutput) ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyPtrOutput {
+	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *SqlServerExtendedAuditingPolicy {
+		return &v
+	}).(SqlServerExtendedAuditingPolicyPtrOutput)
+}
+// (Optional) Specifies the number of days to retain logs for in the storage account.
+func (o SqlServerExtendedAuditingPolicyOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v SqlServerExtendedAuditingPolicy) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// (Required)  Specifies the access key to use for the auditing storage account.
+func (o SqlServerExtendedAuditingPolicyOutput) StorageAccountAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func (v SqlServerExtendedAuditingPolicy) string { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
+}
+
+// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+func (o SqlServerExtendedAuditingPolicyOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v SqlServerExtendedAuditingPolicy) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
+}
+
+// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+func (o SqlServerExtendedAuditingPolicyOutput) StorageEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func (v SqlServerExtendedAuditingPolicy) string { return v.StorageEndpoint }).(pulumi.StringOutput)
+}
+
+type SqlServerExtendedAuditingPolicyPtrOutput struct { *pulumi.OutputState}
+
+func (SqlServerExtendedAuditingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlServerExtendedAuditingPolicy)(nil)).Elem()
+}
+
+func (o SqlServerExtendedAuditingPolicyPtrOutput) ToSqlServerExtendedAuditingPolicyPtrOutput() SqlServerExtendedAuditingPolicyPtrOutput {
+	return o
+}
+
+func (o SqlServerExtendedAuditingPolicyPtrOutput) ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyPtrOutput {
+	return o
+}
+
+func (o SqlServerExtendedAuditingPolicyPtrOutput) Elem() SqlServerExtendedAuditingPolicyOutput {
+	return o.ApplyT(func (v *SqlServerExtendedAuditingPolicy) SqlServerExtendedAuditingPolicy { return *v }).(SqlServerExtendedAuditingPolicyOutput)
+}
+
+// (Optional) Specifies the number of days to retain logs for in the storage account.
+func (o SqlServerExtendedAuditingPolicyPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v SqlServerExtendedAuditingPolicy) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// (Required)  Specifies the access key to use for the auditing storage account.
+func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageAccountAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func (v SqlServerExtendedAuditingPolicy) string { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
+}
+
+// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v SqlServerExtendedAuditingPolicy) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
+}
+
+// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func (v SqlServerExtendedAuditingPolicy) string { return v.StorageEndpoint }).(pulumi.StringOutput)
+}
+
 type SqlServerIdentity struct {
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 	PrincipalId *string `pulumi:"principalId"`
@@ -1016,6 +1170,8 @@ func init() {
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadonlyEndpointFailoverPolicyOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput{})
+	pulumi.RegisterOutputType(SqlServerExtendedAuditingPolicyOutput{})
+	pulumi.RegisterOutputType(SqlServerExtendedAuditingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SqlServerIdentityOutput{})
 	pulumi.RegisterOutputType(SqlServerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityOutput{})

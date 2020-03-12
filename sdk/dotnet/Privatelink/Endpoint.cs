@@ -192,6 +192,12 @@ namespace Pulumi.Azure.PrivateLink
         public Input<string> PrivateConnectionResourceId { get; set; } = null!;
 
         /// <summary>
+        /// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+        /// </summary>
+        [Input("privateIpAddress")]
+        public Input<string>? PrivateIpAddress { get; set; }
+
+        /// <summary>
         /// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
         /// </summary>
         [Input("requestMessage")]
@@ -233,6 +239,12 @@ namespace Pulumi.Azure.PrivateLink
         /// </summary>
         [Input("privateConnectionResourceId", required: true)]
         public Input<string> PrivateConnectionResourceId { get; set; } = null!;
+
+        /// <summary>
+        /// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+        /// </summary>
+        [Input("privateIpAddress")]
+        public Input<string>? PrivateIpAddress { get; set; }
 
         /// <summary>
         /// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
@@ -277,6 +289,10 @@ namespace Pulumi.Azure.PrivateLink
         /// </summary>
         public readonly string PrivateConnectionResourceId;
         /// <summary>
+        /// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+        /// </summary>
+        public readonly string PrivateIpAddress;
+        /// <summary>
         /// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
         /// </summary>
         public readonly string? RequestMessage;
@@ -290,12 +306,14 @@ namespace Pulumi.Azure.PrivateLink
             bool isManualConnection,
             string name,
             string privateConnectionResourceId,
+            string privateIpAddress,
             string? requestMessage,
             ImmutableArray<string> subresourceNames)
         {
             IsManualConnection = isManualConnection;
             Name = name;
             PrivateConnectionResourceId = privateConnectionResourceId;
+            PrivateIpAddress = privateIpAddress;
             RequestMessage = requestMessage;
             SubresourceNames = subresourceNames;
         }

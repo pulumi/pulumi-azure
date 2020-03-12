@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the version of the Script Handler which should be used.
+        /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         /// </summary>
         [Output("typeHandlerVersion")]
         public Output<string> TypeHandlerVersion { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the version of the Script Handler which should be used.
+        /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         /// </summary>
         [Input("typeHandlerVersion", required: true)]
         public Input<string> TypeHandlerVersion { get; set; } = null!;
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Specifies the version of the Script Handler which should be used.
+        /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         /// </summary>
         [Input("typeHandlerVersion")]
         public Input<string>? TypeHandlerVersion { get; set; }

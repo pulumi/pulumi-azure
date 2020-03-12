@@ -39,7 +39,11 @@ class DscConfiguration(pulumi.CustomResource):
     The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
     """
     state: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, content_embedded=None, description=None, location=None, log_verbose=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, content_embedded=None, description=None, location=None, log_verbose=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Automation DSC Configuration.
 
@@ -54,6 +58,7 @@ class DscConfiguration(pulumi.CustomResource):
         :param pulumi.Input[bool] log_verbose: Verbose log option.
         :param pulumi.Input[str] name: Specifies the name of the DSC Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -85,6 +90,7 @@ class DscConfiguration(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['tags'] = tags
             __props__['state'] = None
         super(DscConfiguration, __self__).__init__(
             'azure:automation/dscConfiguration:DscConfiguration',
@@ -93,7 +99,7 @@ class DscConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, automation_account_name=None, content_embedded=None, description=None, location=None, log_verbose=None, name=None, resource_group_name=None, state=None):
+    def get(resource_name, id, opts=None, automation_account_name=None, content_embedded=None, description=None, location=None, log_verbose=None, name=None, resource_group_name=None, state=None, tags=None):
         """
         Get an existing DscConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -108,6 +114,7 @@ class DscConfiguration(pulumi.CustomResource):
         :param pulumi.Input[bool] log_verbose: Verbose log option.
         :param pulumi.Input[str] name: Specifies the name of the DSC Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -121,6 +128,7 @@ class DscConfiguration(pulumi.CustomResource):
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["state"] = state
+        __props__["tags"] = tags
         return DscConfiguration(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

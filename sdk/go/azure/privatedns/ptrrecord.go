@@ -17,6 +17,8 @@ import (
 type PTRRecord struct {
 	pulumi.CustomResourceState
 
+	// The FQDN of the DNS PTR Record.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS PTR Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of Fully Qualified Domain Names.
@@ -70,6 +72,8 @@ func GetPTRRecord(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PTRRecord resources.
 type ptrrecordState struct {
+	// The FQDN of the DNS PTR Record.
+	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS PTR Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// List of Fully Qualified Domain Names.
@@ -84,6 +88,8 @@ type ptrrecordState struct {
 }
 
 type PTRRecordState struct {
+	// The FQDN of the DNS PTR Record.
+	Fqdn pulumi.StringPtrInput
 	// The name of the DNS PTR Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// List of Fully Qualified Domain Names.

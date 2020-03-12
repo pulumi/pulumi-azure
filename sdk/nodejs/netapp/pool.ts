@@ -62,6 +62,10 @@ export class Pool extends pulumi.CustomResource {
      * Provisioned size of the pool in TB. Value must be between `4` and `500`.
      */
     public readonly sizeInTb!: pulumi.Output<number>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Pool resource with the given unique name, arguments, and options.
@@ -81,6 +85,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["serviceLevel"] = state ? state.serviceLevel : undefined;
             inputs["sizeInTb"] = state ? state.sizeInTb : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PoolArgs | undefined;
             if (!args || args.accountName === undefined) {
@@ -101,6 +106,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceLevel"] = args ? args.serviceLevel : undefined;
             inputs["sizeInTb"] = args ? args.sizeInTb : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts) {
             opts = {}
@@ -141,6 +147,10 @@ export interface PoolState {
      * Provisioned size of the pool in TB. Value must be between `4` and `500`.
      */
     readonly sizeInTb?: pulumi.Input<number>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -171,4 +181,8 @@ export interface PoolArgs {
      * Provisioned size of the pool in TB. Value must be between `4` and `500`.
      */
     readonly sizeInTb: pulumi.Input<number>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

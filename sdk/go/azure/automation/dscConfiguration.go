@@ -32,6 +32,8 @@ type DscConfiguration struct {
 	// The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	State pulumi.StringOutput `pulumi:"state"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewDscConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -86,6 +88,8 @@ type dscConfigurationState struct {
 	// The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	State *string `pulumi:"state"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type DscConfigurationState struct {
@@ -104,6 +108,8 @@ type DscConfigurationState struct {
 	// The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	State pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (DscConfigurationState) ElementType() reflect.Type {
@@ -125,6 +131,8 @@ type dscConfigurationArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DscConfiguration resource.
@@ -143,6 +151,8 @@ type DscConfigurationArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (DscConfigurationArgs) ElementType() reflect.Type {

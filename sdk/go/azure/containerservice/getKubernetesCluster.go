@@ -75,7 +75,7 @@ type LookupKubernetesClusterResult struct {
 	RoleBasedAccessControls []GetKubernetesClusterRoleBasedAccessControl `pulumi:"roleBasedAccessControls"`
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipals []GetKubernetesClusterServicePrincipal `pulumi:"servicePrincipals"`
-	// A mapping of tags assigned to this resource.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `windowsProfile` block as documented below.
 	WindowsProfiles []GetKubernetesClusterWindowsProfile `pulumi:"windowsProfiles"`

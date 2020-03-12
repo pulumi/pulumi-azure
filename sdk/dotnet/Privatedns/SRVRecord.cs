@@ -17,6 +17,12 @@ namespace Pulumi.Azure.PrivateDns
     public partial class SRVRecord : Pulumi.CustomResource
     {
         /// <summary>
+        /// The FQDN of the DNS SRV Record.
+        /// </summary>
+        [Output("fqdn")]
+        public Output<string> Fqdn { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the DNS SRV Record. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -147,6 +153,12 @@ namespace Pulumi.Azure.PrivateDns
 
     public sealed class SRVRecordState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The FQDN of the DNS SRV Record.
+        /// </summary>
+        [Input("fqdn")]
+        public Input<string>? Fqdn { get; set; }
+
         /// <summary>
         /// The name of the DNS SRV Record. Changing this forces a new resource to be created.
         /// </summary>

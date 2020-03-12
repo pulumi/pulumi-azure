@@ -1103,12 +1103,14 @@ func (o FrontdoorBackendPoolBackendArrayOutput) Index(i pulumi.IntInput) Frontdo
 }
 
 type FrontdoorBackendPoolHealthProbe struct {
+	Enabled *bool `pulumi:"enabled"`
 	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	Path *string `pulumi:"path"`
+	ProbeMethod *string `pulumi:"probeMethod"`
 	Protocol *string `pulumi:"protocol"`
 }
 
@@ -1120,12 +1122,14 @@ type FrontdoorBackendPoolHealthProbeInput interface {
 }
 
 type FrontdoorBackendPoolHealthProbeArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	Path pulumi.StringPtrInput `pulumi:"path"`
+	ProbeMethod pulumi.StringPtrInput `pulumi:"probeMethod"`
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
@@ -1176,6 +1180,10 @@ func (o FrontdoorBackendPoolHealthProbeOutput) ToFrontdoorBackendPoolHealthProbe
 	return o
 }
 
+func (o FrontdoorBackendPoolHealthProbeOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v FrontdoorBackendPoolHealthProbe) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
 // The ID of the FrontDoor.
 func (o FrontdoorBackendPoolHealthProbeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v FrontdoorBackendPoolHealthProbe) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -1192,6 +1200,10 @@ func (o FrontdoorBackendPoolHealthProbeOutput) Name() pulumi.StringOutput {
 
 func (o FrontdoorBackendPoolHealthProbeOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v FrontdoorBackendPoolHealthProbe) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o FrontdoorBackendPoolHealthProbeOutput) ProbeMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v FrontdoorBackendPoolHealthProbe) *string { return v.ProbeMethod }).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorBackendPoolHealthProbeOutput) Protocol() pulumi.StringPtrOutput {

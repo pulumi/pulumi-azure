@@ -123,7 +123,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterServicePrincipalsResult> ServicePrincipals;
         /// <summary>
-        /// A mapping of tags assigned to this resource.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
@@ -330,6 +330,7 @@ namespace Pulumi.Azure.ContainerService
         /// The name of the managed Kubernetes Cluster.
         /// </summary>
         public readonly string Name;
+        public readonly ImmutableDictionary<string, string> NodeLabels;
         /// <summary>
         /// The list of Kubernetes taints which are applied to nodes in the agent pool
         /// </summary>
@@ -342,6 +343,10 @@ namespace Pulumi.Azure.ContainerService
         /// The Operating System used for the Agents.
         /// </summary>
         public readonly string OsType;
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The type of the Agent Pool.
         /// </summary>
@@ -365,9 +370,11 @@ namespace Pulumi.Azure.ContainerService
             int maxPods,
             int minCount,
             string name,
+            ImmutableDictionary<string, string> nodeLabels,
             ImmutableArray<string> nodeTaints,
             int osDiskSizeGb,
             string osType,
+            ImmutableDictionary<string, string> tags,
             string type,
             string vmSize,
             string vnetSubnetId)
@@ -380,9 +387,11 @@ namespace Pulumi.Azure.ContainerService
             MaxPods = maxPods;
             MinCount = minCount;
             Name = name;
+            NodeLabels = nodeLabels;
             NodeTaints = nodeTaints;
             OsDiskSizeGb = osDiskSizeGb;
             OsType = osType;
+            Tags = tags;
             Type = type;
             VmSize = vmSize;
             VnetSubnetId = vnetSubnetId;

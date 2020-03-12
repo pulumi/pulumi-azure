@@ -704,6 +704,7 @@ func (o PoolFixedScalePtrOutput) TargetLowPriorityNodes() pulumi.IntPtrOutput {
 
 type PoolNetworkConfiguration struct {
 	EndpointConfigurations []PoolNetworkConfigurationEndpointConfiguration `pulumi:"endpointConfigurations"`
+	PublicIps []string `pulumi:"publicIps"`
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -716,6 +717,7 @@ type PoolNetworkConfigurationInput interface {
 
 type PoolNetworkConfigurationArgs struct {
 	EndpointConfigurations PoolNetworkConfigurationEndpointConfigurationArrayInput `pulumi:"endpointConfigurations"`
+	PublicIps pulumi.StringArrayInput `pulumi:"publicIps"`
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -790,6 +792,10 @@ func (o PoolNetworkConfigurationOutput) EndpointConfigurations() PoolNetworkConf
 	return o.ApplyT(func (v PoolNetworkConfiguration) []PoolNetworkConfigurationEndpointConfiguration { return v.EndpointConfigurations }).(PoolNetworkConfigurationEndpointConfigurationArrayOutput)
 }
 
+func (o PoolNetworkConfigurationOutput) PublicIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v PoolNetworkConfiguration) []string { return v.PublicIps }).(pulumi.StringArrayOutput)
+}
+
 func (o PoolNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func (v PoolNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -814,6 +820,10 @@ func (o PoolNetworkConfigurationPtrOutput) Elem() PoolNetworkConfigurationOutput
 
 func (o PoolNetworkConfigurationPtrOutput) EndpointConfigurations() PoolNetworkConfigurationEndpointConfigurationArrayOutput {
 	return o.ApplyT(func (v PoolNetworkConfiguration) []PoolNetworkConfigurationEndpointConfiguration { return v.EndpointConfigurations }).(PoolNetworkConfigurationEndpointConfigurationArrayOutput)
+}
+
+func (o PoolNetworkConfigurationPtrOutput) PublicIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v PoolNetworkConfiguration) []string { return v.PublicIps }).(pulumi.StringArrayOutput)
 }
 
 func (o PoolNetworkConfigurationPtrOutput) SubnetId() pulumi.StringOutput {

@@ -17,6 +17,8 @@ import (
 type CnameRecord struct {
 	pulumi.CustomResourceState
 
+	// The FQDN of the DNS CNAME Record.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS CNAME Record.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The target of the CNAME.
@@ -70,6 +72,8 @@ func GetCnameRecord(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CnameRecord resources.
 type cnameRecordState struct {
+	// The FQDN of the DNS CNAME Record.
+	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS CNAME Record.
 	Name *string `pulumi:"name"`
 	// The target of the CNAME.
@@ -84,6 +88,8 @@ type cnameRecordState struct {
 }
 
 type CnameRecordState struct {
+	// The FQDN of the DNS CNAME Record.
+	Fqdn pulumi.StringPtrInput
 	// The name of the DNS CNAME Record.
 	Name pulumi.StringPtrInput
 	// The target of the CNAME.

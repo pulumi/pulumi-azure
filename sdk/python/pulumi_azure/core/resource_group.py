@@ -12,31 +12,27 @@ from .. import utilities, tables
 class ResourceGroup(pulumi.CustomResource):
     location: pulumi.Output[str]
     """
-    The location where the resource group should be created.
-    For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
+    The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
     """
     name: pulumi.Output[str]
     """
-    The name of the resource group. Must be unique on your
-    Azure subscription.
+    The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A mapping of tags which should be assigned to the Resource Group.
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a resource group on Azure.
+        Manages a Resource Group.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/resource_group.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location where the resource group should be created.
-               For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
-        :param pulumi.Input[str] name: The name of the resource group. Must be unique on your
-               Azure subscription.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] location: The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
+        :param pulumi.Input[str] name: The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
+        :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to the Resource Group.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,11 +69,9 @@ class ResourceGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location where the resource group should be created.
-               For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
-        :param pulumi.Input[str] name: The name of the resource group. Must be unique on your
-               Azure subscription.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] location: The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
+        :param pulumi.Input[str] name: The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
+        :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to the Resource Group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

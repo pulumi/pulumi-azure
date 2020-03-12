@@ -29,6 +29,8 @@ type Pool struct {
 	ServiceLevel pulumi.StringOutput `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
 	SizeInTb pulumi.IntOutput `pulumi:"sizeInTb"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewPool registers a new resource with the given unique name, arguments, and options.
@@ -83,6 +85,8 @@ type poolState struct {
 	ServiceLevel *string `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
 	SizeInTb *int `pulumi:"sizeInTb"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type PoolState struct {
@@ -98,6 +102,8 @@ type PoolState struct {
 	ServiceLevel pulumi.StringPtrInput
 	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
 	SizeInTb pulumi.IntPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (PoolState) ElementType() reflect.Type {
@@ -117,6 +123,8 @@ type poolArgs struct {
 	ServiceLevel string `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
 	SizeInTb int `pulumi:"sizeInTb"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Pool resource.
@@ -133,6 +141,8 @@ type PoolArgs struct {
 	ServiceLevel pulumi.StringInput
 	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
 	SizeInTb pulumi.IntInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (PoolArgs) ElementType() reflect.Type {

@@ -33,6 +33,8 @@ type VirtualWan struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the Virtual WAN.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewVirtualWan registers a new resource with the given unique name, arguments, and options.
@@ -82,6 +84,8 @@ type virtualWanState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the Virtual WAN.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+	Type *string `pulumi:"type"`
 }
 
 type VirtualWanState struct {
@@ -101,6 +105,8 @@ type VirtualWanState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the Virtual WAN.
 	Tags pulumi.StringMapInput
+	// Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+	Type pulumi.StringPtrInput
 }
 
 func (VirtualWanState) ElementType() reflect.Type {
@@ -124,6 +130,8 @@ type virtualWanArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the Virtual WAN.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a VirtualWan resource.
@@ -144,6 +152,8 @@ type VirtualWanArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the Virtual WAN.
 	Tags pulumi.StringMapInput
+	// Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+	Type pulumi.StringPtrInput
 }
 
 func (VirtualWanArgs) ElementType() reflect.Type {

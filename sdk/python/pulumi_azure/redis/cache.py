@@ -54,6 +54,10 @@ class Cache(pulumi.CustomResource):
     """
     The Primary Access Key for the Redis Instance
     """
+    primary_connection_string: pulumi.Output[str]
+    """
+    The primary connection string of the Redis Instance.
+    """
     private_static_ip_address: pulumi.Output[str]
     """
     The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
@@ -85,6 +89,10 @@ class Cache(pulumi.CustomResource):
     secondary_access_key: pulumi.Output[str]
     """
     The Secondary Access Key for the Redis Instance
+    """
+    secondary_connection_string: pulumi.Output[str]
+    """
+    The secondary connection string of the Redis Instance.
     """
     shard_count: pulumi.Output[float]
     """
@@ -228,7 +236,9 @@ class Cache(pulumi.CustomResource):
             __props__['hostname'] = None
             __props__['port'] = None
             __props__['primary_access_key'] = None
+            __props__['primary_connection_string'] = None
             __props__['secondary_access_key'] = None
+            __props__['secondary_connection_string'] = None
             __props__['ssl_port'] = None
         super(Cache, __self__).__init__(
             'azure:redis/cache:Cache',
@@ -237,7 +247,7 @@ class Cache(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, capacity=None, enable_non_ssl_port=None, family=None, hostname=None, location=None, minimum_tls_version=None, name=None, patch_schedules=None, port=None, primary_access_key=None, private_static_ip_address=None, redis_configuration=None, resource_group_name=None, secondary_access_key=None, shard_count=None, sku_name=None, ssl_port=None, subnet_id=None, tags=None, zones=None):
+    def get(resource_name, id, opts=None, capacity=None, enable_non_ssl_port=None, family=None, hostname=None, location=None, minimum_tls_version=None, name=None, patch_schedules=None, port=None, primary_access_key=None, primary_connection_string=None, private_static_ip_address=None, redis_configuration=None, resource_group_name=None, secondary_access_key=None, secondary_connection_string=None, shard_count=None, sku_name=None, ssl_port=None, subnet_id=None, tags=None, zones=None):
         """
         Get an existing Cache resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -256,11 +266,13 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[list] patch_schedules: A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
         :param pulumi.Input[float] port: The non-SSL Port of the Redis Instance
         :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Instance
+        :param pulumi.Input[str] primary_connection_string: The primary connection string of the Redis Instance.
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Redis instance.
         :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Instance
+        :param pulumi.Input[str] secondary_connection_string: The secondary connection string of the Redis Instance.
         :param pulumi.Input[float] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[float] ssl_port: The SSL Port of the Redis Instance
@@ -304,10 +316,12 @@ class Cache(pulumi.CustomResource):
         __props__["patch_schedules"] = patch_schedules
         __props__["port"] = port
         __props__["primary_access_key"] = primary_access_key
+        __props__["primary_connection_string"] = primary_connection_string
         __props__["private_static_ip_address"] = private_static_ip_address
         __props__["redis_configuration"] = redis_configuration
         __props__["resource_group_name"] = resource_group_name
         __props__["secondary_access_key"] = secondary_access_key
+        __props__["secondary_connection_string"] = secondary_connection_string
         __props__["shard_count"] = shard_count
         __props__["sku_name"] = sku_name
         __props__["ssl_port"] = ssl_port

@@ -21,6 +21,7 @@ class LoadBalancer(pulumi.CustomResource):
       * `outboundRules` (`list`)
       * `private_ip_address` (`str`) - Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
       * `privateIpAddressAllocation` (`str`) - The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
+      * `privateIpAddressVersion` (`str`) - The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
       * `publicIpAddressId` (`str`) - The ID of a Public IP Address which should be associated with the Load Balancer.
       * `public_ip_prefix_id` (`str`) - The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
       * `subnet_id` (`str`) - The ID of the Subnet which should be associated with the IP Configuration.
@@ -78,6 +79,7 @@ class LoadBalancer(pulumi.CustomResource):
           * `outboundRules` (`pulumi.Input[list]`)
           * `private_ip_address` (`pulumi.Input[str]`) - Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
           * `privateIpAddressAllocation` (`pulumi.Input[str]`) - The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
+          * `privateIpAddressVersion` (`pulumi.Input[str]`) - The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
           * `publicIpAddressId` (`pulumi.Input[str]`) - The ID of a Public IP Address which should be associated with the Load Balancer.
           * `public_ip_prefix_id` (`pulumi.Input[str]`) - The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
           * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet which should be associated with the IP Configuration.
@@ -143,6 +145,7 @@ class LoadBalancer(pulumi.CustomResource):
           * `outboundRules` (`pulumi.Input[list]`)
           * `private_ip_address` (`pulumi.Input[str]`) - Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
           * `privateIpAddressAllocation` (`pulumi.Input[str]`) - The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
+          * `privateIpAddressVersion` (`pulumi.Input[str]`) - The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
           * `publicIpAddressId` (`pulumi.Input[str]`) - The ID of a Public IP Address which should be associated with the Load Balancer.
           * `public_ip_prefix_id` (`pulumi.Input[str]`) - The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
           * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet which should be associated with the IP Configuration.

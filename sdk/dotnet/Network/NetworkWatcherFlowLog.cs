@@ -268,6 +268,12 @@ namespace Pulumi.Azure.Network
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
+        /// How frequently service should do flow analytics in minutes.
+        /// </summary>
+        [Input("intervalInMinutes")]
+        public Input<int>? IntervalInMinutes { get; set; }
+
+        /// <summary>
         /// The resource guid of the attached workspace.
         /// </summary>
         [Input("workspaceId", required: true)]
@@ -297,6 +303,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
+
+        /// <summary>
+        /// How frequently service should do flow analytics in minutes.
+        /// </summary>
+        [Input("intervalInMinutes")]
+        public Input<int>? IntervalInMinutes { get; set; }
 
         /// <summary>
         /// The resource guid of the attached workspace.
@@ -355,6 +367,10 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
+        /// How frequently service should do flow analytics in minutes.
+        /// </summary>
+        public readonly int? IntervalInMinutes;
+        /// <summary>
         /// The resource guid of the attached workspace.
         /// </summary>
         public readonly string WorkspaceId;
@@ -370,11 +386,13 @@ namespace Pulumi.Azure.Network
         [OutputConstructor]
         private NetworkWatcherFlowLogTrafficAnalytics(
             bool enabled,
+            int? intervalInMinutes,
             string workspaceId,
             string workspaceRegion,
             string workspaceResourceId)
         {
             Enabled = enabled;
+            IntervalInMinutes = intervalInMinutes;
             WorkspaceId = workspaceId;
             WorkspaceRegion = workspaceRegion;
             WorkspaceResourceId = workspaceResourceId;

@@ -1262,6 +1262,7 @@ export namespace batch {
 
     export interface PoolNetworkConfiguration {
         endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.batch.PoolNetworkConfigurationEndpointConfiguration>[]>;
+        publicIps?: pulumi.Input<pulumi.Input<string>[]>;
         subnetId: pulumi.Input<string>;
     }
 
@@ -2492,8 +2493,13 @@ export namespace containerservice {
          */
         name: pulumi.Input<string>;
         nodeCount?: pulumi.Input<number>;
+        nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
         osDiskSizeGb?: pulumi.Input<number>;
+        /**
+         * A mapping of tags to assign to the resource.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         type?: pulumi.Input<string>;
         vmSize: pulumi.Input<string>;
         vnetSubnetId?: pulumi.Input<string>;
@@ -3333,6 +3339,7 @@ export namespace frontdoor {
     }
 
     export interface FrontdoorBackendPoolHealthProbe {
+        enabled?: pulumi.Input<boolean>;
         /**
          * The ID of the FrontDoor.
          */
@@ -3343,6 +3350,7 @@ export namespace frontdoor {
          */
         name: pulumi.Input<string>;
         path?: pulumi.Input<string>;
+        probeMethod?: pulumi.Input<string>;
         protocol?: pulumi.Input<string>;
     }
 
@@ -4351,6 +4359,10 @@ export namespace lb {
          */
         privateIpAddressAllocation?: pulumi.Input<string>;
         /**
+         * The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
+         */
+        privateIpAddressVersion?: pulumi.Input<string>;
+        /**
          * The ID of a Public IP Address which should be associated with the Load Balancer.
          */
         publicIpAddressId?: pulumi.Input<string>;
@@ -4801,9 +4813,10 @@ export namespace netapp {
 
     export interface VolumeExportPolicyRule {
         allowedClients: pulumi.Input<pulumi.Input<string>[]>;
-        cifsEnabled: pulumi.Input<boolean>;
-        nfsv3Enabled: pulumi.Input<boolean>;
-        nfsv4Enabled: pulumi.Input<boolean>;
+        cifsEnabled?: pulumi.Input<boolean>;
+        nfsv3Enabled?: pulumi.Input<boolean>;
+        nfsv4Enabled?: pulumi.Input<boolean>;
+        protocolsEnabled?: pulumi.Input<string>;
         ruleIndex: pulumi.Input<number>;
         unixReadOnly?: pulumi.Input<boolean>;
         unixReadWrite?: pulumi.Input<boolean>;
@@ -5455,6 +5468,10 @@ export namespace network {
          */
         enabled: pulumi.Input<boolean>;
         /**
+         * How frequently service should do flow analytics in minutes.
+         */
+        intervalInMinutes?: pulumi.Input<number>;
+        /**
          * The resource guid of the attached workspace.
          */
         workspaceId: pulumi.Input<string>;
@@ -5827,6 +5844,10 @@ export namespace privatelink {
          */
         privateConnectionResourceId: pulumi.Input<string>;
         /**
+         * The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+         */
+        privateIpAddress?: pulumi.Input<string>;
+        /**
          * A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
          */
         requestMessage?: pulumi.Input<string>;
@@ -5876,11 +5897,11 @@ export namespace role {
 export namespace search {
     export interface ServiceQueryKey {
         /**
-         * The value of the query key.
+         * The value of this Query Key.
          */
         key?: pulumi.Input<string>;
         /**
-         * The name of the Search Service. Changing this forces a new resource to be created.
+         * The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
          */
         name?: pulumi.Input<string>;
     }
@@ -6131,6 +6152,25 @@ export namespace sql {
          * Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
          */
         mode: pulumi.Input<string>;
+    }
+
+    export interface SqlServerExtendedAuditingPolicy {
+        /**
+         * (Optional) Specifies the number of days to retain logs for in the storage account.
+         */
+        retentionInDays?: pulumi.Input<number>;
+        /**
+         * (Required)  Specifies the access key to use for the auditing storage account.
+         */
+        storageAccountAccessKey: pulumi.Input<string>;
+        /**
+         * (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+         */
+        storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
+        /**
+         * (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+         */
+        storageEndpoint: pulumi.Input<string>;
     }
 
     export interface SqlServerIdentity {

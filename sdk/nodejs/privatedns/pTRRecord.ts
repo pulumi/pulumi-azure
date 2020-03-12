@@ -39,6 +39,10 @@ export class PTRRecord extends pulumi.CustomResource {
     }
 
     /**
+     * The FQDN of the DNS PTR Record.
+     */
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    /**
      * The name of the DNS PTR Record. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -72,6 +76,7 @@ export class PTRRecord extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as PTRRecordState | undefined;
+            inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["records"] = state ? state.records : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -98,6 +103,7 @@ export class PTRRecord extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
+            inputs["fqdn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -114,6 +120,10 @@ export class PTRRecord extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PTRRecord resources.
  */
 export interface PTRRecordState {
+    /**
+     * The FQDN of the DNS PTR Record.
+     */
+    readonly fqdn?: pulumi.Input<string>;
     /**
      * The name of the DNS PTR Record. Changing this forces a new resource to be created.
      */

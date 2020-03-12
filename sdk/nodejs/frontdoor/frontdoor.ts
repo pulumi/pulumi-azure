@@ -77,9 +77,6 @@ export class Frontdoor extends pulumi.CustomResource {
      * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
     public readonly loadBalancerEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-     */
     public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
@@ -207,9 +204,6 @@ export interface FrontdoorState {
      * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
     readonly loadBalancerEnabled?: pulumi.Input<boolean>;
-    /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-     */
     readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
@@ -261,9 +255,6 @@ export interface FrontdoorArgs {
      * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
     readonly loadBalancerEnabled?: pulumi.Input<boolean>;
-    /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-     */
     readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
