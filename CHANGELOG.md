@@ -4,6 +4,7 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Upgrade to Pulumi v1.12.1
 * Upgrade to pulumi-terraform-bridge v1.8.2
+* Upgrade to v2.1.0 of the AzureRM Terraform Provider
 
 ---
 
