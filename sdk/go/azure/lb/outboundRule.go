@@ -12,9 +12,9 @@ import (
 )
 
 // Manages a Load Balancer Outbound Rule.
-// 
+//
 // > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_outbound_rule.html.markdown.
 type OutboundRule struct {
 	pulumi.CustomResourceState

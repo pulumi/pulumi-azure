@@ -13,12 +13,18 @@ class GetVirtualHubResult:
     """
     A collection of values returned by getVirtualHub.
     """
-    def __init__(__self__, address_prefix=None, location=None, name=None, resource_group_name=None, tags=None, virtual_wan_id=None, id=None):
+    def __init__(__self__, address_prefix=None, id=None, location=None, name=None, resource_group_name=None, tags=None, virtual_wan_id=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         __self__.address_prefix = address_prefix
         """
         The Address Prefix used for this Virtual Hub.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -44,12 +50,6 @@ class GetVirtualHubResult:
         """
         The ID of the Virtual WAN within which the Virtual Hub exists.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetVirtualHubResult(GetVirtualHubResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -57,23 +57,25 @@ class AwaitableGetVirtualHubResult(GetVirtualHubResult):
             yield self
         return GetVirtualHubResult(
             address_prefix=self.address_prefix,
+            id=self.id,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
             tags=self.tags,
-            virtual_wan_id=self.virtual_wan_id,
-            id=self.id)
+            virtual_wan_id=self.virtual_wan_id)
 
 def get_virtual_hub(name=None,resource_group_name=None,opts=None):
     """
     Uses this data source to access information about an existing Virtual Hub.
-    
-    :param str name: The name of the Virtual Hub.
-    :param str resource_group_name: The Name of the Resource Group where the Virtual Hub exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_hub.html.markdown.
+
+
+    :param str name: The name of the Virtual Hub.
+    :param str resource_group_name: The Name of the Resource Group where the Virtual Hub exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -85,9 +87,9 @@ def get_virtual_hub(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetVirtualHubResult(
         address_prefix=__ret__.get('addressPrefix'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
-        virtual_wan_id=__ret__.get('virtualWanId'),
-        id=__ret__.get('id'))
+        virtual_wan_id=__ret__.get('virtualWanId'))

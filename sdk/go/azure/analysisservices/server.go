@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Analysis Services Server.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/analysis_services_server.html.markdown.
 type Server struct {
 	pulumi.CustomResourceState

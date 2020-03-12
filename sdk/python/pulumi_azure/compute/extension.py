@@ -57,11 +57,13 @@ class Extension(pulumi.CustomResource):
         """
         Manages a Virtual Machine Extension to provide post deployment configuration
         and run automated tasks.
-        
+
         > **NOTE:** Custom Script Extensions for Linux & Windows require that the `commandToExecute` returns a `0` exit code to be classified as successfully deployed. You can achieve this by appending `exit 0` to the end of your `commandToExecute`.
-        
+
         > **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_extension.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys
@@ -80,8 +82,6 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to
                use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_extension.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -128,7 +128,7 @@ class Extension(pulumi.CustomResource):
         """
         Get an existing Extension resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,12 +148,11 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to
                use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_extension.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
         __props__["name"] = name
         __props__["protected_settings"] = protected_settings

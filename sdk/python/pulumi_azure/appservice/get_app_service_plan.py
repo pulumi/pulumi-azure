@@ -13,12 +13,18 @@ class GetAppServicePlanResult:
     """
     A collection of values returned by getAppServicePlan.
     """
-    def __init__(__self__, app_service_environment_id=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, per_site_scaling=None, reserved=None, resource_group_name=None, sku=None, tags=None, id=None):
+    def __init__(__self__, app_service_environment_id=None, id=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, per_site_scaling=None, reserved=None, resource_group_name=None, sku=None, tags=None):
         if app_service_environment_id and not isinstance(app_service_environment_id, str):
             raise TypeError("Expected argument 'app_service_environment_id' to be a str")
         __self__.app_service_environment_id = app_service_environment_id
         """
         The ID of the App Service Environment where the App Service Plan is located.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if is_xenon and not isinstance(is_xenon, bool):
             raise TypeError("Expected argument 'is_xenon' to be a bool")
@@ -80,12 +86,6 @@ class GetAppServicePlanResult:
         """
         A mapping of tags assigned to the resource.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -93,6 +93,7 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
             yield self
         return GetAppServicePlanResult(
             app_service_environment_id=self.app_service_environment_id,
+            id=self.id,
             is_xenon=self.is_xenon,
             kind=self.kind,
             location=self.location,
@@ -103,19 +104,20 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
             reserved=self.reserved,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_app_service_plan(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
-    
-    :param str name: The name of the App Service Plan.
-    :param str resource_group_name: The Name of the Resource Group where the App Service Plan exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_plan.html.markdown.
+
+
+    :param str name: The name of the App Service Plan.
+    :param str resource_group_name: The Name of the Resource Group where the App Service Plan exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -127,6 +129,7 @@ def get_app_service_plan(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetAppServicePlanResult(
         app_service_environment_id=__ret__.get('appServiceEnvironmentId'),
+        id=__ret__.get('id'),
         is_xenon=__ret__.get('isXenon'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
@@ -137,5 +140,4 @@ def get_app_service_plan(name=None,resource_group_name=None,opts=None):
         reserved=__ret__.get('reserved'),
         resource_group_name=__ret__.get('resourceGroupName'),
         sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a ServiceBus Subscription.
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription.html.markdown.
  */
 export class Subscription extends pulumi.CustomResource {
     /**

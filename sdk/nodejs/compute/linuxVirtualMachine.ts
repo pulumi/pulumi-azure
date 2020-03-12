@@ -6,9 +6,6 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-/**
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/linux_virtual_machine.html.markdown.
- */
 export class LinuxVirtualMachine extends pulumi.CustomResource {
     /**
      * Get an existing LinuxVirtualMachine resource's state with the given name, ID, and optional extra

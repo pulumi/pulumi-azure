@@ -33,7 +33,7 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
     rules: pulumi.Output[list]
     """
     One or more `rule` blocks as defined below.
-    
+
       * `description` (`str`)
       * `destinationAddresses` (`list`)
       * `destinationPorts` (`list`)
@@ -46,7 +46,9 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, action=None, azure_firewall_name=None, name=None, priority=None, resource_group_name=None, rules=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a NAT Rule Collection within an Azure Firewall.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_nat_rule_collection.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: Specifies the action the rule will apply to matching traffic. Possible values are `Dnat` and `Snat`.
@@ -55,9 +57,9 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
         :param pulumi.Input[float] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
         :param pulumi.Input[list] rules: One or more `rule` blocks as defined below.
-        
+
         The **rules** object supports the following:
-        
+
           * `description` (`pulumi.Input[str]`)
           * `destinationAddresses` (`pulumi.Input[list]`)
           * `destinationPorts` (`pulumi.Input[list]`)
@@ -66,8 +68,6 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
           * `sourceAddresses` (`pulumi.Input[list]`)
           * `translatedAddress` (`pulumi.Input[str]`)
           * `translatedPort` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_nat_rule_collection.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -113,7 +113,7 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
         """
         Get an existing FirewallNatRuleCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,9 +123,9 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
         :param pulumi.Input[float] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
         :param pulumi.Input[list] rules: One or more `rule` blocks as defined below.
-        
+
         The **rules** object supports the following:
-        
+
           * `description` (`pulumi.Input[str]`)
           * `destinationAddresses` (`pulumi.Input[list]`)
           * `destinationPorts` (`pulumi.Input[list]`)
@@ -134,12 +134,11 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
           * `sourceAddresses` (`pulumi.Input[list]`)
           * `translatedAddress` (`pulumi.Input[str]`)
           * `translatedPort` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_nat_rule_collection.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["action"] = action
         __props__["azure_firewall_name"] = azure_firewall_name
         __props__["name"] = name

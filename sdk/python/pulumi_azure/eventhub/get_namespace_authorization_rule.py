@@ -13,7 +13,13 @@ class GetNamespaceAuthorizationRuleResult:
     """
     A collection of values returned by getNamespaceAuthorizationRule.
     """
-    def __init__(__self__, listen=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, send=None, id=None):
+    def __init__(__self__, id=None, listen=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, send=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if listen and not isinstance(listen, bool):
             raise TypeError("Expected argument 'listen' to be a bool")
         __self__.listen = listen
@@ -68,18 +74,13 @@ class GetNamespaceAuthorizationRuleResult:
         """
         Does this Authorization Rule have permissions to Send to the Event Hub?
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetNamespaceAuthorizationRuleResult(GetNamespaceAuthorizationRuleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetNamespaceAuthorizationRuleResult(
+            id=self.id,
             listen=self.listen,
             manage=self.manage,
             name=self.name,
@@ -89,19 +90,20 @@ class AwaitableGetNamespaceAuthorizationRuleResult(GetNamespaceAuthorizationRule
             resource_group_name=self.resource_group_name,
             secondary_connection_string=self.secondary_connection_string,
             secondary_key=self.secondary_key,
-            send=self.send,
-            id=self.id)
+            send=self.send)
 
 def get_namespace_authorization_rule(name=None,namespace_name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
-    
-    :param str name: The name of the EventHub Authorization Rule resource. 
-    :param str resource_group_name: The name of the resource group in which the EventHub Namespace exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace_authorization_rule.html.markdown.
+
+
+    :param str name: The name of the EventHub Authorization Rule resource. 
+    :param str resource_group_name: The name of the resource group in which the EventHub Namespace exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name
@@ -113,6 +115,7 @@ def get_namespace_authorization_rule(name=None,namespace_name=None,resource_grou
     __ret__ = pulumi.runtime.invoke('azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule', __args__, opts=opts).value
 
     return AwaitableGetNamespaceAuthorizationRuleResult(
+        id=__ret__.get('id'),
         listen=__ret__.get('listen'),
         manage=__ret__.get('manage'),
         name=__ret__.get('name'),
@@ -122,5 +125,4 @@ def get_namespace_authorization_rule(name=None,namespace_name=None,resource_grou
         resource_group_name=__ret__.get('resourceGroupName'),
         secondary_connection_string=__ret__.get('secondaryConnectionString'),
         secondary_key=__ret__.get('secondaryKey'),
-        send=__ret__.get('send'),
-        id=__ret__.get('id'))
+        send=__ret__.get('send'))

@@ -61,9 +61,11 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, additional_properties=None, annotations=None, data_factory_name=None, description=None, integration_runtime_name=None, name=None, parameters=None, resource_group_name=None, service_principal_id=None, service_principal_key=None, tenant=None, url=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
-        
+
         > **Note:** All arguments including the `service_principal_key` will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_data_lake_storage_gen2.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] additional_properties: A map of additional properties to associate with the Data Factory Linked Service MySQL.
@@ -78,8 +80,6 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
         :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
         :param pulumi.Input[str] tenant: The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
         :param pulumi.Input[str] url: The endpoint for the Azure Data Lake Storage Gen2 service.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_data_lake_storage_gen2.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -133,7 +133,7 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
         """
         Get an existing LinkedServiceDataLakeStorageGen2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,12 +149,11 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
         :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
         :param pulumi.Input[str] tenant: The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
         :param pulumi.Input[str] url: The endpoint for the Azure Data Lake Storage Gen2 service.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_data_lake_storage_gen2.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["additional_properties"] = additional_properties
         __props__["annotations"] = annotations
         __props__["data_factory_name"] = data_factory_name

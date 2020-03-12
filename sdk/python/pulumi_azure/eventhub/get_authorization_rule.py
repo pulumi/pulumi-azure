@@ -13,10 +13,16 @@ class GetAuthorizationRuleResult:
     """
     A collection of values returned by getAuthorizationRule.
     """
-    def __init__(__self__, eventhub_name=None, listen=None, location=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, send=None, id=None):
+    def __init__(__self__, eventhub_name=None, id=None, listen=None, location=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, send=None):
         if eventhub_name and not isinstance(eventhub_name, str):
             raise TypeError("Expected argument 'eventhub_name' to be a str")
         __self__.eventhub_name = eventhub_name
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if listen and not isinstance(listen, bool):
             raise TypeError("Expected argument 'listen' to be a bool")
         __self__.listen = listen
@@ -62,12 +68,6 @@ class GetAuthorizationRuleResult:
         if send and not isinstance(send, bool):
             raise TypeError("Expected argument 'send' to be a bool")
         __self__.send = send
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAuthorizationRuleResult(GetAuthorizationRuleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -75,6 +75,7 @@ class AwaitableGetAuthorizationRuleResult(GetAuthorizationRuleResult):
             yield self
         return GetAuthorizationRuleResult(
             eventhub_name=self.eventhub_name,
+            id=self.id,
             listen=self.listen,
             location=self.location,
             manage=self.manage,
@@ -85,21 +86,22 @@ class AwaitableGetAuthorizationRuleResult(GetAuthorizationRuleResult):
             resource_group_name=self.resource_group_name,
             secondary_connection_string=self.secondary_connection_string,
             secondary_key=self.secondary_key,
-            send=self.send,
-            id=self.id)
+            send=self.send)
 
 def get_authorization_rule(eventhub_name=None,listen=None,manage=None,name=None,namespace_name=None,resource_group_name=None,send=None,opts=None):
     """
     Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_authorization_rule.html.markdown.
+
+
     :param str eventhub_name: Specifies the name of the EventHub.
     :param str name: Specifies the name of the EventHub Authorization Rule resource. be created.
     :param str namespace_name: Specifies the name of the grandparent EventHub Namespace.
     :param str resource_group_name: The name of the resource group in which the EventHub Authorization Rule's grandparent Namespace exists.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_authorization_rule.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['eventhubName'] = eventhub_name
     __args__['listen'] = listen
@@ -116,6 +118,7 @@ def get_authorization_rule(eventhub_name=None,listen=None,manage=None,name=None,
 
     return AwaitableGetAuthorizationRuleResult(
         eventhub_name=__ret__.get('eventhubName'),
+        id=__ret__.get('id'),
         listen=__ret__.get('listen'),
         location=__ret__.get('location'),
         manage=__ret__.get('manage'),
@@ -126,5 +129,4 @@ def get_authorization_rule(eventhub_name=None,listen=None,manage=None,name=None,
         resource_group_name=__ret__.get('resourceGroupName'),
         secondary_connection_string=__ret__.get('secondaryConnectionString'),
         secondary_key=__ret__.get('secondaryKey'),
-        send=__ret__.get('send'),
-        id=__ret__.get('id'))
+        send=__ret__.get('send'))

@@ -4885,9 +4885,6 @@ export namespace healthcare {
          * The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
          */
         audience?: string;
-        /**
-         * <elided>
-         */
         authority?: string;
         /**
          * Enables the 'SMART on FHIR' option for mobile and web implementations.

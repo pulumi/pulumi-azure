@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Shared Image Gallery.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_gallery.html.markdown.
 func LookupSharedImageGallery(ctx *pulumi.Context, args *LookupSharedImageGalleryArgs, opts ...pulumi.InvokeOption) (*LookupSharedImageGalleryResult, error) {
 	var rv LookupSharedImageGalleryResult

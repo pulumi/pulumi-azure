@@ -13,11 +13,11 @@ import (
 
 // Manages a virtual network peering which allows resources to access other
 // resources in the linked virtual network.
-// 
+//
 // ## Note
-// 
+//
 // Virtual Network peerings cannot be created, updated or deleted concurrently.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_peering.html.markdown.
 type VirtualNetworkPeering struct {
 	pulumi.CustomResourceState

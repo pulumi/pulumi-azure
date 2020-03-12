@@ -13,7 +13,7 @@ class MetricAlert(pulumi.CustomResource):
     actions: pulumi.Output[list]
     """
     One or more `action` blocks as defined below.
-    
+
       * `actionGroupId` (`str`)
       * `webhookProperties` (`dict`)
     """
@@ -24,14 +24,13 @@ class MetricAlert(pulumi.CustomResource):
     criterias: pulumi.Output[list]
     """
     One or more `criteria` blocks as defined below.
-    
+
       * `aggregation` (`str`)
       * `dimensions` (`list`)
-    
         * `name` (`str`) - The name of the Metric Alert. Changing this forces a new resource to be created.
         * `operator` (`str`)
         * `values` (`list`)
-    
+
       * `metricName` (`str`)
       * `metricNamespace` (`str`)
       * `operator` (`str`)
@@ -76,7 +75,9 @@ class MetricAlert(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, actions=None, auto_mitigate=None, criterias=None, description=None, enabled=None, frequency=None, name=None, resource_group_name=None, scopes=None, severity=None, tags=None, window_size=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Metric Alert within Azure Monitor.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_metric_alert.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] actions: One or more `action` blocks as defined below.
@@ -91,27 +92,24 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.Input[float] severity: The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] window_size: The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
-        
+
         The **actions** object supports the following:
-        
+
           * `actionGroupId` (`pulumi.Input[str]`)
           * `webhookProperties` (`pulumi.Input[dict]`)
-        
+
         The **criterias** object supports the following:
-        
+
           * `aggregation` (`pulumi.Input[str]`)
           * `dimensions` (`pulumi.Input[list]`)
-        
             * `name` (`pulumi.Input[str]`) - The name of the Metric Alert. Changing this forces a new resource to be created.
             * `operator` (`pulumi.Input[str]`)
             * `values` (`pulumi.Input[list]`)
-        
+
           * `metricName` (`pulumi.Input[str]`)
           * `metricNamespace` (`pulumi.Input[str]`)
           * `operator` (`pulumi.Input[str]`)
           * `threshold` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_metric_alert.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -159,7 +157,7 @@ class MetricAlert(pulumi.CustomResource):
         """
         Get an existing MetricAlert resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,31 +173,29 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.Input[float] severity: The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] window_size: The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
-        
+
         The **actions** object supports the following:
-        
+
           * `actionGroupId` (`pulumi.Input[str]`)
           * `webhookProperties` (`pulumi.Input[dict]`)
-        
+
         The **criterias** object supports the following:
-        
+
           * `aggregation` (`pulumi.Input[str]`)
           * `dimensions` (`pulumi.Input[list]`)
-        
             * `name` (`pulumi.Input[str]`) - The name of the Metric Alert. Changing this forces a new resource to be created.
             * `operator` (`pulumi.Input[str]`)
             * `values` (`pulumi.Input[list]`)
-        
+
           * `metricName` (`pulumi.Input[str]`)
           * `metricNamespace` (`pulumi.Input[str]`)
           * `operator` (`pulumi.Input[str]`)
           * `threshold` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_metric_alert.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["actions"] = actions
         __props__["auto_mitigate"] = auto_mitigate
         __props__["criterias"] = criterias

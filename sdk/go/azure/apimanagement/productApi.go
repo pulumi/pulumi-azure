@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an API Management API Assignment to a Product.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product_api.html.markdown.
 type ProductApi struct {
 	pulumi.CustomResourceState

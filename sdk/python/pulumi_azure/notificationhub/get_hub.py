@@ -13,7 +13,7 @@ class GetHubResult:
     """
     A collection of values returned by getHub.
     """
-    def __init__(__self__, apns_credentials=None, gcm_credentials=None, location=None, name=None, namespace_name=None, resource_group_name=None, id=None):
+    def __init__(__self__, apns_credentials=None, gcm_credentials=None, id=None, location=None, name=None, namespace_name=None, resource_group_name=None):
         if apns_credentials and not isinstance(apns_credentials, list):
             raise TypeError("Expected argument 'apns_credentials' to be a list")
         __self__.apns_credentials = apns_credentials
@@ -25,6 +25,12 @@ class GetHubResult:
         __self__.gcm_credentials = gcm_credentials
         """
         A `gcm_credential` block as defined below.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -41,12 +47,6 @@ class GetHubResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetHubResult(GetHubResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -55,23 +55,25 @@ class AwaitableGetHubResult(GetHubResult):
         return GetHubResult(
             apns_credentials=self.apns_credentials,
             gcm_credentials=self.gcm_credentials,
+            id=self.id,
             location=self.location,
             name=self.name,
             namespace_name=self.namespace_name,
-            resource_group_name=self.resource_group_name,
-            id=self.id)
+            resource_group_name=self.resource_group_name)
 
 def get_hub(name=None,namespace_name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub.html.markdown.
+
+
     :param str name: Specifies the Name of the Notification Hub.
     :param str namespace_name: Specifies the Name of the Notification Hub Namespace which contains the Notification Hub.
     :param str resource_group_name: Specifies the Name of the Resource Group within which the Notification Hub exists.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name
@@ -85,8 +87,8 @@ def get_hub(name=None,namespace_name=None,resource_group_name=None,opts=None):
     return AwaitableGetHubResult(
         apns_credentials=__ret__.get('apnsCredentials'),
         gcm_credentials=__ret__.get('gcmCredentials'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         namespace_name=__ret__.get('namespaceName'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        id=__ret__.get('id'))
+        resource_group_name=__ret__.get('resourceGroupName'))

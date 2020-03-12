@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Network Watcher Flow Log.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_watcher_flow_log.html.markdown.
 type NetworkWatcherFlowLog struct {
 	pulumi.CustomResourceState

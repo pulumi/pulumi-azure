@@ -27,14 +27,14 @@ class Agreement(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, offer=None, plan=None, publisher=None, __props__=None, __name__=None, __opts__=None):
         """
         Allows accepting the Legal Terms for a Marketplace Image.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/marketplace_agreement.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] offer: The Offer of the Marketplace Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] plan: The Plan of the Marketplace Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] publisher: The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/marketplace_agreement.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,19 +75,18 @@ class Agreement(pulumi.CustomResource):
         """
         Get an existing Agreement resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] offer: The Offer of the Marketplace Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] plan: The Plan of the Marketplace Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] publisher: The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/marketplace_agreement.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["license_text_link"] = license_text_link
         __props__["offer"] = offer
         __props__["plan"] = plan

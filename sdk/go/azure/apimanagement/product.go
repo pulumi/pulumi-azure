@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an API Management Product.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product.html.markdown.
 type Product struct {
 	pulumi.CustomResourceState

@@ -13,7 +13,7 @@ class GetDatabaseResult:
     """
     A collection of values returned by getDatabase.
     """
-    def __init__(__self__, collation=None, default_secondary_location=None, edition=None, elastic_pool_name=None, failover_group_id=None, location=None, name=None, read_scale=None, resource_group_name=None, server_name=None, tags=None, id=None):
+    def __init__(__self__, collation=None, default_secondary_location=None, edition=None, elastic_pool_name=None, failover_group_id=None, id=None, location=None, name=None, read_scale=None, resource_group_name=None, server_name=None, tags=None):
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         __self__.collation = collation
@@ -43,6 +43,12 @@ class GetDatabaseResult:
         __self__.failover_group_id = failover_group_id
         """
         The ID of the failover group the database belongs to.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -80,12 +86,6 @@ class GetDatabaseResult:
         """
         A mapping of tags assigned to the resource.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetDatabaseResult(GetDatabaseResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -97,25 +97,27 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             edition=self.edition,
             elastic_pool_name=self.elastic_pool_name,
             failover_group_id=self.failover_group_id,
+            id=self.id,
             location=self.location,
             name=self.name,
             read_scale=self.read_scale,
             resource_group_name=self.resource_group_name,
             server_name=self.server_name,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_database(name=None,resource_group_name=None,server_name=None,tags=None,opts=None):
     """
     Use this data source to access information about an existing SQL Azure Database.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_database.html.markdown.
+
+
     :param str name: The name of the SQL Database.
     :param str resource_group_name: Specifies the name of the Resource Group where the Azure SQL Database exists.
     :param str server_name: The name of the SQL Server.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_database.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -133,10 +135,10 @@ def get_database(name=None,resource_group_name=None,server_name=None,tags=None,o
         edition=__ret__.get('edition'),
         elastic_pool_name=__ret__.get('elasticPoolName'),
         failover_group_id=__ret__.get('failoverGroupId'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         read_scale=__ret__.get('readScale'),
         resource_group_name=__ret__.get('resourceGroupName'),
         server_name=__ret__.get('serverName'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

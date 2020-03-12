@@ -13,7 +13,13 @@ class GetPublicIpPrefixResult:
     """
     A collection of values returned by getPublicIpPrefix.
     """
-    def __init__(__self__, ip_prefix=None, location=None, name=None, prefix_length=None, resource_group_name=None, sku=None, tags=None, zones=None, id=None):
+    def __init__(__self__, id=None, ip_prefix=None, location=None, name=None, prefix_length=None, resource_group_name=None, sku=None, tags=None, zones=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if ip_prefix and not isinstance(ip_prefix, str):
             raise TypeError("Expected argument 'ip_prefix' to be a str")
         __self__.ip_prefix = ip_prefix
@@ -56,18 +62,13 @@ class GetPublicIpPrefixResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         __self__.zones = zones
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetPublicIpPrefixResult(GetPublicIpPrefixResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetPublicIpPrefixResult(
+            id=self.id,
             ip_prefix=self.ip_prefix,
             location=self.location,
             name=self.name,
@@ -75,19 +76,20 @@ class AwaitableGetPublicIpPrefixResult(GetPublicIpPrefixResult):
             resource_group_name=self.resource_group_name,
             sku=self.sku,
             tags=self.tags,
-            zones=self.zones,
-            id=self.id)
+            zones=self.zones)
 
 def get_public_ip_prefix(name=None,resource_group_name=None,zones=None,opts=None):
     """
     Use this data source to access information about an existing Public IP Prefix.
-    
-    :param str name: Specifies the name of the public IP prefix.
-    :param str resource_group_name: Specifies the name of the resource group.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip_prefix.html.markdown.
+
+
+    :param str name: Specifies the name of the public IP prefix.
+    :param str resource_group_name: Specifies the name of the resource group.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -99,6 +101,7 @@ def get_public_ip_prefix(name=None,resource_group_name=None,zones=None,opts=None
     __ret__ = pulumi.runtime.invoke('azure:network/getPublicIpPrefix:getPublicIpPrefix', __args__, opts=opts).value
 
     return AwaitableGetPublicIpPrefixResult(
+        id=__ret__.get('id'),
         ip_prefix=__ret__.get('ipPrefix'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
@@ -106,5 +109,4 @@ def get_public_ip_prefix(name=None,resource_group_name=None,zones=None,opts=None
         resource_group_name=__ret__.get('resourceGroupName'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
-        zones=__ret__.get('zones'),
-        id=__ret__.get('id'))
+        zones=__ret__.get('zones'))

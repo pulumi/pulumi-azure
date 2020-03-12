@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a CDN Profile to create a collection of CDN Endpoints.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cdn_profile.html.markdown.
 type Profile struct {
 	pulumi.CustomResourceState

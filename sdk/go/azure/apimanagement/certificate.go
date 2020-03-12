@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Certificate within an API Management Service.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_certificate.html.markdown.
 type Certificate struct {
 	pulumi.CustomResourceState

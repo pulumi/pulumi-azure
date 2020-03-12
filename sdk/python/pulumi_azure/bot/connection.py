@@ -53,7 +53,9 @@ class Connection(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, bot_name=None, client_id=None, client_secret=None, location=None, name=None, parameters=None, resource_group_name=None, scopes=None, service_provider_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Bot Connection.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_connection.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this connection will be associated with. Changing this forces a new resource to be created.
@@ -66,8 +68,6 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] scopes: The Scopes at which the connection should be applied.
         :param pulumi.Input[str] service_provider_name: The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_connection.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -117,7 +117,7 @@ class Connection(pulumi.CustomResource):
         """
         Get an existing Connection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,12 +131,11 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] scopes: The Scopes at which the connection should be applied.
         :param pulumi.Input[str] service_provider_name: The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_connection.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["bot_name"] = bot_name
         __props__["client_id"] = client_id
         __props__["client_secret"] = client_secret

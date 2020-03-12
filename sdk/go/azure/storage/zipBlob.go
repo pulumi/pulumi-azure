@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// 
+//
 // Deprecated: ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.
 type ZipBlob struct {
 	pulumi.CustomResourceState

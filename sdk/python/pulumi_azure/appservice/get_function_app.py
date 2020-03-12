@@ -13,7 +13,7 @@ class GetFunctionAppResult:
     """
     A collection of values returned by getFunctionApp.
     """
-    def __init__(__self__, app_service_plan_id=None, app_settings=None, connection_strings=None, default_hostname=None, enabled=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_credentials=None, tags=None, id=None):
+    def __init__(__self__, app_service_plan_id=None, app_settings=None, connection_strings=None, default_hostname=None, enabled=None, id=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_credentials=None, tags=None):
         if app_service_plan_id and not isinstance(app_service_plan_id, str):
             raise TypeError("Expected argument 'app_service_plan_id' to be a str")
         __self__.app_service_plan_id = app_service_plan_id
@@ -43,6 +43,12 @@ class GetFunctionAppResult:
         __self__.enabled = enabled
         """
         Is the Function App enabled?
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -77,12 +83,6 @@ class GetFunctionAppResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetFunctionAppResult(GetFunctionAppResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -94,25 +94,27 @@ class AwaitableGetFunctionAppResult(GetFunctionAppResult):
             connection_strings=self.connection_strings,
             default_hostname=self.default_hostname,
             enabled=self.enabled,
+            id=self.id,
             location=self.location,
             name=self.name,
             outbound_ip_addresses=self.outbound_ip_addresses,
             possible_outbound_ip_addresses=self.possible_outbound_ip_addresses,
             resource_group_name=self.resource_group_name,
             site_credentials=self.site_credentials,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_function_app(name=None,resource_group_name=None,tags=None,opts=None):
     """
     Use this data source to access information about a Function App.
-    
-    :param str name: The name of the Function App resource.
-    :param str resource_group_name: The name of the Resource Group where the Function App exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/function_app.html.markdown.
+
+
+    :param str name: The name of the Function App resource.
+    :param str resource_group_name: The name of the Resource Group where the Function App exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -129,11 +131,11 @@ def get_function_app(name=None,resource_group_name=None,tags=None,opts=None):
         connection_strings=__ret__.get('connectionStrings'),
         default_hostname=__ret__.get('defaultHostname'),
         enabled=__ret__.get('enabled'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         outbound_ip_addresses=__ret__.get('outboundIpAddresses'),
         possible_outbound_ip_addresses=__ret__.get('possibleOutboundIpAddresses'),
         resource_group_name=__ret__.get('resourceGroupName'),
         site_credentials=__ret__.get('siteCredentials'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

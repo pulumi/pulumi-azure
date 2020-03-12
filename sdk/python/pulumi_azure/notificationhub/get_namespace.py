@@ -13,12 +13,18 @@ class GetNamespaceResult:
     """
     A collection of values returned by getNamespace.
     """
-    def __init__(__self__, enabled=None, location=None, name=None, namespace_type=None, resource_group_name=None, servicebus_endpoint=None, sku=None, id=None):
+    def __init__(__self__, enabled=None, id=None, location=None, name=None, namespace_type=None, resource_group_name=None, servicebus_endpoint=None, sku=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         __self__.enabled = enabled
         """
         Is this Notification Hub Namespace enabled?
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -50,12 +56,6 @@ class GetNamespaceResult:
         """
         A `sku` block as defined below.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetNamespaceResult(GetNamespaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -63,24 +63,26 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             yield self
         return GetNamespaceResult(
             enabled=self.enabled,
+            id=self.id,
             location=self.location,
             name=self.name,
             namespace_type=self.namespace_type,
             resource_group_name=self.resource_group_name,
             servicebus_endpoint=self.servicebus_endpoint,
-            sku=self.sku,
-            id=self.id)
+            sku=self.sku)
 
 def get_namespace(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Notification Hub Namespace.
-    
-    :param str name: Specifies the Name of the Notification Hub Namespace.
-    :param str resource_group_name: Specifies the Name of the Resource Group within which the Notification Hub exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub_namespace.html.markdown.
+
+
+    :param str name: Specifies the Name of the Notification Hub Namespace.
+    :param str resource_group_name: Specifies the Name of the Resource Group within which the Notification Hub exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -92,10 +94,10 @@ def get_namespace(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetNamespaceResult(
         enabled=__ret__.get('enabled'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         namespace_type=__ret__.get('namespaceType'),
         resource_group_name=__ret__.get('resourceGroupName'),
         servicebus_endpoint=__ret__.get('servicebusEndpoint'),
-        sku=__ret__.get('sku'),
-        id=__ret__.get('id'))
+        sku=__ret__.get('sku'))

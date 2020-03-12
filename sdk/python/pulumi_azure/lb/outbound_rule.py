@@ -25,7 +25,7 @@ class OutboundRule(pulumi.CustomResource):
     frontend_ip_configurations: pulumi.Output[list]
     """
     One or more `frontend_ip_configuration` blocks as defined below.
-    
+
       * `id` (`str`) - The ID of the Load Balancer Outbound Rule.
       * `name` (`str`) - Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
     """
@@ -52,9 +52,11 @@ class OutboundRule(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, allocated_outbound_ports=None, backend_address_pool_id=None, enable_tcp_reset=None, frontend_ip_configurations=None, idle_timeout_in_minutes=None, loadbalancer_id=None, name=None, protocol=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Load Balancer Outbound Rule.
-        
+
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_outbound_rule.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] allocated_outbound_ports: The number of outbound ports to be used for NAT.
@@ -66,13 +68,11 @@ class OutboundRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-        
+
         The **frontend_ip_configurations** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`) - The ID of the Load Balancer Outbound Rule.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_outbound_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,7 +119,7 @@ class OutboundRule(pulumi.CustomResource):
         """
         Get an existing OutboundRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,17 +132,16 @@ class OutboundRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-        
+
         The **frontend_ip_configurations** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`) - The ID of the Load Balancer Outbound Rule.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_outbound_rule.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allocated_outbound_ports"] = allocated_outbound_ports
         __props__["backend_address_pool_id"] = backend_address_pool_id
         __props__["enable_tcp_reset"] = enable_tcp_reset

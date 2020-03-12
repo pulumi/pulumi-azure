@@ -9,9 +9,9 @@ import (
 )
 
 // Use this data source to access endpoint connection information about an existing Private Link Service.
-// 
+//
 // > **NOTE** Private Link is currently in Public Preview.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service_endpoint_connections.html.markdown.
 func GetServiceEndpointConnections(ctx *pulumi.Context, args *GetServiceEndpointConnectionsArgs, opts ...pulumi.InvokeOption) (*GetServiceEndpointConnectionsResult, error) {
 	var rv GetServiceEndpointConnectionsResult

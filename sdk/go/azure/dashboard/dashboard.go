@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a shared dashboard in the Azure Portal.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dashboard.html.markdown.
 type Dashboard struct {
 	pulumi.CustomResourceState

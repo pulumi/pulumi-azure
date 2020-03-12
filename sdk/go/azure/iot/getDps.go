@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing IotHub Device Provisioning Service.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps.html.markdown.
 func GetDps(ctx *pulumi.Context, args *GetDpsArgs, opts ...pulumi.InvokeOption) (*GetDpsResult, error) {
 	var rv GetDpsResult

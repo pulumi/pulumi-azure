@@ -19,7 +19,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
     """
     A `bgp_settings` block as defined below containing the
     Local Network Gateway's BGP speaker settings.
-    
+
       * `asn` (`float`) - The BGP speaker's ASN.
       * `bgpPeeringAddress` (`str`) - The BGP peering address and BGP identifier
         of this BGP speaker.
@@ -53,7 +53,9 @@ class LocalNetworkGateway(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, address_spaces=None, bgp_settings=None, gateway_address=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a local network gateway connection over which specific connections can be configured.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/local_network_gateway.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] address_spaces: The list of string CIDRs representing the
@@ -69,16 +71,14 @@ class LocalNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the local network gateway.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **bgp_settings** object supports the following:
-        
+
           * `asn` (`pulumi.Input[float]`) - The BGP speaker's ASN.
           * `bgpPeeringAddress` (`pulumi.Input[str]`) - The BGP peering address and BGP identifier
             of this BGP speaker.
           * `peerWeight` (`pulumi.Input[float]`) - The weight added to routes learned from this
             BGP speaker.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/local_network_gateway.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,7 +121,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
         """
         Get an existing LocalNetworkGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,20 +138,19 @@ class LocalNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the local network gateway.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **bgp_settings** object supports the following:
-        
+
           * `asn` (`pulumi.Input[float]`) - The BGP speaker's ASN.
           * `bgpPeeringAddress` (`pulumi.Input[str]`) - The BGP peering address and BGP identifier
             of this BGP speaker.
           * `peerWeight` (`pulumi.Input[float]`) - The weight added to routes learned from this
             BGP speaker.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/local_network_gateway.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["address_spaces"] = address_spaces
         __props__["bgp_settings"] = bgp_settings
         __props__["gateway_address"] = gateway_address

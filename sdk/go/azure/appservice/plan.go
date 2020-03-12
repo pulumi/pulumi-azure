@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an App Service Plan component.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_plan.html.markdown.
 type Plan struct {
 	pulumi.CustomResourceState

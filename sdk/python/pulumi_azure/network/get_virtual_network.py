@@ -13,7 +13,7 @@ class GetVirtualNetworkResult:
     """
     A collection of values returned by getVirtualNetwork.
     """
-    def __init__(__self__, address_spaces=None, dns_servers=None, location=None, name=None, resource_group_name=None, subnets=None, vnet_peerings=None, id=None):
+    def __init__(__self__, address_spaces=None, dns_servers=None, id=None, location=None, name=None, resource_group_name=None, subnets=None, vnet_peerings=None):
         if address_spaces and not isinstance(address_spaces, list):
             raise TypeError("Expected argument 'address_spaces' to be a list")
         __self__.address_spaces = address_spaces
@@ -25,6 +25,12 @@ class GetVirtualNetworkResult:
         __self__.dns_servers = dns_servers
         """
         The list of DNS servers used by the virtual network.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -50,12 +56,6 @@ class GetVirtualNetworkResult:
         """
         A mapping of name - virtual network id of the virtual network peerings.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -64,23 +64,25 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
         return GetVirtualNetworkResult(
             address_spaces=self.address_spaces,
             dns_servers=self.dns_servers,
+            id=self.id,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
             subnets=self.subnets,
-            vnet_peerings=self.vnet_peerings,
-            id=self.id)
+            vnet_peerings=self.vnet_peerings)
 
 def get_virtual_network(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Virtual Network.
-    
-    :param str name: Specifies the name of the Virtual Network.
-    :param str resource_group_name: Specifies the name of the resource group the Virtual Network is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network.html.markdown.
+
+
+    :param str name: Specifies the name of the Virtual Network.
+    :param str resource_group_name: Specifies the name of the resource group the Virtual Network is located in.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -93,9 +95,9 @@ def get_virtual_network(name=None,resource_group_name=None,opts=None):
     return AwaitableGetVirtualNetworkResult(
         address_spaces=__ret__.get('addressSpaces'),
         dns_servers=__ret__.get('dnsServers'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
         subnets=__ret__.get('subnets'),
-        vnet_peerings=__ret__.get('vnetPeerings'),
-        id=__ret__.get('id'))
+        vnet_peerings=__ret__.get('vnetPeerings'))

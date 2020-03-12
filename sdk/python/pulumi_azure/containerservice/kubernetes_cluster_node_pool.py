@@ -69,9 +69,11 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, availability_zones=None, enable_auto_scaling=None, enable_node_public_ip=None, kubernetes_cluster_id=None, max_count=None, max_pods=None, min_count=None, name=None, node_count=None, node_taints=None, os_disk_size_gb=None, os_type=None, vm_size=None, vnet_subnet_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Node Pool within a Kubernetes Cluster
-        
+
         > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster_node_pool.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] availability_zones: A list of Availability Zones where the Nodes in this Node Pool should be created in.
@@ -88,8 +90,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] os_type: The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster_node_pool.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -137,7 +137,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         """
         Get an existing KubernetesClusterNodePool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,12 +155,11 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] os_type: The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster_node_pool.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["availability_zones"] = availability_zones
         __props__["enable_auto_scaling"] = enable_auto_scaling
         __props__["enable_node_public_ip"] = enable_node_public_ip

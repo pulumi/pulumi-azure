@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Key Vault Certificate.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_certificate.html.markdown.
 type Certificate struct {
 	pulumi.CustomResourceState

@@ -13,7 +13,13 @@ class GetZoneResult:
     """
     A collection of values returned by getZone.
     """
-    def __init__(__self__, max_number_of_record_sets=None, name=None, name_servers=None, number_of_record_sets=None, resource_group_name=None, tags=None, id=None):
+    def __init__(__self__, id=None, max_number_of_record_sets=None, name=None, name_servers=None, number_of_record_sets=None, resource_group_name=None, tags=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if max_number_of_record_sets and not isinstance(max_number_of_record_sets, float):
             raise TypeError("Expected argument 'max_number_of_record_sets' to be a float")
         __self__.max_number_of_record_sets = max_number_of_record_sets
@@ -44,38 +50,34 @@ class GetZoneResult:
         """
         A mapping of tags to assign to the EventHub Namespace.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetZoneResult(GetZoneResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetZoneResult(
+            id=self.id,
             max_number_of_record_sets=self.max_number_of_record_sets,
             name=self.name,
             name_servers=self.name_servers,
             number_of_record_sets=self.number_of_record_sets,
             resource_group_name=self.resource_group_name,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_zone(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing DNS Zone.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dns_zone.html.markdown.
+
+
     :param str name: The name of the DNS Zone.
     :param str resource_group_name: The Name of the Resource Group where the DNS Zone exists.
            If the Name of the Resource Group is not provided, the first DNS Zone from the list of DNS Zones
            in your subscription that matches `name` will be returned.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dns_zone.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -86,10 +88,10 @@ def get_zone(name=None,resource_group_name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('azure:dns/getZone:getZone', __args__, opts=opts).value
 
     return AwaitableGetZoneResult(
+        id=__ret__.get('id'),
         max_number_of_record_sets=__ret__.get('maxNumberOfRecordSets'),
         name=__ret__.get('name'),
         name_servers=__ret__.get('nameServers'),
         number_of_record_sets=__ret__.get('numberOfRecordSets'),
         resource_group_name=__ret__.get('resourceGroupName'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

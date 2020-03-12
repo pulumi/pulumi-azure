@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about a set of existing Public IP Addresses.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ips.html.markdown.
 func GetPublicIPs(ctx *pulumi.Context, args *GetPublicIPsArgs, opts ...pulumi.InvokeOption) (*GetPublicIPsResult, error) {
 	var rv GetPublicIPsResult

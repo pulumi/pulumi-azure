@@ -17,13 +17,13 @@ class HBaseCluster(pulumi.CustomResource):
     component_version: pulumi.Output[dict]
     """
     A `component_version` block as defined below.
-    
+
       * `hbase` (`str`)
     """
     gateway: pulumi.Output[dict]
     """
     A `gateway` block as defined below.
-    
+
       * `enabled` (`bool`)
       * `password` (`str`)
       * `username` (`str`)
@@ -47,56 +47,53 @@ class HBaseCluster(pulumi.CustomResource):
     roles: pulumi.Output[dict]
     """
     A `roles` block as defined below.
-    
+
       * `headNode` (`dict`)
-    
         * `password` (`str`)
         * `sshKeys` (`list`)
         * `subnet_id` (`str`)
         * `username` (`str`)
-        * `virtualNetworkId` (`str`)
+        * `virtual_network_id` (`str`)
         * `vm_size` (`str`)
-    
+
       * `workerNode` (`dict`)
-    
         * `minInstanceCount` (`float`)
         * `password` (`str`)
         * `sshKeys` (`list`)
         * `subnet_id` (`str`)
         * `targetInstanceCount` (`float`)
         * `username` (`str`)
-        * `virtualNetworkId` (`str`)
+        * `virtual_network_id` (`str`)
         * `vm_size` (`str`)
-    
+
       * `zookeeperNode` (`dict`)
-    
         * `password` (`str`)
         * `sshKeys` (`list`)
         * `subnet_id` (`str`)
         * `username` (`str`)
-        * `virtualNetworkId` (`str`)
+        * `virtual_network_id` (`str`)
         * `vm_size` (`str`)
     """
     ssh_endpoint: pulumi.Output[str]
     """
     The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
     """
-    storage_accounts: pulumi.Output[list]
-    """
-    One or more `storage_account` block as defined below.
-    
-      * `isDefault` (`bool`)
-      * `storageAccountKey` (`str`)
-      * `storageContainerId` (`str`)
-    """
     storage_account_gen2: pulumi.Output[dict]
     """
     A `storage_account_gen2` block as defined below.
-    
+
       * `filesystemId` (`str`)
       * `isDefault` (`bool`)
       * `managedIdentityResourceId` (`str`)
       * `storageResourceId` (`str`)
+    """
+    storage_accounts: pulumi.Output[list]
+    """
+    One or more `storage_account` block as defined below.
+
+      * `isDefault` (`bool`)
+      * `storage_account_key` (`str`)
+      * `storageContainerId` (`str`)
     """
     tags: pulumi.Output[dict]
     """
@@ -106,10 +103,12 @@ class HBaseCluster(pulumi.CustomResource):
     """
     Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, cluster_version=None, component_version=None, gateway=None, location=None, name=None, resource_group_name=None, roles=None, storage_accounts=None, storage_account_gen2=None, tags=None, tier=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cluster_version=None, component_version=None, gateway=None, location=None, name=None, resource_group_name=None, roles=None, storage_account_gen2=None, storage_accounts=None, tags=None, tier=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a HDInsight HBase Cluster.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_hbase_cluster.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -119,66 +118,61 @@ class HBaseCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] roles: A `roles` block as defined below.
-        :param pulumi.Input[list] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[dict] storage_account_gen2: A `storage_account_gen2` block as defined below.
+        :param pulumi.Input[list] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[dict] tags: A map of Tags which should be assigned to this HDInsight HBase Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-        
+
         The **component_version** object supports the following:
-        
+
           * `hbase` (`pulumi.Input[str]`)
-        
+
         The **gateway** object supports the following:
-        
+
           * `enabled` (`pulumi.Input[bool]`)
           * `password` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-        
+
         The **roles** object supports the following:
-        
+
           * `headNode` (`pulumi.Input[dict]`)
-        
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
             * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
-        
+
           * `workerNode` (`pulumi.Input[dict]`)
-        
             * `minInstanceCount` (`pulumi.Input[float]`)
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
             * `subnet_id` (`pulumi.Input[str]`)
             * `targetInstanceCount` (`pulumi.Input[float]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
-        
+
           * `zookeeperNode` (`pulumi.Input[dict]`)
-        
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
             * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
-        
+
         The **storage_account_gen2** object supports the following:
-        
+
           * `filesystemId` (`pulumi.Input[str]`)
           * `isDefault` (`pulumi.Input[bool]`)
           * `managedIdentityResourceId` (`pulumi.Input[str]`)
           * `storageResourceId` (`pulumi.Input[str]`)
-        
-        The **storage_accounts** object supports the following:
-        
-          * `isDefault` (`pulumi.Input[bool]`)
-          * `storageAccountKey` (`pulumi.Input[str]`)
-          * `storageContainerId` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_hbase_cluster.html.markdown.
+        The **storage_accounts** object supports the following:
+
+          * `isDefault` (`pulumi.Input[bool]`)
+          * `storage_account_key` (`pulumi.Input[str]`)
+          * `storageContainerId` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -214,8 +208,8 @@ class HBaseCluster(pulumi.CustomResource):
             if roles is None:
                 raise TypeError("Missing required property 'roles'")
             __props__['roles'] = roles
-            __props__['storage_accounts'] = storage_accounts
             __props__['storage_account_gen2'] = storage_account_gen2
+            __props__['storage_accounts'] = storage_accounts
             __props__['tags'] = tags
             if tier is None:
                 raise TypeError("Missing required property 'tier'")
@@ -229,11 +223,11 @@ class HBaseCluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, cluster_version=None, component_version=None, gateway=None, https_endpoint=None, location=None, name=None, resource_group_name=None, roles=None, ssh_endpoint=None, storage_accounts=None, storage_account_gen2=None, tags=None, tier=None):
+    def get(resource_name, id, opts=None, cluster_version=None, component_version=None, gateway=None, https_endpoint=None, location=None, name=None, resource_group_name=None, roles=None, ssh_endpoint=None, storage_account_gen2=None, storage_accounts=None, tags=None, tier=None):
         """
         Get an existing HBaseCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,70 +240,66 @@ class HBaseCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] roles: A `roles` block as defined below.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
-        :param pulumi.Input[list] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[dict] storage_account_gen2: A `storage_account_gen2` block as defined below.
+        :param pulumi.Input[list] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[dict] tags: A map of Tags which should be assigned to this HDInsight HBase Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-        
+
         The **component_version** object supports the following:
-        
+
           * `hbase` (`pulumi.Input[str]`)
-        
+
         The **gateway** object supports the following:
-        
+
           * `enabled` (`pulumi.Input[bool]`)
           * `password` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-        
+
         The **roles** object supports the following:
-        
+
           * `headNode` (`pulumi.Input[dict]`)
-        
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
             * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
-        
+
           * `workerNode` (`pulumi.Input[dict]`)
-        
             * `minInstanceCount` (`pulumi.Input[float]`)
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
             * `subnet_id` (`pulumi.Input[str]`)
             * `targetInstanceCount` (`pulumi.Input[float]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
-        
+
           * `zookeeperNode` (`pulumi.Input[dict]`)
-        
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
             * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
-        
+
         The **storage_account_gen2** object supports the following:
-        
+
           * `filesystemId` (`pulumi.Input[str]`)
           * `isDefault` (`pulumi.Input[bool]`)
           * `managedIdentityResourceId` (`pulumi.Input[str]`)
           * `storageResourceId` (`pulumi.Input[str]`)
-        
-        The **storage_accounts** object supports the following:
-        
-          * `isDefault` (`pulumi.Input[bool]`)
-          * `storageAccountKey` (`pulumi.Input[str]`)
-          * `storageContainerId` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_hbase_cluster.html.markdown.
+        The **storage_accounts** object supports the following:
+
+          * `isDefault` (`pulumi.Input[bool]`)
+          * `storage_account_key` (`pulumi.Input[str]`)
+          * `storageContainerId` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["cluster_version"] = cluster_version
         __props__["component_version"] = component_version
         __props__["gateway"] = gateway
@@ -319,8 +309,8 @@ class HBaseCluster(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["roles"] = roles
         __props__["ssh_endpoint"] = ssh_endpoint
-        __props__["storage_accounts"] = storage_accounts
         __props__["storage_account_gen2"] = storage_account_gen2
+        __props__["storage_accounts"] = storage_accounts
         __props__["tags"] = tags
         __props__["tier"] = tier
         return HBaseCluster(resource_name, opts=opts, __props__=__props__)

@@ -13,7 +13,13 @@ class GetNamespaceAuthorizationRuleResult:
     """
     A collection of values returned by getNamespaceAuthorizationRule.
     """
-    def __init__(__self__, name=None, namespace_name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, id=None):
+    def __init__(__self__, id=None, name=None, namespace_name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -47,38 +53,34 @@ class GetNamespaceAuthorizationRuleResult:
         """
         The secondary access key for the authorization rule.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetNamespaceAuthorizationRuleResult(GetNamespaceAuthorizationRuleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetNamespaceAuthorizationRuleResult(
+            id=self.id,
             name=self.name,
             namespace_name=self.namespace_name,
             primary_connection_string=self.primary_connection_string,
             primary_key=self.primary_key,
             resource_group_name=self.resource_group_name,
             secondary_connection_string=self.secondary_connection_string,
-            secondary_key=self.secondary_key,
-            id=self.id)
+            secondary_key=self.secondary_key)
 
 def get_namespace_authorization_rule(name=None,namespace_name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing ServiceBus Namespace Authorization Rule.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace_authorization_rule.html.markdown.
+
+
     :param str name: Specifies the name of the ServiceBus Namespace Authorization Rule.
     :param str namespace_name: Specifies the name of the ServiceBus Namespace.
     :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace_authorization_rule.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name
@@ -90,11 +92,11 @@ def get_namespace_authorization_rule(name=None,namespace_name=None,resource_grou
     __ret__ = pulumi.runtime.invoke('azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule', __args__, opts=opts).value
 
     return AwaitableGetNamespaceAuthorizationRuleResult(
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         namespace_name=__ret__.get('namespaceName'),
         primary_connection_string=__ret__.get('primaryConnectionString'),
         primary_key=__ret__.get('primaryKey'),
         resource_group_name=__ret__.get('resourceGroupName'),
         secondary_connection_string=__ret__.get('secondaryConnectionString'),
-        secondary_key=__ret__.get('secondaryKey'),
-        id=__ret__.get('id'))
+        secondary_key=__ret__.get('secondaryKey'))

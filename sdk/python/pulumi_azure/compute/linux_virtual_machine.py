@@ -13,7 +13,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     additional_capabilities: pulumi.Output[dict]
     """
     A `additional_capabilities` block as defined below.
-    
+
       * `ultraSsdEnabled` (`bool`)
     """
     admin_password: pulumi.Output[str]
@@ -23,7 +23,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     admin_ssh_keys: pulumi.Output[list]
     """
     One or more `admin_ssh_key` blocks as defined below.
-    
+
       * `publicKey` (`str`)
       * `username` (`str`)
     """
@@ -42,7 +42,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     boot_diagnostics: pulumi.Output[dict]
     """
     A `boot_diagnostics` block as defined below.
-    
+
       * `storageAccountUri` (`str`)
     """
     computer_name: pulumi.Output[str]
@@ -68,7 +68,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     identity: pulumi.Output[dict]
     """
     An `identity` block as defined below.
-    
+
       * `identityIds` (`list`)
       * `principal_id` (`str`) - The ID of the System Managed Service Principal.
       * `type` (`str`)
@@ -92,12 +92,11 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     os_disk: pulumi.Output[dict]
     """
     A `os_disk` block as defined below.
-    
+
       * `caching` (`str`)
       * `diffDiskSettings` (`dict`)
-    
         * `option` (`str`)
-    
+
       * `disk_encryption_set_id` (`str`)
       * `disk_size_gb` (`float`)
       * `name` (`str`) - The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
@@ -107,7 +106,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     plan: pulumi.Output[dict]
     """
     A `plan` block as defined below. Changing this forces a new resource to be created.
-    
+
       * `name` (`str`) - The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
       * `product` (`str`)
       * `publisher` (`str`)
@@ -144,12 +143,11 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     secrets: pulumi.Output[list]
     """
     One or more `secret` blocks as defined below.
-    
+
       * `certificates` (`list`)
-    
         * `url` (`str`)
-    
-      * `keyVaultId` (`str`)
+
+      * `key_vault_id` (`str`)
     """
     size: pulumi.Output[str]
     """
@@ -162,7 +160,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     source_image_reference: pulumi.Output[dict]
     """
     A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
-    
+
       * `offer` (`str`)
       * `publisher` (`str`)
       * `sku` (`str`)
@@ -183,7 +181,6 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, additional_capabilities=None, admin_password=None, admin_ssh_keys=None, admin_username=None, allow_extension_operations=None, availability_set_id=None, boot_diagnostics=None, computer_name=None, custom_data=None, dedicated_host_id=None, disable_password_authentication=None, eviction_policy=None, identity=None, location=None, max_bid_price=None, name=None, network_interface_ids=None, os_disk=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, secrets=None, size=None, source_image_id=None, source_image_reference=None, tags=None, zone=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a LinuxVirtualMachine resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] additional_capabilities: A `additional_capabilities` block as defined below.
@@ -214,61 +211,57 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[dict] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
-        
+
         The **additional_capabilities** object supports the following:
-        
+
           * `ultraSsdEnabled` (`pulumi.Input[bool]`)
-        
+
         The **admin_ssh_keys** object supports the following:
-        
+
           * `publicKey` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-        
+
         The **boot_diagnostics** object supports the following:
-        
+
           * `storageAccountUri` (`pulumi.Input[str]`)
-        
+
         The **identity** object supports the following:
-        
+
           * `identityIds` (`pulumi.Input[list]`)
           * `principal_id` (`pulumi.Input[str]`) - The ID of the System Managed Service Principal.
           * `type` (`pulumi.Input[str]`)
-        
+
         The **os_disk** object supports the following:
-        
+
           * `caching` (`pulumi.Input[str]`)
           * `diffDiskSettings` (`pulumi.Input[dict]`)
-        
             * `option` (`pulumi.Input[str]`)
-        
+
           * `disk_encryption_set_id` (`pulumi.Input[str]`)
           * `disk_size_gb` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
           * `storage_account_type` (`pulumi.Input[str]`)
           * `write_accelerator_enabled` (`pulumi.Input[bool]`)
-        
+
         The **plan** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
           * `product` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
-        
+
         The **secrets** object supports the following:
-        
+
           * `certificates` (`pulumi.Input[list]`)
-        
             * `url` (`pulumi.Input[str]`)
-        
-          * `keyVaultId` (`pulumi.Input[str]`)
-        
+
+          * `key_vault_id` (`pulumi.Input[str]`)
+
         The **source_image_reference** object supports the following:
-        
+
           * `offer` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
           * `sku` (`pulumi.Input[str]`)
           * `version` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/linux_virtual_machine.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -342,7 +335,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         Get an existing LinuxVirtualMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -379,65 +372,62 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
         :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
-        
+
         The **additional_capabilities** object supports the following:
-        
+
           * `ultraSsdEnabled` (`pulumi.Input[bool]`)
-        
+
         The **admin_ssh_keys** object supports the following:
-        
+
           * `publicKey` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-        
+
         The **boot_diagnostics** object supports the following:
-        
+
           * `storageAccountUri` (`pulumi.Input[str]`)
-        
+
         The **identity** object supports the following:
-        
+
           * `identityIds` (`pulumi.Input[list]`)
           * `principal_id` (`pulumi.Input[str]`) - The ID of the System Managed Service Principal.
           * `type` (`pulumi.Input[str]`)
-        
+
         The **os_disk** object supports the following:
-        
+
           * `caching` (`pulumi.Input[str]`)
           * `diffDiskSettings` (`pulumi.Input[dict]`)
-        
             * `option` (`pulumi.Input[str]`)
-        
+
           * `disk_encryption_set_id` (`pulumi.Input[str]`)
           * `disk_size_gb` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
           * `storage_account_type` (`pulumi.Input[str]`)
           * `write_accelerator_enabled` (`pulumi.Input[bool]`)
-        
+
         The **plan** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
           * `product` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
-        
+
         The **secrets** object supports the following:
-        
+
           * `certificates` (`pulumi.Input[list]`)
-        
             * `url` (`pulumi.Input[str]`)
-        
-          * `keyVaultId` (`pulumi.Input[str]`)
-        
+
+          * `key_vault_id` (`pulumi.Input[str]`)
+
         The **source_image_reference** object supports the following:
-        
+
           * `offer` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
           * `sku` (`pulumi.Input[str]`)
           * `version` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/linux_virtual_machine.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["additional_capabilities"] = additional_capabilities
         __props__["admin_password"] = admin_password
         __props__["admin_ssh_keys"] = admin_ssh_keys

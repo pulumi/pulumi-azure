@@ -49,7 +49,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
     sku: pulumi.Output[dict]
     """
     A `sku` block for the ExpressRoute circuit as documented below.
-    
+
       * `family` (`str`) - The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
       * `tier` (`str`) - The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
     """
@@ -60,7 +60,9 @@ class ExpressRouteCircuit(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, allow_classic_operations=None, bandwidth_in_mbps=None, location=None, name=None, peering_location=None, resource_group_name=None, service_provider_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an ExpressRoute circuit.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
@@ -72,13 +74,11 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider.
         :param pulumi.Input[dict] sku: A `sku` block for the ExpressRoute circuit as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **sku** object supports the following:
-        
+
           * `family` (`pulumi.Input[str]`) - The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
           * `tier` (`pulumi.Input[str]`) - The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -129,7 +129,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         """
         Get an existing ExpressRouteCircuit resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,17 +144,16 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[str] service_provider_provisioning_state: The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
         :param pulumi.Input[dict] sku: A `sku` block for the ExpressRoute circuit as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **sku** object supports the following:
-        
+
           * `family` (`pulumi.Input[str]`) - The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
           * `tier` (`pulumi.Input[str]`) - The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allow_classic_operations"] = allow_classic_operations
         __props__["bandwidth_in_mbps"] = bandwidth_in_mbps
         __props__["location"] = location

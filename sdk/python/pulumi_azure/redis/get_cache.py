@@ -13,7 +13,7 @@ class GetCacheResult:
     """
     A collection of values returned by getCache.
     """
-    def __init__(__self__, capacity=None, enable_non_ssl_port=None, family=None, hostname=None, location=None, minimum_tls_version=None, name=None, patch_schedules=None, port=None, primary_access_key=None, private_static_ip_address=None, redis_configurations=None, resource_group_name=None, secondary_access_key=None, shard_count=None, sku_name=None, ssl_port=None, subnet_id=None, tags=None, zones=None, id=None):
+    def __init__(__self__, capacity=None, enable_non_ssl_port=None, family=None, hostname=None, id=None, location=None, minimum_tls_version=None, name=None, patch_schedules=None, port=None, primary_access_key=None, private_static_ip_address=None, redis_configurations=None, resource_group_name=None, secondary_access_key=None, shard_count=None, sku_name=None, ssl_port=None, subnet_id=None, tags=None, zones=None):
         if capacity and not isinstance(capacity, float):
             raise TypeError("Expected argument 'capacity' to be a float")
         __self__.capacity = capacity
@@ -37,6 +37,12 @@ class GetCacheResult:
         __self__.hostname = hostname
         """
         The Hostname of the Redis Instance
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -113,12 +119,6 @@ class GetCacheResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         __self__.zones = zones
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetCacheResult(GetCacheResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -129,6 +129,7 @@ class AwaitableGetCacheResult(GetCacheResult):
             enable_non_ssl_port=self.enable_non_ssl_port,
             family=self.family,
             hostname=self.hostname,
+            id=self.id,
             location=self.location,
             minimum_tls_version=self.minimum_tls_version,
             name=self.name,
@@ -144,19 +145,20 @@ class AwaitableGetCacheResult(GetCacheResult):
             ssl_port=self.ssl_port,
             subnet_id=self.subnet_id,
             tags=self.tags,
-            zones=self.zones,
-            id=self.id)
+            zones=self.zones)
 
 def get_cache(name=None,resource_group_name=None,zones=None,opts=None):
     """
     Use this data source to access information about an existing Redis Cache
-    
-    :param str name: The name of the Redis cache
-    :param str resource_group_name: The name of the resource group the Redis cache instance is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/redis_cache.html.markdown.
+
+
+    :param str name: The name of the Redis cache
+    :param str resource_group_name: The name of the resource group the Redis cache instance is located in.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -172,6 +174,7 @@ def get_cache(name=None,resource_group_name=None,zones=None,opts=None):
         enable_non_ssl_port=__ret__.get('enableNonSslPort'),
         family=__ret__.get('family'),
         hostname=__ret__.get('hostname'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         minimum_tls_version=__ret__.get('minimumTlsVersion'),
         name=__ret__.get('name'),
@@ -187,5 +190,4 @@ def get_cache(name=None,resource_group_name=None,zones=None,opts=None):
         ssl_port=__ret__.get('sslPort'),
         subnet_id=__ret__.get('subnetId'),
         tags=__ret__.get('tags'),
-        zones=__ret__.get('zones'),
-        id=__ret__.get('id'))
+        zones=__ret__.get('zones'))

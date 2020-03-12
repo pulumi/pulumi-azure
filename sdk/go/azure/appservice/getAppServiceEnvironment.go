@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing App Service Environment
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_environment.html.markdown.
 func GetAppServiceEnvironment(ctx *pulumi.Context, args *GetAppServiceEnvironmentArgs, opts ...pulumi.InvokeOption) (*GetAppServiceEnvironmentResult, error) {
 	var rv GetAppServiceEnvironmentResult

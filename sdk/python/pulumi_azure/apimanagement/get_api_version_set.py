@@ -13,7 +13,7 @@ class GetApiVersionSetResult:
     """
     A collection of values returned by getApiVersionSet.
     """
-    def __init__(__self__, api_management_name=None, description=None, display_name=None, name=None, resource_group_name=None, version_header_name=None, version_query_name=None, versioning_scheme=None, id=None):
+    def __init__(__self__, api_management_name=None, description=None, display_name=None, id=None, name=None, resource_group_name=None, version_header_name=None, version_query_name=None, versioning_scheme=None):
         if api_management_name and not isinstance(api_management_name, str):
             raise TypeError("Expected argument 'api_management_name' to be a str")
         __self__.api_management_name = api_management_name
@@ -28,6 +28,12 @@ class GetApiVersionSetResult:
         __self__.display_name = display_name
         """
         The display name of this API Version Set.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -50,12 +56,6 @@ class GetApiVersionSetResult:
         if versioning_scheme and not isinstance(versioning_scheme, str):
             raise TypeError("Expected argument 'versioning_scheme' to be a str")
         __self__.versioning_scheme = versioning_scheme
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetApiVersionSetResult(GetApiVersionSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -65,24 +65,26 @@ class AwaitableGetApiVersionSetResult(GetApiVersionSetResult):
             api_management_name=self.api_management_name,
             description=self.description,
             display_name=self.display_name,
+            id=self.id,
             name=self.name,
             resource_group_name=self.resource_group_name,
             version_header_name=self.version_header_name,
             version_query_name=self.version_query_name,
-            versioning_scheme=self.versioning_scheme,
-            id=self.id)
+            versioning_scheme=self.versioning_scheme)
 
 def get_api_version_set(api_management_name=None,name=None,resource_group_name=None,opts=None):
     """
     Uses this data source to access information about an API Version Set within an API Management Service.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api_version_set.html.markdown.
+
+
     :param str api_management_name: The name of the API Management Service where the API Version Set exists.
     :param str name: The name of the API Version Set.
     :param str resource_group_name: The name of the Resource Group in which the parent API Management Service exists.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api_version_set.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['apiManagementName'] = api_management_name
     __args__['name'] = name
@@ -97,9 +99,9 @@ def get_api_version_set(api_management_name=None,name=None,resource_group_name=N
         api_management_name=__ret__.get('apiManagementName'),
         description=__ret__.get('description'),
         display_name=__ret__.get('displayName'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
         version_header_name=__ret__.get('versionHeaderName'),
         version_query_name=__ret__.get('versionQueryName'),
-        versioning_scheme=__ret__.get('versioningScheme'),
-        id=__ret__.get('id'))
+        versioning_scheme=__ret__.get('versioningScheme'))

@@ -13,10 +13,16 @@ class GetSnapshotResult:
     """
     A collection of values returned by getSnapshot.
     """
-    def __init__(__self__, account_name=None, location=None, name=None, pool_name=None, resource_group_name=None, volume_name=None, id=None):
+    def __init__(__self__, account_name=None, id=None, location=None, name=None, pool_name=None, resource_group_name=None, volume_name=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         __self__.account_name = account_name
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -35,12 +41,6 @@ class GetSnapshotResult:
         if volume_name and not isinstance(volume_name, str):
             raise TypeError("Expected argument 'volume_name' to be a str")
         __self__.volume_name = volume_name
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetSnapshotResult(GetSnapshotResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -48,26 +48,28 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             yield self
         return GetSnapshotResult(
             account_name=self.account_name,
+            id=self.id,
             location=self.location,
             name=self.name,
             pool_name=self.pool_name,
             resource_group_name=self.resource_group_name,
-            volume_name=self.volume_name,
-            id=self.id)
+            volume_name=self.volume_name)
 
 def get_snapshot(account_name=None,name=None,pool_name=None,resource_group_name=None,volume_name=None,opts=None):
     """
     Uses this data source to access information about an existing NetApp Snapshot.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_snapshot.html.markdown.
+
+
     :param str account_name: The name of the NetApp Account where the NetApp Pool exists.
     :param str name: The name of the NetApp Snapshot.
     :param str pool_name: The name of the NetApp Pool where the NetApp Volume exists.
     :param str resource_group_name: The Name of the Resource Group where the NetApp Snapshot exists.
     :param str volume_name: The name of the NetApp Volume where the NetApp Snapshot exists.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_snapshot.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['accountName'] = account_name
     __args__['name'] = name
@@ -82,9 +84,9 @@ def get_snapshot(account_name=None,name=None,pool_name=None,resource_group_name=
 
     return AwaitableGetSnapshotResult(
         account_name=__ret__.get('accountName'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         pool_name=__ret__.get('poolName'),
         resource_group_name=__ret__.get('resourceGroupName'),
-        volume_name=__ret__.get('volumeName'),
-        id=__ret__.get('id'))
+        volume_name=__ret__.get('volumeName'))

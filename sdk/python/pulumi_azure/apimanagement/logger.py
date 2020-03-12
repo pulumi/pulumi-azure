@@ -17,8 +17,8 @@ class Logger(pulumi.CustomResource):
     application_insights: pulumi.Output[dict]
     """
     An `application_insights` block as documented below.
-    
-      * `instrumentationKey` (`str`)
+
+      * `instrumentation_key` (`str`)
     """
     buffered: pulumi.Output[bool]
     """
@@ -31,8 +31,8 @@ class Logger(pulumi.CustomResource):
     eventhub: pulumi.Output[dict]
     """
     An `eventhub` block as documented below.
-    
-      * `connectionString` (`str`)
+
+      * `connection_string` (`str`)
       * `name` (`str`) - The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
     """
     name: pulumi.Output[str]
@@ -46,7 +46,9 @@ class Logger(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, api_management_name=None, application_insights=None, buffered=None, description=None, eventhub=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Logger within an API Management Service.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_logger.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
@@ -56,17 +58,15 @@ class Logger(pulumi.CustomResource):
         :param pulumi.Input[dict] eventhub: An `eventhub` block as documented below.
         :param pulumi.Input[str] name: The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        
-        The **application_insights** object supports the following:
-        
-          * `instrumentationKey` (`pulumi.Input[str]`)
-        
-        The **eventhub** object supports the following:
-        
-          * `connectionString` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_logger.html.markdown.
+        The **application_insights** object supports the following:
+
+          * `instrumentation_key` (`pulumi.Input[str]`)
+
+        The **eventhub** object supports the following:
+
+          * `connection_string` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -107,7 +107,7 @@ class Logger(pulumi.CustomResource):
         """
         Get an existing Logger resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,21 +118,20 @@ class Logger(pulumi.CustomResource):
         :param pulumi.Input[dict] eventhub: An `eventhub` block as documented below.
         :param pulumi.Input[str] name: The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        
-        The **application_insights** object supports the following:
-        
-          * `instrumentationKey` (`pulumi.Input[str]`)
-        
-        The **eventhub** object supports the following:
-        
-          * `connectionString` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_logger.html.markdown.
+        The **application_insights** object supports the following:
+
+          * `instrumentation_key` (`pulumi.Input[str]`)
+
+        The **eventhub** object supports the following:
+
+          * `connection_string` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["api_management_name"] = api_management_name
         __props__["application_insights"] = application_insights
         __props__["buffered"] = buffered

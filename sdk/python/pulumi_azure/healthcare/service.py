@@ -14,15 +14,15 @@ class Service(pulumi.CustomResource):
     authentication_configuration: pulumi.Output[dict]
     """
     An `authentication_configuration` block as defined below.
-    
+
       * `audience` (`str`) - The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
-      * `authority` (`str`) - <elided>
+      * `authority` (`str`)
       * `smartProxyEnabled` (`bool`) - Enables the 'SMART on FHIR' option for mobile and web implementations.
     """
     cors_configuration: pulumi.Output[dict]
     """
     A `cors_configuration` block as defined below.
-    
+
       * `allowCredentials` (`bool`)
       * `allowedHeaders` (`list`)
       * `allowedMethods` (`list`)
@@ -56,7 +56,9 @@ class Service(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, access_policy_object_ids=None, authentication_configuration=None, cors_configuration=None, cosmosdb_throughput=None, kind=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Healthcare Service.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/healthcare_service.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] authentication_configuration: An `authentication_configuration` block as defined below.
@@ -67,22 +69,20 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **authentication_configuration** object supports the following:
-        
+
           * `audience` (`pulumi.Input[str]`) - The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
-          * `authority` (`pulumi.Input[str]`) - <elided>
+          * `authority` (`pulumi.Input[str]`)
           * `smartProxyEnabled` (`pulumi.Input[bool]`) - Enables the 'SMART on FHIR' option for mobile and web implementations.
-        
+
         The **cors_configuration** object supports the following:
-        
+
           * `allowCredentials` (`pulumi.Input[bool]`)
           * `allowedHeaders` (`pulumi.Input[list]`)
           * `allowedMethods` (`pulumi.Input[list]`)
           * `allowedOrigins` (`pulumi.Input[list]`)
           * `maxAgeInSeconds` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/healthcare_service.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -125,7 +125,7 @@ class Service(pulumi.CustomResource):
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,26 +137,25 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **authentication_configuration** object supports the following:
-        
+
           * `audience` (`pulumi.Input[str]`) - The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
-          * `authority` (`pulumi.Input[str]`) - <elided>
+          * `authority` (`pulumi.Input[str]`)
           * `smartProxyEnabled` (`pulumi.Input[bool]`) - Enables the 'SMART on FHIR' option for mobile and web implementations.
-        
+
         The **cors_configuration** object supports the following:
-        
+
           * `allowCredentials` (`pulumi.Input[bool]`)
           * `allowedHeaders` (`pulumi.Input[list]`)
           * `allowedMethods` (`pulumi.Input[list]`)
           * `allowedOrigins` (`pulumi.Input[list]`)
           * `maxAgeInSeconds` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/healthcare_service.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["access_policy_object_ids"] = access_policy_object_ids
         __props__["authentication_configuration"] = authentication_configuration
         __props__["cors_configuration"] = cors_configuration

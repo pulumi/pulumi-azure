@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a DevSpace Controller.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/devspace_controller.html.markdown.
 type Controller struct {
 	pulumi.CustomResourceState

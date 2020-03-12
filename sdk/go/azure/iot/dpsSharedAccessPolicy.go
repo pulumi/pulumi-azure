@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an IotHub Device Provisioning Service Shared Access Policy
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps_shared_access_policy.html.markdown.
 type DpsSharedAccessPolicy struct {
 	pulumi.CustomResourceState

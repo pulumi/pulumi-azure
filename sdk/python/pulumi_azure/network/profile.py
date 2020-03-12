@@ -13,12 +13,11 @@ class Profile(pulumi.CustomResource):
     container_network_interface: pulumi.Output[dict]
     """
     A `container_network_interface` block as documented below.
-    
+
       * `ip_configurations` (`list`)
-    
         * `name` (`str`) - Specifies the name of the Network Profile. Changing this forces a new resource to be created.
         * `subnet_id` (`str`)
-    
+
       * `name` (`str`) - Specifies the name of the Network Profile. Changing this forces a new resource to be created.
     """
     container_network_interface_ids: pulumi.Output[list]
@@ -44,7 +43,9 @@ class Profile(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, container_network_interface=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Network Profile.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_profile.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] container_network_interface: A `container_network_interface` block as documented below.
@@ -52,17 +53,14 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Network Profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **container_network_interface** object supports the following:
-        
+
           * `ip_configurations` (`pulumi.Input[list]`)
-        
             * `name` (`pulumi.Input[str]`) - Specifies the name of the Network Profile. Changing this forces a new resource to be created.
             * `subnet_id` (`pulumi.Input[str]`)
-        
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Network Profile. Changing this forces a new resource to be created.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_profile.html.markdown.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Network Profile. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -102,7 +100,7 @@ class Profile(pulumi.CustomResource):
         """
         Get an existing Profile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,21 +110,19 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Network Profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **container_network_interface** object supports the following:
-        
+
           * `ip_configurations` (`pulumi.Input[list]`)
-        
             * `name` (`pulumi.Input[str]`) - Specifies the name of the Network Profile. Changing this forces a new resource to be created.
             * `subnet_id` (`pulumi.Input[str]`)
-        
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Network Profile. Changing this forces a new resource to be created.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_profile.html.markdown.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Network Profile. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["container_network_interface"] = container_network_interface
         __props__["container_network_interface_ids"] = container_network_interface_ids
         __props__["location"] = location

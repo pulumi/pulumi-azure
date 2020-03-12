@@ -13,14 +13,14 @@ class ActivityLogAlert(pulumi.CustomResource):
     actions: pulumi.Output[list]
     """
     One or more `action` blocks as defined below.
-    
+
       * `actionGroupId` (`str`)
       * `webhookProperties` (`dict`)
     """
     criteria: pulumi.Output[dict]
     """
     A `criteria` block as defined below.
-    
+
       * `caller` (`str`)
       * `category` (`str`)
       * `level` (`str`)
@@ -59,7 +59,9 @@ class ActivityLogAlert(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, actions=None, criteria=None, description=None, enabled=None, name=None, resource_group_name=None, scopes=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Activity Log Alert within Azure Monitor.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_activity_log_alert.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] actions: One or more `action` blocks as defined below.
@@ -70,14 +72,14 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance.
         :param pulumi.Input[list] scopes: The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **actions** object supports the following:
-        
+
           * `actionGroupId` (`pulumi.Input[str]`)
           * `webhookProperties` (`pulumi.Input[dict]`)
-        
+
         The **criteria** object supports the following:
-        
+
           * `caller` (`pulumi.Input[str]`)
           * `category` (`pulumi.Input[str]`)
           * `level` (`pulumi.Input[str]`)
@@ -88,8 +90,6 @@ class ActivityLogAlert(pulumi.CustomResource):
           * `resourceType` (`pulumi.Input[str]`)
           * `status` (`pulumi.Input[str]`)
           * `subStatus` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_activity_log_alert.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -133,7 +133,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         """
         Get an existing ActivityLogAlert resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,14 +145,14 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance.
         :param pulumi.Input[list] scopes: The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **actions** object supports the following:
-        
+
           * `actionGroupId` (`pulumi.Input[str]`)
           * `webhookProperties` (`pulumi.Input[dict]`)
-        
+
         The **criteria** object supports the following:
-        
+
           * `caller` (`pulumi.Input[str]`)
           * `category` (`pulumi.Input[str]`)
           * `level` (`pulumi.Input[str]`)
@@ -163,12 +163,11 @@ class ActivityLogAlert(pulumi.CustomResource):
           * `resourceType` (`pulumi.Input[str]`)
           * `status` (`pulumi.Input[str]`)
           * `subStatus` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_activity_log_alert.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["actions"] = actions
         __props__["criteria"] = criteria
         __props__["description"] = description

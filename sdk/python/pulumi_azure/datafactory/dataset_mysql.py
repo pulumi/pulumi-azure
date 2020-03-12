@@ -49,7 +49,7 @@ class DatasetMysql(pulumi.CustomResource):
     schema_columns: pulumi.Output[list]
     """
     A `schema_column` block as defined below.
-    
+
       * `description` (`str`) - The description for the Data Factory Dataset MySQL.
       * `name` (`str`) - Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
       * `type` (`str`)
@@ -61,7 +61,9 @@ class DatasetMysql(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, additional_properties=None, annotations=None, data_factory_name=None, description=None, folder=None, linked_service_name=None, name=None, parameters=None, resource_group_name=None, schema_columns=None, table_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a MySQL Dataset inside a Azure Data Factory.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_dataset_mysql.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] additional_properties: A map of additional properties to associate with the Data Factory Dataset MySQL.
@@ -75,14 +77,12 @@ class DatasetMysql(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
         :param pulumi.Input[list] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset MySQL.
-        
+
         The **schema_columns** object supports the following:
-        
+
           * `description` (`pulumi.Input[str]`) - The description for the Data Factory Dataset MySQL.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
           * `type` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_dataset_mysql.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -129,7 +129,7 @@ class DatasetMysql(pulumi.CustomResource):
         """
         Get an existing DatasetMysql resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,18 +144,17 @@ class DatasetMysql(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
         :param pulumi.Input[list] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset MySQL.
-        
+
         The **schema_columns** object supports the following:
-        
+
           * `description` (`pulumi.Input[str]`) - The description for the Data Factory Dataset MySQL.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
           * `type` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_dataset_mysql.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["additional_properties"] = additional_properties
         __props__["annotations"] = annotations
         __props__["data_factory_name"] = data_factory_name

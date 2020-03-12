@@ -17,10 +17,10 @@ class Endpoint(pulumi.CustomResource):
     geo_filters: pulumi.Output[list]
     """
     A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
-    
+
       * `action` (`str`)
       * `countryCodes` (`list`)
-      * `relativePath` (`str`)
+      * `relative_path` (`str`)
     """
     host_name: pulumi.Output[str]
     is_compression_enabled: pulumi.Output[bool]
@@ -47,15 +47,6 @@ class Endpoint(pulumi.CustomResource):
     """
     What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
     """
-    origins: pulumi.Output[list]
-    """
-    The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
-    
-      * `host_name` (`str`)
-      * `httpPort` (`float`)
-      * `httpsPort` (`float`)
-      * `name` (`str`) - Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
-    """
     origin_host_header: pulumi.Output[str]
     """
     The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
@@ -63,6 +54,15 @@ class Endpoint(pulumi.CustomResource):
     origin_path: pulumi.Output[str]
     """
     The path used at for origin requests.
+    """
+    origins: pulumi.Output[list]
+    """
+    The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+
+      * `host_name` (`str`)
+      * `httpPort` (`float`)
+      * `httpsPort` (`float`)
+      * `name` (`str`) - Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
     """
     probe_path: pulumi.Output[str]
     """
@@ -84,10 +84,12 @@ class Endpoint(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, content_types_to_compresses=None, geo_filters=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origins=None, origin_host_header=None, origin_path=None, probe_path=None, profile_name=None, querystring_caching_behaviour=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, content_types_to_compresses=None, geo_filters=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origin_host_header=None, origin_path=None, origins=None, probe_path=None, profile_name=None, querystring_caching_behaviour=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviors and origins. The CDN Endpoint is exposed using the URL format <endpointname>.azureedge.net.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cdn_endpoint.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
@@ -98,29 +100,27 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
-        :param pulumi.Input[list] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
         :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
         :param pulumi.Input[str] origin_path: The path used at for origin requests.
+        :param pulumi.Input[list] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
         :param pulumi.Input[str] probe_path: the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
         :param pulumi.Input[str] profile_name: The CDN Profile to which to attach the CDN Endpoint.
         :param pulumi.Input[str] querystring_caching_behaviour: Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the CDN Endpoint.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **geo_filters** object supports the following:
-        
+
           * `action` (`pulumi.Input[str]`)
           * `countryCodes` (`pulumi.Input[list]`)
-          * `relativePath` (`pulumi.Input[str]`)
-        
+          * `relative_path` (`pulumi.Input[str]`)
+
         The **origins** object supports the following:
-        
+
           * `host_name` (`pulumi.Input[str]`)
           * `httpPort` (`pulumi.Input[float]`)
           * `httpsPort` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cdn_endpoint.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -147,11 +147,11 @@ class Endpoint(pulumi.CustomResource):
             __props__['location'] = location
             __props__['name'] = name
             __props__['optimization_type'] = optimization_type
+            __props__['origin_host_header'] = origin_host_header
+            __props__['origin_path'] = origin_path
             if origins is None:
                 raise TypeError("Missing required property 'origins'")
             __props__['origins'] = origins
-            __props__['origin_host_header'] = origin_host_header
-            __props__['origin_path'] = origin_path
             __props__['probe_path'] = probe_path
             if profile_name is None:
                 raise TypeError("Missing required property 'profile_name'")
@@ -169,11 +169,11 @@ class Endpoint(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, content_types_to_compresses=None, geo_filters=None, host_name=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origins=None, origin_host_header=None, origin_path=None, probe_path=None, profile_name=None, querystring_caching_behaviour=None, resource_group_name=None, tags=None):
+    def get(resource_name, id, opts=None, content_types_to_compresses=None, geo_filters=None, host_name=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origin_host_header=None, origin_path=None, origins=None, probe_path=None, profile_name=None, querystring_caching_behaviour=None, resource_group_name=None, tags=None):
         """
         Get an existing Endpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,33 +185,32 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
-        :param pulumi.Input[list] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
         :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
         :param pulumi.Input[str] origin_path: The path used at for origin requests.
+        :param pulumi.Input[list] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
         :param pulumi.Input[str] probe_path: the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
         :param pulumi.Input[str] profile_name: The CDN Profile to which to attach the CDN Endpoint.
         :param pulumi.Input[str] querystring_caching_behaviour: Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the CDN Endpoint.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **geo_filters** object supports the following:
-        
+
           * `action` (`pulumi.Input[str]`)
           * `countryCodes` (`pulumi.Input[list]`)
-          * `relativePath` (`pulumi.Input[str]`)
-        
+          * `relative_path` (`pulumi.Input[str]`)
+
         The **origins** object supports the following:
-        
+
           * `host_name` (`pulumi.Input[str]`)
           * `httpPort` (`pulumi.Input[float]`)
           * `httpsPort` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cdn_endpoint.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["content_types_to_compresses"] = content_types_to_compresses
         __props__["geo_filters"] = geo_filters
         __props__["host_name"] = host_name
@@ -221,9 +220,9 @@ class Endpoint(pulumi.CustomResource):
         __props__["location"] = location
         __props__["name"] = name
         __props__["optimization_type"] = optimization_type
-        __props__["origins"] = origins
         __props__["origin_host_header"] = origin_host_header
         __props__["origin_path"] = origin_path
+        __props__["origins"] = origins
         __props__["probe_path"] = probe_path
         __props__["profile_name"] = profile_name
         __props__["querystring_caching_behaviour"] = querystring_caching_behaviour

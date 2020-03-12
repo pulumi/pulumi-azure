@@ -13,7 +13,7 @@ class GetActionGroupResult:
     """
     A collection of values returned by getActionGroup.
     """
-    def __init__(__self__, arm_role_receivers=None, automation_runbook_receivers=None, azure_app_push_receivers=None, azure_function_receivers=None, email_receivers=None, enabled=None, itsm_receivers=None, logic_app_receivers=None, name=None, resource_group_name=None, short_name=None, sms_receivers=None, voice_receivers=None, webhook_receivers=None, id=None):
+    def __init__(__self__, arm_role_receivers=None, automation_runbook_receivers=None, azure_app_push_receivers=None, azure_function_receivers=None, email_receivers=None, enabled=None, id=None, itsm_receivers=None, logic_app_receivers=None, name=None, resource_group_name=None, short_name=None, sms_receivers=None, voice_receivers=None, webhook_receivers=None):
         if arm_role_receivers and not isinstance(arm_role_receivers, list):
             raise TypeError("Expected argument 'arm_role_receivers' to be a list")
         __self__.arm_role_receivers = arm_role_receivers
@@ -49,6 +49,12 @@ class GetActionGroupResult:
         __self__.enabled = enabled
         """
         Whether this action group is enabled.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if itsm_receivers and not isinstance(itsm_receivers, list):
             raise TypeError("Expected argument 'itsm_receivers' to be a list")
@@ -95,12 +101,6 @@ class GetActionGroupResult:
         """
         One or more `webhook_receiver` blocks as defined below.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetActionGroupResult(GetActionGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -113,6 +113,7 @@ class AwaitableGetActionGroupResult(GetActionGroupResult):
             azure_function_receivers=self.azure_function_receivers,
             email_receivers=self.email_receivers,
             enabled=self.enabled,
+            id=self.id,
             itsm_receivers=self.itsm_receivers,
             logic_app_receivers=self.logic_app_receivers,
             name=self.name,
@@ -120,19 +121,20 @@ class AwaitableGetActionGroupResult(GetActionGroupResult):
             short_name=self.short_name,
             sms_receivers=self.sms_receivers,
             voice_receivers=self.voice_receivers,
-            webhook_receivers=self.webhook_receivers,
-            id=self.id)
+            webhook_receivers=self.webhook_receivers)
 
 def get_action_group(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access the properties of an Action Group.
-    
-    :param str name: Specifies the name of the Action Group.
-    :param str resource_group_name: Specifies the name of the resource group the Action Group is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_action_group.html.markdown.
+
+
+    :param str name: Specifies the name of the Action Group.
+    :param str resource_group_name: Specifies the name of the resource group the Action Group is located in.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -149,6 +151,7 @@ def get_action_group(name=None,resource_group_name=None,opts=None):
         azure_function_receivers=__ret__.get('azureFunctionReceivers'),
         email_receivers=__ret__.get('emailReceivers'),
         enabled=__ret__.get('enabled'),
+        id=__ret__.get('id'),
         itsm_receivers=__ret__.get('itsmReceivers'),
         logic_app_receivers=__ret__.get('logicAppReceivers'),
         name=__ret__.get('name'),
@@ -156,5 +159,4 @@ def get_action_group(name=None,resource_group_name=None,opts=None):
         short_name=__ret__.get('shortName'),
         sms_receivers=__ret__.get('smsReceivers'),
         voice_receivers=__ret__.get('voiceReceivers'),
-        webhook_receivers=__ret__.get('webhookReceivers'),
-        id=__ret__.get('id'))
+        webhook_receivers=__ret__.get('webhookReceivers'))

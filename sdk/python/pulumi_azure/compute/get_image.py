@@ -13,12 +13,18 @@ class GetImageResult:
     """
     A collection of values returned by getImage.
     """
-    def __init__(__self__, data_disks=None, location=None, name=None, name_regex=None, os_disks=None, resource_group_name=None, sort_descending=None, tags=None, zone_resilient=None, id=None):
+    def __init__(__self__, data_disks=None, id=None, location=None, name=None, name_regex=None, os_disks=None, resource_group_name=None, sort_descending=None, tags=None, zone_resilient=None):
         if data_disks and not isinstance(data_disks, list):
             raise TypeError("Expected argument 'data_disks' to be a list")
         __self__.data_disks = data_disks
         """
         a collection of `data_disk` blocks as defined below.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -59,12 +65,6 @@ class GetImageResult:
         """
         is zone resiliency enabled?
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetImageResult(GetImageResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -72,6 +72,7 @@ class AwaitableGetImageResult(GetImageResult):
             yield self
         return GetImageResult(
             data_disks=self.data_disks,
+            id=self.id,
             location=self.location,
             name=self.name,
             name_regex=self.name_regex,
@@ -79,21 +80,22 @@ class AwaitableGetImageResult(GetImageResult):
             resource_group_name=self.resource_group_name,
             sort_descending=self.sort_descending,
             tags=self.tags,
-            zone_resilient=self.zone_resilient,
-            id=self.id)
+            zone_resilient=self.zone_resilient)
 
 def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending=None,opts=None):
     """
     Use this data source to access information about an existing Image.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/image.html.markdown.
+
+
     :param str name: The name of the Image.
     :param str name_regex: Regex pattern of the image to match.
     :param str resource_group_name: The Name of the Resource Group where this Image exists.
     :param bool sort_descending: By default when matching by regex, images are sorted by name in ascending order and the first match is chosen, to sort descending, set this flag.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/image.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['nameRegex'] = name_regex
@@ -107,6 +109,7 @@ def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending
 
     return AwaitableGetImageResult(
         data_disks=__ret__.get('dataDisks'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         name_regex=__ret__.get('nameRegex'),
@@ -114,5 +117,4 @@ def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending
         resource_group_name=__ret__.get('resourceGroupName'),
         sort_descending=__ret__.get('sortDescending'),
         tags=__ret__.get('tags'),
-        zone_resilient=__ret__.get('zoneResilient'),
-        id=__ret__.get('id'))
+        zone_resilient=__ret__.get('zoneResilient'))

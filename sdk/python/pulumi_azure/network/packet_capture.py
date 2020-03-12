@@ -13,7 +13,7 @@ class PacketCapture(pulumi.CustomResource):
     filters: pulumi.Output[list]
     """
     One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
-    
+
       * `localIpAddress` (`str`)
       * `localPort` (`str`)
       * `protocol` (`str`)
@@ -47,7 +47,7 @@ class PacketCapture(pulumi.CustomResource):
     storage_location: pulumi.Output[dict]
     """
     A `storage_location` block as defined below. Changing this forces a new resource to be created.
-    
+
       * `filePath` (`str`)
       * `storage_account_id` (`str`)
       * `storagePath` (`str`) - The URI of the storage path to save the packet capture.
@@ -59,9 +59,11 @@ class PacketCapture(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, filters=None, maximum_bytes_per_packet=None, maximum_bytes_per_session=None, maximum_capture_duration=None, name=None, network_watcher_name=None, resource_group_name=None, storage_location=None, target_resource_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Configures Packet Capturing against a Virtual Machine using a Network Watcher.
-        
+
         > **NOTE:** This resource has been deprecated in favour of the `network.NetworkConnectionMonitor` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/packet_capture.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
@@ -73,22 +75,20 @@ class PacketCapture(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
-        
+
         The **filters** object supports the following:
-        
+
           * `localIpAddress` (`pulumi.Input[str]`)
           * `localPort` (`pulumi.Input[str]`)
           * `protocol` (`pulumi.Input[str]`)
           * `remoteIpAddress` (`pulumi.Input[str]`)
           * `remotePort` (`pulumi.Input[str]`)
-        
+
         The **storage_location** object supports the following:
-        
+
           * `filePath` (`pulumi.Input[str]`)
           * `storage_account_id` (`pulumi.Input[str]`)
           * `storagePath` (`pulumi.Input[str]`) - The URI of the storage path to save the packet capture.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/packet_capture.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -135,7 +135,7 @@ class PacketCapture(pulumi.CustomResource):
         """
         Get an existing PacketCapture resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,26 +148,25 @@ class PacketCapture(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
-        
+
         The **filters** object supports the following:
-        
+
           * `localIpAddress` (`pulumi.Input[str]`)
           * `localPort` (`pulumi.Input[str]`)
           * `protocol` (`pulumi.Input[str]`)
           * `remoteIpAddress` (`pulumi.Input[str]`)
           * `remotePort` (`pulumi.Input[str]`)
-        
+
         The **storage_location** object supports the following:
-        
+
           * `filePath` (`pulumi.Input[str]`)
           * `storage_account_id` (`pulumi.Input[str]`)
           * `storagePath` (`pulumi.Input[str]`) - The URI of the storage path to save the packet capture.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/packet_capture.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["filters"] = filters
         __props__["maximum_bytes_per_packet"] = maximum_bytes_per_packet
         __props__["maximum_bytes_per_session"] = maximum_bytes_per_session

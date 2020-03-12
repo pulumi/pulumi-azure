@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Automation Int Variable.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_int.html.markdown.
 func LookupIntVariable(ctx *pulumi.Context, args *LookupIntVariableArgs, opts ...pulumi.InvokeOption) (*LookupIntVariableResult, error) {
 	var rv LookupIntVariableResult

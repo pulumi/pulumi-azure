@@ -12,7 +12,7 @@ import (
 )
 
 // Allows accepting the Legal Terms for a Marketplace Image.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/marketplace_agreement.html.markdown.
 type Agreement struct {
 	pulumi.CustomResourceState

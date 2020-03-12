@@ -5,5 +5,5 @@
 # Export this package's modules as members:
 from .domain import *
 from .event_subscription import *
-from .topic import *
 from .get_topic import *
+from .topic import *

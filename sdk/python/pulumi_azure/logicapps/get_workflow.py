@@ -13,12 +13,18 @@ class GetWorkflowResult:
     """
     A collection of values returned by getWorkflow.
     """
-    def __init__(__self__, access_endpoint=None, location=None, name=None, parameters=None, resource_group_name=None, tags=None, workflow_schema=None, workflow_version=None, id=None):
+    def __init__(__self__, access_endpoint=None, id=None, location=None, name=None, parameters=None, resource_group_name=None, tags=None, workflow_schema=None, workflow_version=None):
         if access_endpoint and not isinstance(access_endpoint, str):
             raise TypeError("Expected argument 'access_endpoint' to be a str")
         __self__.access_endpoint = access_endpoint
         """
         The Access Endpoint for the Logic App Workflow
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -56,12 +62,6 @@ class GetWorkflowResult:
         """
         The version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetWorkflowResult(GetWorkflowResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -69,25 +69,27 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
             yield self
         return GetWorkflowResult(
             access_endpoint=self.access_endpoint,
+            id=self.id,
             location=self.location,
             name=self.name,
             parameters=self.parameters,
             resource_group_name=self.resource_group_name,
             tags=self.tags,
             workflow_schema=self.workflow_schema,
-            workflow_version=self.workflow_version,
-            id=self.id)
+            workflow_version=self.workflow_version)
 
 def get_workflow(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Logic App Workflow.
-    
-    :param str name: The name of the Logic App Workflow.
-    :param str resource_group_name: The name of the Resource Group in which the Logic App Workflow exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/logic_app_workflow.html.markdown.
+
+
+    :param str name: The name of the Logic App Workflow.
+    :param str resource_group_name: The name of the Resource Group in which the Logic App Workflow exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -99,11 +101,11 @@ def get_workflow(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetWorkflowResult(
         access_endpoint=__ret__.get('accessEndpoint'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         parameters=__ret__.get('parameters'),
         resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
         workflow_schema=__ret__.get('workflowSchema'),
-        workflow_version=__ret__.get('workflowVersion'),
-        id=__ret__.get('id'))
+        workflow_version=__ret__.get('workflowVersion'))

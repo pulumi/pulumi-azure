@@ -17,13 +17,13 @@ class EventSubscription(pulumi.CustomResource):
     eventhub_endpoint: pulumi.Output[dict]
     """
     A `eventhub_endpoint` block as defined below.
-    
-      * `eventhubId` (`str`) - Specifies the id of the eventhub where the Event Subscription will receive events.
+
+      * `eventhub_id` (`str`) - Specifies the id of the eventhub where the Event Subscription will receive events.
     """
     hybrid_connection_endpoint: pulumi.Output[dict]
     """
     A `hybrid_connection_endpoint` block as defined below.
-    
+
       * `hybridConnectionId` (`str`) - Specifies the id of the hybrid connection where the Event Subscription will receive events.
     """
     included_event_types: pulumi.Output[list]
@@ -41,7 +41,7 @@ class EventSubscription(pulumi.CustomResource):
     retry_policy: pulumi.Output[dict]
     """
     A `retry_policy` block as defined below.
-    
+
       * `eventTimeToLive` (`float`) - Specifies the time to live (in minutes) for events.
       * `maxDeliveryAttempts` (`float`) - Specifies the maximum number of delivery retry attempts for events.
     """
@@ -52,21 +52,21 @@ class EventSubscription(pulumi.CustomResource):
     storage_blob_dead_letter_destination: pulumi.Output[dict]
     """
     A `storage_blob_dead_letter_destination` block as defined below.
-    
+
       * `storage_account_id` (`str`) - Specifies the id of the storage account id where the storage blob is located.
       * `storageBlobContainerName` (`str`) - Specifies the name of the Storage blob container that is the destination of the deadletter events
     """
     storage_queue_endpoint: pulumi.Output[dict]
     """
     A `storage_queue_endpoint` block as defined below.
-    
+
       * `queue_name` (`str`) - Specifies the name of the storage queue where the Event Subscriptio will receive events.
       * `storage_account_id` (`str`) - Specifies the id of the storage account id where the storage blob is located.
     """
     subject_filter: pulumi.Output[dict]
     """
     A `subject_filter` block as defined below.
-    
+
       * `caseSensitive` (`bool`) - Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
       * `subjectBeginsWith` (`str`) - A string to filter events for an event subscription based on a resource path prefix.
       * `subjectEndsWith` (`str`) - A string to filter events for an event subscription based on a resource path suffix.
@@ -78,13 +78,15 @@ class EventSubscription(pulumi.CustomResource):
     webhook_endpoint: pulumi.Output[dict]
     """
     A `webhook_endpoint` block as defined below.
-    
+
       * `url` (`str`) - Specifies the url of the webhook where the Event Subscription will receive events.
     """
     def __init__(__self__, resource_name, opts=None, event_delivery_schema=None, eventhub_endpoint=None, hybrid_connection_endpoint=None, included_event_types=None, labels=None, name=None, retry_policy=None, scope=None, storage_blob_dead_letter_destination=None, storage_queue_endpoint=None, subject_filter=None, topic_name=None, webhook_endpoint=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EventGrid Event Subscription
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_event_subscription.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
@@ -100,41 +102,39 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[dict] subject_filter: A `subject_filter` block as defined below.
         :param pulumi.Input[str] topic_name: Specifies the name of the topic to associate with the event subscription.
         :param pulumi.Input[dict] webhook_endpoint: A `webhook_endpoint` block as defined below.
-        
+
         The **eventhub_endpoint** object supports the following:
-        
-          * `eventhubId` (`pulumi.Input[str]`) - Specifies the id of the eventhub where the Event Subscription will receive events.
-        
+
+          * `eventhub_id` (`pulumi.Input[str]`) - Specifies the id of the eventhub where the Event Subscription will receive events.
+
         The **hybrid_connection_endpoint** object supports the following:
-        
+
           * `hybridConnectionId` (`pulumi.Input[str]`) - Specifies the id of the hybrid connection where the Event Subscription will receive events.
-        
+
         The **retry_policy** object supports the following:
-        
+
           * `eventTimeToLive` (`pulumi.Input[float]`) - Specifies the time to live (in minutes) for events.
           * `maxDeliveryAttempts` (`pulumi.Input[float]`) - Specifies the maximum number of delivery retry attempts for events.
-        
+
         The **storage_blob_dead_letter_destination** object supports the following:
-        
+
           * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located.
           * `storageBlobContainerName` (`pulumi.Input[str]`) - Specifies the name of the Storage blob container that is the destination of the deadletter events
-        
+
         The **storage_queue_endpoint** object supports the following:
-        
+
           * `queue_name` (`pulumi.Input[str]`) - Specifies the name of the storage queue where the Event Subscriptio will receive events.
           * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located.
-        
+
         The **subject_filter** object supports the following:
-        
+
           * `caseSensitive` (`pulumi.Input[bool]`) - Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
           * `subjectBeginsWith` (`pulumi.Input[str]`) - A string to filter events for an event subscription based on a resource path prefix.
           * `subjectEndsWith` (`pulumi.Input[str]`) - A string to filter events for an event subscription based on a resource path suffix.
-        
-        The **webhook_endpoint** object supports the following:
-        
-          * `url` (`pulumi.Input[str]`) - Specifies the url of the webhook where the Event Subscription will receive events.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_event_subscription_legacy.html.markdown.
+        The **webhook_endpoint** object supports the following:
+
+          * `url` (`pulumi.Input[str]`) - Specifies the url of the webhook where the Event Subscription will receive events.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -179,7 +179,7 @@ class EventSubscription(pulumi.CustomResource):
         """
         Get an existing EventSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,45 +196,44 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[dict] subject_filter: A `subject_filter` block as defined below.
         :param pulumi.Input[str] topic_name: Specifies the name of the topic to associate with the event subscription.
         :param pulumi.Input[dict] webhook_endpoint: A `webhook_endpoint` block as defined below.
-        
+
         The **eventhub_endpoint** object supports the following:
-        
-          * `eventhubId` (`pulumi.Input[str]`) - Specifies the id of the eventhub where the Event Subscription will receive events.
-        
+
+          * `eventhub_id` (`pulumi.Input[str]`) - Specifies the id of the eventhub where the Event Subscription will receive events.
+
         The **hybrid_connection_endpoint** object supports the following:
-        
+
           * `hybridConnectionId` (`pulumi.Input[str]`) - Specifies the id of the hybrid connection where the Event Subscription will receive events.
-        
+
         The **retry_policy** object supports the following:
-        
+
           * `eventTimeToLive` (`pulumi.Input[float]`) - Specifies the time to live (in minutes) for events.
           * `maxDeliveryAttempts` (`pulumi.Input[float]`) - Specifies the maximum number of delivery retry attempts for events.
-        
+
         The **storage_blob_dead_letter_destination** object supports the following:
-        
+
           * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located.
           * `storageBlobContainerName` (`pulumi.Input[str]`) - Specifies the name of the Storage blob container that is the destination of the deadletter events
-        
+
         The **storage_queue_endpoint** object supports the following:
-        
+
           * `queue_name` (`pulumi.Input[str]`) - Specifies the name of the storage queue where the Event Subscriptio will receive events.
           * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located.
-        
+
         The **subject_filter** object supports the following:
-        
+
           * `caseSensitive` (`pulumi.Input[bool]`) - Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
           * `subjectBeginsWith` (`pulumi.Input[str]`) - A string to filter events for an event subscription based on a resource path prefix.
           * `subjectEndsWith` (`pulumi.Input[str]`) - A string to filter events for an event subscription based on a resource path suffix.
-        
-        The **webhook_endpoint** object supports the following:
-        
-          * `url` (`pulumi.Input[str]`) - Specifies the url of the webhook where the Event Subscription will receive events.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_event_subscription_legacy.html.markdown.
+        The **webhook_endpoint** object supports the following:
+
+          * `url` (`pulumi.Input[str]`) - Specifies the url of the webhook where the Event Subscription will receive events.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["event_delivery_schema"] = event_delivery_schema
         __props__["eventhub_endpoint"] = eventhub_endpoint
         __props__["hybrid_connection_endpoint"] = hybrid_connection_endpoint

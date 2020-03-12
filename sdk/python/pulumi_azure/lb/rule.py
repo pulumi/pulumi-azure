@@ -70,9 +70,11 @@ class Rule(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, backend_address_pool_id=None, backend_port=None, disable_outbound_snat=None, enable_floating_ip=None, enable_tcp_reset=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, name=None, probe_id=None, protocol=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Load Balancer Rule.
-        
+
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_rule.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_address_pool_id: A reference to a Backend Address Pool over which this Load Balancing Rule operates.
@@ -89,8 +91,6 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] probe_id: A reference to a Probe used by this Load Balancing Rule.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -147,7 +147,7 @@ class Rule(pulumi.CustomResource):
         """
         Get an existing Rule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,12 +165,11 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] probe_id: A reference to a Probe used by this Load Balancing Rule.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_rule.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["backend_address_pool_id"] = backend_address_pool_id
         __props__["backend_port"] = backend_port
         __props__["disable_outbound_snat"] = disable_outbound_snat

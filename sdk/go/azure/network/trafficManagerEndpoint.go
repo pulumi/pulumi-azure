@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Traffic Manager Endpoint.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_endpoint.html.markdown.
 type TrafficManagerEndpoint struct {
 	pulumi.CustomResourceState

@@ -13,7 +13,7 @@ class GetCertificateOrderResult:
     """
     A collection of values returned by getCertificateOrder.
     """
-    def __init__(__self__, app_service_certificate_not_renewable_reasons=None, auto_renew=None, certificates=None, csr=None, distinguished_name=None, domain_verification_token=None, expiration_time=None, intermediate_thumbprint=None, is_private_key_external=None, key_size=None, location=None, name=None, product_type=None, resource_group_name=None, root_thumbprint=None, signed_certificate_thumbprint=None, status=None, tags=None, validity_in_years=None, id=None):
+    def __init__(__self__, app_service_certificate_not_renewable_reasons=None, auto_renew=None, certificates=None, csr=None, distinguished_name=None, domain_verification_token=None, expiration_time=None, id=None, intermediate_thumbprint=None, is_private_key_external=None, key_size=None, location=None, name=None, product_type=None, resource_group_name=None, root_thumbprint=None, signed_certificate_thumbprint=None, status=None, tags=None, validity_in_years=None):
         if app_service_certificate_not_renewable_reasons and not isinstance(app_service_certificate_not_renewable_reasons, list):
             raise TypeError("Expected argument 'app_service_certificate_not_renewable_reasons' to be a list")
         __self__.app_service_certificate_not_renewable_reasons = app_service_certificate_not_renewable_reasons
@@ -55,6 +55,12 @@ class GetCertificateOrderResult:
         __self__.expiration_time = expiration_time
         """
         Certificate expiration time.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if intermediate_thumbprint and not isinstance(intermediate_thumbprint, str):
             raise TypeError("Expected argument 'intermediate_thumbprint' to be a str")
@@ -122,12 +128,6 @@ class GetCertificateOrderResult:
         """
         Duration in years (must be between 1 and 3).
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetCertificateOrderResult(GetCertificateOrderResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -141,6 +141,7 @@ class AwaitableGetCertificateOrderResult(GetCertificateOrderResult):
             distinguished_name=self.distinguished_name,
             domain_verification_token=self.domain_verification_token,
             expiration_time=self.expiration_time,
+            id=self.id,
             intermediate_thumbprint=self.intermediate_thumbprint,
             is_private_key_external=self.is_private_key_external,
             key_size=self.key_size,
@@ -152,19 +153,20 @@ class AwaitableGetCertificateOrderResult(GetCertificateOrderResult):
             signed_certificate_thumbprint=self.signed_certificate_thumbprint,
             status=self.status,
             tags=self.tags,
-            validity_in_years=self.validity_in_years,
-            id=self.id)
+            validity_in_years=self.validity_in_years)
 
 def get_certificate_order(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing App Service Certificate Order.
-    
-    :param str name: The name of the App Service.
-    :param str resource_group_name: The Name of the Resource Group where the App Service exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate_order.html.markdown.
+
+
+    :param str name: The name of the App Service.
+    :param str resource_group_name: The Name of the Resource Group where the App Service exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -182,6 +184,7 @@ def get_certificate_order(name=None,resource_group_name=None,opts=None):
         distinguished_name=__ret__.get('distinguishedName'),
         domain_verification_token=__ret__.get('domainVerificationToken'),
         expiration_time=__ret__.get('expirationTime'),
+        id=__ret__.get('id'),
         intermediate_thumbprint=__ret__.get('intermediateThumbprint'),
         is_private_key_external=__ret__.get('isPrivateKeyExternal'),
         key_size=__ret__.get('keySize'),
@@ -193,5 +196,4 @@ def get_certificate_order(name=None,resource_group_name=None,opts=None):
         signed_certificate_thumbprint=__ret__.get('signedCertificateThumbprint'),
         status=__ret__.get('status'),
         tags=__ret__.get('tags'),
-        validity_in_years=__ret__.get('validityInYears'),
-        id=__ret__.get('id'))
+        validity_in_years=__ret__.get('validityInYears'))

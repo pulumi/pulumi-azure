@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Key Vault.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault.html.markdown.
 func LookupKeyVault(ctx *pulumi.Context, args *LookupKeyVaultArgs, opts ...pulumi.InvokeOption) (*LookupKeyVaultResult, error) {
 	var rv LookupKeyVaultResult

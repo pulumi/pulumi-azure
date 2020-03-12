@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a HTTP Request Trigger within a Logic App Workflow
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_http_request.html.markdown.
 type TriggerHttpRequest struct {
 	pulumi.CustomResourceState

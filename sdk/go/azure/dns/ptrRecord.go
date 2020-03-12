@@ -12,7 +12,7 @@ import (
 )
 
 // Enables you to manage DNS PTR Records within Azure DNS.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_ptr_record.html.markdown.
 type PtrRecord struct {
 	pulumi.CustomResourceState

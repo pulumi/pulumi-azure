@@ -13,7 +13,7 @@ class GetNetworkInterfaceResult:
     """
     A collection of values returned by getNetworkInterface.
     """
-    def __init__(__self__, applied_dns_servers=None, dns_servers=None, enable_accelerated_networking=None, enable_ip_forwarding=None, internal_dns_name_label=None, ip_configurations=None, location=None, mac_address=None, name=None, network_security_group_id=None, private_ip_address=None, private_ip_addresses=None, resource_group_name=None, tags=None, virtual_machine_id=None, id=None):
+    def __init__(__self__, applied_dns_servers=None, dns_servers=None, enable_accelerated_networking=None, enable_ip_forwarding=None, id=None, internal_dns_name_label=None, ip_configurations=None, location=None, mac_address=None, name=None, network_security_group_id=None, private_ip_address=None, private_ip_addresses=None, resource_group_name=None, tags=None, virtual_machine_id=None):
         if applied_dns_servers and not isinstance(applied_dns_servers, list):
             raise TypeError("Expected argument 'applied_dns_servers' to be a list")
         __self__.applied_dns_servers = applied_dns_servers
@@ -37,6 +37,12 @@ class GetNetworkInterfaceResult:
         __self__.enable_ip_forwarding = enable_ip_forwarding
         """
         Indicate if IP forwarding is set on the specified Network Interface.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if internal_dns_name_label and not isinstance(internal_dns_name_label, str):
             raise TypeError("Expected argument 'internal_dns_name_label' to be a str")
@@ -101,12 +107,6 @@ class GetNetworkInterfaceResult:
         """
         The ID of the virtual machine that the specified Network Interface is attached to.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -117,6 +117,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             dns_servers=self.dns_servers,
             enable_accelerated_networking=self.enable_accelerated_networking,
             enable_ip_forwarding=self.enable_ip_forwarding,
+            id=self.id,
             internal_dns_name_label=self.internal_dns_name_label,
             ip_configurations=self.ip_configurations,
             location=self.location,
@@ -127,19 +128,20 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             private_ip_addresses=self.private_ip_addresses,
             resource_group_name=self.resource_group_name,
             tags=self.tags,
-            virtual_machine_id=self.virtual_machine_id,
-            id=self.id)
+            virtual_machine_id=self.virtual_machine_id)
 
 def get_network_interface(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Network Interface.
-    
-    :param str name: Specifies the name of the Network Interface.
-    :param str resource_group_name: Specifies the name of the resource group the Network Interface is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_interface.html.markdown.
+
+
+    :param str name: Specifies the name of the Network Interface.
+    :param str resource_group_name: Specifies the name of the resource group the Network Interface is located in.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -154,6 +156,7 @@ def get_network_interface(name=None,resource_group_name=None,opts=None):
         dns_servers=__ret__.get('dnsServers'),
         enable_accelerated_networking=__ret__.get('enableAcceleratedNetworking'),
         enable_ip_forwarding=__ret__.get('enableIpForwarding'),
+        id=__ret__.get('id'),
         internal_dns_name_label=__ret__.get('internalDnsNameLabel'),
         ip_configurations=__ret__.get('ipConfigurations'),
         location=__ret__.get('location'),
@@ -164,5 +167,4 @@ def get_network_interface(name=None,resource_group_name=None,opts=None):
         private_ip_addresses=__ret__.get('privateIpAddresses'),
         resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
-        virtual_machine_id=__ret__.get('virtualMachineId'),
-        id=__ret__.get('id'))
+        virtual_machine_id=__ret__.get('virtualMachineId'))

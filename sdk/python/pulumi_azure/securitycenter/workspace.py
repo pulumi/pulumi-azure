@@ -21,17 +21,17 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, scope=None, workspace_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages the subscription's Security Center Workspace.
-        
+
         > **NOTE:** Owner access permission is required.
-        
+
         > **NOTE:** The subscription's pricing model can not be `Free` for this to have any affect.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_workspace.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] scope: The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace to save the data in.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_workspace.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,18 +67,17 @@ class Workspace(pulumi.CustomResource):
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] scope: The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace to save the data in.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_workspace.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["scope"] = scope
         __props__["workspace_id"] = workspace_id
         return Workspace(resource_name, opts=opts, __props__=__props__)

@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Linux Virtual Machine within a Dev Test Lab.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_linux_virtual_machine.html.markdown.
 type LinuxVirtualMachine struct {
 	pulumi.CustomResourceState

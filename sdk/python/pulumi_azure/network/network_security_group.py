@@ -25,7 +25,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
     security_rules: pulumi.Output[list]
     """
     [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
-    
+
       * `access` (`str`) - Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
       * `description` (`str`) - A description for this rule. Restricted to 140 characters.
       * `destination_address_prefix` (`str`) - CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
@@ -50,11 +50,13 @@ class NetworkSecurityGroup(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, security_rules=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a network security group that contains a list of network security rules.  Network security groups enable inbound or outbound traffic to be enabled or denied.
-        
+
         > **NOTE on Network Security Groups and Network Security Rules:** This provider currently
         provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
         At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_security_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -62,9 +64,9 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
         :param pulumi.Input[list] security_rules: [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **security_rules** object supports the following:
-        
+
           * `access` (`pulumi.Input[str]`) - Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
           * `description` (`pulumi.Input[str]`) - A description for this rule. Restricted to 140 characters.
           * `destination_address_prefix` (`pulumi.Input[str]`) - CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
@@ -81,8 +83,6 @@ class NetworkSecurityGroup(pulumi.CustomResource):
           * `source_application_security_group_ids` (`pulumi.Input[list]`) - A List of source Application Security Group ID's
           * `source_port_range` (`pulumi.Input[str]`) - Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
           * `source_port_ranges` (`pulumi.Input[list]`) - List of source ports or port ranges. This is required if `source_port_range` is not specified.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_security_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,7 +119,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         """
         Get an existing NetworkSecurityGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,9 +128,9 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
         :param pulumi.Input[list] security_rules: [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **security_rules** object supports the following:
-        
+
           * `access` (`pulumi.Input[str]`) - Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
           * `description` (`pulumi.Input[str]`) - A description for this rule. Restricted to 140 characters.
           * `destination_address_prefix` (`pulumi.Input[str]`) - CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
@@ -147,12 +147,11 @@ class NetworkSecurityGroup(pulumi.CustomResource):
           * `source_application_security_group_ids` (`pulumi.Input[list]`) - A List of source Application Security Group ID's
           * `source_port_range` (`pulumi.Input[str]`) - Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
           * `source_port_ranges` (`pulumi.Input[list]`) - List of source ports or port ranges. This is required if `source_port_range` is not specified.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_security_group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["location"] = location
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name

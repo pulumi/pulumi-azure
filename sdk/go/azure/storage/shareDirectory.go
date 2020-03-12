@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Directory within an Azure Storage File Share.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share_directory.html.markdown.
 type ShareDirectory struct {
 	pulumi.CustomResourceState

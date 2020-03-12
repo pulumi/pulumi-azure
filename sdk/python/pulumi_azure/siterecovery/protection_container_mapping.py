@@ -41,7 +41,9 @@ class ProtectionContainerMapping(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, name=None, recovery_fabric_name=None, recovery_replication_policy_id=None, recovery_source_protection_container_name=None, recovery_target_protection_container_id=None, recovery_vault_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_protection_container_mapping.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the network mapping.
@@ -51,8 +53,6 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         :param pulumi.Input[str] recovery_target_protection_container_id: Id of target protection container to map to.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_protection_container_mapping.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -101,7 +101,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         """
         Get an existing ProtectionContainerMapping resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,12 +112,11 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         :param pulumi.Input[str] recovery_target_protection_container_id: Id of target protection container to map to.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_protection_container_mapping.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["name"] = name
         __props__["recovery_fabric_name"] = recovery_fabric_name
         __props__["recovery_replication_policy_id"] = recovery_replication_policy_id

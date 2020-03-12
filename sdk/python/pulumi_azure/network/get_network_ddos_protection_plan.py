@@ -13,7 +13,13 @@ class GetNetworkDdosProtectionPlanResult:
     """
     A collection of values returned by getNetworkDdosProtectionPlan.
     """
-    def __init__(__self__, location=None, name=None, resource_group_name=None, tags=None, virtual_network_ids=None, id=None):
+    def __init__(__self__, id=None, location=None, name=None, resource_group_name=None, tags=None, virtual_network_ids=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -38,35 +44,31 @@ class GetNetworkDdosProtectionPlanResult:
         """
         The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetNetworkDdosProtectionPlanResult(GetNetworkDdosProtectionPlanResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetNetworkDdosProtectionPlanResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
             tags=self.tags,
-            virtual_network_ids=self.virtual_network_ids,
-            id=self.id)
+            virtual_network_ids=self.virtual_network_ids)
 
 def get_network_ddos_protection_plan(name=None,resource_group_name=None,tags=None,opts=None):
     """
     Use this data source to access information about an existing Azure Network DDoS Protection Plan.
-    
-    :param str name: The name of the Network DDoS Protection Plan.
-    :param str resource_group_name: The name of the resource group where the Network DDoS Protection Plan exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_ddos_protection_plan.html.markdown.
+
+
+    :param str name: The name of the Network DDoS Protection Plan.
+    :param str resource_group_name: The name of the resource group where the Network DDoS Protection Plan exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -78,9 +80,9 @@ def get_network_ddos_protection_plan(name=None,resource_group_name=None,tags=Non
     __ret__ = pulumi.runtime.invoke('azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan', __args__, opts=opts).value
 
     return AwaitableGetNetworkDdosProtectionPlanResult(
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
-        virtual_network_ids=__ret__.get('virtualNetworkIds'),
-        id=__ret__.get('id'))
+        virtual_network_ids=__ret__.get('virtualNetworkIds'))

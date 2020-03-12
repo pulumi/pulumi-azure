@@ -12,9 +12,9 @@ import (
 )
 
 // Manages a Private Link Service.
-// 
+//
 // > **NOTE** Private Link is currently in Public Preview.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_link_service.html.markdown.
 type LinkService struct {
 	pulumi.CustomResourceState

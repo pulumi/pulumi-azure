@@ -29,7 +29,7 @@ class ElasticPool(pulumi.CustomResource):
     per_database_settings: pulumi.Output[dict]
     """
     A `per_database_settings` block as defined below.
-    
+
       * `maxCapacity` (`float`) - The maximum capacity any one database can consume.
       * `minCapacity` (`float`) - The minimum capacity all databases are guaranteed.
     """
@@ -44,7 +44,7 @@ class ElasticPool(pulumi.CustomResource):
     sku: pulumi.Output[dict]
     """
     A `sku` block as defined below.
-    
+
       * `capacity` (`float`) - The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
       * `family` (`str`) - The `family` of hardware `Gen4` or `Gen5`.
       * `name` (`str`) - Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
@@ -61,7 +61,9 @@ class ElasticPool(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_database_settings=None, resource_group_name=None, server_name=None, sku=None, tags=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
         """
         Allows you to manage an Azure SQL Elastic Pool via the `2017-10-01-preview` API which allows for `vCore` and `DTU` based configurations.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_elasticpool.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -74,20 +76,18 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.Input[dict] sku: A `sku` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
-        
+
         The **per_database_settings** object supports the following:
-        
+
           * `maxCapacity` (`pulumi.Input[float]`) - The maximum capacity any one database can consume.
           * `minCapacity` (`pulumi.Input[float]`) - The minimum capacity all databases are guaranteed.
-        
+
         The **sku** object supports the following:
-        
+
           * `capacity` (`pulumi.Input[float]`) - The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
           * `family` (`pulumi.Input[str]`) - The `family` of hardware `Gen4` or `Gen5`.
           * `name` (`pulumi.Input[str]`) - Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
           * `tier` (`pulumi.Input[str]`) - The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_elasticpool.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -135,7 +135,7 @@ class ElasticPool(pulumi.CustomResource):
         """
         Get an existing ElasticPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,24 +149,23 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.Input[dict] sku: A `sku` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
-        
+
         The **per_database_settings** object supports the following:
-        
+
           * `maxCapacity` (`pulumi.Input[float]`) - The maximum capacity any one database can consume.
           * `minCapacity` (`pulumi.Input[float]`) - The minimum capacity all databases are guaranteed.
-        
+
         The **sku** object supports the following:
-        
+
           * `capacity` (`pulumi.Input[float]`) - The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
           * `family` (`pulumi.Input[str]`) - The `family` of hardware `Gen4` or `Gen5`.
           * `name` (`pulumi.Input[str]`) - Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
           * `tier` (`pulumi.Input[str]`) - The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_elasticpool.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["location"] = location
         __props__["max_size_bytes"] = max_size_bytes
         __props__["max_size_gb"] = max_size_gb

@@ -13,25 +13,21 @@ class ManagementPolicy(pulumi.CustomResource):
     rules: pulumi.Output[list]
     """
     A `rule` block as documented below.
-    
+
       * `actions` (`dict`) - An `actions` block as documented below.
-    
         * `baseBlob` (`dict`) - A `base_blob` block as documented below.
-    
           * `deleteAfterDaysSinceModificationGreaterThan` (`float`) - The age in days after last modification to delete the blob. Must be at least 0.
           * `tierToArchiveAfterDaysSinceModificationGreaterThan` (`float`) - The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
           * `tierToCoolAfterDaysSinceModificationGreaterThan` (`float`) - The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
-    
+
         * `snapshot` (`dict`) - A `snapshot` block as documented below.
-    
           * `deleteAfterDaysSinceCreationGreaterThan` (`float`) - The age in days after create to delete the snaphot. Must be at least 0.
-    
+
       * `enabled` (`bool`) - Boolean to specify whether the rule is enabled.
       * `filters` (`dict`) - A `filter` block as documented below.
-    
         * `blobTypes` (`list`) - An array of predefined values. Only `blockBlob` is supported.
         * `prefixMatches` (`list`) - An array of strings for prefixes to be matched.
-    
+
       * `name` (`str`) - A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
     """
     storage_account_id: pulumi.Output[str]
@@ -41,35 +37,31 @@ class ManagementPolicy(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, rules=None, storage_account_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Storage Account Management Policy.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_management_policy.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] rules: A `rule` block as documented below.
         :param pulumi.Input[str] storage_account_id: Specifies the id of the storage account to apply the management policy to.
-        
+
         The **rules** object supports the following:
-        
+
           * `actions` (`pulumi.Input[dict]`) - An `actions` block as documented below.
-        
             * `baseBlob` (`pulumi.Input[dict]`) - A `base_blob` block as documented below.
-        
               * `deleteAfterDaysSinceModificationGreaterThan` (`pulumi.Input[float]`) - The age in days after last modification to delete the blob. Must be at least 0.
               * `tierToArchiveAfterDaysSinceModificationGreaterThan` (`pulumi.Input[float]`) - The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
               * `tierToCoolAfterDaysSinceModificationGreaterThan` (`pulumi.Input[float]`) - The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
-        
+
             * `snapshot` (`pulumi.Input[dict]`) - A `snapshot` block as documented below.
-        
               * `deleteAfterDaysSinceCreationGreaterThan` (`pulumi.Input[float]`) - The age in days after create to delete the snaphot. Must be at least 0.
-        
+
           * `enabled` (`pulumi.Input[bool]`) - Boolean to specify whether the rule is enabled.
           * `filters` (`pulumi.Input[dict]`) - A `filter` block as documented below.
-        
             * `blobTypes` (`pulumi.Input[list]`) - An array of predefined values. Only `blockBlob` is supported.
             * `prefixMatches` (`pulumi.Input[list]`) - An array of strings for prefixes to be matched.
-        
-          * `name` (`pulumi.Input[str]`) - A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_management_policy.html.markdown.
+          * `name` (`pulumi.Input[str]`) - A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -103,40 +95,35 @@ class ManagementPolicy(pulumi.CustomResource):
         """
         Get an existing ManagementPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] rules: A `rule` block as documented below.
         :param pulumi.Input[str] storage_account_id: Specifies the id of the storage account to apply the management policy to.
-        
+
         The **rules** object supports the following:
-        
+
           * `actions` (`pulumi.Input[dict]`) - An `actions` block as documented below.
-        
             * `baseBlob` (`pulumi.Input[dict]`) - A `base_blob` block as documented below.
-        
               * `deleteAfterDaysSinceModificationGreaterThan` (`pulumi.Input[float]`) - The age in days after last modification to delete the blob. Must be at least 0.
               * `tierToArchiveAfterDaysSinceModificationGreaterThan` (`pulumi.Input[float]`) - The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
               * `tierToCoolAfterDaysSinceModificationGreaterThan` (`pulumi.Input[float]`) - The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
-        
+
             * `snapshot` (`pulumi.Input[dict]`) - A `snapshot` block as documented below.
-        
               * `deleteAfterDaysSinceCreationGreaterThan` (`pulumi.Input[float]`) - The age in days after create to delete the snaphot. Must be at least 0.
-        
+
           * `enabled` (`pulumi.Input[bool]`) - Boolean to specify whether the rule is enabled.
           * `filters` (`pulumi.Input[dict]`) - A `filter` block as documented below.
-        
             * `blobTypes` (`pulumi.Input[list]`) - An array of predefined values. Only `blockBlob` is supported.
             * `prefixMatches` (`pulumi.Input[list]`) - An array of strings for prefixes to be matched.
-        
-          * `name` (`pulumi.Input[str]`) - A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_management_policy.html.markdown.
+          * `name` (`pulumi.Input[str]`) - A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["rules"] = rules
         __props__["storage_account_id"] = storage_account_id
         return ManagementPolicy(resource_name, opts=opts, __props__=__props__)

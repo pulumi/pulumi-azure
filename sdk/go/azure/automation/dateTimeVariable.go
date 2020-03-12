@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a DateTime variable in Azure Automation
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_variable_datetime.html.markdown.
 type DateTimeVariable struct {
 	pulumi.CustomResourceState

@@ -13,7 +13,7 @@ class GetAccountBlobContainerSASResult:
     """
     A collection of values returned by getAccountBlobContainerSAS.
     """
-    def __init__(__self__, cache_control=None, connection_string=None, container_name=None, content_disposition=None, content_encoding=None, content_language=None, content_type=None, expiry=None, https_only=None, ip_address=None, permissions=None, sas=None, start=None, id=None):
+    def __init__(__self__, cache_control=None, connection_string=None, container_name=None, content_disposition=None, content_encoding=None, content_language=None, content_type=None, expiry=None, https_only=None, id=None, ip_address=None, permissions=None, sas=None, start=None):
         if cache_control and not isinstance(cache_control, str):
             raise TypeError("Expected argument 'cache_control' to be a str")
         __self__.cache_control = cache_control
@@ -41,6 +41,12 @@ class GetAccountBlobContainerSASResult:
         if https_only and not isinstance(https_only, bool):
             raise TypeError("Expected argument 'https_only' to be a bool")
         __self__.https_only = https_only
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if ip_address and not isinstance(ip_address, str):
             raise TypeError("Expected argument 'ip_address' to be a str")
         __self__.ip_address = ip_address
@@ -56,12 +62,6 @@ class GetAccountBlobContainerSASResult:
         if start and not isinstance(start, str):
             raise TypeError("Expected argument 'start' to be a str")
         __self__.start = start
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAccountBlobContainerSASResult(GetAccountBlobContainerSASResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -77,18 +77,21 @@ class AwaitableGetAccountBlobContainerSASResult(GetAccountBlobContainerSASResult
             content_type=self.content_type,
             expiry=self.expiry,
             https_only=self.https_only,
+            id=self.id,
             ip_address=self.ip_address,
             permissions=self.permissions,
             sas=self.sas,
-            start=self.start,
-            id=self.id)
+            start=self.start)
 
 def get_account_blob_container_sas(cache_control=None,connection_string=None,container_name=None,content_disposition=None,content_encoding=None,content_language=None,content_type=None,expiry=None,https_only=None,ip_address=None,permissions=None,start=None,opts=None):
     """
     Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account Blob Container.
-    
+
     Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_blob_container_sas.html.markdown.
+
+
     :param str cache_control: The `Cache-Control` response header that is sent when this SAS token is used.
     :param str container_name: Name of the container.
     :param str content_disposition: The `Content-Disposition` response header that is sent when this SAS token is used.
@@ -100,19 +103,18 @@ def get_account_blob_container_sas(cache_control=None,connection_string=None,con
     :param str ip_address: Single ipv4 address or range (connected with a dash) of ipv4 addresses.
     :param dict permissions: A `permissions` block as defined below.
     :param str start: The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
-    
+
     The **permissions** object supports the following:
-    
+
       * `add` (`bool`)
       * `create` (`bool`)
       * `delete` (`bool`)
       * `list` (`bool`)
       * `read` (`bool`)
       * `write` (`bool`)
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_blob_container_sas.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['cacheControl'] = cache_control
     __args__['connectionString'] = connection_string
@@ -142,8 +144,8 @@ def get_account_blob_container_sas(cache_control=None,connection_string=None,con
         content_type=__ret__.get('contentType'),
         expiry=__ret__.get('expiry'),
         https_only=__ret__.get('httpsOnly'),
+        id=__ret__.get('id'),
         ip_address=__ret__.get('ipAddress'),
         permissions=__ret__.get('permissions'),
         sas=__ret__.get('sas'),
-        start=__ret__.get('start'),
-        id=__ret__.get('id'))
+        start=__ret__.get('start'))

@@ -5,7 +5,7 @@
 # Export this package's modules as members:
 from .analytics_account import *
 from .analytics_firewall_rule import *
+from .get_store import *
 from .store import *
 from .store_file import *
 from .store_firewall_rule import *
-from .get_store import *

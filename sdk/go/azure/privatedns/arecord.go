@@ -12,7 +12,7 @@ import (
 )
 
 // Enables you to manage DNS A Records within Azure Private DNS.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_a_record.html.markdown.
 type ARecord struct {
 	pulumi.CustomResourceState

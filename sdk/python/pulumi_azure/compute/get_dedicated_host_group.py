@@ -13,7 +13,13 @@ class GetDedicatedHostGroupResult:
     """
     A collection of values returned by getDedicatedHostGroup.
     """
-    def __init__(__self__, location=None, name=None, platform_fault_domain_count=None, resource_group_name=None, tags=None, zones=None, id=None):
+    def __init__(__self__, id=None, location=None, name=None, platform_fault_domain_count=None, resource_group_name=None, tags=None, zones=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -44,36 +50,32 @@ class GetDedicatedHostGroupResult:
         """
         The Availability Zones in which this Dedicated Host Group is located.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetDedicatedHostGroupResult(GetDedicatedHostGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetDedicatedHostGroupResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             platform_fault_domain_count=self.platform_fault_domain_count,
             resource_group_name=self.resource_group_name,
             tags=self.tags,
-            zones=self.zones,
-            id=self.id)
+            zones=self.zones)
 
 def get_dedicated_host_group(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Dedicated Host Group.
-    
-    :param str name: Specifies the name of the Dedicated Host Group.
-    :param str resource_group_name: Specifies the name of the resource group the Dedicated Host Group is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dedicated_host_group.html.markdown.
+
+
+    :param str name: Specifies the name of the Dedicated Host Group.
+    :param str resource_group_name: Specifies the name of the resource group the Dedicated Host Group is located in.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -84,10 +86,10 @@ def get_dedicated_host_group(name=None,resource_group_name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('azure:compute/getDedicatedHostGroup:getDedicatedHostGroup', __args__, opts=opts).value
 
     return AwaitableGetDedicatedHostGroupResult(
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         platform_fault_domain_count=__ret__.get('platformFaultDomainCount'),
         resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
-        zones=__ret__.get('zones'),
-        id=__ret__.get('id'))
+        zones=__ret__.get('zones'))

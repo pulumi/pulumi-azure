@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing HDInsight Cluster.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/hdinsight_cluster.html.markdown.
 func GetCluster(ctx *pulumi.Context, args *GetClusterArgs, opts ...pulumi.InvokeOption) (*GetClusterResult, error) {
 	var rv GetClusterResult

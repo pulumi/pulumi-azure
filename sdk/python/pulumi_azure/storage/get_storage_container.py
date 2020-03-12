@@ -13,7 +13,7 @@ class GetStorageContainerResult:
     """
     A collection of values returned by getStorageContainer.
     """
-    def __init__(__self__, container_access_type=None, has_immutability_policy=None, has_legal_hold=None, metadata=None, name=None, storage_account_name=None, id=None):
+    def __init__(__self__, container_access_type=None, has_immutability_policy=None, has_legal_hold=None, id=None, metadata=None, name=None, storage_account_name=None):
         if container_access_type and not isinstance(container_access_type, str):
             raise TypeError("Expected argument 'container_access_type' to be a str")
         __self__.container_access_type = container_access_type
@@ -32,6 +32,12 @@ class GetStorageContainerResult:
         """
         Is there a Legal Hold configured on this Storage Container?
         """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if metadata and not isinstance(metadata, dict):
             raise TypeError("Expected argument 'metadata' to be a dict")
         __self__.metadata = metadata
@@ -44,12 +50,6 @@ class GetStorageContainerResult:
         if storage_account_name and not isinstance(storage_account_name, str):
             raise TypeError("Expected argument 'storage_account_name' to be a str")
         __self__.storage_account_name = storage_account_name
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetStorageContainerResult(GetStorageContainerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -59,21 +59,23 @@ class AwaitableGetStorageContainerResult(GetStorageContainerResult):
             container_access_type=self.container_access_type,
             has_immutability_policy=self.has_immutability_policy,
             has_legal_hold=self.has_legal_hold,
+            id=self.id,
             metadata=self.metadata,
             name=self.name,
-            storage_account_name=self.storage_account_name,
-            id=self.id)
+            storage_account_name=self.storage_account_name)
 
 def get_storage_container(metadata=None,name=None,storage_account_name=None,opts=None):
     """
     Use this data source to access information about an existing Storage Container.
-    
-    :param str name: The name of the Container.
-    :param str storage_account_name: The name of the Storage Account where the Container was created.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_container.html.markdown.
+
+
+    :param str name: The name of the Container.
+    :param str storage_account_name: The name of the Storage Account where the Container was created.
     """
     __args__ = dict()
+
 
     __args__['metadata'] = metadata
     __args__['name'] = name
@@ -88,7 +90,7 @@ def get_storage_container(metadata=None,name=None,storage_account_name=None,opts
         container_access_type=__ret__.get('containerAccessType'),
         has_immutability_policy=__ret__.get('hasImmutabilityPolicy'),
         has_legal_hold=__ret__.get('hasLegalHold'),
+        id=__ret__.get('id'),
         metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
-        storage_account_name=__ret__.get('storageAccountName'),
-        id=__ret__.get('id'))
+        storage_account_name=__ret__.get('storageAccountName'))

@@ -53,6 +53,8 @@ public.
 
 features = __config__.get('features')
 
+location = __config__.get('location') or utilities.get_env('ARM_LOCATION')
+
 msi_endpoint = __config__.get('msiEndpoint') or (utilities.get_env('ARM_MSI_ENDPOINT') or '')
 """
 The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
@@ -94,6 +96,4 @@ use_msi = __config__.get('useMsi') or (utilities.get_env_bool('ARM_USE_MSI') or 
 """
 Allowed Managed Service Identity be used for Authentication.
 """
-
-location = __config__.get('location') or utilities.get_env('ARM_LOCATION')
 

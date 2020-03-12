@@ -3914,9 +3914,6 @@ export namespace healthcare {
          * The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
          */
         audience?: pulumi.Input<string>;
-        /**
-         * <elided>
-         */
         authority?: pulumi.Input<string>;
         /**
          * Enables the 'SMART on FHIR' option for mobile and web implementations.

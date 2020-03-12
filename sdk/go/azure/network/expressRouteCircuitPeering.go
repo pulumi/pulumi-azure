@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an ExpressRoute Circuit Peering.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit_peering.html.markdown.
 type ExpressRouteCircuitPeering struct {
 	pulumi.CustomResourceState

@@ -13,7 +13,13 @@ class GetResourcesResult:
     """
     A collection of values returned by getResources.
     """
-    def __init__(__self__, name=None, required_tags=None, resource_group_name=None, resources=None, type=None, id=None):
+    def __init__(__self__, id=None, name=None, required_tags=None, resource_group_name=None, resources=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -38,37 +44,33 @@ class GetResourcesResult:
         """
         The type of this Resource. (e.g. `Microsoft.Network/virtualNetworks`).
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetResourcesResult(GetResourcesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetResourcesResult(
+            id=self.id,
             name=self.name,
             required_tags=self.required_tags,
             resource_group_name=self.resource_group_name,
             resources=self.resources,
-            type=self.type,
-            id=self.id)
+            type=self.type)
 
 def get_resources(name=None,required_tags=None,resource_group_name=None,type=None,opts=None):
     """
     Use this data source to access information about existing resources.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resources.html.markdown.
+
+
     :param str name: The name of the Resource.
     :param dict required_tags: A mapping of tags which the resource has to have in order to be included in the result.
     :param str resource_group_name: The name of the Resource group where the Resources are located.
     :param str type: The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/azure-services-resource-providers).
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resources.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['requiredTags'] = required_tags
@@ -81,9 +83,9 @@ def get_resources(name=None,required_tags=None,resource_group_name=None,type=Non
     __ret__ = pulumi.runtime.invoke('azure:core/getResources:getResources', __args__, opts=opts).value
 
     return AwaitableGetResourcesResult(
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         required_tags=__ret__.get('requiredTags'),
         resource_group_name=__ret__.get('resourceGroupName'),
         resources=__ret__.get('resources'),
-        type=__ret__.get('type'),
-        id=__ret__.get('id'))
+        type=__ret__.get('type'))

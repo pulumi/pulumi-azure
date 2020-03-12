@@ -17,13 +17,13 @@ class StormCluster(pulumi.CustomResource):
     component_version: pulumi.Output[dict]
     """
     A `component_version` block as defined below.
-    
+
       * `storm` (`str`)
     """
     gateway: pulumi.Output[dict]
     """
     A `gateway` block as defined below.
-    
+
       * `enabled` (`bool`)
       * `password` (`str`)
       * `username` (`str`)
@@ -47,34 +47,31 @@ class StormCluster(pulumi.CustomResource):
     roles: pulumi.Output[dict]
     """
     A `roles` block as defined below.
-    
+
       * `headNode` (`dict`)
-    
         * `password` (`str`)
         * `sshKeys` (`list`)
         * `subnet_id` (`str`)
         * `username` (`str`)
-        * `virtualNetworkId` (`str`)
+        * `virtual_network_id` (`str`)
         * `vm_size` (`str`)
-    
+
       * `workerNode` (`dict`)
-    
         * `minInstanceCount` (`float`)
         * `password` (`str`)
         * `sshKeys` (`list`)
         * `subnet_id` (`str`)
         * `targetInstanceCount` (`float`)
         * `username` (`str`)
-        * `virtualNetworkId` (`str`)
+        * `virtual_network_id` (`str`)
         * `vm_size` (`str`)
-    
+
       * `zookeeperNode` (`dict`)
-    
         * `password` (`str`)
         * `sshKeys` (`list`)
         * `subnet_id` (`str`)
         * `username` (`str`)
-        * `virtualNetworkId` (`str`)
+        * `virtual_network_id` (`str`)
         * `vm_size` (`str`)
     """
     ssh_endpoint: pulumi.Output[str]
@@ -84,9 +81,9 @@ class StormCluster(pulumi.CustomResource):
     storage_accounts: pulumi.Output[list]
     """
     One or more `storage_account` block as defined below.
-    
+
       * `isDefault` (`bool`)
-      * `storageAccountKey` (`str`)
+      * `storage_account_key` (`str`)
       * `storageContainerId` (`str`)
     """
     tags: pulumi.Output[dict]
@@ -100,7 +97,9 @@ class StormCluster(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, cluster_version=None, component_version=None, gateway=None, location=None, name=None, resource_group_name=None, roles=None, storage_accounts=None, tags=None, tier=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a HDInsight Storm Cluster.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_storm_cluster.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -113,55 +112,50 @@ class StormCluster(pulumi.CustomResource):
         :param pulumi.Input[list] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[dict] tags: A map of Tags which should be assigned to this HDInsight Storm Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Storm Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-        
+
         The **component_version** object supports the following:
-        
+
           * `storm` (`pulumi.Input[str]`)
-        
+
         The **gateway** object supports the following:
-        
+
           * `enabled` (`pulumi.Input[bool]`)
           * `password` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-        
+
         The **roles** object supports the following:
-        
+
           * `headNode` (`pulumi.Input[dict]`)
-        
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
             * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
-        
+
           * `workerNode` (`pulumi.Input[dict]`)
-        
             * `minInstanceCount` (`pulumi.Input[float]`)
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
             * `subnet_id` (`pulumi.Input[str]`)
             * `targetInstanceCount` (`pulumi.Input[float]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
-        
+
           * `zookeeperNode` (`pulumi.Input[dict]`)
-        
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
             * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
-        
-        The **storage_accounts** object supports the following:
-        
-          * `isDefault` (`pulumi.Input[bool]`)
-          * `storageAccountKey` (`pulumi.Input[str]`)
-          * `storageContainerId` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_storm_cluster.html.markdown.
+        The **storage_accounts** object supports the following:
+
+          * `isDefault` (`pulumi.Input[bool]`)
+          * `storage_account_key` (`pulumi.Input[str]`)
+          * `storageContainerId` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -215,7 +209,7 @@ class StormCluster(pulumi.CustomResource):
         """
         Get an existing StormCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,59 +225,55 @@ class StormCluster(pulumi.CustomResource):
         :param pulumi.Input[list] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[dict] tags: A map of Tags which should be assigned to this HDInsight Storm Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Storm Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-        
+
         The **component_version** object supports the following:
-        
+
           * `storm` (`pulumi.Input[str]`)
-        
+
         The **gateway** object supports the following:
-        
+
           * `enabled` (`pulumi.Input[bool]`)
           * `password` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-        
+
         The **roles** object supports the following:
-        
+
           * `headNode` (`pulumi.Input[dict]`)
-        
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
             * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
-        
+
           * `workerNode` (`pulumi.Input[dict]`)
-        
             * `minInstanceCount` (`pulumi.Input[float]`)
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
             * `subnet_id` (`pulumi.Input[str]`)
             * `targetInstanceCount` (`pulumi.Input[float]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
-        
+
           * `zookeeperNode` (`pulumi.Input[dict]`)
-        
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
             * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
-        
-        The **storage_accounts** object supports the following:
-        
-          * `isDefault` (`pulumi.Input[bool]`)
-          * `storageAccountKey` (`pulumi.Input[str]`)
-          * `storageContainerId` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_storm_cluster.html.markdown.
+        The **storage_accounts** object supports the following:
+
+          * `isDefault` (`pulumi.Input[bool]`)
+          * `storage_account_key` (`pulumi.Input[str]`)
+          * `storageContainerId` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["cluster_version"] = cluster_version
         __props__["component_version"] = component_version
         __props__["gateway"] = gateway

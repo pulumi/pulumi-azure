@@ -41,7 +41,9 @@ class Property(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, api_management_name=None, display_name=None, name=None, resource_group_name=None, secret=None, tags=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an API Management Property.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_property.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service in which the API Management Property should exist. Changing this forces a new resource to be created.
@@ -51,8 +53,6 @@ class Property(pulumi.CustomResource):
         :param pulumi.Input[bool] secret: Specifies whether the API Management Property is secret. Valid values are `true` or `false`. The default value is `false`.
         :param pulumi.Input[list] tags: A list of tags to be applied to the API Management Property.
         :param pulumi.Input[str] value: The value of this API Management Property.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_property.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -97,7 +97,7 @@ class Property(pulumi.CustomResource):
         """
         Get an existing Property resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -108,12 +108,11 @@ class Property(pulumi.CustomResource):
         :param pulumi.Input[bool] secret: Specifies whether the API Management Property is secret. Valid values are `true` or `false`. The default value is `false`.
         :param pulumi.Input[list] tags: A list of tags to be applied to the API Management Property.
         :param pulumi.Input[str] value: The value of this API Management Property.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_property.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["api_management_name"] = api_management_name
         __props__["display_name"] = display_name
         __props__["name"] = name

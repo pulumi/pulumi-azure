@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//go:generate go run ./generate.go
+
 package main
 
 import (
@@ -66,5 +68,5 @@ var strictMode bool
 
 func main() {
 	strictMode = true
-	tfbridge.Main("azure", version.Version, azure.Provider())
+	tfbridge.Main("azure", version.Version, azure.Provider(), pulumiSchema)
 }

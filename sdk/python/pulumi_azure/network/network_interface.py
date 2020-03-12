@@ -33,7 +33,7 @@ class NetworkInterface(pulumi.CustomResource):
     ip_configurations: pulumi.Output[list]
     """
     One or more `ip_configuration` blocks as defined below.
-    
+
       * `name` (`str`) - The name of the Network Interface. Changing this forces a new resource to be created.
       * `primary` (`bool`)
       * `private_ip_address` (`str`) - The first private IP address of the network interface.
@@ -77,7 +77,9 @@ class NetworkInterface(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, dns_servers=None, enable_accelerated_networking=None, enable_ip_forwarding=None, internal_dns_name_label=None, ip_configurations=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Network Interface.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
@@ -89,9 +91,9 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **ip_configurations** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the Network Interface. Changing this forces a new resource to be created.
           * `primary` (`pulumi.Input[bool]`)
           * `private_ip_address` (`pulumi.Input[str]`) - The first private IP address of the network interface.
@@ -99,8 +101,6 @@ class NetworkInterface(pulumi.CustomResource):
           * `privateIpAddressVersion` (`pulumi.Input[str]`)
           * `publicIpAddressId` (`pulumi.Input[str]`)
           * `subnet_id` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -148,7 +148,7 @@ class NetworkInterface(pulumi.CustomResource):
         """
         Get an existing NetworkInterface resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,9 +166,9 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine which this Network Interface is connected to.
-        
+
         The **ip_configurations** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the Network Interface. Changing this forces a new resource to be created.
           * `primary` (`pulumi.Input[bool]`)
           * `private_ip_address` (`pulumi.Input[str]`) - The first private IP address of the network interface.
@@ -176,12 +176,11 @@ class NetworkInterface(pulumi.CustomResource):
           * `privateIpAddressVersion` (`pulumi.Input[str]`)
           * `publicIpAddressId` (`pulumi.Input[str]`)
           * `subnet_id` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["applied_dns_servers"] = applied_dns_servers
         __props__["dns_servers"] = dns_servers
         __props__["enable_accelerated_networking"] = enable_accelerated_networking

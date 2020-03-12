@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Automation Module.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_module.html.markdown.
 type Module struct {
 	pulumi.CustomResourceState

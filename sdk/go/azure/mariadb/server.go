@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a MariaDB Server.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mariadb_server.html.markdown.
 type Server struct {
 	pulumi.CustomResourceState

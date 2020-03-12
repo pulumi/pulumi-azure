@@ -42,7 +42,9 @@ class OutputMssql(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, database=None, name=None, password=None, resource_group_name=None, server=None, stream_analytics_job_name=None, table=None, user=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Stream Analytics Output to Microsoft SQL Server Database.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_mssql.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
@@ -52,8 +54,6 @@ class OutputMssql(pulumi.CustomResource):
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table: Table in the database that the output points to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user: Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_mssql.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -105,7 +105,7 @@ class OutputMssql(pulumi.CustomResource):
         """
         Get an existing OutputMssql resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,12 +116,11 @@ class OutputMssql(pulumi.CustomResource):
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table: Table in the database that the output points to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user: Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_mssql.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["database"] = database
         __props__["name"] = name
         __props__["password"] = password

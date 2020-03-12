@@ -4,9 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_job_schedule.html.markdown.
- */
 export class JobSchedule extends pulumi.CustomResource {
     /**
      * Get an existing JobSchedule resource's state with the given name, ID, and optional extra

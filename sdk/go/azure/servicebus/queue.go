@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a ServiceBus Queue.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue.html.markdown.
 type Queue struct {
 	pulumi.CustomResourceState

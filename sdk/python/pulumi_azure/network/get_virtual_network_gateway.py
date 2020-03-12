@@ -13,7 +13,7 @@ class GetVirtualNetworkGatewayResult:
     """
     A collection of values returned by getVirtualNetworkGateway.
     """
-    def __init__(__self__, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, generation=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configurations=None, vpn_type=None, id=None):
+    def __init__(__self__, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, generation=None, id=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configurations=None, vpn_type=None):
         if active_active and not isinstance(active_active, bool):
             raise TypeError("Expected argument 'active_active' to be a bool")
         __self__.active_active = active_active
@@ -44,6 +44,12 @@ class GetVirtualNetworkGatewayResult:
         __self__.generation = generation
         """
         The Generation of the Virtual Network Gateway.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError("Expected argument 'ip_configurations' to be a list")
@@ -96,12 +102,6 @@ class GetVirtualNetworkGatewayResult:
         """
         The routing type of the Virtual Network Gateway.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -113,6 +113,7 @@ class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
             default_local_network_gateway_id=self.default_local_network_gateway_id,
             enable_bgp=self.enable_bgp,
             generation=self.generation,
+            id=self.id,
             ip_configurations=self.ip_configurations,
             location=self.location,
             name=self.name,
@@ -121,19 +122,20 @@ class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
             tags=self.tags,
             type=self.type,
             vpn_client_configurations=self.vpn_client_configurations,
-            vpn_type=self.vpn_type,
-            id=self.id)
+            vpn_type=self.vpn_type)
 
 def get_virtual_network_gateway(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Virtual Network Gateway.
-    
-    :param str name: Specifies the name of the Virtual Network Gateway.
-    :param str resource_group_name: Specifies the name of the resource group the Virtual Network Gateway is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network_gateway.html.markdown.
+
+
+    :param str name: Specifies the name of the Virtual Network Gateway.
+    :param str resource_group_name: Specifies the name of the resource group the Virtual Network Gateway is located in.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -149,6 +151,7 @@ def get_virtual_network_gateway(name=None,resource_group_name=None,opts=None):
         default_local_network_gateway_id=__ret__.get('defaultLocalNetworkGatewayId'),
         enable_bgp=__ret__.get('enableBgp'),
         generation=__ret__.get('generation'),
+        id=__ret__.get('id'),
         ip_configurations=__ret__.get('ipConfigurations'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
@@ -157,5 +160,4 @@ def get_virtual_network_gateway(name=None,resource_group_name=None,opts=None):
         tags=__ret__.get('tags'),
         type=__ret__.get('type'),
         vpn_client_configurations=__ret__.get('vpnClientConfigurations'),
-        vpn_type=__ret__.get('vpnType'),
-        id=__ret__.get('id'))
+        vpn_type=__ret__.get('vpnType'))
