@@ -14,7 +14,7 @@ class Account(pulumi.CustomResource):
     """
     A `active_directory` block as defined below.
 
-      * `dnsServers` (`list`)
+      * `dns_servers` (`list`)
       * `domain` (`str`)
       * `organizationalUnit` (`str`)
       * `password` (`str`)
@@ -50,7 +50,7 @@ class Account(pulumi.CustomResource):
 
         The **active_directory** object supports the following:
 
-          * `dnsServers` (`pulumi.Input[list]`)
+          * `dns_servers` (`pulumi.Input[list]`)
           * `domain` (`pulumi.Input[str]`)
           * `organizationalUnit` (`pulumi.Input[str]`)
           * `password` (`pulumi.Input[str]`)
@@ -102,7 +102,7 @@ class Account(pulumi.CustomResource):
 
         The **active_directory** object supports the following:
 
-          * `dnsServers` (`pulumi.Input[list]`)
+          * `dns_servers` (`pulumi.Input[list]`)
           * `domain` (`pulumi.Input[str]`)
           * `organizationalUnit` (`pulumi.Input[str]`)
           * `password` (`pulumi.Input[str]`)

@@ -42,8 +42,8 @@ class Registry(pulumi.CustomResource):
     """
     A `network_rule_set` block as documented below.
 
-      * `defaultAction` (`str`) - The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
-      * `ipRules` (`list`) - One or more `ip_rule` blocks as defined below.
+      * `default_action` (`str`) - The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
+      * `ip_rules` (`list`) - One or more `ip_rule` blocks as defined below.
         * `action` (`str`) - The behaviour for requests matching this rule. At this time the only supported value is `Allow`
         * `ipRange` (`str`) - The CIDR block from which requests will match the rule.
 
@@ -90,8 +90,8 @@ class Registry(pulumi.CustomResource):
 
         The **network_rule_set** object supports the following:
 
-          * `defaultAction` (`pulumi.Input[str]`) - The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
-          * `ipRules` (`pulumi.Input[list]`) - One or more `ip_rule` blocks as defined below.
+          * `default_action` (`pulumi.Input[str]`) - The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
+          * `ip_rules` (`pulumi.Input[list]`) - One or more `ip_rule` blocks as defined below.
             * `action` (`pulumi.Input[str]`) - The behaviour for requests matching this rule. At this time the only supported value is `Allow`
             * `ipRange` (`pulumi.Input[str]`) - The CIDR block from which requests will match the rule.
 
@@ -160,8 +160,8 @@ class Registry(pulumi.CustomResource):
 
         The **network_rule_set** object supports the following:
 
-          * `defaultAction` (`pulumi.Input[str]`) - The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
-          * `ipRules` (`pulumi.Input[list]`) - One or more `ip_rule` blocks as defined below.
+          * `default_action` (`pulumi.Input[str]`) - The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
+          * `ip_rules` (`pulumi.Input[list]`) - One or more `ip_rule` blocks as defined below.
             * `action` (`pulumi.Input[str]`) - The behaviour for requests matching this rule. At this time the only supported value is `Allow`
             * `ipRange` (`pulumi.Input[str]`) - The CIDR block from which requests will match the rule.
 

@@ -17,7 +17,7 @@ class Workspace(pulumi.CustomResource):
       * `noPublicIp` (`bool`) - Are public IP Addresses not allowed?
       * `privateSubnetName` (`str`) - The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set.
       * `publicSubnetName` (`str`) - The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set.
-      * `virtualNetworkId` (`str`) - The ID of a Virtual Network where this Databricks Cluster should be created.
+      * `virtual_network_id` (`str`) - The ID of a Virtual Network where this Databricks Cluster should be created.
     """
     location: pulumi.Output[str]
     """
@@ -68,7 +68,7 @@ class Workspace(pulumi.CustomResource):
           * `noPublicIp` (`pulumi.Input[bool]`) - Are public IP Addresses not allowed?
           * `privateSubnetName` (`pulumi.Input[str]`) - The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set.
           * `publicSubnetName` (`pulumi.Input[str]`) - The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set.
-          * `virtualNetworkId` (`pulumi.Input[str]`) - The ID of a Virtual Network where this Databricks Cluster should be created.
+          * `virtual_network_id` (`pulumi.Input[str]`) - The ID of a Virtual Network where this Databricks Cluster should be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -128,7 +128,7 @@ class Workspace(pulumi.CustomResource):
           * `noPublicIp` (`pulumi.Input[bool]`) - Are public IP Addresses not allowed?
           * `privateSubnetName` (`pulumi.Input[str]`) - The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set.
           * `publicSubnetName` (`pulumi.Input[str]`) - The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set.
-          * `virtualNetworkId` (`pulumi.Input[str]`) - The ID of a Virtual Network where this Databricks Cluster should be created.
+          * `virtual_network_id` (`pulumi.Input[str]`) - The ID of a Virtual Network where this Databricks Cluster should be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -16,7 +16,7 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
 
       * `administrator_login` (`str`)
       * `administratorPassword` (`str`)
-      * `pricingTier` (`str`)
+      * `pricing_tier` (`str`)
       * `serverEndpoint` (`str`)
     """
     custom_setup_script: pulumi.Output[dict]
@@ -95,7 +95,7 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
 
           * `administrator_login` (`pulumi.Input[str]`)
           * `administratorPassword` (`pulumi.Input[str]`)
-          * `pricingTier` (`pulumi.Input[str]`)
+          * `pricing_tier` (`pulumi.Input[str]`)
           * `serverEndpoint` (`pulumi.Input[str]`)
 
         The **custom_setup_script** object supports the following:
@@ -176,7 +176,7 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
 
           * `administrator_login` (`pulumi.Input[str]`)
           * `administratorPassword` (`pulumi.Input[str]`)
-          * `pricingTier` (`pulumi.Input[str]`)
+          * `pricing_tier` (`pulumi.Input[str]`)
           * `serverEndpoint` (`pulumi.Input[str]`)
 
         The **custom_setup_script** object supports the following:

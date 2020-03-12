@@ -59,9 +59,9 @@ class Group(pulumi.CustomResource):
         * `mountPath` (`str`)
         * `name` (`str`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
         * `readOnly` (`bool`)
-        * `shareName` (`str`)
-        * `storageAccountKey` (`str`)
-        * `storageAccountName` (`str`)
+        * `share_name` (`str`)
+        * `storage_account_key` (`str`)
+        * `storage_account_name` (`str`)
     """
     diagnostics: pulumi.Output[dict]
     """
@@ -86,7 +86,7 @@ class Group(pulumi.CustomResource):
     An `identity` block as defined below.
 
       * `identityIds` (`list`)
-      * `principalId` (`str`)
+      * `principal_id` (`str`)
       * `type` (`str`)
     """
     image_registry_credentials: pulumi.Output[list]
@@ -202,9 +202,9 @@ class Group(pulumi.CustomResource):
             * `mountPath` (`pulumi.Input[str]`)
             * `name` (`pulumi.Input[str]`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
             * `readOnly` (`pulumi.Input[bool]`)
-            * `shareName` (`pulumi.Input[str]`)
-            * `storageAccountKey` (`pulumi.Input[str]`)
-            * `storageAccountName` (`pulumi.Input[str]`)
+            * `share_name` (`pulumi.Input[str]`)
+            * `storage_account_key` (`pulumi.Input[str]`)
+            * `storage_account_name` (`pulumi.Input[str]`)
 
         The **diagnostics** object supports the following:
 
@@ -217,7 +217,7 @@ class Group(pulumi.CustomResource):
         The **identity** object supports the following:
 
           * `identityIds` (`pulumi.Input[list]`)
-          * `principalId` (`pulumi.Input[str]`)
+          * `principal_id` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
 
         The **image_registry_credentials** object supports the following:
@@ -342,9 +342,9 @@ class Group(pulumi.CustomResource):
             * `mountPath` (`pulumi.Input[str]`)
             * `name` (`pulumi.Input[str]`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
             * `readOnly` (`pulumi.Input[bool]`)
-            * `shareName` (`pulumi.Input[str]`)
-            * `storageAccountKey` (`pulumi.Input[str]`)
-            * `storageAccountName` (`pulumi.Input[str]`)
+            * `share_name` (`pulumi.Input[str]`)
+            * `storage_account_key` (`pulumi.Input[str]`)
+            * `storage_account_name` (`pulumi.Input[str]`)
 
         The **diagnostics** object supports the following:
 
@@ -357,7 +357,7 @@ class Group(pulumi.CustomResource):
         The **identity** object supports the following:
 
           * `identityIds` (`pulumi.Input[list]`)
-          * `principalId` (`pulumi.Input[str]`)
+          * `principal_id` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
 
         The **image_registry_credentials** object supports the following:

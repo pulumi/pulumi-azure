@@ -70,13 +70,13 @@ class Pool(pulumi.CustomResource):
     A `network_configuration` block that describes the network configurations for the Batch pool.
 
       * `endpointConfigurations` (`list`)
-        * `backendPort` (`float`)
+        * `backend_port` (`float`)
         * `frontendPortRange` (`str`)
         * `name` (`str`) - Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         * `networkSecurityGroupRules` (`list`)
           * `access` (`str`)
           * `priority` (`float`)
-          * `sourceAddressPrefix` (`str`)
+          * `source_address_prefix` (`str`)
 
         * `protocol` (`str`)
 
@@ -183,13 +183,13 @@ class Pool(pulumi.CustomResource):
         The **network_configuration** object supports the following:
 
           * `endpointConfigurations` (`pulumi.Input[list]`)
-            * `backendPort` (`pulumi.Input[float]`)
+            * `backend_port` (`pulumi.Input[float]`)
             * `frontendPortRange` (`pulumi.Input[str]`)
             * `name` (`pulumi.Input[str]`) - Specifies the name of the Batch pool. Changing this forces a new resource to be created.
             * `networkSecurityGroupRules` (`pulumi.Input[list]`)
               * `access` (`pulumi.Input[str]`)
               * `priority` (`pulumi.Input[float]`)
-              * `sourceAddressPrefix` (`pulumi.Input[str]`)
+              * `source_address_prefix` (`pulumi.Input[str]`)
 
             * `protocol` (`pulumi.Input[str]`)
 
@@ -329,13 +329,13 @@ class Pool(pulumi.CustomResource):
         The **network_configuration** object supports the following:
 
           * `endpointConfigurations` (`pulumi.Input[list]`)
-            * `backendPort` (`pulumi.Input[float]`)
+            * `backend_port` (`pulumi.Input[float]`)
             * `frontendPortRange` (`pulumi.Input[str]`)
             * `name` (`pulumi.Input[str]`) - Specifies the name of the Batch pool. Changing this forces a new resource to be created.
             * `networkSecurityGroupRules` (`pulumi.Input[list]`)
               * `access` (`pulumi.Input[str]`)
               * `priority` (`pulumi.Input[float]`)
-              * `sourceAddressPrefix` (`pulumi.Input[str]`)
+              * `source_address_prefix` (`pulumi.Input[str]`)
 
             * `protocol` (`pulumi.Input[str]`)
 

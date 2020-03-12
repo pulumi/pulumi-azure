@@ -61,9 +61,9 @@ class ScaleSet(pulumi.CustomResource):
 
       * `acceleratedNetworking` (`bool`) - Specifies whether to enable accelerated networking or not. Defaults to `false`.
       * `dnsSettings` (`dict`) - A dns_settings block as documented below.
-        * `dnsServers` (`list`) - Specifies an array of dns servers.
+        * `dns_servers` (`list`) - Specifies an array of dns servers.
 
-      * `ipConfigurations` (`list`) - An ip_configuration block as documented below.
+      * `ip_configurations` (`list`) - An ip_configuration block as documented below.
         * `applicationGatewayBackendAddressPoolIds` (`list`) - Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
         * `applicationSecurityGroupIds` (`list`) - Specifies up to `20` application security group IDs.
         * `loadBalancerBackendAddressPoolIds` (`list`) - Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
@@ -71,7 +71,7 @@ class ScaleSet(pulumi.CustomResource):
         * `name` (`str`) - Specifies the name of the image from the marketplace.
         * `primary` (`bool`) - Specifies if this ip_configuration is the primary one.
         * `publicIpAddressConfiguration` (`dict`) - Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.
-          * `domainNameLabel` (`str`) - The domain name label for the dns settings.
+          * `domain_name_label` (`str`) - The domain name label for the dns settings.
           * `idleTimeout` (`float`) - The idle timeout in minutes. This value must be between 4 and 30.
           * `name` (`str`) - Specifies the name of the image from the marketplace.
 
@@ -79,7 +79,7 @@ class ScaleSet(pulumi.CustomResource):
 
       * `ipForwarding` (`bool`) - Whether IP forwarding is enabled on this NIC. Defaults to `false`.
       * `name` (`str`) - Specifies the name of the image from the marketplace.
-      * `networkSecurityGroupId` (`str`) - Specifies the identifier for the network security group.
+      * `network_security_group_id` (`str`) - Specifies the identifier for the network security group.
       * `primary` (`bool`) - Specifies if this ip_configuration is the primary one.
     """
     os_profile: pulumi.Output[dict]
@@ -285,9 +285,9 @@ class ScaleSet(pulumi.CustomResource):
 
           * `acceleratedNetworking` (`pulumi.Input[bool]`) - Specifies whether to enable accelerated networking or not. Defaults to `false`.
           * `dnsSettings` (`pulumi.Input[dict]`) - A dns_settings block as documented below.
-            * `dnsServers` (`pulumi.Input[list]`) - Specifies an array of dns servers.
+            * `dns_servers` (`pulumi.Input[list]`) - Specifies an array of dns servers.
 
-          * `ipConfigurations` (`pulumi.Input[list]`) - An ip_configuration block as documented below.
+          * `ip_configurations` (`pulumi.Input[list]`) - An ip_configuration block as documented below.
             * `applicationGatewayBackendAddressPoolIds` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
             * `applicationSecurityGroupIds` (`pulumi.Input[list]`) - Specifies up to `20` application security group IDs.
             * `loadBalancerBackendAddressPoolIds` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
@@ -295,7 +295,7 @@ class ScaleSet(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.
             * `primary` (`pulumi.Input[bool]`) - Specifies if this ip_configuration is the primary one.
             * `publicIpAddressConfiguration` (`pulumi.Input[dict]`) - Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.
-              * `domainNameLabel` (`pulumi.Input[str]`) - The domain name label for the dns settings.
+              * `domain_name_label` (`pulumi.Input[str]`) - The domain name label for the dns settings.
               * `idleTimeout` (`pulumi.Input[float]`) - The idle timeout in minutes. This value must be between 4 and 30.
               * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.
 
@@ -303,7 +303,7 @@ class ScaleSet(pulumi.CustomResource):
 
           * `ipForwarding` (`pulumi.Input[bool]`) - Whether IP forwarding is enabled on this NIC. Defaults to `false`.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.
-          * `networkSecurityGroupId` (`pulumi.Input[str]`) - Specifies the identifier for the network security group.
+          * `network_security_group_id` (`pulumi.Input[str]`) - Specifies the identifier for the network security group.
           * `primary` (`pulumi.Input[bool]`) - Specifies if this ip_configuration is the primary one.
 
         The **os_profile** object supports the following:
@@ -515,9 +515,9 @@ class ScaleSet(pulumi.CustomResource):
 
           * `acceleratedNetworking` (`pulumi.Input[bool]`) - Specifies whether to enable accelerated networking or not. Defaults to `false`.
           * `dnsSettings` (`pulumi.Input[dict]`) - A dns_settings block as documented below.
-            * `dnsServers` (`pulumi.Input[list]`) - Specifies an array of dns servers.
+            * `dns_servers` (`pulumi.Input[list]`) - Specifies an array of dns servers.
 
-          * `ipConfigurations` (`pulumi.Input[list]`) - An ip_configuration block as documented below.
+          * `ip_configurations` (`pulumi.Input[list]`) - An ip_configuration block as documented below.
             * `applicationGatewayBackendAddressPoolIds` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
             * `applicationSecurityGroupIds` (`pulumi.Input[list]`) - Specifies up to `20` application security group IDs.
             * `loadBalancerBackendAddressPoolIds` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
@@ -525,7 +525,7 @@ class ScaleSet(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.
             * `primary` (`pulumi.Input[bool]`) - Specifies if this ip_configuration is the primary one.
             * `publicIpAddressConfiguration` (`pulumi.Input[dict]`) - Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.
-              * `domainNameLabel` (`pulumi.Input[str]`) - The domain name label for the dns settings.
+              * `domain_name_label` (`pulumi.Input[str]`) - The domain name label for the dns settings.
               * `idleTimeout` (`pulumi.Input[float]`) - The idle timeout in minutes. This value must be between 4 and 30.
               * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.
 
@@ -533,7 +533,7 @@ class ScaleSet(pulumi.CustomResource):
 
           * `ipForwarding` (`pulumi.Input[bool]`) - Whether IP forwarding is enabled on this NIC. Defaults to `false`.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.
-          * `networkSecurityGroupId` (`pulumi.Input[str]`) - Specifies the identifier for the network security group.
+          * `network_security_group_id` (`pulumi.Input[str]`) - Specifies the identifier for the network security group.
           * `primary` (`pulumi.Input[bool]`) - Specifies if this ip_configuration is the primary one.
 
         The **os_profile** object supports the following:

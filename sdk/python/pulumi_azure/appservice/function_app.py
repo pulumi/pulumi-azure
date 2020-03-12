@@ -22,10 +22,10 @@ class FunctionApp(pulumi.CustomResource):
     """
     A `auth_settings` block as defined below.
 
-      * `activeDirectory` (`dict`)
+      * `active_directory` (`dict`)
         * `allowedAudiences` (`list`)
-        * `clientId` (`str`)
-        * `clientSecret` (`str`)
+        * `client_id` (`str`)
+        * `client_secret` (`str`)
 
       * `additionalLoginParams` (`dict`)
       * `allowedExternalRedirectUrls` (`list`)
@@ -33,18 +33,18 @@ class FunctionApp(pulumi.CustomResource):
       * `enabled` (`bool`) - Is the Function App enabled?
       * `facebook` (`dict`)
         * `app_id` (`str`)
-        * `appSecret` (`str`)
+        * `app_secret` (`str`)
         * `oauthScopes` (`list`)
 
       * `google` (`dict`)
-        * `clientId` (`str`)
-        * `clientSecret` (`str`)
+        * `client_id` (`str`)
+        * `client_secret` (`str`)
         * `oauthScopes` (`list`)
 
       * `issuer` (`str`)
       * `microsoft` (`dict`)
-        * `clientId` (`str`)
-        * `clientSecret` (`str`)
+        * `client_id` (`str`)
+        * `client_secret` (`str`)
         * `oauthScopes` (`list`)
 
       * `runtimeVersion` (`str`)
@@ -183,10 +183,10 @@ class FunctionApp(pulumi.CustomResource):
 
         The **auth_settings** object supports the following:
 
-          * `activeDirectory` (`pulumi.Input[dict]`)
+          * `active_directory` (`pulumi.Input[dict]`)
             * `allowedAudiences` (`pulumi.Input[list]`)
-            * `clientId` (`pulumi.Input[str]`)
-            * `clientSecret` (`pulumi.Input[str]`)
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
 
           * `additionalLoginParams` (`pulumi.Input[dict]`)
           * `allowedExternalRedirectUrls` (`pulumi.Input[list]`)
@@ -194,18 +194,18 @@ class FunctionApp(pulumi.CustomResource):
           * `enabled` (`pulumi.Input[bool]`) - Is the Function App enabled?
           * `facebook` (`pulumi.Input[dict]`)
             * `app_id` (`pulumi.Input[str]`)
-            * `appSecret` (`pulumi.Input[str]`)
+            * `app_secret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
 
           * `google` (`pulumi.Input[dict]`)
-            * `clientId` (`pulumi.Input[str]`)
-            * `clientSecret` (`pulumi.Input[str]`)
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
 
           * `issuer` (`pulumi.Input[str]`)
           * `microsoft` (`pulumi.Input[dict]`)
-            * `clientId` (`pulumi.Input[str]`)
-            * `clientSecret` (`pulumi.Input[str]`)
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
 
           * `runtimeVersion` (`pulumi.Input[str]`)
@@ -331,10 +331,10 @@ class FunctionApp(pulumi.CustomResource):
 
         The **auth_settings** object supports the following:
 
-          * `activeDirectory` (`pulumi.Input[dict]`)
+          * `active_directory` (`pulumi.Input[dict]`)
             * `allowedAudiences` (`pulumi.Input[list]`)
-            * `clientId` (`pulumi.Input[str]`)
-            * `clientSecret` (`pulumi.Input[str]`)
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
 
           * `additionalLoginParams` (`pulumi.Input[dict]`)
           * `allowedExternalRedirectUrls` (`pulumi.Input[list]`)
@@ -342,18 +342,18 @@ class FunctionApp(pulumi.CustomResource):
           * `enabled` (`pulumi.Input[bool]`) - Is the Function App enabled?
           * `facebook` (`pulumi.Input[dict]`)
             * `app_id` (`pulumi.Input[str]`)
-            * `appSecret` (`pulumi.Input[str]`)
+            * `app_secret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
 
           * `google` (`pulumi.Input[dict]`)
-            * `clientId` (`pulumi.Input[str]`)
-            * `clientSecret` (`pulumi.Input[str]`)
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
 
           * `issuer` (`pulumi.Input[str]`)
           * `microsoft` (`pulumi.Input[dict]`)
-            * `clientId` (`pulumi.Input[str]`)
-            * `clientSecret` (`pulumi.Input[str]`)
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
 
           * `runtimeVersion` (`pulumi.Input[str]`)

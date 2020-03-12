@@ -41,14 +41,14 @@ class Service(pulumi.CustomResource):
       * `managements` (`list`)
         * `certificate` (`str`) - One or more (up to 10) `certificate` blocks as defined below.
         * `certificatePassword` (`str`)
-        * `hostName` (`str`)
+        * `host_name` (`str`)
         * `key_vault_id` (`str`)
         * `negotiateClientCertificate` (`bool`)
 
       * `portals` (`list`)
         * `certificate` (`str`) - One or more (up to 10) `certificate` blocks as defined below.
         * `certificatePassword` (`str`)
-        * `hostName` (`str`)
+        * `host_name` (`str`)
         * `key_vault_id` (`str`)
         * `negotiateClientCertificate` (`bool`)
 
@@ -56,14 +56,14 @@ class Service(pulumi.CustomResource):
         * `certificate` (`str`) - One or more (up to 10) `certificate` blocks as defined below.
         * `certificatePassword` (`str`)
         * `defaultSslBinding` (`bool`)
-        * `hostName` (`str`)
+        * `host_name` (`str`)
         * `key_vault_id` (`str`)
         * `negotiateClientCertificate` (`bool`)
 
       * `scms` (`list`)
         * `certificate` (`str`) - One or more (up to 10) `certificate` blocks as defined below.
         * `certificatePassword` (`str`)
-        * `hostName` (`str`)
+        * `host_name` (`str`)
         * `key_vault_id` (`str`)
         * `negotiateClientCertificate` (`bool`)
     """
@@ -106,7 +106,7 @@ class Service(pulumi.CustomResource):
     """
     A `protocols` block as defined below.
 
-      * `enableHttp2` (`bool`)
+      * `enable_http2` (`bool`)
     """
     public_ip_addresses: pulumi.Output[list]
     """
@@ -207,14 +207,14 @@ class Service(pulumi.CustomResource):
           * `managements` (`pulumi.Input[list]`)
             * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
             * `certificatePassword` (`pulumi.Input[str]`)
-            * `hostName` (`pulumi.Input[str]`)
+            * `host_name` (`pulumi.Input[str]`)
             * `key_vault_id` (`pulumi.Input[str]`)
             * `negotiateClientCertificate` (`pulumi.Input[bool]`)
 
           * `portals` (`pulumi.Input[list]`)
             * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
             * `certificatePassword` (`pulumi.Input[str]`)
-            * `hostName` (`pulumi.Input[str]`)
+            * `host_name` (`pulumi.Input[str]`)
             * `key_vault_id` (`pulumi.Input[str]`)
             * `negotiateClientCertificate` (`pulumi.Input[bool]`)
 
@@ -222,14 +222,14 @@ class Service(pulumi.CustomResource):
             * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
             * `certificatePassword` (`pulumi.Input[str]`)
             * `defaultSslBinding` (`pulumi.Input[bool]`)
-            * `hostName` (`pulumi.Input[str]`)
+            * `host_name` (`pulumi.Input[str]`)
             * `key_vault_id` (`pulumi.Input[str]`)
             * `negotiateClientCertificate` (`pulumi.Input[bool]`)
 
           * `scms` (`pulumi.Input[list]`)
             * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
             * `certificatePassword` (`pulumi.Input[str]`)
-            * `hostName` (`pulumi.Input[str]`)
+            * `host_name` (`pulumi.Input[str]`)
             * `key_vault_id` (`pulumi.Input[str]`)
             * `negotiateClientCertificate` (`pulumi.Input[bool]`)
 
@@ -246,7 +246,7 @@ class Service(pulumi.CustomResource):
 
         The **protocols** object supports the following:
 
-          * `enableHttp2` (`pulumi.Input[bool]`)
+          * `enable_http2` (`pulumi.Input[bool]`)
 
         The **security** object supports the following:
 
@@ -374,14 +374,14 @@ class Service(pulumi.CustomResource):
           * `managements` (`pulumi.Input[list]`)
             * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
             * `certificatePassword` (`pulumi.Input[str]`)
-            * `hostName` (`pulumi.Input[str]`)
+            * `host_name` (`pulumi.Input[str]`)
             * `key_vault_id` (`pulumi.Input[str]`)
             * `negotiateClientCertificate` (`pulumi.Input[bool]`)
 
           * `portals` (`pulumi.Input[list]`)
             * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
             * `certificatePassword` (`pulumi.Input[str]`)
-            * `hostName` (`pulumi.Input[str]`)
+            * `host_name` (`pulumi.Input[str]`)
             * `key_vault_id` (`pulumi.Input[str]`)
             * `negotiateClientCertificate` (`pulumi.Input[bool]`)
 
@@ -389,14 +389,14 @@ class Service(pulumi.CustomResource):
             * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
             * `certificatePassword` (`pulumi.Input[str]`)
             * `defaultSslBinding` (`pulumi.Input[bool]`)
-            * `hostName` (`pulumi.Input[str]`)
+            * `host_name` (`pulumi.Input[str]`)
             * `key_vault_id` (`pulumi.Input[str]`)
             * `negotiateClientCertificate` (`pulumi.Input[bool]`)
 
           * `scms` (`pulumi.Input[list]`)
             * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
             * `certificatePassword` (`pulumi.Input[str]`)
-            * `hostName` (`pulumi.Input[str]`)
+            * `host_name` (`pulumi.Input[str]`)
             * `key_vault_id` (`pulumi.Input[str]`)
             * `negotiateClientCertificate` (`pulumi.Input[bool]`)
 
@@ -413,7 +413,7 @@ class Service(pulumi.CustomResource):
 
         The **protocols** object supports the following:
 
-          * `enableHttp2` (`pulumi.Input[bool]`)
+          * `enable_http2` (`pulumi.Input[bool]`)
 
         The **security** object supports the following:
 

@@ -74,7 +74,7 @@ class Frontdoor(pulumi.CustomResource):
         * `provisioningSubstate` (`str`) - Provisioning substate of the Front Door
 
       * `customHttpsProvisioningEnabled` (`bool`)
-      * `hostName` (`str`)
+      * `host_name` (`str`)
       * `id` (`str`) - The ID of the FrontDoor.
       * `name` (`str`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
       * `sessionAffinityEnabled` (`bool`)
@@ -199,7 +199,7 @@ class Frontdoor(pulumi.CustomResource):
             * `provisioningSubstate` (`pulumi.Input[str]`) - Provisioning substate of the Front Door
 
           * `customHttpsProvisioningEnabled` (`pulumi.Input[bool]`)
-          * `hostName` (`pulumi.Input[str]`)
+          * `host_name` (`pulumi.Input[str]`)
           * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
           * `sessionAffinityEnabled` (`pulumi.Input[bool]`)
@@ -347,7 +347,7 @@ class Frontdoor(pulumi.CustomResource):
             * `provisioningSubstate` (`pulumi.Input[str]`) - Provisioning substate of the Front Door
 
           * `customHttpsProvisioningEnabled` (`pulumi.Input[bool]`)
-          * `hostName` (`pulumi.Input[str]`)
+          * `host_name` (`pulumi.Input[str]`)
           * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
           * `sessionAffinityEnabled` (`pulumi.Input[bool]`)

@@ -107,10 +107,10 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     """
     One or more `network_interface` blocks as defined below.
 
-      * `dnsServers` (`list`)
-      * `enableAcceleratedNetworking` (`bool`)
-      * `enableIpForwarding` (`bool`)
-      * `ipConfigurations` (`list`)
+      * `dns_servers` (`list`)
+      * `enable_accelerated_networking` (`bool`)
+      * `enable_ip_forwarding` (`bool`)
+      * `ip_configurations` (`list`)
         * `applicationGatewayBackendAddressPoolIds` (`list`)
         * `applicationSecurityGroupIds` (`list`)
         * `loadBalancerBackendAddressPoolIds` (`list`)
@@ -118,20 +118,20 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         * `name` (`str`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
         * `primary` (`bool`)
         * `public_ip_addresses` (`list`)
-          * `domainNameLabel` (`str`)
+          * `domain_name_label` (`str`)
           * `idle_timeout_in_minutes` (`float`)
           * `ipTags` (`list`)
             * `tag` (`str`)
             * `type` (`str`)
 
           * `name` (`str`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-          * `publicIpPrefixId` (`str`)
+          * `public_ip_prefix_id` (`str`)
 
         * `subnet_id` (`str`)
         * `version` (`str`)
 
       * `name` (`str`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-      * `networkSecurityGroupId` (`str`)
+      * `network_security_group_id` (`str`)
       * `primary` (`bool`)
     """
     os_disk: pulumi.Output[dict]
@@ -303,10 +303,10 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
         The **network_interfaces** object supports the following:
 
-          * `dnsServers` (`pulumi.Input[list]`)
-          * `enableAcceleratedNetworking` (`pulumi.Input[bool]`)
-          * `enableIpForwarding` (`pulumi.Input[bool]`)
-          * `ipConfigurations` (`pulumi.Input[list]`)
+          * `dns_servers` (`pulumi.Input[list]`)
+          * `enable_accelerated_networking` (`pulumi.Input[bool]`)
+          * `enable_ip_forwarding` (`pulumi.Input[bool]`)
+          * `ip_configurations` (`pulumi.Input[list]`)
             * `applicationGatewayBackendAddressPoolIds` (`pulumi.Input[list]`)
             * `applicationSecurityGroupIds` (`pulumi.Input[list]`)
             * `loadBalancerBackendAddressPoolIds` (`pulumi.Input[list]`)
@@ -314,20 +314,20 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
             * `primary` (`pulumi.Input[bool]`)
             * `public_ip_addresses` (`pulumi.Input[list]`)
-              * `domainNameLabel` (`pulumi.Input[str]`)
+              * `domain_name_label` (`pulumi.Input[str]`)
               * `idle_timeout_in_minutes` (`pulumi.Input[float]`)
               * `ipTags` (`pulumi.Input[list]`)
                 * `tag` (`pulumi.Input[str]`)
                 * `type` (`pulumi.Input[str]`)
 
               * `name` (`pulumi.Input[str]`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-              * `publicIpPrefixId` (`pulumi.Input[str]`)
+              * `public_ip_prefix_id` (`pulumi.Input[str]`)
 
             * `subnet_id` (`pulumi.Input[str]`)
             * `version` (`pulumi.Input[str]`)
 
           * `name` (`pulumi.Input[str]`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-          * `networkSecurityGroupId` (`pulumi.Input[str]`)
+          * `network_security_group_id` (`pulumi.Input[str]`)
           * `primary` (`pulumi.Input[bool]`)
 
         The **os_disk** object supports the following:
@@ -521,10 +521,10 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
         The **network_interfaces** object supports the following:
 
-          * `dnsServers` (`pulumi.Input[list]`)
-          * `enableAcceleratedNetworking` (`pulumi.Input[bool]`)
-          * `enableIpForwarding` (`pulumi.Input[bool]`)
-          * `ipConfigurations` (`pulumi.Input[list]`)
+          * `dns_servers` (`pulumi.Input[list]`)
+          * `enable_accelerated_networking` (`pulumi.Input[bool]`)
+          * `enable_ip_forwarding` (`pulumi.Input[bool]`)
+          * `ip_configurations` (`pulumi.Input[list]`)
             * `applicationGatewayBackendAddressPoolIds` (`pulumi.Input[list]`)
             * `applicationSecurityGroupIds` (`pulumi.Input[list]`)
             * `loadBalancerBackendAddressPoolIds` (`pulumi.Input[list]`)
@@ -532,20 +532,20 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
             * `primary` (`pulumi.Input[bool]`)
             * `public_ip_addresses` (`pulumi.Input[list]`)
-              * `domainNameLabel` (`pulumi.Input[str]`)
+              * `domain_name_label` (`pulumi.Input[str]`)
               * `idle_timeout_in_minutes` (`pulumi.Input[float]`)
               * `ipTags` (`pulumi.Input[list]`)
                 * `tag` (`pulumi.Input[str]`)
                 * `type` (`pulumi.Input[str]`)
 
               * `name` (`pulumi.Input[str]`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-              * `publicIpPrefixId` (`pulumi.Input[str]`)
+              * `public_ip_prefix_id` (`pulumi.Input[str]`)
 
             * `subnet_id` (`pulumi.Input[str]`)
             * `version` (`pulumi.Input[str]`)
 
           * `name` (`pulumi.Input[str]`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-          * `networkSecurityGroupId` (`pulumi.Input[str]`)
+          * `network_security_group_id` (`pulumi.Input[str]`)
           * `primary` (`pulumi.Input[bool]`)
 
         The **os_disk** object supports the following:

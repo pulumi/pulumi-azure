@@ -26,7 +26,7 @@ class SqlServer(pulumi.CustomResource):
     """
     An `identity` block as defined below.
 
-      * `principalId` (`str`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+      * `principal_id` (`str`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
       * `tenant_id` (`str`) - The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
       * `type` (`str`)
     """
@@ -72,7 +72,7 @@ class SqlServer(pulumi.CustomResource):
 
         The **identity** object supports the following:
 
-          * `principalId` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+          * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
           * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
           * `type` (`pulumi.Input[str]`)
         """
@@ -137,7 +137,7 @@ class SqlServer(pulumi.CustomResource):
 
         The **identity** object supports the following:
 
-          * `principalId` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+          * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
           * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
           * `type` (`pulumi.Input[str]`)
         """

@@ -14,7 +14,7 @@ class Factory(pulumi.CustomResource):
     """
     A `github_configuration` block as defined below.
 
-      * `accountName` (`str`)
+      * `account_name` (`str`)
       * `branchName` (`str`)
       * `gitUrl` (`str`)
       * `repositoryName` (`str`)
@@ -24,7 +24,7 @@ class Factory(pulumi.CustomResource):
     """
     An `identity` block as defined below.
 
-      * `principalId` (`str`) - The ID of the Principal (Client) in Azure Active Directory
+      * `principal_id` (`str`) - The ID of the Principal (Client) in Azure Active Directory
       * `tenant_id` (`str`) - The ID of the Azure Active Directory Tenant.
       * `type` (`str`)
     """
@@ -48,7 +48,7 @@ class Factory(pulumi.CustomResource):
     """
     A `vsts_configuration` block as defined below.
 
-      * `accountName` (`str`)
+      * `account_name` (`str`)
       * `branchName` (`str`)
       * `projectName` (`str`)
       * `repositoryName` (`str`)
@@ -73,7 +73,7 @@ class Factory(pulumi.CustomResource):
 
         The **github_configuration** object supports the following:
 
-          * `accountName` (`pulumi.Input[str]`)
+          * `account_name` (`pulumi.Input[str]`)
           * `branchName` (`pulumi.Input[str]`)
           * `gitUrl` (`pulumi.Input[str]`)
           * `repositoryName` (`pulumi.Input[str]`)
@@ -81,13 +81,13 @@ class Factory(pulumi.CustomResource):
 
         The **identity** object supports the following:
 
-          * `principalId` (`pulumi.Input[str]`) - The ID of the Principal (Client) in Azure Active Directory
+          * `principal_id` (`pulumi.Input[str]`) - The ID of the Principal (Client) in Azure Active Directory
           * `tenant_id` (`pulumi.Input[str]`) - The ID of the Azure Active Directory Tenant.
           * `type` (`pulumi.Input[str]`)
 
         The **vsts_configuration** object supports the following:
 
-          * `accountName` (`pulumi.Input[str]`)
+          * `account_name` (`pulumi.Input[str]`)
           * `branchName` (`pulumi.Input[str]`)
           * `projectName` (`pulumi.Input[str]`)
           * `repositoryName` (`pulumi.Input[str]`)
@@ -145,7 +145,7 @@ class Factory(pulumi.CustomResource):
 
         The **github_configuration** object supports the following:
 
-          * `accountName` (`pulumi.Input[str]`)
+          * `account_name` (`pulumi.Input[str]`)
           * `branchName` (`pulumi.Input[str]`)
           * `gitUrl` (`pulumi.Input[str]`)
           * `repositoryName` (`pulumi.Input[str]`)
@@ -153,13 +153,13 @@ class Factory(pulumi.CustomResource):
 
         The **identity** object supports the following:
 
-          * `principalId` (`pulumi.Input[str]`) - The ID of the Principal (Client) in Azure Active Directory
+          * `principal_id` (`pulumi.Input[str]`) - The ID of the Principal (Client) in Azure Active Directory
           * `tenant_id` (`pulumi.Input[str]`) - The ID of the Azure Active Directory Tenant.
           * `type` (`pulumi.Input[str]`)
 
         The **vsts_configuration** object supports the following:
 
-          * `accountName` (`pulumi.Input[str]`)
+          * `account_name` (`pulumi.Input[str]`)
           * `branchName` (`pulumi.Input[str]`)
           * `projectName` (`pulumi.Input[str]`)
           * `repositoryName` (`pulumi.Input[str]`)

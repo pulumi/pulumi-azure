@@ -80,7 +80,7 @@ class Schedule(pulumi.CustomResource):
         The **weekly_recurrence** object supports the following:
 
           * `time` (`pulumi.Input[str]`) - The time each day when the schedule takes effect.
-          * `weekDays` (`pulumi.Input[list]`) - A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+          * `week_days` (`pulumi.Input[list]`) - A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -162,7 +162,7 @@ class Schedule(pulumi.CustomResource):
         The **weekly_recurrence** object supports the following:
 
           * `time` (`pulumi.Input[str]`) - The time each day when the schedule takes effect.
-          * `weekDays` (`pulumi.Input[list]`) - A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+          * `week_days` (`pulumi.Input[list]`) - A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

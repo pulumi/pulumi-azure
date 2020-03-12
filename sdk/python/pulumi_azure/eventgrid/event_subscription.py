@@ -18,7 +18,7 @@ class EventSubscription(pulumi.CustomResource):
     """
     A `eventhub_endpoint` block as defined below.
 
-      * `eventhubId` (`str`) - Specifies the id of the eventhub where the Event Subscription will receive events.
+      * `eventhub_id` (`str`) - Specifies the id of the eventhub where the Event Subscription will receive events.
     """
     hybrid_connection_endpoint: pulumi.Output[dict]
     """
@@ -60,7 +60,7 @@ class EventSubscription(pulumi.CustomResource):
     """
     A `storage_queue_endpoint` block as defined below.
 
-      * `queueName` (`str`) - Specifies the name of the storage queue where the Event Subscriptio will receive events.
+      * `queue_name` (`str`) - Specifies the name of the storage queue where the Event Subscriptio will receive events.
       * `storage_account_id` (`str`) - Specifies the id of the storage account id where the storage blob is located.
     """
     subject_filter: pulumi.Output[dict]
@@ -105,7 +105,7 @@ class EventSubscription(pulumi.CustomResource):
 
         The **eventhub_endpoint** object supports the following:
 
-          * `eventhubId` (`pulumi.Input[str]`) - Specifies the id of the eventhub where the Event Subscription will receive events.
+          * `eventhub_id` (`pulumi.Input[str]`) - Specifies the id of the eventhub where the Event Subscription will receive events.
 
         The **hybrid_connection_endpoint** object supports the following:
 
@@ -123,7 +123,7 @@ class EventSubscription(pulumi.CustomResource):
 
         The **storage_queue_endpoint** object supports the following:
 
-          * `queueName` (`pulumi.Input[str]`) - Specifies the name of the storage queue where the Event Subscriptio will receive events.
+          * `queue_name` (`pulumi.Input[str]`) - Specifies the name of the storage queue where the Event Subscriptio will receive events.
           * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located.
 
         The **subject_filter** object supports the following:
@@ -201,7 +201,7 @@ class EventSubscription(pulumi.CustomResource):
 
         The **eventhub_endpoint** object supports the following:
 
-          * `eventhubId` (`pulumi.Input[str]`) - Specifies the id of the eventhub where the Event Subscription will receive events.
+          * `eventhub_id` (`pulumi.Input[str]`) - Specifies the id of the eventhub where the Event Subscription will receive events.
 
         The **hybrid_connection_endpoint** object supports the following:
 
@@ -219,7 +219,7 @@ class EventSubscription(pulumi.CustomResource):
 
         The **storage_queue_endpoint** object supports the following:
 
-          * `queueName` (`pulumi.Input[str]`) - Specifies the name of the storage queue where the Event Subscriptio will receive events.
+          * `queue_name` (`pulumi.Input[str]`) - Specifies the name of the storage queue where the Event Subscriptio will receive events.
           * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located.
 
         The **subject_filter** object supports the following:

@@ -100,13 +100,13 @@ class Database(pulumi.CustomResource):
     """
     Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
 
-      * `disabledAlerts` (`list`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-      * `emailAccountAdmins` (`str`) - Should the account administrators be emailed when this alert is triggered?
-      * `emailAddresses` (`list`) - A list of email addresses which alerts should be sent to.
-      * `retentionDays` (`float`) - Specifies the number of days to keep in the Threat Detection audit logs.
+      * `disabled_alerts` (`list`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+      * `email_account_admins` (`str`) - Should the account administrators be emailed when this alert is triggered?
+      * `email_addresses` (`list`) - A list of email addresses which alerts should be sent to.
+      * `retention_days` (`float`) - Specifies the number of days to keep in the Threat Detection audit logs.
       * `state` (`str`) - The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
-      * `storageAccountAccessKey` (`str`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-      * `storageEndpoint` (`str`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+      * `storage_account_access_key` (`str`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+      * `storage_endpoint` (`str`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
       * `useServerDefault` (`str`) - Should the default server policy be used? Defaults to `Disabled`.
     """
     zone_redundant: pulumi.Output[bool]
@@ -154,13 +154,13 @@ class Database(pulumi.CustomResource):
 
         The **threat_detection_policy** object supports the following:
 
-          * `disabledAlerts` (`pulumi.Input[list]`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-          * `emailAccountAdmins` (`pulumi.Input[str]`) - Should the account administrators be emailed when this alert is triggered?
-          * `emailAddresses` (`pulumi.Input[list]`) - A list of email addresses which alerts should be sent to.
-          * `retentionDays` (`pulumi.Input[float]`) - Specifies the number of days to keep in the Threat Detection audit logs.
+          * `disabled_alerts` (`pulumi.Input[list]`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+          * `email_account_admins` (`pulumi.Input[str]`) - Should the account administrators be emailed when this alert is triggered?
+          * `email_addresses` (`pulumi.Input[list]`) - A list of email addresses which alerts should be sent to.
+          * `retention_days` (`pulumi.Input[float]`) - Specifies the number of days to keep in the Threat Detection audit logs.
           * `state` (`pulumi.Input[str]`) - The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
-          * `storageAccountAccessKey` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-          * `storageEndpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+          * `storage_account_access_key` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+          * `storage_endpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
           * `useServerDefault` (`pulumi.Input[str]`) - Should the default server policy be used? Defaults to `Disabled`.
         """
         if __name__ is not None:
@@ -256,13 +256,13 @@ class Database(pulumi.CustomResource):
 
         The **threat_detection_policy** object supports the following:
 
-          * `disabledAlerts` (`pulumi.Input[list]`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-          * `emailAccountAdmins` (`pulumi.Input[str]`) - Should the account administrators be emailed when this alert is triggered?
-          * `emailAddresses` (`pulumi.Input[list]`) - A list of email addresses which alerts should be sent to.
-          * `retentionDays` (`pulumi.Input[float]`) - Specifies the number of days to keep in the Threat Detection audit logs.
+          * `disabled_alerts` (`pulumi.Input[list]`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+          * `email_account_admins` (`pulumi.Input[str]`) - Should the account administrators be emailed when this alert is triggered?
+          * `email_addresses` (`pulumi.Input[list]`) - A list of email addresses which alerts should be sent to.
+          * `retention_days` (`pulumi.Input[float]`) - Specifies the number of days to keep in the Threat Detection audit logs.
           * `state` (`pulumi.Input[str]`) - The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
-          * `storageAccountAccessKey` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-          * `storageEndpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+          * `storage_account_access_key` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+          * `storage_endpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
           * `useServerDefault` (`pulumi.Input[str]`) - Should the default server policy be used? Defaults to `Disabled`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

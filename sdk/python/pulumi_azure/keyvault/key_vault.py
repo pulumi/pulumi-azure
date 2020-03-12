@@ -47,9 +47,9 @@ class KeyVault(pulumi.CustomResource):
     A `network_acls` block as defined below.
 
       * `bypass` (`str`)
-      * `defaultAction` (`str`)
-      * `ipRules` (`list`)
-      * `virtualNetworkSubnetIds` (`list`)
+      * `default_action` (`str`)
+      * `ip_rules` (`list`)
+      * `virtual_network_subnet_ids` (`list`)
     """
     purge_protection_enabled: pulumi.Output[bool]
     """
@@ -111,9 +111,9 @@ class KeyVault(pulumi.CustomResource):
         The **network_acls** object supports the following:
 
           * `bypass` (`pulumi.Input[str]`)
-          * `defaultAction` (`pulumi.Input[str]`)
-          * `ipRules` (`pulumi.Input[list]`)
-          * `virtualNetworkSubnetIds` (`pulumi.Input[list]`)
+          * `default_action` (`pulumi.Input[str]`)
+          * `ip_rules` (`pulumi.Input[list]`)
+          * `virtual_network_subnet_ids` (`pulumi.Input[list]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -195,9 +195,9 @@ class KeyVault(pulumi.CustomResource):
         The **network_acls** object supports the following:
 
           * `bypass` (`pulumi.Input[str]`)
-          * `defaultAction` (`pulumi.Input[str]`)
-          * `ipRules` (`pulumi.Input[list]`)
-          * `virtualNetworkSubnetIds` (`pulumi.Input[list]`)
+          * `default_action` (`pulumi.Input[str]`)
+          * `ip_rules` (`pulumi.Input[list]`)
+          * `virtual_network_subnet_ids` (`pulumi.Input[list]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -139,13 +139,13 @@ def get_pool(account_name=None,certificates=None,name=None,network_configuration
     The **network_configuration** object supports the following:
 
       * `endpointConfiguration` (`dict`) - The inbound NAT pools that are used to address specific ports on the individual compute node externally.
-        * `backendPort` (`float`) - The port number on the compute node.
+        * `backend_port` (`float`) - The port number on the compute node.
         * `frontendPortRange` (`str`) - The range of external ports that are used to provide inbound access to the backendPort on the individual compute nodes in the format of `1000-1100`.
         * `name` (`str`) - The name of the endpoint.
         * `networkSecurityGroupRules` (`list`) - The list of network security group rules that are applied to the endpoint.
           * `access` (`str`) - The action that should be taken for a specified IP address, subnet range or tag.
           * `priority` (`float`) - The priority for this rule.
-          * `sourceAddressPrefix` (`str`) - The source address prefix or tag to match for the rule.
+          * `source_address_prefix` (`str`) - The source address prefix or tag to match for the rule.
 
         * `protocol` (`str`) - The protocol of the endpoint.
 

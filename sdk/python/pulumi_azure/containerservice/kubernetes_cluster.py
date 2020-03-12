@@ -30,7 +30,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
       * `omsAgent` (`dict`)
         * `enabled` (`bool`)
-        * `logAnalyticsWorkspaceId` (`str`)
+        * `log_analytics_workspace_id` (`str`)
     """
     api_server_authorized_ip_ranges: pulumi.Output[list]
     """
@@ -70,7 +70,7 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     A `identity` block as defined below. Changing this forces a new resource to be created.
 
-      * `principalId` (`str`) - The principal id of the system assigned identity which is used by master components.
+      * `principal_id` (`str`) - The principal id of the system assigned identity which is used by master components.
       * `tenant_id` (`str`) - The tenant id of the system assigned identity which is used by master components.
       * `type` (`str`)
     """
@@ -113,7 +113,7 @@ class KubernetesCluster(pulumi.CustomResource):
     A `linux_profile` block as defined below.
 
       * `admin_username` (`str`)
-      * `sshKey` (`dict`)
+      * `ssh_key` (`dict`)
         * `keyData` (`str`)
     """
     location: pulumi.Output[str]
@@ -159,7 +159,7 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     A `role_based_access_control` block.
 
-      * `azureActiveDirectory` (`dict`)
+      * `azure_active_directory` (`dict`)
         * `clientAppId` (`str`)
         * `serverAppId` (`str`)
         * `serverAppSecret` (`str`)
@@ -171,8 +171,8 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     A `service_principal` block as documented below.
 
-      * `clientId` (`str`)
-      * `clientSecret` (`str`)
+      * `client_id` (`str`)
+      * `client_secret` (`str`)
     """
     tags: pulumi.Output[dict]
     """
@@ -231,7 +231,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
           * `omsAgent` (`pulumi.Input[dict]`)
             * `enabled` (`pulumi.Input[bool]`)
-            * `logAnalyticsWorkspaceId` (`pulumi.Input[str]`)
+            * `log_analytics_workspace_id` (`pulumi.Input[str]`)
 
         The **default_node_pool** object supports the following:
 
@@ -251,14 +251,14 @@ class KubernetesCluster(pulumi.CustomResource):
 
         The **identity** object supports the following:
 
-          * `principalId` (`pulumi.Input[str]`) - The principal id of the system assigned identity which is used by master components.
+          * `principal_id` (`pulumi.Input[str]`) - The principal id of the system assigned identity which is used by master components.
           * `tenant_id` (`pulumi.Input[str]`) - The tenant id of the system assigned identity which is used by master components.
           * `type` (`pulumi.Input[str]`)
 
         The **linux_profile** object supports the following:
 
           * `admin_username` (`pulumi.Input[str]`)
-          * `sshKey` (`pulumi.Input[dict]`)
+          * `ssh_key` (`pulumi.Input[dict]`)
             * `keyData` (`pulumi.Input[str]`)
 
         The **network_profile** object supports the following:
@@ -279,7 +279,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
         The **role_based_access_control** object supports the following:
 
-          * `azureActiveDirectory` (`pulumi.Input[dict]`)
+          * `azure_active_directory` (`pulumi.Input[dict]`)
             * `clientAppId` (`pulumi.Input[str]`)
             * `serverAppId` (`pulumi.Input[str]`)
             * `serverAppSecret` (`pulumi.Input[str]`)
@@ -289,8 +289,8 @@ class KubernetesCluster(pulumi.CustomResource):
 
         The **service_principal** object supports the following:
 
-          * `clientId` (`pulumi.Input[str]`)
-          * `clientSecret` (`pulumi.Input[str]`)
+          * `client_id` (`pulumi.Input[str]`)
+          * `client_secret` (`pulumi.Input[str]`)
 
         The **windows_profile** object supports the following:
 
@@ -403,7 +403,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
           * `omsAgent` (`pulumi.Input[dict]`)
             * `enabled` (`pulumi.Input[bool]`)
-            * `logAnalyticsWorkspaceId` (`pulumi.Input[str]`)
+            * `log_analytics_workspace_id` (`pulumi.Input[str]`)
 
         The **default_node_pool** object supports the following:
 
@@ -423,7 +423,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
         The **identity** object supports the following:
 
-          * `principalId` (`pulumi.Input[str]`) - The principal id of the system assigned identity which is used by master components.
+          * `principal_id` (`pulumi.Input[str]`) - The principal id of the system assigned identity which is used by master components.
           * `tenant_id` (`pulumi.Input[str]`) - The tenant id of the system assigned identity which is used by master components.
           * `type` (`pulumi.Input[str]`)
 
@@ -448,7 +448,7 @@ class KubernetesCluster(pulumi.CustomResource):
         The **linux_profile** object supports the following:
 
           * `admin_username` (`pulumi.Input[str]`)
-          * `sshKey` (`pulumi.Input[dict]`)
+          * `ssh_key` (`pulumi.Input[dict]`)
             * `keyData` (`pulumi.Input[str]`)
 
         The **network_profile** object supports the following:
@@ -469,7 +469,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
         The **role_based_access_control** object supports the following:
 
-          * `azureActiveDirectory` (`pulumi.Input[dict]`)
+          * `azure_active_directory` (`pulumi.Input[dict]`)
             * `clientAppId` (`pulumi.Input[str]`)
             * `serverAppId` (`pulumi.Input[str]`)
             * `serverAppSecret` (`pulumi.Input[str]`)
@@ -479,8 +479,8 @@ class KubernetesCluster(pulumi.CustomResource):
 
         The **service_principal** object supports the following:
 
-          * `clientId` (`pulumi.Input[str]`)
-          * `clientSecret` (`pulumi.Input[str]`)
+          * `client_id` (`pulumi.Input[str]`)
+          * `client_secret` (`pulumi.Input[str]`)
 
         The **windows_profile** object supports the following:
 

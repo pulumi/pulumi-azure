@@ -53,7 +53,7 @@ class KafkaCluster(pulumi.CustomResource):
         * `sshKeys` (`list`)
         * `subnet_id` (`str`)
         * `username` (`str`)
-        * `virtualNetworkId` (`str`)
+        * `virtual_network_id` (`str`)
         * `vm_size` (`str`)
 
       * `workerNode` (`dict`)
@@ -64,7 +64,7 @@ class KafkaCluster(pulumi.CustomResource):
         * `subnet_id` (`str`)
         * `targetInstanceCount` (`float`)
         * `username` (`str`)
-        * `virtualNetworkId` (`str`)
+        * `virtual_network_id` (`str`)
         * `vm_size` (`str`)
 
       * `zookeeperNode` (`dict`)
@@ -72,7 +72,7 @@ class KafkaCluster(pulumi.CustomResource):
         * `sshKeys` (`list`)
         * `subnet_id` (`str`)
         * `username` (`str`)
-        * `virtualNetworkId` (`str`)
+        * `virtual_network_id` (`str`)
         * `vm_size` (`str`)
     """
     ssh_endpoint: pulumi.Output[str]
@@ -93,7 +93,7 @@ class KafkaCluster(pulumi.CustomResource):
     One or more `storage_account` block as defined below.
 
       * `isDefault` (`bool`)
-      * `storageAccountKey` (`str`)
+      * `storage_account_key` (`str`)
       * `storageContainerId` (`str`)
     """
     tags: pulumi.Output[dict]
@@ -141,7 +141,7 @@ class KafkaCluster(pulumi.CustomResource):
             * `sshKeys` (`pulumi.Input[list]`)
             * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
 
           * `workerNode` (`pulumi.Input[dict]`)
@@ -152,7 +152,7 @@ class KafkaCluster(pulumi.CustomResource):
             * `subnet_id` (`pulumi.Input[str]`)
             * `targetInstanceCount` (`pulumi.Input[float]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
 
           * `zookeeperNode` (`pulumi.Input[dict]`)
@@ -160,7 +160,7 @@ class KafkaCluster(pulumi.CustomResource):
             * `sshKeys` (`pulumi.Input[list]`)
             * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
 
         The **storage_account_gen2** object supports the following:
@@ -173,7 +173,7 @@ class KafkaCluster(pulumi.CustomResource):
         The **storage_accounts** object supports the following:
 
           * `isDefault` (`pulumi.Input[bool]`)
-          * `storageAccountKey` (`pulumi.Input[str]`)
+          * `storage_account_key` (`pulumi.Input[str]`)
           * `storageContainerId` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
@@ -264,7 +264,7 @@ class KafkaCluster(pulumi.CustomResource):
             * `sshKeys` (`pulumi.Input[list]`)
             * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
 
           * `workerNode` (`pulumi.Input[dict]`)
@@ -275,7 +275,7 @@ class KafkaCluster(pulumi.CustomResource):
             * `subnet_id` (`pulumi.Input[str]`)
             * `targetInstanceCount` (`pulumi.Input[float]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
 
           * `zookeeperNode` (`pulumi.Input[dict]`)
@@ -283,7 +283,7 @@ class KafkaCluster(pulumi.CustomResource):
             * `sshKeys` (`pulumi.Input[list]`)
             * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
-            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `virtual_network_id` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
 
         The **storage_account_gen2** object supports the following:
@@ -296,7 +296,7 @@ class KafkaCluster(pulumi.CustomResource):
         The **storage_accounts** object supports the following:
 
           * `isDefault` (`pulumi.Input[bool]`)
-          * `storageAccountKey` (`pulumi.Input[str]`)
+          * `storage_account_key` (`pulumi.Input[str]`)
           * `storageContainerId` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

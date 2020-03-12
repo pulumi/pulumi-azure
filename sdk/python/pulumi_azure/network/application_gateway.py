@@ -48,7 +48,7 @@ class ApplicationGateway(pulumi.CustomResource):
         * `enabled` (`bool`)
 
       * `cookieBasedAffinity` (`str`)
-      * `hostName` (`str`)
+      * `host_name` (`str`)
       * `id` (`str`) - The ID of the Rewrite Rule Set
       * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
       * `path` (`str`)
@@ -112,7 +112,7 @@ class ApplicationGateway(pulumi.CustomResource):
       * `frontend_ip_configuration_name` (`str`)
       * `frontendPortId` (`str`) - The ID of the associated Frontend Port.
       * `frontendPortName` (`str`)
-      * `hostName` (`str`)
+      * `host_name` (`str`)
       * `id` (`str`) - The ID of the Rewrite Rule Set
       * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
       * `protocol` (`str`)
@@ -372,7 +372,7 @@ class ApplicationGateway(pulumi.CustomResource):
             * `enabled` (`pulumi.Input[bool]`)
 
           * `cookieBasedAffinity` (`pulumi.Input[str]`)
-          * `hostName` (`pulumi.Input[str]`)
+          * `host_name` (`pulumi.Input[str]`)
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
           * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
           * `path` (`pulumi.Input[str]`)
@@ -422,7 +422,7 @@ class ApplicationGateway(pulumi.CustomResource):
           * `frontend_ip_configuration_name` (`pulumi.Input[str]`)
           * `frontendPortId` (`pulumi.Input[str]`) - The ID of the associated Frontend Port.
           * `frontendPortName` (`pulumi.Input[str]`)
-          * `hostName` (`pulumi.Input[str]`)
+          * `host_name` (`pulumi.Input[str]`)
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
           * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
           * `protocol` (`pulumi.Input[str]`)
@@ -708,7 +708,7 @@ class ApplicationGateway(pulumi.CustomResource):
             * `enabled` (`pulumi.Input[bool]`)
 
           * `cookieBasedAffinity` (`pulumi.Input[str]`)
-          * `hostName` (`pulumi.Input[str]`)
+          * `host_name` (`pulumi.Input[str]`)
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
           * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
           * `path` (`pulumi.Input[str]`)
@@ -758,7 +758,7 @@ class ApplicationGateway(pulumi.CustomResource):
           * `frontend_ip_configuration_name` (`pulumi.Input[str]`)
           * `frontendPortId` (`pulumi.Input[str]`) - The ID of the associated Frontend Port.
           * `frontendPortName` (`pulumi.Input[str]`)
-          * `hostName` (`pulumi.Input[str]`)
+          * `host_name` (`pulumi.Input[str]`)
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
           * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
           * `protocol` (`pulumi.Input[str]`)

@@ -35,8 +35,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     """
     One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
 
-      * `backendPort` (`float`)
-      * `frontendPort` (`float`) - The frontend port associated with this Inbound NAT Rule.
+      * `backend_port` (`float`)
+      * `frontend_port` (`float`) - The frontend port associated with this Inbound NAT Rule.
       * `protocol` (`str`)
     """
     lab_name: pulumi.Output[str]
@@ -130,8 +130,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
         The **inbound_nat_rules** object supports the following:
 
-          * `backendPort` (`pulumi.Input[float]`)
-          * `frontendPort` (`pulumi.Input[float]`) - The frontend port associated with this Inbound NAT Rule.
+          * `backend_port` (`pulumi.Input[float]`)
+          * `frontend_port` (`pulumi.Input[float]`) - The frontend port associated with this Inbound NAT Rule.
           * `protocol` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
@@ -230,8 +230,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
         The **inbound_nat_rules** object supports the following:
 
-          * `backendPort` (`pulumi.Input[float]`)
-          * `frontendPort` (`pulumi.Input[float]`) - The frontend port associated with this Inbound NAT Rule.
+          * `backend_port` (`pulumi.Input[float]`)
+          * `frontend_port` (`pulumi.Input[float]`) - The frontend port associated with this Inbound NAT Rule.
           * `protocol` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

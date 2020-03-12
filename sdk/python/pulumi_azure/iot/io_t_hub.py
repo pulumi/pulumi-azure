@@ -62,9 +62,9 @@ class IoTHub(pulumi.CustomResource):
 
       * `connection_string` (`str`)
       * `container_name` (`str`)
-      * `defaultTtl` (`str`)
-      * `lockDuration` (`str`)
-      * `maxDeliveryCount` (`float`)
+      * `default_ttl` (`str`)
+      * `lock_duration` (`str`)
+      * `max_delivery_count` (`float`)
       * `notifications` (`bool`)
       * `sasTtl` (`str`)
     """
@@ -106,7 +106,7 @@ class IoTHub(pulumi.CustomResource):
     """
     One or more `shared_access_policy` blocks as defined below.
 
-      * `keyName` (`str`) - The name of the shared access policy.
+      * `key_name` (`str`) - The name of the shared access policy.
       * `permissions` (`str`) - The permissions assigned to the shared access policy.
       * `primary_key` (`str`) - The primary key.
       * `secondary_key` (`str`) - The secondary key.
@@ -172,9 +172,9 @@ class IoTHub(pulumi.CustomResource):
 
           * `connection_string` (`pulumi.Input[str]`)
           * `container_name` (`pulumi.Input[str]`)
-          * `defaultTtl` (`pulumi.Input[str]`)
-          * `lockDuration` (`pulumi.Input[str]`)
-          * `maxDeliveryCount` (`pulumi.Input[float]`)
+          * `default_ttl` (`pulumi.Input[str]`)
+          * `lock_duration` (`pulumi.Input[str]`)
+          * `max_delivery_count` (`pulumi.Input[float]`)
           * `notifications` (`pulumi.Input[bool]`)
           * `sasTtl` (`pulumi.Input[str]`)
 
@@ -293,9 +293,9 @@ class IoTHub(pulumi.CustomResource):
 
           * `connection_string` (`pulumi.Input[str]`)
           * `container_name` (`pulumi.Input[str]`)
-          * `defaultTtl` (`pulumi.Input[str]`)
-          * `lockDuration` (`pulumi.Input[str]`)
-          * `maxDeliveryCount` (`pulumi.Input[float]`)
+          * `default_ttl` (`pulumi.Input[str]`)
+          * `lock_duration` (`pulumi.Input[str]`)
+          * `max_delivery_count` (`pulumi.Input[float]`)
           * `notifications` (`pulumi.Input[bool]`)
           * `sasTtl` (`pulumi.Input[str]`)
 
@@ -315,7 +315,7 @@ class IoTHub(pulumi.CustomResource):
 
         The **shared_access_policies** object supports the following:
 
-          * `keyName` (`pulumi.Input[str]`) - The name of the shared access policy.
+          * `key_name` (`pulumi.Input[str]`) - The name of the shared access policy.
           * `permissions` (`pulumi.Input[str]`) - The permissions assigned to the shared access policy.
           * `primary_key` (`pulumi.Input[str]`) - The primary key.
           * `secondary_key` (`pulumi.Input[str]`) - The secondary key.

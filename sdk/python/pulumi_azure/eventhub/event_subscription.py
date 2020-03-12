@@ -18,7 +18,7 @@ class EventSubscription(pulumi.CustomResource):
     """
     A `eventhub_endpoint` block as defined below.
 
-      * `eventhubId` (`str`) - Specifies the id of the eventhub where the Event Subscription will receive events.
+      * `eventhub_id` (`str`) - Specifies the id of the eventhub where the Event Subscription will receive events.
     """
     hybrid_connection_endpoint: pulumi.Output[dict]
     """
@@ -105,7 +105,7 @@ class EventSubscription(pulumi.CustomResource):
 
         The **eventhub_endpoint** object supports the following:
 
-          * `eventhubId` (`pulumi.Input[str]`) - Specifies the id of the eventhub where the Event Subscription will receive events.
+          * `eventhub_id` (`pulumi.Input[str]`) - Specifies the id of the eventhub where the Event Subscription will receive events.
 
         The **hybrid_connection_endpoint** object supports the following:
 
@@ -199,7 +199,7 @@ class EventSubscription(pulumi.CustomResource):
 
         The **eventhub_endpoint** object supports the following:
 
-          * `eventhubId` (`pulumi.Input[str]`) - Specifies the id of the eventhub where the Event Subscription will receive events.
+          * `eventhub_id` (`pulumi.Input[str]`) - Specifies the id of the eventhub where the Event Subscription will receive events.
 
         The **hybrid_connection_endpoint** object supports the following:
 

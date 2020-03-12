@@ -51,7 +51,7 @@ build:: provider tfgen install_plugins
 generate_schema:: tfgen
 	$(TFGEN) schema --out ./cmd/${PROVIDER}
 
-provider:: generate_schema
+provider::
 	go generate ${PROJECT}/cmd/${PROVIDER}
 	go install -ldflags "-X github.com/pulumi/pulumi-azure/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
 
