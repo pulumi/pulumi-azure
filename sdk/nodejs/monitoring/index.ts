@@ -11,3 +11,5 @@ export * from "./getDiagnosticCategories";
 export * from "./getLogProfile";
 export * from "./logProfile";
 export * from "./metricAlert";
+export * from "./scheduledQueryRulesAlert";
+export * from "./scheduledQueryRulesLog";

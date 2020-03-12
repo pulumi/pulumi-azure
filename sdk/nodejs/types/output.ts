@@ -1700,6 +1700,20 @@ export namespace batch {
     }
 }
 
+export namespace bot {
+    export interface ChannelDirectLineSite {
+        enabled?: boolean;
+        enhancedAuthenticationEnabled?: boolean;
+        id: string;
+        key: string;
+        key2: string;
+        name: string;
+        trustedOrigins?: string[];
+        v1Allowed?: boolean;
+        v3Allowed?: boolean;
+    }
+}
+
 export namespace cdn {
     export interface EndpointGeoFilter {
         action: string;
@@ -5990,6 +6004,72 @@ export namespace monitoring {
          */
         name: string;
         operator: string;
+        values: string[];
+    }
+
+    export interface ScheduledQueryRulesAlertAction {
+        /**
+         * List of action group reference resource IDs.
+         */
+        actionGroups: string[];
+        /**
+         * Custom payload to be sent for all webhook payloads in alerting action.
+         */
+        customWebhookPayload?: string;
+        /**
+         * Custom subject override for all email ids in Azure action group.
+         */
+        emailSubject?: string;
+    }
+
+    export interface ScheduledQueryRulesAlertTrigger {
+        metricTrigger?: outputs.monitoring.ScheduledQueryRulesAlertTriggerMetricTrigger;
+        /**
+         * Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+         */
+        operator: string;
+        /**
+         * Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+         */
+        threshold: number;
+    }
+
+    export interface ScheduledQueryRulesAlertTriggerMetricTrigger {
+        metricColumn: string;
+        metricTriggerType: string;
+        /**
+         * Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+         */
+        operator: string;
+        /**
+         * Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+         */
+        threshold: number;
+    }
+
+    export interface ScheduledQueryRulesLogCriteria {
+        /**
+         * A `dimension` block as defined below.
+         */
+        dimensions: outputs.monitoring.ScheduledQueryRulesLogCriteriaDimension[];
+        /**
+         * Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+         */
+        metricName: string;
+    }
+
+    export interface ScheduledQueryRulesLogCriteriaDimension {
+        /**
+         * Name of the dimension.
+         */
+        name: string;
+        /**
+         * Operator for dimension values, - 'Include'.
+         */
+        operator?: string;
+        /**
+         * List of dimension values.
+         */
         values: string[];
     }
 }

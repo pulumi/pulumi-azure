@@ -6,3 +6,4 @@ export * from "./cluster";
 export * from "./database";
 export * from "./databasePrincipal";
 export * from "./eventhubDataConnection";
+export * from "./getCluster";

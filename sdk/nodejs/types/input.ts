@@ -1323,6 +1323,20 @@ export namespace batch {
     }
 }
 
+export namespace bot {
+    export interface ChannelDirectLineSite {
+        enabled?: pulumi.Input<boolean>;
+        enhancedAuthenticationEnabled?: pulumi.Input<boolean>;
+        id?: pulumi.Input<string>;
+        key?: pulumi.Input<string>;
+        key2?: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+        trustedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
+        v1Allowed?: pulumi.Input<boolean>;
+        v3Allowed?: pulumi.Input<boolean>;
+    }
+}
+
 export namespace cdn {
     export interface EndpointGeoFilter {
         action: pulumi.Input<string>;
@@ -4725,6 +4739,72 @@ export namespace monitoring {
          */
         name: pulumi.Input<string>;
         operator: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ScheduledQueryRulesAlertAction {
+        /**
+         * List of action group reference resource IDs.
+         */
+        actionGroups: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Custom payload to be sent for all webhook payloads in alerting action.
+         */
+        customWebhookPayload?: pulumi.Input<string>;
+        /**
+         * Custom subject override for all email ids in Azure action group.
+         */
+        emailSubject?: pulumi.Input<string>;
+    }
+
+    export interface ScheduledQueryRulesAlertTrigger {
+        metricTrigger?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertTriggerMetricTrigger>;
+        /**
+         * Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+         */
+        threshold: pulumi.Input<number>;
+    }
+
+    export interface ScheduledQueryRulesAlertTriggerMetricTrigger {
+        metricColumn: pulumi.Input<string>;
+        metricTriggerType: pulumi.Input<string>;
+        /**
+         * Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+         */
+        threshold: pulumi.Input<number>;
+    }
+
+    export interface ScheduledQueryRulesLogCriteria {
+        /**
+         * A `dimension` block as defined below.
+         */
+        dimensions: pulumi.Input<pulumi.Input<inputs.monitoring.ScheduledQueryRulesLogCriteriaDimension>[]>;
+        /**
+         * Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+         */
+        metricName: pulumi.Input<string>;
+    }
+
+    export interface ScheduledQueryRulesLogCriteriaDimension {
+        /**
+         * Name of the dimension.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Operator for dimension values, - 'Include'.
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * List of dimension values.
+         */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
