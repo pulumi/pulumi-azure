@@ -6,7 +6,7 @@ require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.3.0
 	github.com/hashicorp/terraform-plugin-sdk v1.6.0
 	github.com/pkg/errors v0.8.1
-	github.com/pulumi/pulumi v1.12.1
+	github.com/pulumi/pulumi v1.12.2-0.20200313044354-8111d33438b9
 	github.com/pulumi/pulumi-terraform-bridge v1.8.2
 	github.com/stretchr/testify v1.4.1-0.20191106224347-f1bd0923b832
 	github.com/terraform-providers/terraform-provider-azurerm v1.36.0
