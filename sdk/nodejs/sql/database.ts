@@ -75,6 +75,7 @@ export class Database extends pulumi.CustomResource {
      * The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     public readonly maxSizeBytes!: pulumi.Output<string>;
+    public readonly maxSizeGb!: pulumi.Output<string>;
     /**
      * The name of the database.
      */
@@ -147,6 +148,7 @@ export class Database extends pulumi.CustomResource {
             inputs["import"] = state ? state.import : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maxSizeBytes"] = state ? state.maxSizeBytes : undefined;
+            inputs["maxSizeGb"] = state ? state.maxSizeGb : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["readScale"] = state ? state.readScale : undefined;
             inputs["requestedServiceObjectiveId"] = state ? state.requestedServiceObjectiveId : undefined;
@@ -174,6 +176,7 @@ export class Database extends pulumi.CustomResource {
             inputs["import"] = args ? args.import : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
+            inputs["maxSizeGb"] = args ? args.maxSizeGb : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["readScale"] = args ? args.readScale : undefined;
             inputs["requestedServiceObjectiveId"] = args ? args.requestedServiceObjectiveId : undefined;
@@ -242,6 +245,7 @@ export interface DatabaseState {
      * The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     readonly maxSizeBytes?: pulumi.Input<string>;
+    readonly maxSizeGb?: pulumi.Input<string>;
     /**
      * The name of the database.
      */
@@ -325,6 +329,7 @@ export interface DatabaseArgs {
      * The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     readonly maxSizeBytes?: pulumi.Input<string>;
+    readonly maxSizeGb?: pulumi.Input<string>;
     /**
      * The name of the database.
      */

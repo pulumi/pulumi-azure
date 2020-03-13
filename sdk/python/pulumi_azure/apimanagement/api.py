@@ -30,7 +30,7 @@ class Api(pulumi.CustomResource):
       * `contentValue` (`str`)
       * `wsdlSelector` (`dict`)
         * `endpointName` (`str`)
-        * `serviceName` (`str`)
+        * `service_name` (`str`)
     """
     is_current: pulumi.Output[bool]
     """
@@ -112,7 +112,7 @@ class Api(pulumi.CustomResource):
           * `contentValue` (`pulumi.Input[str]`)
           * `wsdlSelector` (`pulumi.Input[dict]`)
             * `endpointName` (`pulumi.Input[str]`)
-            * `serviceName` (`pulumi.Input[str]`)
+            * `service_name` (`pulumi.Input[str]`)
 
         The **subscription_key_parameter_names** object supports the following:
 
@@ -202,7 +202,7 @@ class Api(pulumi.CustomResource):
           * `contentValue` (`pulumi.Input[str]`)
           * `wsdlSelector` (`pulumi.Input[dict]`)
             * `endpointName` (`pulumi.Input[str]`)
-            * `serviceName` (`pulumi.Input[str]`)
+            * `service_name` (`pulumi.Input[str]`)
 
         The **subscription_key_parameter_names** object supports the following:
 

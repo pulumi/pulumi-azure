@@ -17,6 +17,8 @@ import (
 type AAAARecord struct {
 	pulumi.CustomResourceState
 
+	// The FQDN of the DNS AAAA Record.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS A Record.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of IPv6 Addresses.
@@ -70,6 +72,8 @@ func GetAAAARecord(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AAAARecord resources.
 type aaaarecordState struct {
+	// The FQDN of the DNS AAAA Record.
+	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS A Record.
 	Name *string `pulumi:"name"`
 	// A list of IPv6 Addresses.
@@ -84,6 +88,8 @@ type aaaarecordState struct {
 }
 
 type AAAARecordState struct {
+	// The FQDN of the DNS AAAA Record.
+	Fqdn pulumi.StringPtrInput
 	// The name of the DNS A Record.
 	Name pulumi.StringPtrInput
 	// A list of IPv6 Addresses.

@@ -40,7 +40,6 @@ type Frontdoor struct {
 	FrontendEndpoints FrontdoorFrontendEndpointArrayOutput `pulumi:"frontendEndpoints"`
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled pulumi.BoolPtrOutput `pulumi:"loadBalancerEnabled"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -117,7 +116,6 @@ type frontdoorState struct {
 	FrontendEndpoints []FrontdoorFrontendEndpoint `pulumi:"frontendEndpoints"`
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled *bool `pulumi:"loadBalancerEnabled"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -146,7 +144,6 @@ type FrontdoorState struct {
 	FrontendEndpoints FrontdoorFrontendEndpointArrayInput
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled pulumi.BoolPtrInput
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -177,7 +174,6 @@ type frontdoorArgs struct {
 	FrontendEndpoints []FrontdoorFrontendEndpoint `pulumi:"frontendEndpoints"`
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled *bool `pulumi:"loadBalancerEnabled"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -205,7 +201,6 @@ type FrontdoorArgs struct {
 	FrontendEndpoints FrontdoorFrontendEndpointArrayInput
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled pulumi.BoolPtrInput
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput

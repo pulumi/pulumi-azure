@@ -64,6 +64,12 @@ namespace Pulumi.Azure.Network
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+        /// </summary>
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a VirtualWan resource with the given unique name, arguments, and options.
@@ -164,6 +170,12 @@ namespace Pulumi.Azure.Network
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
         public VirtualWanArgs()
         {
         }
@@ -224,6 +236,12 @@ namespace Pulumi.Azure.Network
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public VirtualWanState()
         {

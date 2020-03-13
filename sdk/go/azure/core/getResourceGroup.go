@@ -22,7 +22,7 @@ func LookupResourceGroup(ctx *pulumi.Context, args *LookupResourceGroupArgs, opt
 
 // A collection of arguments for invoking getResourceGroup.
 type LookupResourceGroupArgs struct {
-	// Specifies the name of the resource group.
+	// The Name of this Resource Group.
 	Name string `pulumi:"name"`
 }
 
@@ -31,10 +31,10 @@ type LookupResourceGroupArgs struct {
 type LookupResourceGroupResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The location of the resource group.
+	// The Azure Region where the Resource Group exists.
 	Location string `pulumi:"location"`
 	Name string `pulumi:"name"`
-	// A mapping of tags assigned to the resource group.
+	// A mapping of tags assigned to the Resource Group.
 	Tags map[string]string `pulumi:"tags"`
 }
 

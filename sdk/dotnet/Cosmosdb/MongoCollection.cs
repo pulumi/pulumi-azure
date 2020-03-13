@@ -26,7 +26,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
+        /// The default Time To Live in seconds. If the value is `0` items are not automatically expired.
         /// </summary>
         [Output("defaultTtlSeconds")]
         public Output<int?> DefaultTtlSeconds { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
+        /// The default Time To Live in seconds. If the value is `0` items are not automatically expired.
         /// </summary>
         [Input("defaultTtlSeconds")]
         public Input<int>? DefaultTtlSeconds { get; set; }
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
+        /// The default Time To Live in seconds. If the value is `0` items are not automatically expired.
         /// </summary>
         [Input("defaultTtlSeconds")]
         public Input<int>? DefaultTtlSeconds { get; set; }

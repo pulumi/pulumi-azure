@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.SubnetDelegations>> Delegations { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+        /// Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
         /// </summary>
         [Output("enforcePrivateLinkEndpointNetworkPolicies")]
         public Output<bool?> EnforcePrivateLinkEndpointNetworkPolicies { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+        /// Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
         /// </summary>
         [Input("enforcePrivateLinkEndpointNetworkPolicies")]
         public Input<bool>? EnforcePrivateLinkEndpointNetworkPolicies { get; set; }
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+        /// Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
         /// </summary>
         [Input("enforcePrivateLinkEndpointNetworkPolicies")]
         public Input<bool>? EnforcePrivateLinkEndpointNetworkPolicies { get; set; }

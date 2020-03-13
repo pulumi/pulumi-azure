@@ -141,7 +141,7 @@ class GetKubernetesClusterResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
-        A mapping of tags assigned to this resource.
+        A mapping of tags to assign to the resource.
         """
         if windows_profiles and not isinstance(windows_profiles, list):
             raise TypeError("Expected argument 'windows_profiles' to be a list")

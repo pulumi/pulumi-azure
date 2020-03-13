@@ -55,6 +55,7 @@ class Database(pulumi.CustomResource):
     """
     The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
     """
+    max_size_gb: pulumi.Output[str]
     name: pulumi.Output[str]
     """
     The name of the database.
@@ -113,7 +114,7 @@ class Database(pulumi.CustomResource):
     """
     Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
     """
-    def __init__(__self__, resource_name, opts=None, collation=None, create_mode=None, edition=None, elastic_pool_name=None, import_=None, location=None, max_size_bytes=None, name=None, read_scale=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None, threat_detection_policy=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, collation=None, create_mode=None, edition=None, elastic_pool_name=None, import_=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, read_scale=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None, threat_detection_policy=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
         """
         Allows you to manage an Azure SQL Database
 
@@ -187,6 +188,7 @@ class Database(pulumi.CustomResource):
             __props__['import_'] = import_
             __props__['location'] = location
             __props__['max_size_bytes'] = max_size_bytes
+            __props__['max_size_gb'] = max_size_gb
             __props__['name'] = name
             __props__['read_scale'] = read_scale
             __props__['requested_service_objective_id'] = requested_service_objective_id
@@ -213,7 +215,7 @@ class Database(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, collation=None, create_mode=None, creation_date=None, default_secondary_location=None, edition=None, elastic_pool_name=None, encryption=None, import_=None, location=None, max_size_bytes=None, name=None, read_scale=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None, threat_detection_policy=None, zone_redundant=None):
+    def get(resource_name, id, opts=None, collation=None, create_mode=None, creation_date=None, default_secondary_location=None, edition=None, elastic_pool_name=None, encryption=None, import_=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, read_scale=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None, threat_detection_policy=None, zone_redundant=None):
         """
         Get an existing Database resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -279,6 +281,7 @@ class Database(pulumi.CustomResource):
         __props__["import_"] = import_
         __props__["location"] = location
         __props__["max_size_bytes"] = max_size_bytes
+        __props__["max_size_gb"] = max_size_gb
         __props__["name"] = name
         __props__["read_scale"] = read_scale
         __props__["requested_service_objective_id"] = requested_service_objective_id

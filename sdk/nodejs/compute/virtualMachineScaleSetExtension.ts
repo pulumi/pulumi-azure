@@ -73,7 +73,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * Specifies the version of the Script Handler which should be used.
+     * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      */
     public readonly typeHandlerVersion!: pulumi.Output<string>;
     /**
@@ -176,7 +176,7 @@ export interface VirtualMachineScaleSetExtensionState {
      */
     readonly type?: pulumi.Input<string>;
     /**
-     * Specifies the version of the Script Handler which should be used.
+     * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      */
     readonly typeHandlerVersion?: pulumi.Input<string>;
     /**
@@ -222,7 +222,7 @@ export interface VirtualMachineScaleSetExtensionArgs {
      */
     readonly type: pulumi.Input<string>;
     /**
-     * Specifies the version of the Script Handler which should be used.
+     * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      */
     readonly typeHandlerVersion: pulumi.Input<string>;
     /**

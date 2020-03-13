@@ -14,10 +14,12 @@ class Frontdoor(pulumi.CustomResource):
     """
     A `backend_pool_health_probe` block as defined below.
 
+      * `enabled` (`bool`)
       * `id` (`str`) - The ID of the FrontDoor.
       * `interval_in_seconds` (`float`)
       * `name` (`str`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
       * `path` (`str`)
+      * `probeMethod` (`str`)
       * `protocol` (`str`)
     """
     backend_pool_load_balancings: pulumi.Output[list]
@@ -86,9 +88,6 @@ class Frontdoor(pulumi.CustomResource):
     Should the Front Door Load Balancer be Enabled? Defaults to `true`.
     """
     location: pulumi.Output[str]
-    """
-    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-    """
     name: pulumi.Output[str]
     """
     Specifies the name of the Front Door service. Changing this forces a new resource to be created.
@@ -149,7 +148,6 @@ class Frontdoor(pulumi.CustomResource):
         :param pulumi.Input[str] friendly_name: A friendly name for the Front Door service.
         :param pulumi.Input[list] frontend_endpoints: A `frontend_endpoint` block as defined below.
         :param pulumi.Input[bool] load_balancer_enabled: Should the Front Door Load Balancer be Enabled? Defaults to `true`.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[list] routing_rules: A `routing_rule` block as defined below.
@@ -157,10 +155,12 @@ class Frontdoor(pulumi.CustomResource):
 
         The **backend_pool_health_probes** object supports the following:
 
+          * `enabled` (`pulumi.Input[bool]`)
           * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
           * `interval_in_seconds` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
           * `path` (`pulumi.Input[str]`)
+          * `probeMethod` (`pulumi.Input[str]`)
           * `protocol` (`pulumi.Input[str]`)
 
         The **backend_pool_load_balancings** object supports the following:
@@ -297,7 +297,6 @@ class Frontdoor(pulumi.CustomResource):
         :param pulumi.Input[str] friendly_name: A friendly name for the Front Door service.
         :param pulumi.Input[list] frontend_endpoints: A `frontend_endpoint` block as defined below.
         :param pulumi.Input[bool] load_balancer_enabled: Should the Front Door Load Balancer be Enabled? Defaults to `true`.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[list] routing_rules: A `routing_rule` block as defined below.
@@ -305,10 +304,12 @@ class Frontdoor(pulumi.CustomResource):
 
         The **backend_pool_health_probes** object supports the following:
 
+          * `enabled` (`pulumi.Input[bool]`)
           * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
           * `interval_in_seconds` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
           * `path` (`pulumi.Input[str]`)
+          * `probeMethod` (`pulumi.Input[str]`)
           * `protocol` (`pulumi.Input[str]`)
 
         The **backend_pool_load_balancings** object supports the following:

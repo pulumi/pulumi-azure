@@ -23,6 +23,18 @@ namespace Pulumi.Azure.Kusto
         public Output<string> DataIngestionUri { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if the cluster's disks are encrypted.
+        /// </summary>
+        [Output("enableDiskEncryption")]
+        public Output<bool?> EnableDiskEncryption { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies if the streaming ingest is enabled.
+        /// </summary>
+        [Output("enableStreamingIngest")]
+        public Output<bool?> EnableStreamingIngest { get; private set; } = null!;
+
+        /// <summary>
         /// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -105,6 +117,18 @@ namespace Pulumi.Azure.Kusto
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies if the cluster's disks are encrypted.
+        /// </summary>
+        [Input("enableDiskEncryption")]
+        public Input<bool>? EnableDiskEncryption { get; set; }
+
+        /// <summary>
+        /// Specifies if the streaming ingest is enabled.
+        /// </summary>
+        [Input("enableStreamingIngest")]
+        public Input<bool>? EnableStreamingIngest { get; set; }
+
+        /// <summary>
         /// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -152,6 +176,18 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("dataIngestionUri")]
         public Input<string>? DataIngestionUri { get; set; }
+
+        /// <summary>
+        /// Specifies if the cluster's disks are encrypted.
+        /// </summary>
+        [Input("enableDiskEncryption")]
+        public Input<bool>? EnableDiskEncryption { get; set; }
+
+        /// <summary>
+        /// Specifies if the streaming ingest is enabled.
+        /// </summary>
+        [Input("enableStreamingIngest")]
+        public Input<bool>? EnableStreamingIngest { get; set; }
 
         /// <summary>
         /// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.

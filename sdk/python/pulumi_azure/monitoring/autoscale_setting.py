@@ -65,7 +65,7 @@ class AutoscaleSetting(pulumi.CustomResource):
           * `threshold` (`float`)
           * `timeAggregation` (`str`)
           * `timeGrain` (`str`)
-          * `timeWindow` (`str`)
+          * `time_window` (`str`)
 
         * `scaleAction` (`dict`)
           * `cooldown` (`str`)
@@ -141,7 +141,7 @@ class AutoscaleSetting(pulumi.CustomResource):
               * `threshold` (`pulumi.Input[float]`)
               * `timeAggregation` (`pulumi.Input[str]`)
               * `timeGrain` (`pulumi.Input[str]`)
-              * `timeWindow` (`pulumi.Input[str]`)
+              * `time_window` (`pulumi.Input[str]`)
 
             * `scaleAction` (`pulumi.Input[dict]`)
               * `cooldown` (`pulumi.Input[str]`)
@@ -243,7 +243,7 @@ class AutoscaleSetting(pulumi.CustomResource):
               * `threshold` (`pulumi.Input[float]`)
               * `timeAggregation` (`pulumi.Input[str]`)
               * `timeGrain` (`pulumi.Input[str]`)
-              * `timeWindow` (`pulumi.Input[str]`)
+              * `time_window` (`pulumi.Input[str]`)
 
             * `scaleAction` (`pulumi.Input[dict]`)
               * `cooldown` (`pulumi.Input[str]`)

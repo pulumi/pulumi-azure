@@ -10,32 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Search
 {
     /// <summary>
-    /// Allows you to manage an Azure Search Service.
+    /// Manages a Search Service.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/search_service.html.markdown.
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Search Service. Changing this forces a new resource to be created.
+        /// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+        /// The number of partitions which should be created.
         /// </summary>
         [Output("partitionCount")]
         public Output<int> PartitionCount { get; private set; } = null!;
 
         /// <summary>
-        /// The Search Service Administration primary key.
+        /// The Primary Key used for Search Service Administration.
         /// </summary>
         [Output("primaryKey")]
         public Output<string> PrimaryKey { get; private set; } = null!;
@@ -47,31 +47,31 @@ namespace Pulumi.Azure.Search
         public Output<ImmutableArray<Outputs.ServiceQueryKeys>> QueryKeys { get; private set; } = null!;
 
         /// <summary>
-        /// Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+        /// The number of replica's which should be created.
         /// </summary>
         [Output("replicaCount")]
         public Output<int> ReplicaCount { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
+        /// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The Search Service Administration secondary key.
+        /// The Secondary Key used for Search Service Administration.
         /// </summary>
         [Output("secondaryKey")]
         public Output<string> SecondaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
+        /// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags which should be assigned to the Search Service.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -123,37 +123,37 @@ namespace Pulumi.Azure.Search
     public sealed class ServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Search Service. Changing this forces a new resource to be created.
+        /// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+        /// The number of partitions which should be created.
         /// </summary>
         [Input("partitionCount")]
         public Input<int>? PartitionCount { get; set; }
 
         /// <summary>
-        /// Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+        /// The number of replica's which should be created.
         /// </summary>
         [Input("replicaCount")]
         public Input<int>? ReplicaCount { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
+        /// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
+        /// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.Search
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags which should be assigned to the Search Service.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -178,25 +178,25 @@ namespace Pulumi.Azure.Search
     public sealed class ServiceState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Search Service. Changing this forces a new resource to be created.
+        /// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+        /// The number of partitions which should be created.
         /// </summary>
         [Input("partitionCount")]
         public Input<int>? PartitionCount { get; set; }
 
         /// <summary>
-        /// The Search Service Administration primary key.
+        /// The Primary Key used for Search Service Administration.
         /// </summary>
         [Input("primaryKey")]
         public Input<string>? PrimaryKey { get; set; }
@@ -214,25 +214,25 @@ namespace Pulumi.Azure.Search
         }
 
         /// <summary>
-        /// Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+        /// The number of replica's which should be created.
         /// </summary>
         [Input("replicaCount")]
         public Input<int>? ReplicaCount { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
+        /// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The Search Service Administration secondary key.
+        /// The Secondary Key used for Search Service Administration.
         /// </summary>
         [Input("secondaryKey")]
         public Input<string>? SecondaryKey { get; set; }
 
         /// <summary>
-        /// Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
+        /// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.Search
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags which should be assigned to the Search Service.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -260,13 +260,13 @@ namespace Pulumi.Azure.Search
     public sealed class ServiceQueryKeysGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The value of the query key.
+        /// The value of this Query Key.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// The name of the Search Service. Changing this forces a new resource to be created.
+        /// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -284,11 +284,11 @@ namespace Pulumi.Azure.Search
     public sealed class ServiceQueryKeys
     {
         /// <summary>
-        /// The value of the query key.
+        /// The value of this Query Key.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The name of the Search Service. Changing this forces a new resource to be created.
+        /// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         /// </summary>
         public readonly string Name;
 

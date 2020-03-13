@@ -17,6 +17,8 @@ import (
 type ARecord struct {
 	pulumi.CustomResourceState
 
+	// The FQDN of the DNS A Record.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS A Record.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of IPv4 Addresses.
@@ -70,6 +72,8 @@ func GetARecord(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ARecord resources.
 type arecordState struct {
+	// The FQDN of the DNS A Record.
+	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS A Record.
 	Name *string `pulumi:"name"`
 	// List of IPv4 Addresses.
@@ -84,6 +88,8 @@ type arecordState struct {
 }
 
 type ARecordState struct {
+	// The FQDN of the DNS A Record.
+	Fqdn pulumi.StringPtrInput
 	// The name of the DNS A Record.
 	Name pulumi.StringPtrInput
 	// List of IPv4 Addresses.

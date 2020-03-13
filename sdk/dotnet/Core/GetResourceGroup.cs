@@ -23,7 +23,7 @@ namespace Pulumi.Azure.Core
     public sealed class GetResourceGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the name of the resource group.
+        /// The Name of this Resource Group.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -37,12 +37,12 @@ namespace Pulumi.Azure.Core
     public sealed class GetResourceGroupResult
     {
         /// <summary>
-        /// The location of the resource group.
+        /// The Azure Region where the Resource Group exists.
         /// </summary>
         public readonly string Location;
         public readonly string Name;
         /// <summary>
-        /// A mapping of tags assigned to the resource group.
+        /// A mapping of tags assigned to the Resource Group.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>

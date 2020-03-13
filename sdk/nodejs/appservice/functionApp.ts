@@ -91,6 +91,10 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A string indicating the Operating System type for this function app. 
+     */
+    public readonly osType!: pulumi.Output<string | undefined>;
+    /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      */
     public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string>;
@@ -148,6 +152,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["kind"] = state ? state.kind : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["osType"] = state ? state.osType : undefined;
             inputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
             inputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -178,6 +183,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["osType"] = args ? args.osType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["siteConfig"] = args ? args.siteConfig : undefined;
             inputs["storageConnectionString"] = args ? args.storageConnectionString : undefined;
@@ -256,6 +262,10 @@ export interface FunctionAppState {
      * The name of the Connection String.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A string indicating the Operating System type for this function app. 
+     */
+    readonly osType?: pulumi.Input<string>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      */
@@ -338,6 +348,10 @@ export interface FunctionAppArgs {
      * The name of the Connection String.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A string indicating the Operating System type for this function app. 
+     */
+    readonly osType?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Function App.
      */

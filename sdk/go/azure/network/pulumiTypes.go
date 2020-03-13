@@ -5757,6 +5757,8 @@ func (o NetworkWatcherFlowLogRetentionPolicyPtrOutput) Enabled() pulumi.BoolOutp
 type NetworkWatcherFlowLogTrafficAnalytics struct {
 	// Boolean flag to enable/disable traffic analytics.
 	Enabled bool `pulumi:"enabled"`
+	// How frequently service should do flow analytics in minutes.
+	IntervalInMinutes *int `pulumi:"intervalInMinutes"`
 	// The resource guid of the attached workspace.
 	WorkspaceId string `pulumi:"workspaceId"`
 	// The location of the attached workspace.
@@ -5775,6 +5777,8 @@ type NetworkWatcherFlowLogTrafficAnalyticsInput interface {
 type NetworkWatcherFlowLogTrafficAnalyticsArgs struct {
 	// Boolean flag to enable/disable traffic analytics.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// How frequently service should do flow analytics in minutes.
+	IntervalInMinutes pulumi.IntPtrInput `pulumi:"intervalInMinutes"`
 	// The resource guid of the attached workspace.
 	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
 	// The location of the attached workspace.
@@ -5855,6 +5859,11 @@ func (o NetworkWatcherFlowLogTrafficAnalyticsOutput) Enabled() pulumi.BoolOutput
 	return o.ApplyT(func (v NetworkWatcherFlowLogTrafficAnalytics) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// How frequently service should do flow analytics in minutes.
+func (o NetworkWatcherFlowLogTrafficAnalyticsOutput) IntervalInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v NetworkWatcherFlowLogTrafficAnalytics) *int { return v.IntervalInMinutes }).(pulumi.IntPtrOutput)
+}
+
 // The resource guid of the attached workspace.
 func (o NetworkWatcherFlowLogTrafficAnalyticsOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func (v NetworkWatcherFlowLogTrafficAnalytics) string { return v.WorkspaceId }).(pulumi.StringOutput)
@@ -5891,6 +5900,11 @@ func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) Elem() NetworkWatcherFlo
 // Boolean flag to enable/disable traffic analytics.
 func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func (v NetworkWatcherFlowLogTrafficAnalytics) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// How frequently service should do flow analytics in minutes.
+func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) IntervalInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v NetworkWatcherFlowLogTrafficAnalytics) *int { return v.IntervalInMinutes }).(pulumi.IntPtrOutput)
 }
 
 // The resource guid of the attached workspace.

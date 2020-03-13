@@ -13,7 +13,7 @@ class GetFunctionAppResult:
     """
     A collection of values returned by getFunctionApp.
     """
-    def __init__(__self__, app_service_plan_id=None, app_settings=None, connection_strings=None, default_hostname=None, enabled=None, id=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_credentials=None, tags=None):
+    def __init__(__self__, app_service_plan_id=None, app_settings=None, connection_strings=None, default_hostname=None, enabled=None, id=None, location=None, name=None, os_type=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_credentials=None, tags=None):
         if app_service_plan_id and not isinstance(app_service_plan_id, str):
             raise TypeError("Expected argument 'app_service_plan_id' to be a str")
         __self__.app_service_plan_id = app_service_plan_id
@@ -59,6 +59,12 @@ class GetFunctionAppResult:
         """
         The name of the Connection String.
         """
+        if os_type and not isinstance(os_type, str):
+            raise TypeError("Expected argument 'os_type' to be a str")
+        __self__.os_type = os_type
+        """
+        A string indicating the Operating System type for this function app.
+        """
         if outbound_ip_addresses and not isinstance(outbound_ip_addresses, str):
             raise TypeError("Expected argument 'outbound_ip_addresses' to be a str")
         __self__.outbound_ip_addresses = outbound_ip_addresses
@@ -97,6 +103,7 @@ class AwaitableGetFunctionAppResult(GetFunctionAppResult):
             id=self.id,
             location=self.location,
             name=self.name,
+            os_type=self.os_type,
             outbound_ip_addresses=self.outbound_ip_addresses,
             possible_outbound_ip_addresses=self.possible_outbound_ip_addresses,
             resource_group_name=self.resource_group_name,
@@ -134,6 +141,7 @@ def get_function_app(name=None,resource_group_name=None,tags=None,opts=None):
         id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
+        os_type=__ret__.get('osType'),
         outbound_ip_addresses=__ret__.get('outboundIpAddresses'),
         possible_outbound_ip_addresses=__ret__.get('possibleOutboundIpAddresses'),
         resource_group_name=__ret__.get('resourceGroupName'),

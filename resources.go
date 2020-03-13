@@ -61,6 +61,7 @@ const (
 	azureCore                = "Core"                // Base Resources
 	azureCosmosDB            = "CosmosDB"            // Cosmos DB
 	azureDashboard           = "Dashboard"           // Dashboard
+	azureDatabaseMigration   = "DatabaseMigration"   // Database Migration
 	azureDataFactory         = "DataFactory"         // Data Factory
 	azureDatalake            = "DataLake"            // Data Lake
 	azureDataBricks          = "DataBricks"          // DataBricks
@@ -70,7 +71,9 @@ const (
 	azureFrontdoor           = "FrontDoor"           // Frontdoor
 	azureHdInsight           = "HDInsight"           // nolint:misspell // HDInsight
 	azureHealthcare          = "Healthcare"          // HealthCare
+	azureHpc                 = "Hpc"                 // High-performance Compute
 	azureIot                 = "Iot"                 // IoT resource
+	azureIotCentral          = "IotCentral"          // IoT central
 	azureKeyVault            = "KeyVault"            // Key Vault
 	azureKusto               = "Kusto"               // Kusto
 	azureLogAnalytics        = "LogAnalytics"        // Log Analytics
@@ -83,6 +86,7 @@ const (
 	azureMaps                = "Maps"                // Maps
 	azureMarketPlace         = "Marketplace"         // Marketplace
 	azureMediaServices       = "MediaServices"       // Media Services
+	azureMixedReality        = "MixedReality"        // Mixed Reality
 	azureMonitoring          = "Monitoring"          // Metrics/monitoring resources
 	azureMSSQL               = "MSSql"               // MS Sql
 	azureMySQL               = "MySql"               // MySql
@@ -803,12 +807,14 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_media_services_account": {Tok: azureResource(azureMediaServices, "Account")},
 
 			// Monitoring resources
-			"azurerm_monitor_action_group":       {Tok: azureResource(azureMonitoring, "ActionGroup")},
-			"azurerm_monitor_activity_log_alert": {Tok: azureResource(azureMonitoring, "ActivityLogAlert")},
-			"azurerm_monitor_autoscale_setting":  {Tok: azureResource(azureMonitoring, "AutoscaleSetting")},
-			"azurerm_monitor_diagnostic_setting": {Tok: azureResource(azureMonitoring, "DiagnosticSetting")},
-			"azurerm_monitor_log_profile":        {Tok: azureResource(azureMonitoring, "LogProfile")},
-			"azurerm_monitor_metric_alert":       {Tok: azureResource(azureMonitoring, "MetricAlert")},
+			"azurerm_monitor_action_group":                {Tok: azureResource(azureMonitoring, "ActionGroup")},
+			"azurerm_monitor_activity_log_alert":          {Tok: azureResource(azureMonitoring, "ActivityLogAlert")},
+			"azurerm_monitor_autoscale_setting":           {Tok: azureResource(azureMonitoring, "AutoscaleSetting")},
+			"azurerm_monitor_diagnostic_setting":          {Tok: azureResource(azureMonitoring, "DiagnosticSetting")},
+			"azurerm_monitor_log_profile":                 {Tok: azureResource(azureMonitoring, "LogProfile")},
+			"azurerm_monitor_metric_alert":                {Tok: azureResource(azureMonitoring, "MetricAlert")},
+			"azurerm_monitor_scheduled_query_rules_alert": {Tok: azureResource(azureMonitoring, "ScheduledQueryRulesAlert")},
+			"azurerm_monitor_scheduled_query_rules_log":   {Tok: azureResource(azureMonitoring, "ScheduledQueryRulesLog")},
 
 			// MS SQL
 			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
@@ -1174,6 +1180,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_bot_channel_slack":         {Tok: azureResource(azureBot, "ChannelSlack")},
 			"azurerm_bot_web_app":               {Tok: azureResource(azureBot, "WebApp")},
 			"azurerm_bot_channel_ms_teams":      {Tok: azureResource(azureBot, "ChannelTeams")},
+			"azurerm_bot_channel_directline":    {Tok: azureResource(azureBot, "ChannelDirectLine")},
 
 			// Proximity
 			"azurerm_proximity_placement_group": {Tok: azureResource(azureProximity, "PlacementGroup")},
@@ -1216,6 +1223,19 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: azureResource(azureSiteRecovery, "ProtectionContainerMapping"),
 			},
 			"azurerm_recovery_services_vault": {Tok: azureResource(azureRecoveryServices, "Vault")},
+
+			// Database Migration
+			"azurerm_database_migration_project": {Tok: azureResource(azureDatabaseMigration, "Project")},
+			"azurerm_database_migration_service": {Tok: azureResource(azureDatabaseMigration, "Service")},
+
+			// IoT Central
+			"azurerm_iotcentral_application": {Tok: azureResource(azureIotCentral, "Application")},
+
+			// HPC
+			"azurerm_hpc_cache": {Tok: azureResource(azureHpc, "Cache")},
+
+			// Mixed Reality
+			"azurerm_spatial_anchors_account": {Tok: azureResource(azureMixedReality, "SpatialAnchorsAccount")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1392,6 +1412,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_service_environment":         {Tok: azureDataSource(azureAppService, "getAppServiceEnvironment")},
 			"azurerm_iothub_dps_shared_access_policy": {Tok: azureDataSource(azureIot, "getDpsSharedAccessPolicy")},
 			"azurerm_recovery_services_vault":         {Tok: azureDataSource(azureRecoveryServices, "getVault")},
+			"azurerm_database_migration_project":      {Tok: azureDataSource(azureDatabaseMigration, "getProject")},
+			"azurerm_database_migration_service":      {Tok: azureDataSource(azureDatabaseMigration, "getService")},
+			"azurerm_kusto_cluster":                   {Tok: azureDataSource(azureKusto, "getCluster")},
+			"azurerm_servicebus_topic_authorization_rule": {
+				Tok: azureDataSource(azureServiceBus, "getTopicAuthorizationRule"),
+			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

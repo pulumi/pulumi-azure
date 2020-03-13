@@ -73,6 +73,10 @@ export interface GetFunctionAppResult {
      */
     readonly name: string;
     /**
+     * A string indicating the Operating System type for this function app.
+     */
+    readonly osType: string;
+    /**
      * A comma separated list of outbound IP addresses.
      */
     readonly outboundIpAddresses: string;

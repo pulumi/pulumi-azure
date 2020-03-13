@@ -35,7 +35,7 @@ type VirtualMachineScaleSetExtension struct {
 	Settings pulumi.StringPtrOutput `pulumi:"settings"`
 	// Specifies the Type of the Extension. Changing this forces a new resource to be created.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Specifies the version of the Script Handler which should be used.
+	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringOutput `pulumi:"typeHandlerVersion"`
 	// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId pulumi.StringOutput `pulumi:"virtualMachineScaleSetId"`
@@ -97,7 +97,7 @@ type virtualMachineScaleSetExtensionState struct {
 	Settings *string `pulumi:"settings"`
 	// Specifies the Type of the Extension. Changing this forces a new resource to be created.
 	Type *string `pulumi:"type"`
-	// Specifies the version of the Script Handler which should be used.
+	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 	// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
@@ -120,7 +120,7 @@ type VirtualMachineScaleSetExtensionState struct {
 	Settings pulumi.StringPtrInput
 	// Specifies the Type of the Extension. Changing this forces a new resource to be created.
 	Type pulumi.StringPtrInput
-	// Specifies the version of the Script Handler which should be used.
+	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringPtrInput
 	// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId pulumi.StringPtrInput
@@ -147,7 +147,7 @@ type virtualMachineScaleSetExtensionArgs struct {
 	Settings *string `pulumi:"settings"`
 	// Specifies the Type of the Extension. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
-	// Specifies the version of the Script Handler which should be used.
+	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
 	// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId string `pulumi:"virtualMachineScaleSetId"`
@@ -171,7 +171,7 @@ type VirtualMachineScaleSetExtensionArgs struct {
 	Settings pulumi.StringPtrInput
 	// Specifies the Type of the Extension. Changing this forces a new resource to be created.
 	Type pulumi.StringInput
-	// Specifies the version of the Script Handler which should be used.
+	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringInput
 	// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId pulumi.StringInput

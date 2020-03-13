@@ -34,7 +34,11 @@ class Pool(pulumi.CustomResource):
     """
     Provisioned size of the pool in TB. Value must be between `4` and `500`.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, location=None, name=None, resource_group_name=None, service_level=None, size_in_tb=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
+    def __init__(__self__, resource_name, opts=None, account_name=None, location=None, name=None, resource_group_name=None, service_level=None, size_in_tb=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Pool within a NetApp Account.
 
@@ -48,6 +52,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
         :param pulumi.Input[float] size_in_tb: Provisioned size of the pool in TB. Value must be between `4` and `500`.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -80,6 +85,7 @@ class Pool(pulumi.CustomResource):
             if size_in_tb is None:
                 raise TypeError("Missing required property 'size_in_tb'")
             __props__['size_in_tb'] = size_in_tb
+            __props__['tags'] = tags
         super(Pool, __self__).__init__(
             'azure:netapp/pool:Pool',
             resource_name,
@@ -87,7 +93,7 @@ class Pool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_name=None, location=None, name=None, resource_group_name=None, service_level=None, size_in_tb=None):
+    def get(resource_name, id, opts=None, account_name=None, location=None, name=None, resource_group_name=None, service_level=None, size_in_tb=None, tags=None):
         """
         Get an existing Pool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -101,6 +107,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
         :param pulumi.Input[float] size_in_tb: Provisioned size of the pool in TB. Value must be between `4` and `500`.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -112,6 +119,7 @@ class Pool(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["service_level"] = service_level
         __props__["size_in_tb"] = size_in_tb
+        __props__["tags"] = tags
         return Pool(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

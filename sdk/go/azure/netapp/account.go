@@ -27,6 +27,8 @@ type Account struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -68,6 +70,8 @@ type accountState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type AccountState struct {
@@ -79,6 +83,8 @@ type AccountState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (AccountState) ElementType() reflect.Type {
@@ -94,6 +100,8 @@ type accountArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
@@ -106,6 +114,8 @@ type AccountArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {

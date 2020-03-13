@@ -24,7 +24,7 @@ class GetResourceGroupResult:
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
-        The location of the resource group.
+        The Azure Region where the Resource Group exists.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -33,7 +33,7 @@ class GetResourceGroupResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
-        A mapping of tags assigned to the resource group.
+        A mapping of tags assigned to the Resource Group.
         """
 class AwaitableGetResourceGroupResult(GetResourceGroupResult):
     # pylint: disable=using-constant-test
@@ -53,7 +53,7 @@ def get_resource_group(name=None,opts=None):
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resource_group.html.markdown.
 
 
-    :param str name: Specifies the name of the resource group.
+    :param str name: The Name of this Resource Group.
     """
     __args__ = dict()
 

@@ -50,6 +50,10 @@ export class SqlServer extends pulumi.CustomResource {
      */
     public readonly administratorLoginPassword!: pulumi.Output<string>;
     /**
+     * A `extendedAuditingPolicy` block as defined below.
+     */
+    public readonly extendedAuditingPolicy!: pulumi.Output<outputs.sql.SqlServerExtendedAuditingPolicy | undefined>;
+    /**
      * The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
      */
     public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
@@ -92,6 +96,7 @@ export class SqlServer extends pulumi.CustomResource {
             const state = argsOrState as SqlServerState | undefined;
             inputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
+            inputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
             inputs["fullyQualifiedDomainName"] = state ? state.fullyQualifiedDomainName : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -115,6 +120,7 @@ export class SqlServer extends pulumi.CustomResource {
             }
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            inputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -146,6 +152,10 @@ export interface SqlServerState {
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      */
     readonly administratorLoginPassword?: pulumi.Input<string>;
+    /**
+     * A `extendedAuditingPolicy` block as defined below.
+     */
+    readonly extendedAuditingPolicy?: pulumi.Input<inputs.sql.SqlServerExtendedAuditingPolicy>;
     /**
      * The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
      */
@@ -188,6 +198,10 @@ export interface SqlServerArgs {
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      */
     readonly administratorLoginPassword: pulumi.Input<string>;
+    /**
+     * A `extendedAuditingPolicy` block as defined below.
+     */
+    readonly extendedAuditingPolicy?: pulumi.Input<inputs.sql.SqlServerExtendedAuditingPolicy>;
     /**
      * An `identity` block as defined below.
      */

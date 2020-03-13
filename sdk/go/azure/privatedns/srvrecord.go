@@ -17,6 +17,8 @@ import (
 type SRVRecord struct {
 	pulumi.CustomResourceState
 
+	// The FQDN of the DNS SRV Record.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `record` blocks as defined below.
@@ -70,6 +72,8 @@ func GetSRVRecord(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SRVRecord resources.
 type srvrecordState struct {
+	// The FQDN of the DNS SRV Record.
+	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// One or more `record` blocks as defined below.
@@ -84,6 +88,8 @@ type srvrecordState struct {
 }
 
 type SRVRecordState struct {
+	// The FQDN of the DNS SRV Record.
+	Fqdn pulumi.StringPtrInput
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// One or more `record` blocks as defined below.

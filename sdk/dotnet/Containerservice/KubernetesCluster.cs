@@ -121,7 +121,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> NodeResourceGroup { get; private set; } = null!;
 
         /// <summary>
-        /// The FQDN for the Kubernetes Cluster when private link has been enabled, which is is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+        /// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         /// </summary>
         [Output("privateFqdn")]
         public Output<string> PrivateFqdn { get; private set; } = null!;
@@ -450,7 +450,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? NodeResourceGroup { get; set; }
 
         /// <summary>
-        /// The FQDN for the Kubernetes Cluster when private link has been enabled, which is is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+        /// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         /// </summary>
         [Input("privateFqdn")]
         public Input<string>? PrivateFqdn { get; set; }
@@ -710,6 +710,14 @@ namespace Pulumi.Azure.ContainerService
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
 
+        [Input("nodeLabels")]
+        private InputMap<string>? _nodeLabels;
+        public InputMap<string> NodeLabels
+        {
+            get => _nodeLabels ?? (_nodeLabels = new InputMap<string>());
+            set => _nodeLabels = value;
+        }
+
         [Input("nodeTaints")]
         private InputList<string>? _nodeTaints;
         public InputList<string> NodeTaints
@@ -720,6 +728,18 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("osDiskSizeGb")]
         public Input<int>? OsDiskSizeGb { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -769,6 +789,14 @@ namespace Pulumi.Azure.ContainerService
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
 
+        [Input("nodeLabels")]
+        private InputMap<string>? _nodeLabels;
+        public InputMap<string> NodeLabels
+        {
+            get => _nodeLabels ?? (_nodeLabels = new InputMap<string>());
+            set => _nodeLabels = value;
+        }
+
         [Input("nodeTaints")]
         private InputList<string>? _nodeTaints;
         public InputList<string> NodeTaints
@@ -779,6 +807,18 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("osDiskSizeGb")]
         public Input<int>? OsDiskSizeGb { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -1351,8 +1391,13 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string Name;
         public readonly int NodeCount;
+        public readonly ImmutableDictionary<string, string>? NodeLabels;
         public readonly ImmutableArray<string> NodeTaints;
         public readonly int OsDiskSizeGb;
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string? Type;
         public readonly string VmSize;
         public readonly string? VnetSubnetId;
@@ -1367,8 +1412,10 @@ namespace Pulumi.Azure.ContainerService
             int? minCount,
             string name,
             int nodeCount,
+            ImmutableDictionary<string, string>? nodeLabels,
             ImmutableArray<string> nodeTaints,
             int osDiskSizeGb,
+            ImmutableDictionary<string, string>? tags,
             string? type,
             string vmSize,
             string? vnetSubnetId)
@@ -1381,8 +1428,10 @@ namespace Pulumi.Azure.ContainerService
             MinCount = minCount;
             Name = name;
             NodeCount = nodeCount;
+            NodeLabels = nodeLabels;
             NodeTaints = nodeTaints;
             OsDiskSizeGb = osDiskSizeGb;
+            Tags = tags;
             Type = type;
             VmSize = vmSize;
             VnetSubnetId = vnetSubnetId;

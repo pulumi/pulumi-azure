@@ -12,9 +12,9 @@ import (
 )
 
 type ServiceQueryKey struct {
-	// The value of the query key.
+	// The value of this Query Key.
 	Key *string `pulumi:"key"`
-	// The name of the Search Service. Changing this forces a new resource to be created.
+	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name *string `pulumi:"name"`
 }
 
@@ -26,9 +26,9 @@ type ServiceQueryKeyInput interface {
 }
 
 type ServiceQueryKeyArgs struct {
-	// The value of the query key.
+	// The value of this Query Key.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The name of the Search Service. Changing this forces a new resource to be created.
+	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -79,12 +79,12 @@ func (o ServiceQueryKeyOutput) ToServiceQueryKeyOutputWithContext(ctx context.Co
 	return o
 }
 
-// The value of the query key.
+// The value of this Query Key.
 func (o ServiceQueryKeyOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v ServiceQueryKey) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Search Service. Changing this forces a new resource to be created.
+// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 func (o ServiceQueryKeyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v ServiceQueryKey) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Allows you to manage an Azure Search Service.
+ * Manages a Search Service.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/search_service.html.markdown.
  */
@@ -39,19 +39,19 @@ export class Service extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the Search Service. Changing this forces a new resource to be created.
+     * The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+     * The number of partitions which should be created.
      */
     public readonly partitionCount!: pulumi.Output<number>;
     /**
-     * The Search Service Administration primary key.
+     * The Primary Key used for Search Service Administration.
      */
     public /*out*/ readonly primaryKey!: pulumi.Output<string>;
     /**
@@ -59,23 +59,23 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly queryKeys!: pulumi.Output<outputs.search.ServiceQueryKey[]>;
     /**
-     * Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+     * The number of replica's which should be created.
      */
     public readonly replicaCount!: pulumi.Output<number>;
     /**
-     * The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
+     * The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The Search Service Administration secondary key.
+     * The Secondary Key used for Search Service Administration.
      */
     public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
     /**
-     * Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
+     * The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
      */
     public readonly sku!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags which should be assigned to the Search Service.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -136,19 +136,19 @@ export class Service extends pulumi.CustomResource {
  */
 export interface ServiceState {
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the Search Service. Changing this forces a new resource to be created.
+     * The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+     * The number of partitions which should be created.
      */
     readonly partitionCount?: pulumi.Input<number>;
     /**
-     * The Search Service Administration primary key.
+     * The Primary Key used for Search Service Administration.
      */
     readonly primaryKey?: pulumi.Input<string>;
     /**
@@ -156,23 +156,23 @@ export interface ServiceState {
      */
     readonly queryKeys?: pulumi.Input<pulumi.Input<inputs.search.ServiceQueryKey>[]>;
     /**
-     * Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+     * The number of replica's which should be created.
      */
     readonly replicaCount?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
+     * The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The Search Service Administration secondary key.
+     * The Secondary Key used for Search Service Administration.
      */
     readonly secondaryKey?: pulumi.Input<string>;
     /**
-     * Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
+     * The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
      */
     readonly sku?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags which should be assigned to the Search Service.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -182,31 +182,31 @@ export interface ServiceState {
  */
 export interface ServiceArgs {
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the Search Service. Changing this forces a new resource to be created.
+     * The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+     * The number of partitions which should be created.
      */
     readonly partitionCount?: pulumi.Input<number>;
     /**
-     * Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+     * The number of replica's which should be created.
      */
     readonly replicaCount?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
+     * The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
+     * The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
      */
     readonly sku: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags which should be assigned to the Search Service.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

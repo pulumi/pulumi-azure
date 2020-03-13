@@ -17,6 +17,8 @@ import (
 type MxRecord struct {
 	pulumi.CustomResourceState
 
+	// The FQDN of the DNS MX Record.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `record` blocks as defined below.
@@ -70,6 +72,8 @@ func GetMxRecord(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MxRecord resources.
 type mxRecordState struct {
+	// The FQDN of the DNS MX Record.
+	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
 	Name *string `pulumi:"name"`
 	// One or more `record` blocks as defined below.
@@ -84,6 +88,8 @@ type mxRecordState struct {
 }
 
 type MxRecordState struct {
+	// The FQDN of the DNS MX Record.
+	Fqdn pulumi.StringPtrInput
 	// The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
 	Name pulumi.StringPtrInput
 	// One or more `record` blocks as defined below.

@@ -17,6 +17,12 @@ namespace Pulumi.Azure.PrivateDns
     public partial class AAAARecord : Pulumi.CustomResource
     {
         /// <summary>
+        /// The FQDN of the DNS AAAA Record.
+        /// </summary>
+        [Output("fqdn")]
+        public Output<string> Fqdn { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the DNS A Record.
         /// </summary>
         [Output("name")]
@@ -147,6 +153,12 @@ namespace Pulumi.Azure.PrivateDns
 
     public sealed class AAAARecordState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The FQDN of the DNS AAAA Record.
+        /// </summary>
+        [Input("fqdn")]
+        public Input<string>? Fqdn { get; set; }
+
         /// <summary>
         /// The name of the DNS A Record.
         /// </summary>

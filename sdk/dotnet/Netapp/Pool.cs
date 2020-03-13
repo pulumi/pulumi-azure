@@ -52,6 +52,12 @@ namespace Pulumi.Azure.NetApp
         [Output("sizeInTb")]
         public Output<int> SizeInTb { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Pool resource with the given unique name, arguments, and options.
@@ -134,6 +140,18 @@ namespace Pulumi.Azure.NetApp
         [Input("sizeInTb", required: true)]
         public Input<int> SizeInTb { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public PoolArgs()
         {
         }
@@ -176,6 +194,18 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("sizeInTb")]
         public Input<int>? SizeInTb { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public PoolState()
         {

@@ -71,9 +71,6 @@ namespace Pulumi.Azure.FrontDoor
         [Output("loadBalancerEnabled")]
         public Output<bool?> LoadBalancerEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
@@ -213,9 +210,6 @@ namespace Pulumi.Azure.FrontDoor
         [Input("loadBalancerEnabled")]
         public Input<bool>? LoadBalancerEnabled { get; set; }
 
-        /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
@@ -334,9 +328,6 @@ namespace Pulumi.Azure.FrontDoor
         [Input("loadBalancerEnabled")]
         public Input<bool>? LoadBalancerEnabled { get; set; }
 
-        /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
@@ -386,6 +377,9 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FrontdoorBackendPoolHealthProbesArgs : Pulumi.ResourceArgs
     {
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
         /// <summary>
         /// The ID of the FrontDoor.
         /// </summary>
@@ -403,6 +397,9 @@ namespace Pulumi.Azure.FrontDoor
 
         [Input("path")]
         public Input<string>? Path { get; set; }
+
+        [Input("probeMethod")]
+        public Input<string>? ProbeMethod { get; set; }
 
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -414,6 +411,9 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FrontdoorBackendPoolHealthProbesGetArgs : Pulumi.ResourceArgs
     {
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
         /// <summary>
         /// The ID of the FrontDoor.
         /// </summary>
@@ -431,6 +431,9 @@ namespace Pulumi.Azure.FrontDoor
 
         [Input("path")]
         public Input<string>? Path { get; set; }
+
+        [Input("probeMethod")]
+        public Input<string>? ProbeMethod { get; set; }
 
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -983,6 +986,7 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FrontdoorBackendPoolHealthProbes
     {
+        public readonly bool? Enabled;
         /// <summary>
         /// The ID of the FrontDoor.
         /// </summary>
@@ -993,20 +997,25 @@ namespace Pulumi.Azure.FrontDoor
         /// </summary>
         public readonly string Name;
         public readonly string? Path;
+        public readonly string? ProbeMethod;
         public readonly string? Protocol;
 
         [OutputConstructor]
         private FrontdoorBackendPoolHealthProbes(
+            bool? enabled,
             string id,
             int? intervalInSeconds,
             string name,
             string? path,
+            string? probeMethod,
             string? protocol)
         {
+            Enabled = enabled;
             Id = id;
             IntervalInSeconds = intervalInSeconds;
             Name = name;
             Path = path;
+            ProbeMethod = probeMethod;
             Protocol = protocol;
         }
     }

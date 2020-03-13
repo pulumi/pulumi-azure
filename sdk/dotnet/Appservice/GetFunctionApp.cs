@@ -76,6 +76,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// A string indicating the Operating System type for this function app.
+        /// </summary>
+        public readonly string OsType;
+        /// <summary>
         /// A comma separated list of outbound IP addresses.
         /// </summary>
         public readonly string OutboundIpAddresses;
@@ -103,6 +107,7 @@ namespace Pulumi.Azure.AppService
             bool enabled,
             string location,
             string name,
+            string osType,
             string outboundIpAddresses,
             string possibleOutboundIpAddresses,
             string resourceGroupName,
@@ -117,6 +122,7 @@ namespace Pulumi.Azure.AppService
             Enabled = enabled;
             Location = location;
             Name = name;
+            OsType = osType;
             OutboundIpAddresses = outboundIpAddresses;
             PossibleOutboundIpAddresses = possibleOutboundIpAddresses;
             ResourceGroupName = resourceGroupName;

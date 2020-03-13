@@ -44,7 +44,7 @@ export class MongoCollection extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
-     * The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
+     * The default Time To Live in seconds. If the value is `0` items are not automatically expired.
      */
     public readonly defaultTtlSeconds!: pulumi.Output<number | undefined>;
     /**
@@ -120,7 +120,7 @@ export interface MongoCollectionState {
      */
     readonly databaseName?: pulumi.Input<string>;
     /**
-     * The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
+     * The default Time To Live in seconds. If the value is `0` items are not automatically expired.
      */
     readonly defaultTtlSeconds?: pulumi.Input<number>;
     /**
@@ -148,7 +148,7 @@ export interface MongoCollectionArgs {
      */
     readonly databaseName: pulumi.Input<string>;
     /**
-     * The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
+     * The default Time To Live in seconds. If the value is `0` items are not automatically expired.
      */
     readonly defaultTtlSeconds?: pulumi.Input<number>;
     /**

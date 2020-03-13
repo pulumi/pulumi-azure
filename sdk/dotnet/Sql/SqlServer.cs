@@ -32,6 +32,12 @@ namespace Pulumi.Azure.Sql
         public Output<string> AdministratorLoginPassword { get; private set; } = null!;
 
         /// <summary>
+        /// A `extended_auditing_policy` block as defined below.
+        /// </summary>
+        [Output("extendedAuditingPolicy")]
+        public Output<Outputs.SqlServerExtendedAuditingPolicy?> ExtendedAuditingPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
         /// </summary>
         [Output("fullyQualifiedDomainName")]
@@ -132,6 +138,12 @@ namespace Pulumi.Azure.Sql
         public Input<string> AdministratorLoginPassword { get; set; } = null!;
 
         /// <summary>
+        /// A `extended_auditing_policy` block as defined below.
+        /// </summary>
+        [Input("extendedAuditingPolicy")]
+        public Input<Inputs.SqlServerExtendedAuditingPolicyArgs>? ExtendedAuditingPolicy { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
@@ -193,6 +205,12 @@ namespace Pulumi.Azure.Sql
         public Input<string>? AdministratorLoginPassword { get; set; }
 
         /// <summary>
+        /// A `extended_auditing_policy` block as defined below.
+        /// </summary>
+        [Input("extendedAuditingPolicy")]
+        public Input<Inputs.SqlServerExtendedAuditingPolicyGetArgs>? ExtendedAuditingPolicy { get; set; }
+
+        /// <summary>
         /// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
         /// </summary>
         [Input("fullyQualifiedDomainName")]
@@ -248,6 +266,68 @@ namespace Pulumi.Azure.Sql
     namespace Inputs
     {
 
+    public sealed class SqlServerExtendedAuditingPolicyArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// (Optional) Specifies the number of days to retain logs for in the storage account.
+        /// </summary>
+        [Input("retentionInDays")]
+        public Input<int>? RetentionInDays { get; set; }
+
+        /// <summary>
+        /// (Required)  Specifies the access key to use for the auditing storage account.
+        /// </summary>
+        [Input("storageAccountAccessKey", required: true)]
+        public Input<string> StorageAccountAccessKey { get; set; } = null!;
+
+        /// <summary>
+        /// (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
+        /// </summary>
+        [Input("storageAccountAccessKeyIsSecondary")]
+        public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
+
+        /// <summary>
+        /// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+        /// </summary>
+        [Input("storageEndpoint", required: true)]
+        public Input<string> StorageEndpoint { get; set; } = null!;
+
+        public SqlServerExtendedAuditingPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class SqlServerExtendedAuditingPolicyGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// (Optional) Specifies the number of days to retain logs for in the storage account.
+        /// </summary>
+        [Input("retentionInDays")]
+        public Input<int>? RetentionInDays { get; set; }
+
+        /// <summary>
+        /// (Required)  Specifies the access key to use for the auditing storage account.
+        /// </summary>
+        [Input("storageAccountAccessKey", required: true)]
+        public Input<string> StorageAccountAccessKey { get; set; } = null!;
+
+        /// <summary>
+        /// (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
+        /// </summary>
+        [Input("storageAccountAccessKeyIsSecondary")]
+        public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
+
+        /// <summary>
+        /// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+        /// </summary>
+        [Input("storageEndpoint", required: true)]
+        public Input<string> StorageEndpoint { get; set; } = null!;
+
+        public SqlServerExtendedAuditingPolicyGetArgs()
+        {
+        }
+    }
+
     public sealed class SqlServerIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -295,6 +375,40 @@ namespace Pulumi.Azure.Sql
 
     namespace Outputs
     {
+
+    [OutputType]
+    public sealed class SqlServerExtendedAuditingPolicy
+    {
+        /// <summary>
+        /// (Optional) Specifies the number of days to retain logs for in the storage account.
+        /// </summary>
+        public readonly int? RetentionInDays;
+        /// <summary>
+        /// (Required)  Specifies the access key to use for the auditing storage account.
+        /// </summary>
+        public readonly string StorageAccountAccessKey;
+        /// <summary>
+        /// (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
+        /// </summary>
+        public readonly bool? StorageAccountAccessKeyIsSecondary;
+        /// <summary>
+        /// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+        /// </summary>
+        public readonly string StorageEndpoint;
+
+        [OutputConstructor]
+        private SqlServerExtendedAuditingPolicy(
+            int? retentionInDays,
+            string storageAccountAccessKey,
+            bool? storageAccountAccessKeyIsSecondary,
+            string storageEndpoint)
+        {
+            RetentionInDays = retentionInDays;
+            StorageAccountAccessKey = storageAccountAccessKey;
+            StorageAccountAccessKeyIsSecondary = storageAccountAccessKeyIsSecondary;
+            StorageEndpoint = storageEndpoint;
+        }
+    }
 
     [OutputType]
     public sealed class SqlServerIdentity

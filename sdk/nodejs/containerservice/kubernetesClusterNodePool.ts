@@ -77,6 +77,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly nodeCount!: pulumi.Output<number>;
     /**
+     * A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+     */
+    public readonly nodeLabels!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
      */
     public readonly nodeTaints!: pulumi.Output<string[] | undefined>;
@@ -88,6 +92,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      * The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
      */
     public readonly osType!: pulumi.Output<string | undefined>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
      */
@@ -118,9 +126,11 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["minCount"] = state ? state.minCount : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["nodeCount"] = state ? state.nodeCount : undefined;
+            inputs["nodeLabels"] = state ? state.nodeLabels : undefined;
             inputs["nodeTaints"] = state ? state.nodeTaints : undefined;
             inputs["osDiskSizeGb"] = state ? state.osDiskSizeGb : undefined;
             inputs["osType"] = state ? state.osType : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["vmSize"] = state ? state.vmSize : undefined;
             inputs["vnetSubnetId"] = state ? state.vnetSubnetId : undefined;
         } else {
@@ -140,9 +150,11 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["minCount"] = args ? args.minCount : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["nodeCount"] = args ? args.nodeCount : undefined;
+            inputs["nodeLabels"] = args ? args.nodeLabels : undefined;
             inputs["nodeTaints"] = args ? args.nodeTaints : undefined;
             inputs["osDiskSizeGb"] = args ? args.osDiskSizeGb : undefined;
             inputs["osType"] = args ? args.osType : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["vmSize"] = args ? args.vmSize : undefined;
             inputs["vnetSubnetId"] = args ? args.vnetSubnetId : undefined;
         }
@@ -198,6 +210,10 @@ export interface KubernetesClusterNodePoolState {
      */
     readonly nodeCount?: pulumi.Input<number>;
     /**
+     * A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+     */
+    readonly nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
      */
     readonly nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
@@ -209,6 +225,10 @@ export interface KubernetesClusterNodePoolState {
      * The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
      */
     readonly osType?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
      */
@@ -260,6 +280,10 @@ export interface KubernetesClusterNodePoolArgs {
      */
     readonly nodeCount?: pulumi.Input<number>;
     /**
+     * A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+     */
+    readonly nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
      */
     readonly nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
@@ -271,6 +295,10 @@ export interface KubernetesClusterNodePoolArgs {
      * The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
      */
     readonly osType?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
      */

@@ -73,6 +73,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<int> NodeCount { get; private set; } = null!;
 
         /// <summary>
+        /// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+        /// </summary>
+        [Output("nodeLabels")]
+        public Output<ImmutableDictionary<string, string>?> NodeLabels { get; private set; } = null!;
+
+        /// <summary>
         /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
         /// </summary>
         [Output("nodeTaints")]
@@ -89,6 +95,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("osType")]
         public Output<string?> OsType { get; private set; } = null!;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
@@ -208,6 +220,18 @@ namespace Pulumi.Azure.ContainerService
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
 
+        [Input("nodeLabels")]
+        private InputMap<string>? _nodeLabels;
+
+        /// <summary>
+        /// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+        /// </summary>
+        public InputMap<string> NodeLabels
+        {
+            get => _nodeLabels ?? (_nodeLabels = new InputMap<string>());
+            set => _nodeLabels = value;
+        }
+
         [Input("nodeTaints")]
         private InputList<string>? _nodeTaints;
 
@@ -231,6 +255,18 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
@@ -311,6 +347,18 @@ namespace Pulumi.Azure.ContainerService
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
 
+        [Input("nodeLabels")]
+        private InputMap<string>? _nodeLabels;
+
+        /// <summary>
+        /// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+        /// </summary>
+        public InputMap<string> NodeLabels
+        {
+            get => _nodeLabels ?? (_nodeLabels = new InputMap<string>());
+            set => _nodeLabels = value;
+        }
+
         [Input("nodeTaints")]
         private InputList<string>? _nodeTaints;
 
@@ -334,6 +382,18 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.

@@ -23,6 +23,8 @@ type LoadBalancerFrontendIpConfiguration struct {
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
 	PrivateIpAddressAllocation *string `pulumi:"privateIpAddressAllocation"`
+	// The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
+	PrivateIpAddressVersion *string `pulumi:"privateIpAddressVersion"`
 	// The ID of a Public IP Address which should be associated with the Load Balancer.
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
@@ -52,6 +54,8 @@ type LoadBalancerFrontendIpConfigurationArgs struct {
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
 	PrivateIpAddressAllocation pulumi.StringPtrInput `pulumi:"privateIpAddressAllocation"`
+	// The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
+	PrivateIpAddressVersion pulumi.StringPtrInput `pulumi:"privateIpAddressVersion"`
 	// The ID of a Public IP Address which should be associated with the Load Balancer.
 	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
 	// The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
@@ -139,6 +143,11 @@ func (o LoadBalancerFrontendIpConfigurationOutput) PrivateIpAddress() pulumi.Str
 // The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
 func (o LoadBalancerFrontendIpConfigurationOutput) PrivateIpAddressAllocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v LoadBalancerFrontendIpConfiguration) *string { return v.PrivateIpAddressAllocation }).(pulumi.StringPtrOutput)
+}
+
+// The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
+func (o LoadBalancerFrontendIpConfigurationOutput) PrivateIpAddressVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v LoadBalancerFrontendIpConfiguration) *string { return v.PrivateIpAddressVersion }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a Public IP Address which should be associated with the Load Balancer.
@@ -377,6 +386,8 @@ type GetLBFrontendIpConfiguration struct {
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
 	// The allocation method for the Private IP Address used by this Load Balancer.
 	PrivateIpAddressAllocation string `pulumi:"privateIpAddressAllocation"`
+	// The Private IP Address Version, either `IPv4` or `IPv6`.
+	PrivateIpAddressVersion string `pulumi:"privateIpAddressVersion"`
 	// The ID of a  Public IP Address which is associated with this Load Balancer.
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet which is associated with the IP Configuration.
@@ -401,6 +412,8 @@ type GetLBFrontendIpConfigurationArgs struct {
 	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
 	// The allocation method for the Private IP Address used by this Load Balancer.
 	PrivateIpAddressAllocation pulumi.StringInput `pulumi:"privateIpAddressAllocation"`
+	// The Private IP Address Version, either `IPv4` or `IPv6`.
+	PrivateIpAddressVersion pulumi.StringInput `pulumi:"privateIpAddressVersion"`
 	// The ID of a  Public IP Address which is associated with this Load Balancer.
 	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet which is associated with the IP Configuration.
@@ -474,6 +487,11 @@ func (o GetLBFrontendIpConfigurationOutput) PrivateIpAddress() pulumi.StringOutp
 // The allocation method for the Private IP Address used by this Load Balancer.
 func (o GetLBFrontendIpConfigurationOutput) PrivateIpAddressAllocation() pulumi.StringOutput {
 	return o.ApplyT(func (v GetLBFrontendIpConfiguration) string { return v.PrivateIpAddressAllocation }).(pulumi.StringOutput)
+}
+
+// The Private IP Address Version, either `IPv4` or `IPv6`.
+func (o GetLBFrontendIpConfigurationOutput) PrivateIpAddressVersion() pulumi.StringOutput {
+	return o.ApplyT(func (v GetLBFrontendIpConfiguration) string { return v.PrivateIpAddressVersion }).(pulumi.StringOutput)
 }
 
 // The ID of a  Public IP Address which is associated with this Load Balancer.

@@ -290,6 +290,12 @@ namespace Pulumi.Azure.Lb
         public Input<string>? PrivateIpAddressAllocation { get; set; }
 
         /// <summary>
+        /// The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
+        /// </summary>
+        [Input("privateIpAddressVersion")]
+        public Input<string>? PrivateIpAddressVersion { get; set; }
+
+        /// <summary>
         /// The ID of a Public IP Address which should be associated with the Load Balancer.
         /// </summary>
         [Input("publicIpAddressId")]
@@ -369,6 +375,12 @@ namespace Pulumi.Azure.Lb
         public Input<string>? PrivateIpAddressAllocation { get; set; }
 
         /// <summary>
+        /// The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
+        /// </summary>
+        [Input("privateIpAddressVersion")]
+        public Input<string>? PrivateIpAddressVersion { get; set; }
+
+        /// <summary>
         /// The ID of a Public IP Address which should be associated with the Load Balancer.
         /// </summary>
         [Input("publicIpAddressId")]
@@ -424,6 +436,10 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         public readonly string PrivateIpAddressAllocation;
         /// <summary>
+        /// The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
+        /// </summary>
+        public readonly string? PrivateIpAddressVersion;
+        /// <summary>
         /// The ID of a Public IP Address which should be associated with the Load Balancer.
         /// </summary>
         public readonly string PublicIpAddressId;
@@ -449,6 +465,7 @@ namespace Pulumi.Azure.Lb
             ImmutableArray<string> outboundRules,
             string privateIpAddress,
             string privateIpAddressAllocation,
+            string? privateIpAddressVersion,
             string publicIpAddressId,
             string publicIpPrefixId,
             string subnetId,
@@ -461,6 +478,7 @@ namespace Pulumi.Azure.Lb
             OutboundRules = outboundRules;
             PrivateIpAddress = privateIpAddress;
             PrivateIpAddressAllocation = privateIpAddressAllocation;
+            PrivateIpAddressVersion = privateIpAddressVersion;
             PublicIpAddressId = publicIpAddressId;
             PublicIpPrefixId = publicIpPrefixId;
             SubnetId = subnetId;

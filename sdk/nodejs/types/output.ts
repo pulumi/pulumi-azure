@@ -1639,6 +1639,7 @@ export namespace batch {
 
     export interface PoolNetworkConfiguration {
         endpointConfigurations?: outputs.batch.PoolNetworkConfigurationEndpointConfiguration[];
+        publicIps?: string[];
         subnetId: string;
     }
 
@@ -1696,6 +1697,20 @@ export namespace batch {
         publisher?: string;
         sku?: string;
         version?: string;
+    }
+}
+
+export namespace bot {
+    export interface ChannelDirectLineSite {
+        enabled?: boolean;
+        enhancedAuthenticationEnabled?: boolean;
+        id: string;
+        key: string;
+        key2: string;
+        name: string;
+        trustedOrigins?: string[];
+        v1Allowed?: boolean;
+        v3Allowed?: boolean;
     }
 }
 
@@ -2906,6 +2921,7 @@ export namespace containerservice {
          * The name of the managed Kubernetes Cluster.
          */
         name: string;
+        nodeLabels: {[key: string]: string};
         /**
          * The list of Kubernetes taints which are applied to nodes in the agent pool
          */
@@ -2918,6 +2934,10 @@ export namespace containerservice {
          * The Operating System used for the Agents.
          */
         osType: string;
+        /**
+         * A mapping of tags to assign to the resource.
+         */
+        tags: {[key: string]: string};
         /**
          * The type of the Agent Pool.
          */
@@ -3216,8 +3236,13 @@ export namespace containerservice {
          */
         name: string;
         nodeCount: number;
+        nodeLabels?: {[key: string]: string};
         nodeTaints?: string[];
         osDiskSizeGb: number;
+        /**
+         * A mapping of tags to assign to the resource.
+         */
+        tags?: {[key: string]: string};
         type?: string;
         vmSize: string;
         vnetSubnetId?: string;
@@ -4251,6 +4276,7 @@ export namespace frontdoor {
     }
 
     export interface FrontdoorBackendPoolHealthProbe {
+        enabled?: boolean;
         /**
          * The ID of the FrontDoor.
          */
@@ -4261,6 +4287,7 @@ export namespace frontdoor {
          */
         name: string;
         path?: string;
+        probeMethod?: string;
         protocol?: string;
     }
 
@@ -5364,6 +5391,10 @@ export namespace lb {
          */
         privateIpAddressAllocation: string;
         /**
+         * The Private IP Address Version, either `IPv4` or `IPv6`.
+         */
+        privateIpAddressVersion: string;
+        /**
          * The ID of a  Public IP Address which is associated with this Load Balancer.
          */
         publicIpAddressId: string;
@@ -5397,6 +5428,10 @@ export namespace lb {
          * The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
          */
         privateIpAddressAllocation: string;
+        /**
+         * The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
+         */
+        privateIpAddressVersion?: string;
         /**
          * The ID of a Public IP Address which should be associated with the Load Balancer.
          */
@@ -5971,6 +6006,72 @@ export namespace monitoring {
         operator: string;
         values: string[];
     }
+
+    export interface ScheduledQueryRulesAlertAction {
+        /**
+         * List of action group reference resource IDs.
+         */
+        actionGroups: string[];
+        /**
+         * Custom payload to be sent for all webhook payloads in alerting action.
+         */
+        customWebhookPayload?: string;
+        /**
+         * Custom subject override for all email ids in Azure action group.
+         */
+        emailSubject?: string;
+    }
+
+    export interface ScheduledQueryRulesAlertTrigger {
+        metricTrigger?: outputs.monitoring.ScheduledQueryRulesAlertTriggerMetricTrigger;
+        /**
+         * Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+         */
+        operator: string;
+        /**
+         * Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+         */
+        threshold: number;
+    }
+
+    export interface ScheduledQueryRulesAlertTriggerMetricTrigger {
+        metricColumn: string;
+        metricTriggerType: string;
+        /**
+         * Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+         */
+        operator: string;
+        /**
+         * Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+         */
+        threshold: number;
+    }
+
+    export interface ScheduledQueryRulesLogCriteria {
+        /**
+         * A `dimension` block as defined below.
+         */
+        dimensions: outputs.monitoring.ScheduledQueryRulesLogCriteriaDimension[];
+        /**
+         * Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+         */
+        metricName: string;
+    }
+
+    export interface ScheduledQueryRulesLogCriteriaDimension {
+        /**
+         * Name of the dimension.
+         */
+        name: string;
+        /**
+         * Operator for dimension values, - 'Include'.
+         */
+        operator?: string;
+        /**
+         * List of dimension values.
+         */
+        values: string[];
+    }
 }
 
 export namespace mssql {
@@ -6060,6 +6161,7 @@ export namespace netapp {
         cifsEnabled: boolean;
         nfsv3Enabled: boolean;
         nfsv4Enabled: boolean;
+        protocolsEnabled: string;
         ruleIndex: number;
         unixReadOnly?: boolean;
         unixReadWrite?: boolean;
@@ -7067,6 +7169,10 @@ export namespace network {
          */
         enabled: boolean;
         /**
+         * How frequently service should do flow analytics in minutes.
+         */
+        intervalInMinutes?: number;
+        /**
          * The resource guid of the attached workspace.
          */
         workspaceId: string;
@@ -7476,6 +7582,10 @@ export namespace privatelink {
          */
         privateConnectionResourceId: string;
         /**
+         * The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+         */
+        privateIpAddress: string;
+        /**
          * A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
          */
         requestMessage?: string;
@@ -7665,11 +7775,11 @@ export namespace role {
 export namespace search {
     export interface ServiceQueryKey {
         /**
-         * The value of the query key.
+         * The value of this Query Key.
          */
         key: string;
         /**
-         * The name of the Search Service. Changing this forces a new resource to be created.
+         * The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
          */
         name: string;
     }
@@ -7935,6 +8045,25 @@ export namespace sql {
          * The identity type of the SQL Server.
          */
         type: string;
+    }
+
+    export interface SqlServerExtendedAuditingPolicy {
+        /**
+         * (Optional) Specifies the number of days to retain logs for in the storage account.
+         */
+        retentionInDays?: number;
+        /**
+         * (Required)  Specifies the access key to use for the auditing storage account.
+         */
+        storageAccountAccessKey: string;
+        /**
+         * (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+         */
+        storageAccountAccessKeyIsSecondary?: boolean;
+        /**
+         * (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+         */
+        storageEndpoint: string;
     }
 
     export interface SqlServerIdentity {

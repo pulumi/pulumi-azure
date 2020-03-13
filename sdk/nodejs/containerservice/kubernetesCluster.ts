@@ -109,7 +109,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly nodeResourceGroup!: pulumi.Output<string>;
     /**
-     * The FQDN for the Kubernetes Cluster when private link has been enabled, which is is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+     * The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      */
     public /*out*/ readonly privateFqdn!: pulumi.Output<string>;
     public readonly privateLinkEnabled!: pulumi.Output<boolean | undefined>;
@@ -293,7 +293,7 @@ export interface KubernetesClusterState {
      */
     readonly nodeResourceGroup?: pulumi.Input<string>;
     /**
-     * The FQDN for the Kubernetes Cluster when private link has been enabled, which is is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+     * The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      */
     readonly privateFqdn?: pulumi.Input<string>;
     readonly privateLinkEnabled?: pulumi.Input<boolean>;

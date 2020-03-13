@@ -53,12 +53,16 @@ type LookupCacheResult struct {
 	Port int `pulumi:"port"`
 	// The Primary Access Key for the Redis Instance
 	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
+	// The primary connection string of the Redis Instance.
+	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
 	PrivateStaticIpAddress string `pulumi:"privateStaticIpAddress"`
 	// A `redisConfiguration` block as defined below.
 	RedisConfigurations []GetCacheRedisConfiguration `pulumi:"redisConfigurations"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Secondary Access Key for the Redis Instance
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
+	// The secondary connection string of the Redis Instance.
+	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
 	ShardCount int `pulumi:"shardCount"`
 	// The SKU of Redis used. Possible values are `Basic`, `Standard` and `Premium`.
 	SkuName string `pulumi:"skuName"`

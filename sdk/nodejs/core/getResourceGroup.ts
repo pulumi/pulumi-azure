@@ -29,7 +29,7 @@ export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.Invok
  */
 export interface GetResourceGroupArgs {
     /**
-     * Specifies the name of the resource group.
+     * The Name of this Resource Group.
      */
     readonly name: string;
 }
@@ -39,12 +39,12 @@ export interface GetResourceGroupArgs {
  */
 export interface GetResourceGroupResult {
     /**
-     * The location of the resource group.
+     * The Azure Region where the Resource Group exists.
      */
     readonly location: string;
     readonly name: string;
     /**
-     * A mapping of tags assigned to the resource group.
+     * A mapping of tags assigned to the Resource Group.
      */
     readonly tags: {[key: string]: string};
     /**
