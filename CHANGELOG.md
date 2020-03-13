@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 2.1.0 (2020-03-10)
 * Upgrade to Pulumi v1.12.1
 * Upgrade to pulumi-terraform-bridge v1.8.2
 * Upgrade to v2.1.0 of the AzureRM Terraform Provider
-
----
 
 ## 2.0.0 (2020-03-10)
 * BREAKING: Upgrade to v2.0.0 of the AzureRM Terraform Provider
