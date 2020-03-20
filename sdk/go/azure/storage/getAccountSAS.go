@@ -9,12 +9,12 @@ import (
 )
 
 // Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account.
-// 
+//
 // Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account.
-// 
+//
 // Note that this is an [Account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-an-account-sas)
 // and *not* a [Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_sas.html.markdown.
 func GetAccountSAS(ctx *pulumi.Context, args *GetAccountSASArgs, opts ...pulumi.InvokeOption) (*GetAccountSASResult, error) {
 	var rv GetAccountSASResult
@@ -43,19 +43,17 @@ type GetAccountSASArgs struct {
 	Start string `pulumi:"start"`
 }
 
-
 // A collection of values returned by getAccountSAS.
 type GetAccountSASResult struct {
 	ConnectionString string `pulumi:"connectionString"`
-	Expiry string `pulumi:"expiry"`
-	HttpsOnly *bool `pulumi:"httpsOnly"`
+	Expiry           string `pulumi:"expiry"`
+	HttpsOnly        *bool  `pulumi:"httpsOnly"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Permissions GetAccountSASPermissions `pulumi:"permissions"`
+	Id            string                     `pulumi:"id"`
+	Permissions   GetAccountSASPermissions   `pulumi:"permissions"`
 	ResourceTypes GetAccountSASResourceTypes `pulumi:"resourceTypes"`
 	// The computed Account Shared Access Signature (SAS).
-	Sas string `pulumi:"sas"`
+	Sas      string                `pulumi:"sas"`
 	Services GetAccountSASServices `pulumi:"services"`
-	Start string `pulumi:"start"`
+	Start    string                `pulumi:"start"`
 }
-

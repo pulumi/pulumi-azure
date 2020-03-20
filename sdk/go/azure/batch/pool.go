@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Azure Batch pool.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_pool.html.markdown.
 type Pool struct {
 	pulumi.CustomResourceState
@@ -42,8 +42,8 @@ type Pool struct {
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `startTask` block that describes the start task settings for the Batch pool.
-	StartTask PoolStartTaskPtrOutput `pulumi:"startTask"`
-	StopPendingResizeOperation pulumi.BoolPtrOutput `pulumi:"stopPendingResizeOperation"`
+	StartTask                  PoolStartTaskPtrOutput `pulumi:"startTask"`
+	StopPendingResizeOperation pulumi.BoolPtrOutput   `pulumi:"stopPendingResizeOperation"`
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
 	StorageImageReference PoolStorageImageReferenceOutput `pulumi:"storageImageReference"`
 	// Specifies the size of the VM created in the Batch pool.
@@ -118,8 +118,8 @@ type poolState struct {
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `startTask` block that describes the start task settings for the Batch pool.
-	StartTask *PoolStartTask `pulumi:"startTask"`
-	StopPendingResizeOperation *bool `pulumi:"stopPendingResizeOperation"`
+	StartTask                  *PoolStartTask `pulumi:"startTask"`
+	StopPendingResizeOperation *bool          `pulumi:"stopPendingResizeOperation"`
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
 	StorageImageReference *PoolStorageImageReference `pulumi:"storageImageReference"`
 	// Specifies the size of the VM created in the Batch pool.
@@ -152,7 +152,7 @@ type PoolState struct {
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `startTask` block that describes the start task settings for the Batch pool.
-	StartTask PoolStartTaskPtrInput
+	StartTask                  PoolStartTaskPtrInput
 	StopPendingResizeOperation pulumi.BoolPtrInput
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
 	StorageImageReference PoolStorageImageReferencePtrInput
@@ -190,8 +190,8 @@ type poolArgs struct {
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `startTask` block that describes the start task settings for the Batch pool.
-	StartTask *PoolStartTask `pulumi:"startTask"`
-	StopPendingResizeOperation *bool `pulumi:"stopPendingResizeOperation"`
+	StartTask                  *PoolStartTask `pulumi:"startTask"`
+	StopPendingResizeOperation *bool          `pulumi:"stopPendingResizeOperation"`
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
 	StorageImageReference PoolStorageImageReference `pulumi:"storageImageReference"`
 	// Specifies the size of the VM created in the Batch pool.
@@ -225,7 +225,7 @@ type PoolArgs struct {
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `startTask` block that describes the start task settings for the Batch pool.
-	StartTask PoolStartTaskPtrInput
+	StartTask                  PoolStartTaskPtrInput
 	StopPendingResizeOperation pulumi.BoolPtrInput
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
 	StorageImageReference PoolStorageImageReferenceInput
@@ -236,4 +236,3 @@ type PoolArgs struct {
 func (PoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*poolArgs)(nil)).Elem()
 }
-

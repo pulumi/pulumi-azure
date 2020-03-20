@@ -12,10 +12,10 @@ import (
 )
 
 // Manages a Azure Data Lake Store File.
-// 
-// > **Note:** If you want to change the data in the remote file without changing the `localFilePath`, then 
+//
+// > **Note:** If you want to change the data in the remote file without changing the `localFilePath`, then
 // taint the resource so the `datalake.StoreFile` gets recreated with the new data.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store_file.html.markdown.
 type StoreFile struct {
 	pulumi.CustomResourceState
@@ -108,4 +108,3 @@ type StoreFileArgs struct {
 func (StoreFileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storeFileArgs)(nil)).Elem()
 }
-

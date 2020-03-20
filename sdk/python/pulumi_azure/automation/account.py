@@ -34,12 +34,6 @@ class Account(pulumi.CustomResource):
     """
     The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
     """
-    sku: pulumi.Output[dict]
-    """
-    ) A `sku` block as described below.
-    
-      * `name` (`str`) - Specifies the name of the Automation Account. Changing this forces a new resource to be created.
-    """
     sku_name: pulumi.Output[str]
     """
     The SKU name of the account - only `Basic` is supported at this time.
@@ -48,24 +42,19 @@ class Account(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku=None, sku_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Automation Account.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_account.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] sku: ) A `sku` block as described below.
         :param pulumi.Input[str] sku_name: The SKU name of the account - only `Basic` is supported at this time.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
-        The **sku** object supports the following:
-        
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Automation Account. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_account.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -89,7 +78,8 @@ class Account(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
+            if sku_name is None:
+                raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
             __props__['tags'] = tags
             __props__['dsc_primary_access_key'] = None
@@ -102,11 +92,11 @@ class Account(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, dsc_primary_access_key=None, dsc_secondary_access_key=None, dsc_server_endpoint=None, location=None, name=None, resource_group_name=None, sku=None, sku_name=None, tags=None):
+    def get(resource_name, id, opts=None, dsc_primary_access_key=None, dsc_secondary_access_key=None, dsc_server_endpoint=None, location=None, name=None, resource_group_name=None, sku_name=None, tags=None):
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,26 +106,19 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] sku: ) A `sku` block as described below.
         :param pulumi.Input[str] sku_name: The SKU name of the account - only `Basic` is supported at this time.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
-        The **sku** object supports the following:
-        
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Automation Account. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_account.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["dsc_primary_access_key"] = dsc_primary_access_key
         __props__["dsc_secondary_access_key"] = dsc_secondary_access_key
         __props__["dsc_server_endpoint"] = dsc_server_endpoint
         __props__["location"] = location
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
-        __props__["sku"] = sku
         __props__["sku_name"] = sku_name
         __props__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)

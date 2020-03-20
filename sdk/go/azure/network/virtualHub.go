@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Virtual Hub within a Virtual WAN.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_hub.html.markdown.
 type VirtualHub struct {
 	pulumi.CustomResourceState
@@ -145,4 +145,3 @@ type VirtualHubArgs struct {
 func (VirtualHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualHubArgs)(nil)).Elem()
 }
-

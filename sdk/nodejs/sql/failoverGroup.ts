@@ -8,48 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Create a failover group of databases on a collection of Azure SQL servers.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "uksouth",
- * });
- * const primary = new azure.sql.SqlServer("primary", {
- *     administratorLogin: "sqladmin",
- *     administratorLoginPassword: "pa$$w0rd",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     version: "12.0",
- * });
- * const secondary = new azure.sql.SqlServer("secondary", {
- *     administratorLogin: "sqladmin",
- *     administratorLoginPassword: "pa$$w0rd",
- *     location: "northeurope",
- *     resourceGroupName: exampleResourceGroup.name,
- *     version: "12.0",
- * });
- * const db1 = new azure.sql.Database("db1", {
- *     location: primary.location,
- *     resourceGroupName: primary.resourceGroupName,
- *     serverName: primary.name,
- * });
- * const exampleFailoverGroup = new azure.sql.FailoverGroup("example", {
- *     databases: [db1.id],
- *     partnerServers: [{
- *         id: secondary.id,
- *     }],
- *     readWriteEndpointFailoverPolicy: {
- *         graceMinutes: 60,
- *         mode: "Automatic",
- *     },
- *     resourceGroupName: primary.resourceGroupName,
- *     serverName: primary.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_failover_group.html.markdown.
  */
@@ -119,7 +77,7 @@ export class FailoverGroup extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a FailoverGroup resource with the given unique name, arguments, and options.

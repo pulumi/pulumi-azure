@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an API Management Product Policy
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product_policy.html.markdown.
 type ProductPolicy struct {
 	pulumi.CustomResourceState
@@ -125,4 +125,3 @@ type ProductPolicyArgs struct {
 func (ProductPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*productPolicyArgs)(nil)).Elem()
 }
-

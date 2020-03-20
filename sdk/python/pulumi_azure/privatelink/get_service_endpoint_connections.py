@@ -13,7 +13,13 @@ class GetServiceEndpointConnectionsResult:
     """
     A collection of values returned by getServiceEndpointConnections.
     """
-    def __init__(__self__, location=None, private_endpoint_connections=None, resource_group_name=None, service_id=None, service_name=None, id=None):
+    def __init__(__self__, id=None, location=None, private_endpoint_connections=None, resource_group_name=None, service_id=None, service_name=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -32,37 +38,33 @@ class GetServiceEndpointConnectionsResult:
         """
         The name of the private link service.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetServiceEndpointConnectionsResult(GetServiceEndpointConnectionsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetServiceEndpointConnectionsResult(
+            id=self.id,
             location=self.location,
             private_endpoint_connections=self.private_endpoint_connections,
             resource_group_name=self.resource_group_name,
             service_id=self.service_id,
-            service_name=self.service_name,
-            id=self.id)
+            service_name=self.service_name)
 
 def get_service_endpoint_connections(resource_group_name=None,service_id=None,opts=None):
     """
     Use this data source to access endpoint connection information about an existing Private Link Service.
-    
+
     > **NOTE** Private Link is currently in Public Preview.
-    
-    :param str resource_group_name: The name of the resource group in which the private link service resides.
-    :param str service_id: The resource ID of the private link service.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service_endpoint_connections.html.markdown.
+
+
+    :param str resource_group_name: The name of the resource group in which the private link service resides.
+    :param str service_id: The resource ID of the private link service.
     """
     __args__ = dict()
+
 
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceId'] = service_id
@@ -73,9 +75,9 @@ def get_service_endpoint_connections(resource_group_name=None,service_id=None,op
     __ret__ = pulumi.runtime.invoke('azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections', __args__, opts=opts).value
 
     return AwaitableGetServiceEndpointConnectionsResult(
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         private_endpoint_connections=__ret__.get('privateEndpointConnections'),
         resource_group_name=__ret__.get('resourceGroupName'),
         service_id=__ret__.get('serviceId'),
-        service_name=__ret__.get('serviceName'),
-        id=__ret__.get('id'))
+        service_name=__ret__.get('serviceName'))

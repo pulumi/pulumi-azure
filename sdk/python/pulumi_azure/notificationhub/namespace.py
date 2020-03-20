@@ -34,20 +34,16 @@ class Namespace(pulumi.CustomResource):
     """
     The ServiceBus Endpoint for this Notification Hub Namespace.
     """
-    sku: pulumi.Output[dict]
-    """
-    ) A `sku` block as described below.
-    
-      * `name` (`str`) - The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
-    """
     sku_name: pulumi.Output[str]
     """
     The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, enabled=None, location=None, name=None, namespace_type=None, resource_group_name=None, sku=None, sku_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, enabled=None, location=None, name=None, namespace_type=None, resource_group_name=None, sku_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Notification Hub Namespace.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub_namespace.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Is this Notification Hub Namespace enabled? Defaults to `true`.
@@ -55,14 +51,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] sku: ) A `sku` block as described below.
         :param pulumi.Input[str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
-        
-        The **sku** object supports the following:
-        
-          * `name` (`pulumi.Input[str]`) - The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub_namespace.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -90,7 +79,8 @@ class Namespace(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
+            if sku_name is None:
+                raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
             __props__['servicebus_endpoint'] = None
         super(Namespace, __self__).__init__(
@@ -100,11 +90,11 @@ class Namespace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, enabled=None, location=None, name=None, namespace_type=None, resource_group_name=None, servicebus_endpoint=None, sku=None, sku_name=None):
+    def get(resource_name, id, opts=None, enabled=None, location=None, name=None, namespace_type=None, resource_group_name=None, servicebus_endpoint=None, sku_name=None):
         """
         Get an existing Namespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,25 +104,18 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] servicebus_endpoint: The ServiceBus Endpoint for this Notification Hub Namespace.
-        :param pulumi.Input[dict] sku: ) A `sku` block as described below.
         :param pulumi.Input[str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
-        
-        The **sku** object supports the following:
-        
-          * `name` (`pulumi.Input[str]`) - The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub_namespace.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["enabled"] = enabled
         __props__["location"] = location
         __props__["name"] = name
         __props__["namespace_type"] = namespace_type
         __props__["resource_group_name"] = resource_group_name
         __props__["servicebus_endpoint"] = servicebus_endpoint
-        __props__["sku"] = sku
         __props__["sku_name"] = sku_name
         return Namespace(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

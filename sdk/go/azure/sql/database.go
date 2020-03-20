@@ -12,7 +12,7 @@ import (
 )
 
 // Allows you to manage an Azure SQL Database
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_database.html.markdown.
 type Database struct {
 	pulumi.CustomResourceState
@@ -29,21 +29,22 @@ type Database struct {
 	Edition pulumi.StringOutput `pulumi:"edition"`
 	// The name of the elastic database pool.
 	ElasticPoolName pulumi.StringOutput `pulumi:"elasticPoolName"`
-	Encryption pulumi.StringOutput `pulumi:"encryption"`
+	Encryption      pulumi.StringOutput `pulumi:"encryption"`
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import DatabaseImportPtrOutput `pulumi:"import"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	MaxSizeBytes pulumi.StringOutput `pulumi:"maxSizeBytes"`
+	MaxSizeGb    pulumi.StringOutput `pulumi:"maxSizeGb"`
 	// The name of the database.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
 	ReadScale pulumi.BoolPtrOutput `pulumi:"readScale"`
-	// Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
-	// Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level.
+	// .
 	RequestedServiceObjectiveId pulumi.StringOutput `pulumi:"requestedServiceObjectiveId"`
-	// Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the cli: ```shell az sql db list-editions -l westus --edition Standard -o table ```. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
 	RequestedServiceObjectiveName pulumi.StringOutput `pulumi:"requestedServiceObjectiveName"`
 	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -59,6 +60,8 @@ type Database struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy DatabaseThreatDetectionPolicyOutput `pulumi:"threatDetectionPolicy"`
+	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
@@ -107,21 +110,22 @@ type databaseState struct {
 	Edition *string `pulumi:"edition"`
 	// The name of the elastic database pool.
 	ElasticPoolName *string `pulumi:"elasticPoolName"`
-	Encryption *string `pulumi:"encryption"`
+	Encryption      *string `pulumi:"encryption"`
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import *DatabaseImport `pulumi:"import"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	MaxSizeBytes *string `pulumi:"maxSizeBytes"`
+	MaxSizeGb    *string `pulumi:"maxSizeGb"`
 	// The name of the database.
 	Name *string `pulumi:"name"`
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
 	ReadScale *bool `pulumi:"readScale"`
-	// Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
-	// Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level.
+	// .
 	RequestedServiceObjectiveId *string `pulumi:"requestedServiceObjectiveId"`
-	// Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the cli: ```shell az sql db list-editions -l westus --edition Standard -o table ```. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
 	RequestedServiceObjectiveName *string `pulumi:"requestedServiceObjectiveName"`
 	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -137,6 +141,8 @@ type databaseState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
+	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 type DatabaseState struct {
@@ -152,21 +158,22 @@ type DatabaseState struct {
 	Edition pulumi.StringPtrInput
 	// The name of the elastic database pool.
 	ElasticPoolName pulumi.StringPtrInput
-	Encryption pulumi.StringPtrInput
+	Encryption      pulumi.StringPtrInput
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import DatabaseImportPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	MaxSizeBytes pulumi.StringPtrInput
+	MaxSizeGb    pulumi.StringPtrInput
 	// The name of the database.
 	Name pulumi.StringPtrInput
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
 	ReadScale pulumi.BoolPtrInput
-	// Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
-	// Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level.
+	// .
 	RequestedServiceObjectiveId pulumi.StringPtrInput
-	// Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the cli: ```shell az sql db list-editions -l westus --edition Standard -o table ```. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
 	RequestedServiceObjectiveName pulumi.StringPtrInput
 	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
 	ResourceGroupName pulumi.StringPtrInput
@@ -182,6 +189,8 @@ type DatabaseState struct {
 	Tags pulumi.StringMapInput
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy DatabaseThreatDetectionPolicyPtrInput
+	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (DatabaseState) ElementType() reflect.Type {
@@ -203,14 +212,15 @@ type databaseArgs struct {
 	Location *string `pulumi:"location"`
 	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	MaxSizeBytes *string `pulumi:"maxSizeBytes"`
+	MaxSizeGb    *string `pulumi:"maxSizeGb"`
 	// The name of the database.
 	Name *string `pulumi:"name"`
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
 	ReadScale *bool `pulumi:"readScale"`
-	// Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
-	// Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level.
+	// .
 	RequestedServiceObjectiveId *string `pulumi:"requestedServiceObjectiveId"`
-	// Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the cli: ```shell az sql db list-editions -l westus --edition Standard -o table ```. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
 	RequestedServiceObjectiveName *string `pulumi:"requestedServiceObjectiveName"`
 	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -226,6 +236,8 @@ type databaseArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
+	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a Database resource.
@@ -244,14 +256,15 @@ type DatabaseArgs struct {
 	Location pulumi.StringPtrInput
 	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	MaxSizeBytes pulumi.StringPtrInput
+	MaxSizeGb    pulumi.StringPtrInput
 	// The name of the database.
 	Name pulumi.StringPtrInput
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
 	ReadScale pulumi.BoolPtrInput
-	// Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
-	// Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level.
+	// .
 	RequestedServiceObjectiveId pulumi.StringPtrInput
-	// Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the cli: ```shell az sql db list-editions -l westus --edition Standard -o table ```. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
 	RequestedServiceObjectiveName pulumi.StringPtrInput
 	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
 	ResourceGroupName pulumi.StringInput
@@ -267,9 +280,10 @@ type DatabaseArgs struct {
 	Tags pulumi.StringMapInput
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy DatabaseThreatDetectionPolicyPtrInput
+	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseArgs)(nil)).Elem()
 }
-

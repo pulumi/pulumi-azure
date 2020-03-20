@@ -21,15 +21,13 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, route_table_id=None, subnet_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Associates a Route Table with a Subnet within a Virtual Network.
-        
-        > **NOTE:** Subnet `<->` Route Table associations currently need to be configured on both this resource and using the `route_table_id` field on the `network.Subnet` resource. The next major version of the AzureRM Provider (2.0) will remove the `route_table_id` field from the `network.Subnet` resource such that this resource is used to link resources in future.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_route_table_association.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] route_table_id: The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_route_table_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,18 +63,17 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
         """
         Get an existing SubnetRouteTableAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] route_table_id: The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_route_table_association.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["route_table_id"] = route_table_id
         __props__["subnet_id"] = subnet_id
         return SubnetRouteTableAssociation(resource_name, opts=opts, __props__=__props__)

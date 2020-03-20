@@ -12,6 +12,7 @@ import (
 )
 
 type AccountBlobProperties struct {
+	CorsRules             []AccountBlobPropertiesCorsRule             `pulumi:"corsRules"`
 	DeleteRetentionPolicy *AccountBlobPropertiesDeleteRetentionPolicy `pulumi:"deleteRetentionPolicy"`
 }
 
@@ -23,6 +24,7 @@ type AccountBlobPropertiesInput interface {
 }
 
 type AccountBlobPropertiesArgs struct {
+	CorsRules             AccountBlobPropertiesCorsRuleArrayInput            `pulumi:"corsRules"`
 	DeleteRetentionPolicy AccountBlobPropertiesDeleteRetentionPolicyPtrInput `pulumi:"deleteRetentionPolicy"`
 }
 
@@ -55,7 +57,8 @@ type AccountBlobPropertiesPtrInput interface {
 
 type accountBlobPropertiesPtrType AccountBlobPropertiesArgs
 
-func AccountBlobPropertiesPtr(v *AccountBlobPropertiesArgs) AccountBlobPropertiesPtrInput {	return (*accountBlobPropertiesPtrType)(v)
+func AccountBlobPropertiesPtr(v *AccountBlobPropertiesArgs) AccountBlobPropertiesPtrInput {
+	return (*accountBlobPropertiesPtrType)(v)
 }
 
 func (*accountBlobPropertiesPtrType) ElementType() reflect.Type {
@@ -70,7 +73,7 @@ func (i *accountBlobPropertiesPtrType) ToAccountBlobPropertiesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesPtrOutput)
 }
 
-type AccountBlobPropertiesOutput struct { *pulumi.OutputState }
+type AccountBlobPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AccountBlobPropertiesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountBlobProperties)(nil)).Elem()
@@ -93,11 +96,17 @@ func (o AccountBlobPropertiesOutput) ToAccountBlobPropertiesPtrOutputWithContext
 		return &v
 	}).(AccountBlobPropertiesPtrOutput)
 }
-func (o AccountBlobPropertiesOutput) DeleteRetentionPolicy() AccountBlobPropertiesDeleteRetentionPolicyPtrOutput {
-	return o.ApplyT(func (v AccountBlobProperties) *AccountBlobPropertiesDeleteRetentionPolicy { return v.DeleteRetentionPolicy }).(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput)
+func (o AccountBlobPropertiesOutput) CorsRules() AccountBlobPropertiesCorsRuleArrayOutput {
+	return o.ApplyT(func(v AccountBlobProperties) []AccountBlobPropertiesCorsRule { return v.CorsRules }).(AccountBlobPropertiesCorsRuleArrayOutput)
 }
 
-type AccountBlobPropertiesPtrOutput struct { *pulumi.OutputState}
+func (o AccountBlobPropertiesOutput) DeleteRetentionPolicy() AccountBlobPropertiesDeleteRetentionPolicyPtrOutput {
+	return o.ApplyT(func(v AccountBlobProperties) *AccountBlobPropertiesDeleteRetentionPolicy {
+		return v.DeleteRetentionPolicy
+	}).(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput)
+}
+
+type AccountBlobPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (AccountBlobPropertiesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountBlobProperties)(nil)).Elem()
@@ -112,11 +121,127 @@ func (o AccountBlobPropertiesPtrOutput) ToAccountBlobPropertiesPtrOutputWithCont
 }
 
 func (o AccountBlobPropertiesPtrOutput) Elem() AccountBlobPropertiesOutput {
-	return o.ApplyT(func (v *AccountBlobProperties) AccountBlobProperties { return *v }).(AccountBlobPropertiesOutput)
+	return o.ApplyT(func(v *AccountBlobProperties) AccountBlobProperties { return *v }).(AccountBlobPropertiesOutput)
+}
+
+func (o AccountBlobPropertiesPtrOutput) CorsRules() AccountBlobPropertiesCorsRuleArrayOutput {
+	return o.ApplyT(func(v AccountBlobProperties) []AccountBlobPropertiesCorsRule { return v.CorsRules }).(AccountBlobPropertiesCorsRuleArrayOutput)
 }
 
 func (o AccountBlobPropertiesPtrOutput) DeleteRetentionPolicy() AccountBlobPropertiesDeleteRetentionPolicyPtrOutput {
-	return o.ApplyT(func (v AccountBlobProperties) *AccountBlobPropertiesDeleteRetentionPolicy { return v.DeleteRetentionPolicy }).(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput)
+	return o.ApplyT(func(v AccountBlobProperties) *AccountBlobPropertiesDeleteRetentionPolicy {
+		return v.DeleteRetentionPolicy
+	}).(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput)
+}
+
+type AccountBlobPropertiesCorsRule struct {
+	AllowedHeaders  []string `pulumi:"allowedHeaders"`
+	AllowedMethods  []string `pulumi:"allowedMethods"`
+	AllowedOrigins  []string `pulumi:"allowedOrigins"`
+	ExposedHeaders  []string `pulumi:"exposedHeaders"`
+	MaxAgeInSeconds int      `pulumi:"maxAgeInSeconds"`
+}
+
+type AccountBlobPropertiesCorsRuleInput interface {
+	pulumi.Input
+
+	ToAccountBlobPropertiesCorsRuleOutput() AccountBlobPropertiesCorsRuleOutput
+	ToAccountBlobPropertiesCorsRuleOutputWithContext(context.Context) AccountBlobPropertiesCorsRuleOutput
+}
+
+type AccountBlobPropertiesCorsRuleArgs struct {
+	AllowedHeaders  pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	AllowedMethods  pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	AllowedOrigins  pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	ExposedHeaders  pulumi.StringArrayInput `pulumi:"exposedHeaders"`
+	MaxAgeInSeconds pulumi.IntInput         `pulumi:"maxAgeInSeconds"`
+}
+
+func (AccountBlobPropertiesCorsRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountBlobPropertiesCorsRule)(nil)).Elem()
+}
+
+func (i AccountBlobPropertiesCorsRuleArgs) ToAccountBlobPropertiesCorsRuleOutput() AccountBlobPropertiesCorsRuleOutput {
+	return i.ToAccountBlobPropertiesCorsRuleOutputWithContext(context.Background())
+}
+
+func (i AccountBlobPropertiesCorsRuleArgs) ToAccountBlobPropertiesCorsRuleOutputWithContext(ctx context.Context) AccountBlobPropertiesCorsRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesCorsRuleOutput)
+}
+
+type AccountBlobPropertiesCorsRuleArrayInput interface {
+	pulumi.Input
+
+	ToAccountBlobPropertiesCorsRuleArrayOutput() AccountBlobPropertiesCorsRuleArrayOutput
+	ToAccountBlobPropertiesCorsRuleArrayOutputWithContext(context.Context) AccountBlobPropertiesCorsRuleArrayOutput
+}
+
+type AccountBlobPropertiesCorsRuleArray []AccountBlobPropertiesCorsRuleInput
+
+func (AccountBlobPropertiesCorsRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountBlobPropertiesCorsRule)(nil)).Elem()
+}
+
+func (i AccountBlobPropertiesCorsRuleArray) ToAccountBlobPropertiesCorsRuleArrayOutput() AccountBlobPropertiesCorsRuleArrayOutput {
+	return i.ToAccountBlobPropertiesCorsRuleArrayOutputWithContext(context.Background())
+}
+
+func (i AccountBlobPropertiesCorsRuleArray) ToAccountBlobPropertiesCorsRuleArrayOutputWithContext(ctx context.Context) AccountBlobPropertiesCorsRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesCorsRuleArrayOutput)
+}
+
+type AccountBlobPropertiesCorsRuleOutput struct{ *pulumi.OutputState }
+
+func (AccountBlobPropertiesCorsRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountBlobPropertiesCorsRule)(nil)).Elem()
+}
+
+func (o AccountBlobPropertiesCorsRuleOutput) ToAccountBlobPropertiesCorsRuleOutput() AccountBlobPropertiesCorsRuleOutput {
+	return o
+}
+
+func (o AccountBlobPropertiesCorsRuleOutput) ToAccountBlobPropertiesCorsRuleOutputWithContext(ctx context.Context) AccountBlobPropertiesCorsRuleOutput {
+	return o
+}
+
+func (o AccountBlobPropertiesCorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountBlobPropertiesCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+}
+
+func (o AccountBlobPropertiesCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountBlobPropertiesCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+func (o AccountBlobPropertiesCorsRuleOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountBlobPropertiesCorsRule) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+func (o AccountBlobPropertiesCorsRuleOutput) ExposedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountBlobPropertiesCorsRule) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
+}
+
+func (o AccountBlobPropertiesCorsRuleOutput) MaxAgeInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v AccountBlobPropertiesCorsRule) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
+}
+
+type AccountBlobPropertiesCorsRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountBlobPropertiesCorsRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountBlobPropertiesCorsRule)(nil)).Elem()
+}
+
+func (o AccountBlobPropertiesCorsRuleArrayOutput) ToAccountBlobPropertiesCorsRuleArrayOutput() AccountBlobPropertiesCorsRuleArrayOutput {
+	return o
+}
+
+func (o AccountBlobPropertiesCorsRuleArrayOutput) ToAccountBlobPropertiesCorsRuleArrayOutputWithContext(ctx context.Context) AccountBlobPropertiesCorsRuleArrayOutput {
+	return o
+}
+
+func (o AccountBlobPropertiesCorsRuleArrayOutput) Index(i pulumi.IntInput) AccountBlobPropertiesCorsRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountBlobPropertiesCorsRule {
+		return vs[0].([]AccountBlobPropertiesCorsRule)[vs[1].(int)]
+	}).(AccountBlobPropertiesCorsRuleOutput)
 }
 
 type AccountBlobPropertiesDeleteRetentionPolicy struct {
@@ -163,7 +288,8 @@ type AccountBlobPropertiesDeleteRetentionPolicyPtrInput interface {
 
 type accountBlobPropertiesDeleteRetentionPolicyPtrType AccountBlobPropertiesDeleteRetentionPolicyArgs
 
-func AccountBlobPropertiesDeleteRetentionPolicyPtr(v *AccountBlobPropertiesDeleteRetentionPolicyArgs) AccountBlobPropertiesDeleteRetentionPolicyPtrInput {	return (*accountBlobPropertiesDeleteRetentionPolicyPtrType)(v)
+func AccountBlobPropertiesDeleteRetentionPolicyPtr(v *AccountBlobPropertiesDeleteRetentionPolicyArgs) AccountBlobPropertiesDeleteRetentionPolicyPtrInput {
+	return (*accountBlobPropertiesDeleteRetentionPolicyPtrType)(v)
 }
 
 func (*accountBlobPropertiesDeleteRetentionPolicyPtrType) ElementType() reflect.Type {
@@ -178,7 +304,7 @@ func (i *accountBlobPropertiesDeleteRetentionPolicyPtrType) ToAccountBlobPropert
 	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput)
 }
 
-type AccountBlobPropertiesDeleteRetentionPolicyOutput struct { *pulumi.OutputState }
+type AccountBlobPropertiesDeleteRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (AccountBlobPropertiesDeleteRetentionPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountBlobPropertiesDeleteRetentionPolicy)(nil)).Elem()
@@ -202,10 +328,10 @@ func (o AccountBlobPropertiesDeleteRetentionPolicyOutput) ToAccountBlobPropertie
 	}).(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput)
 }
 func (o AccountBlobPropertiesDeleteRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v AccountBlobPropertiesDeleteRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v AccountBlobPropertiesDeleteRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-type AccountBlobPropertiesDeleteRetentionPolicyPtrOutput struct { *pulumi.OutputState}
+type AccountBlobPropertiesDeleteRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountBlobPropertiesDeleteRetentionPolicy)(nil)).Elem()
@@ -220,17 +346,19 @@ func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) ToAccountBlobProper
 }
 
 func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) Elem() AccountBlobPropertiesDeleteRetentionPolicyOutput {
-	return o.ApplyT(func (v *AccountBlobPropertiesDeleteRetentionPolicy) AccountBlobPropertiesDeleteRetentionPolicy { return *v }).(AccountBlobPropertiesDeleteRetentionPolicyOutput)
+	return o.ApplyT(func(v *AccountBlobPropertiesDeleteRetentionPolicy) AccountBlobPropertiesDeleteRetentionPolicy {
+		return *v
+	}).(AccountBlobPropertiesDeleteRetentionPolicyOutput)
 }
 
 func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v AccountBlobPropertiesDeleteRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v AccountBlobPropertiesDeleteRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
 type AccountCustomDomain struct {
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-	Name string `pulumi:"name"`
-	UseSubdomain *bool `pulumi:"useSubdomain"`
+	Name         string `pulumi:"name"`
+	UseSubdomain *bool  `pulumi:"useSubdomain"`
 }
 
 type AccountCustomDomainInput interface {
@@ -242,7 +370,7 @@ type AccountCustomDomainInput interface {
 
 type AccountCustomDomainArgs struct {
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name         pulumi.StringInput  `pulumi:"name"`
 	UseSubdomain pulumi.BoolPtrInput `pulumi:"useSubdomain"`
 }
 
@@ -275,7 +403,8 @@ type AccountCustomDomainPtrInput interface {
 
 type accountCustomDomainPtrType AccountCustomDomainArgs
 
-func AccountCustomDomainPtr(v *AccountCustomDomainArgs) AccountCustomDomainPtrInput {	return (*accountCustomDomainPtrType)(v)
+func AccountCustomDomainPtr(v *AccountCustomDomainArgs) AccountCustomDomainPtrInput {
+	return (*accountCustomDomainPtrType)(v)
 }
 
 func (*accountCustomDomainPtrType) ElementType() reflect.Type {
@@ -290,7 +419,7 @@ func (i *accountCustomDomainPtrType) ToAccountCustomDomainPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomDomainPtrOutput)
 }
 
-type AccountCustomDomainOutput struct { *pulumi.OutputState }
+type AccountCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (AccountCustomDomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountCustomDomain)(nil)).Elem()
@@ -313,16 +442,17 @@ func (o AccountCustomDomainOutput) ToAccountCustomDomainPtrOutputWithContext(ctx
 		return &v
 	}).(AccountCustomDomainPtrOutput)
 }
+
 // Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 func (o AccountCustomDomainOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountCustomDomain) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountCustomDomain) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o AccountCustomDomainOutput) UseSubdomain() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v AccountCustomDomain) *bool { return v.UseSubdomain }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v AccountCustomDomain) *bool { return v.UseSubdomain }).(pulumi.BoolPtrOutput)
 }
 
-type AccountCustomDomainPtrOutput struct { *pulumi.OutputState}
+type AccountCustomDomainPtrOutput struct{ *pulumi.OutputState }
 
 func (AccountCustomDomainPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountCustomDomain)(nil)).Elem()
@@ -337,16 +467,16 @@ func (o AccountCustomDomainPtrOutput) ToAccountCustomDomainPtrOutputWithContext(
 }
 
 func (o AccountCustomDomainPtrOutput) Elem() AccountCustomDomainOutput {
-	return o.ApplyT(func (v *AccountCustomDomain) AccountCustomDomain { return *v }).(AccountCustomDomainOutput)
+	return o.ApplyT(func(v *AccountCustomDomain) AccountCustomDomain { return *v }).(AccountCustomDomainOutput)
 }
 
 // Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 func (o AccountCustomDomainPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountCustomDomain) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountCustomDomain) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o AccountCustomDomainPtrOutput) UseSubdomain() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v AccountCustomDomain) *bool { return v.UseSubdomain }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v AccountCustomDomain) *bool { return v.UseSubdomain }).(pulumi.BoolPtrOutput)
 }
 
 type AccountIdentity struct {
@@ -354,7 +484,7 @@ type AccountIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
 	TenantId *string `pulumi:"tenantId"`
-	Type string `pulumi:"type"`
+	Type     string  `pulumi:"type"`
 }
 
 type AccountIdentityInput interface {
@@ -369,7 +499,7 @@ type AccountIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Type     pulumi.StringInput    `pulumi:"type"`
 }
 
 func (AccountIdentityArgs) ElementType() reflect.Type {
@@ -401,7 +531,8 @@ type AccountIdentityPtrInput interface {
 
 type accountIdentityPtrType AccountIdentityArgs
 
-func AccountIdentityPtr(v *AccountIdentityArgs) AccountIdentityPtrInput {	return (*accountIdentityPtrType)(v)
+func AccountIdentityPtr(v *AccountIdentityArgs) AccountIdentityPtrInput {
+	return (*accountIdentityPtrType)(v)
 }
 
 func (*accountIdentityPtrType) ElementType() reflect.Type {
@@ -416,7 +547,7 @@ func (i *accountIdentityPtrType) ToAccountIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityPtrOutput)
 }
 
-type AccountIdentityOutput struct { *pulumi.OutputState }
+type AccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (AccountIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountIdentity)(nil)).Elem()
@@ -439,21 +570,22 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 		return &v
 	}).(AccountIdentityPtrOutput)
 }
+
 // The Principal ID for the Service Principal associated with the Identity of this Storage Account.
 func (o AccountIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AccountIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AccountIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
 func (o AccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 func (o AccountIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type AccountIdentityPtrOutput struct { *pulumi.OutputState}
+type AccountIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (AccountIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountIdentity)(nil)).Elem()
@@ -468,27 +600,27 @@ func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
-	return o.ApplyT(func (v *AccountIdentity) AccountIdentity { return *v }).(AccountIdentityOutput)
+	return o.ApplyT(func(v *AccountIdentity) AccountIdentity { return *v }).(AccountIdentityOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Identity of this Storage Account.
 func (o AccountIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AccountIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AccountIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
 func (o AccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 func (o AccountIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type AccountNetworkRulesType struct {
-	Bypasses []string `pulumi:"bypasses"`
-	DefaultAction string `pulumi:"defaultAction"`
-	IpRules []string `pulumi:"ipRules"`
+	Bypasses                []string `pulumi:"bypasses"`
+	DefaultAction           string   `pulumi:"defaultAction"`
+	IpRules                 []string `pulumi:"ipRules"`
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
 }
 
@@ -500,9 +632,9 @@ type AccountNetworkRulesTypeInput interface {
 }
 
 type AccountNetworkRulesTypeArgs struct {
-	Bypasses pulumi.StringArrayInput `pulumi:"bypasses"`
-	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
-	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
+	Bypasses                pulumi.StringArrayInput `pulumi:"bypasses"`
+	DefaultAction           pulumi.StringInput      `pulumi:"defaultAction"`
+	IpRules                 pulumi.StringArrayInput `pulumi:"ipRules"`
 	VirtualNetworkSubnetIds pulumi.StringArrayInput `pulumi:"virtualNetworkSubnetIds"`
 }
 
@@ -535,7 +667,8 @@ type AccountNetworkRulesTypePtrInput interface {
 
 type accountNetworkRulesTypePtrType AccountNetworkRulesTypeArgs
 
-func AccountNetworkRulesTypePtr(v *AccountNetworkRulesTypeArgs) AccountNetworkRulesTypePtrInput {	return (*accountNetworkRulesTypePtrType)(v)
+func AccountNetworkRulesTypePtr(v *AccountNetworkRulesTypeArgs) AccountNetworkRulesTypePtrInput {
+	return (*accountNetworkRulesTypePtrType)(v)
 }
 
 func (*accountNetworkRulesTypePtrType) ElementType() reflect.Type {
@@ -550,7 +683,7 @@ func (i *accountNetworkRulesTypePtrType) ToAccountNetworkRulesTypePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesTypePtrOutput)
 }
 
-type AccountNetworkRulesTypeOutput struct { *pulumi.OutputState }
+type AccountNetworkRulesTypeOutput struct{ *pulumi.OutputState }
 
 func (AccountNetworkRulesTypeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountNetworkRulesType)(nil)).Elem()
@@ -574,22 +707,22 @@ func (o AccountNetworkRulesTypeOutput) ToAccountNetworkRulesTypePtrOutputWithCon
 	}).(AccountNetworkRulesTypePtrOutput)
 }
 func (o AccountNetworkRulesTypeOutput) Bypasses() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AccountNetworkRulesType) []string { return v.Bypasses }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.Bypasses }).(pulumi.StringArrayOutput)
 }
 
 func (o AccountNetworkRulesTypeOutput) DefaultAction() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountNetworkRulesType) string { return v.DefaultAction }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountNetworkRulesType) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
 
 func (o AccountNetworkRulesTypeOutput) IpRules() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AccountNetworkRulesType) []string { return v.IpRules }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.IpRules }).(pulumi.StringArrayOutput)
 }
 
 func (o AccountNetworkRulesTypeOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AccountNetworkRulesType) []string { return v.VirtualNetworkSubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.VirtualNetworkSubnetIds }).(pulumi.StringArrayOutput)
 }
 
-type AccountNetworkRulesTypePtrOutput struct { *pulumi.OutputState}
+type AccountNetworkRulesTypePtrOutput struct{ *pulumi.OutputState }
 
 func (AccountNetworkRulesTypePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountNetworkRulesType)(nil)).Elem()
@@ -604,29 +737,29 @@ func (o AccountNetworkRulesTypePtrOutput) ToAccountNetworkRulesTypePtrOutputWith
 }
 
 func (o AccountNetworkRulesTypePtrOutput) Elem() AccountNetworkRulesTypeOutput {
-	return o.ApplyT(func (v *AccountNetworkRulesType) AccountNetworkRulesType { return *v }).(AccountNetworkRulesTypeOutput)
+	return o.ApplyT(func(v *AccountNetworkRulesType) AccountNetworkRulesType { return *v }).(AccountNetworkRulesTypeOutput)
 }
 
 func (o AccountNetworkRulesTypePtrOutput) Bypasses() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AccountNetworkRulesType) []string { return v.Bypasses }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.Bypasses }).(pulumi.StringArrayOutput)
 }
 
 func (o AccountNetworkRulesTypePtrOutput) DefaultAction() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountNetworkRulesType) string { return v.DefaultAction }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountNetworkRulesType) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
 
 func (o AccountNetworkRulesTypePtrOutput) IpRules() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AccountNetworkRulesType) []string { return v.IpRules }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.IpRules }).(pulumi.StringArrayOutput)
 }
 
 func (o AccountNetworkRulesTypePtrOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AccountNetworkRulesType) []string { return v.VirtualNetworkSubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.VirtualNetworkSubnetIds }).(pulumi.StringArrayOutput)
 }
 
 type AccountQueueProperties struct {
-	CorsRules []AccountQueuePropertiesCorsRule `pulumi:"corsRules"`
-	HourMetrics *AccountQueuePropertiesHourMetrics `pulumi:"hourMetrics"`
-	Logging *AccountQueuePropertiesLogging `pulumi:"logging"`
+	CorsRules     []AccountQueuePropertiesCorsRule     `pulumi:"corsRules"`
+	HourMetrics   *AccountQueuePropertiesHourMetrics   `pulumi:"hourMetrics"`
+	Logging       *AccountQueuePropertiesLogging       `pulumi:"logging"`
 	MinuteMetrics *AccountQueuePropertiesMinuteMetrics `pulumi:"minuteMetrics"`
 }
 
@@ -638,9 +771,9 @@ type AccountQueuePropertiesInput interface {
 }
 
 type AccountQueuePropertiesArgs struct {
-	CorsRules AccountQueuePropertiesCorsRuleArrayInput `pulumi:"corsRules"`
-	HourMetrics AccountQueuePropertiesHourMetricsPtrInput `pulumi:"hourMetrics"`
-	Logging AccountQueuePropertiesLoggingPtrInput `pulumi:"logging"`
+	CorsRules     AccountQueuePropertiesCorsRuleArrayInput    `pulumi:"corsRules"`
+	HourMetrics   AccountQueuePropertiesHourMetricsPtrInput   `pulumi:"hourMetrics"`
+	Logging       AccountQueuePropertiesLoggingPtrInput       `pulumi:"logging"`
 	MinuteMetrics AccountQueuePropertiesMinuteMetricsPtrInput `pulumi:"minuteMetrics"`
 }
 
@@ -673,7 +806,8 @@ type AccountQueuePropertiesPtrInput interface {
 
 type accountQueuePropertiesPtrType AccountQueuePropertiesArgs
 
-func AccountQueuePropertiesPtr(v *AccountQueuePropertiesArgs) AccountQueuePropertiesPtrInput {	return (*accountQueuePropertiesPtrType)(v)
+func AccountQueuePropertiesPtr(v *AccountQueuePropertiesArgs) AccountQueuePropertiesPtrInput {
+	return (*accountQueuePropertiesPtrType)(v)
 }
 
 func (*accountQueuePropertiesPtrType) ElementType() reflect.Type {
@@ -688,7 +822,7 @@ func (i *accountQueuePropertiesPtrType) ToAccountQueuePropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesPtrOutput)
 }
 
-type AccountQueuePropertiesOutput struct { *pulumi.OutputState }
+type AccountQueuePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AccountQueuePropertiesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountQueueProperties)(nil)).Elem()
@@ -712,22 +846,22 @@ func (o AccountQueuePropertiesOutput) ToAccountQueuePropertiesPtrOutputWithConte
 	}).(AccountQueuePropertiesPtrOutput)
 }
 func (o AccountQueuePropertiesOutput) CorsRules() AccountQueuePropertiesCorsRuleArrayOutput {
-	return o.ApplyT(func (v AccountQueueProperties) []AccountQueuePropertiesCorsRule { return v.CorsRules }).(AccountQueuePropertiesCorsRuleArrayOutput)
+	return o.ApplyT(func(v AccountQueueProperties) []AccountQueuePropertiesCorsRule { return v.CorsRules }).(AccountQueuePropertiesCorsRuleArrayOutput)
 }
 
 func (o AccountQueuePropertiesOutput) HourMetrics() AccountQueuePropertiesHourMetricsPtrOutput {
-	return o.ApplyT(func (v AccountQueueProperties) *AccountQueuePropertiesHourMetrics { return v.HourMetrics }).(AccountQueuePropertiesHourMetricsPtrOutput)
+	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesHourMetrics { return v.HourMetrics }).(AccountQueuePropertiesHourMetricsPtrOutput)
 }
 
 func (o AccountQueuePropertiesOutput) Logging() AccountQueuePropertiesLoggingPtrOutput {
-	return o.ApplyT(func (v AccountQueueProperties) *AccountQueuePropertiesLogging { return v.Logging }).(AccountQueuePropertiesLoggingPtrOutput)
+	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesLogging { return v.Logging }).(AccountQueuePropertiesLoggingPtrOutput)
 }
 
 func (o AccountQueuePropertiesOutput) MinuteMetrics() AccountQueuePropertiesMinuteMetricsPtrOutput {
-	return o.ApplyT(func (v AccountQueueProperties) *AccountQueuePropertiesMinuteMetrics { return v.MinuteMetrics }).(AccountQueuePropertiesMinuteMetricsPtrOutput)
+	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesMinuteMetrics { return v.MinuteMetrics }).(AccountQueuePropertiesMinuteMetricsPtrOutput)
 }
 
-type AccountQueuePropertiesPtrOutput struct { *pulumi.OutputState}
+type AccountQueuePropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (AccountQueuePropertiesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountQueueProperties)(nil)).Elem()
@@ -742,31 +876,31 @@ func (o AccountQueuePropertiesPtrOutput) ToAccountQueuePropertiesPtrOutputWithCo
 }
 
 func (o AccountQueuePropertiesPtrOutput) Elem() AccountQueuePropertiesOutput {
-	return o.ApplyT(func (v *AccountQueueProperties) AccountQueueProperties { return *v }).(AccountQueuePropertiesOutput)
+	return o.ApplyT(func(v *AccountQueueProperties) AccountQueueProperties { return *v }).(AccountQueuePropertiesOutput)
 }
 
 func (o AccountQueuePropertiesPtrOutput) CorsRules() AccountQueuePropertiesCorsRuleArrayOutput {
-	return o.ApplyT(func (v AccountQueueProperties) []AccountQueuePropertiesCorsRule { return v.CorsRules }).(AccountQueuePropertiesCorsRuleArrayOutput)
+	return o.ApplyT(func(v AccountQueueProperties) []AccountQueuePropertiesCorsRule { return v.CorsRules }).(AccountQueuePropertiesCorsRuleArrayOutput)
 }
 
 func (o AccountQueuePropertiesPtrOutput) HourMetrics() AccountQueuePropertiesHourMetricsPtrOutput {
-	return o.ApplyT(func (v AccountQueueProperties) *AccountQueuePropertiesHourMetrics { return v.HourMetrics }).(AccountQueuePropertiesHourMetricsPtrOutput)
+	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesHourMetrics { return v.HourMetrics }).(AccountQueuePropertiesHourMetricsPtrOutput)
 }
 
 func (o AccountQueuePropertiesPtrOutput) Logging() AccountQueuePropertiesLoggingPtrOutput {
-	return o.ApplyT(func (v AccountQueueProperties) *AccountQueuePropertiesLogging { return v.Logging }).(AccountQueuePropertiesLoggingPtrOutput)
+	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesLogging { return v.Logging }).(AccountQueuePropertiesLoggingPtrOutput)
 }
 
 func (o AccountQueuePropertiesPtrOutput) MinuteMetrics() AccountQueuePropertiesMinuteMetricsPtrOutput {
-	return o.ApplyT(func (v AccountQueueProperties) *AccountQueuePropertiesMinuteMetrics { return v.MinuteMetrics }).(AccountQueuePropertiesMinuteMetricsPtrOutput)
+	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesMinuteMetrics { return v.MinuteMetrics }).(AccountQueuePropertiesMinuteMetricsPtrOutput)
 }
 
 type AccountQueuePropertiesCorsRule struct {
-	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	AllowedMethods []string `pulumi:"allowedMethods"`
-	AllowedOrigins []string `pulumi:"allowedOrigins"`
-	ExposedHeaders []string `pulumi:"exposedHeaders"`
-	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
+	AllowedHeaders  []string `pulumi:"allowedHeaders"`
+	AllowedMethods  []string `pulumi:"allowedMethods"`
+	AllowedOrigins  []string `pulumi:"allowedOrigins"`
+	ExposedHeaders  []string `pulumi:"exposedHeaders"`
+	MaxAgeInSeconds int      `pulumi:"maxAgeInSeconds"`
 }
 
 type AccountQueuePropertiesCorsRuleInput interface {
@@ -777,11 +911,11 @@ type AccountQueuePropertiesCorsRuleInput interface {
 }
 
 type AccountQueuePropertiesCorsRuleArgs struct {
-	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
-	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
-	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
-	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
+	AllowedHeaders  pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	AllowedMethods  pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	AllowedOrigins  pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	ExposedHeaders  pulumi.StringArrayInput `pulumi:"exposedHeaders"`
+	MaxAgeInSeconds pulumi.IntInput         `pulumi:"maxAgeInSeconds"`
 }
 
 func (AccountQueuePropertiesCorsRuleArgs) ElementType() reflect.Type {
@@ -817,7 +951,7 @@ func (i AccountQueuePropertiesCorsRuleArray) ToAccountQueuePropertiesCorsRuleArr
 	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesCorsRuleArrayOutput)
 }
 
-type AccountQueuePropertiesCorsRuleOutput struct { *pulumi.OutputState }
+type AccountQueuePropertiesCorsRuleOutput struct{ *pulumi.OutputState }
 
 func (AccountQueuePropertiesCorsRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountQueuePropertiesCorsRule)(nil)).Elem()
@@ -832,26 +966,26 @@ func (o AccountQueuePropertiesCorsRuleOutput) ToAccountQueuePropertiesCorsRuleOu
 }
 
 func (o AccountQueuePropertiesCorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
 func (o AccountQueuePropertiesCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
 
 func (o AccountQueuePropertiesCorsRuleOutput) AllowedOrigins() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesCorsRule) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesCorsRule) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
 func (o AccountQueuePropertiesCorsRuleOutput) ExposedHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesCorsRule) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesCorsRule) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
 }
 
 func (o AccountQueuePropertiesCorsRuleOutput) MaxAgeInSeconds() pulumi.IntOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesCorsRule) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesCorsRule) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
 }
 
-type AccountQueuePropertiesCorsRuleArrayOutput struct { *pulumi.OutputState}
+type AccountQueuePropertiesCorsRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (AccountQueuePropertiesCorsRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]AccountQueuePropertiesCorsRule)(nil)).Elem()
@@ -866,16 +1000,16 @@ func (o AccountQueuePropertiesCorsRuleArrayOutput) ToAccountQueuePropertiesCorsR
 }
 
 func (o AccountQueuePropertiesCorsRuleArrayOutput) Index(i pulumi.IntInput) AccountQueuePropertiesCorsRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AccountQueuePropertiesCorsRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountQueuePropertiesCorsRule {
 		return vs[0].([]AccountQueuePropertiesCorsRule)[vs[1].(int)]
 	}).(AccountQueuePropertiesCorsRuleOutput)
 }
 
 type AccountQueuePropertiesHourMetrics struct {
-	Enabled bool `pulumi:"enabled"`
-	IncludeApis *bool `pulumi:"includeApis"`
-	RetentionPolicyDays *int `pulumi:"retentionPolicyDays"`
-	Version string `pulumi:"version"`
+	Enabled             bool   `pulumi:"enabled"`
+	IncludeApis         *bool  `pulumi:"includeApis"`
+	RetentionPolicyDays *int   `pulumi:"retentionPolicyDays"`
+	Version             string `pulumi:"version"`
 }
 
 type AccountQueuePropertiesHourMetricsInput interface {
@@ -886,10 +1020,10 @@ type AccountQueuePropertiesHourMetricsInput interface {
 }
 
 type AccountQueuePropertiesHourMetricsArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	IncludeApis pulumi.BoolPtrInput `pulumi:"includeApis"`
-	RetentionPolicyDays pulumi.IntPtrInput `pulumi:"retentionPolicyDays"`
-	Version pulumi.StringInput `pulumi:"version"`
+	Enabled             pulumi.BoolInput    `pulumi:"enabled"`
+	IncludeApis         pulumi.BoolPtrInput `pulumi:"includeApis"`
+	RetentionPolicyDays pulumi.IntPtrInput  `pulumi:"retentionPolicyDays"`
+	Version             pulumi.StringInput  `pulumi:"version"`
 }
 
 func (AccountQueuePropertiesHourMetricsArgs) ElementType() reflect.Type {
@@ -921,7 +1055,8 @@ type AccountQueuePropertiesHourMetricsPtrInput interface {
 
 type accountQueuePropertiesHourMetricsPtrType AccountQueuePropertiesHourMetricsArgs
 
-func AccountQueuePropertiesHourMetricsPtr(v *AccountQueuePropertiesHourMetricsArgs) AccountQueuePropertiesHourMetricsPtrInput {	return (*accountQueuePropertiesHourMetricsPtrType)(v)
+func AccountQueuePropertiesHourMetricsPtr(v *AccountQueuePropertiesHourMetricsArgs) AccountQueuePropertiesHourMetricsPtrInput {
+	return (*accountQueuePropertiesHourMetricsPtrType)(v)
 }
 
 func (*accountQueuePropertiesHourMetricsPtrType) ElementType() reflect.Type {
@@ -936,7 +1071,7 @@ func (i *accountQueuePropertiesHourMetricsPtrType) ToAccountQueuePropertiesHourM
 	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesHourMetricsPtrOutput)
 }
 
-type AccountQueuePropertiesHourMetricsOutput struct { *pulumi.OutputState }
+type AccountQueuePropertiesHourMetricsOutput struct{ *pulumi.OutputState }
 
 func (AccountQueuePropertiesHourMetricsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountQueuePropertiesHourMetrics)(nil)).Elem()
@@ -960,22 +1095,22 @@ func (o AccountQueuePropertiesHourMetricsOutput) ToAccountQueuePropertiesHourMet
 	}).(AccountQueuePropertiesHourMetricsPtrOutput)
 }
 func (o AccountQueuePropertiesHourMetricsOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesHourMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o AccountQueuePropertiesHourMetricsOutput) IncludeApis() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesHourMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
 }
 
 func (o AccountQueuePropertiesHourMetricsOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesHourMetrics) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
 }
 
 func (o AccountQueuePropertiesHourMetricsOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesHourMetrics) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) string { return v.Version }).(pulumi.StringOutput)
 }
 
-type AccountQueuePropertiesHourMetricsPtrOutput struct { *pulumi.OutputState}
+type AccountQueuePropertiesHourMetricsPtrOutput struct{ *pulumi.OutputState }
 
 func (AccountQueuePropertiesHourMetricsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountQueuePropertiesHourMetrics)(nil)).Elem()
@@ -990,31 +1125,31 @@ func (o AccountQueuePropertiesHourMetricsPtrOutput) ToAccountQueuePropertiesHour
 }
 
 func (o AccountQueuePropertiesHourMetricsPtrOutput) Elem() AccountQueuePropertiesHourMetricsOutput {
-	return o.ApplyT(func (v *AccountQueuePropertiesHourMetrics) AccountQueuePropertiesHourMetrics { return *v }).(AccountQueuePropertiesHourMetricsOutput)
+	return o.ApplyT(func(v *AccountQueuePropertiesHourMetrics) AccountQueuePropertiesHourMetrics { return *v }).(AccountQueuePropertiesHourMetricsOutput)
 }
 
 func (o AccountQueuePropertiesHourMetricsPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesHourMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o AccountQueuePropertiesHourMetricsPtrOutput) IncludeApis() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesHourMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
 }
 
 func (o AccountQueuePropertiesHourMetricsPtrOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesHourMetrics) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
 }
 
 func (o AccountQueuePropertiesHourMetricsPtrOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesHourMetrics) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) string { return v.Version }).(pulumi.StringOutput)
 }
 
 type AccountQueuePropertiesLogging struct {
-	Delete bool `pulumi:"delete"`
-	Read bool `pulumi:"read"`
-	RetentionPolicyDays *int `pulumi:"retentionPolicyDays"`
-	Version string `pulumi:"version"`
-	Write bool `pulumi:"write"`
+	Delete              bool   `pulumi:"delete"`
+	Read                bool   `pulumi:"read"`
+	RetentionPolicyDays *int   `pulumi:"retentionPolicyDays"`
+	Version             string `pulumi:"version"`
+	Write               bool   `pulumi:"write"`
 }
 
 type AccountQueuePropertiesLoggingInput interface {
@@ -1025,11 +1160,11 @@ type AccountQueuePropertiesLoggingInput interface {
 }
 
 type AccountQueuePropertiesLoggingArgs struct {
-	Delete pulumi.BoolInput `pulumi:"delete"`
-	Read pulumi.BoolInput `pulumi:"read"`
+	Delete              pulumi.BoolInput   `pulumi:"delete"`
+	Read                pulumi.BoolInput   `pulumi:"read"`
 	RetentionPolicyDays pulumi.IntPtrInput `pulumi:"retentionPolicyDays"`
-	Version pulumi.StringInput `pulumi:"version"`
-	Write pulumi.BoolInput `pulumi:"write"`
+	Version             pulumi.StringInput `pulumi:"version"`
+	Write               pulumi.BoolInput   `pulumi:"write"`
 }
 
 func (AccountQueuePropertiesLoggingArgs) ElementType() reflect.Type {
@@ -1061,7 +1196,8 @@ type AccountQueuePropertiesLoggingPtrInput interface {
 
 type accountQueuePropertiesLoggingPtrType AccountQueuePropertiesLoggingArgs
 
-func AccountQueuePropertiesLoggingPtr(v *AccountQueuePropertiesLoggingArgs) AccountQueuePropertiesLoggingPtrInput {	return (*accountQueuePropertiesLoggingPtrType)(v)
+func AccountQueuePropertiesLoggingPtr(v *AccountQueuePropertiesLoggingArgs) AccountQueuePropertiesLoggingPtrInput {
+	return (*accountQueuePropertiesLoggingPtrType)(v)
 }
 
 func (*accountQueuePropertiesLoggingPtrType) ElementType() reflect.Type {
@@ -1076,7 +1212,7 @@ func (i *accountQueuePropertiesLoggingPtrType) ToAccountQueuePropertiesLoggingPt
 	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesLoggingPtrOutput)
 }
 
-type AccountQueuePropertiesLoggingOutput struct { *pulumi.OutputState }
+type AccountQueuePropertiesLoggingOutput struct{ *pulumi.OutputState }
 
 func (AccountQueuePropertiesLoggingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountQueuePropertiesLogging)(nil)).Elem()
@@ -1100,26 +1236,26 @@ func (o AccountQueuePropertiesLoggingOutput) ToAccountQueuePropertiesLoggingPtrO
 	}).(AccountQueuePropertiesLoggingPtrOutput)
 }
 func (o AccountQueuePropertiesLoggingOutput) Delete() pulumi.BoolOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesLogging) bool { return v.Delete }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Delete }).(pulumi.BoolOutput)
 }
 
 func (o AccountQueuePropertiesLoggingOutput) Read() pulumi.BoolOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesLogging) bool { return v.Read }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Read }).(pulumi.BoolOutput)
 }
 
 func (o AccountQueuePropertiesLoggingOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesLogging) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesLogging) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
 }
 
 func (o AccountQueuePropertiesLoggingOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesLogging) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesLogging) string { return v.Version }).(pulumi.StringOutput)
 }
 
 func (o AccountQueuePropertiesLoggingOutput) Write() pulumi.BoolOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesLogging) bool { return v.Write }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Write }).(pulumi.BoolOutput)
 }
 
-type AccountQueuePropertiesLoggingPtrOutput struct { *pulumi.OutputState}
+type AccountQueuePropertiesLoggingPtrOutput struct{ *pulumi.OutputState }
 
 func (AccountQueuePropertiesLoggingPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountQueuePropertiesLogging)(nil)).Elem()
@@ -1134,34 +1270,34 @@ func (o AccountQueuePropertiesLoggingPtrOutput) ToAccountQueuePropertiesLoggingP
 }
 
 func (o AccountQueuePropertiesLoggingPtrOutput) Elem() AccountQueuePropertiesLoggingOutput {
-	return o.ApplyT(func (v *AccountQueuePropertiesLogging) AccountQueuePropertiesLogging { return *v }).(AccountQueuePropertiesLoggingOutput)
+	return o.ApplyT(func(v *AccountQueuePropertiesLogging) AccountQueuePropertiesLogging { return *v }).(AccountQueuePropertiesLoggingOutput)
 }
 
 func (o AccountQueuePropertiesLoggingPtrOutput) Delete() pulumi.BoolOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesLogging) bool { return v.Delete }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Delete }).(pulumi.BoolOutput)
 }
 
 func (o AccountQueuePropertiesLoggingPtrOutput) Read() pulumi.BoolOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesLogging) bool { return v.Read }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Read }).(pulumi.BoolOutput)
 }
 
 func (o AccountQueuePropertiesLoggingPtrOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesLogging) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesLogging) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
 }
 
 func (o AccountQueuePropertiesLoggingPtrOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesLogging) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesLogging) string { return v.Version }).(pulumi.StringOutput)
 }
 
 func (o AccountQueuePropertiesLoggingPtrOutput) Write() pulumi.BoolOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesLogging) bool { return v.Write }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Write }).(pulumi.BoolOutput)
 }
 
 type AccountQueuePropertiesMinuteMetrics struct {
-	Enabled bool `pulumi:"enabled"`
-	IncludeApis *bool `pulumi:"includeApis"`
-	RetentionPolicyDays *int `pulumi:"retentionPolicyDays"`
-	Version string `pulumi:"version"`
+	Enabled             bool   `pulumi:"enabled"`
+	IncludeApis         *bool  `pulumi:"includeApis"`
+	RetentionPolicyDays *int   `pulumi:"retentionPolicyDays"`
+	Version             string `pulumi:"version"`
 }
 
 type AccountQueuePropertiesMinuteMetricsInput interface {
@@ -1172,10 +1308,10 @@ type AccountQueuePropertiesMinuteMetricsInput interface {
 }
 
 type AccountQueuePropertiesMinuteMetricsArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	IncludeApis pulumi.BoolPtrInput `pulumi:"includeApis"`
-	RetentionPolicyDays pulumi.IntPtrInput `pulumi:"retentionPolicyDays"`
-	Version pulumi.StringInput `pulumi:"version"`
+	Enabled             pulumi.BoolInput    `pulumi:"enabled"`
+	IncludeApis         pulumi.BoolPtrInput `pulumi:"includeApis"`
+	RetentionPolicyDays pulumi.IntPtrInput  `pulumi:"retentionPolicyDays"`
+	Version             pulumi.StringInput  `pulumi:"version"`
 }
 
 func (AccountQueuePropertiesMinuteMetricsArgs) ElementType() reflect.Type {
@@ -1207,7 +1343,8 @@ type AccountQueuePropertiesMinuteMetricsPtrInput interface {
 
 type accountQueuePropertiesMinuteMetricsPtrType AccountQueuePropertiesMinuteMetricsArgs
 
-func AccountQueuePropertiesMinuteMetricsPtr(v *AccountQueuePropertiesMinuteMetricsArgs) AccountQueuePropertiesMinuteMetricsPtrInput {	return (*accountQueuePropertiesMinuteMetricsPtrType)(v)
+func AccountQueuePropertiesMinuteMetricsPtr(v *AccountQueuePropertiesMinuteMetricsArgs) AccountQueuePropertiesMinuteMetricsPtrInput {
+	return (*accountQueuePropertiesMinuteMetricsPtrType)(v)
 }
 
 func (*accountQueuePropertiesMinuteMetricsPtrType) ElementType() reflect.Type {
@@ -1222,7 +1359,7 @@ func (i *accountQueuePropertiesMinuteMetricsPtrType) ToAccountQueuePropertiesMin
 	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesMinuteMetricsPtrOutput)
 }
 
-type AccountQueuePropertiesMinuteMetricsOutput struct { *pulumi.OutputState }
+type AccountQueuePropertiesMinuteMetricsOutput struct{ *pulumi.OutputState }
 
 func (AccountQueuePropertiesMinuteMetricsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountQueuePropertiesMinuteMetrics)(nil)).Elem()
@@ -1246,22 +1383,22 @@ func (o AccountQueuePropertiesMinuteMetricsOutput) ToAccountQueuePropertiesMinut
 	}).(AccountQueuePropertiesMinuteMetricsPtrOutput)
 }
 func (o AccountQueuePropertiesMinuteMetricsOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesMinuteMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o AccountQueuePropertiesMinuteMetricsOutput) IncludeApis() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesMinuteMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
 }
 
 func (o AccountQueuePropertiesMinuteMetricsOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesMinuteMetrics) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
 }
 
 func (o AccountQueuePropertiesMinuteMetricsOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesMinuteMetrics) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) string { return v.Version }).(pulumi.StringOutput)
 }
 
-type AccountQueuePropertiesMinuteMetricsPtrOutput struct { *pulumi.OutputState}
+type AccountQueuePropertiesMinuteMetricsPtrOutput struct{ *pulumi.OutputState }
 
 func (AccountQueuePropertiesMinuteMetricsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountQueuePropertiesMinuteMetrics)(nil)).Elem()
@@ -1276,23 +1413,142 @@ func (o AccountQueuePropertiesMinuteMetricsPtrOutput) ToAccountQueuePropertiesMi
 }
 
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Elem() AccountQueuePropertiesMinuteMetricsOutput {
-	return o.ApplyT(func (v *AccountQueuePropertiesMinuteMetrics) AccountQueuePropertiesMinuteMetrics { return *v }).(AccountQueuePropertiesMinuteMetricsOutput)
+	return o.ApplyT(func(v *AccountQueuePropertiesMinuteMetrics) AccountQueuePropertiesMinuteMetrics { return *v }).(AccountQueuePropertiesMinuteMetricsOutput)
 }
 
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesMinuteMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) IncludeApis() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesMinuteMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
 }
 
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesMinuteMetrics) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
 }
 
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountQueuePropertiesMinuteMetrics) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type AccountStaticWebsite struct {
+	Error404Document *string `pulumi:"error404Document"`
+	IndexDocument    *string `pulumi:"indexDocument"`
+}
+
+type AccountStaticWebsiteInput interface {
+	pulumi.Input
+
+	ToAccountStaticWebsiteOutput() AccountStaticWebsiteOutput
+	ToAccountStaticWebsiteOutputWithContext(context.Context) AccountStaticWebsiteOutput
+}
+
+type AccountStaticWebsiteArgs struct {
+	Error404Document pulumi.StringPtrInput `pulumi:"error404Document"`
+	IndexDocument    pulumi.StringPtrInput `pulumi:"indexDocument"`
+}
+
+func (AccountStaticWebsiteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountStaticWebsite)(nil)).Elem()
+}
+
+func (i AccountStaticWebsiteArgs) ToAccountStaticWebsiteOutput() AccountStaticWebsiteOutput {
+	return i.ToAccountStaticWebsiteOutputWithContext(context.Background())
+}
+
+func (i AccountStaticWebsiteArgs) ToAccountStaticWebsiteOutputWithContext(ctx context.Context) AccountStaticWebsiteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountStaticWebsiteOutput)
+}
+
+func (i AccountStaticWebsiteArgs) ToAccountStaticWebsitePtrOutput() AccountStaticWebsitePtrOutput {
+	return i.ToAccountStaticWebsitePtrOutputWithContext(context.Background())
+}
+
+func (i AccountStaticWebsiteArgs) ToAccountStaticWebsitePtrOutputWithContext(ctx context.Context) AccountStaticWebsitePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountStaticWebsiteOutput).ToAccountStaticWebsitePtrOutputWithContext(ctx)
+}
+
+type AccountStaticWebsitePtrInput interface {
+	pulumi.Input
+
+	ToAccountStaticWebsitePtrOutput() AccountStaticWebsitePtrOutput
+	ToAccountStaticWebsitePtrOutputWithContext(context.Context) AccountStaticWebsitePtrOutput
+}
+
+type accountStaticWebsitePtrType AccountStaticWebsiteArgs
+
+func AccountStaticWebsitePtr(v *AccountStaticWebsiteArgs) AccountStaticWebsitePtrInput {
+	return (*accountStaticWebsitePtrType)(v)
+}
+
+func (*accountStaticWebsitePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountStaticWebsite)(nil)).Elem()
+}
+
+func (i *accountStaticWebsitePtrType) ToAccountStaticWebsitePtrOutput() AccountStaticWebsitePtrOutput {
+	return i.ToAccountStaticWebsitePtrOutputWithContext(context.Background())
+}
+
+func (i *accountStaticWebsitePtrType) ToAccountStaticWebsitePtrOutputWithContext(ctx context.Context) AccountStaticWebsitePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountStaticWebsitePtrOutput)
+}
+
+type AccountStaticWebsiteOutput struct{ *pulumi.OutputState }
+
+func (AccountStaticWebsiteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountStaticWebsite)(nil)).Elem()
+}
+
+func (o AccountStaticWebsiteOutput) ToAccountStaticWebsiteOutput() AccountStaticWebsiteOutput {
+	return o
+}
+
+func (o AccountStaticWebsiteOutput) ToAccountStaticWebsiteOutputWithContext(ctx context.Context) AccountStaticWebsiteOutput {
+	return o
+}
+
+func (o AccountStaticWebsiteOutput) ToAccountStaticWebsitePtrOutput() AccountStaticWebsitePtrOutput {
+	return o.ToAccountStaticWebsitePtrOutputWithContext(context.Background())
+}
+
+func (o AccountStaticWebsiteOutput) ToAccountStaticWebsitePtrOutputWithContext(ctx context.Context) AccountStaticWebsitePtrOutput {
+	return o.ApplyT(func(v AccountStaticWebsite) *AccountStaticWebsite {
+		return &v
+	}).(AccountStaticWebsitePtrOutput)
+}
+func (o AccountStaticWebsiteOutput) Error404Document() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountStaticWebsite) *string { return v.Error404Document }).(pulumi.StringPtrOutput)
+}
+
+func (o AccountStaticWebsiteOutput) IndexDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountStaticWebsite) *string { return v.IndexDocument }).(pulumi.StringPtrOutput)
+}
+
+type AccountStaticWebsitePtrOutput struct{ *pulumi.OutputState }
+
+func (AccountStaticWebsitePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountStaticWebsite)(nil)).Elem()
+}
+
+func (o AccountStaticWebsitePtrOutput) ToAccountStaticWebsitePtrOutput() AccountStaticWebsitePtrOutput {
+	return o
+}
+
+func (o AccountStaticWebsitePtrOutput) ToAccountStaticWebsitePtrOutputWithContext(ctx context.Context) AccountStaticWebsitePtrOutput {
+	return o
+}
+
+func (o AccountStaticWebsitePtrOutput) Elem() AccountStaticWebsiteOutput {
+	return o.ApplyT(func(v *AccountStaticWebsite) AccountStaticWebsite { return *v }).(AccountStaticWebsiteOutput)
+}
+
+func (o AccountStaticWebsitePtrOutput) Error404Document() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountStaticWebsite) *string { return v.Error404Document }).(pulumi.StringPtrOutput)
+}
+
+func (o AccountStaticWebsitePtrOutput) IndexDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountStaticWebsite) *string { return v.IndexDocument }).(pulumi.StringPtrOutput)
 }
 
 type ManagementPolicyRule struct {
@@ -1357,7 +1613,7 @@ func (i ManagementPolicyRuleArray) ToManagementPolicyRuleArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleArrayOutput)
 }
 
-type ManagementPolicyRuleOutput struct { *pulumi.OutputState }
+type ManagementPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementPolicyRule)(nil)).Elem()
@@ -1373,25 +1629,25 @@ func (o ManagementPolicyRuleOutput) ToManagementPolicyRuleOutputWithContext(ctx 
 
 // An `actions` block as documented below.
 func (o ManagementPolicyRuleOutput) Actions() ManagementPolicyRuleActionsOutput {
-	return o.ApplyT(func (v ManagementPolicyRule) ManagementPolicyRuleActions { return v.Actions }).(ManagementPolicyRuleActionsOutput)
+	return o.ApplyT(func(v ManagementPolicyRule) ManagementPolicyRuleActions { return v.Actions }).(ManagementPolicyRuleActionsOutput)
 }
 
 // Boolean to specify whether the rule is enabled.
 func (o ManagementPolicyRuleOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v ManagementPolicyRule) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ManagementPolicyRule) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // A `filter` block as documented below.
 func (o ManagementPolicyRuleOutput) Filters() ManagementPolicyRuleFiltersPtrOutput {
-	return o.ApplyT(func (v ManagementPolicyRule) *ManagementPolicyRuleFilters { return v.Filters }).(ManagementPolicyRuleFiltersPtrOutput)
+	return o.ApplyT(func(v ManagementPolicyRule) *ManagementPolicyRuleFilters { return v.Filters }).(ManagementPolicyRuleFiltersPtrOutput)
 }
 
 // A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
 func (o ManagementPolicyRuleOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ManagementPolicyRule) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ManagementPolicyRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type ManagementPolicyRuleArrayOutput struct { *pulumi.OutputState}
+type ManagementPolicyRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ManagementPolicyRule)(nil)).Elem()
@@ -1406,7 +1662,7 @@ func (o ManagementPolicyRuleArrayOutput) ToManagementPolicyRuleArrayOutputWithCo
 }
 
 func (o ManagementPolicyRuleArrayOutput) Index(i pulumi.IntInput) ManagementPolicyRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ManagementPolicyRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagementPolicyRule {
 		return vs[0].([]ManagementPolicyRule)[vs[1].(int)]
 	}).(ManagementPolicyRuleOutput)
 }
@@ -1444,7 +1700,7 @@ func (i ManagementPolicyRuleActionsArgs) ToManagementPolicyRuleActionsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleActionsOutput)
 }
 
-type ManagementPolicyRuleActionsOutput struct { *pulumi.OutputState }
+type ManagementPolicyRuleActionsOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleActionsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementPolicyRuleActions)(nil)).Elem()
@@ -1460,12 +1716,12 @@ func (o ManagementPolicyRuleActionsOutput) ToManagementPolicyRuleActionsOutputWi
 
 // A `baseBlob` block as documented below.
 func (o ManagementPolicyRuleActionsOutput) BaseBlob() ManagementPolicyRuleActionsBaseBlobPtrOutput {
-	return o.ApplyT(func (v ManagementPolicyRuleActions) *ManagementPolicyRuleActionsBaseBlob { return v.BaseBlob }).(ManagementPolicyRuleActionsBaseBlobPtrOutput)
+	return o.ApplyT(func(v ManagementPolicyRuleActions) *ManagementPolicyRuleActionsBaseBlob { return v.BaseBlob }).(ManagementPolicyRuleActionsBaseBlobPtrOutput)
 }
 
 // A `snapshot` block as documented below.
 func (o ManagementPolicyRuleActionsOutput) Snapshot() ManagementPolicyRuleActionsSnapshotPtrOutput {
-	return o.ApplyT(func (v ManagementPolicyRuleActions) *ManagementPolicyRuleActionsSnapshot { return v.Snapshot }).(ManagementPolicyRuleActionsSnapshotPtrOutput)
+	return o.ApplyT(func(v ManagementPolicyRuleActions) *ManagementPolicyRuleActionsSnapshot { return v.Snapshot }).(ManagementPolicyRuleActionsSnapshotPtrOutput)
 }
 
 type ManagementPolicyRuleActionsBaseBlob struct {
@@ -1522,7 +1778,8 @@ type ManagementPolicyRuleActionsBaseBlobPtrInput interface {
 
 type managementPolicyRuleActionsBaseBlobPtrType ManagementPolicyRuleActionsBaseBlobArgs
 
-func ManagementPolicyRuleActionsBaseBlobPtr(v *ManagementPolicyRuleActionsBaseBlobArgs) ManagementPolicyRuleActionsBaseBlobPtrInput {	return (*managementPolicyRuleActionsBaseBlobPtrType)(v)
+func ManagementPolicyRuleActionsBaseBlobPtr(v *ManagementPolicyRuleActionsBaseBlobArgs) ManagementPolicyRuleActionsBaseBlobPtrInput {
+	return (*managementPolicyRuleActionsBaseBlobPtrType)(v)
 }
 
 func (*managementPolicyRuleActionsBaseBlobPtrType) ElementType() reflect.Type {
@@ -1537,7 +1794,7 @@ func (i *managementPolicyRuleActionsBaseBlobPtrType) ToManagementPolicyRuleActio
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleActionsBaseBlobPtrOutput)
 }
 
-type ManagementPolicyRuleActionsBaseBlobOutput struct { *pulumi.OutputState }
+type ManagementPolicyRuleActionsBaseBlobOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleActionsBaseBlobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementPolicyRuleActionsBaseBlob)(nil)).Elem()
@@ -1560,22 +1817,29 @@ func (o ManagementPolicyRuleActionsBaseBlobOutput) ToManagementPolicyRuleActions
 		return &v
 	}).(ManagementPolicyRuleActionsBaseBlobPtrOutput)
 }
+
 // The age in days after last modification to delete the blob. Must be at least 0.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) DeleteAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ManagementPolicyRuleActionsBaseBlob) *int { return v.DeleteAfterDaysSinceModificationGreaterThan }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
+		return v.DeleteAfterDaysSinceModificationGreaterThan
+	}).(pulumi.IntPtrOutput)
 }
 
 // The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ManagementPolicyRuleActionsBaseBlob) *int { return v.TierToArchiveAfterDaysSinceModificationGreaterThan }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
+		return v.TierToArchiveAfterDaysSinceModificationGreaterThan
+	}).(pulumi.IntPtrOutput)
 }
 
 // The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToCoolAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ManagementPolicyRuleActionsBaseBlob) *int { return v.TierToCoolAfterDaysSinceModificationGreaterThan }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
+		return v.TierToCoolAfterDaysSinceModificationGreaterThan
+	}).(pulumi.IntPtrOutput)
 }
 
-type ManagementPolicyRuleActionsBaseBlobPtrOutput struct { *pulumi.OutputState}
+type ManagementPolicyRuleActionsBaseBlobPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleActionsBaseBlobPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ManagementPolicyRuleActionsBaseBlob)(nil)).Elem()
@@ -1590,22 +1854,28 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) ToManagementPolicyRuleActi
 }
 
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) Elem() ManagementPolicyRuleActionsBaseBlobOutput {
-	return o.ApplyT(func (v *ManagementPolicyRuleActionsBaseBlob) ManagementPolicyRuleActionsBaseBlob { return *v }).(ManagementPolicyRuleActionsBaseBlobOutput)
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) ManagementPolicyRuleActionsBaseBlob { return *v }).(ManagementPolicyRuleActionsBaseBlobOutput)
 }
 
 // The age in days after last modification to delete the blob. Must be at least 0.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) DeleteAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ManagementPolicyRuleActionsBaseBlob) *int { return v.DeleteAfterDaysSinceModificationGreaterThan }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
+		return v.DeleteAfterDaysSinceModificationGreaterThan
+	}).(pulumi.IntPtrOutput)
 }
 
 // The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ManagementPolicyRuleActionsBaseBlob) *int { return v.TierToArchiveAfterDaysSinceModificationGreaterThan }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
+		return v.TierToArchiveAfterDaysSinceModificationGreaterThan
+	}).(pulumi.IntPtrOutput)
 }
 
 // The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToCoolAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ManagementPolicyRuleActionsBaseBlob) *int { return v.TierToCoolAfterDaysSinceModificationGreaterThan }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
+		return v.TierToCoolAfterDaysSinceModificationGreaterThan
+	}).(pulumi.IntPtrOutput)
 }
 
 type ManagementPolicyRuleActionsSnapshot struct {
@@ -1654,7 +1924,8 @@ type ManagementPolicyRuleActionsSnapshotPtrInput interface {
 
 type managementPolicyRuleActionsSnapshotPtrType ManagementPolicyRuleActionsSnapshotArgs
 
-func ManagementPolicyRuleActionsSnapshotPtr(v *ManagementPolicyRuleActionsSnapshotArgs) ManagementPolicyRuleActionsSnapshotPtrInput {	return (*managementPolicyRuleActionsSnapshotPtrType)(v)
+func ManagementPolicyRuleActionsSnapshotPtr(v *ManagementPolicyRuleActionsSnapshotArgs) ManagementPolicyRuleActionsSnapshotPtrInput {
+	return (*managementPolicyRuleActionsSnapshotPtrType)(v)
 }
 
 func (*managementPolicyRuleActionsSnapshotPtrType) ElementType() reflect.Type {
@@ -1669,7 +1940,7 @@ func (i *managementPolicyRuleActionsSnapshotPtrType) ToManagementPolicyRuleActio
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleActionsSnapshotPtrOutput)
 }
 
-type ManagementPolicyRuleActionsSnapshotOutput struct { *pulumi.OutputState }
+type ManagementPolicyRuleActionsSnapshotOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleActionsSnapshotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementPolicyRuleActionsSnapshot)(nil)).Elem()
@@ -1692,12 +1963,13 @@ func (o ManagementPolicyRuleActionsSnapshotOutput) ToManagementPolicyRuleActions
 		return &v
 	}).(ManagementPolicyRuleActionsSnapshotPtrOutput)
 }
+
 // The age in days after create to delete the snaphot. Must be at least 0.
 func (o ManagementPolicyRuleActionsSnapshotOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ManagementPolicyRuleActionsSnapshot) *int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ManagementPolicyRuleActionsSnapshot) *int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntPtrOutput)
 }
 
-type ManagementPolicyRuleActionsSnapshotPtrOutput struct { *pulumi.OutputState}
+type ManagementPolicyRuleActionsSnapshotPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleActionsSnapshotPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ManagementPolicyRuleActionsSnapshot)(nil)).Elem()
@@ -1712,12 +1984,12 @@ func (o ManagementPolicyRuleActionsSnapshotPtrOutput) ToManagementPolicyRuleActi
 }
 
 func (o ManagementPolicyRuleActionsSnapshotPtrOutput) Elem() ManagementPolicyRuleActionsSnapshotOutput {
-	return o.ApplyT(func (v *ManagementPolicyRuleActionsSnapshot) ManagementPolicyRuleActionsSnapshot { return *v }).(ManagementPolicyRuleActionsSnapshotOutput)
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsSnapshot) ManagementPolicyRuleActionsSnapshot { return *v }).(ManagementPolicyRuleActionsSnapshotOutput)
 }
 
 // The age in days after create to delete the snaphot. Must be at least 0.
 func (o ManagementPolicyRuleActionsSnapshotPtrOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ManagementPolicyRuleActionsSnapshot) *int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ManagementPolicyRuleActionsSnapshot) *int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntPtrOutput)
 }
 
 type ManagementPolicyRuleFilters struct {
@@ -1770,7 +2042,8 @@ type ManagementPolicyRuleFiltersPtrInput interface {
 
 type managementPolicyRuleFiltersPtrType ManagementPolicyRuleFiltersArgs
 
-func ManagementPolicyRuleFiltersPtr(v *ManagementPolicyRuleFiltersArgs) ManagementPolicyRuleFiltersPtrInput {	return (*managementPolicyRuleFiltersPtrType)(v)
+func ManagementPolicyRuleFiltersPtr(v *ManagementPolicyRuleFiltersArgs) ManagementPolicyRuleFiltersPtrInput {
+	return (*managementPolicyRuleFiltersPtrType)(v)
 }
 
 func (*managementPolicyRuleFiltersPtrType) ElementType() reflect.Type {
@@ -1785,7 +2058,7 @@ func (i *managementPolicyRuleFiltersPtrType) ToManagementPolicyRuleFiltersPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleFiltersPtrOutput)
 }
 
-type ManagementPolicyRuleFiltersOutput struct { *pulumi.OutputState }
+type ManagementPolicyRuleFiltersOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleFiltersOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementPolicyRuleFilters)(nil)).Elem()
@@ -1808,17 +2081,18 @@ func (o ManagementPolicyRuleFiltersOutput) ToManagementPolicyRuleFiltersPtrOutpu
 		return &v
 	}).(ManagementPolicyRuleFiltersPtrOutput)
 }
+
 // An array of predefined values. Only `blockBlob` is supported.
 func (o ManagementPolicyRuleFiltersOutput) BlobTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ManagementPolicyRuleFilters) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ManagementPolicyRuleFilters) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
 
 // An array of strings for prefixes to be matched.
 func (o ManagementPolicyRuleFiltersOutput) PrefixMatches() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ManagementPolicyRuleFilters) []string { return v.PrefixMatches }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ManagementPolicyRuleFilters) []string { return v.PrefixMatches }).(pulumi.StringArrayOutput)
 }
 
-type ManagementPolicyRuleFiltersPtrOutput struct { *pulumi.OutputState}
+type ManagementPolicyRuleFiltersPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleFiltersPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ManagementPolicyRuleFilters)(nil)).Elem()
@@ -1833,17 +2107,17 @@ func (o ManagementPolicyRuleFiltersPtrOutput) ToManagementPolicyRuleFiltersPtrOu
 }
 
 func (o ManagementPolicyRuleFiltersPtrOutput) Elem() ManagementPolicyRuleFiltersOutput {
-	return o.ApplyT(func (v *ManagementPolicyRuleFilters) ManagementPolicyRuleFilters { return *v }).(ManagementPolicyRuleFiltersOutput)
+	return o.ApplyT(func(v *ManagementPolicyRuleFilters) ManagementPolicyRuleFilters { return *v }).(ManagementPolicyRuleFiltersOutput)
 }
 
 // An array of predefined values. Only `blockBlob` is supported.
 func (o ManagementPolicyRuleFiltersPtrOutput) BlobTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ManagementPolicyRuleFilters) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ManagementPolicyRuleFilters) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
 
 // An array of strings for prefixes to be matched.
 func (o ManagementPolicyRuleFiltersPtrOutput) PrefixMatches() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ManagementPolicyRuleFilters) []string { return v.PrefixMatches }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ManagementPolicyRuleFilters) []string { return v.PrefixMatches }).(pulumi.StringArrayOutput)
 }
 
 type ShareAcl struct {
@@ -1898,7 +2172,7 @@ func (i ShareAclArray) ToShareAclArrayOutputWithContext(ctx context.Context) Sha
 	return pulumi.ToOutputWithContext(ctx, i).(ShareAclArrayOutput)
 }
 
-type ShareAclOutput struct { *pulumi.OutputState }
+type ShareAclOutput struct{ *pulumi.OutputState }
 
 func (ShareAclOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ShareAcl)(nil)).Elem()
@@ -1913,15 +2187,15 @@ func (o ShareAclOutput) ToShareAclOutputWithContext(ctx context.Context) ShareAc
 }
 
 func (o ShareAclOutput) AccessPolicies() ShareAclAccessPolicyArrayOutput {
-	return o.ApplyT(func (v ShareAcl) []ShareAclAccessPolicy { return v.AccessPolicies }).(ShareAclAccessPolicyArrayOutput)
+	return o.ApplyT(func(v ShareAcl) []ShareAclAccessPolicy { return v.AccessPolicies }).(ShareAclAccessPolicyArrayOutput)
 }
 
 // The ID of the File Share.
 func (o ShareAclOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v ShareAcl) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ShareAcl) string { return v.Id }).(pulumi.StringOutput)
 }
 
-type ShareAclArrayOutput struct { *pulumi.OutputState}
+type ShareAclArrayOutput struct{ *pulumi.OutputState }
 
 func (ShareAclArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ShareAcl)(nil)).Elem()
@@ -1936,15 +2210,15 @@ func (o ShareAclArrayOutput) ToShareAclArrayOutputWithContext(ctx context.Contex
 }
 
 func (o ShareAclArrayOutput) Index(i pulumi.IntInput) ShareAclOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ShareAcl {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ShareAcl {
 		return vs[0].([]ShareAcl)[vs[1].(int)]
 	}).(ShareAclOutput)
 }
 
 type ShareAclAccessPolicy struct {
-	Expiry string `pulumi:"expiry"`
+	Expiry      string `pulumi:"expiry"`
 	Permissions string `pulumi:"permissions"`
-	Start string `pulumi:"start"`
+	Start       string `pulumi:"start"`
 }
 
 type ShareAclAccessPolicyInput interface {
@@ -1955,9 +2229,9 @@ type ShareAclAccessPolicyInput interface {
 }
 
 type ShareAclAccessPolicyArgs struct {
-	Expiry pulumi.StringInput `pulumi:"expiry"`
+	Expiry      pulumi.StringInput `pulumi:"expiry"`
 	Permissions pulumi.StringInput `pulumi:"permissions"`
-	Start pulumi.StringInput `pulumi:"start"`
+	Start       pulumi.StringInput `pulumi:"start"`
 }
 
 func (ShareAclAccessPolicyArgs) ElementType() reflect.Type {
@@ -1993,7 +2267,7 @@ func (i ShareAclAccessPolicyArray) ToShareAclAccessPolicyArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ShareAclAccessPolicyArrayOutput)
 }
 
-type ShareAclAccessPolicyOutput struct { *pulumi.OutputState }
+type ShareAclAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (ShareAclAccessPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ShareAclAccessPolicy)(nil)).Elem()
@@ -2008,18 +2282,18 @@ func (o ShareAclAccessPolicyOutput) ToShareAclAccessPolicyOutputWithContext(ctx 
 }
 
 func (o ShareAclAccessPolicyOutput) Expiry() pulumi.StringOutput {
-	return o.ApplyT(func (v ShareAclAccessPolicy) string { return v.Expiry }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ShareAclAccessPolicy) string { return v.Expiry }).(pulumi.StringOutput)
 }
 
 func (o ShareAclAccessPolicyOutput) Permissions() pulumi.StringOutput {
-	return o.ApplyT(func (v ShareAclAccessPolicy) string { return v.Permissions }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ShareAclAccessPolicy) string { return v.Permissions }).(pulumi.StringOutput)
 }
 
 func (o ShareAclAccessPolicyOutput) Start() pulumi.StringOutput {
-	return o.ApplyT(func (v ShareAclAccessPolicy) string { return v.Start }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ShareAclAccessPolicy) string { return v.Start }).(pulumi.StringOutput)
 }
 
-type ShareAclAccessPolicyArrayOutput struct { *pulumi.OutputState}
+type ShareAclAccessPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (ShareAclAccessPolicyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ShareAclAccessPolicy)(nil)).Elem()
@@ -2034,7 +2308,7 @@ func (o ShareAclAccessPolicyArrayOutput) ToShareAclAccessPolicyArrayOutputWithCo
 }
 
 func (o ShareAclAccessPolicyArrayOutput) Index(i pulumi.IntInput) ShareAclAccessPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ShareAclAccessPolicy {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ShareAclAccessPolicy {
 		return vs[0].([]ShareAclAccessPolicy)[vs[1].(int)]
 	}).(ShareAclAccessPolicyOutput)
 }
@@ -2091,7 +2365,7 @@ func (i TableAclArray) ToTableAclArrayOutputWithContext(ctx context.Context) Tab
 	return pulumi.ToOutputWithContext(ctx, i).(TableAclArrayOutput)
 }
 
-type TableAclOutput struct { *pulumi.OutputState }
+type TableAclOutput struct{ *pulumi.OutputState }
 
 func (TableAclOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TableAcl)(nil)).Elem()
@@ -2106,15 +2380,15 @@ func (o TableAclOutput) ToTableAclOutputWithContext(ctx context.Context) TableAc
 }
 
 func (o TableAclOutput) AccessPolicies() TableAclAccessPolicyArrayOutput {
-	return o.ApplyT(func (v TableAcl) []TableAclAccessPolicy { return v.AccessPolicies }).(TableAclAccessPolicyArrayOutput)
+	return o.ApplyT(func(v TableAcl) []TableAclAccessPolicy { return v.AccessPolicies }).(TableAclAccessPolicyArrayOutput)
 }
 
 // The ID of the Table within the Storage Account.
 func (o TableAclOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v TableAcl) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v TableAcl) string { return v.Id }).(pulumi.StringOutput)
 }
 
-type TableAclArrayOutput struct { *pulumi.OutputState}
+type TableAclArrayOutput struct{ *pulumi.OutputState }
 
 func (TableAclArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]TableAcl)(nil)).Elem()
@@ -2129,15 +2403,15 @@ func (o TableAclArrayOutput) ToTableAclArrayOutputWithContext(ctx context.Contex
 }
 
 func (o TableAclArrayOutput) Index(i pulumi.IntInput) TableAclOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) TableAcl {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableAcl {
 		return vs[0].([]TableAcl)[vs[1].(int)]
 	}).(TableAclOutput)
 }
 
 type TableAclAccessPolicy struct {
-	Expiry string `pulumi:"expiry"`
+	Expiry      string `pulumi:"expiry"`
 	Permissions string `pulumi:"permissions"`
-	Start string `pulumi:"start"`
+	Start       string `pulumi:"start"`
 }
 
 type TableAclAccessPolicyInput interface {
@@ -2148,9 +2422,9 @@ type TableAclAccessPolicyInput interface {
 }
 
 type TableAclAccessPolicyArgs struct {
-	Expiry pulumi.StringInput `pulumi:"expiry"`
+	Expiry      pulumi.StringInput `pulumi:"expiry"`
 	Permissions pulumi.StringInput `pulumi:"permissions"`
-	Start pulumi.StringInput `pulumi:"start"`
+	Start       pulumi.StringInput `pulumi:"start"`
 }
 
 func (TableAclAccessPolicyArgs) ElementType() reflect.Type {
@@ -2186,7 +2460,7 @@ func (i TableAclAccessPolicyArray) ToTableAclAccessPolicyArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TableAclAccessPolicyArrayOutput)
 }
 
-type TableAclAccessPolicyOutput struct { *pulumi.OutputState }
+type TableAclAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (TableAclAccessPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TableAclAccessPolicy)(nil)).Elem()
@@ -2201,18 +2475,18 @@ func (o TableAclAccessPolicyOutput) ToTableAclAccessPolicyOutputWithContext(ctx 
 }
 
 func (o TableAclAccessPolicyOutput) Expiry() pulumi.StringOutput {
-	return o.ApplyT(func (v TableAclAccessPolicy) string { return v.Expiry }).(pulumi.StringOutput)
+	return o.ApplyT(func(v TableAclAccessPolicy) string { return v.Expiry }).(pulumi.StringOutput)
 }
 
 func (o TableAclAccessPolicyOutput) Permissions() pulumi.StringOutput {
-	return o.ApplyT(func (v TableAclAccessPolicy) string { return v.Permissions }).(pulumi.StringOutput)
+	return o.ApplyT(func(v TableAclAccessPolicy) string { return v.Permissions }).(pulumi.StringOutput)
 }
 
 func (o TableAclAccessPolicyOutput) Start() pulumi.StringOutput {
-	return o.ApplyT(func (v TableAclAccessPolicy) string { return v.Start }).(pulumi.StringOutput)
+	return o.ApplyT(func(v TableAclAccessPolicy) string { return v.Start }).(pulumi.StringOutput)
 }
 
-type TableAclAccessPolicyArrayOutput struct { *pulumi.OutputState}
+type TableAclAccessPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (TableAclAccessPolicyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]TableAclAccessPolicy)(nil)).Elem()
@@ -2227,18 +2501,18 @@ func (o TableAclAccessPolicyArrayOutput) ToTableAclAccessPolicyArrayOutputWithCo
 }
 
 func (o TableAclAccessPolicyArrayOutput) Index(i pulumi.IntInput) TableAclAccessPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) TableAclAccessPolicy {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableAclAccessPolicy {
 		return vs[0].([]TableAclAccessPolicy)[vs[1].(int)]
 	}).(TableAclAccessPolicyOutput)
 }
 
 type GetAccountBlobContainerSASPermissions struct {
-	Add bool `pulumi:"add"`
+	Add    bool `pulumi:"add"`
 	Create bool `pulumi:"create"`
 	Delete bool `pulumi:"delete"`
-	List bool `pulumi:"list"`
-	Read bool `pulumi:"read"`
-	Write bool `pulumi:"write"`
+	List   bool `pulumi:"list"`
+	Read   bool `pulumi:"read"`
+	Write  bool `pulumi:"write"`
 }
 
 type GetAccountBlobContainerSASPermissionsInput interface {
@@ -2249,12 +2523,12 @@ type GetAccountBlobContainerSASPermissionsInput interface {
 }
 
 type GetAccountBlobContainerSASPermissionsArgs struct {
-	Add pulumi.BoolInput `pulumi:"add"`
+	Add    pulumi.BoolInput `pulumi:"add"`
 	Create pulumi.BoolInput `pulumi:"create"`
 	Delete pulumi.BoolInput `pulumi:"delete"`
-	List pulumi.BoolInput `pulumi:"list"`
-	Read pulumi.BoolInput `pulumi:"read"`
-	Write pulumi.BoolInput `pulumi:"write"`
+	List   pulumi.BoolInput `pulumi:"list"`
+	Read   pulumi.BoolInput `pulumi:"read"`
+	Write  pulumi.BoolInput `pulumi:"write"`
 }
 
 func (GetAccountBlobContainerSASPermissionsArgs) ElementType() reflect.Type {
@@ -2269,7 +2543,7 @@ func (i GetAccountBlobContainerSASPermissionsArgs) ToGetAccountBlobContainerSASP
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountBlobContainerSASPermissionsOutput)
 }
 
-type GetAccountBlobContainerSASPermissionsOutput struct { *pulumi.OutputState }
+type GetAccountBlobContainerSASPermissionsOutput struct{ *pulumi.OutputState }
 
 func (GetAccountBlobContainerSASPermissionsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetAccountBlobContainerSASPermissions)(nil)).Elem()
@@ -2284,27 +2558,27 @@ func (o GetAccountBlobContainerSASPermissionsOutput) ToGetAccountBlobContainerSA
 }
 
 func (o GetAccountBlobContainerSASPermissionsOutput) Add() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountBlobContainerSASPermissions) bool { return v.Add }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.Add }).(pulumi.BoolOutput)
 }
 
 func (o GetAccountBlobContainerSASPermissionsOutput) Create() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountBlobContainerSASPermissions) bool { return v.Create }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.Create }).(pulumi.BoolOutput)
 }
 
 func (o GetAccountBlobContainerSASPermissionsOutput) Delete() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountBlobContainerSASPermissions) bool { return v.Delete }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.Delete }).(pulumi.BoolOutput)
 }
 
 func (o GetAccountBlobContainerSASPermissionsOutput) List() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountBlobContainerSASPermissions) bool { return v.List }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.List }).(pulumi.BoolOutput)
 }
 
 func (o GetAccountBlobContainerSASPermissionsOutput) Read() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountBlobContainerSASPermissions) bool { return v.Read }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.Read }).(pulumi.BoolOutput)
 }
 
 func (o GetAccountBlobContainerSASPermissionsOutput) Write() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountBlobContainerSASPermissions) bool { return v.Write }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.Write }).(pulumi.BoolOutput)
 }
 
 type GetAccountCustomDomain struct {
@@ -2336,7 +2610,28 @@ func (i GetAccountCustomDomainArgs) ToGetAccountCustomDomainOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountCustomDomainOutput)
 }
 
-type GetAccountCustomDomainOutput struct { *pulumi.OutputState }
+type GetAccountCustomDomainArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountCustomDomainArrayOutput() GetAccountCustomDomainArrayOutput
+	ToGetAccountCustomDomainArrayOutputWithContext(context.Context) GetAccountCustomDomainArrayOutput
+}
+
+type GetAccountCustomDomainArray []GetAccountCustomDomainInput
+
+func (GetAccountCustomDomainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountCustomDomain)(nil)).Elem()
+}
+
+func (i GetAccountCustomDomainArray) ToGetAccountCustomDomainArrayOutput() GetAccountCustomDomainArrayOutput {
+	return i.ToGetAccountCustomDomainArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountCustomDomainArray) ToGetAccountCustomDomainArrayOutputWithContext(ctx context.Context) GetAccountCustomDomainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountCustomDomainArrayOutput)
+}
+
+type GetAccountCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (GetAccountCustomDomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetAccountCustomDomain)(nil)).Elem()
@@ -2352,18 +2647,38 @@ func (o GetAccountCustomDomainOutput) ToGetAccountCustomDomainOutputWithContext(
 
 // Specifies the name of the Storage Account
 func (o GetAccountCustomDomainOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetAccountCustomDomain) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetAccountCustomDomain) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetAccountCustomDomainArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountCustomDomainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountCustomDomain)(nil)).Elem()
+}
+
+func (o GetAccountCustomDomainArrayOutput) ToGetAccountCustomDomainArrayOutput() GetAccountCustomDomainArrayOutput {
+	return o
+}
+
+func (o GetAccountCustomDomainArrayOutput) ToGetAccountCustomDomainArrayOutputWithContext(ctx context.Context) GetAccountCustomDomainArrayOutput {
+	return o
+}
+
+func (o GetAccountCustomDomainArrayOutput) Index(i pulumi.IntInput) GetAccountCustomDomainOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountCustomDomain {
+		return vs[0].([]GetAccountCustomDomain)[vs[1].(int)]
+	}).(GetAccountCustomDomainOutput)
 }
 
 type GetAccountSASPermissions struct {
-	Add bool `pulumi:"add"`
-	Create bool `pulumi:"create"`
-	Delete bool `pulumi:"delete"`
-	List bool `pulumi:"list"`
+	Add     bool `pulumi:"add"`
+	Create  bool `pulumi:"create"`
+	Delete  bool `pulumi:"delete"`
+	List    bool `pulumi:"list"`
 	Process bool `pulumi:"process"`
-	Read bool `pulumi:"read"`
-	Update bool `pulumi:"update"`
-	Write bool `pulumi:"write"`
+	Read    bool `pulumi:"read"`
+	Update  bool `pulumi:"update"`
+	Write   bool `pulumi:"write"`
 }
 
 type GetAccountSASPermissionsInput interface {
@@ -2374,14 +2689,14 @@ type GetAccountSASPermissionsInput interface {
 }
 
 type GetAccountSASPermissionsArgs struct {
-	Add pulumi.BoolInput `pulumi:"add"`
-	Create pulumi.BoolInput `pulumi:"create"`
-	Delete pulumi.BoolInput `pulumi:"delete"`
-	List pulumi.BoolInput `pulumi:"list"`
+	Add     pulumi.BoolInput `pulumi:"add"`
+	Create  pulumi.BoolInput `pulumi:"create"`
+	Delete  pulumi.BoolInput `pulumi:"delete"`
+	List    pulumi.BoolInput `pulumi:"list"`
 	Process pulumi.BoolInput `pulumi:"process"`
-	Read pulumi.BoolInput `pulumi:"read"`
-	Update pulumi.BoolInput `pulumi:"update"`
-	Write pulumi.BoolInput `pulumi:"write"`
+	Read    pulumi.BoolInput `pulumi:"read"`
+	Update  pulumi.BoolInput `pulumi:"update"`
+	Write   pulumi.BoolInput `pulumi:"write"`
 }
 
 func (GetAccountSASPermissionsArgs) ElementType() reflect.Type {
@@ -2396,7 +2711,7 @@ func (i GetAccountSASPermissionsArgs) ToGetAccountSASPermissionsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountSASPermissionsOutput)
 }
 
-type GetAccountSASPermissionsOutput struct { *pulumi.OutputState }
+type GetAccountSASPermissionsOutput struct{ *pulumi.OutputState }
 
 func (GetAccountSASPermissionsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetAccountSASPermissions)(nil)).Elem()
@@ -2411,41 +2726,41 @@ func (o GetAccountSASPermissionsOutput) ToGetAccountSASPermissionsOutputWithCont
 }
 
 func (o GetAccountSASPermissionsOutput) Add() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountSASPermissions) bool { return v.Add }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Add }).(pulumi.BoolOutput)
 }
 
 func (o GetAccountSASPermissionsOutput) Create() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountSASPermissions) bool { return v.Create }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Create }).(pulumi.BoolOutput)
 }
 
 func (o GetAccountSASPermissionsOutput) Delete() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountSASPermissions) bool { return v.Delete }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Delete }).(pulumi.BoolOutput)
 }
 
 func (o GetAccountSASPermissionsOutput) List() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountSASPermissions) bool { return v.List }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.List }).(pulumi.BoolOutput)
 }
 
 func (o GetAccountSASPermissionsOutput) Process() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountSASPermissions) bool { return v.Process }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Process }).(pulumi.BoolOutput)
 }
 
 func (o GetAccountSASPermissionsOutput) Read() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountSASPermissions) bool { return v.Read }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Read }).(pulumi.BoolOutput)
 }
 
 func (o GetAccountSASPermissionsOutput) Update() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountSASPermissions) bool { return v.Update }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Update }).(pulumi.BoolOutput)
 }
 
 func (o GetAccountSASPermissionsOutput) Write() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountSASPermissions) bool { return v.Write }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Write }).(pulumi.BoolOutput)
 }
 
 type GetAccountSASResourceTypes struct {
 	Container bool `pulumi:"container"`
-	Object bool `pulumi:"object"`
-	Service bool `pulumi:"service"`
+	Object    bool `pulumi:"object"`
+	Service   bool `pulumi:"service"`
 }
 
 type GetAccountSASResourceTypesInput interface {
@@ -2457,8 +2772,8 @@ type GetAccountSASResourceTypesInput interface {
 
 type GetAccountSASResourceTypesArgs struct {
 	Container pulumi.BoolInput `pulumi:"container"`
-	Object pulumi.BoolInput `pulumi:"object"`
-	Service pulumi.BoolInput `pulumi:"service"`
+	Object    pulumi.BoolInput `pulumi:"object"`
+	Service   pulumi.BoolInput `pulumi:"service"`
 }
 
 func (GetAccountSASResourceTypesArgs) ElementType() reflect.Type {
@@ -2473,7 +2788,7 @@ func (i GetAccountSASResourceTypesArgs) ToGetAccountSASResourceTypesOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountSASResourceTypesOutput)
 }
 
-type GetAccountSASResourceTypesOutput struct { *pulumi.OutputState }
+type GetAccountSASResourceTypesOutput struct{ *pulumi.OutputState }
 
 func (GetAccountSASResourceTypesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetAccountSASResourceTypes)(nil)).Elem()
@@ -2488,20 +2803,20 @@ func (o GetAccountSASResourceTypesOutput) ToGetAccountSASResourceTypesOutputWith
 }
 
 func (o GetAccountSASResourceTypesOutput) Container() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountSASResourceTypes) bool { return v.Container }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountSASResourceTypes) bool { return v.Container }).(pulumi.BoolOutput)
 }
 
 func (o GetAccountSASResourceTypesOutput) Object() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountSASResourceTypes) bool { return v.Object }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountSASResourceTypes) bool { return v.Object }).(pulumi.BoolOutput)
 }
 
 func (o GetAccountSASResourceTypesOutput) Service() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountSASResourceTypes) bool { return v.Service }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountSASResourceTypes) bool { return v.Service }).(pulumi.BoolOutput)
 }
 
 type GetAccountSASServices struct {
-	Blob bool `pulumi:"blob"`
-	File bool `pulumi:"file"`
+	Blob  bool `pulumi:"blob"`
+	File  bool `pulumi:"file"`
 	Queue bool `pulumi:"queue"`
 	Table bool `pulumi:"table"`
 }
@@ -2514,8 +2829,8 @@ type GetAccountSASServicesInput interface {
 }
 
 type GetAccountSASServicesArgs struct {
-	Blob pulumi.BoolInput `pulumi:"blob"`
-	File pulumi.BoolInput `pulumi:"file"`
+	Blob  pulumi.BoolInput `pulumi:"blob"`
+	File  pulumi.BoolInput `pulumi:"file"`
 	Queue pulumi.BoolInput `pulumi:"queue"`
 	Table pulumi.BoolInput `pulumi:"table"`
 }
@@ -2532,7 +2847,7 @@ func (i GetAccountSASServicesArgs) ToGetAccountSASServicesOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountSASServicesOutput)
 }
 
-type GetAccountSASServicesOutput struct { *pulumi.OutputState }
+type GetAccountSASServicesOutput struct{ *pulumi.OutputState }
 
 func (GetAccountSASServicesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetAccountSASServices)(nil)).Elem()
@@ -2547,29 +2862,29 @@ func (o GetAccountSASServicesOutput) ToGetAccountSASServicesOutputWithContext(ct
 }
 
 func (o GetAccountSASServicesOutput) Blob() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountSASServices) bool { return v.Blob }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountSASServices) bool { return v.Blob }).(pulumi.BoolOutput)
 }
 
 func (o GetAccountSASServicesOutput) File() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountSASServices) bool { return v.File }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountSASServices) bool { return v.File }).(pulumi.BoolOutput)
 }
 
 func (o GetAccountSASServicesOutput) Queue() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountSASServices) bool { return v.Queue }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountSASServices) bool { return v.Queue }).(pulumi.BoolOutput)
 }
 
 func (o GetAccountSASServicesOutput) Table() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAccountSASServices) bool { return v.Table }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetAccountSASServices) bool { return v.Table }).(pulumi.BoolOutput)
 }
 
 type GetPolicyRule struct {
 	// An `actions` block as documented below.
-	Actions GetPolicyRuleActions `pulumi:"actions"`
-	// (Required)  Boolean to specify whether the rule is enabled.
+	Actions []GetPolicyRuleAction `pulumi:"actions"`
+	// Boolean to specify whether the rule is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// A `filter` block as documented below.
-	Filters GetPolicyRuleFilters `pulumi:"filters"`
-	// (Required) A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+	Filters []GetPolicyRuleFilter `pulumi:"filters"`
+	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
 	Name string `pulumi:"name"`
 }
 
@@ -2582,12 +2897,12 @@ type GetPolicyRuleInput interface {
 
 type GetPolicyRuleArgs struct {
 	// An `actions` block as documented below.
-	Actions GetPolicyRuleActionsInput `pulumi:"actions"`
-	// (Required)  Boolean to specify whether the rule is enabled.
+	Actions GetPolicyRuleActionArrayInput `pulumi:"actions"`
+	// Boolean to specify whether the rule is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// A `filter` block as documented below.
-	Filters GetPolicyRuleFiltersInput `pulumi:"filters"`
-	// (Required) A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+	Filters GetPolicyRuleFilterArrayInput `pulumi:"filters"`
+	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2624,7 +2939,7 @@ func (i GetPolicyRuleArray) ToGetPolicyRuleArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleArrayOutput)
 }
 
-type GetPolicyRuleOutput struct { *pulumi.OutputState }
+type GetPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPolicyRule)(nil)).Elem()
@@ -2639,26 +2954,26 @@ func (o GetPolicyRuleOutput) ToGetPolicyRuleOutputWithContext(ctx context.Contex
 }
 
 // An `actions` block as documented below.
-func (o GetPolicyRuleOutput) Actions() GetPolicyRuleActionsOutput {
-	return o.ApplyT(func (v GetPolicyRule) GetPolicyRuleActions { return v.Actions }).(GetPolicyRuleActionsOutput)
+func (o GetPolicyRuleOutput) Actions() GetPolicyRuleActionArrayOutput {
+	return o.ApplyT(func(v GetPolicyRule) []GetPolicyRuleAction { return v.Actions }).(GetPolicyRuleActionArrayOutput)
 }
 
-// (Required)  Boolean to specify whether the rule is enabled.
+// Boolean to specify whether the rule is enabled.
 func (o GetPolicyRuleOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetPolicyRule) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetPolicyRule) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // A `filter` block as documented below.
-func (o GetPolicyRuleOutput) Filters() GetPolicyRuleFiltersOutput {
-	return o.ApplyT(func (v GetPolicyRule) GetPolicyRuleFilters { return v.Filters }).(GetPolicyRuleFiltersOutput)
+func (o GetPolicyRuleOutput) Filters() GetPolicyRuleFilterArrayOutput {
+	return o.ApplyT(func(v GetPolicyRule) []GetPolicyRuleFilter { return v.Filters }).(GetPolicyRuleFilterArrayOutput)
 }
 
-// (Required) A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
 func (o GetPolicyRuleOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPolicyRule) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPolicyRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type GetPolicyRuleArrayOutput struct { *pulumi.OutputState}
+type GetPolicyRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetPolicyRule)(nil)).Elem()
@@ -2673,69 +2988,110 @@ func (o GetPolicyRuleArrayOutput) ToGetPolicyRuleArrayOutputWithContext(ctx cont
 }
 
 func (o GetPolicyRuleArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPolicyRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyRule {
 		return vs[0].([]GetPolicyRule)[vs[1].(int)]
 	}).(GetPolicyRuleOutput)
 }
 
-type GetPolicyRuleActions struct {
+type GetPolicyRuleAction struct {
 	// A `baseBlob` block as documented below.
-	BaseBlob GetPolicyRuleActionsBaseBlob `pulumi:"baseBlob"`
+	BaseBlobs []GetPolicyRuleActionBaseBlob `pulumi:"baseBlobs"`
 	// A `snapshot` block as documented below.
-	Snapshot GetPolicyRuleActionsSnapshot `pulumi:"snapshot"`
+	Snapshots []GetPolicyRuleActionSnapshot `pulumi:"snapshots"`
 }
 
-type GetPolicyRuleActionsInput interface {
+type GetPolicyRuleActionInput interface {
 	pulumi.Input
 
-	ToGetPolicyRuleActionsOutput() GetPolicyRuleActionsOutput
-	ToGetPolicyRuleActionsOutputWithContext(context.Context) GetPolicyRuleActionsOutput
+	ToGetPolicyRuleActionOutput() GetPolicyRuleActionOutput
+	ToGetPolicyRuleActionOutputWithContext(context.Context) GetPolicyRuleActionOutput
 }
 
-type GetPolicyRuleActionsArgs struct {
+type GetPolicyRuleActionArgs struct {
 	// A `baseBlob` block as documented below.
-	BaseBlob GetPolicyRuleActionsBaseBlobInput `pulumi:"baseBlob"`
+	BaseBlobs GetPolicyRuleActionBaseBlobArrayInput `pulumi:"baseBlobs"`
 	// A `snapshot` block as documented below.
-	Snapshot GetPolicyRuleActionsSnapshotInput `pulumi:"snapshot"`
+	Snapshots GetPolicyRuleActionSnapshotArrayInput `pulumi:"snapshots"`
 }
 
-func (GetPolicyRuleActionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPolicyRuleActions)(nil)).Elem()
+func (GetPolicyRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleAction)(nil)).Elem()
 }
 
-func (i GetPolicyRuleActionsArgs) ToGetPolicyRuleActionsOutput() GetPolicyRuleActionsOutput {
-	return i.ToGetPolicyRuleActionsOutputWithContext(context.Background())
+func (i GetPolicyRuleActionArgs) ToGetPolicyRuleActionOutput() GetPolicyRuleActionOutput {
+	return i.ToGetPolicyRuleActionOutputWithContext(context.Background())
 }
 
-func (i GetPolicyRuleActionsArgs) ToGetPolicyRuleActionsOutputWithContext(ctx context.Context) GetPolicyRuleActionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionsOutput)
+func (i GetPolicyRuleActionArgs) ToGetPolicyRuleActionOutputWithContext(ctx context.Context) GetPolicyRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionOutput)
 }
 
-type GetPolicyRuleActionsOutput struct { *pulumi.OutputState }
+type GetPolicyRuleActionArrayInput interface {
+	pulumi.Input
 
-func (GetPolicyRuleActionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPolicyRuleActions)(nil)).Elem()
+	ToGetPolicyRuleActionArrayOutput() GetPolicyRuleActionArrayOutput
+	ToGetPolicyRuleActionArrayOutputWithContext(context.Context) GetPolicyRuleActionArrayOutput
 }
 
-func (o GetPolicyRuleActionsOutput) ToGetPolicyRuleActionsOutput() GetPolicyRuleActionsOutput {
+type GetPolicyRuleActionArray []GetPolicyRuleActionInput
+
+func (GetPolicyRuleActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleAction)(nil)).Elem()
+}
+
+func (i GetPolicyRuleActionArray) ToGetPolicyRuleActionArrayOutput() GetPolicyRuleActionArrayOutput {
+	return i.ToGetPolicyRuleActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyRuleActionArray) ToGetPolicyRuleActionArrayOutputWithContext(ctx context.Context) GetPolicyRuleActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionArrayOutput)
+}
+
+type GetPolicyRuleActionOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleAction)(nil)).Elem()
+}
+
+func (o GetPolicyRuleActionOutput) ToGetPolicyRuleActionOutput() GetPolicyRuleActionOutput {
 	return o
 }
 
-func (o GetPolicyRuleActionsOutput) ToGetPolicyRuleActionsOutputWithContext(ctx context.Context) GetPolicyRuleActionsOutput {
+func (o GetPolicyRuleActionOutput) ToGetPolicyRuleActionOutputWithContext(ctx context.Context) GetPolicyRuleActionOutput {
 	return o
 }
 
 // A `baseBlob` block as documented below.
-func (o GetPolicyRuleActionsOutput) BaseBlob() GetPolicyRuleActionsBaseBlobOutput {
-	return o.ApplyT(func (v GetPolicyRuleActions) GetPolicyRuleActionsBaseBlob { return v.BaseBlob }).(GetPolicyRuleActionsBaseBlobOutput)
+func (o GetPolicyRuleActionOutput) BaseBlobs() GetPolicyRuleActionBaseBlobArrayOutput {
+	return o.ApplyT(func(v GetPolicyRuleAction) []GetPolicyRuleActionBaseBlob { return v.BaseBlobs }).(GetPolicyRuleActionBaseBlobArrayOutput)
 }
 
 // A `snapshot` block as documented below.
-func (o GetPolicyRuleActionsOutput) Snapshot() GetPolicyRuleActionsSnapshotOutput {
-	return o.ApplyT(func (v GetPolicyRuleActions) GetPolicyRuleActionsSnapshot { return v.Snapshot }).(GetPolicyRuleActionsSnapshotOutput)
+func (o GetPolicyRuleActionOutput) Snapshots() GetPolicyRuleActionSnapshotArrayOutput {
+	return o.ApplyT(func(v GetPolicyRuleAction) []GetPolicyRuleActionSnapshot { return v.Snapshots }).(GetPolicyRuleActionSnapshotArrayOutput)
 }
 
-type GetPolicyRuleActionsBaseBlob struct {
+type GetPolicyRuleActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyRuleActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleAction)(nil)).Elem()
+}
+
+func (o GetPolicyRuleActionArrayOutput) ToGetPolicyRuleActionArrayOutput() GetPolicyRuleActionArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleActionArrayOutput) ToGetPolicyRuleActionArrayOutputWithContext(ctx context.Context) GetPolicyRuleActionArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleActionArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyRuleAction {
+		return vs[0].([]GetPolicyRuleAction)[vs[1].(int)]
+	}).(GetPolicyRuleActionOutput)
+}
+
+type GetPolicyRuleActionBaseBlob struct {
 	// The age in days after last modification to delete the blob.
 	DeleteAfterDaysSinceModificationGreaterThan int `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
 	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
@@ -2744,14 +3100,14 @@ type GetPolicyRuleActionsBaseBlob struct {
 	TierToCoolAfterDaysSinceModificationGreaterThan int `pulumi:"tierToCoolAfterDaysSinceModificationGreaterThan"`
 }
 
-type GetPolicyRuleActionsBaseBlobInput interface {
+type GetPolicyRuleActionBaseBlobInput interface {
 	pulumi.Input
 
-	ToGetPolicyRuleActionsBaseBlobOutput() GetPolicyRuleActionsBaseBlobOutput
-	ToGetPolicyRuleActionsBaseBlobOutputWithContext(context.Context) GetPolicyRuleActionsBaseBlobOutput
+	ToGetPolicyRuleActionBaseBlobOutput() GetPolicyRuleActionBaseBlobOutput
+	ToGetPolicyRuleActionBaseBlobOutputWithContext(context.Context) GetPolicyRuleActionBaseBlobOutput
 }
 
-type GetPolicyRuleActionsBaseBlobArgs struct {
+type GetPolicyRuleActionBaseBlobArgs struct {
 	// The age in days after last modification to delete the blob.
 	DeleteAfterDaysSinceModificationGreaterThan pulumi.IntInput `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
 	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
@@ -2760,155 +3116,280 @@ type GetPolicyRuleActionsBaseBlobArgs struct {
 	TierToCoolAfterDaysSinceModificationGreaterThan pulumi.IntInput `pulumi:"tierToCoolAfterDaysSinceModificationGreaterThan"`
 }
 
-func (GetPolicyRuleActionsBaseBlobArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPolicyRuleActionsBaseBlob)(nil)).Elem()
+func (GetPolicyRuleActionBaseBlobArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleActionBaseBlob)(nil)).Elem()
 }
 
-func (i GetPolicyRuleActionsBaseBlobArgs) ToGetPolicyRuleActionsBaseBlobOutput() GetPolicyRuleActionsBaseBlobOutput {
-	return i.ToGetPolicyRuleActionsBaseBlobOutputWithContext(context.Background())
+func (i GetPolicyRuleActionBaseBlobArgs) ToGetPolicyRuleActionBaseBlobOutput() GetPolicyRuleActionBaseBlobOutput {
+	return i.ToGetPolicyRuleActionBaseBlobOutputWithContext(context.Background())
 }
 
-func (i GetPolicyRuleActionsBaseBlobArgs) ToGetPolicyRuleActionsBaseBlobOutputWithContext(ctx context.Context) GetPolicyRuleActionsBaseBlobOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionsBaseBlobOutput)
+func (i GetPolicyRuleActionBaseBlobArgs) ToGetPolicyRuleActionBaseBlobOutputWithContext(ctx context.Context) GetPolicyRuleActionBaseBlobOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionBaseBlobOutput)
 }
 
-type GetPolicyRuleActionsBaseBlobOutput struct { *pulumi.OutputState }
+type GetPolicyRuleActionBaseBlobArrayInput interface {
+	pulumi.Input
 
-func (GetPolicyRuleActionsBaseBlobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPolicyRuleActionsBaseBlob)(nil)).Elem()
+	ToGetPolicyRuleActionBaseBlobArrayOutput() GetPolicyRuleActionBaseBlobArrayOutput
+	ToGetPolicyRuleActionBaseBlobArrayOutputWithContext(context.Context) GetPolicyRuleActionBaseBlobArrayOutput
 }
 
-func (o GetPolicyRuleActionsBaseBlobOutput) ToGetPolicyRuleActionsBaseBlobOutput() GetPolicyRuleActionsBaseBlobOutput {
+type GetPolicyRuleActionBaseBlobArray []GetPolicyRuleActionBaseBlobInput
+
+func (GetPolicyRuleActionBaseBlobArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleActionBaseBlob)(nil)).Elem()
+}
+
+func (i GetPolicyRuleActionBaseBlobArray) ToGetPolicyRuleActionBaseBlobArrayOutput() GetPolicyRuleActionBaseBlobArrayOutput {
+	return i.ToGetPolicyRuleActionBaseBlobArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyRuleActionBaseBlobArray) ToGetPolicyRuleActionBaseBlobArrayOutputWithContext(ctx context.Context) GetPolicyRuleActionBaseBlobArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionBaseBlobArrayOutput)
+}
+
+type GetPolicyRuleActionBaseBlobOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyRuleActionBaseBlobOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleActionBaseBlob)(nil)).Elem()
+}
+
+func (o GetPolicyRuleActionBaseBlobOutput) ToGetPolicyRuleActionBaseBlobOutput() GetPolicyRuleActionBaseBlobOutput {
 	return o
 }
 
-func (o GetPolicyRuleActionsBaseBlobOutput) ToGetPolicyRuleActionsBaseBlobOutputWithContext(ctx context.Context) GetPolicyRuleActionsBaseBlobOutput {
+func (o GetPolicyRuleActionBaseBlobOutput) ToGetPolicyRuleActionBaseBlobOutputWithContext(ctx context.Context) GetPolicyRuleActionBaseBlobOutput {
 	return o
 }
 
 // The age in days after last modification to delete the blob.
-func (o GetPolicyRuleActionsBaseBlobOutput) DeleteAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
-	return o.ApplyT(func (v GetPolicyRuleActionsBaseBlob) int { return v.DeleteAfterDaysSinceModificationGreaterThan }).(pulumi.IntOutput)
+func (o GetPolicyRuleActionBaseBlobOutput) DeleteAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyRuleActionBaseBlob) int { return v.DeleteAfterDaysSinceModificationGreaterThan }).(pulumi.IntOutput)
 }
 
 // The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
-func (o GetPolicyRuleActionsBaseBlobOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
-	return o.ApplyT(func (v GetPolicyRuleActionsBaseBlob) int { return v.TierToArchiveAfterDaysSinceModificationGreaterThan }).(pulumi.IntOutput)
+func (o GetPolicyRuleActionBaseBlobOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyRuleActionBaseBlob) int { return v.TierToArchiveAfterDaysSinceModificationGreaterThan }).(pulumi.IntOutput)
 }
 
 // The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier.
-func (o GetPolicyRuleActionsBaseBlobOutput) TierToCoolAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
-	return o.ApplyT(func (v GetPolicyRuleActionsBaseBlob) int { return v.TierToCoolAfterDaysSinceModificationGreaterThan }).(pulumi.IntOutput)
+func (o GetPolicyRuleActionBaseBlobOutput) TierToCoolAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyRuleActionBaseBlob) int { return v.TierToCoolAfterDaysSinceModificationGreaterThan }).(pulumi.IntOutput)
 }
 
-type GetPolicyRuleActionsSnapshot struct {
+type GetPolicyRuleActionBaseBlobArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyRuleActionBaseBlobArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleActionBaseBlob)(nil)).Elem()
+}
+
+func (o GetPolicyRuleActionBaseBlobArrayOutput) ToGetPolicyRuleActionBaseBlobArrayOutput() GetPolicyRuleActionBaseBlobArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleActionBaseBlobArrayOutput) ToGetPolicyRuleActionBaseBlobArrayOutputWithContext(ctx context.Context) GetPolicyRuleActionBaseBlobArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleActionBaseBlobArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleActionBaseBlobOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyRuleActionBaseBlob {
+		return vs[0].([]GetPolicyRuleActionBaseBlob)[vs[1].(int)]
+	}).(GetPolicyRuleActionBaseBlobOutput)
+}
+
+type GetPolicyRuleActionSnapshot struct {
 	// The age in days after create to delete the snaphot.
 	DeleteAfterDaysSinceCreationGreaterThan int `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
 }
 
-type GetPolicyRuleActionsSnapshotInput interface {
+type GetPolicyRuleActionSnapshotInput interface {
 	pulumi.Input
 
-	ToGetPolicyRuleActionsSnapshotOutput() GetPolicyRuleActionsSnapshotOutput
-	ToGetPolicyRuleActionsSnapshotOutputWithContext(context.Context) GetPolicyRuleActionsSnapshotOutput
+	ToGetPolicyRuleActionSnapshotOutput() GetPolicyRuleActionSnapshotOutput
+	ToGetPolicyRuleActionSnapshotOutputWithContext(context.Context) GetPolicyRuleActionSnapshotOutput
 }
 
-type GetPolicyRuleActionsSnapshotArgs struct {
+type GetPolicyRuleActionSnapshotArgs struct {
 	// The age in days after create to delete the snaphot.
 	DeleteAfterDaysSinceCreationGreaterThan pulumi.IntInput `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
 }
 
-func (GetPolicyRuleActionsSnapshotArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPolicyRuleActionsSnapshot)(nil)).Elem()
+func (GetPolicyRuleActionSnapshotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleActionSnapshot)(nil)).Elem()
 }
 
-func (i GetPolicyRuleActionsSnapshotArgs) ToGetPolicyRuleActionsSnapshotOutput() GetPolicyRuleActionsSnapshotOutput {
-	return i.ToGetPolicyRuleActionsSnapshotOutputWithContext(context.Background())
+func (i GetPolicyRuleActionSnapshotArgs) ToGetPolicyRuleActionSnapshotOutput() GetPolicyRuleActionSnapshotOutput {
+	return i.ToGetPolicyRuleActionSnapshotOutputWithContext(context.Background())
 }
 
-func (i GetPolicyRuleActionsSnapshotArgs) ToGetPolicyRuleActionsSnapshotOutputWithContext(ctx context.Context) GetPolicyRuleActionsSnapshotOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionsSnapshotOutput)
+func (i GetPolicyRuleActionSnapshotArgs) ToGetPolicyRuleActionSnapshotOutputWithContext(ctx context.Context) GetPolicyRuleActionSnapshotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionSnapshotOutput)
 }
 
-type GetPolicyRuleActionsSnapshotOutput struct { *pulumi.OutputState }
+type GetPolicyRuleActionSnapshotArrayInput interface {
+	pulumi.Input
 
-func (GetPolicyRuleActionsSnapshotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPolicyRuleActionsSnapshot)(nil)).Elem()
+	ToGetPolicyRuleActionSnapshotArrayOutput() GetPolicyRuleActionSnapshotArrayOutput
+	ToGetPolicyRuleActionSnapshotArrayOutputWithContext(context.Context) GetPolicyRuleActionSnapshotArrayOutput
 }
 
-func (o GetPolicyRuleActionsSnapshotOutput) ToGetPolicyRuleActionsSnapshotOutput() GetPolicyRuleActionsSnapshotOutput {
+type GetPolicyRuleActionSnapshotArray []GetPolicyRuleActionSnapshotInput
+
+func (GetPolicyRuleActionSnapshotArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleActionSnapshot)(nil)).Elem()
+}
+
+func (i GetPolicyRuleActionSnapshotArray) ToGetPolicyRuleActionSnapshotArrayOutput() GetPolicyRuleActionSnapshotArrayOutput {
+	return i.ToGetPolicyRuleActionSnapshotArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyRuleActionSnapshotArray) ToGetPolicyRuleActionSnapshotArrayOutputWithContext(ctx context.Context) GetPolicyRuleActionSnapshotArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionSnapshotArrayOutput)
+}
+
+type GetPolicyRuleActionSnapshotOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyRuleActionSnapshotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleActionSnapshot)(nil)).Elem()
+}
+
+func (o GetPolicyRuleActionSnapshotOutput) ToGetPolicyRuleActionSnapshotOutput() GetPolicyRuleActionSnapshotOutput {
 	return o
 }
 
-func (o GetPolicyRuleActionsSnapshotOutput) ToGetPolicyRuleActionsSnapshotOutputWithContext(ctx context.Context) GetPolicyRuleActionsSnapshotOutput {
+func (o GetPolicyRuleActionSnapshotOutput) ToGetPolicyRuleActionSnapshotOutputWithContext(ctx context.Context) GetPolicyRuleActionSnapshotOutput {
 	return o
 }
 
 // The age in days after create to delete the snaphot.
-func (o GetPolicyRuleActionsSnapshotOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntOutput {
-	return o.ApplyT(func (v GetPolicyRuleActionsSnapshot) int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntOutput)
+func (o GetPolicyRuleActionSnapshotOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyRuleActionSnapshot) int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntOutput)
 }
 
-type GetPolicyRuleFilters struct {
+type GetPolicyRuleActionSnapshotArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyRuleActionSnapshotArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleActionSnapshot)(nil)).Elem()
+}
+
+func (o GetPolicyRuleActionSnapshotArrayOutput) ToGetPolicyRuleActionSnapshotArrayOutput() GetPolicyRuleActionSnapshotArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleActionSnapshotArrayOutput) ToGetPolicyRuleActionSnapshotArrayOutputWithContext(ctx context.Context) GetPolicyRuleActionSnapshotArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleActionSnapshotArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleActionSnapshotOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyRuleActionSnapshot {
+		return vs[0].([]GetPolicyRuleActionSnapshot)[vs[1].(int)]
+	}).(GetPolicyRuleActionSnapshotOutput)
+}
+
+type GetPolicyRuleFilter struct {
 	// An array of predefined values. Only `blockBlob` is supported.
 	BlobTypes []string `pulumi:"blobTypes"`
 	// An array of strings for prefixes to be matched.
 	PrefixMatches []string `pulumi:"prefixMatches"`
 }
 
-type GetPolicyRuleFiltersInput interface {
+type GetPolicyRuleFilterInput interface {
 	pulumi.Input
 
-	ToGetPolicyRuleFiltersOutput() GetPolicyRuleFiltersOutput
-	ToGetPolicyRuleFiltersOutputWithContext(context.Context) GetPolicyRuleFiltersOutput
+	ToGetPolicyRuleFilterOutput() GetPolicyRuleFilterOutput
+	ToGetPolicyRuleFilterOutputWithContext(context.Context) GetPolicyRuleFilterOutput
 }
 
-type GetPolicyRuleFiltersArgs struct {
+type GetPolicyRuleFilterArgs struct {
 	// An array of predefined values. Only `blockBlob` is supported.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
 	// An array of strings for prefixes to be matched.
 	PrefixMatches pulumi.StringArrayInput `pulumi:"prefixMatches"`
 }
 
-func (GetPolicyRuleFiltersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPolicyRuleFilters)(nil)).Elem()
+func (GetPolicyRuleFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleFilter)(nil)).Elem()
 }
 
-func (i GetPolicyRuleFiltersArgs) ToGetPolicyRuleFiltersOutput() GetPolicyRuleFiltersOutput {
-	return i.ToGetPolicyRuleFiltersOutputWithContext(context.Background())
+func (i GetPolicyRuleFilterArgs) ToGetPolicyRuleFilterOutput() GetPolicyRuleFilterOutput {
+	return i.ToGetPolicyRuleFilterOutputWithContext(context.Background())
 }
 
-func (i GetPolicyRuleFiltersArgs) ToGetPolicyRuleFiltersOutputWithContext(ctx context.Context) GetPolicyRuleFiltersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleFiltersOutput)
+func (i GetPolicyRuleFilterArgs) ToGetPolicyRuleFilterOutputWithContext(ctx context.Context) GetPolicyRuleFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleFilterOutput)
 }
 
-type GetPolicyRuleFiltersOutput struct { *pulumi.OutputState }
+type GetPolicyRuleFilterArrayInput interface {
+	pulumi.Input
 
-func (GetPolicyRuleFiltersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPolicyRuleFilters)(nil)).Elem()
+	ToGetPolicyRuleFilterArrayOutput() GetPolicyRuleFilterArrayOutput
+	ToGetPolicyRuleFilterArrayOutputWithContext(context.Context) GetPolicyRuleFilterArrayOutput
 }
 
-func (o GetPolicyRuleFiltersOutput) ToGetPolicyRuleFiltersOutput() GetPolicyRuleFiltersOutput {
+type GetPolicyRuleFilterArray []GetPolicyRuleFilterInput
+
+func (GetPolicyRuleFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleFilter)(nil)).Elem()
+}
+
+func (i GetPolicyRuleFilterArray) ToGetPolicyRuleFilterArrayOutput() GetPolicyRuleFilterArrayOutput {
+	return i.ToGetPolicyRuleFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyRuleFilterArray) ToGetPolicyRuleFilterArrayOutputWithContext(ctx context.Context) GetPolicyRuleFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleFilterArrayOutput)
+}
+
+type GetPolicyRuleFilterOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyRuleFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleFilter)(nil)).Elem()
+}
+
+func (o GetPolicyRuleFilterOutput) ToGetPolicyRuleFilterOutput() GetPolicyRuleFilterOutput {
 	return o
 }
 
-func (o GetPolicyRuleFiltersOutput) ToGetPolicyRuleFiltersOutputWithContext(ctx context.Context) GetPolicyRuleFiltersOutput {
+func (o GetPolicyRuleFilterOutput) ToGetPolicyRuleFilterOutputWithContext(ctx context.Context) GetPolicyRuleFilterOutput {
 	return o
 }
 
 // An array of predefined values. Only `blockBlob` is supported.
-func (o GetPolicyRuleFiltersOutput) BlobTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetPolicyRuleFilters) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
+func (o GetPolicyRuleFilterOutput) BlobTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPolicyRuleFilter) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
 
 // An array of strings for prefixes to be matched.
-func (o GetPolicyRuleFiltersOutput) PrefixMatches() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetPolicyRuleFilters) []string { return v.PrefixMatches }).(pulumi.StringArrayOutput)
+func (o GetPolicyRuleFilterOutput) PrefixMatches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPolicyRuleFilter) []string { return v.PrefixMatches }).(pulumi.StringArrayOutput)
+}
+
+type GetPolicyRuleFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyRuleFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleFilter)(nil)).Elem()
+}
+
+func (o GetPolicyRuleFilterArrayOutput) ToGetPolicyRuleFilterArrayOutput() GetPolicyRuleFilterArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleFilterArrayOutput) ToGetPolicyRuleFilterArrayOutputWithContext(ctx context.Context) GetPolicyRuleFilterArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleFilterArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyRuleFilter {
+		return vs[0].([]GetPolicyRuleFilter)[vs[1].(int)]
+	}).(GetPolicyRuleFilterOutput)
 }
 
 func init() {
 	pulumi.RegisterOutputType(AccountBlobPropertiesOutput{})
 	pulumi.RegisterOutputType(AccountBlobPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AccountBlobPropertiesCorsRuleOutput{})
+	pulumi.RegisterOutputType(AccountBlobPropertiesCorsRuleArrayOutput{})
 	pulumi.RegisterOutputType(AccountBlobPropertiesDeleteRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AccountCustomDomainOutput{})
@@ -2927,6 +3408,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountQueuePropertiesLoggingPtrOutput{})
 	pulumi.RegisterOutputType(AccountQueuePropertiesMinuteMetricsOutput{})
 	pulumi.RegisterOutputType(AccountQueuePropertiesMinuteMetricsPtrOutput{})
+	pulumi.RegisterOutputType(AccountStaticWebsiteOutput{})
+	pulumi.RegisterOutputType(AccountStaticWebsitePtrOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleActionsOutput{})
@@ -2946,13 +3429,18 @@ func init() {
 	pulumi.RegisterOutputType(TableAclAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountBlobContainerSASPermissionsOutput{})
 	pulumi.RegisterOutputType(GetAccountCustomDomainOutput{})
+	pulumi.RegisterOutputType(GetAccountCustomDomainArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountSASPermissionsOutput{})
 	pulumi.RegisterOutputType(GetAccountSASResourceTypesOutput{})
 	pulumi.RegisterOutputType(GetAccountSASServicesOutput{})
 	pulumi.RegisterOutputType(GetPolicyRuleOutput{})
 	pulumi.RegisterOutputType(GetPolicyRuleArrayOutput{})
-	pulumi.RegisterOutputType(GetPolicyRuleActionsOutput{})
-	pulumi.RegisterOutputType(GetPolicyRuleActionsBaseBlobOutput{})
-	pulumi.RegisterOutputType(GetPolicyRuleActionsSnapshotOutput{})
-	pulumi.RegisterOutputType(GetPolicyRuleFiltersOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleActionOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleActionArrayOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleActionBaseBlobOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleActionBaseBlobArrayOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleActionSnapshotOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleActionSnapshotArrayOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleFilterOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleFilterArrayOutput{})
 }

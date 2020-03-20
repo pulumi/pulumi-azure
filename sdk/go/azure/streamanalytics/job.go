@@ -12,12 +12,12 @@ import (
 )
 
 // Manages a Stream Analytics Job.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_job.html.markdown.
 type Job struct {
 	pulumi.CustomResourceState
 
-	// Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and 1.1`.
+	// Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and `1.1`.
 	CompatibilityLevel pulumi.StringOutput `pulumi:"compatibilityLevel"`
 	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
 	DataLocale pulumi.StringOutput `pulumi:"dataLocale"`
@@ -82,7 +82,7 @@ func GetJob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Job resources.
 type jobState struct {
-	// Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and 1.1`.
+	// Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and `1.1`.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
 	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
 	DataLocale *string `pulumi:"dataLocale"`
@@ -111,7 +111,7 @@ type jobState struct {
 }
 
 type JobState struct {
-	// Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and 1.1`.
+	// Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and `1.1`.
 	CompatibilityLevel pulumi.StringPtrInput
 	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
 	DataLocale pulumi.StringPtrInput
@@ -144,7 +144,7 @@ func (JobState) ElementType() reflect.Type {
 }
 
 type jobArgs struct {
-	// Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and 1.1`.
+	// Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and `1.1`.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
 	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
 	DataLocale *string `pulumi:"dataLocale"`
@@ -172,7 +172,7 @@ type jobArgs struct {
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
-	// Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and 1.1`.
+	// Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and `1.1`.
 	CompatibilityLevel pulumi.StringPtrInput
 	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
 	DataLocale pulumi.StringPtrInput
@@ -201,4 +201,3 @@ type JobArgs struct {
 func (JobArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobArgs)(nil)).Elem()
 }
-

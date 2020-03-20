@@ -1,4 +1,4 @@
-﻿// Copyright 2016-2018, Pulumi Corporation.
+// Copyright 2016-2018, Pulumi Corporation.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="blob">Blob to construct the URL for.</param>
         /// <param name="account">Storage account containing the blob.</param>
         /// <returns>An <see cref="Output{String}"/> containing the blob access URL.</returns>
-        public static Output<string> SignedBlobReadUrl(ZipBlob blob, Account account)
+        public static Output<string> SignedBlobReadUrl(Blob blob, Account account)
         {
             return Output
                 .Tuple(account.Name, account.PrimaryConnectionString, blob.StorageContainerName, blob.Name)

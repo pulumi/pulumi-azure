@@ -11,15 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages an Azure Network Profile.
-// 
+// Manages a Network Profile.
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_profile.html.markdown.
 type Profile struct {
 	pulumi.CustomResourceState
 
 	// A `containerNetworkInterface` block as documented below.
 	ContainerNetworkInterface ProfileContainerNetworkInterfaceOutput `pulumi:"containerNetworkInterface"`
-	// One or more Resource IDs of Azure Container Network Interfaces.
+	// A list of Container Network Interface ID's.
 	ContainerNetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"containerNetworkInterfaceIds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -67,7 +67,7 @@ func GetProfile(ctx *pulumi.Context,
 type profileState struct {
 	// A `containerNetworkInterface` block as documented below.
 	ContainerNetworkInterface *ProfileContainerNetworkInterface `pulumi:"containerNetworkInterface"`
-	// One or more Resource IDs of Azure Container Network Interfaces.
+	// A list of Container Network Interface ID's.
 	ContainerNetworkInterfaceIds []string `pulumi:"containerNetworkInterfaceIds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -82,7 +82,7 @@ type profileState struct {
 type ProfileState struct {
 	// A `containerNetworkInterface` block as documented below.
 	ContainerNetworkInterface ProfileContainerNetworkInterfacePtrInput
-	// One or more Resource IDs of Azure Container Network Interfaces.
+	// A list of Container Network Interface ID's.
 	ContainerNetworkInterfaceIds pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -128,4 +128,3 @@ type ProfileArgs struct {
 func (ProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileArgs)(nil)).Elem()
 }
-

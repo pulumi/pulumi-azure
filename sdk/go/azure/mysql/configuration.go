@@ -12,7 +12,11 @@ import (
 )
 
 // Sets a MySQL Configuration value on a MySQL Server.
-// 
+//
+// ## Disclaimers
+//
+// > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_configuration.html.markdown.
 type Configuration struct {
 	pulumi.CustomResourceState
@@ -115,4 +119,3 @@ type ConfigurationArgs struct {
 func (ConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationArgs)(nil)).Elem()
 }
-

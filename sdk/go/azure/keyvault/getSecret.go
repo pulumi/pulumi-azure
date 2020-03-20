@@ -9,10 +9,10 @@ import (
 )
 
 // Use this data source to access information about an existing Key Vault Secret.
-// 
+//
 // > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_secret.html.markdown.
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult
@@ -25,28 +25,24 @@ func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getSecret.
 type LookupSecretArgs struct {
-	// Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource. 
-	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
+	KeyVaultId string `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Secret.
 	Name string `pulumi:"name"`
-	VaultUri *string `pulumi:"vaultUri"`
 }
-
 
 // A collection of values returned by getSecret.
 type LookupSecretResult struct {
 	// The content type for the Key Vault Secret.
 	ContentType string `pulumi:"contentType"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id         string `pulumi:"id"`
 	KeyVaultId string `pulumi:"keyVaultId"`
-	Name string `pulumi:"name"`
+	Name       string `pulumi:"name"`
 	// Any tags assigned to this resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The value of the Key Vault Secret.
 	Value string `pulumi:"value"`
-	VaultUri string `pulumi:"vaultUri"`
 	// The current version of the Key Vault Secret.
 	Version string `pulumi:"version"`
 }
-

@@ -59,7 +59,8 @@ type ClusterSkuPtrInput interface {
 
 type clusterSkuPtrType ClusterSkuArgs
 
-func ClusterSkuPtr(v *ClusterSkuArgs) ClusterSkuPtrInput {	return (*clusterSkuPtrType)(v)
+func ClusterSkuPtr(v *ClusterSkuArgs) ClusterSkuPtrInput {
+	return (*clusterSkuPtrType)(v)
 }
 
 func (*clusterSkuPtrType) ElementType() reflect.Type {
@@ -74,7 +75,7 @@ func (i *clusterSkuPtrType) ToClusterSkuPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuPtrOutput)
 }
 
-type ClusterSkuOutput struct { *pulumi.OutputState }
+type ClusterSkuOutput struct{ *pulumi.OutputState }
 
 func (ClusterSkuOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterSku)(nil)).Elem()
@@ -98,15 +99,15 @@ func (o ClusterSkuOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) 
 	}).(ClusterSkuPtrOutput)
 }
 func (o ClusterSkuOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func (v ClusterSku) int { return v.Capacity }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ClusterSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
 // The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
 func (o ClusterSkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterSku) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type ClusterSkuPtrOutput struct { *pulumi.OutputState}
+type ClusterSkuPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterSkuPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterSku)(nil)).Elem()
@@ -121,16 +122,16 @@ func (o ClusterSkuPtrOutput) ToClusterSkuPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ClusterSkuPtrOutput) Elem() ClusterSkuOutput {
-	return o.ApplyT(func (v *ClusterSku) ClusterSku { return *v }).(ClusterSkuOutput)
+	return o.ApplyT(func(v *ClusterSku) ClusterSku { return *v }).(ClusterSkuOutput)
 }
 
 func (o ClusterSkuPtrOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func (v ClusterSku) int { return v.Capacity }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ClusterSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
 // The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
 func (o ClusterSkuPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterSku) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func init() {

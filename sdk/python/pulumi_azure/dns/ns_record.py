@@ -18,15 +18,9 @@ class NsRecord(pulumi.CustomResource):
     """
     The name of the DNS NS Record.
     """
-    record: pulumi.Output[list]
-    """
-    A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
-    
-      * `nsdname` (`str`)
-    """
     records: pulumi.Output[list]
     """
-    A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
+    A list of values that make up the NS record. 
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -44,25 +38,20 @@ class NsRecord(pulumi.CustomResource):
     """
     Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, record=None, records=None, resource_group_name=None, tags=None, ttl=None, zone_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, records=None, resource_group_name=None, tags=None, ttl=None, zone_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Enables you to manage DNS NS Records within Azure DNS.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_ns_record.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS NS Record.
-        :param pulumi.Input[list] record: A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
-        :param pulumi.Input[list] records: A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
+        :param pulumi.Input[list] records: A list of values that make up the NS record. 
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
-        
-        The **record** object supports the following:
-        
-          * `nsdname` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_ns_record.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,7 +71,8 @@ class NsRecord(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            __props__['record'] = record
+            if records is None:
+                raise TypeError("Missing required property 'records'")
             __props__['records'] = records
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -102,35 +92,28 @@ class NsRecord(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, fqdn=None, name=None, record=None, records=None, resource_group_name=None, tags=None, ttl=None, zone_name=None):
+    def get(resource_name, id, opts=None, fqdn=None, name=None, records=None, resource_group_name=None, tags=None, ttl=None, zone_name=None):
         """
         Get an existing NsRecord resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS NS Record.
         :param pulumi.Input[str] name: The name of the DNS NS Record.
-        :param pulumi.Input[list] record: A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
-        :param pulumi.Input[list] records: A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
+        :param pulumi.Input[list] records: A list of values that make up the NS record. 
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
-        
-        The **record** object supports the following:
-        
-          * `nsdname` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_ns_record.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["fqdn"] = fqdn
         __props__["name"] = name
-        __props__["record"] = record
         __props__["records"] = records
         __props__["resource_group_name"] = resource_group_name
         __props__["tags"] = tags

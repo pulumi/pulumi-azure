@@ -8,23 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an App Service Certificate Order.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleCertificateOrder = new azure.appservice.CertificateOrder("example", {
- *     distinguishedName: "CN=example.com",
- *     location: "global",
- *     productType: "Standard",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_certificate_order.html.markdown.
  */
@@ -126,7 +109,7 @@ export class CertificateOrder extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Duration in years (must be between `1` and `3`).  Defaults to `1`.
      */

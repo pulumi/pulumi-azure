@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -21,7 +23,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("example", {
  *     location: "global",
- *     microsoftAppId: current.servicePrincipalApplicationId,
+ *     microsoftAppId: current.clientId,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "F0",
  * });
@@ -35,7 +37,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_email.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_email.markdown.
  */
 export class ChannelEmail extends pulumi.CustomResource {
     /**

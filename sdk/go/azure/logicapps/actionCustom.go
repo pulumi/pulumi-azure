@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Custom Action within a Logic App Workflow
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_action_custom.html.markdown.
 type ActionCustom struct {
 	pulumi.CustomResourceState
@@ -102,4 +102,3 @@ type ActionCustomArgs struct {
 func (ActionCustomArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionCustomArgs)(nil)).Elem()
 }
-

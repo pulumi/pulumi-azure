@@ -31,7 +31,6 @@ class NatPool(pulumi.CustomResource):
     """
     The ID of the Load Balancer in which to create the NAT pool.
     """
-    location: pulumi.Output[str]
     name: pulumi.Output[str]
     """
     Specifies the name of the NAT pool.
@@ -44,14 +43,16 @@ class NatPool(pulumi.CustomResource):
     """
     The name of the resource group in which to create the resource.
     """
-    def __init__(__self__, resource_name, opts=None, backend_port=None, frontend_ip_configuration_name=None, frontend_port_end=None, frontend_port_start=None, loadbalancer_id=None, location=None, name=None, protocol=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, backend_port=None, frontend_ip_configuration_name=None, frontend_port_end=None, frontend_port_start=None, loadbalancer_id=None, name=None, protocol=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a Load Balancer NAT pool. 
-        
+        Manages a Load Balancer NAT pool.
+
         > **NOTE:** This resource cannot be used with with virtual machines, instead use the `lb.NatRule` resource.
-        
+
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_nat_pool.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] backend_port: The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
@@ -62,8 +63,6 @@ class NatPool(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the NAT pool.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_nat_pool.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -97,7 +96,6 @@ class NatPool(pulumi.CustomResource):
             if loadbalancer_id is None:
                 raise TypeError("Missing required property 'loadbalancer_id'")
             __props__['loadbalancer_id'] = loadbalancer_id
-            __props__['location'] = location
             __props__['name'] = name
             if protocol is None:
                 raise TypeError("Missing required property 'protocol'")
@@ -113,11 +111,11 @@ class NatPool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, backend_port=None, frontend_ip_configuration_id=None, frontend_ip_configuration_name=None, frontend_port_end=None, frontend_port_start=None, loadbalancer_id=None, location=None, name=None, protocol=None, resource_group_name=None):
+    def get(resource_name, id, opts=None, backend_port=None, frontend_ip_configuration_id=None, frontend_ip_configuration_name=None, frontend_port_end=None, frontend_port_start=None, loadbalancer_id=None, name=None, protocol=None, resource_group_name=None):
         """
         Get an existing NatPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,19 +127,17 @@ class NatPool(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the NAT pool.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_nat_pool.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["backend_port"] = backend_port
         __props__["frontend_ip_configuration_id"] = frontend_ip_configuration_id
         __props__["frontend_ip_configuration_name"] = frontend_ip_configuration_name
         __props__["frontend_port_end"] = frontend_port_end
         __props__["frontend_port_start"] = frontend_port_start
         __props__["loadbalancer_id"] = loadbalancer_id
-        __props__["location"] = location
         __props__["name"] = name
         __props__["protocol"] = protocol
         __props__["resource_group_name"] = resource_group_name

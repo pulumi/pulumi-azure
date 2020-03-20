@@ -17,14 +17,7 @@ class MongoCollection(pulumi.CustomResource):
     """
     default_ttl_seconds: pulumi.Output[float]
     """
-    The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
-    """
-    indexes: pulumi.Output[list]
-    """
-    One or more `indexes` blocks as defined below.
-    
-      * `key` (`str`)
-      * `unique` (`bool`)
+    The default Time To Live in seconds. If the value is `0` items are not automatically expired.
     """
     name: pulumi.Output[str]
     """
@@ -39,25 +32,19 @@ class MongoCollection(pulumi.CustomResource):
     The name of the key to partition on for sharding. There must not be any other unique index keys.
     """
     throughput: pulumi.Output[float]
-    def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, default_ttl_seconds=None, indexes=None, name=None, resource_group_name=None, shard_key=None, throughput=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, default_ttl_seconds=None, name=None, resource_group_name=None, shard_key=None, throughput=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Mongo Collection within a Cosmos DB Account.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_mongo_collection.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
-        :param pulumi.Input[list] indexes: One or more `indexes` blocks as defined below.
+        :param pulumi.Input[float] default_ttl_seconds: The default Time To Live in seconds. If the value is `0` items are not automatically expired.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
-        
-        The **indexes** object supports the following:
-        
-          * `key` (`pulumi.Input[str]`)
-          * `unique` (`pulumi.Input[bool]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_mongo_collection.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,7 +70,6 @@ class MongoCollection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['default_ttl_seconds'] = default_ttl_seconds
-            __props__['indexes'] = indexes
             __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -97,35 +83,27 @@ class MongoCollection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_name=None, database_name=None, default_ttl_seconds=None, indexes=None, name=None, resource_group_name=None, shard_key=None, throughput=None):
+    def get(resource_name, id, opts=None, account_name=None, database_name=None, default_ttl_seconds=None, name=None, resource_group_name=None, shard_key=None, throughput=None):
         """
         Get an existing MongoCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
-        :param pulumi.Input[list] indexes: One or more `indexes` blocks as defined below.
+        :param pulumi.Input[float] default_ttl_seconds: The default Time To Live in seconds. If the value is `0` items are not automatically expired.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
-        
-        The **indexes** object supports the following:
-        
-          * `key` (`pulumi.Input[str]`)
-          * `unique` (`pulumi.Input[bool]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_mongo_collection.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["account_name"] = account_name
         __props__["database_name"] = database_name
         __props__["default_ttl_seconds"] = default_ttl_seconds
-        __props__["indexes"] = indexes
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["shard_key"] = shard_key

@@ -50,6 +50,8 @@ namespace Pulumi.Azure
         /// </summary>
         public static string? Environment { get; set; } = __config.Get("environment") ?? Utilities.GetEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") ?? "public";
 
+        public static ConfigTypes.Features? Features { get; set; } = __config.GetObject<ConfigTypes.Features>("features");
+
         /// <summary>
         /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
         /// automatically.
@@ -73,6 +75,11 @@ namespace Pulumi.Azure
         public static bool? SkipProviderRegistration { get; set; } = __config.GetBoolean("skipProviderRegistration") ?? Utilities.GetEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") ?? false;
 
         /// <summary>
+        /// Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+        /// </summary>
+        public static bool? StorageUseAzuread { get; set; } = __config.GetBoolean("storageUseAzuread");
+
+        /// <summary>
         /// The Subscription ID which should be used.
         /// </summary>
         public static string? SubscriptionId { get; set; } = __config.Get("subscriptionId") ?? Utilities.GetEnv("ARM_SUBSCRIPTION_ID") ?? "";
@@ -92,5 +99,28 @@ namespace Pulumi.Azure
     }
     namespace ConfigTypes
     {
+
+    public class Features
+    {
+        public FeaturesKeyVault? KeyVault { get; set; }
+        public FeaturesVirtualMachine? VirtualMachine { get; set; }
+        public FeaturesVirtualMachineScaleSet? VirtualMachineScaleSet { get; set; }
+    }
+
+    public class FeaturesKeyVault
+    {
+        public bool? PurgeSoftDeleteOnDestroy { get; set; }
+        public bool? RecoverSoftDeletedKeyVaults { get; set; }
+    }
+
+    public class FeaturesVirtualMachine
+    {
+        public bool DeleteOsDiskOnDeletion { get; set; }
+    }
+
+    public class FeaturesVirtualMachineScaleSet
+    {
+        public bool RollInstancesWhenRequired { get; set; }
+    }
     }
 }

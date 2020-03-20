@@ -7,35 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Sets a PostgreSQL Configuration value on a PostgreSQL Server.
  * 
- * ## Example Usage
+ * ## Disclaimers
  * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleServer = new azure.postgresql.Server("example", {
- *     administratorLogin: "psqladminun",
- *     administratorLoginPassword: "H@Sh1CoR3!",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "B_Gen5_2",
- *     sslEnforcement: "Enabled",
- *     storageProfile: {
- *         backupRetentionDays: 7,
- *         geoRedundantBackup: "Disabled",
- *         storageMb: 5120,
- *     },
- *     version: "9.5",
- * });
- * const exampleConfiguration = new azure.postgresql.Configuration("example", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleServer.name,
- *     value: "on",
- * });
- * ```
+ * > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/postgresql_configuration.html.markdown.
  */

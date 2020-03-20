@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a HDInsight Spark Cluster.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_spark_cluster.html.markdown.
 type SparkCluster struct {
 	pulumi.CustomResourceState
@@ -206,4 +206,3 @@ type SparkClusterArgs struct {
 func (SparkClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sparkClusterArgs)(nil)).Elem()
 }
-

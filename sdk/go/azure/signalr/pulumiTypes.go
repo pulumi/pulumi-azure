@@ -59,7 +59,7 @@ func (i ServiceCorArray) ToServiceCorArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorArrayOutput)
 }
 
-type ServiceCorOutput struct { *pulumi.OutputState }
+type ServiceCorOutput struct{ *pulumi.OutputState }
 
 func (ServiceCorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceCor)(nil)).Elem()
@@ -74,10 +74,10 @@ func (o ServiceCorOutput) ToServiceCorOutputWithContext(ctx context.Context) Ser
 }
 
 func (o ServiceCorOutput) AllowedOrigins() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ServiceCor) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ServiceCor) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
-type ServiceCorArrayOutput struct { *pulumi.OutputState}
+type ServiceCorArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceCorArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ServiceCor)(nil)).Elem()
@@ -92,13 +92,13 @@ func (o ServiceCorArrayOutput) ToServiceCorArrayOutputWithContext(ctx context.Co
 }
 
 func (o ServiceCorArrayOutput) Index(i pulumi.IntInput) ServiceCorOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ServiceCor {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceCor {
 		return vs[0].([]ServiceCor)[vs[1].(int)]
 	}).(ServiceCorOutput)
 }
 
 type ServiceFeature struct {
-	Flag string `pulumi:"flag"`
+	Flag  string `pulumi:"flag"`
 	Value string `pulumi:"value"`
 }
 
@@ -110,7 +110,7 @@ type ServiceFeatureInput interface {
 }
 
 type ServiceFeatureArgs struct {
-	Flag pulumi.StringInput `pulumi:"flag"`
+	Flag  pulumi.StringInput `pulumi:"flag"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -147,7 +147,7 @@ func (i ServiceFeatureArray) ToServiceFeatureArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceFeatureArrayOutput)
 }
 
-type ServiceFeatureOutput struct { *pulumi.OutputState }
+type ServiceFeatureOutput struct{ *pulumi.OutputState }
 
 func (ServiceFeatureOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceFeature)(nil)).Elem()
@@ -162,14 +162,14 @@ func (o ServiceFeatureOutput) ToServiceFeatureOutputWithContext(ctx context.Cont
 }
 
 func (o ServiceFeatureOutput) Flag() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceFeature) string { return v.Flag }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServiceFeature) string { return v.Flag }).(pulumi.StringOutput)
 }
 
 func (o ServiceFeatureOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceFeature) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServiceFeature) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type ServiceFeatureArrayOutput struct { *pulumi.OutputState}
+type ServiceFeatureArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceFeatureArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ServiceFeature)(nil)).Elem()
@@ -184,7 +184,7 @@ func (o ServiceFeatureArrayOutput) ToServiceFeatureArrayOutputWithContext(ctx co
 }
 
 func (o ServiceFeatureArrayOutput) Index(i pulumi.IntInput) ServiceFeatureOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ServiceFeature {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceFeature {
 		return vs[0].([]ServiceFeature)[vs[1].(int)]
 	}).(ServiceFeatureOutput)
 }
@@ -237,7 +237,8 @@ type ServiceSkuPtrInput interface {
 
 type serviceSkuPtrType ServiceSkuArgs
 
-func ServiceSkuPtr(v *ServiceSkuArgs) ServiceSkuPtrInput {	return (*serviceSkuPtrType)(v)
+func ServiceSkuPtr(v *ServiceSkuArgs) ServiceSkuPtrInput {
+	return (*serviceSkuPtrType)(v)
 }
 
 func (*serviceSkuPtrType) ElementType() reflect.Type {
@@ -252,7 +253,7 @@ func (i *serviceSkuPtrType) ToServiceSkuPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuPtrOutput)
 }
 
-type ServiceSkuOutput struct { *pulumi.OutputState }
+type ServiceSkuOutput struct{ *pulumi.OutputState }
 
 func (ServiceSkuOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceSku)(nil)).Elem()
@@ -276,15 +277,15 @@ func (o ServiceSkuOutput) ToServiceSkuPtrOutputWithContext(ctx context.Context) 
 	}).(ServiceSkuPtrOutput)
 }
 func (o ServiceSkuOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func (v ServiceSku) int { return v.Capacity }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ServiceSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
 // The name of the SignalR service. Changing this forces a new resource to be created.
 func (o ServiceSkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceSku) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServiceSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type ServiceSkuPtrOutput struct { *pulumi.OutputState}
+type ServiceSkuPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceSkuPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceSku)(nil)).Elem()
@@ -299,16 +300,16 @@ func (o ServiceSkuPtrOutput) ToServiceSkuPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ServiceSkuPtrOutput) Elem() ServiceSkuOutput {
-	return o.ApplyT(func (v *ServiceSku) ServiceSku { return *v }).(ServiceSkuOutput)
+	return o.ApplyT(func(v *ServiceSku) ServiceSku { return *v }).(ServiceSkuOutput)
 }
 
 func (o ServiceSkuPtrOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func (v ServiceSku) int { return v.Capacity }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ServiceSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
 // The name of the SignalR service. Changing this forces a new resource to be created.
 func (o ServiceSkuPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceSku) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServiceSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func init() {

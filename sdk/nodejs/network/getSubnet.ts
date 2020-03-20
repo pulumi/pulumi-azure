@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Subnet within a Virtual Network.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.network.getSubnet({
- *     name: "backend",
- *     resourceGroupName: "networking",
- *     virtualNetworkName: "production",
- * });
- * 
- * export const subnetId = example.id;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subnet.html.markdown.
  */
@@ -75,10 +60,6 @@ export interface GetSubnetResult {
      * Enable or Disable network policies for the private link service on the subnet.
      */
     readonly enforcePrivateLinkServiceNetworkPolicies: boolean;
-    /**
-     * The collection of IP Configurations with IPs within this subnet.
-     */
-    readonly ipConfigurations: string[];
     readonly name: string;
     /**
      * The ID of the Network Security Group associated with the subnet.

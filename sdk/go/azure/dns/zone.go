@@ -12,7 +12,7 @@ import (
 )
 
 // Enables you to manage DNS zones within Azure DNS. These zones are hosted on Azure's name servers to which you can delegate the zone from the parent domain.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_zone.html.markdown.
 type Zone struct {
 	pulumi.CustomResourceState
@@ -25,16 +25,10 @@ type Zone struct {
 	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
 	// (Optional) The number of records already in the zone.
 	NumberOfRecordSets pulumi.IntOutput `pulumi:"numberOfRecordSets"`
-	// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-	RegistrationVirtualNetworkIds pulumi.StringArrayOutput `pulumi:"registrationVirtualNetworkIds"`
-	// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-	ResolutionVirtualNetworkIds pulumi.StringArrayOutput `pulumi:"resolutionVirtualNetworkIds"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
-	ZoneType pulumi.StringPtrOutput `pulumi:"zoneType"`
 }
 
 // NewZone registers a new resource with the given unique name, arguments, and options.
@@ -76,16 +70,10 @@ type zoneState struct {
 	NameServers []string `pulumi:"nameServers"`
 	// (Optional) The number of records already in the zone.
 	NumberOfRecordSets *int `pulumi:"numberOfRecordSets"`
-	// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-	RegistrationVirtualNetworkIds []string `pulumi:"registrationVirtualNetworkIds"`
-	// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-	ResolutionVirtualNetworkIds []string `pulumi:"resolutionVirtualNetworkIds"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
-	ZoneType *string `pulumi:"zoneType"`
 }
 
 type ZoneState struct {
@@ -97,16 +85,10 @@ type ZoneState struct {
 	NameServers pulumi.StringArrayInput
 	// (Optional) The number of records already in the zone.
 	NumberOfRecordSets pulumi.IntPtrInput
-	// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-	RegistrationVirtualNetworkIds pulumi.StringArrayInput
-	// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-	ResolutionVirtualNetworkIds pulumi.StringArrayInput
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
-	ZoneType pulumi.StringPtrInput
 }
 
 func (ZoneState) ElementType() reflect.Type {
@@ -116,35 +98,22 @@ func (ZoneState) ElementType() reflect.Type {
 type zoneArgs struct {
 	// The name of the DNS Zone. Must be a valid domain name.
 	Name *string `pulumi:"name"`
-	// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-	RegistrationVirtualNetworkIds []string `pulumi:"registrationVirtualNetworkIds"`
-	// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-	ResolutionVirtualNetworkIds []string `pulumi:"resolutionVirtualNetworkIds"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
-	ZoneType *string `pulumi:"zoneType"`
 }
 
 // The set of arguments for constructing a Zone resource.
 type ZoneArgs struct {
 	// The name of the DNS Zone. Must be a valid domain name.
 	Name pulumi.StringPtrInput
-	// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-	RegistrationVirtualNetworkIds pulumi.StringArrayInput
-	// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-	ResolutionVirtualNetworkIds pulumi.StringArrayInput
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
-	ZoneType pulumi.StringPtrInput
 }
 
 func (ZoneArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*zoneArgs)(nil)).Elem()
 }
-

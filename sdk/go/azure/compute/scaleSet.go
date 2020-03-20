@@ -11,6 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Manages a virtual machine scale set.
+//
+// ## Disclaimers
+//
+// > **Note:** The `compute.ScaleSet` resource has been superseded by the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources. The existing `compute.ScaleSet` resource will continue to be available throughout the 2.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources.
+//
+// > **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_scale_set.html.markdown.
 type ScaleSet struct {
 	pulumi.CustomResourceState
@@ -25,7 +33,7 @@ type ScaleSet struct {
 	Extensions ScaleSetExtensionArrayOutput `pulumi:"extensions"`
 	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
 	HealthProbeId pulumi.StringPtrOutput `pulumi:"healthProbeId"`
-	Identity ScaleSetIdentityOutput `pulumi:"identity"`
+	Identity      ScaleSetIdentityOutput `pulumi:"identity"`
 	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -127,8 +135,8 @@ type scaleSetState struct {
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions []ScaleSetExtension `pulumi:"extensions"`
 	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
-	HealthProbeId *string `pulumi:"healthProbeId"`
-	Identity *ScaleSetIdentity `pulumi:"identity"`
+	HealthProbeId *string           `pulumi:"healthProbeId"`
+	Identity      *ScaleSetIdentity `pulumi:"identity"`
 	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -186,7 +194,7 @@ type ScaleSetState struct {
 	Extensions ScaleSetExtensionArrayInput
 	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
 	HealthProbeId pulumi.StringPtrInput
-	Identity ScaleSetIdentityPtrInput
+	Identity      ScaleSetIdentityPtrInput
 	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -247,8 +255,8 @@ type scaleSetArgs struct {
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions []ScaleSetExtension `pulumi:"extensions"`
 	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
-	HealthProbeId *string `pulumi:"healthProbeId"`
-	Identity *ScaleSetIdentity `pulumi:"identity"`
+	HealthProbeId *string           `pulumi:"healthProbeId"`
+	Identity      *ScaleSetIdentity `pulumi:"identity"`
 	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -307,7 +315,7 @@ type ScaleSetArgs struct {
 	Extensions ScaleSetExtensionArrayInput
 	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
 	HealthProbeId pulumi.StringPtrInput
-	Identity ScaleSetIdentityPtrInput
+	Identity      ScaleSetIdentityPtrInput
 	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -357,4 +365,3 @@ type ScaleSetArgs struct {
 func (ScaleSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scaleSetArgs)(nil)).Elem()
 }
-

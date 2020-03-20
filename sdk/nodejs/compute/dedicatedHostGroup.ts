@@ -8,22 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Dedicated Host Group.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleDedicatedHostGroup = new azure.compute.DedicatedHostGroup("example", {
- *     location: exampleResourceGroup.location,
- *     platformFaultDomainCount: 1,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dedicated_host_group.html.markdown.
  */
@@ -73,9 +57,9 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created. 
+     * A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
      */
     public readonly zones!: pulumi.Output<string | undefined>;
 
@@ -148,7 +132,7 @@ export interface DedicatedHostGroupState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created. 
+     * A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
      */
     readonly zones?: pulumi.Input<string>;
 }
@@ -178,7 +162,7 @@ export interface DedicatedHostGroupArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created. 
+     * A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
      */
     readonly zones?: pulumi.Input<string>;
 }

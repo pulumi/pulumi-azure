@@ -6,26 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS CNAME Records within Azure Private DNS.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleZone = new azure.privatedns.Zone("example", {
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleCnameRecord = new azure.privatedns.CnameRecord("example", {
- *     record: "contoso.com",
- *     resourceGroupName: exampleResourceGroup.name,
- *     ttl: 300,
- *     zoneName: exampleZone.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_cname_record.html.markdown.
  */
@@ -57,6 +37,10 @@ export class CnameRecord extends pulumi.CustomResource {
     }
 
     /**
+     * The FQDN of the DNS CNAME Record.
+     */
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    /**
      * The name of the DNS CNAME Record.
      */
     public readonly name!: pulumi.Output<string>;
@@ -71,7 +55,7 @@ export class CnameRecord extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly ttl!: pulumi.Output<number>;
     /**
      * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -90,6 +74,7 @@ export class CnameRecord extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as CnameRecordState | undefined;
+            inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["record"] = state ? state.record : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -116,6 +101,7 @@ export class CnameRecord extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
+            inputs["fqdn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -132,6 +118,10 @@ export class CnameRecord extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CnameRecord resources.
  */
 export interface CnameRecordState {
+    /**
+     * The FQDN of the DNS CNAME Record.
+     */
+    readonly fqdn?: pulumi.Input<string>;
     /**
      * The name of the DNS CNAME Record.
      */

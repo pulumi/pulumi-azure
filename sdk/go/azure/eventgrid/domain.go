@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an EventGrid Domain
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_domain.html.markdown.
 type Domain struct {
 	pulumi.CustomResourceState
@@ -157,4 +157,3 @@ type DomainArgs struct {
 func (DomainArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainArgs)(nil)).Elem()
 }
-

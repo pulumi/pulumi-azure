@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a HDInsight ML Services Cluster.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_ml_services_cluster.html.markdown.
 type MLServicesCluster struct {
 	pulumi.CustomResourceState
@@ -202,4 +202,3 @@ type MLServicesClusterArgs struct {
 func (MLServicesClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mlservicesClusterArgs)(nil)).Elem()
 }
-

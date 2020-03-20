@@ -8,68 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Storage Account Management Policy.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "westus",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     accountKind: "BlobStorage",
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleManagementPolicy = new azure.storage.ManagementPolicy("example", {
- *     rules: [
- *         {
- *             actions: {
- *                 baseBlob: {
- *                     deleteAfterDaysSinceModificationGreaterThan: 100,
- *                     tierToArchiveAfterDaysSinceModificationGreaterThan: 50,
- *                     tierToCoolAfterDaysSinceModificationGreaterThan: 10,
- *                 },
- *                 snapshot: {
- *                     deleteAfterDaysSinceCreationGreaterThan: 30,
- *                 },
- *             },
- *             enabled: true,
- *             filters: {
- *                 blobTypes: ["blockBlob"],
- *                 prefixMatches: ["container1/prefix1"],
- *             },
- *             name: "rule1",
- *         },
- *         {
- *             actions: {
- *                 baseBlob: {
- *                     deleteAfterDaysSinceModificationGreaterThan: 101,
- *                     tierToArchiveAfterDaysSinceModificationGreaterThan: 51,
- *                     tierToCoolAfterDaysSinceModificationGreaterThan: 11,
- *                 },
- *                 snapshot: {
- *                     deleteAfterDaysSinceCreationGreaterThan: 31,
- *                 },
- *             },
- *             enabled: false,
- *             filters: {
- *                 blobTypes: ["blockBlob"],
- *                 prefixMatches: [
- *                     "container2/prefix1",
- *                     "container2/prefix2",
- *                 ],
- *             },
- *             name: "rule2",
- *         },
- *     ],
- *     storageAccountId: exampleAccount.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_management_policy.html.markdown.
  */

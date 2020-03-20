@@ -6,51 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS AAAA Records within Azure DNS.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleZone = new azure.dns.Zone("example", {
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleAaaaRecord = new azure.dns.AaaaRecord("example", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     ttl: 300,
- *     zoneName: exampleZone.name,
- * });
- * ```
- * 
- * ## Example Usage (Alias Record)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleZone = new azure.dns.Zone("example", {
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
- *     allocationMethod: "Dynamic",
- *     ipVersion: "IPv6",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleAaaaRecord = new azure.dns.AaaaRecord("example", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     targetResourceId: examplePublicIp.id,
- *     ttl: 300,
- *     zoneName: exampleZone.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_aaaa_record.html.markdown.
  */
@@ -100,7 +55,7 @@ export class AaaaRecord extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Azure resource id of the target object. Conflicts with `records`
      */

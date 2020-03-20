@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Storage Account.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.storage.getAccount({
- *     name: "packerimages",
- *     resourceGroupName: "packer-storage",
- * });
- * 
- * export const storageAccountTier = example.accountTier;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account.html.markdown.
  */
@@ -50,7 +36,7 @@ export interface GetAccountArgs {
     /**
      * Specifies the name of the resource group the Storage Account is located in.
      */
-    readonly resourceGroupName: string;
+    readonly resourceGroupName?: string;
 }
 
 /**
@@ -61,10 +47,6 @@ export interface GetAccountResult {
      * The access tier for `BlobStorage` accounts.
      */
     readonly accessTier: string;
-    /**
-     * The Encryption Source for this Storage Account.
-     */
-    readonly accountEncryptionSource: string;
     /**
      * The Kind of account.
      */
@@ -80,17 +62,7 @@ export interface GetAccountResult {
     /**
      * A `customDomain` block as documented below.
      */
-    readonly customDomain: outputs.storage.GetAccountCustomDomain;
-    /**
-     * Are Encryption Services are enabled for Blob storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-     * for more information.
-     */
-    readonly enableBlobEncryption: boolean;
-    /**
-     * Are Encryption Services are enabled for File storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-     * for more information.
-     */
-    readonly enableFileEncryption: boolean;
+    readonly customDomains: outputs.storage.GetAccountCustomDomain[];
     /**
      * Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
      * for more information.

@@ -122,15 +122,14 @@ export class EventGridCallbackSubscription<T> extends appservice.EventSubscripti
         const resourceGroupName = appservice.getResourceGroupName(args, pulumi.output(scope.resourceGroupName));
 
         super("azure:eventgrid:EventGridCallbackSubscription",
-              name,
-              new EventGridFunction(name, args),
-              { ...args, resourceGroupName },
-              pulumi.mergeOptions(opts, {
-                  aliases: [{ type: "azure:eventhub:EventGridCallbackSubscription" }],
-              }));
+            name,
+            new EventGridFunction(name, args),
+            { ...args, resourceGroupName },
+            pulumi.mergeOptions(opts, {
+                aliases: [{ type: "azure:eventhub:EventGridCallbackSubscription" }],
+            }));
 
-        const keys = pulumi.output(this.functionApp.getHostKeys());
-        const key = keys.systemKeys["eventgrid_extension"];
+        const key = retrieveEventGridKey(this.functionApp, 30 /* 5 minutes */);
         const url = pulumi.interpolate`https://${this.functionApp.defaultHostname}/runtime/webhooks/eventgrid?functionName=${name}&code=${key}`;
         const liveUrl = url.apply(u => waitUntilEndpointIsUp(this, u));
 
@@ -142,6 +141,23 @@ export class EventGridCallbackSubscription<T> extends appservice.EventSubscripti
 
         this.registerOutputs();
     }
+}
+
+function retrieveEventGridKey(functionApp: appservice.FunctionApp, attempts: number): pulumi.Output<string> {
+    return functionApp.getHostKeys().apply(async ks => {
+        const k = ks.systemKeys["eventgrid_extension"];
+        if (k) return pulumi.output(k);
+
+        if (attempts === 0) {
+            throw new Error("timed out waiting for Webhook to become up");
+        }
+
+        // Wait for 10s between polls
+        pulumi.log.info(`Waiting for 'eventgrid_extension' key to become available (${attempts})`, functionApp);
+        await new Promise(r => setTimeout(r, 10000));
+
+        return retrieveEventGridKey(functionApp, attempts - 1);
+    }).apply(v => v);
 }
 
 async function waitUntilEndpointIsUp(resource: pulumi.Resource, url: string): Promise<string> {

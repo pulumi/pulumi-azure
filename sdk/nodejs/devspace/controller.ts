@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -58,7 +56,6 @@ export class Controller extends pulumi.CustomResource {
      * The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
-    public readonly sku!: pulumi.Output<outputs.devspace.ControllerSku>;
     /**
      * Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
      */
@@ -66,7 +63,7 @@ export class Controller extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Base64 encoding of `kubeConfigRaw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
      */
@@ -93,7 +90,6 @@ export class Controller extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["targetContainerHostCredentialsBase64"] = state ? state.targetContainerHostCredentialsBase64 : undefined;
@@ -102,6 +98,9 @@ export class Controller extends pulumi.CustomResource {
             const args = argsOrState as ControllerArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.skuName === undefined) {
+                throw new Error("Missing required property 'skuName'");
             }
             if (!args || args.targetContainerHostCredentialsBase64 === undefined) {
                 throw new Error("Missing required property 'targetContainerHostCredentialsBase64'");
@@ -112,7 +111,6 @@ export class Controller extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetContainerHostCredentialsBase64"] = args ? args.targetContainerHostCredentialsBase64 : undefined;
@@ -155,7 +153,6 @@ export interface ControllerState {
      * The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
-    readonly sku?: pulumi.Input<inputs.devspace.ControllerSku>;
     /**
      * Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
      */
@@ -190,11 +187,10 @@ export interface ControllerArgs {
      * The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    readonly sku?: pulumi.Input<inputs.devspace.ControllerSku>;
     /**
      * Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
      */
-    readonly skuName?: pulumi.Input<string>;
+    readonly skuName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

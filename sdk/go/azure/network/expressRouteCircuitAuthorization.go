@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an ExpressRoute Circuit Authorization.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit_authorization.html.markdown.
 type ExpressRouteCircuitAuthorization struct {
 	pulumi.CustomResourceState
@@ -124,4 +124,3 @@ type ExpressRouteCircuitAuthorizationArgs struct {
 func (ExpressRouteCircuitAuthorizationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteCircuitAuthorizationArgs)(nil)).Elem()
 }
-

@@ -12,9 +12,9 @@ import (
 )
 
 // Manages a Node Pool within a Kubernetes Cluster
-// 
+//
 // > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster_node_pool.html.markdown.
 type KubernetesClusterNodePool struct {
 	pulumi.CustomResourceState
@@ -37,12 +37,16 @@ type KubernetesClusterNodePool struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
 	NodeCount pulumi.IntOutput `pulumi:"nodeCount"`
+	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+	NodeLabels pulumi.StringMapOutput `pulumi:"nodeLabels"`
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
 	NodeTaints pulumi.StringArrayOutput `pulumi:"nodeTaints"`
 	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
 	OsDiskSizeGb pulumi.IntOutput `pulumi:"osDiskSizeGb"`
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
 	VmSize pulumi.StringOutput `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist.
@@ -101,12 +105,16 @@ type kubernetesClusterNodePoolState struct {
 	Name *string `pulumi:"name"`
 	// The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
 	NodeCount *int `pulumi:"nodeCount"`
+	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
 	NodeTaints []string `pulumi:"nodeTaints"`
 	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
 	OsType *string `pulumi:"osType"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
 	VmSize *string `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist.
@@ -132,12 +140,16 @@ type KubernetesClusterNodePoolState struct {
 	Name pulumi.StringPtrInput
 	// The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
 	NodeCount pulumi.IntPtrInput
+	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+	NodeLabels pulumi.StringMapInput
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
 	NodeTaints pulumi.StringArrayInput
 	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
 	OsDiskSizeGb pulumi.IntPtrInput
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
 	OsType pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
 	VmSize pulumi.StringPtrInput
 	// The ID of the Subnet where this Node Pool should exist.
@@ -167,12 +179,16 @@ type kubernetesClusterNodePoolArgs struct {
 	Name *string `pulumi:"name"`
 	// The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
 	NodeCount *int `pulumi:"nodeCount"`
+	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
 	NodeTaints []string `pulumi:"nodeTaints"`
 	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
 	OsType *string `pulumi:"osType"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
 	VmSize string `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist.
@@ -199,12 +215,16 @@ type KubernetesClusterNodePoolArgs struct {
 	Name pulumi.StringPtrInput
 	// The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
 	NodeCount pulumi.IntPtrInput
+	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+	NodeLabels pulumi.StringMapInput
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
 	NodeTaints pulumi.StringArrayInput
 	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
 	OsDiskSizeGb pulumi.IntPtrInput
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
 	OsType pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
 	VmSize pulumi.StringInput
 	// The ID of the Subnet where this Node Pool should exist.
@@ -214,4 +234,3 @@ type KubernetesClusterNodePoolArgs struct {
 func (KubernetesClusterNodePoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*kubernetesClusterNodePoolArgs)(nil)).Elem()
 }
-

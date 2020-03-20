@@ -11,24 +11,23 @@ from .. import utilities, tables
 
 class ZipBlob(pulumi.CustomResource):
     access_tier: pulumi.Output[str]
-    attempts: pulumi.Output[float]
+    content: pulumi.Output[pulumi.Archive]
     content_type: pulumi.Output[str]
     metadata: pulumi.Output[dict]
     name: pulumi.Output[str]
     parallelism: pulumi.Output[float]
-    resource_group_name: pulumi.Output[str]
     size: pulumi.Output[float]
-    content: pulumi.Output[pulumi.Archive]
     source_content: pulumi.Output[str]
     source_uri: pulumi.Output[str]
     storage_account_name: pulumi.Output[str]
     storage_container_name: pulumi.Output[str]
     type: pulumi.Output[str]
     url: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, access_tier=None, attempts=None, content_type=None, metadata=None, name=None, parallelism=None, resource_group_name=None, size=None, content=None, source_content=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_tier=None, content=None, content_type=None, metadata=None, name=None, parallelism=None, size=None, source_content=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a ZipBlob resource with the given unique name, props, and options.
-        
+
+        Deprecated: ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -50,14 +49,12 @@ class ZipBlob(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['access_tier'] = access_tier
-            __props__['attempts'] = attempts
+            __props__['content'] = content
             __props__['content_type'] = content_type
             __props__['metadata'] = metadata
             __props__['name'] = name
             __props__['parallelism'] = parallelism
-            __props__['resource_group_name'] = resource_group_name
             __props__['size'] = size
-            __props__['content'] = content
             __props__['source_content'] = source_content
             __props__['source_uri'] = source_uri
             if storage_account_name is None:
@@ -77,11 +74,11 @@ class ZipBlob(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, access_tier=None, attempts=None, content_type=None, metadata=None, name=None, parallelism=None, resource_group_name=None, size=None, content=None, source_content=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, url=None):
+    def get(resource_name, id, opts=None, access_tier=None, content=None, content_type=None, metadata=None, name=None, parallelism=None, size=None, source_content=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, url=None):
         """
         Get an existing ZipBlob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -89,15 +86,14 @@ class ZipBlob(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["access_tier"] = access_tier
-        __props__["attempts"] = attempts
+        __props__["content"] = content
         __props__["content_type"] = content_type
         __props__["metadata"] = metadata
         __props__["name"] = name
         __props__["parallelism"] = parallelism
-        __props__["resource_group_name"] = resource_group_name
         __props__["size"] = size
-        __props__["content"] = content
         __props__["source_content"] = source_content
         __props__["source_uri"] = source_uri
         __props__["storage_account_name"] = storage_account_name

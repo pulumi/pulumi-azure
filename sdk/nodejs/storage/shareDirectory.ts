@@ -8,31 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Directory within an Azure Storage File Share.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleShare = new azure.storage.Share("example", {
- *     quota: 50,
- *     storageAccountName: exampleAccount.name,
- * });
- * const exampleShareDirectory = new azure.storage.ShareDirectory("example", {
- *     shareName: exampleShare.name,
- *     storageAccountName: exampleAccount.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share_directory.html.markdown.
  */

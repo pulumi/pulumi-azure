@@ -38,15 +38,20 @@ class VirtualWan(pulumi.CustomResource):
     """
     The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
     """
-    security_provider_name: pulumi.Output[str]
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the Virtual WAN.
     """
-    def __init__(__self__, resource_name, opts=None, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, disable_vpn_encryption=None, location=None, name=None, office365_local_breakout_category=None, resource_group_name=None, security_provider_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    type: pulumi.Output[str]
+    """
+    Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+    """
+    def __init__(__self__, resource_name, opts=None, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, disable_vpn_encryption=None, location=None, name=None, office365_local_breakout_category=None, resource_group_name=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Virtual WAN.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_wan.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_branch_to_branch_traffic: Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
@@ -57,8 +62,7 @@ class VirtualWan(pulumi.CustomResource):
         :param pulumi.Input[str] office365_local_breakout_category: Specifies the Office365 local breakout category. Possible values include: `Optimize`, `OptimizeAndAllow`, `All`, `None`. Defaults to `None`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Virtual WAN.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_wan.html.markdown.
+        :param pulumi.Input[str] type: Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -86,8 +90,8 @@ class VirtualWan(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['security_provider_name'] = security_provider_name
             __props__['tags'] = tags
+            __props__['type'] = type
         super(VirtualWan, __self__).__init__(
             'azure:network/virtualWan:VirtualWan',
             resource_name,
@@ -95,11 +99,11 @@ class VirtualWan(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, disable_vpn_encryption=None, location=None, name=None, office365_local_breakout_category=None, resource_group_name=None, security_provider_name=None, tags=None):
+    def get(resource_name, id, opts=None, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, disable_vpn_encryption=None, location=None, name=None, office365_local_breakout_category=None, resource_group_name=None, tags=None, type=None):
         """
         Get an existing VirtualWan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,12 +115,12 @@ class VirtualWan(pulumi.CustomResource):
         :param pulumi.Input[str] office365_local_breakout_category: Specifies the Office365 local breakout category. Possible values include: `Optimize`, `OptimizeAndAllow`, `All`, `None`. Defaults to `None`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Virtual WAN.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_wan.html.markdown.
+        :param pulumi.Input[str] type: Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allow_branch_to_branch_traffic"] = allow_branch_to_branch_traffic
         __props__["allow_vnet_to_vnet_traffic"] = allow_vnet_to_vnet_traffic
         __props__["disable_vpn_encryption"] = disable_vpn_encryption
@@ -124,8 +128,8 @@ class VirtualWan(pulumi.CustomResource):
         __props__["name"] = name
         __props__["office365_local_breakout_category"] = office365_local_breakout_category
         __props__["resource_group_name"] = resource_group_name
-        __props__["security_provider_name"] = security_provider_name
         __props__["tags"] = tags
+        __props__["type"] = type
         return VirtualWan(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

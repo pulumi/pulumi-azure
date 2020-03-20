@@ -6,6 +6,30 @@ _(none)_
 
 ---
 
+## 2.1.0 (2020-03-10)
+* Upgrade to Pulumi v1.12.1
+* Upgrade to pulumi-terraform-bridge v1.8.2
+* Upgrade to v2.1.0 of the AzureRM Terraform Provider
+
+## 2.0.0 (2020-03-10)
+* BREAKING: Upgrade to v2.0.0 of the AzureRM Terraform Provider
+  Please note that a number of the old deprecated resources have been removed as well as
+  a number of deprecated properties on resources. You can check the full list of
+  changes in the [upstream CHANGELOG](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md)
+* BREAKING: Set the default version of Azure Functions runtime to ~3 and Node.js to ~12.
+  ([#478](https://github.com/pulumi/pulumi-azure/pull/478))
+* BREAKING: Support assets and archives in azure.storage.Blob, deprecate azure.storage.ZipBlob resource.
+  ([#479](https://github.com/pulumi/pulumi-azure/pull/479), [#482](https://github.com/pulumi/pulumi-azure/pull/482))
+* Update AppService Mixins to match AppService SiteConfig parameters
+
+## 1.14.0 (2020-02-12)
+* Upgrade to v1.44.0 of the AzureRM Terraform Provider
+
+## 1.13.0 (2020-02-06)
+* Upgrade to v1.43.0 of the AzureRM Terraform Provider
+  This release introduces some new experimental features that will be part of the 2.0 release of the AzureRM Terraform Provider
+  to use these new features, you can read the [2.0 Beta Guide](https://www.terraform.io/docs/providers/azurerm/guides/2.0-beta.html)
+
 ## 1.12.0 (2020-01-29)
 * Upgrade to v1.42.0 of the AzureRM Terraform Provider
 * Upgrade to v1.6.4 of pulumi-terraform-bridge

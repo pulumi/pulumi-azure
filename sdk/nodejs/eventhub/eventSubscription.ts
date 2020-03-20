@@ -8,39 +8,8 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EventGrid Event Subscription
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const defaultResourceGroup = new azure.core.ResourceGroup("default", {
- *     location: "West US 2",
- * });
- * const defaultAccount = new azure.storage.Account("default", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: defaultResourceGroup.location,
- *     resourceGroupName: defaultResourceGroup.name,
- *     tags: {
- *         environment: "staging",
- *     },
- * });
- * const defaultQueue = new azure.storage.Queue("default", {
- *     resourceGroupName: defaultResourceGroup.name,
- *     storageAccountName: defaultAccount.name,
- * });
- * const defaultEventSubscription = new azure.eventgrid.EventSubscription("default", {
- *     scope: defaultResourceGroup.id,
- *     storageQueueEndpoint: {
- *         queueName: defaultQueue.name,
- *         storageAccountId: defaultAccount.id,
- *     },
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_event_subscription_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_event_subscription.html.markdown.
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**

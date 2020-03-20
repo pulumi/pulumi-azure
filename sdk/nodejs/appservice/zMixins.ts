@@ -24,6 +24,8 @@ import * as core from "../core";
 import * as eventhubForTypesOnly from "../eventhub";
 import * as storageForTypesOnly from "../storage";
 import * as util from "../util";
+import * as outputs from "../types/output";
+import * as inputs from "../types/input";
 
 /**
  * An object containing output binding data. This value will be passed to JSON.stringify unless it
@@ -164,7 +166,7 @@ interface FunctionAppArgsBase {
 
     /**
      * Controls the value of WEBSITE_NODE_DEFAULT_VERSION in `appSettings`.  If not provided,
-     * defaults to `8.11.1`.
+     * defaults to `~12`.
      */
     readonly nodeVersion?: pulumi.Input<string>;
 
@@ -192,7 +194,7 @@ interface FunctionAppArgsBase {
     /**
      * A `site_config` object as defined below.
      */
-    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, linuxFxVersion?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, websocketsEnabled?: pulumi.Input<boolean> }>;
+    readonly siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSiteConfig>;
 
     /**
      * A mapping of tags to assign to the resource.
@@ -200,7 +202,7 @@ interface FunctionAppArgsBase {
     readonly tags?: pulumi.Input<{ [key: string]: any }>;
 
     /**
-     * The runtime version associated with the Function App. Defaults to `~2`.
+     * The runtime version associated with the Function App. Defaults to `~3`.
      */
     readonly version?: pulumi.Input<string>;
 }
@@ -545,11 +547,11 @@ function createFunctionAppParts(name: string,
         containerAccessType: "private",
     }, opts);
 
-    const zipBlob = new storageMod.ZipBlob(name, {
+    const zipBlob = new storageMod.Blob(name, {
         storageAccountName: account.name,
         storageContainerName: container.name,
-        type: "block",
-        content: args.archive,
+        type: "Block",
+        source: args.archive,
     }, opts);
 
     const codeBlobUrl = storageMod.signedBlobReadUrl(zipBlob, account);
@@ -560,13 +562,13 @@ function createFunctionAppParts(name: string,
 
         appServicePlanId: plan.id,
         storageConnectionString: account.primaryConnectionString,
-        version: args.version || "~2",
+        version: args.version || "~3",
 
         appSettings: pulumi.output(args.appSettings).apply(settings => {
             return {
                 ...settings,
                 WEBSITE_RUN_FROM_PACKAGE: codeBlobUrl,
-                WEBSITE_NODE_DEFAULT_VERSION: util.ifUndefined(args.nodeVersion, "8.11.1"),
+                WEBSITE_NODE_DEFAULT_VERSION: util.ifUndefined(args.nodeVersion, "~12"),
             };
         }),
     };
@@ -599,7 +601,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
     /**
      * The blob containing all the code for this FunctionApp.
      */
-    public readonly zipBlob: storageForTypesOnly.ZipBlob;
+    public readonly zipBlob: storageForTypesOnly.Blob;
     /**
      * The plan this Function App runs under.
      */
@@ -650,7 +652,7 @@ export abstract class PackagedFunctionApp extends pulumi.ComponentResource {
     /**
      * The blob containing all the code for this FunctionApp.
      */
-    public readonly zipBlob: storageForTypesOnly.ZipBlob;
+    public readonly zipBlob: storageForTypesOnly.Blob;
     /**
      * The plan this Function App runs under.
      */

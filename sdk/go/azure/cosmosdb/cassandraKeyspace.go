@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Cassandra KeySpace within a Cosmos DB Account.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_cassandra_keyspace.html.markdown.
 type CassandraKeyspace struct {
 	pulumi.CustomResourceState
@@ -23,7 +23,7 @@ type CassandraKeyspace struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	Throughput pulumi.IntOutput `pulumi:"throughput"`
+	Throughput        pulumi.IntOutput    `pulumi:"throughput"`
 }
 
 // NewCassandraKeyspace registers a new resource with the given unique name, arguments, and options.
@@ -66,7 +66,7 @@ type cassandraKeyspaceState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int    `pulumi:"throughput"`
 }
 
 type CassandraKeyspaceState struct {
@@ -76,7 +76,7 @@ type CassandraKeyspaceState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	Throughput pulumi.IntPtrInput
+	Throughput        pulumi.IntPtrInput
 }
 
 func (CassandraKeyspaceState) ElementType() reflect.Type {
@@ -90,7 +90,7 @@ type cassandraKeyspaceArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int   `pulumi:"throughput"`
 }
 
 // The set of arguments for constructing a CassandraKeyspace resource.
@@ -101,10 +101,9 @@ type CassandraKeyspaceArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Throughput pulumi.IntPtrInput
+	Throughput        pulumi.IntPtrInput
 }
 
 func (CassandraKeyspaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cassandraKeyspaceArgs)(nil)).Elem()
 }
-

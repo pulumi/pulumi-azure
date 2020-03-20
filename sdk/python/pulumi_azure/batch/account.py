@@ -16,9 +16,9 @@ class Account(pulumi.CustomResource):
     """
     key_vault_reference: pulumi.Output[dict]
     """
-    A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
-    
-      * `id` (`str`) - The Batch account ID.
+    A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+
+      * `id` (`str`) - The ID of the Batch Account.
       * `url` (`str`)
     """
     location: pulumi.Output[str]
@@ -56,23 +56,23 @@ class Account(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, key_vault_reference=None, location=None, name=None, pool_allocation_mode=None, resource_group_name=None, storage_account_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Batch account.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_account.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] key_vault_reference: A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+        :param pulumi.Input[dict] key_vault_reference: A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Batch account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
-        The **key_vault_reference** object supports the following:
-        
-          * `id` (`pulumi.Input[str]`) - The Batch account ID.
-          * `url` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_account.html.markdown.
+        The **key_vault_reference** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - The ID of the Batch Account.
+          * `url` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -114,12 +114,12 @@ class Account(pulumi.CustomResource):
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_endpoint: The account endpoint used to interact with the Batch service.
-        :param pulumi.Input[dict] key_vault_reference: A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+        :param pulumi.Input[dict] key_vault_reference: A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Batch account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
@@ -128,17 +128,16 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_access_key: The Batch account secondary access key.
         :param pulumi.Input[str] storage_account_id: Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
-        The **key_vault_reference** object supports the following:
-        
-          * `id` (`pulumi.Input[str]`) - The Batch account ID.
-          * `url` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_account.html.markdown.
+        The **key_vault_reference** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - The ID of the Batch Account.
+          * `url` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["account_endpoint"] = account_endpoint
         __props__["key_vault_reference"] = key_vault_reference
         __props__["location"] = location

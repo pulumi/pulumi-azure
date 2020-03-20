@@ -2,35 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Manages an Automation Certificate.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.automation.Account("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Basic",
- * });
- * const exampleCertificate = new azure.automation.Certificate("example", {
- *     accountName: exampleAccount.name,
- *     base64: Buffer.from(fs.readFileSync("certificate.pfx", "utf-8")).toString("base64"),
- *     description: "This is an example certificate",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_certificate.html.markdown.
  */
@@ -61,6 +36,9 @@ export class Certificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
+    /**
+     * The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
+     */
     public readonly automationAccountName!: pulumi.Output<string>;
     /**
      * Base64 encoded value of the certificate.
@@ -137,6 +115,9 @@ export class Certificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Certificate resources.
  */
 export interface CertificateState {
+    /**
+     * The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
+     */
     readonly automationAccountName?: pulumi.Input<string>;
     /**
      * Base64 encoded value of the certificate.
@@ -165,6 +146,9 @@ export interface CertificateState {
  * The set of arguments for constructing a Certificate resource.
  */
 export interface CertificateArgs {
+    /**
+     * The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
+     */
     readonly automationAccountName: pulumi.Input<string>;
     /**
      * Base64 encoded value of the certificate.

@@ -8,38 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS MX Records within Azure Private DNS.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleZone = new azure.privatedns.Zone("example", {
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleMxRecord = new azure.privatedns.MxRecord("example", {
- *     records: [
- *         {
- *             exchange: "mx1.contoso.com",
- *             preference: 10,
- *         },
- *         {
- *             exchange: "backupmx.contoso.com",
- *             preference: 20,
- *         },
- *     ],
- *     resourceGroupName: exampleResourceGroup.name,
- *     tags: {
- *         Environment: "Production",
- *     },
- *     ttl: 300,
- *     zoneName: exampleZone.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_mx_record.html.markdown.
  */
@@ -71,6 +39,10 @@ export class MxRecord extends pulumi.CustomResource {
     }
 
     /**
+     * The FQDN of the DNS MX Record.
+     */
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    /**
      * The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
      */
     public readonly name!: pulumi.Output<string>;
@@ -85,7 +57,7 @@ export class MxRecord extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly ttl!: pulumi.Output<number>;
     /**
      * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -104,6 +76,7 @@ export class MxRecord extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as MxRecordState | undefined;
+            inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["records"] = state ? state.records : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -130,6 +103,7 @@ export class MxRecord extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
+            inputs["fqdn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -146,6 +120,10 @@ export class MxRecord extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MxRecord resources.
  */
 export interface MxRecordState {
+    /**
+     * The FQDN of the DNS MX Record.
+     */
+    readonly fqdn?: pulumi.Input<string>;
     /**
      * The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
      */

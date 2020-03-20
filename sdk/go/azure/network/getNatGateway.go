@@ -9,9 +9,9 @@ import (
 )
 
 // Use this data source to access information about an existing NAT Gateway.
-// 
+//
 // > **NOTE:** The Azure NAT Gateway service is currently in private preview. Your subscription must be on the NAT Gateway private preview whitelist for this resource to be provisioned correctly. If you attempt to provision this resource and receive an `InvalidResourceType` error may mean that your subscription is not part of the NAT Gateway private preview or you are using a region which does not yet support the NAT Gateway private preview service. The NAT Gateway private preview service is currently available in a limited set of regions. Private preview resources may have multiple breaking changes over their lifecycle until they GA. You can opt into the Private Preview by contacting your Microsoft Representative.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/nat_gateway.html.markdown.
 func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...pulumi.InvokeOption) (*LookupNatGatewayResult, error) {
 	var rv LookupNatGatewayResult
@@ -25,13 +25,12 @@ func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...p
 // A collection of arguments for invoking getNatGateway.
 type LookupNatGatewayArgs struct {
 	// Specifies the Name of the NAT Gateway.
-	Name string `pulumi:"name"`
+	Name               string   `pulumi:"name"`
 	PublicIpAddressIds []string `pulumi:"publicIpAddressIds"`
-	PublicIpPrefixIds []string `pulumi:"publicIpPrefixIds"`
+	PublicIpPrefixIds  []string `pulumi:"publicIpPrefixIds"`
 	// Specifies the name of the Resource Group where the NAT Gateway exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
-
 
 // A collection of values returned by getNatGateway.
 type LookupNatGatewayResult struct {
@@ -41,12 +40,12 @@ type LookupNatGatewayResult struct {
 	IdleTimeoutInMinutes int `pulumi:"idleTimeoutInMinutes"`
 	// The location where the NAT Gateway exists.
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// A list of existing Public IP Address resource IDs which the NAT Gateway is using.
 	PublicIpAddressIds []string `pulumi:"publicIpAddressIds"`
 	// A list of existing Public IP Prefix resource IDs which the NAT Gateway is using.
 	PublicIpPrefixIds []string `pulumi:"publicIpPrefixIds"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
 	// The Resource GUID of the NAT Gateway.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// The SKU used by the NAT Gateway.
@@ -56,4 +55,3 @@ type LookupNatGatewayResult struct {
 	// A list of Availability Zones which the NAT Gateway exists in.
 	Zones []string `pulumi:"zones"`
 }
-

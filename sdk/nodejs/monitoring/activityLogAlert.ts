@@ -8,47 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Activity Log Alert within Azure Monitor.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const mainResourceGroup = new azure.core.ResourceGroup("main", {
- *     location: "West US",
- * });
- * const mainActionGroup = new azure.monitoring.ActionGroup("main", {
- *     resourceGroupName: mainResourceGroup.name,
- *     shortName: "p0action",
- *     webhookReceivers: [{
- *         name: "callmyapi",
- *         serviceUri: "http://example.com/alert",
- *     }],
- * });
- * const toMonitor = new azure.storage.Account("toMonitor", {
- *     accountReplicationType: "GRS",
- *     accountTier: "Standard",
- *     location: mainResourceGroup.location,
- *     resourceGroupName: mainResourceGroup.name,
- * });
- * const mainActivityLogAlert = new azure.monitoring.ActivityLogAlert("main", {
- *     actions: [{
- *         actionGroupId: mainActionGroup.id,
- *         webhookProperties: {
- *             from: "source",
- *         },
- *     }],
- *     criteria: {
- *         category: "Recommendation",
- *         operationName: "Microsoft.Storage/storageAccounts/write",
- *         resourceId: toMonitor.id,
- *     },
- *     description: "This alert will monitor a specific storage account updates.",
- *     resourceGroupName: mainResourceGroup.name,
- *     scopes: [mainResourceGroup.id],
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_activity_log_alert.html.markdown.
  */
@@ -110,7 +69,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ActivityLogAlert resource with the given unique name, arguments, and options.

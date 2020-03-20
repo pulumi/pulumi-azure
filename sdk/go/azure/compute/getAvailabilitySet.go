@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Availability Set.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/availability_set.html.markdown.
 func LookupAvailabilitySet(ctx *pulumi.Context, args *LookupAvailabilitySetArgs, opts ...pulumi.InvokeOption) (*LookupAvailabilitySetResult, error) {
 	var rv LookupAvailabilitySetResult
@@ -28,7 +28,6 @@ type LookupAvailabilitySetArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getAvailabilitySet.
 type LookupAvailabilitySetResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
@@ -36,14 +35,13 @@ type LookupAvailabilitySetResult struct {
 	// The supported Azure location where the Availability Set exists.
 	Location string `pulumi:"location"`
 	// Whether the availability set is managed or not.
-	Managed bool `pulumi:"managed"`
-	Name string `pulumi:"name"`
+	Managed bool   `pulumi:"managed"`
+	Name    string `pulumi:"name"`
 	// The number of fault domains that are used.
 	PlatformFaultDomainCount string `pulumi:"platformFaultDomainCount"`
 	// The number of update domains that are used.
 	PlatformUpdateDomainCount string `pulumi:"platformUpdateDomainCount"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
-

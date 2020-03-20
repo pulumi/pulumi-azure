@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Load Balancer
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb.html.markdown.
 func GetLB(ctx *pulumi.Context, args *GetLBArgs, opts ...pulumi.InvokeOption) (*GetLBResult, error) {
 	var rv GetLBResult
@@ -28,7 +28,6 @@ type GetLBArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getLB.
 type GetLBResult struct {
 	// (Optional) A `frontendIpConfiguration` block as documented below.
@@ -43,10 +42,9 @@ type GetLBResult struct {
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
 	// The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName  string   `pulumi:"resourceGroupName"`
 	// The SKU of the Load Balancer.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
-

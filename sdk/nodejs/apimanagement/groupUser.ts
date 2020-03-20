@@ -8,26 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Management User Assignment to a Group.
- * 
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleUser = azure.apimanagement.getUser({
- *     apiManagementName: "example-apim",
- *     resourceGroupName: "search-service",
- *     userId: "my-user",
- * });
- * const exampleGroupUser = new azure.apimanagement.GroupUser("example", {
- *     apiManagementName: exampleUser.apiManagementName,
- *     groupName: "example-group",
- *     resourceGroupName: exampleUser.resourceGroupName,
- *     userId: exampleUser.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_group_user.html.markdown.
  */

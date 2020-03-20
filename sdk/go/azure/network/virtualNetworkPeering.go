@@ -13,11 +13,11 @@ import (
 
 // Manages a virtual network peering which allows resources to access other
 // resources in the linked virtual network.
-// 
+//
 // ## Note
-// 
+//
 // Virtual Network peerings cannot be created, updated or deleted concurrently.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_peering.html.markdown.
 type VirtualNetworkPeering struct {
 	pulumi.CustomResourceState
@@ -30,8 +30,8 @@ type VirtualNetworkPeering struct {
 	AllowGatewayTransit pulumi.BoolOutput `pulumi:"allowGatewayTransit"`
 	// Controls if the VMs in the remote
 	// virtual network can access VMs in the local virtual network. Defaults to
-	// false.
-	AllowVirtualNetworkAccess pulumi.BoolOutput `pulumi:"allowVirtualNetworkAccess"`
+	// true.
+	AllowVirtualNetworkAccess pulumi.BoolPtrOutput `pulumi:"allowVirtualNetworkAccess"`
 	// The name of the virtual network peering. Changing this
 	// forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -99,7 +99,7 @@ type virtualNetworkPeeringState struct {
 	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
 	// Controls if the VMs in the remote
 	// virtual network can access VMs in the local virtual network. Defaults to
-	// false.
+	// true.
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
 	// The name of the virtual network peering. Changing this
 	// forces a new resource to be created.
@@ -132,7 +132,7 @@ type VirtualNetworkPeeringState struct {
 	AllowGatewayTransit pulumi.BoolPtrInput
 	// Controls if the VMs in the remote
 	// virtual network can access VMs in the local virtual network. Defaults to
-	// false.
+	// true.
 	AllowVirtualNetworkAccess pulumi.BoolPtrInput
 	// The name of the virtual network peering. Changing this
 	// forces a new resource to be created.
@@ -169,7 +169,7 @@ type virtualNetworkPeeringArgs struct {
 	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
 	// Controls if the VMs in the remote
 	// virtual network can access VMs in the local virtual network. Defaults to
-	// false.
+	// true.
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
 	// The name of the virtual network peering. Changing this
 	// forces a new resource to be created.
@@ -203,7 +203,7 @@ type VirtualNetworkPeeringArgs struct {
 	AllowGatewayTransit pulumi.BoolPtrInput
 	// Controls if the VMs in the remote
 	// virtual network can access VMs in the local virtual network. Defaults to
-	// false.
+	// true.
 	AllowVirtualNetworkAccess pulumi.BoolPtrInput
 	// The name of the virtual network peering. Changing this
 	// forces a new resource to be created.
@@ -230,4 +230,3 @@ type VirtualNetworkPeeringArgs struct {
 func (VirtualNetworkPeeringArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkPeeringArgs)(nil)).Elem()
 }
-

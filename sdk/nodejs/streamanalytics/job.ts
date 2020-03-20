@@ -8,35 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Stream Analytics Job.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleJob = new azure.streamanalytics.Job("example", {
- *     compatibilityLevel: "1.1",
- *     dataLocale: "en-GB",
- *     eventsLateArrivalMaxDelayInSeconds: 60,
- *     eventsOutOfOrderMaxDelayInSeconds: 50,
- *     eventsOutOfOrderPolicy: "Adjust",
- *     location: exampleResourceGroup.location,
- *     outputErrorPolicy: "Drop",
- *     resourceGroupName: exampleResourceGroup.name,
- *     streamingUnits: 3,
- *     tags: {
- *         environment: "Example",
- *     },
- *     transformationQuery: `    SELECT *
- *     INTO [YourOutputAlias]
- *     FROM [YourInputAlias]
- * `,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_job.html.markdown.
  */
@@ -68,7 +39,7 @@ export class Job extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and 1.1`.
+     * Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and `1.1`.
      */
     public readonly compatibilityLevel!: pulumi.Output<string>;
     /**
@@ -114,7 +85,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * A mapping of tags assigned to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
      */
@@ -186,7 +157,7 @@ export class Job extends pulumi.CustomResource {
  */
 export interface JobState {
     /**
-     * Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and 1.1`.
+     * Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and `1.1`.
      */
     readonly compatibilityLevel?: pulumi.Input<string>;
     /**
@@ -244,7 +215,7 @@ export interface JobState {
  */
 export interface JobArgs {
     /**
-     * Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and 1.1`.
+     * Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and `1.1`.
      */
     readonly compatibilityLevel?: pulumi.Input<string>;
     /**

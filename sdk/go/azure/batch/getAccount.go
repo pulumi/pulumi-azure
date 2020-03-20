@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Batch Account.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_account.html.markdown.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
@@ -28,14 +28,13 @@ type LookupAccountArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getAccount.
 type LookupAccountResult struct {
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint string `pulumi:"accountEndpoint"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+	// The `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 	KeyVaultReferences []GetAccountKeyVaultReference `pulumi:"keyVaultReferences"`
 	// The Azure Region in which this Batch account exists.
 	Location string `pulumi:"location"`
@@ -44,7 +43,7 @@ type LookupAccountResult struct {
 	// The pool allocation mode configured for this Batch account.
 	PoolAllocationMode string `pulumi:"poolAllocationMode"`
 	// The Batch account primary access key.
-	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
+	PrimaryAccessKey  string `pulumi:"primaryAccessKey"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Batch account secondary access key.
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
@@ -53,4 +52,3 @@ type LookupAccountResult struct {
 	// A map of tags assigned to the Batch account.
 	Tags map[string]string `pulumi:"tags"`
 }
-

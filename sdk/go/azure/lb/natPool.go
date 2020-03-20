@@ -11,18 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a Load Balancer NAT pool. 
-// 
+// Manages a Load Balancer NAT pool.
+//
 // > **NOTE:** This resource cannot be used with with virtual machines, instead use the `lb.NatRule` resource.
-// 
+//
 // > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_nat_pool.html.markdown.
 type NatPool struct {
 	pulumi.CustomResourceState
 
 	// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
-	BackendPort pulumi.IntOutput `pulumi:"backendPort"`
+	BackendPort               pulumi.IntOutput    `pulumi:"backendPort"`
 	FrontendIpConfigurationId pulumi.StringOutput `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName pulumi.StringOutput `pulumi:"frontendIpConfigurationName"`
@@ -32,7 +32,6 @@ type NatPool struct {
 	FrontendPortStart pulumi.IntOutput `pulumi:"frontendPortStart"`
 	// The ID of the Load Balancer in which to create the NAT pool.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
-	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the NAT pool.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
@@ -91,7 +90,7 @@ func GetNatPool(ctx *pulumi.Context,
 // Input properties used for looking up and filtering NatPool resources.
 type natPoolState struct {
 	// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
-	BackendPort *int `pulumi:"backendPort"`
+	BackendPort               *int    `pulumi:"backendPort"`
 	FrontendIpConfigurationId *string `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName *string `pulumi:"frontendIpConfigurationName"`
@@ -101,7 +100,6 @@ type natPoolState struct {
 	FrontendPortStart *int `pulumi:"frontendPortStart"`
 	// The ID of the Load Balancer in which to create the NAT pool.
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
-	Location *string `pulumi:"location"`
 	// Specifies the name of the NAT pool.
 	Name *string `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
@@ -112,7 +110,7 @@ type natPoolState struct {
 
 type NatPoolState struct {
 	// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
-	BackendPort pulumi.IntPtrInput
+	BackendPort               pulumi.IntPtrInput
 	FrontendIpConfigurationId pulumi.StringPtrInput
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName pulumi.StringPtrInput
@@ -122,7 +120,6 @@ type NatPoolState struct {
 	FrontendPortStart pulumi.IntPtrInput
 	// The ID of the Load Balancer in which to create the NAT pool.
 	LoadbalancerId pulumi.StringPtrInput
-	Location pulumi.StringPtrInput
 	// Specifies the name of the NAT pool.
 	Name pulumi.StringPtrInput
 	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
@@ -146,7 +143,6 @@ type natPoolArgs struct {
 	FrontendPortStart int `pulumi:"frontendPortStart"`
 	// The ID of the Load Balancer in which to create the NAT pool.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
-	Location *string `pulumi:"location"`
 	// Specifies the name of the NAT pool.
 	Name *string `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
@@ -167,7 +163,6 @@ type NatPoolArgs struct {
 	FrontendPortStart pulumi.IntInput
 	// The ID of the Load Balancer in which to create the NAT pool.
 	LoadbalancerId pulumi.StringInput
-	Location pulumi.StringPtrInput
 	// Specifies the name of the NAT pool.
 	Name pulumi.StringPtrInput
 	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
@@ -179,4 +174,3 @@ type NatPoolArgs struct {
 func (NatPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*natPoolArgs)(nil)).Elem()
 }
-

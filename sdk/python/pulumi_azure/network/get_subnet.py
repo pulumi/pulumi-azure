@@ -13,7 +13,7 @@ class GetSubnetResult:
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, address_prefix=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, ip_configurations=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None, id=None):
+    def __init__(__self__, address_prefix=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, id=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         __self__.address_prefix = address_prefix
@@ -32,11 +32,11 @@ class GetSubnetResult:
         """
         Enable or Disable network policies for the private link service on the subnet.
         """
-        if ip_configurations and not isinstance(ip_configurations, list):
-            raise TypeError("Expected argument 'ip_configurations' to be a list")
-        __self__.ip_configurations = ip_configurations
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
         """
-        The collection of IP Configurations with IPs within this subnet.
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -65,12 +65,6 @@ class GetSubnetResult:
         if virtual_network_name and not isinstance(virtual_network_name, str):
             raise TypeError("Expected argument 'virtual_network_name' to be a str")
         __self__.virtual_network_name = virtual_network_name
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetSubnetResult(GetSubnetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -80,26 +74,27 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             address_prefix=self.address_prefix,
             enforce_private_link_endpoint_network_policies=self.enforce_private_link_endpoint_network_policies,
             enforce_private_link_service_network_policies=self.enforce_private_link_service_network_policies,
-            ip_configurations=self.ip_configurations,
+            id=self.id,
             name=self.name,
             network_security_group_id=self.network_security_group_id,
             resource_group_name=self.resource_group_name,
             route_table_id=self.route_table_id,
             service_endpoints=self.service_endpoints,
-            virtual_network_name=self.virtual_network_name,
-            id=self.id)
+            virtual_network_name=self.virtual_network_name)
 
 def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts=None):
     """
     Use this data source to access information about an existing Subnet within a Virtual Network.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subnet.html.markdown.
+
+
     :param str name: Specifies the name of the Subnet.
     :param str resource_group_name: Specifies the name of the resource group the Virtual Network is located in.
     :param str virtual_network_name: Specifies the name of the Virtual Network this Subnet is located within.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subnet.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -114,11 +109,10 @@ def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts
         address_prefix=__ret__.get('addressPrefix'),
         enforce_private_link_endpoint_network_policies=__ret__.get('enforcePrivateLinkEndpointNetworkPolicies'),
         enforce_private_link_service_network_policies=__ret__.get('enforcePrivateLinkServiceNetworkPolicies'),
-        ip_configurations=__ret__.get('ipConfigurations'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         network_security_group_id=__ret__.get('networkSecurityGroupId'),
         resource_group_name=__ret__.get('resourceGroupName'),
         route_table_id=__ret__.get('routeTableId'),
         service_endpoints=__ret__.get('serviceEndpoints'),
-        virtual_network_name=__ret__.get('virtualNetworkName'),
-        id=__ret__.get('id'))
+        virtual_network_name=__ret__.get('virtualNetworkName'))

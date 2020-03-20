@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Image.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/image.html.markdown.
 func LookupImage(ctx *pulumi.Context, args *LookupImageArgs, opts ...pulumi.InvokeOption) (*LookupImageResult, error) {
 	var rv LookupImageResult
@@ -32,7 +32,6 @@ type LookupImageArgs struct {
 	SortDescending *bool `pulumi:"sortDescending"`
 }
 
-
 // A collection of values returned by getImage.
 type LookupImageResult struct {
 	// a collection of `dataDisk` blocks as defined below.
@@ -42,15 +41,14 @@ type LookupImageResult struct {
 	// the Azure Location where this Image exists.
 	Location string `pulumi:"location"`
 	// the name of the Image.
-	Name *string `pulumi:"name"`
+	Name      *string `pulumi:"name"`
 	NameRegex *string `pulumi:"nameRegex"`
 	// a `osDisk` block as defined below.
-	OsDisks []GetImageOsDisk `pulumi:"osDisks"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	SortDescending *bool `pulumi:"sortDescending"`
+	OsDisks           []GetImageOsDisk `pulumi:"osDisks"`
+	ResourceGroupName string           `pulumi:"resourceGroupName"`
+	SortDescending    *bool            `pulumi:"sortDescending"`
 	// a mapping of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// is zone resiliency enabled?
 	ZoneResilient bool `pulumi:"zoneResilient"`
 }
-

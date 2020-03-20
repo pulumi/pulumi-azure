@@ -14,11 +14,10 @@ import (
 // settings, however an explicit `Provider` instance may be created and passed during resource
 // construction to achieve fine-grained programmatic control over provider settings. See the
 // [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/index.html.markdown.
 type Provider struct {
 	pulumi.ProviderResourceState
-
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -92,7 +91,8 @@ type providerArgs struct {
 	DisableTerraformPartnerId *bool `pulumi:"disableTerraformPartnerId"`
 	// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
 	// public.
-	Environment *string `pulumi:"environment"`
+	Environment *string           `pulumi:"environment"`
+	Features    *ProviderFeatures `pulumi:"features"`
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 	// automatically.
 	MsiEndpoint *string `pulumi:"msiEndpoint"`
@@ -103,6 +103,8 @@ type providerArgs struct {
 	// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
 	// registered?
 	SkipProviderRegistration *bool `pulumi:"skipProviderRegistration"`
+	// Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+	StorageUseAzuread *bool `pulumi:"storageUseAzuread"`
 	// The Subscription ID which should be used.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The Tenant ID which should be used.
@@ -131,6 +133,7 @@ type ProviderArgs struct {
 	// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
 	// public.
 	Environment pulumi.StringPtrInput
+	Features    ProviderFeaturesPtrInput
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 	// automatically.
 	MsiEndpoint pulumi.StringPtrInput
@@ -141,6 +144,8 @@ type ProviderArgs struct {
 	// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
 	// registered?
 	SkipProviderRegistration pulumi.BoolPtrInput
+	// Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+	StorageUseAzuread pulumi.BoolPtrInput
 	// The Subscription ID which should be used.
 	SubscriptionId pulumi.StringPtrInput
 	// The Tenant ID which should be used.
@@ -152,4 +157,3 @@ type ProviderArgs struct {
 func (ProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*providerArgs)(nil)).Elem()
 }
-

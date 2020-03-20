@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing App Service Certificate Order.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate_order.html.markdown.
 func LookupCertificateOrder(ctx *pulumi.Context, args *LookupCertificateOrderArgs, opts ...pulumi.InvokeOption) (*LookupCertificateOrderResult, error) {
 	var rv LookupCertificateOrderResult
@@ -27,7 +27,6 @@ type LookupCertificateOrderArgs struct {
 	// The Name of the Resource Group where the App Service exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
-
 
 // A collection of values returned by getCertificateOrder.
 type LookupCertificateOrderResult struct {
@@ -55,9 +54,9 @@ type LookupCertificateOrderResult struct {
 	KeySize int `pulumi:"keySize"`
 	// The Azure location where the App Service exists.
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// Certificate product type, such as `Standard` or `WildCard`.
-	ProductType string `pulumi:"productType"`
+	ProductType       string `pulumi:"productType"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Certificate thumbprint for root certificate.
 	RootThumbprint string `pulumi:"rootThumbprint"`
@@ -70,4 +69,3 @@ type LookupCertificateOrderResult struct {
 	// Duration in years (must be between 1 and 3).
 	ValidityInYears int `pulumi:"validityInYears"`
 }
-

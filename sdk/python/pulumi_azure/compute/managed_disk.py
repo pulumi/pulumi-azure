@@ -12,7 +12,7 @@ from .. import utilities, tables
 class ManagedDisk(pulumi.CustomResource):
     create_option: pulumi.Output[str]
     """
-    The method to use when creating the managed disk. Possible values include:
+    The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
     """
     disk_encryption_set_id: pulumi.Output[str]
     """
@@ -33,15 +33,13 @@ class ManagedDisk(pulumi.CustomResource):
     encryption_settings: pulumi.Output[dict]
     """
     A `encryption_settings` block as defined below.
-    
+
       * `diskEncryptionKey` (`dict`)
-    
         * `secretUrl` (`str`)
         * `sourceVaultId` (`str`)
-    
+
       * `enabled` (`bool`)
       * `keyEncryptionKey` (`dict`)
-    
         * `keyUrl` (`str`)
         * `sourceVaultId` (`str`)
     """
@@ -75,7 +73,7 @@ class ManagedDisk(pulumi.CustomResource):
     """
     storage_account_id: pulumi.Output[str]
     """
-    The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.
+    The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
     """
     storage_account_type: pulumi.Output[str]
     """
@@ -92,10 +90,12 @@ class ManagedDisk(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, create_option=None, disk_encryption_set_id=None, disk_iops_read_write=None, disk_mbps_read_write=None, disk_size_gb=None, encryption_settings=None, image_reference_id=None, location=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_id=None, storage_account_type=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a managed disk.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_disk.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Possible values include:
+        :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[float] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[float] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
@@ -108,25 +108,21 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`.
-        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Managed Disk in.
-        
+
         The **encryption_settings** object supports the following:
-        
+
           * `diskEncryptionKey` (`pulumi.Input[dict]`)
-        
             * `secretUrl` (`pulumi.Input[str]`)
             * `sourceVaultId` (`pulumi.Input[str]`)
-        
+
           * `enabled` (`pulumi.Input[bool]`)
           * `keyEncryptionKey` (`pulumi.Input[dict]`)
-        
             * `keyUrl` (`pulumi.Input[str]`)
             * `sourceVaultId` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_disk.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -179,11 +175,11 @@ class ManagedDisk(pulumi.CustomResource):
         """
         Get an existing ManagedDisk resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Possible values include:
+        :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[float] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[float] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
@@ -196,29 +192,26 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`.
-        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Managed Disk in.
-        
+
         The **encryption_settings** object supports the following:
-        
+
           * `diskEncryptionKey` (`pulumi.Input[dict]`)
-        
             * `secretUrl` (`pulumi.Input[str]`)
             * `sourceVaultId` (`pulumi.Input[str]`)
-        
+
           * `enabled` (`pulumi.Input[bool]`)
           * `keyEncryptionKey` (`pulumi.Input[dict]`)
-        
             * `keyUrl` (`pulumi.Input[str]`)
             * `sourceVaultId` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_disk.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["create_option"] = create_option
         __props__["disk_encryption_set_id"] = disk_encryption_set_id
         __props__["disk_iops_read_write"] = disk_iops_read_write

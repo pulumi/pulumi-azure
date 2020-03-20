@@ -11,7 +11,6 @@ const storageAccount = new azure.storage.Account("storageaccount", {
 });
 
 const storageShare = new azure.storage.Share("storageshare", {
-    resourceGroupName: resourceGroup.name,
     storageAccountName: storageAccount.name,
     quota: 50,
 });
@@ -26,8 +25,7 @@ const containerGroup = new azure.containerservice.Group("containergroup", {
             image: "seanmckenna/aci-hellofiles",
             cpu: 1,
             memory: 1.5,
-            port: 80,
-            protocol: "tcp",
+            ports: [{port: 80, protocol: "TCP"}],
             volumes: [{
                 name: "logs",
                 mountPath: "/aci/logs",

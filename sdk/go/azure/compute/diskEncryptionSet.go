@@ -11,7 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/disk_encryption_set.html.markdown.
 type DiskEncryptionSet struct {
 	pulumi.CustomResourceState
 
@@ -133,4 +132,3 @@ type DiskEncryptionSetArgs struct {
 func (DiskEncryptionSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*diskEncryptionSetArgs)(nil)).Elem()
 }
-

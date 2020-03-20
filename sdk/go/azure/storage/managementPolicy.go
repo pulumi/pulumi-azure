@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Azure Storage Account Management Policy.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_management_policy.html.markdown.
 type ManagementPolicy struct {
 	pulumi.CustomResourceState
@@ -89,4 +89,3 @@ type ManagementPolicyArgs struct {
 func (ManagementPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managementPolicyArgs)(nil)).Elem()
 }
-

@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing IotHub Shared Access Policy
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_shared_access_policy.html.markdown.
 func LookupSharedAccessPolicy(ctx *pulumi.Context, args *LookupSharedAccessPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSharedAccessPolicyResult, error) {
 	var rv LookupSharedAccessPolicyResult
@@ -30,21 +30,19 @@ type LookupSharedAccessPolicyArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getSharedAccessPolicy.
 type LookupSharedAccessPolicyResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id         string `pulumi:"id"`
 	IothubName string `pulumi:"iothubName"`
-	Name string `pulumi:"name"`
+	Name       string `pulumi:"name"`
 	// The primary connection string of the Shared Access Policy.
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
 	// The primary key used to create the authentication token.
-	PrimaryKey string `pulumi:"primaryKey"`
+	PrimaryKey        string `pulumi:"primaryKey"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The secondary connection string of the Shared Access Policy.
 	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
 	// The secondary key used to create the authentication token.
 	SecondaryKey string `pulumi:"secondaryKey"`
 }
-

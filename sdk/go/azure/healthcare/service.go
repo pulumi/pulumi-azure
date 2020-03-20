@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Healthcare Service.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/healthcare_service.html.markdown.
 type Service struct {
 	pulumi.CustomResourceState
@@ -157,4 +157,3 @@ type ServiceArgs struct {
 func (ServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceArgs)(nil)).Elem()
 }
-

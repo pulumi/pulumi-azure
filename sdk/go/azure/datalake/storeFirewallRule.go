@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Azure Data Lake Store Firewall Rule.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store_firewall_rule.html.markdown.
 type StoreFirewallRule struct {
 	pulumi.CustomResourceState
@@ -128,4 +128,3 @@ type StoreFirewallRuleArgs struct {
 func (StoreFirewallRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storeFirewallRuleArgs)(nil)).Elem()
 }
-

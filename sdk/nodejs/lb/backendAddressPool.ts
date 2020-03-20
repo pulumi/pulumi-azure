@@ -10,34 +10,6 @@ import * as utilities from "../utilities";
  * Manages a Load Balancer Backend Address Pool.
  * 
  * > **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
- *     allocationMethod: "Static",
- *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
- *     frontendIpConfigurations: [{
- *         name: "PublicIPAddress",
- *         publicIpAddressId: examplePublicIp.id,
- *     }],
- *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleBackendAddressPool = new azure.lb.BackendAddressPool("example", {
- *     loadbalancerId: exampleLoadBalancer.id,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_backend_address_pool.html.markdown.
  */
@@ -80,7 +52,6 @@ export class BackendAddressPool extends pulumi.CustomResource {
      * The ID of the Load Balancer in which to create the Backend Address Pool.
      */
     public readonly loadbalancerId!: pulumi.Output<string>;
-    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Backend Address Pool.
      */
@@ -105,7 +76,6 @@ export class BackendAddressPool extends pulumi.CustomResource {
             inputs["backendIpConfigurations"] = state ? state.backendIpConfigurations : undefined;
             inputs["loadBalancingRules"] = state ? state.loadBalancingRules : undefined;
             inputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
-            inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
@@ -117,7 +87,6 @@ export class BackendAddressPool extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["backendIpConfigurations"] = undefined /*out*/;
@@ -150,7 +119,6 @@ export interface BackendAddressPoolState {
      * The ID of the Load Balancer in which to create the Backend Address Pool.
      */
     readonly loadbalancerId?: pulumi.Input<string>;
-    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Backend Address Pool.
      */
@@ -169,7 +137,6 @@ export interface BackendAddressPoolArgs {
      * The ID of the Load Balancer in which to create the Backend Address Pool.
      */
     readonly loadbalancerId: pulumi.Input<string>;
-    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Backend Address Pool.
      */

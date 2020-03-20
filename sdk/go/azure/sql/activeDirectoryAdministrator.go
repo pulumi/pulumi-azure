@@ -12,8 +12,8 @@ import (
 )
 
 // Allows you to set a user or group as the AD administrator for an Azure SQL server
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_active_directory_administrator.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_active_directory_administrator.markdown.
 type ActiveDirectoryAdministrator struct {
 	pulumi.CustomResourceState
 
@@ -131,4 +131,3 @@ type ActiveDirectoryAdministratorArgs struct {
 func (ActiveDirectoryAdministratorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*activeDirectoryAdministratorArgs)(nil)).Elem()
 }
-

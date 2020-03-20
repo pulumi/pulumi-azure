@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cosmosdb_account.html.markdown.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
@@ -28,18 +28,17 @@ type LookupAccountArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getAccount.
 type LookupAccountResult struct {
 	// Capabilities enabled on this Cosmos DB account.
-	Capabilities []GetAccountCapability `pulumi:"capabilities"`
+	Capabilities        []GetAccountCapability        `pulumi:"capabilities"`
 	ConsistencyPolicies []GetAccountConsistencyPolicy `pulumi:"consistencyPolicies"`
 	// If automatic failover is enabled for this CosmosDB Account.
 	EnableAutomaticFailover bool `pulumi:"enableAutomaticFailover"`
 	// If multi-master is enabled for this Cosmos DB account.
 	EnableMultipleWriteLocations bool `pulumi:"enableMultipleWriteLocations"`
 	// The endpoint used to connect to the CosmosDB account.
-	Endpoint string `pulumi:"endpoint"`
+	Endpoint     string                  `pulumi:"endpoint"`
 	GeoLocations []GetAccountGeoLocation `pulumi:"geoLocations"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -51,7 +50,7 @@ type LookupAccountResult struct {
 	Kind string `pulumi:"kind"`
 	// The name of the Azure region hosting replicated data.
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// The Offer Type to used by this CosmosDB Account.
 	OfferType string `pulumi:"offerType"`
 	// The Primary master key for the CosmosDB Account.
@@ -59,8 +58,8 @@ type LookupAccountResult struct {
 	// The Primary read-only master Key for the CosmosDB Account.
 	PrimaryReadonlyMasterKey string `pulumi:"primaryReadonlyMasterKey"`
 	// A list of read endpoints available for this CosmosDB account.
-	ReadEndpoints []string `pulumi:"readEndpoints"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ReadEndpoints     []string `pulumi:"readEndpoints"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
 	// The Secondary master key for the CosmosDB Account.
 	SecondaryMasterKey string `pulumi:"secondaryMasterKey"`
 	// The Secondary read-only master key for the CosmosDB Account.
@@ -72,4 +71,3 @@ type LookupAccountResult struct {
 	// A list of write endpoints available for this CosmosDB account.
 	WriteEndpoints []string `pulumi:"writeEndpoints"`
 }
-

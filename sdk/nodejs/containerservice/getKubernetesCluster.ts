@@ -136,7 +136,7 @@ export interface GetKubernetesClusterResult {
      */
     readonly servicePrincipals: outputs.containerservice.GetKubernetesClusterServicePrincipal[];
     /**
-     * A mapping of tags assigned to this resource.
+     * A mapping of tags to assign to the resource.
      */
     readonly tags: {[key: string]: string};
     /**

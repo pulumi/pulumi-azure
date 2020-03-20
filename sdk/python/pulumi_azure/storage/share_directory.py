@@ -29,15 +29,15 @@ class ShareDirectory(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, metadata=None, name=None, share_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Directory within an Azure Storage File Share.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share_directory.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] metadata: A mapping of metadata to assign to this Directory.
         :param pulumi.Input[str] name: The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] share_name: The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share_directory.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,7 +75,7 @@ class ShareDirectory(pulumi.CustomResource):
         """
         Get an existing ShareDirectory resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,12 +83,11 @@ class ShareDirectory(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] share_name: The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share_directory.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["metadata"] = metadata
         __props__["name"] = name
         __props__["share_name"] = share_name

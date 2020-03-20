@@ -12,12 +12,12 @@ import (
 )
 
 // Manages an Disaster Recovery Config for an Event Hub Namespace.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_namespace_disaster_recovery_config.html.markdown.
 type EventhubNamespaceDisasterRecoveryConfig struct {
 	pulumi.CustomResourceState
 
-	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name. 
+	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
 	AlternateName pulumi.StringPtrOutput `pulumi:"alternateName"`
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -66,7 +66,7 @@ func GetEventhubNamespaceDisasterRecoveryConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventhubNamespaceDisasterRecoveryConfig resources.
 type eventhubNamespaceDisasterRecoveryConfigState struct {
-	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name. 
+	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
 	AlternateName *string `pulumi:"alternateName"`
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -79,7 +79,7 @@ type eventhubNamespaceDisasterRecoveryConfigState struct {
 }
 
 type EventhubNamespaceDisasterRecoveryConfigState struct {
-	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name. 
+	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
 	AlternateName pulumi.StringPtrInput
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -96,7 +96,7 @@ func (EventhubNamespaceDisasterRecoveryConfigState) ElementType() reflect.Type {
 }
 
 type eventhubNamespaceDisasterRecoveryConfigArgs struct {
-	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name. 
+	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
 	AlternateName *string `pulumi:"alternateName"`
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -110,7 +110,7 @@ type eventhubNamespaceDisasterRecoveryConfigArgs struct {
 
 // The set of arguments for constructing a EventhubNamespaceDisasterRecoveryConfig resource.
 type EventhubNamespaceDisasterRecoveryConfigArgs struct {
-	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name. 
+	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
 	AlternateName pulumi.StringPtrInput
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -125,4 +125,3 @@ type EventhubNamespaceDisasterRecoveryConfigArgs struct {
 func (EventhubNamespaceDisasterRecoveryConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventhubNamespaceDisasterRecoveryConfigArgs)(nil)).Elem()
 }
-

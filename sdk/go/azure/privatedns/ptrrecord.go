@@ -12,11 +12,13 @@ import (
 )
 
 // Enables you to manage DNS PTR Records within Azure Private DNS.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_ptr_record.html.markdown.
 type PTRRecord struct {
 	pulumi.CustomResourceState
 
+	// The FQDN of the DNS PTR Record.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS PTR Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of Fully Qualified Domain Names.
@@ -25,7 +27,7 @@ type PTRRecord struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	Ttl pulumi.IntOutput `pulumi:"ttl"`
+	Ttl  pulumi.IntOutput       `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
@@ -70,6 +72,8 @@ func GetPTRRecord(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PTRRecord resources.
 type ptrrecordState struct {
+	// The FQDN of the DNS PTR Record.
+	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS PTR Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// List of Fully Qualified Domain Names.
@@ -78,12 +82,14 @@ type ptrrecordState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	Ttl *int `pulumi:"ttl"`
+	Ttl  *int              `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName *string `pulumi:"zoneName"`
 }
 
 type PTRRecordState struct {
+	// The FQDN of the DNS PTR Record.
+	Fqdn pulumi.StringPtrInput
 	// The name of the DNS PTR Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// List of Fully Qualified Domain Names.
@@ -92,7 +98,7 @@ type PTRRecordState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	Ttl pulumi.IntPtrInput
+	Ttl  pulumi.IntPtrInput
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringPtrInput
 }
@@ -110,7 +116,7 @@ type ptrrecordArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	Ttl int `pulumi:"ttl"`
+	Ttl  int               `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName string `pulumi:"zoneName"`
 }
@@ -125,7 +131,7 @@ type PTRRecordArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	Ttl pulumi.IntInput
+	Ttl  pulumi.IntInput
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringInput
 }
@@ -133,4 +139,3 @@ type PTRRecordArgs struct {
 func (PTRRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ptrrecordArgs)(nil)).Elem()
 }
-

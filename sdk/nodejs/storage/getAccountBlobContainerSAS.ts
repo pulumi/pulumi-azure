@@ -10,51 +10,6 @@ import * as utilities from "../utilities";
  * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account Blob Container.
  * 
  * Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const rg = new azure.core.ResourceGroup("rg", {
- *     location: "westus",
- * });
- * const storage = new azure.storage.Account("storage", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: rg.location,
- *     resourceGroupName: rg.name,
- * });
- * const container = new azure.storage.Container("container", {
- *     containerAccessType: "private",
- *     resourceGroupName: rg.name,
- *     storageAccountName: storage.name,
- * });
- * const example = pulumi.all([storage.primaryConnectionString, container.name]).apply(([primaryConnectionString, name]) => azure.storage.getAccountBlobContainerSAS({
- *     cacheControl: "max-age=5",
- *     connectionString: primaryConnectionString,
- *     containerName: name,
- *     contentDisposition: "inline",
- *     contentEncoding: "deflate",
- *     contentLanguage: "en-US",
- *     contentType: "application/json",
- *     expiry: "2018-03-21",
- *     httpsOnly: true,
- *     ipAddress: "168.1.5.65",
- *     permissions: {
- *         add: true,
- *         create: false,
- *         delete: true,
- *         list: true,
- *         read: true,
- *         write: false,
- *     },
- *     start: "2018-03-21",
- * }));
- * 
- * export const sasUrlQueryString = example.sas;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_blob_container_sas.html.markdown.
  */

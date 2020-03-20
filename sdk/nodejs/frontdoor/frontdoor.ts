@@ -11,61 +11,10 @@ import * as utilities from "../utilities";
  * 
  * Azure Front Door Service is Microsoft's highly available and scalable web application acceleration platform and global HTTP(s) load balancer. It provides built-in DDoS protection and application layer security and caching. Front Door enables you to build applications that maximize and automate high-availability and performance for your end-users. Use Front Door with Azure services including Web/Mobile Apps, Cloud Services and Virtual Machines – or combine it with on-premises services for hybrid deployments and smooth cloud migration.
  * 
- * Below are some of the key scenarios that Azure Front Door Service addresses: 
+ * Below are some of the key scenarios that Azure Front Door Service addresses:
  * * Use Front Door to improve application scale and availability with instant multi-region failover
  * * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
  * * Use Front Door for application layer security and DDoS protection for your application.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "EastUS2",
- * });
- * const exampleFrontdoor = new azure.frontdoor.Frontdoor("example", {
- *     backendPools: [{
- *         backends: [{
- *             address: "www.bing.com",
- *             hostHeader: "www.bing.com",
- *             httpPort: 80,
- *             httpsPort: 443,
- *         }],
- *         healthProbeName: "exampleHealthProbeSetting1",
- *         loadBalancingName: "exampleLoadBalancingSettings1",
- *         name: "exampleBackendBing",
- *     }],
- *     backendPoolHealthProbes: [{
- *         name: "exampleHealthProbeSetting1",
- *     }],
- *     backendPoolLoadBalancings: [{
- *         name: "exampleLoadBalancingSettings1",
- *     }],
- *     enforceBackendPoolsCertificateNameCheck: false,
- *     frontendEndpoints: [{
- *         customHttpsProvisioningEnabled: false,
- *         hostName: "example-FrontDoor.azurefd.net",
- *         name: "exampleFrontendEndpoint1",
- *     }],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     routingRules: [{
- *         acceptedProtocols: [
- *             "Http",
- *             "Https",
- *         ],
- *         forwardingConfiguration: {
- *             backendPoolName: "exampleBackendBing",
- *             forwardingProtocol: "MatchRequest",
- *         },
- *         frontendEndpoints: ["exampleFrontendEndpoint1"],
- *         name: "exampleRoutingRule1",
- *         patternsToMatches: ["/*"],
- *     }],
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/frontdoor.html.markdown.
  */
@@ -128,9 +77,6 @@ export class Frontdoor extends pulumi.CustomResource {
      * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
     public readonly loadBalancerEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-     */
     public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
@@ -147,7 +93,7 @@ export class Frontdoor extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Frontdoor resource with the given unique name, arguments, and options.
@@ -258,9 +204,6 @@ export interface FrontdoorState {
      * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
     readonly loadBalancerEnabled?: pulumi.Input<boolean>;
-    /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-     */
     readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
@@ -312,9 +255,6 @@ export interface FrontdoorArgs {
      * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
     readonly loadBalancerEnabled?: pulumi.Input<boolean>;
-    /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-     */
     readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Front Door service. Changing this forces a new resource to be created.

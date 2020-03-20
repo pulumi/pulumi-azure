@@ -8,40 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages automated startup and shutdown schedules for Azure Dev Test Lab.
- * 
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const sampleResourceGroup = new azure.core.ResourceGroup("sample", {
- *     location: "West US",
- * });
- * const sampleLab = new azure.devtest.Lab("sample", {
- *     location: azurerm_resource_group_example.location,
- *     resourceGroupName: azurerm_resource_group_example.name,
- * });
- * const sampleSchedule = new azure.devtest.Schedule("sample", {
- *     labName: azurerm_dev_test_lab_example.name,
- *     location: azurerm_resource_group_example.location,
- *     notificationSettings: {},
- *     resourceGroupName: azurerm_resource_group_example.name,
- *     tags: {
- *         environment: "Production",
- *     },
- *     taskType: "LabVmsStartupTask",
- *     timeZoneId: "Pacific Standard Time",
- *     weeklyRecurrence: {
- *         time: "1100",
- *         weekDays: [
- *             "Monday",
- *             "Tuesday",
- *         ],
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_schedule.html.markdown.
  */
@@ -98,7 +64,7 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
      */

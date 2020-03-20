@@ -326,8 +326,8 @@ export class ServiceBusFunction extends appservice.Function<ServiceBusContext, s
 
         // Fold the queue/topic ID into the all so we don't attempt to fetch the namespace until we're sure it has been created.
         const namespace = pulumi.all([namespaceName, resourceGroupName, queueOrTopicId])
-                               .apply(([namespaceName, resourceGroupName]) =>
-                                    getNamespace({ name: namespaceName, resourceGroupName }));
+            .apply(([namespaceName, resourceGroupName]) =>
+                getNamespace({ name: namespaceName, resourceGroupName }));
 
         const appSettings = pulumi.all([namespace.defaultPrimaryConnectionString, bindingConnectionKey]).apply(
             ([connectionString, key]) => ({ [key]: connectionString }));

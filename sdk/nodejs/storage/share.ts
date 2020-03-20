@@ -8,27 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a File Share within Azure Storage.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleShare = new azure.storage.Share("example", {
- *     quota: 50,
- *     storageAccountName: exampleAccount.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share.html.markdown.
  */
@@ -76,11 +55,6 @@ export class Share extends pulumi.CustomResource {
      */
     public readonly quota!: pulumi.Output<number | undefined>;
     /**
-     * The name of the resource group in which to
-     * create the share. Changing this forces a new resource to be created.
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * Specifies the storage account in which to create the share.
      * Changing this forces a new resource to be created.
      */
@@ -106,7 +80,6 @@ export class Share extends pulumi.CustomResource {
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["quota"] = state ? state.quota : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
             inputs["url"] = state ? state.url : undefined;
         } else {
@@ -118,7 +91,6 @@ export class Share extends pulumi.CustomResource {
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["quota"] = args ? args.quota : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["url"] = undefined /*out*/;
         }
@@ -154,11 +126,6 @@ export interface ShareState {
      */
     readonly quota?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to
-     * create the share. Changing this forces a new resource to be created.
-     */
-    readonly resourceGroupName?: pulumi.Input<string>;
-    /**
      * Specifies the storage account in which to create the share.
      * Changing this forces a new resource to be created.
      */
@@ -189,11 +156,6 @@ export interface ShareArgs {
      * The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
      */
     readonly quota?: pulumi.Input<number>;
-    /**
-     * The name of the resource group in which to
-     * create the share. Changing this forces a new resource to be created.
-     */
-    readonly resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the storage account in which to create the share.
      * Changing this forces a new resource to be created.

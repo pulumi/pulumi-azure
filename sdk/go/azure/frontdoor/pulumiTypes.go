@@ -14,14 +14,14 @@ import (
 type FirewallPolicyCustomRule struct {
 	Action string `pulumi:"action"`
 	// Is the policy a enabled state or disabled state. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
+	Enabled         *bool                                    `pulumi:"enabled"`
 	MatchConditions []FirewallPolicyCustomRuleMatchCondition `pulumi:"matchConditions"`
 	// The name of the policy. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	Priority *int `pulumi:"priority"`
-	RateLimitDurationInMinutes *int `pulumi:"rateLimitDurationInMinutes"`
-	RateLimitThreshold *int `pulumi:"rateLimitThreshold"`
-	Type string `pulumi:"type"`
+	Name                       string `pulumi:"name"`
+	Priority                   *int   `pulumi:"priority"`
+	RateLimitDurationInMinutes *int   `pulumi:"rateLimitDurationInMinutes"`
+	RateLimitThreshold         *int   `pulumi:"rateLimitThreshold"`
+	Type                       string `pulumi:"type"`
 }
 
 type FirewallPolicyCustomRuleInput interface {
@@ -34,14 +34,14 @@ type FirewallPolicyCustomRuleInput interface {
 type FirewallPolicyCustomRuleArgs struct {
 	Action pulumi.StringInput `pulumi:"action"`
 	// Is the policy a enabled state or disabled state. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	Enabled         pulumi.BoolPtrInput                              `pulumi:"enabled"`
 	MatchConditions FirewallPolicyCustomRuleMatchConditionArrayInput `pulumi:"matchConditions"`
 	// The name of the policy. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	Name                       pulumi.StringInput `pulumi:"name"`
+	Priority                   pulumi.IntPtrInput `pulumi:"priority"`
 	RateLimitDurationInMinutes pulumi.IntPtrInput `pulumi:"rateLimitDurationInMinutes"`
-	RateLimitThreshold pulumi.IntPtrInput `pulumi:"rateLimitThreshold"`
-	Type pulumi.StringInput `pulumi:"type"`
+	RateLimitThreshold         pulumi.IntPtrInput `pulumi:"rateLimitThreshold"`
+	Type                       pulumi.StringInput `pulumi:"type"`
 }
 
 func (FirewallPolicyCustomRuleArgs) ElementType() reflect.Type {
@@ -77,7 +77,7 @@ func (i FirewallPolicyCustomRuleArray) ToFirewallPolicyCustomRuleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyCustomRuleArrayOutput)
 }
 
-type FirewallPolicyCustomRuleOutput struct { *pulumi.OutputState }
+type FirewallPolicyCustomRuleOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyCustomRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyCustomRule)(nil)).Elem()
@@ -92,40 +92,40 @@ func (o FirewallPolicyCustomRuleOutput) ToFirewallPolicyCustomRuleOutputWithCont
 }
 
 func (o FirewallPolicyCustomRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRule) string { return v.Action }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRule) string { return v.Action }).(pulumi.StringOutput)
 }
 
 // Is the policy a enabled state or disabled state. Defaults to `true`.
 func (o FirewallPolicyCustomRuleOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o FirewallPolicyCustomRuleOutput) MatchConditions() FirewallPolicyCustomRuleMatchConditionArrayOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRule) []FirewallPolicyCustomRuleMatchCondition { return v.MatchConditions }).(FirewallPolicyCustomRuleMatchConditionArrayOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRule) []FirewallPolicyCustomRuleMatchCondition { return v.MatchConditions }).(FirewallPolicyCustomRuleMatchConditionArrayOutput)
 }
 
 // The name of the policy. Changing this forces a new resource to be created.
 func (o FirewallPolicyCustomRuleOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRule) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o FirewallPolicyCustomRuleOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 func (o FirewallPolicyCustomRuleOutput) RateLimitDurationInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRule) *int { return v.RateLimitDurationInMinutes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRule) *int { return v.RateLimitDurationInMinutes }).(pulumi.IntPtrOutput)
 }
 
 func (o FirewallPolicyCustomRuleOutput) RateLimitThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRule) *int { return v.RateLimitThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRule) *int { return v.RateLimitThreshold }).(pulumi.IntPtrOutput)
 }
 
 func (o FirewallPolicyCustomRuleOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRule) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRule) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type FirewallPolicyCustomRuleArrayOutput struct { *pulumi.OutputState}
+type FirewallPolicyCustomRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyCustomRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FirewallPolicyCustomRule)(nil)).Elem()
@@ -140,18 +140,18 @@ func (o FirewallPolicyCustomRuleArrayOutput) ToFirewallPolicyCustomRuleArrayOutp
 }
 
 func (o FirewallPolicyCustomRuleArrayOutput) Index(i pulumi.IntInput) FirewallPolicyCustomRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FirewallPolicyCustomRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyCustomRule {
 		return vs[0].([]FirewallPolicyCustomRule)[vs[1].(int)]
 	}).(FirewallPolicyCustomRuleOutput)
 }
 
 type FirewallPolicyCustomRuleMatchCondition struct {
-	MatchValues []string `pulumi:"matchValues"`
-	MatchVariable string `pulumi:"matchVariable"`
-	NegationCondition *bool `pulumi:"negationCondition"`
-	Operator string `pulumi:"operator"`
-	Selector *string `pulumi:"selector"`
-	Transforms []string `pulumi:"transforms"`
+	MatchValues       []string `pulumi:"matchValues"`
+	MatchVariable     string   `pulumi:"matchVariable"`
+	NegationCondition *bool    `pulumi:"negationCondition"`
+	Operator          string   `pulumi:"operator"`
+	Selector          *string  `pulumi:"selector"`
+	Transforms        []string `pulumi:"transforms"`
 }
 
 type FirewallPolicyCustomRuleMatchConditionInput interface {
@@ -162,12 +162,12 @@ type FirewallPolicyCustomRuleMatchConditionInput interface {
 }
 
 type FirewallPolicyCustomRuleMatchConditionArgs struct {
-	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
-	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
-	NegationCondition pulumi.BoolPtrInput `pulumi:"negationCondition"`
-	Operator pulumi.StringInput `pulumi:"operator"`
-	Selector pulumi.StringPtrInput `pulumi:"selector"`
-	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+	MatchValues       pulumi.StringArrayInput `pulumi:"matchValues"`
+	MatchVariable     pulumi.StringInput      `pulumi:"matchVariable"`
+	NegationCondition pulumi.BoolPtrInput     `pulumi:"negationCondition"`
+	Operator          pulumi.StringInput      `pulumi:"operator"`
+	Selector          pulumi.StringPtrInput   `pulumi:"selector"`
+	Transforms        pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
 func (FirewallPolicyCustomRuleMatchConditionArgs) ElementType() reflect.Type {
@@ -203,7 +203,7 @@ func (i FirewallPolicyCustomRuleMatchConditionArray) ToFirewallPolicyCustomRuleM
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyCustomRuleMatchConditionArrayOutput)
 }
 
-type FirewallPolicyCustomRuleMatchConditionOutput struct { *pulumi.OutputState }
+type FirewallPolicyCustomRuleMatchConditionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyCustomRuleMatchConditionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyCustomRuleMatchCondition)(nil)).Elem()
@@ -218,30 +218,30 @@ func (o FirewallPolicyCustomRuleMatchConditionOutput) ToFirewallPolicyCustomRule
 }
 
 func (o FirewallPolicyCustomRuleMatchConditionOutput) MatchValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRuleMatchCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRuleMatchCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
 
 func (o FirewallPolicyCustomRuleMatchConditionOutput) MatchVariable() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRuleMatchCondition) string { return v.MatchVariable }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRuleMatchCondition) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
 
 func (o FirewallPolicyCustomRuleMatchConditionOutput) NegationCondition() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRuleMatchCondition) *bool { return v.NegationCondition }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRuleMatchCondition) *bool { return v.NegationCondition }).(pulumi.BoolPtrOutput)
 }
 
 func (o FirewallPolicyCustomRuleMatchConditionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRuleMatchCondition) string { return v.Operator }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRuleMatchCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
 func (o FirewallPolicyCustomRuleMatchConditionOutput) Selector() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRuleMatchCondition) *string { return v.Selector }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRuleMatchCondition) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
 
 func (o FirewallPolicyCustomRuleMatchConditionOutput) Transforms() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRuleMatchCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRuleMatchCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
 
-type FirewallPolicyCustomRuleMatchConditionArrayOutput struct { *pulumi.OutputState}
+type FirewallPolicyCustomRuleMatchConditionArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyCustomRuleMatchConditionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FirewallPolicyCustomRuleMatchCondition)(nil)).Elem()
@@ -256,16 +256,16 @@ func (o FirewallPolicyCustomRuleMatchConditionArrayOutput) ToFirewallPolicyCusto
 }
 
 func (o FirewallPolicyCustomRuleMatchConditionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyCustomRuleMatchConditionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FirewallPolicyCustomRuleMatchCondition {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyCustomRuleMatchCondition {
 		return vs[0].([]FirewallPolicyCustomRuleMatchCondition)[vs[1].(int)]
 	}).(FirewallPolicyCustomRuleMatchConditionOutput)
 }
 
 type FirewallPolicyManagedRule struct {
 	Exclusions []FirewallPolicyManagedRuleExclusion `pulumi:"exclusions"`
-	Overrides []FirewallPolicyManagedRuleOverride `pulumi:"overrides"`
-	Type string `pulumi:"type"`
-	Version string `pulumi:"version"`
+	Overrides  []FirewallPolicyManagedRuleOverride  `pulumi:"overrides"`
+	Type       string                               `pulumi:"type"`
+	Version    string                               `pulumi:"version"`
 }
 
 type FirewallPolicyManagedRuleInput interface {
@@ -277,9 +277,9 @@ type FirewallPolicyManagedRuleInput interface {
 
 type FirewallPolicyManagedRuleArgs struct {
 	Exclusions FirewallPolicyManagedRuleExclusionArrayInput `pulumi:"exclusions"`
-	Overrides FirewallPolicyManagedRuleOverrideArrayInput `pulumi:"overrides"`
-	Type pulumi.StringInput `pulumi:"type"`
-	Version pulumi.StringInput `pulumi:"version"`
+	Overrides  FirewallPolicyManagedRuleOverrideArrayInput  `pulumi:"overrides"`
+	Type       pulumi.StringInput                           `pulumi:"type"`
+	Version    pulumi.StringInput                           `pulumi:"version"`
 }
 
 func (FirewallPolicyManagedRuleArgs) ElementType() reflect.Type {
@@ -315,7 +315,7 @@ func (i FirewallPolicyManagedRuleArray) ToFirewallPolicyManagedRuleArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleArrayOutput)
 }
 
-type FirewallPolicyManagedRuleOutput struct { *pulumi.OutputState }
+type FirewallPolicyManagedRuleOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyManagedRule)(nil)).Elem()
@@ -330,22 +330,22 @@ func (o FirewallPolicyManagedRuleOutput) ToFirewallPolicyManagedRuleOutputWithCo
 }
 
 func (o FirewallPolicyManagedRuleOutput) Exclusions() FirewallPolicyManagedRuleExclusionArrayOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRule) []FirewallPolicyManagedRuleExclusion { return v.Exclusions }).(FirewallPolicyManagedRuleExclusionArrayOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRule) []FirewallPolicyManagedRuleExclusion { return v.Exclusions }).(FirewallPolicyManagedRuleExclusionArrayOutput)
 }
 
 func (o FirewallPolicyManagedRuleOutput) Overrides() FirewallPolicyManagedRuleOverrideArrayOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRule) []FirewallPolicyManagedRuleOverride { return v.Overrides }).(FirewallPolicyManagedRuleOverrideArrayOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRule) []FirewallPolicyManagedRuleOverride { return v.Overrides }).(FirewallPolicyManagedRuleOverrideArrayOutput)
 }
 
 func (o FirewallPolicyManagedRuleOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRule) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRule) string { return v.Type }).(pulumi.StringOutput)
 }
 
 func (o FirewallPolicyManagedRuleOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRule) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRule) string { return v.Version }).(pulumi.StringOutput)
 }
 
-type FirewallPolicyManagedRuleArrayOutput struct { *pulumi.OutputState}
+type FirewallPolicyManagedRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FirewallPolicyManagedRule)(nil)).Elem()
@@ -360,15 +360,15 @@ func (o FirewallPolicyManagedRuleArrayOutput) ToFirewallPolicyManagedRuleArrayOu
 }
 
 func (o FirewallPolicyManagedRuleArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FirewallPolicyManagedRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyManagedRule {
 		return vs[0].([]FirewallPolicyManagedRule)[vs[1].(int)]
 	}).(FirewallPolicyManagedRuleOutput)
 }
 
 type FirewallPolicyManagedRuleExclusion struct {
 	MatchVariable string `pulumi:"matchVariable"`
-	Operator string `pulumi:"operator"`
-	Selector string `pulumi:"selector"`
+	Operator      string `pulumi:"operator"`
+	Selector      string `pulumi:"selector"`
 }
 
 type FirewallPolicyManagedRuleExclusionInput interface {
@@ -380,8 +380,8 @@ type FirewallPolicyManagedRuleExclusionInput interface {
 
 type FirewallPolicyManagedRuleExclusionArgs struct {
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
-	Operator pulumi.StringInput `pulumi:"operator"`
-	Selector pulumi.StringInput `pulumi:"selector"`
+	Operator      pulumi.StringInput `pulumi:"operator"`
+	Selector      pulumi.StringInput `pulumi:"selector"`
 }
 
 func (FirewallPolicyManagedRuleExclusionArgs) ElementType() reflect.Type {
@@ -417,7 +417,7 @@ func (i FirewallPolicyManagedRuleExclusionArray) ToFirewallPolicyManagedRuleExcl
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleExclusionArrayOutput)
 }
 
-type FirewallPolicyManagedRuleExclusionOutput struct { *pulumi.OutputState }
+type FirewallPolicyManagedRuleExclusionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleExclusionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyManagedRuleExclusion)(nil)).Elem()
@@ -432,18 +432,18 @@ func (o FirewallPolicyManagedRuleExclusionOutput) ToFirewallPolicyManagedRuleExc
 }
 
 func (o FirewallPolicyManagedRuleExclusionOutput) MatchVariable() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
 
 func (o FirewallPolicyManagedRuleExclusionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleExclusion) string { return v.Operator }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleExclusion) string { return v.Operator }).(pulumi.StringOutput)
 }
 
 func (o FirewallPolicyManagedRuleExclusionOutput) Selector() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleExclusion) string { return v.Selector }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleExclusion) string { return v.Selector }).(pulumi.StringOutput)
 }
 
-type FirewallPolicyManagedRuleExclusionArrayOutput struct { *pulumi.OutputState}
+type FirewallPolicyManagedRuleExclusionArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleExclusionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FirewallPolicyManagedRuleExclusion)(nil)).Elem()
@@ -458,15 +458,15 @@ func (o FirewallPolicyManagedRuleExclusionArrayOutput) ToFirewallPolicyManagedRu
 }
 
 func (o FirewallPolicyManagedRuleExclusionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleExclusionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FirewallPolicyManagedRuleExclusion {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyManagedRuleExclusion {
 		return vs[0].([]FirewallPolicyManagedRuleExclusion)[vs[1].(int)]
 	}).(FirewallPolicyManagedRuleExclusionOutput)
 }
 
 type FirewallPolicyManagedRuleOverride struct {
-	Exclusions []FirewallPolicyManagedRuleOverrideExclusion `pulumi:"exclusions"`
-	RuleGroupName string `pulumi:"ruleGroupName"`
-	Rules []FirewallPolicyManagedRuleOverrideRule `pulumi:"rules"`
+	Exclusions    []FirewallPolicyManagedRuleOverrideExclusion `pulumi:"exclusions"`
+	RuleGroupName string                                       `pulumi:"ruleGroupName"`
+	Rules         []FirewallPolicyManagedRuleOverrideRule      `pulumi:"rules"`
 }
 
 type FirewallPolicyManagedRuleOverrideInput interface {
@@ -477,9 +477,9 @@ type FirewallPolicyManagedRuleOverrideInput interface {
 }
 
 type FirewallPolicyManagedRuleOverrideArgs struct {
-	Exclusions FirewallPolicyManagedRuleOverrideExclusionArrayInput `pulumi:"exclusions"`
-	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
-	Rules FirewallPolicyManagedRuleOverrideRuleArrayInput `pulumi:"rules"`
+	Exclusions    FirewallPolicyManagedRuleOverrideExclusionArrayInput `pulumi:"exclusions"`
+	RuleGroupName pulumi.StringInput                                   `pulumi:"ruleGroupName"`
+	Rules         FirewallPolicyManagedRuleOverrideRuleArrayInput      `pulumi:"rules"`
 }
 
 func (FirewallPolicyManagedRuleOverrideArgs) ElementType() reflect.Type {
@@ -515,7 +515,7 @@ func (i FirewallPolicyManagedRuleOverrideArray) ToFirewallPolicyManagedRuleOverr
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleOverrideArrayOutput)
 }
 
-type FirewallPolicyManagedRuleOverrideOutput struct { *pulumi.OutputState }
+type FirewallPolicyManagedRuleOverrideOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyManagedRuleOverride)(nil)).Elem()
@@ -530,18 +530,20 @@ func (o FirewallPolicyManagedRuleOverrideOutput) ToFirewallPolicyManagedRuleOver
 }
 
 func (o FirewallPolicyManagedRuleOverrideOutput) Exclusions() FirewallPolicyManagedRuleOverrideExclusionArrayOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverride) []FirewallPolicyManagedRuleOverrideExclusion { return v.Exclusions }).(FirewallPolicyManagedRuleOverrideExclusionArrayOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverride) []FirewallPolicyManagedRuleOverrideExclusion {
+		return v.Exclusions
+	}).(FirewallPolicyManagedRuleOverrideExclusionArrayOutput)
 }
 
 func (o FirewallPolicyManagedRuleOverrideOutput) RuleGroupName() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverride) string { return v.RuleGroupName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverride) string { return v.RuleGroupName }).(pulumi.StringOutput)
 }
 
 func (o FirewallPolicyManagedRuleOverrideOutput) Rules() FirewallPolicyManagedRuleOverrideRuleArrayOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverride) []FirewallPolicyManagedRuleOverrideRule { return v.Rules }).(FirewallPolicyManagedRuleOverrideRuleArrayOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverride) []FirewallPolicyManagedRuleOverrideRule { return v.Rules }).(FirewallPolicyManagedRuleOverrideRuleArrayOutput)
 }
 
-type FirewallPolicyManagedRuleOverrideArrayOutput struct { *pulumi.OutputState}
+type FirewallPolicyManagedRuleOverrideArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FirewallPolicyManagedRuleOverride)(nil)).Elem()
@@ -556,15 +558,15 @@ func (o FirewallPolicyManagedRuleOverrideArrayOutput) ToFirewallPolicyManagedRul
 }
 
 func (o FirewallPolicyManagedRuleOverrideArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleOverrideOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FirewallPolicyManagedRuleOverride {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyManagedRuleOverride {
 		return vs[0].([]FirewallPolicyManagedRuleOverride)[vs[1].(int)]
 	}).(FirewallPolicyManagedRuleOverrideOutput)
 }
 
 type FirewallPolicyManagedRuleOverrideExclusion struct {
 	MatchVariable string `pulumi:"matchVariable"`
-	Operator string `pulumi:"operator"`
-	Selector string `pulumi:"selector"`
+	Operator      string `pulumi:"operator"`
+	Selector      string `pulumi:"selector"`
 }
 
 type FirewallPolicyManagedRuleOverrideExclusionInput interface {
@@ -576,8 +578,8 @@ type FirewallPolicyManagedRuleOverrideExclusionInput interface {
 
 type FirewallPolicyManagedRuleOverrideExclusionArgs struct {
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
-	Operator pulumi.StringInput `pulumi:"operator"`
-	Selector pulumi.StringInput `pulumi:"selector"`
+	Operator      pulumi.StringInput `pulumi:"operator"`
+	Selector      pulumi.StringInput `pulumi:"selector"`
 }
 
 func (FirewallPolicyManagedRuleOverrideExclusionArgs) ElementType() reflect.Type {
@@ -613,7 +615,7 @@ func (i FirewallPolicyManagedRuleOverrideExclusionArray) ToFirewallPolicyManaged
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleOverrideExclusionArrayOutput)
 }
 
-type FirewallPolicyManagedRuleOverrideExclusionOutput struct { *pulumi.OutputState }
+type FirewallPolicyManagedRuleOverrideExclusionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideExclusionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyManagedRuleOverrideExclusion)(nil)).Elem()
@@ -628,18 +630,18 @@ func (o FirewallPolicyManagedRuleOverrideExclusionOutput) ToFirewallPolicyManage
 }
 
 func (o FirewallPolicyManagedRuleOverrideExclusionOutput) MatchVariable() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
 
 func (o FirewallPolicyManagedRuleOverrideExclusionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideExclusion) string { return v.Operator }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideExclusion) string { return v.Operator }).(pulumi.StringOutput)
 }
 
 func (o FirewallPolicyManagedRuleOverrideExclusionOutput) Selector() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideExclusion) string { return v.Selector }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideExclusion) string { return v.Selector }).(pulumi.StringOutput)
 }
 
-type FirewallPolicyManagedRuleOverrideExclusionArrayOutput struct { *pulumi.OutputState}
+type FirewallPolicyManagedRuleOverrideExclusionArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideExclusionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FirewallPolicyManagedRuleOverrideExclusion)(nil)).Elem()
@@ -654,7 +656,7 @@ func (o FirewallPolicyManagedRuleOverrideExclusionArrayOutput) ToFirewallPolicyM
 }
 
 func (o FirewallPolicyManagedRuleOverrideExclusionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleOverrideExclusionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FirewallPolicyManagedRuleOverrideExclusion {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyManagedRuleOverrideExclusion {
 		return vs[0].([]FirewallPolicyManagedRuleOverrideExclusion)[vs[1].(int)]
 	}).(FirewallPolicyManagedRuleOverrideExclusionOutput)
 }
@@ -662,9 +664,9 @@ func (o FirewallPolicyManagedRuleOverrideExclusionArrayOutput) Index(i pulumi.In
 type FirewallPolicyManagedRuleOverrideRule struct {
 	Action string `pulumi:"action"`
 	// Is the policy a enabled state or disabled state. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
+	Enabled    *bool                                            `pulumi:"enabled"`
 	Exclusions []FirewallPolicyManagedRuleOverrideRuleExclusion `pulumi:"exclusions"`
-	RuleId string `pulumi:"ruleId"`
+	RuleId     string                                           `pulumi:"ruleId"`
 }
 
 type FirewallPolicyManagedRuleOverrideRuleInput interface {
@@ -677,9 +679,9 @@ type FirewallPolicyManagedRuleOverrideRuleInput interface {
 type FirewallPolicyManagedRuleOverrideRuleArgs struct {
 	Action pulumi.StringInput `pulumi:"action"`
 	// Is the policy a enabled state or disabled state. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	Enabled    pulumi.BoolPtrInput                                      `pulumi:"enabled"`
 	Exclusions FirewallPolicyManagedRuleOverrideRuleExclusionArrayInput `pulumi:"exclusions"`
-	RuleId pulumi.StringInput `pulumi:"ruleId"`
+	RuleId     pulumi.StringInput                                       `pulumi:"ruleId"`
 }
 
 func (FirewallPolicyManagedRuleOverrideRuleArgs) ElementType() reflect.Type {
@@ -715,7 +717,7 @@ func (i FirewallPolicyManagedRuleOverrideRuleArray) ToFirewallPolicyManagedRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleOverrideRuleArrayOutput)
 }
 
-type FirewallPolicyManagedRuleOverrideRuleOutput struct { *pulumi.OutputState }
+type FirewallPolicyManagedRuleOverrideRuleOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyManagedRuleOverrideRule)(nil)).Elem()
@@ -730,23 +732,25 @@ func (o FirewallPolicyManagedRuleOverrideRuleOutput) ToFirewallPolicyManagedRule
 }
 
 func (o FirewallPolicyManagedRuleOverrideRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideRule) string { return v.Action }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideRule) string { return v.Action }).(pulumi.StringOutput)
 }
 
 // Is the policy a enabled state or disabled state. Defaults to `true`.
 func (o FirewallPolicyManagedRuleOverrideRuleOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o FirewallPolicyManagedRuleOverrideRuleOutput) Exclusions() FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideRule) []FirewallPolicyManagedRuleOverrideRuleExclusion { return v.Exclusions }).(FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideRule) []FirewallPolicyManagedRuleOverrideRuleExclusion {
+		return v.Exclusions
+	}).(FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput)
 }
 
 func (o FirewallPolicyManagedRuleOverrideRuleOutput) RuleId() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideRule) string { return v.RuleId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideRule) string { return v.RuleId }).(pulumi.StringOutput)
 }
 
-type FirewallPolicyManagedRuleOverrideRuleArrayOutput struct { *pulumi.OutputState}
+type FirewallPolicyManagedRuleOverrideRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FirewallPolicyManagedRuleOverrideRule)(nil)).Elem()
@@ -761,15 +765,15 @@ func (o FirewallPolicyManagedRuleOverrideRuleArrayOutput) ToFirewallPolicyManage
 }
 
 func (o FirewallPolicyManagedRuleOverrideRuleArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleOverrideRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FirewallPolicyManagedRuleOverrideRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyManagedRuleOverrideRule {
 		return vs[0].([]FirewallPolicyManagedRuleOverrideRule)[vs[1].(int)]
 	}).(FirewallPolicyManagedRuleOverrideRuleOutput)
 }
 
 type FirewallPolicyManagedRuleOverrideRuleExclusion struct {
 	MatchVariable string `pulumi:"matchVariable"`
-	Operator string `pulumi:"operator"`
-	Selector string `pulumi:"selector"`
+	Operator      string `pulumi:"operator"`
+	Selector      string `pulumi:"selector"`
 }
 
 type FirewallPolicyManagedRuleOverrideRuleExclusionInput interface {
@@ -781,8 +785,8 @@ type FirewallPolicyManagedRuleOverrideRuleExclusionInput interface {
 
 type FirewallPolicyManagedRuleOverrideRuleExclusionArgs struct {
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
-	Operator pulumi.StringInput `pulumi:"operator"`
-	Selector pulumi.StringInput `pulumi:"selector"`
+	Operator      pulumi.StringInput `pulumi:"operator"`
+	Selector      pulumi.StringInput `pulumi:"selector"`
 }
 
 func (FirewallPolicyManagedRuleOverrideRuleExclusionArgs) ElementType() reflect.Type {
@@ -818,7 +822,7 @@ func (i FirewallPolicyManagedRuleOverrideRuleExclusionArray) ToFirewallPolicyMan
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput)
 }
 
-type FirewallPolicyManagedRuleOverrideRuleExclusionOutput struct { *pulumi.OutputState }
+type FirewallPolicyManagedRuleOverrideRuleExclusionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideRuleExclusionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyManagedRuleOverrideRuleExclusion)(nil)).Elem()
@@ -833,18 +837,18 @@ func (o FirewallPolicyManagedRuleOverrideRuleExclusionOutput) ToFirewallPolicyMa
 }
 
 func (o FirewallPolicyManagedRuleOverrideRuleExclusionOutput) MatchVariable() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
 
 func (o FirewallPolicyManagedRuleOverrideRuleExclusionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.Operator }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.Operator }).(pulumi.StringOutput)
 }
 
 func (o FirewallPolicyManagedRuleOverrideRuleExclusionOutput) Selector() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.Selector }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.Selector }).(pulumi.StringOutput)
 }
 
-type FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput struct { *pulumi.OutputState}
+type FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FirewallPolicyManagedRuleOverrideRuleExclusion)(nil)).Elem()
@@ -859,17 +863,17 @@ func (o FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput) ToFirewallPol
 }
 
 func (o FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleOverrideRuleExclusionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FirewallPolicyManagedRuleOverrideRuleExclusion {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyManagedRuleOverrideRuleExclusion {
 		return vs[0].([]FirewallPolicyManagedRuleOverrideRuleExclusion)[vs[1].(int)]
 	}).(FirewallPolicyManagedRuleOverrideRuleExclusionOutput)
 }
 
 type FrontdoorBackendPool struct {
-	Backends []FrontdoorBackendPoolBackend `pulumi:"backends"`
-	HealthProbeName string `pulumi:"healthProbeName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	LoadBalancingName string `pulumi:"loadBalancingName"`
+	Backends        []FrontdoorBackendPoolBackend `pulumi:"backends"`
+	HealthProbeName string                        `pulumi:"healthProbeName"`
+	// The ID of the FrontDoor.
+	Id                *string `pulumi:"id"`
+	LoadBalancingName string  `pulumi:"loadBalancingName"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 }
@@ -882,11 +886,11 @@ type FrontdoorBackendPoolInput interface {
 }
 
 type FrontdoorBackendPoolArgs struct {
-	Backends FrontdoorBackendPoolBackendArrayInput `pulumi:"backends"`
-	HealthProbeName pulumi.StringInput `pulumi:"healthProbeName"`
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	LoadBalancingName pulumi.StringInput `pulumi:"loadBalancingName"`
+	Backends        FrontdoorBackendPoolBackendArrayInput `pulumi:"backends"`
+	HealthProbeName pulumi.StringInput                    `pulumi:"healthProbeName"`
+	// The ID of the FrontDoor.
+	Id                pulumi.StringPtrInput `pulumi:"id"`
+	LoadBalancingName pulumi.StringInput    `pulumi:"loadBalancingName"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -924,7 +928,7 @@ func (i FrontdoorBackendPoolArray) ToFrontdoorBackendPoolArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolArrayOutput)
 }
 
-type FrontdoorBackendPoolOutput struct { *pulumi.OutputState }
+type FrontdoorBackendPoolOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorBackendPool)(nil)).Elem()
@@ -939,28 +943,28 @@ func (o FrontdoorBackendPoolOutput) ToFrontdoorBackendPoolOutputWithContext(ctx 
 }
 
 func (o FrontdoorBackendPoolOutput) Backends() FrontdoorBackendPoolBackendArrayOutput {
-	return o.ApplyT(func (v FrontdoorBackendPool) []FrontdoorBackendPoolBackend { return v.Backends }).(FrontdoorBackendPoolBackendArrayOutput)
+	return o.ApplyT(func(v FrontdoorBackendPool) []FrontdoorBackendPoolBackend { return v.Backends }).(FrontdoorBackendPoolBackendArrayOutput)
 }
 
 func (o FrontdoorBackendPoolOutput) HealthProbeName() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorBackendPool) string { return v.HealthProbeName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorBackendPool) string { return v.HealthProbeName }).(pulumi.StringOutput)
 }
 
-// Resource ID.
+// The ID of the FrontDoor.
 func (o FrontdoorBackendPoolOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPool) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPool) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorBackendPoolOutput) LoadBalancingName() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorBackendPool) string { return v.LoadBalancingName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorBackendPool) string { return v.LoadBalancingName }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 func (o FrontdoorBackendPoolOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorBackendPool) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorBackendPool) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type FrontdoorBackendPoolArrayOutput struct { *pulumi.OutputState}
+type FrontdoorBackendPoolArrayOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FrontdoorBackendPool)(nil)).Elem()
@@ -975,19 +979,19 @@ func (o FrontdoorBackendPoolArrayOutput) ToFrontdoorBackendPoolArrayOutputWithCo
 }
 
 func (o FrontdoorBackendPoolArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FrontdoorBackendPool {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorBackendPool {
 		return vs[0].([]FrontdoorBackendPool)[vs[1].(int)]
 	}).(FrontdoorBackendPoolOutput)
 }
 
 type FrontdoorBackendPoolBackend struct {
-	Address string `pulumi:"address"`
-	Enabled *bool `pulumi:"enabled"`
+	Address    string `pulumi:"address"`
+	Enabled    *bool  `pulumi:"enabled"`
 	HostHeader string `pulumi:"hostHeader"`
-	HttpPort int `pulumi:"httpPort"`
-	HttpsPort int `pulumi:"httpsPort"`
-	Priority *int `pulumi:"priority"`
-	Weight *int `pulumi:"weight"`
+	HttpPort   int    `pulumi:"httpPort"`
+	HttpsPort  int    `pulumi:"httpsPort"`
+	Priority   *int   `pulumi:"priority"`
+	Weight     *int   `pulumi:"weight"`
 }
 
 type FrontdoorBackendPoolBackendInput interface {
@@ -998,13 +1002,13 @@ type FrontdoorBackendPoolBackendInput interface {
 }
 
 type FrontdoorBackendPoolBackendArgs struct {
-	Address pulumi.StringInput `pulumi:"address"`
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	HostHeader pulumi.StringInput `pulumi:"hostHeader"`
-	HttpPort pulumi.IntInput `pulumi:"httpPort"`
-	HttpsPort pulumi.IntInput `pulumi:"httpsPort"`
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
+	Address    pulumi.StringInput  `pulumi:"address"`
+	Enabled    pulumi.BoolPtrInput `pulumi:"enabled"`
+	HostHeader pulumi.StringInput  `pulumi:"hostHeader"`
+	HttpPort   pulumi.IntInput     `pulumi:"httpPort"`
+	HttpsPort  pulumi.IntInput     `pulumi:"httpsPort"`
+	Priority   pulumi.IntPtrInput  `pulumi:"priority"`
+	Weight     pulumi.IntPtrInput  `pulumi:"weight"`
 }
 
 func (FrontdoorBackendPoolBackendArgs) ElementType() reflect.Type {
@@ -1040,7 +1044,7 @@ func (i FrontdoorBackendPoolBackendArray) ToFrontdoorBackendPoolBackendArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolBackendArrayOutput)
 }
 
-type FrontdoorBackendPoolBackendOutput struct { *pulumi.OutputState }
+type FrontdoorBackendPoolBackendOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolBackendOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorBackendPoolBackend)(nil)).Elem()
@@ -1055,34 +1059,34 @@ func (o FrontdoorBackendPoolBackendOutput) ToFrontdoorBackendPoolBackendOutputWi
 }
 
 func (o FrontdoorBackendPoolBackendOutput) Address() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolBackend) string { return v.Address }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolBackend) string { return v.Address }).(pulumi.StringOutput)
 }
 
 func (o FrontdoorBackendPoolBackendOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolBackend) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolBackend) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o FrontdoorBackendPoolBackendOutput) HostHeader() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolBackend) string { return v.HostHeader }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolBackend) string { return v.HostHeader }).(pulumi.StringOutput)
 }
 
 func (o FrontdoorBackendPoolBackendOutput) HttpPort() pulumi.IntOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolBackend) int { return v.HttpPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolBackend) int { return v.HttpPort }).(pulumi.IntOutput)
 }
 
 func (o FrontdoorBackendPoolBackendOutput) HttpsPort() pulumi.IntOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolBackend) int { return v.HttpsPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolBackend) int { return v.HttpsPort }).(pulumi.IntOutput)
 }
 
 func (o FrontdoorBackendPoolBackendOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolBackend) *int { return v.Priority }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolBackend) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 func (o FrontdoorBackendPoolBackendOutput) Weight() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolBackend) *int { return v.Weight }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolBackend) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
 
-type FrontdoorBackendPoolBackendArrayOutput struct { *pulumi.OutputState}
+type FrontdoorBackendPoolBackendArrayOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolBackendArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FrontdoorBackendPoolBackend)(nil)).Elem()
@@ -1097,19 +1101,21 @@ func (o FrontdoorBackendPoolBackendArrayOutput) ToFrontdoorBackendPoolBackendArr
 }
 
 func (o FrontdoorBackendPoolBackendArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolBackendOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FrontdoorBackendPoolBackend {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorBackendPoolBackend {
 		return vs[0].([]FrontdoorBackendPoolBackend)[vs[1].(int)]
 	}).(FrontdoorBackendPoolBackendOutput)
 }
 
 type FrontdoorBackendPoolHealthProbe struct {
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
+	Enabled *bool `pulumi:"enabled"`
+	// The ID of the FrontDoor.
+	Id                *string `pulumi:"id"`
+	IntervalInSeconds *int    `pulumi:"intervalInSeconds"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	Path *string `pulumi:"path"`
-	Protocol *string `pulumi:"protocol"`
+	Name        string  `pulumi:"name"`
+	Path        *string `pulumi:"path"`
+	ProbeMethod *string `pulumi:"probeMethod"`
+	Protocol    *string `pulumi:"protocol"`
 }
 
 type FrontdoorBackendPoolHealthProbeInput interface {
@@ -1120,13 +1126,15 @@ type FrontdoorBackendPoolHealthProbeInput interface {
 }
 
 type FrontdoorBackendPoolHealthProbeArgs struct {
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The ID of the FrontDoor.
+	Id                pulumi.StringPtrInput `pulumi:"id"`
+	IntervalInSeconds pulumi.IntPtrInput    `pulumi:"intervalInSeconds"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	Name        pulumi.StringInput    `pulumi:"name"`
+	Path        pulumi.StringPtrInput `pulumi:"path"`
+	ProbeMethod pulumi.StringPtrInput `pulumi:"probeMethod"`
+	Protocol    pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
 func (FrontdoorBackendPoolHealthProbeArgs) ElementType() reflect.Type {
@@ -1162,7 +1170,7 @@ func (i FrontdoorBackendPoolHealthProbeArray) ToFrontdoorBackendPoolHealthProbeA
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolHealthProbeArrayOutput)
 }
 
-type FrontdoorBackendPoolHealthProbeOutput struct { *pulumi.OutputState }
+type FrontdoorBackendPoolHealthProbeOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolHealthProbeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorBackendPoolHealthProbe)(nil)).Elem()
@@ -1176,29 +1184,37 @@ func (o FrontdoorBackendPoolHealthProbeOutput) ToFrontdoorBackendPoolHealthProbe
 	return o
 }
 
-// Resource ID.
+func (o FrontdoorBackendPoolHealthProbeOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the FrontDoor.
 func (o FrontdoorBackendPoolHealthProbeOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolHealthProbe) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorBackendPoolHealthProbeOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolHealthProbe) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 func (o FrontdoorBackendPoolHealthProbeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolHealthProbe) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o FrontdoorBackendPoolHealthProbeOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolHealthProbe) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o FrontdoorBackendPoolHealthProbeOutput) ProbeMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *string { return v.ProbeMethod }).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorBackendPoolHealthProbeOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolHealthProbe) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-type FrontdoorBackendPoolHealthProbeArrayOutput struct { *pulumi.OutputState}
+type FrontdoorBackendPoolHealthProbeArrayOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolHealthProbeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FrontdoorBackendPoolHealthProbe)(nil)).Elem()
@@ -1213,19 +1229,19 @@ func (o FrontdoorBackendPoolHealthProbeArrayOutput) ToFrontdoorBackendPoolHealth
 }
 
 func (o FrontdoorBackendPoolHealthProbeArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolHealthProbeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FrontdoorBackendPoolHealthProbe {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorBackendPoolHealthProbe {
 		return vs[0].([]FrontdoorBackendPoolHealthProbe)[vs[1].(int)]
 	}).(FrontdoorBackendPoolHealthProbeOutput)
 }
 
 type FrontdoorBackendPoolLoadBalancing struct {
 	AdditionalLatencyMilliseconds *int `pulumi:"additionalLatencyMilliseconds"`
-	// Resource ID.
+	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	SampleSize *int `pulumi:"sampleSize"`
-	SuccessfulSamplesRequired *int `pulumi:"successfulSamplesRequired"`
+	Name                      string `pulumi:"name"`
+	SampleSize                *int   `pulumi:"sampleSize"`
+	SuccessfulSamplesRequired *int   `pulumi:"successfulSamplesRequired"`
 }
 
 type FrontdoorBackendPoolLoadBalancingInput interface {
@@ -1237,11 +1253,11 @@ type FrontdoorBackendPoolLoadBalancingInput interface {
 
 type FrontdoorBackendPoolLoadBalancingArgs struct {
 	AdditionalLatencyMilliseconds pulumi.IntPtrInput `pulumi:"additionalLatencyMilliseconds"`
-	// Resource ID.
+	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
+	Name                      pulumi.StringInput `pulumi:"name"`
+	SampleSize                pulumi.IntPtrInput `pulumi:"sampleSize"`
 	SuccessfulSamplesRequired pulumi.IntPtrInput `pulumi:"successfulSamplesRequired"`
 }
 
@@ -1278,7 +1294,7 @@ func (i FrontdoorBackendPoolLoadBalancingArray) ToFrontdoorBackendPoolLoadBalanc
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolLoadBalancingArrayOutput)
 }
 
-type FrontdoorBackendPoolLoadBalancingOutput struct { *pulumi.OutputState }
+type FrontdoorBackendPoolLoadBalancingOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolLoadBalancingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorBackendPoolLoadBalancing)(nil)).Elem()
@@ -1293,28 +1309,28 @@ func (o FrontdoorBackendPoolLoadBalancingOutput) ToFrontdoorBackendPoolLoadBalan
 }
 
 func (o FrontdoorBackendPoolLoadBalancingOutput) AdditionalLatencyMilliseconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolLoadBalancing) *int { return v.AdditionalLatencyMilliseconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolLoadBalancing) *int { return v.AdditionalLatencyMilliseconds }).(pulumi.IntPtrOutput)
 }
 
-// Resource ID.
+// The ID of the FrontDoor.
 func (o FrontdoorBackendPoolLoadBalancingOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolLoadBalancing) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolLoadBalancing) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 func (o FrontdoorBackendPoolLoadBalancingOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolLoadBalancing) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolLoadBalancing) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o FrontdoorBackendPoolLoadBalancingOutput) SampleSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolLoadBalancing) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolLoadBalancing) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
 }
 
 func (o FrontdoorBackendPoolLoadBalancingOutput) SuccessfulSamplesRequired() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolLoadBalancing) *int { return v.SuccessfulSamplesRequired }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolLoadBalancing) *int { return v.SuccessfulSamplesRequired }).(pulumi.IntPtrOutput)
 }
 
-type FrontdoorBackendPoolLoadBalancingArrayOutput struct { *pulumi.OutputState}
+type FrontdoorBackendPoolLoadBalancingArrayOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolLoadBalancingArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FrontdoorBackendPoolLoadBalancing)(nil)).Elem()
@@ -1329,21 +1345,21 @@ func (o FrontdoorBackendPoolLoadBalancingArrayOutput) ToFrontdoorBackendPoolLoad
 }
 
 func (o FrontdoorBackendPoolLoadBalancingArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolLoadBalancingOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FrontdoorBackendPoolLoadBalancing {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorBackendPoolLoadBalancing {
 		return vs[0].([]FrontdoorBackendPoolLoadBalancing)[vs[1].(int)]
 	}).(FrontdoorBackendPoolLoadBalancingOutput)
 }
 
 type FrontdoorFrontendEndpoint struct {
-	CustomHttpsConfiguration *FrontdoorFrontendEndpointCustomHttpsConfiguration `pulumi:"customHttpsConfiguration"`
-	CustomHttpsProvisioningEnabled bool `pulumi:"customHttpsProvisioningEnabled"`
-	HostName string `pulumi:"hostName"`
-	// Resource ID.
+	CustomHttpsConfiguration       *FrontdoorFrontendEndpointCustomHttpsConfiguration `pulumi:"customHttpsConfiguration"`
+	CustomHttpsProvisioningEnabled bool                                               `pulumi:"customHttpsProvisioningEnabled"`
+	HostName                       string                                             `pulumi:"hostName"`
+	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	SessionAffinityEnabled *bool `pulumi:"sessionAffinityEnabled"`
-	SessionAffinityTtlSeconds *int `pulumi:"sessionAffinityTtlSeconds"`
+	Name                      string `pulumi:"name"`
+	SessionAffinityEnabled    *bool  `pulumi:"sessionAffinityEnabled"`
+	SessionAffinityTtlSeconds *int   `pulumi:"sessionAffinityTtlSeconds"`
 	// (Optional) The `id` of the `webApplicationFirewallPolicyLink` to use for this Frontend Endpoint."
 	WebApplicationFirewallPolicyLinkId *string `pulumi:"webApplicationFirewallPolicyLinkId"`
 }
@@ -1356,15 +1372,15 @@ type FrontdoorFrontendEndpointInput interface {
 }
 
 type FrontdoorFrontendEndpointArgs struct {
-	CustomHttpsConfiguration FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput `pulumi:"customHttpsConfiguration"`
-	CustomHttpsProvisioningEnabled pulumi.BoolInput `pulumi:"customHttpsProvisioningEnabled"`
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	// Resource ID.
+	CustomHttpsConfiguration       FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput `pulumi:"customHttpsConfiguration"`
+	CustomHttpsProvisioningEnabled pulumi.BoolInput                                          `pulumi:"customHttpsProvisioningEnabled"`
+	HostName                       pulumi.StringInput                                        `pulumi:"hostName"`
+	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	SessionAffinityEnabled pulumi.BoolPtrInput `pulumi:"sessionAffinityEnabled"`
-	SessionAffinityTtlSeconds pulumi.IntPtrInput `pulumi:"sessionAffinityTtlSeconds"`
+	Name                      pulumi.StringInput  `pulumi:"name"`
+	SessionAffinityEnabled    pulumi.BoolPtrInput `pulumi:"sessionAffinityEnabled"`
+	SessionAffinityTtlSeconds pulumi.IntPtrInput  `pulumi:"sessionAffinityTtlSeconds"`
 	// (Optional) The `id` of the `webApplicationFirewallPolicyLink` to use for this Frontend Endpoint."
 	WebApplicationFirewallPolicyLinkId pulumi.StringPtrInput `pulumi:"webApplicationFirewallPolicyLinkId"`
 }
@@ -1402,7 +1418,7 @@ func (i FrontdoorFrontendEndpointArray) ToFrontdoorFrontendEndpointArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFrontendEndpointArrayOutput)
 }
 
-type FrontdoorFrontendEndpointOutput struct { *pulumi.OutputState }
+type FrontdoorFrontendEndpointOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorFrontendEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorFrontendEndpoint)(nil)).Elem()
@@ -1417,41 +1433,43 @@ func (o FrontdoorFrontendEndpointOutput) ToFrontdoorFrontendEndpointOutputWithCo
 }
 
 func (o FrontdoorFrontendEndpointOutput) CustomHttpsConfiguration() FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpoint) *FrontdoorFrontendEndpointCustomHttpsConfiguration { return v.CustomHttpsConfiguration }).(FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpoint) *FrontdoorFrontendEndpointCustomHttpsConfiguration {
+		return v.CustomHttpsConfiguration
+	}).(FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput)
 }
 
 func (o FrontdoorFrontendEndpointOutput) CustomHttpsProvisioningEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpoint) bool { return v.CustomHttpsProvisioningEnabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpoint) bool { return v.CustomHttpsProvisioningEnabled }).(pulumi.BoolOutput)
 }
 
 func (o FrontdoorFrontendEndpointOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpoint) string { return v.HostName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpoint) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// Resource ID.
+// The ID of the FrontDoor.
 func (o FrontdoorFrontendEndpointOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 func (o FrontdoorFrontendEndpointOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpoint) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpoint) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o FrontdoorFrontendEndpointOutput) SessionAffinityEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpoint) *bool { return v.SessionAffinityEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpoint) *bool { return v.SessionAffinityEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o FrontdoorFrontendEndpointOutput) SessionAffinityTtlSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpoint) *int { return v.SessionAffinityTtlSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpoint) *int { return v.SessionAffinityTtlSeconds }).(pulumi.IntPtrOutput)
 }
 
 // (Optional) The `id` of the `webApplicationFirewallPolicyLink` to use for this Frontend Endpoint."
 func (o FrontdoorFrontendEndpointOutput) WebApplicationFirewallPolicyLinkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpoint) *string { return v.WebApplicationFirewallPolicyLinkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpoint) *string { return v.WebApplicationFirewallPolicyLinkId }).(pulumi.StringPtrOutput)
 }
 
-type FrontdoorFrontendEndpointArrayOutput struct { *pulumi.OutputState}
+type FrontdoorFrontendEndpointArrayOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorFrontendEndpointArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FrontdoorFrontendEndpoint)(nil)).Elem()
@@ -1466,16 +1484,18 @@ func (o FrontdoorFrontendEndpointArrayOutput) ToFrontdoorFrontendEndpointArrayOu
 }
 
 func (o FrontdoorFrontendEndpointArrayOutput) Index(i pulumi.IntInput) FrontdoorFrontendEndpointOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FrontdoorFrontendEndpoint {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorFrontendEndpoint {
 		return vs[0].([]FrontdoorFrontendEndpoint)[vs[1].(int)]
 	}).(FrontdoorFrontendEndpointOutput)
 }
 
 type FrontdoorFrontendEndpointCustomHttpsConfiguration struct {
-	AzureKeyVaultCertificateSecretName *string `pulumi:"azureKeyVaultCertificateSecretName"`
+	AzureKeyVaultCertificateSecretName    *string `pulumi:"azureKeyVaultCertificateSecretName"`
 	AzureKeyVaultCertificateSecretVersion *string `pulumi:"azureKeyVaultCertificateSecretVersion"`
-	AzureKeyVaultCertificateVaultId *string `pulumi:"azureKeyVaultCertificateVaultId"`
-	CertificateSource *string `pulumi:"certificateSource"`
+	AzureKeyVaultCertificateVaultId       *string `pulumi:"azureKeyVaultCertificateVaultId"`
+	CertificateSource                     *string `pulumi:"certificateSource"`
+	// Minimum client TLS version supported.
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// Provisioning state of the Front Door.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Provisioning substate of the Front Door
@@ -1490,10 +1510,12 @@ type FrontdoorFrontendEndpointCustomHttpsConfigurationInput interface {
 }
 
 type FrontdoorFrontendEndpointCustomHttpsConfigurationArgs struct {
-	AzureKeyVaultCertificateSecretName pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateSecretName"`
+	AzureKeyVaultCertificateSecretName    pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateSecretName"`
 	AzureKeyVaultCertificateSecretVersion pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateSecretVersion"`
-	AzureKeyVaultCertificateVaultId pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateVaultId"`
-	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
+	AzureKeyVaultCertificateVaultId       pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateVaultId"`
+	CertificateSource                     pulumi.StringPtrInput `pulumi:"certificateSource"`
+	// Minimum client TLS version supported.
+	MinimumTlsVersion pulumi.StringPtrInput `pulumi:"minimumTlsVersion"`
 	// Provisioning state of the Front Door.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Provisioning substate of the Front Door
@@ -1529,7 +1551,8 @@ type FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput interface {
 
 type frontdoorFrontendEndpointCustomHttpsConfigurationPtrType FrontdoorFrontendEndpointCustomHttpsConfigurationArgs
 
-func FrontdoorFrontendEndpointCustomHttpsConfigurationPtr(v *FrontdoorFrontendEndpointCustomHttpsConfigurationArgs) FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput {	return (*frontdoorFrontendEndpointCustomHttpsConfigurationPtrType)(v)
+func FrontdoorFrontendEndpointCustomHttpsConfigurationPtr(v *FrontdoorFrontendEndpointCustomHttpsConfigurationArgs) FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput {
+	return (*frontdoorFrontendEndpointCustomHttpsConfigurationPtrType)(v)
 }
 
 func (*frontdoorFrontendEndpointCustomHttpsConfigurationPtrType) ElementType() reflect.Type {
@@ -1544,7 +1567,7 @@ func (i *frontdoorFrontendEndpointCustomHttpsConfigurationPtrType) ToFrontdoorFr
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput)
 }
 
-type FrontdoorFrontendEndpointCustomHttpsConfigurationOutput struct { *pulumi.OutputState }
+type FrontdoorFrontendEndpointCustomHttpsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorFrontendEndpointCustomHttpsConfiguration)(nil)).Elem()
@@ -1568,32 +1591,43 @@ func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) ToFrontdoorFron
 	}).(FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput)
 }
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) AzureKeyVaultCertificateSecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.AzureKeyVaultCertificateSecretName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		return v.AzureKeyVaultCertificateSecretName
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) AzureKeyVaultCertificateSecretVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.AzureKeyVaultCertificateSecretVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		return v.AzureKeyVaultCertificateSecretVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) AzureKeyVaultCertificateVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.AzureKeyVaultCertificateVaultId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		return v.AzureKeyVaultCertificateVaultId
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) CertificateSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+}
+
+// Minimum client TLS version supported.
+func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
 
 // Provisioning state of the Front Door.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 // Provisioning substate of the Front Door
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) ProvisioningSubstate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningSubstate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningSubstate }).(pulumi.StringPtrOutput)
 }
 
-type FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput struct { *pulumi.OutputState}
+type FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FrontdoorFrontendEndpointCustomHttpsConfiguration)(nil)).Elem()
@@ -1608,45 +1642,58 @@ func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) ToFrontdoorF
 }
 
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) Elem() FrontdoorFrontendEndpointCustomHttpsConfigurationOutput {
-	return o.ApplyT(func (v *FrontdoorFrontendEndpointCustomHttpsConfiguration) FrontdoorFrontendEndpointCustomHttpsConfiguration { return *v }).(FrontdoorFrontendEndpointCustomHttpsConfigurationOutput)
+	return o.ApplyT(func(v *FrontdoorFrontendEndpointCustomHttpsConfiguration) FrontdoorFrontendEndpointCustomHttpsConfiguration {
+		return *v
+	}).(FrontdoorFrontendEndpointCustomHttpsConfigurationOutput)
 }
 
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateSecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.AzureKeyVaultCertificateSecretName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		return v.AzureKeyVaultCertificateSecretName
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateSecretVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.AzureKeyVaultCertificateSecretVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		return v.AzureKeyVaultCertificateSecretVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.AzureKeyVaultCertificateVaultId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		return v.AzureKeyVaultCertificateVaultId
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) CertificateSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+}
+
+// Minimum client TLS version supported.
+func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
 
 // Provisioning state of the Front Door.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 // Provisioning substate of the Front Door
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) ProvisioningSubstate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningSubstate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningSubstate }).(pulumi.StringPtrOutput)
 }
 
 type FrontdoorRoutingRule struct {
-	AcceptedProtocols []string `pulumi:"acceptedProtocols"`
-	Enabled *bool `pulumi:"enabled"`
+	AcceptedProtocols       []string                                     `pulumi:"acceptedProtocols"`
+	Enabled                 *bool                                        `pulumi:"enabled"`
 	ForwardingConfiguration *FrontdoorRoutingRuleForwardingConfiguration `pulumi:"forwardingConfiguration"`
-	FrontendEndpoints []string `pulumi:"frontendEndpoints"`
-	// Resource ID.
+	FrontendEndpoints       []string                                     `pulumi:"frontendEndpoints"`
+	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	PatternsToMatches []string `pulumi:"patternsToMatches"`
+	Name                  string                                     `pulumi:"name"`
+	PatternsToMatches     []string                                   `pulumi:"patternsToMatches"`
 	RedirectConfiguration *FrontdoorRoutingRuleRedirectConfiguration `pulumi:"redirectConfiguration"`
 }
 
@@ -1658,15 +1705,15 @@ type FrontdoorRoutingRuleInput interface {
 }
 
 type FrontdoorRoutingRuleArgs struct {
-	AcceptedProtocols pulumi.StringArrayInput `pulumi:"acceptedProtocols"`
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	AcceptedProtocols       pulumi.StringArrayInput                             `pulumi:"acceptedProtocols"`
+	Enabled                 pulumi.BoolPtrInput                                 `pulumi:"enabled"`
 	ForwardingConfiguration FrontdoorRoutingRuleForwardingConfigurationPtrInput `pulumi:"forwardingConfiguration"`
-	FrontendEndpoints pulumi.StringArrayInput `pulumi:"frontendEndpoints"`
-	// Resource ID.
+	FrontendEndpoints       pulumi.StringArrayInput                             `pulumi:"frontendEndpoints"`
+	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	PatternsToMatches pulumi.StringArrayInput `pulumi:"patternsToMatches"`
+	Name                  pulumi.StringInput                                `pulumi:"name"`
+	PatternsToMatches     pulumi.StringArrayInput                           `pulumi:"patternsToMatches"`
 	RedirectConfiguration FrontdoorRoutingRuleRedirectConfigurationPtrInput `pulumi:"redirectConfiguration"`
 }
 
@@ -1703,7 +1750,7 @@ func (i FrontdoorRoutingRuleArray) ToFrontdoorRoutingRuleArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRoutingRuleArrayOutput)
 }
 
-type FrontdoorRoutingRuleOutput struct { *pulumi.OutputState }
+type FrontdoorRoutingRuleOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRoutingRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorRoutingRule)(nil)).Elem()
@@ -1718,40 +1765,44 @@ func (o FrontdoorRoutingRuleOutput) ToFrontdoorRoutingRuleOutputWithContext(ctx 
 }
 
 func (o FrontdoorRoutingRuleOutput) AcceptedProtocols() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRule) []string { return v.AcceptedProtocols }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRule) []string { return v.AcceptedProtocols }).(pulumi.StringArrayOutput)
 }
 
 func (o FrontdoorRoutingRuleOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleOutput) ForwardingConfiguration() FrontdoorRoutingRuleForwardingConfigurationPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRule) *FrontdoorRoutingRuleForwardingConfiguration { return v.ForwardingConfiguration }).(FrontdoorRoutingRuleForwardingConfigurationPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRule) *FrontdoorRoutingRuleForwardingConfiguration {
+		return v.ForwardingConfiguration
+	}).(FrontdoorRoutingRuleForwardingConfigurationPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleOutput) FrontendEndpoints() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRule) []string { return v.FrontendEndpoints }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRule) []string { return v.FrontendEndpoints }).(pulumi.StringArrayOutput)
 }
 
-// Resource ID.
+// The ID of the FrontDoor.
 func (o FrontdoorRoutingRuleOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRule) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 func (o FrontdoorRoutingRuleOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRule) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o FrontdoorRoutingRuleOutput) PatternsToMatches() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRule) []string { return v.PatternsToMatches }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRule) []string { return v.PatternsToMatches }).(pulumi.StringArrayOutput)
 }
 
 func (o FrontdoorRoutingRuleOutput) RedirectConfiguration() FrontdoorRoutingRuleRedirectConfigurationPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRule) *FrontdoorRoutingRuleRedirectConfiguration { return v.RedirectConfiguration }).(FrontdoorRoutingRuleRedirectConfigurationPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRule) *FrontdoorRoutingRuleRedirectConfiguration {
+		return v.RedirectConfiguration
+	}).(FrontdoorRoutingRuleRedirectConfigurationPtrOutput)
 }
 
-type FrontdoorRoutingRuleArrayOutput struct { *pulumi.OutputState}
+type FrontdoorRoutingRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRoutingRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FrontdoorRoutingRule)(nil)).Elem()
@@ -1766,18 +1817,18 @@ func (o FrontdoorRoutingRuleArrayOutput) ToFrontdoorRoutingRuleArrayOutputWithCo
 }
 
 func (o FrontdoorRoutingRuleArrayOutput) Index(i pulumi.IntInput) FrontdoorRoutingRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FrontdoorRoutingRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRoutingRule {
 		return vs[0].([]FrontdoorRoutingRule)[vs[1].(int)]
 	}).(FrontdoorRoutingRuleOutput)
 }
 
 type FrontdoorRoutingRuleForwardingConfiguration struct {
-	BackendPoolName string `pulumi:"backendPoolName"`
-	CacheEnabled *bool `pulumi:"cacheEnabled"`
+	BackendPoolName                   string  `pulumi:"backendPoolName"`
+	CacheEnabled                      *bool   `pulumi:"cacheEnabled"`
 	CacheQueryParameterStripDirective *string `pulumi:"cacheQueryParameterStripDirective"`
-	CacheUseDynamicCompression *bool `pulumi:"cacheUseDynamicCompression"`
-	CustomForwardingPath *string `pulumi:"customForwardingPath"`
-	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
+	CacheUseDynamicCompression        *bool   `pulumi:"cacheUseDynamicCompression"`
+	CustomForwardingPath              *string `pulumi:"customForwardingPath"`
+	ForwardingProtocol                *string `pulumi:"forwardingProtocol"`
 }
 
 type FrontdoorRoutingRuleForwardingConfigurationInput interface {
@@ -1788,12 +1839,12 @@ type FrontdoorRoutingRuleForwardingConfigurationInput interface {
 }
 
 type FrontdoorRoutingRuleForwardingConfigurationArgs struct {
-	BackendPoolName pulumi.StringInput `pulumi:"backendPoolName"`
-	CacheEnabled pulumi.BoolPtrInput `pulumi:"cacheEnabled"`
+	BackendPoolName                   pulumi.StringInput    `pulumi:"backendPoolName"`
+	CacheEnabled                      pulumi.BoolPtrInput   `pulumi:"cacheEnabled"`
 	CacheQueryParameterStripDirective pulumi.StringPtrInput `pulumi:"cacheQueryParameterStripDirective"`
-	CacheUseDynamicCompression pulumi.BoolPtrInput `pulumi:"cacheUseDynamicCompression"`
-	CustomForwardingPath pulumi.StringPtrInput `pulumi:"customForwardingPath"`
-	ForwardingProtocol pulumi.StringPtrInput `pulumi:"forwardingProtocol"`
+	CacheUseDynamicCompression        pulumi.BoolPtrInput   `pulumi:"cacheUseDynamicCompression"`
+	CustomForwardingPath              pulumi.StringPtrInput `pulumi:"customForwardingPath"`
+	ForwardingProtocol                pulumi.StringPtrInput `pulumi:"forwardingProtocol"`
 }
 
 func (FrontdoorRoutingRuleForwardingConfigurationArgs) ElementType() reflect.Type {
@@ -1825,7 +1876,8 @@ type FrontdoorRoutingRuleForwardingConfigurationPtrInput interface {
 
 type frontdoorRoutingRuleForwardingConfigurationPtrType FrontdoorRoutingRuleForwardingConfigurationArgs
 
-func FrontdoorRoutingRuleForwardingConfigurationPtr(v *FrontdoorRoutingRuleForwardingConfigurationArgs) FrontdoorRoutingRuleForwardingConfigurationPtrInput {	return (*frontdoorRoutingRuleForwardingConfigurationPtrType)(v)
+func FrontdoorRoutingRuleForwardingConfigurationPtr(v *FrontdoorRoutingRuleForwardingConfigurationArgs) FrontdoorRoutingRuleForwardingConfigurationPtrInput {
+	return (*frontdoorRoutingRuleForwardingConfigurationPtrType)(v)
 }
 
 func (*frontdoorRoutingRuleForwardingConfigurationPtrType) ElementType() reflect.Type {
@@ -1840,7 +1892,7 @@ func (i *frontdoorRoutingRuleForwardingConfigurationPtrType) ToFrontdoorRoutingR
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRoutingRuleForwardingConfigurationPtrOutput)
 }
 
-type FrontdoorRoutingRuleForwardingConfigurationOutput struct { *pulumi.OutputState }
+type FrontdoorRoutingRuleForwardingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRoutingRuleForwardingConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorRoutingRuleForwardingConfiguration)(nil)).Elem()
@@ -1864,30 +1916,32 @@ func (o FrontdoorRoutingRuleForwardingConfigurationOutput) ToFrontdoorRoutingRul
 	}).(FrontdoorRoutingRuleForwardingConfigurationPtrOutput)
 }
 func (o FrontdoorRoutingRuleForwardingConfigurationOutput) BackendPoolName() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) string { return v.BackendPoolName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) string { return v.BackendPoolName }).(pulumi.StringOutput)
 }
 
 func (o FrontdoorRoutingRuleForwardingConfigurationOutput) CacheEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleForwardingConfigurationOutput) CacheQueryParameterStripDirective() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.CacheQueryParameterStripDirective }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string {
+		return v.CacheQueryParameterStripDirective
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleForwardingConfigurationOutput) CacheUseDynamicCompression() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheUseDynamicCompression }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheUseDynamicCompression }).(pulumi.BoolPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleForwardingConfigurationOutput) CustomForwardingPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.CustomForwardingPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.CustomForwardingPath }).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleForwardingConfigurationOutput) ForwardingProtocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
 }
 
-type FrontdoorRoutingRuleForwardingConfigurationPtrOutput struct { *pulumi.OutputState}
+type FrontdoorRoutingRuleForwardingConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRoutingRuleForwardingConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FrontdoorRoutingRuleForwardingConfiguration)(nil)).Elem()
@@ -1902,40 +1956,44 @@ func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) ToFrontdoorRouting
 }
 
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) Elem() FrontdoorRoutingRuleForwardingConfigurationOutput {
-	return o.ApplyT(func (v *FrontdoorRoutingRuleForwardingConfiguration) FrontdoorRoutingRuleForwardingConfiguration { return *v }).(FrontdoorRoutingRuleForwardingConfigurationOutput)
+	return o.ApplyT(func(v *FrontdoorRoutingRuleForwardingConfiguration) FrontdoorRoutingRuleForwardingConfiguration {
+		return *v
+	}).(FrontdoorRoutingRuleForwardingConfigurationOutput)
 }
 
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) BackendPoolName() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) string { return v.BackendPoolName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) string { return v.BackendPoolName }).(pulumi.StringOutput)
 }
 
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CacheEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CacheQueryParameterStripDirective() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.CacheQueryParameterStripDirective }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string {
+		return v.CacheQueryParameterStripDirective
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CacheUseDynamicCompression() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheUseDynamicCompression }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheUseDynamicCompression }).(pulumi.BoolPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CustomForwardingPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.CustomForwardingPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.CustomForwardingPath }).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) ForwardingProtocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
 }
 
 type FrontdoorRoutingRuleRedirectConfiguration struct {
-	CustomFragment *string `pulumi:"customFragment"`
-	CustomHost *string `pulumi:"customHost"`
-	CustomPath *string `pulumi:"customPath"`
+	CustomFragment    *string `pulumi:"customFragment"`
+	CustomHost        *string `pulumi:"customHost"`
+	CustomPath        *string `pulumi:"customPath"`
 	CustomQueryString *string `pulumi:"customQueryString"`
-	RedirectProtocol string `pulumi:"redirectProtocol"`
-	RedirectType string `pulumi:"redirectType"`
+	RedirectProtocol  string  `pulumi:"redirectProtocol"`
+	RedirectType      string  `pulumi:"redirectType"`
 }
 
 type FrontdoorRoutingRuleRedirectConfigurationInput interface {
@@ -1946,12 +2004,12 @@ type FrontdoorRoutingRuleRedirectConfigurationInput interface {
 }
 
 type FrontdoorRoutingRuleRedirectConfigurationArgs struct {
-	CustomFragment pulumi.StringPtrInput `pulumi:"customFragment"`
-	CustomHost pulumi.StringPtrInput `pulumi:"customHost"`
-	CustomPath pulumi.StringPtrInput `pulumi:"customPath"`
+	CustomFragment    pulumi.StringPtrInput `pulumi:"customFragment"`
+	CustomHost        pulumi.StringPtrInput `pulumi:"customHost"`
+	CustomPath        pulumi.StringPtrInput `pulumi:"customPath"`
 	CustomQueryString pulumi.StringPtrInput `pulumi:"customQueryString"`
-	RedirectProtocol pulumi.StringInput `pulumi:"redirectProtocol"`
-	RedirectType pulumi.StringInput `pulumi:"redirectType"`
+	RedirectProtocol  pulumi.StringInput    `pulumi:"redirectProtocol"`
+	RedirectType      pulumi.StringInput    `pulumi:"redirectType"`
 }
 
 func (FrontdoorRoutingRuleRedirectConfigurationArgs) ElementType() reflect.Type {
@@ -1983,7 +2041,8 @@ type FrontdoorRoutingRuleRedirectConfigurationPtrInput interface {
 
 type frontdoorRoutingRuleRedirectConfigurationPtrType FrontdoorRoutingRuleRedirectConfigurationArgs
 
-func FrontdoorRoutingRuleRedirectConfigurationPtr(v *FrontdoorRoutingRuleRedirectConfigurationArgs) FrontdoorRoutingRuleRedirectConfigurationPtrInput {	return (*frontdoorRoutingRuleRedirectConfigurationPtrType)(v)
+func FrontdoorRoutingRuleRedirectConfigurationPtr(v *FrontdoorRoutingRuleRedirectConfigurationArgs) FrontdoorRoutingRuleRedirectConfigurationPtrInput {
+	return (*frontdoorRoutingRuleRedirectConfigurationPtrType)(v)
 }
 
 func (*frontdoorRoutingRuleRedirectConfigurationPtrType) ElementType() reflect.Type {
@@ -1998,7 +2057,7 @@ func (i *frontdoorRoutingRuleRedirectConfigurationPtrType) ToFrontdoorRoutingRul
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRoutingRuleRedirectConfigurationPtrOutput)
 }
 
-type FrontdoorRoutingRuleRedirectConfigurationOutput struct { *pulumi.OutputState }
+type FrontdoorRoutingRuleRedirectConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRoutingRuleRedirectConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorRoutingRuleRedirectConfiguration)(nil)).Elem()
@@ -2022,30 +2081,30 @@ func (o FrontdoorRoutingRuleRedirectConfigurationOutput) ToFrontdoorRoutingRuleR
 	}).(FrontdoorRoutingRuleRedirectConfigurationPtrOutput)
 }
 func (o FrontdoorRoutingRuleRedirectConfigurationOutput) CustomFragment() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomFragment }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomFragment }).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleRedirectConfigurationOutput) CustomHost() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomHost }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomHost }).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleRedirectConfigurationOutput) CustomPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomPath }).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleRedirectConfigurationOutput) CustomQueryString() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomQueryString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomQueryString }).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleRedirectConfigurationOutput) RedirectProtocol() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectProtocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectProtocol }).(pulumi.StringOutput)
 }
 
 func (o FrontdoorRoutingRuleRedirectConfigurationOutput) RedirectType() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectType }).(pulumi.StringOutput)
 }
 
-type FrontdoorRoutingRuleRedirectConfigurationPtrOutput struct { *pulumi.OutputState}
+type FrontdoorRoutingRuleRedirectConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRoutingRuleRedirectConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FrontdoorRoutingRuleRedirectConfiguration)(nil)).Elem()
@@ -2060,31 +2119,33 @@ func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) ToFrontdoorRoutingRu
 }
 
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) Elem() FrontdoorRoutingRuleRedirectConfigurationOutput {
-	return o.ApplyT(func (v *FrontdoorRoutingRuleRedirectConfiguration) FrontdoorRoutingRuleRedirectConfiguration { return *v }).(FrontdoorRoutingRuleRedirectConfigurationOutput)
+	return o.ApplyT(func(v *FrontdoorRoutingRuleRedirectConfiguration) FrontdoorRoutingRuleRedirectConfiguration {
+		return *v
+	}).(FrontdoorRoutingRuleRedirectConfigurationOutput)
 }
 
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) CustomFragment() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomFragment }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomFragment }).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) CustomHost() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomHost }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomHost }).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) CustomPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomPath }).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) CustomQueryString() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomQueryString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomQueryString }).(pulumi.StringPtrOutput)
 }
 
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) RedirectProtocol() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectProtocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectProtocol }).(pulumi.StringOutput)
 }
 
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) RedirectType() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectType }).(pulumi.StringOutput)
 }
 
 func init() {

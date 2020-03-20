@@ -8,115 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Front Door Web Application Firewall Policy instance.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US 2",
- * });
- * const exampleFirewallPolicy = new azure.frontdoor.FirewallPolicy("example", {
- *     customBlockResponseBody: "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
- *     customBlockResponseStatusCode: 403,
- *     customRules: [
- *         {
- *             action: "Block",
- *             enabled: true,
- *             matchConditions: [{
- *                 matchValues: [
- *                     "192.168.1.0/24",
- *                     "10.0.0.0/24",
- *                 ],
- *                 matchVariable: "RemoteAddr",
- *                 negationCondition: false,
- *                 operator: "IPMatch",
- *             }],
- *             name: "Rule1",
- *             priority: 1,
- *             rateLimitDurationInMinutes: 1,
- *             rateLimitThreshold: 10,
- *             type: "MatchRule",
- *         },
- *         {
- *             action: "Block",
- *             enabled: true,
- *             matchConditions: [
- *                 {
- *                     matchValues: ["192.168.1.0/24"],
- *                     matchVariable: "RemoteAddr",
- *                     negationCondition: false,
- *                     operator: "IPMatch",
- *                 },
- *                 {
- *                     matchValues: ["windows"],
- *                     matchVariable: "RequestHeader",
- *                     negationCondition: false,
- *                     operator: "Contains",
- *                     selector: "UserAgent",
- *                     transforms: [
- *                         "Lowercase",
- *                         "Trim",
- *                     ],
- *                 },
- *             ],
- *             name: "Rule2",
- *             priority: 2,
- *             rateLimitDurationInMinutes: 1,
- *             rateLimitThreshold: 10,
- *             type: "MatchRule",
- *         },
- *     ],
- *     enabled: true,
- *     managedRules: [
- *         {
- *             exclusions: [{
- *                 matchVariable: "QueryStringArgNames",
- *                 operator: "Equals",
- *                 selector: "notSuspicious",
- *             }],
- *             overrides: [
- *                 {
- *                     rules: [{
- *                         action: "Block",
- *                         enabled: false,
- *                         ruleId: "933100",
- *                     }],
- *                     ruleGroupName: "PHP",
- *                 },
- *                 {
- *                     exclusions: [{
- *                         matchVariable: "QueryStringArgNames",
- *                         operator: "Equals",
- *                         selector: "reallyNotSuspicious",
- *                     }],
- *                     rules: [{
- *                         action: "Block",
- *                         exclusions: [{
- *                             matchVariable: "QueryStringArgNames",
- *                             operator: "Equals",
- *                             selector: "innocent",
- *                         }],
- *                         ruleId: "942200",
- *                     }],
- *                     ruleGroupName: "SQLI",
- *                 },
- *             ],
- *             type: "DefaultRuleSet",
- *             version: "1.0",
- *         },
- *         {
- *             type: "Microsoft_BotManagerRuleSet",
- *             version: "1.0",
- *         },
- *     ],
- *     mode: "Prevention",
- *     redirectUrl: "https://www.contoso.com",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/frontdoor_firewall_policy.html.markdown.
  */
@@ -194,7 +85,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the Web Application Firewall Policy.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a FirewallPolicy resource with the given unique name, arguments, and options.

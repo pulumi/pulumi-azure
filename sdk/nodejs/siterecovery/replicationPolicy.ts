@@ -8,28 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Azure Site Recovery replication policy within a recovery vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const secondary = new azure.core.ResourceGroup("secondary", {
- *     location: "East US",
- * });
- * const vault = new azure.recoveryservices.Vault("vault", {
- *     location: secondary.location,
- *     resourceGroupName: secondary.name,
- *     sku: "Standard",
- * });
- * const policy = new azure.siterecovery.ReplicationPolicy("policy", {
- *     applicationConsistentSnapshotFrequencyInMinutes: (4 * 60),
- *     recoveryPointRetentionInMinutes: (24 * 60),
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: secondary.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_replication_policy.html.markdown.
  */

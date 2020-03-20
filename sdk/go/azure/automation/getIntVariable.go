@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Automation Int Variable.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_int.html.markdown.
 func LookupIntVariable(ctx *pulumi.Context, args *LookupIntVariableArgs, opts ...pulumi.InvokeOption) (*LookupIntVariableResult, error) {
 	var rv LookupIntVariableResult
@@ -30,7 +30,6 @@ type LookupIntVariableArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getIntVariable.
 type LookupIntVariableResult struct {
 	AutomationAccountName string `pulumi:"automationAccountName"`
@@ -39,10 +38,9 @@ type LookupIntVariableResult struct {
 	// Specifies if the Automation Variable is encrypted. Defaults to `false`.
 	Encrypted bool `pulumi:"encrypted"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id                string `pulumi:"id"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The value of the Automation Variable as a `integer`.
 	Value int `pulumi:"value"`
 }
-

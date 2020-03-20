@@ -11,31 +11,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Allows you to manage an Azure Search Service.
-// 
+// Manages a Search Service.
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/search_service.html.markdown.
 type Service struct {
 	pulumi.CustomResourceState
 
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the Search Service. Changing this forces a new resource to be created.
+	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+	// The number of partitions which should be created.
 	PartitionCount pulumi.IntOutput `pulumi:"partitionCount"`
-	// The Search Service Administration primary key.
+	// The Primary Key used for Search Service Administration.
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
 	// A `queryKeys` block as defined below.
 	QueryKeys ServiceQueryKeyArrayOutput `pulumi:"queryKeys"`
-	// Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+	// The number of replica's which should be created.
 	ReplicaCount pulumi.IntOutput `pulumi:"replicaCount"`
-	// The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
+	// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The Search Service Administration secondary key.
+	// The Secondary Key used for Search Service Administration.
 	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
-	// Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
+	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
 	Sku pulumi.StringOutput `pulumi:"sku"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags which should be assigned to the Search Service.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -73,48 +73,48 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Search Service. Changing this forces a new resource to be created.
+	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name *string `pulumi:"name"`
-	// Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+	// The number of partitions which should be created.
 	PartitionCount *int `pulumi:"partitionCount"`
-	// The Search Service Administration primary key.
+	// The Primary Key used for Search Service Administration.
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// A `queryKeys` block as defined below.
 	QueryKeys []ServiceQueryKey `pulumi:"queryKeys"`
-	// Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+	// The number of replica's which should be created.
 	ReplicaCount *int `pulumi:"replicaCount"`
-	// The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
+	// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The Search Service Administration secondary key.
+	// The Secondary Key used for Search Service Administration.
 	SecondaryKey *string `pulumi:"secondaryKey"`
-	// Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
+	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
 	Sku *string `pulumi:"sku"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags which should be assigned to the Search Service.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type ServiceState struct {
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Search Service. Changing this forces a new resource to be created.
+	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name pulumi.StringPtrInput
-	// Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+	// The number of partitions which should be created.
 	PartitionCount pulumi.IntPtrInput
-	// The Search Service Administration primary key.
+	// The Primary Key used for Search Service Administration.
 	PrimaryKey pulumi.StringPtrInput
 	// A `queryKeys` block as defined below.
 	QueryKeys ServiceQueryKeyArrayInput
-	// Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+	// The number of replica's which should be created.
 	ReplicaCount pulumi.IntPtrInput
-	// The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
+	// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The Search Service Administration secondary key.
+	// The Secondary Key used for Search Service Administration.
 	SecondaryKey pulumi.StringPtrInput
-	// Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
+	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
 	Sku pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags which should be assigned to the Search Service.
 	Tags pulumi.StringMapInput
 }
 
@@ -123,41 +123,40 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Search Service. Changing this forces a new resource to be created.
+	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name *string `pulumi:"name"`
-	// Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+	// The number of partitions which should be created.
 	PartitionCount *int `pulumi:"partitionCount"`
-	// Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+	// The number of replica's which should be created.
 	ReplicaCount *int `pulumi:"replicaCount"`
-	// The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
+	// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
+	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
 	Sku string `pulumi:"sku"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags which should be assigned to the Search Service.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Search Service. Changing this forces a new resource to be created.
+	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name pulumi.StringPtrInput
-	// Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+	// The number of partitions which should be created.
 	PartitionCount pulumi.IntPtrInput
-	// Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+	// The number of replica's which should be created.
 	ReplicaCount pulumi.IntPtrInput
-	// The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
+	// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
 	ResourceGroupName pulumi.StringInput
-	// Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
+	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
 	Sku pulumi.StringInput
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags which should be assigned to the Search Service.
 	Tags pulumi.StringMapInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceArgs)(nil)).Elem()
 }
-

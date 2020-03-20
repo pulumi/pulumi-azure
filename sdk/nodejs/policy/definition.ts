@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a policy rule definition on a management group or your provider subscription. 
+ * Manages a policy rule definition on a management group or your provider subscription.
  * 
  * Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
  * 
@@ -22,7 +22,8 @@ import * as utilities from "../utilities";
  *     metadata: `    {
  *     "category": "General"
  *     }
- *   `,
+ *   
+ * `,
  *     mode: "Indexed",
  *     parameters: `	{
  *     "allowedLocations": {

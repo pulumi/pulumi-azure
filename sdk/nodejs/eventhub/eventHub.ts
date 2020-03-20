@@ -8,32 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Event Hubs as a nested resource within a Event Hubs namespace.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
- *     capacity: 1,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- *     tags: {
- *         environment: "Production",
- *     },
- * });
- * const exampleEventHub = new azure.eventhub.EventHub("example", {
- *     messageRetention: 1,
- *     namespaceName: exampleEventHubNamespace.name,
- *     partitionCount: 2,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub.html.markdown.
  */
@@ -68,7 +42,6 @@ export class EventHub extends pulumi.CustomResource {
      * A `captureDescription` block as defined below.
      */
     public readonly captureDescription!: pulumi.Output<outputs.eventhub.EventHubCaptureDescription | undefined>;
-    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
      */
@@ -107,7 +80,6 @@ export class EventHub extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as EventHubState | undefined;
             inputs["captureDescription"] = state ? state.captureDescription : undefined;
-            inputs["location"] = state ? state.location : undefined;
             inputs["messageRetention"] = state ? state.messageRetention : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
@@ -129,7 +101,6 @@ export class EventHub extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["captureDescription"] = args ? args.captureDescription : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["messageRetention"] = args ? args.messageRetention : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
@@ -156,7 +127,6 @@ export interface EventHubState {
      * A `captureDescription` block as defined below.
      */
     readonly captureDescription?: pulumi.Input<inputs.eventhub.EventHubCaptureDescription>;
-    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
      */
@@ -191,7 +161,6 @@ export interface EventHubArgs {
      * A `captureDescription` block as defined below.
      */
     readonly captureDescription?: pulumi.Input<inputs.eventhub.EventHubCaptureDescription>;
-    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
      */

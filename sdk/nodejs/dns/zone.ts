@@ -8,25 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS zones within Azure DNS. These zones are hosted on Azure's name servers to which you can delegate the zone from the parent domain.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const examplePublic = new azure.dns.Zone("example-public", {
- *     resourceGroupName: example.name,
- *     zoneType: "Public",
- * });
- * const examplePrivate = new azure.dns.Zone("example-private", {
- *     resourceGroupName: example.name,
- *     zoneType: "Private",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_zone.html.markdown.
  */
@@ -74,25 +55,13 @@ export class Zone extends pulumi.CustomResource {
      */
     public /*out*/ readonly numberOfRecordSets!: pulumi.Output<number>;
     /**
-     * A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-     */
-    public readonly registrationVirtualNetworkIds!: pulumi.Output<string[] | undefined>;
-    /**
-     * A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-     */
-    public readonly resolutionVirtualNetworkIds!: pulumi.Output<string[] | undefined>;
-    /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
-     */
-    public readonly zoneType!: pulumi.Output<string | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Zone resource with the given unique name, arguments, and options.
@@ -110,22 +79,16 @@ export class Zone extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["nameServers"] = state ? state.nameServers : undefined;
             inputs["numberOfRecordSets"] = state ? state.numberOfRecordSets : undefined;
-            inputs["registrationVirtualNetworkIds"] = state ? state.registrationVirtualNetworkIds : undefined;
-            inputs["resolutionVirtualNetworkIds"] = state ? state.resolutionVirtualNetworkIds : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
-            inputs["zoneType"] = state ? state.zoneType : undefined;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["name"] = args ? args.name : undefined;
-            inputs["registrationVirtualNetworkIds"] = args ? args.registrationVirtualNetworkIds : undefined;
-            inputs["resolutionVirtualNetworkIds"] = args ? args.resolutionVirtualNetworkIds : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["zoneType"] = args ? args.zoneType : undefined;
             inputs["maxNumberOfRecordSets"] = undefined /*out*/;
             inputs["nameServers"] = undefined /*out*/;
             inputs["numberOfRecordSets"] = undefined /*out*/;
@@ -162,14 +125,6 @@ export interface ZoneState {
      */
     readonly numberOfRecordSets?: pulumi.Input<number>;
     /**
-     * A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-     */
-    readonly registrationVirtualNetworkIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-     */
-    readonly resolutionVirtualNetworkIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
@@ -177,10 +132,6 @@ export interface ZoneState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
-     */
-    readonly zoneType?: pulumi.Input<string>;
 }
 
 /**
@@ -192,14 +143,6 @@ export interface ZoneArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-     */
-    readonly registrationVirtualNetworkIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-     */
-    readonly resolutionVirtualNetworkIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -207,8 +150,4 @@ export interface ZoneArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
-     */
-    readonly zoneType?: pulumi.Input<string>;
 }

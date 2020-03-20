@@ -16,7 +16,7 @@ class DatabasePrincipal(pulumi.CustomResource):
     """
     client_id: pulumi.Output[str]
     """
-    The Client ID that owns the specified `object_id`. Changing this forces a new resource to be created. 
+    The Client ID that owns the specified `object_id`. Changing this forces a new resource to be created.
     """
     cluster_name: pulumi.Output[str]
     """
@@ -40,7 +40,7 @@ class DatabasePrincipal(pulumi.CustomResource):
     """
     object_id: pulumi.Output[str]
     """
-    An Object ID of a User, Group, or App. Changing this forces a new resource to be created. 
+    An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -57,18 +57,18 @@ class DatabasePrincipal(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, client_id=None, cluster_name=None, database_name=None, object_id=None, resource_group_name=None, role=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Kusto (also known as Azure Data Explorer) Database Principal
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_database_principal.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] client_id: The Client ID that owns the specified `object_id`. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] client_id: The Client ID that owns the specified `object_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this database principal will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: Specified the name of the Kusto Database this principal will be added to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] object_id: An Object ID of a User, Group, or App. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] object_id: An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database Principal should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role: Specifies the permissions the Principal will have. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User`, `Viewer`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: Specifies the type of object the principal is. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_database_principal.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -123,27 +123,26 @@ class DatabasePrincipal(pulumi.CustomResource):
         """
         Get an existing DatabasePrincipal resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The app id, if not empty, of the principal.
-        :param pulumi.Input[str] client_id: The Client ID that owns the specified `object_id`. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] client_id: The Client ID that owns the specified `object_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this database principal will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: Specified the name of the Kusto Database this principal will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] email: The email, if not empty, of the principal.
         :param pulumi.Input[str] fully_qualified_name: The fully qualified name of the principal.
         :param pulumi.Input[str] name: The name of the Kusto Database Principal.
-        :param pulumi.Input[str] object_id: An Object ID of a User, Group, or App. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] object_id: An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database Principal should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role: Specifies the permissions the Principal will have. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User`, `Viewer`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: Specifies the type of object the principal is. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_database_principal.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["app_id"] = app_id
         __props__["client_id"] = client_id
         __props__["cluster_name"] = cluster_name

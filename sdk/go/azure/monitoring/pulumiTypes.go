@@ -69,7 +69,7 @@ func (i ActionGroupArmRoleReceiverArray) ToActionGroupArmRoleReceiverArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupArmRoleReceiverArrayOutput)
 }
 
-type ActionGroupArmRoleReceiverOutput struct { *pulumi.OutputState }
+type ActionGroupArmRoleReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupArmRoleReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActionGroupArmRoleReceiver)(nil)).Elem()
@@ -85,20 +85,20 @@ func (o ActionGroupArmRoleReceiverOutput) ToActionGroupArmRoleReceiverOutputWith
 
 // The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 func (o ActionGroupArmRoleReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupArmRoleReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupArmRoleReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The arm role id.
 func (o ActionGroupArmRoleReceiverOutput) RoleId() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupArmRoleReceiver) string { return v.RoleId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupArmRoleReceiver) string { return v.RoleId }).(pulumi.StringOutput)
 }
 
 // Enables or disables the common alert schema.
 func (o ActionGroupArmRoleReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ActionGroupArmRoleReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ActionGroupArmRoleReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
-type ActionGroupArmRoleReceiverArrayOutput struct { *pulumi.OutputState}
+type ActionGroupArmRoleReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupArmRoleReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ActionGroupArmRoleReceiver)(nil)).Elem()
@@ -113,7 +113,7 @@ func (o ActionGroupArmRoleReceiverArrayOutput) ToActionGroupArmRoleReceiverArray
 }
 
 func (o ActionGroupArmRoleReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupArmRoleReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ActionGroupArmRoleReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionGroupArmRoleReceiver {
 		return vs[0].([]ActionGroupArmRoleReceiver)[vs[1].(int)]
 	}).(ActionGroupArmRoleReceiverOutput)
 }
@@ -192,7 +192,7 @@ func (i ActionGroupAutomationRunbookReceiverArray) ToActionGroupAutomationRunboo
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupAutomationRunbookReceiverArrayOutput)
 }
 
-type ActionGroupAutomationRunbookReceiverOutput struct { *pulumi.OutputState }
+type ActionGroupAutomationRunbookReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupAutomationRunbookReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActionGroupAutomationRunbookReceiver)(nil)).Elem()
@@ -208,40 +208,40 @@ func (o ActionGroupAutomationRunbookReceiverOutput) ToActionGroupAutomationRunbo
 
 // The automation account ID which holds this runbook and authenticates to Azure resources.
 func (o ActionGroupAutomationRunbookReceiverOutput) AutomationAccountId() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupAutomationRunbookReceiver) string { return v.AutomationAccountId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupAutomationRunbookReceiver) string { return v.AutomationAccountId }).(pulumi.StringOutput)
 }
 
 // Indicates whether this instance is global runbook.
 func (o ActionGroupAutomationRunbookReceiverOutput) IsGlobalRunbook() pulumi.BoolOutput {
-	return o.ApplyT(func (v ActionGroupAutomationRunbookReceiver) bool { return v.IsGlobalRunbook }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ActionGroupAutomationRunbookReceiver) bool { return v.IsGlobalRunbook }).(pulumi.BoolOutput)
 }
 
 // The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 func (o ActionGroupAutomationRunbookReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupAutomationRunbookReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupAutomationRunbookReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The name for this runbook.
 func (o ActionGroupAutomationRunbookReceiverOutput) RunbookName() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupAutomationRunbookReceiver) string { return v.RunbookName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupAutomationRunbookReceiver) string { return v.RunbookName }).(pulumi.StringOutput)
 }
 
 // The URI where webhooks should be sent.
 func (o ActionGroupAutomationRunbookReceiverOutput) ServiceUri() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupAutomationRunbookReceiver) string { return v.ServiceUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupAutomationRunbookReceiver) string { return v.ServiceUri }).(pulumi.StringOutput)
 }
 
 // Enables or disables the common alert schema.
 func (o ActionGroupAutomationRunbookReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ActionGroupAutomationRunbookReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ActionGroupAutomationRunbookReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
 // The resource id for webhook linked to this runbook.
 func (o ActionGroupAutomationRunbookReceiverOutput) WebhookResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupAutomationRunbookReceiver) string { return v.WebhookResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupAutomationRunbookReceiver) string { return v.WebhookResourceId }).(pulumi.StringOutput)
 }
 
-type ActionGroupAutomationRunbookReceiverArrayOutput struct { *pulumi.OutputState}
+type ActionGroupAutomationRunbookReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupAutomationRunbookReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ActionGroupAutomationRunbookReceiver)(nil)).Elem()
@@ -256,7 +256,7 @@ func (o ActionGroupAutomationRunbookReceiverArrayOutput) ToActionGroupAutomation
 }
 
 func (o ActionGroupAutomationRunbookReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupAutomationRunbookReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ActionGroupAutomationRunbookReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionGroupAutomationRunbookReceiver {
 		return vs[0].([]ActionGroupAutomationRunbookReceiver)[vs[1].(int)]
 	}).(ActionGroupAutomationRunbookReceiverOutput)
 }
@@ -315,7 +315,7 @@ func (i ActionGroupAzureAppPushReceiverArray) ToActionGroupAzureAppPushReceiverA
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupAzureAppPushReceiverArrayOutput)
 }
 
-type ActionGroupAzureAppPushReceiverOutput struct { *pulumi.OutputState }
+type ActionGroupAzureAppPushReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupAzureAppPushReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActionGroupAzureAppPushReceiver)(nil)).Elem()
@@ -331,15 +331,15 @@ func (o ActionGroupAzureAppPushReceiverOutput) ToActionGroupAzureAppPushReceiver
 
 // The email address of this receiver.
 func (o ActionGroupAzureAppPushReceiverOutput) EmailAddress() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupAzureAppPushReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupAzureAppPushReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
 // The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 func (o ActionGroupAzureAppPushReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupAzureAppPushReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupAzureAppPushReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type ActionGroupAzureAppPushReceiverArrayOutput struct { *pulumi.OutputState}
+type ActionGroupAzureAppPushReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupAzureAppPushReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ActionGroupAzureAppPushReceiver)(nil)).Elem()
@@ -354,7 +354,7 @@ func (o ActionGroupAzureAppPushReceiverArrayOutput) ToActionGroupAzureAppPushRec
 }
 
 func (o ActionGroupAzureAppPushReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupAzureAppPushReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ActionGroupAzureAppPushReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionGroupAzureAppPushReceiver {
 		return vs[0].([]ActionGroupAzureAppPushReceiver)[vs[1].(int)]
 	}).(ActionGroupAzureAppPushReceiverOutput)
 }
@@ -423,7 +423,7 @@ func (i ActionGroupAzureFunctionReceiverArray) ToActionGroupAzureFunctionReceive
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupAzureFunctionReceiverArrayOutput)
 }
 
-type ActionGroupAzureFunctionReceiverOutput struct { *pulumi.OutputState }
+type ActionGroupAzureFunctionReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupAzureFunctionReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActionGroupAzureFunctionReceiver)(nil)).Elem()
@@ -438,30 +438,30 @@ func (o ActionGroupAzureFunctionReceiverOutput) ToActionGroupAzureFunctionReceiv
 }
 
 func (o ActionGroupAzureFunctionReceiverOutput) FunctionAppResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupAzureFunctionReceiver) string { return v.FunctionAppResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupAzureFunctionReceiver) string { return v.FunctionAppResourceId }).(pulumi.StringOutput)
 }
 
 // The function name in the function app.
 func (o ActionGroupAzureFunctionReceiverOutput) FunctionName() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupAzureFunctionReceiver) string { return v.FunctionName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupAzureFunctionReceiver) string { return v.FunctionName }).(pulumi.StringOutput)
 }
 
 // The http trigger url where http request sent to.
 func (o ActionGroupAzureFunctionReceiverOutput) HttpTriggerUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupAzureFunctionReceiver) string { return v.HttpTriggerUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupAzureFunctionReceiver) string { return v.HttpTriggerUrl }).(pulumi.StringOutput)
 }
 
 // The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 func (o ActionGroupAzureFunctionReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupAzureFunctionReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupAzureFunctionReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Enables or disables the common alert schema.
 func (o ActionGroupAzureFunctionReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ActionGroupAzureFunctionReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ActionGroupAzureFunctionReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
-type ActionGroupAzureFunctionReceiverArrayOutput struct { *pulumi.OutputState}
+type ActionGroupAzureFunctionReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupAzureFunctionReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ActionGroupAzureFunctionReceiver)(nil)).Elem()
@@ -476,7 +476,7 @@ func (o ActionGroupAzureFunctionReceiverArrayOutput) ToActionGroupAzureFunctionR
 }
 
 func (o ActionGroupAzureFunctionReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupAzureFunctionReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ActionGroupAzureFunctionReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionGroupAzureFunctionReceiver {
 		return vs[0].([]ActionGroupAzureFunctionReceiver)[vs[1].(int)]
 	}).(ActionGroupAzureFunctionReceiverOutput)
 }
@@ -539,7 +539,7 @@ func (i ActionGroupEmailReceiverArray) ToActionGroupEmailReceiverArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupEmailReceiverArrayOutput)
 }
 
-type ActionGroupEmailReceiverOutput struct { *pulumi.OutputState }
+type ActionGroupEmailReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupEmailReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActionGroupEmailReceiver)(nil)).Elem()
@@ -555,20 +555,20 @@ func (o ActionGroupEmailReceiverOutput) ToActionGroupEmailReceiverOutputWithCont
 
 // The email address of this receiver.
 func (o ActionGroupEmailReceiverOutput) EmailAddress() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupEmailReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupEmailReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
 // The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 func (o ActionGroupEmailReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupEmailReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupEmailReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Enables or disables the common alert schema.
 func (o ActionGroupEmailReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ActionGroupEmailReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ActionGroupEmailReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
-type ActionGroupEmailReceiverArrayOutput struct { *pulumi.OutputState}
+type ActionGroupEmailReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupEmailReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ActionGroupEmailReceiver)(nil)).Elem()
@@ -583,7 +583,7 @@ func (o ActionGroupEmailReceiverArrayOutput) ToActionGroupEmailReceiverArrayOutp
 }
 
 func (o ActionGroupEmailReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupEmailReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ActionGroupEmailReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionGroupEmailReceiver {
 		return vs[0].([]ActionGroupEmailReceiver)[vs[1].(int)]
 	}).(ActionGroupEmailReceiverOutput)
 }
@@ -654,7 +654,7 @@ func (i ActionGroupItsmReceiverArray) ToActionGroupItsmReceiverArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupItsmReceiverArrayOutput)
 }
 
-type ActionGroupItsmReceiverOutput struct { *pulumi.OutputState }
+type ActionGroupItsmReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupItsmReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActionGroupItsmReceiver)(nil)).Elem()
@@ -670,30 +670,30 @@ func (o ActionGroupItsmReceiverOutput) ToActionGroupItsmReceiverOutputWithContex
 
 // The unique connection identifier of the ITSM connection.
 func (o ActionGroupItsmReceiverOutput) ConnectionId() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupItsmReceiver) string { return v.ConnectionId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupItsmReceiver) string { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
 // The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 func (o ActionGroupItsmReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupItsmReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupItsmReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The region of the workspace.
 func (o ActionGroupItsmReceiverOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupItsmReceiver) string { return v.Region }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupItsmReceiver) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
 func (o ActionGroupItsmReceiverOutput) TicketConfiguration() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupItsmReceiver) string { return v.TicketConfiguration }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupItsmReceiver) string { return v.TicketConfiguration }).(pulumi.StringOutput)
 }
 
 // The Azure Log Analytics workspace ID where this connection is defined.
 func (o ActionGroupItsmReceiverOutput) WorkspaceId() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupItsmReceiver) string { return v.WorkspaceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupItsmReceiver) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
-type ActionGroupItsmReceiverArrayOutput struct { *pulumi.OutputState}
+type ActionGroupItsmReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupItsmReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ActionGroupItsmReceiver)(nil)).Elem()
@@ -708,7 +708,7 @@ func (o ActionGroupItsmReceiverArrayOutput) ToActionGroupItsmReceiverArrayOutput
 }
 
 func (o ActionGroupItsmReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupItsmReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ActionGroupItsmReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionGroupItsmReceiver {
 		return vs[0].([]ActionGroupItsmReceiver)[vs[1].(int)]
 	}).(ActionGroupItsmReceiverOutput)
 }
@@ -775,7 +775,7 @@ func (i ActionGroupLogicAppReceiverArray) ToActionGroupLogicAppReceiverArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupLogicAppReceiverArrayOutput)
 }
 
-type ActionGroupLogicAppReceiverOutput struct { *pulumi.OutputState }
+type ActionGroupLogicAppReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupLogicAppReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActionGroupLogicAppReceiver)(nil)).Elem()
@@ -791,25 +791,25 @@ func (o ActionGroupLogicAppReceiverOutput) ToActionGroupLogicAppReceiverOutputWi
 
 // The callback url where http request sent to.
 func (o ActionGroupLogicAppReceiverOutput) CallbackUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupLogicAppReceiver) string { return v.CallbackUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupLogicAppReceiver) string { return v.CallbackUrl }).(pulumi.StringOutput)
 }
 
 // The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 func (o ActionGroupLogicAppReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupLogicAppReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupLogicAppReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The Azure resource ID of the logic app.
 func (o ActionGroupLogicAppReceiverOutput) ResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupLogicAppReceiver) string { return v.ResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupLogicAppReceiver) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
 // Enables or disables the common alert schema.
 func (o ActionGroupLogicAppReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ActionGroupLogicAppReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ActionGroupLogicAppReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
-type ActionGroupLogicAppReceiverArrayOutput struct { *pulumi.OutputState}
+type ActionGroupLogicAppReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupLogicAppReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ActionGroupLogicAppReceiver)(nil)).Elem()
@@ -824,7 +824,7 @@ func (o ActionGroupLogicAppReceiverArrayOutput) ToActionGroupLogicAppReceiverArr
 }
 
 func (o ActionGroupLogicAppReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupLogicAppReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ActionGroupLogicAppReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionGroupLogicAppReceiver {
 		return vs[0].([]ActionGroupLogicAppReceiver)[vs[1].(int)]
 	}).(ActionGroupLogicAppReceiverOutput)
 }
@@ -887,7 +887,7 @@ func (i ActionGroupSmsReceiverArray) ToActionGroupSmsReceiverArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupSmsReceiverArrayOutput)
 }
 
-type ActionGroupSmsReceiverOutput struct { *pulumi.OutputState }
+type ActionGroupSmsReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupSmsReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActionGroupSmsReceiver)(nil)).Elem()
@@ -903,20 +903,20 @@ func (o ActionGroupSmsReceiverOutput) ToActionGroupSmsReceiverOutputWithContext(
 
 // The country code of the voice receiver.
 func (o ActionGroupSmsReceiverOutput) CountryCode() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupSmsReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupSmsReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
 // The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 func (o ActionGroupSmsReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupSmsReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupSmsReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The phone number of the voice receiver.
 func (o ActionGroupSmsReceiverOutput) PhoneNumber() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupSmsReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupSmsReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
 
-type ActionGroupSmsReceiverArrayOutput struct { *pulumi.OutputState}
+type ActionGroupSmsReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupSmsReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ActionGroupSmsReceiver)(nil)).Elem()
@@ -931,7 +931,7 @@ func (o ActionGroupSmsReceiverArrayOutput) ToActionGroupSmsReceiverArrayOutputWi
 }
 
 func (o ActionGroupSmsReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupSmsReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ActionGroupSmsReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionGroupSmsReceiver {
 		return vs[0].([]ActionGroupSmsReceiver)[vs[1].(int)]
 	}).(ActionGroupSmsReceiverOutput)
 }
@@ -994,7 +994,7 @@ func (i ActionGroupVoiceReceiverArray) ToActionGroupVoiceReceiverArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupVoiceReceiverArrayOutput)
 }
 
-type ActionGroupVoiceReceiverOutput struct { *pulumi.OutputState }
+type ActionGroupVoiceReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupVoiceReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActionGroupVoiceReceiver)(nil)).Elem()
@@ -1010,20 +1010,20 @@ func (o ActionGroupVoiceReceiverOutput) ToActionGroupVoiceReceiverOutputWithCont
 
 // The country code of the voice receiver.
 func (o ActionGroupVoiceReceiverOutput) CountryCode() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupVoiceReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupVoiceReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
 // The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 func (o ActionGroupVoiceReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupVoiceReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupVoiceReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The phone number of the voice receiver.
 func (o ActionGroupVoiceReceiverOutput) PhoneNumber() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupVoiceReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupVoiceReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
 
-type ActionGroupVoiceReceiverArrayOutput struct { *pulumi.OutputState}
+type ActionGroupVoiceReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupVoiceReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ActionGroupVoiceReceiver)(nil)).Elem()
@@ -1038,7 +1038,7 @@ func (o ActionGroupVoiceReceiverArrayOutput) ToActionGroupVoiceReceiverArrayOutp
 }
 
 func (o ActionGroupVoiceReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupVoiceReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ActionGroupVoiceReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionGroupVoiceReceiver {
 		return vs[0].([]ActionGroupVoiceReceiver)[vs[1].(int)]
 	}).(ActionGroupVoiceReceiverOutput)
 }
@@ -1101,7 +1101,7 @@ func (i ActionGroupWebhookReceiverArray) ToActionGroupWebhookReceiverArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupWebhookReceiverArrayOutput)
 }
 
-type ActionGroupWebhookReceiverOutput struct { *pulumi.OutputState }
+type ActionGroupWebhookReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupWebhookReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActionGroupWebhookReceiver)(nil)).Elem()
@@ -1117,20 +1117,20 @@ func (o ActionGroupWebhookReceiverOutput) ToActionGroupWebhookReceiverOutputWith
 
 // The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 func (o ActionGroupWebhookReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupWebhookReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupWebhookReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The URI where webhooks should be sent.
 func (o ActionGroupWebhookReceiverOutput) ServiceUri() pulumi.StringOutput {
-	return o.ApplyT(func (v ActionGroupWebhookReceiver) string { return v.ServiceUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActionGroupWebhookReceiver) string { return v.ServiceUri }).(pulumi.StringOutput)
 }
 
 // Enables or disables the common alert schema.
 func (o ActionGroupWebhookReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ActionGroupWebhookReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ActionGroupWebhookReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
-type ActionGroupWebhookReceiverArrayOutput struct { *pulumi.OutputState}
+type ActionGroupWebhookReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupWebhookReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ActionGroupWebhookReceiver)(nil)).Elem()
@@ -1145,13 +1145,13 @@ func (o ActionGroupWebhookReceiverArrayOutput) ToActionGroupWebhookReceiverArray
 }
 
 func (o ActionGroupWebhookReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupWebhookReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ActionGroupWebhookReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionGroupWebhookReceiver {
 		return vs[0].([]ActionGroupWebhookReceiver)[vs[1].(int)]
 	}).(ActionGroupWebhookReceiverOutput)
 }
 
 type ActivityLogAlertAction struct {
-	ActionGroupId string `pulumi:"actionGroupId"`
+	ActionGroupId     string            `pulumi:"actionGroupId"`
 	WebhookProperties map[string]string `pulumi:"webhookProperties"`
 }
 
@@ -1163,7 +1163,7 @@ type ActivityLogAlertActionInput interface {
 }
 
 type ActivityLogAlertActionArgs struct {
-	ActionGroupId pulumi.StringInput `pulumi:"actionGroupId"`
+	ActionGroupId     pulumi.StringInput    `pulumi:"actionGroupId"`
 	WebhookProperties pulumi.StringMapInput `pulumi:"webhookProperties"`
 }
 
@@ -1200,7 +1200,7 @@ func (i ActivityLogAlertActionArray) ToActivityLogAlertActionArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionArrayOutput)
 }
 
-type ActivityLogAlertActionOutput struct { *pulumi.OutputState }
+type ActivityLogAlertActionOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertActionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActivityLogAlertAction)(nil)).Elem()
@@ -1215,14 +1215,14 @@ func (o ActivityLogAlertActionOutput) ToActivityLogAlertActionOutputWithContext(
 }
 
 func (o ActivityLogAlertActionOutput) ActionGroupId() pulumi.StringOutput {
-	return o.ApplyT(func (v ActivityLogAlertAction) string { return v.ActionGroupId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActivityLogAlertAction) string { return v.ActionGroupId }).(pulumi.StringOutput)
 }
 
 func (o ActivityLogAlertActionOutput) WebhookProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func (v ActivityLogAlertAction) map[string]string { return v.WebhookProperties }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v ActivityLogAlertAction) map[string]string { return v.WebhookProperties }).(pulumi.StringMapOutput)
 }
 
-type ActivityLogAlertActionArrayOutput struct { *pulumi.OutputState}
+type ActivityLogAlertActionArrayOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertActionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ActivityLogAlertAction)(nil)).Elem()
@@ -1237,22 +1237,22 @@ func (o ActivityLogAlertActionArrayOutput) ToActivityLogAlertActionArrayOutputWi
 }
 
 func (o ActivityLogAlertActionArrayOutput) Index(i pulumi.IntInput) ActivityLogAlertActionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ActivityLogAlertAction {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActivityLogAlertAction {
 		return vs[0].([]ActivityLogAlertAction)[vs[1].(int)]
 	}).(ActivityLogAlertActionOutput)
 }
 
 type ActivityLogAlertCriteria struct {
-	Caller *string `pulumi:"caller"`
-	Category string `pulumi:"category"`
-	Level *string `pulumi:"level"`
-	OperationName *string `pulumi:"operationName"`
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	ResourceId *string `pulumi:"resourceId"`
+	Caller           *string `pulumi:"caller"`
+	Category         string  `pulumi:"category"`
+	Level            *string `pulumi:"level"`
+	OperationName    *string `pulumi:"operationName"`
+	ResourceGroup    *string `pulumi:"resourceGroup"`
+	ResourceId       *string `pulumi:"resourceId"`
 	ResourceProvider *string `pulumi:"resourceProvider"`
-	ResourceType *string `pulumi:"resourceType"`
-	Status *string `pulumi:"status"`
-	SubStatus *string `pulumi:"subStatus"`
+	ResourceType     *string `pulumi:"resourceType"`
+	Status           *string `pulumi:"status"`
+	SubStatus        *string `pulumi:"subStatus"`
 }
 
 type ActivityLogAlertCriteriaInput interface {
@@ -1263,16 +1263,16 @@ type ActivityLogAlertCriteriaInput interface {
 }
 
 type ActivityLogAlertCriteriaArgs struct {
-	Caller pulumi.StringPtrInput `pulumi:"caller"`
-	Category pulumi.StringInput `pulumi:"category"`
-	Level pulumi.StringPtrInput `pulumi:"level"`
-	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
-	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	Caller           pulumi.StringPtrInput `pulumi:"caller"`
+	Category         pulumi.StringInput    `pulumi:"category"`
+	Level            pulumi.StringPtrInput `pulumi:"level"`
+	OperationName    pulumi.StringPtrInput `pulumi:"operationName"`
+	ResourceGroup    pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	ResourceId       pulumi.StringPtrInput `pulumi:"resourceId"`
 	ResourceProvider pulumi.StringPtrInput `pulumi:"resourceProvider"`
-	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	SubStatus pulumi.StringPtrInput `pulumi:"subStatus"`
+	ResourceType     pulumi.StringPtrInput `pulumi:"resourceType"`
+	Status           pulumi.StringPtrInput `pulumi:"status"`
+	SubStatus        pulumi.StringPtrInput `pulumi:"subStatus"`
 }
 
 func (ActivityLogAlertCriteriaArgs) ElementType() reflect.Type {
@@ -1304,7 +1304,8 @@ type ActivityLogAlertCriteriaPtrInput interface {
 
 type activityLogAlertCriteriaPtrType ActivityLogAlertCriteriaArgs
 
-func ActivityLogAlertCriteriaPtr(v *ActivityLogAlertCriteriaArgs) ActivityLogAlertCriteriaPtrInput {	return (*activityLogAlertCriteriaPtrType)(v)
+func ActivityLogAlertCriteriaPtr(v *ActivityLogAlertCriteriaArgs) ActivityLogAlertCriteriaPtrInput {
+	return (*activityLogAlertCriteriaPtrType)(v)
 }
 
 func (*activityLogAlertCriteriaPtrType) ElementType() reflect.Type {
@@ -1319,7 +1320,7 @@ func (i *activityLogAlertCriteriaPtrType) ToActivityLogAlertCriteriaPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertCriteriaPtrOutput)
 }
 
-type ActivityLogAlertCriteriaOutput struct { *pulumi.OutputState }
+type ActivityLogAlertCriteriaOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertCriteriaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActivityLogAlertCriteria)(nil)).Elem()
@@ -1343,46 +1344,46 @@ func (o ActivityLogAlertCriteriaOutput) ToActivityLogAlertCriteriaPtrOutputWithC
 	}).(ActivityLogAlertCriteriaPtrOutput)
 }
 func (o ActivityLogAlertCriteriaOutput) Caller() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.Caller }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.Caller }).(pulumi.StringPtrOutput)
 }
 
 func (o ActivityLogAlertCriteriaOutput) Category() pulumi.StringOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) string { return v.Category }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) string { return v.Category }).(pulumi.StringOutput)
 }
 
 func (o ActivityLogAlertCriteriaOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.Level }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 func (o ActivityLogAlertCriteriaOutput) OperationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.OperationName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.OperationName }).(pulumi.StringPtrOutput)
 }
 
 func (o ActivityLogAlertCriteriaOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
 func (o ActivityLogAlertCriteriaOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 func (o ActivityLogAlertCriteriaOutput) ResourceProvider() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.ResourceProvider }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceProvider }).(pulumi.StringPtrOutput)
 }
 
 func (o ActivityLogAlertCriteriaOutput) ResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
 func (o ActivityLogAlertCriteriaOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.Status }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 func (o ActivityLogAlertCriteriaOutput) SubStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.SubStatus }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.SubStatus }).(pulumi.StringPtrOutput)
 }
 
-type ActivityLogAlertCriteriaPtrOutput struct { *pulumi.OutputState}
+type ActivityLogAlertCriteriaPtrOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertCriteriaPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ActivityLogAlertCriteria)(nil)).Elem()
@@ -1397,303 +1398,51 @@ func (o ActivityLogAlertCriteriaPtrOutput) ToActivityLogAlertCriteriaPtrOutputWi
 }
 
 func (o ActivityLogAlertCriteriaPtrOutput) Elem() ActivityLogAlertCriteriaOutput {
-	return o.ApplyT(func (v *ActivityLogAlertCriteria) ActivityLogAlertCriteria { return *v }).(ActivityLogAlertCriteriaOutput)
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) ActivityLogAlertCriteria { return *v }).(ActivityLogAlertCriteriaOutput)
 }
 
 func (o ActivityLogAlertCriteriaPtrOutput) Caller() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.Caller }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.Caller }).(pulumi.StringPtrOutput)
 }
 
 func (o ActivityLogAlertCriteriaPtrOutput) Category() pulumi.StringOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) string { return v.Category }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) string { return v.Category }).(pulumi.StringOutput)
 }
 
 func (o ActivityLogAlertCriteriaPtrOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.Level }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 func (o ActivityLogAlertCriteriaPtrOutput) OperationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.OperationName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.OperationName }).(pulumi.StringPtrOutput)
 }
 
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceProvider() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.ResourceProvider }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceProvider }).(pulumi.StringPtrOutput)
 }
 
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
 func (o ActivityLogAlertCriteriaPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.Status }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 func (o ActivityLogAlertCriteriaPtrOutput) SubStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ActivityLogAlertCriteria) *string { return v.SubStatus }).(pulumi.StringPtrOutput)
-}
-
-type AlertRuleEmailAction struct {
-	// A list of email addresses to be notified when the alert is triggered.
-	CustomEmails []string `pulumi:"customEmails"`
-	// If `true`, the administrators (service and co-administrators) of the subscription are notified when the alert is triggered. Defaults to `false`.
-	SendToServiceOwners *bool `pulumi:"sendToServiceOwners"`
-}
-
-type AlertRuleEmailActionInput interface {
-	pulumi.Input
-
-	ToAlertRuleEmailActionOutput() AlertRuleEmailActionOutput
-	ToAlertRuleEmailActionOutputWithContext(context.Context) AlertRuleEmailActionOutput
-}
-
-type AlertRuleEmailActionArgs struct {
-	// A list of email addresses to be notified when the alert is triggered.
-	CustomEmails pulumi.StringArrayInput `pulumi:"customEmails"`
-	// If `true`, the administrators (service and co-administrators) of the subscription are notified when the alert is triggered. Defaults to `false`.
-	SendToServiceOwners pulumi.BoolPtrInput `pulumi:"sendToServiceOwners"`
-}
-
-func (AlertRuleEmailActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleEmailAction)(nil)).Elem()
-}
-
-func (i AlertRuleEmailActionArgs) ToAlertRuleEmailActionOutput() AlertRuleEmailActionOutput {
-	return i.ToAlertRuleEmailActionOutputWithContext(context.Background())
-}
-
-func (i AlertRuleEmailActionArgs) ToAlertRuleEmailActionOutputWithContext(ctx context.Context) AlertRuleEmailActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleEmailActionOutput)
-}
-
-func (i AlertRuleEmailActionArgs) ToAlertRuleEmailActionPtrOutput() AlertRuleEmailActionPtrOutput {
-	return i.ToAlertRuleEmailActionPtrOutputWithContext(context.Background())
-}
-
-func (i AlertRuleEmailActionArgs) ToAlertRuleEmailActionPtrOutputWithContext(ctx context.Context) AlertRuleEmailActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleEmailActionOutput).ToAlertRuleEmailActionPtrOutputWithContext(ctx)
-}
-
-type AlertRuleEmailActionPtrInput interface {
-	pulumi.Input
-
-	ToAlertRuleEmailActionPtrOutput() AlertRuleEmailActionPtrOutput
-	ToAlertRuleEmailActionPtrOutputWithContext(context.Context) AlertRuleEmailActionPtrOutput
-}
-
-type alertRuleEmailActionPtrType AlertRuleEmailActionArgs
-
-func AlertRuleEmailActionPtr(v *AlertRuleEmailActionArgs) AlertRuleEmailActionPtrInput {	return (*alertRuleEmailActionPtrType)(v)
-}
-
-func (*alertRuleEmailActionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertRuleEmailAction)(nil)).Elem()
-}
-
-func (i *alertRuleEmailActionPtrType) ToAlertRuleEmailActionPtrOutput() AlertRuleEmailActionPtrOutput {
-	return i.ToAlertRuleEmailActionPtrOutputWithContext(context.Background())
-}
-
-func (i *alertRuleEmailActionPtrType) ToAlertRuleEmailActionPtrOutputWithContext(ctx context.Context) AlertRuleEmailActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleEmailActionPtrOutput)
-}
-
-type AlertRuleEmailActionOutput struct { *pulumi.OutputState }
-
-func (AlertRuleEmailActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleEmailAction)(nil)).Elem()
-}
-
-func (o AlertRuleEmailActionOutput) ToAlertRuleEmailActionOutput() AlertRuleEmailActionOutput {
-	return o
-}
-
-func (o AlertRuleEmailActionOutput) ToAlertRuleEmailActionOutputWithContext(ctx context.Context) AlertRuleEmailActionOutput {
-	return o
-}
-
-func (o AlertRuleEmailActionOutput) ToAlertRuleEmailActionPtrOutput() AlertRuleEmailActionPtrOutput {
-	return o.ToAlertRuleEmailActionPtrOutputWithContext(context.Background())
-}
-
-func (o AlertRuleEmailActionOutput) ToAlertRuleEmailActionPtrOutputWithContext(ctx context.Context) AlertRuleEmailActionPtrOutput {
-	return o.ApplyT(func(v AlertRuleEmailAction) *AlertRuleEmailAction {
-		return &v
-	}).(AlertRuleEmailActionPtrOutput)
-}
-// A list of email addresses to be notified when the alert is triggered.
-func (o AlertRuleEmailActionOutput) CustomEmails() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AlertRuleEmailAction) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
-}
-
-// If `true`, the administrators (service and co-administrators) of the subscription are notified when the alert is triggered. Defaults to `false`.
-func (o AlertRuleEmailActionOutput) SendToServiceOwners() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v AlertRuleEmailAction) *bool { return v.SendToServiceOwners }).(pulumi.BoolPtrOutput)
-}
-
-type AlertRuleEmailActionPtrOutput struct { *pulumi.OutputState}
-
-func (AlertRuleEmailActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertRuleEmailAction)(nil)).Elem()
-}
-
-func (o AlertRuleEmailActionPtrOutput) ToAlertRuleEmailActionPtrOutput() AlertRuleEmailActionPtrOutput {
-	return o
-}
-
-func (o AlertRuleEmailActionPtrOutput) ToAlertRuleEmailActionPtrOutputWithContext(ctx context.Context) AlertRuleEmailActionPtrOutput {
-	return o
-}
-
-func (o AlertRuleEmailActionPtrOutput) Elem() AlertRuleEmailActionOutput {
-	return o.ApplyT(func (v *AlertRuleEmailAction) AlertRuleEmailAction { return *v }).(AlertRuleEmailActionOutput)
-}
-
-// A list of email addresses to be notified when the alert is triggered.
-func (o AlertRuleEmailActionPtrOutput) CustomEmails() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AlertRuleEmailAction) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
-}
-
-// If `true`, the administrators (service and co-administrators) of the subscription are notified when the alert is triggered. Defaults to `false`.
-func (o AlertRuleEmailActionPtrOutput) SendToServiceOwners() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v AlertRuleEmailAction) *bool { return v.SendToServiceOwners }).(pulumi.BoolPtrOutput)
-}
-
-type AlertRuleWebhookAction struct {
-	// A dictionary of custom properties to include with the webhook POST operation payload.
-	Properties map[string]string `pulumi:"properties"`
-	// The service uri of the webhook to POST the notification when the alert is triggered.
-	ServiceUri string `pulumi:"serviceUri"`
-}
-
-type AlertRuleWebhookActionInput interface {
-	pulumi.Input
-
-	ToAlertRuleWebhookActionOutput() AlertRuleWebhookActionOutput
-	ToAlertRuleWebhookActionOutputWithContext(context.Context) AlertRuleWebhookActionOutput
-}
-
-type AlertRuleWebhookActionArgs struct {
-	// A dictionary of custom properties to include with the webhook POST operation payload.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// The service uri of the webhook to POST the notification when the alert is triggered.
-	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
-}
-
-func (AlertRuleWebhookActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleWebhookAction)(nil)).Elem()
-}
-
-func (i AlertRuleWebhookActionArgs) ToAlertRuleWebhookActionOutput() AlertRuleWebhookActionOutput {
-	return i.ToAlertRuleWebhookActionOutputWithContext(context.Background())
-}
-
-func (i AlertRuleWebhookActionArgs) ToAlertRuleWebhookActionOutputWithContext(ctx context.Context) AlertRuleWebhookActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleWebhookActionOutput)
-}
-
-func (i AlertRuleWebhookActionArgs) ToAlertRuleWebhookActionPtrOutput() AlertRuleWebhookActionPtrOutput {
-	return i.ToAlertRuleWebhookActionPtrOutputWithContext(context.Background())
-}
-
-func (i AlertRuleWebhookActionArgs) ToAlertRuleWebhookActionPtrOutputWithContext(ctx context.Context) AlertRuleWebhookActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleWebhookActionOutput).ToAlertRuleWebhookActionPtrOutputWithContext(ctx)
-}
-
-type AlertRuleWebhookActionPtrInput interface {
-	pulumi.Input
-
-	ToAlertRuleWebhookActionPtrOutput() AlertRuleWebhookActionPtrOutput
-	ToAlertRuleWebhookActionPtrOutputWithContext(context.Context) AlertRuleWebhookActionPtrOutput
-}
-
-type alertRuleWebhookActionPtrType AlertRuleWebhookActionArgs
-
-func AlertRuleWebhookActionPtr(v *AlertRuleWebhookActionArgs) AlertRuleWebhookActionPtrInput {	return (*alertRuleWebhookActionPtrType)(v)
-}
-
-func (*alertRuleWebhookActionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertRuleWebhookAction)(nil)).Elem()
-}
-
-func (i *alertRuleWebhookActionPtrType) ToAlertRuleWebhookActionPtrOutput() AlertRuleWebhookActionPtrOutput {
-	return i.ToAlertRuleWebhookActionPtrOutputWithContext(context.Background())
-}
-
-func (i *alertRuleWebhookActionPtrType) ToAlertRuleWebhookActionPtrOutputWithContext(ctx context.Context) AlertRuleWebhookActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleWebhookActionPtrOutput)
-}
-
-type AlertRuleWebhookActionOutput struct { *pulumi.OutputState }
-
-func (AlertRuleWebhookActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleWebhookAction)(nil)).Elem()
-}
-
-func (o AlertRuleWebhookActionOutput) ToAlertRuleWebhookActionOutput() AlertRuleWebhookActionOutput {
-	return o
-}
-
-func (o AlertRuleWebhookActionOutput) ToAlertRuleWebhookActionOutputWithContext(ctx context.Context) AlertRuleWebhookActionOutput {
-	return o
-}
-
-func (o AlertRuleWebhookActionOutput) ToAlertRuleWebhookActionPtrOutput() AlertRuleWebhookActionPtrOutput {
-	return o.ToAlertRuleWebhookActionPtrOutputWithContext(context.Background())
-}
-
-func (o AlertRuleWebhookActionOutput) ToAlertRuleWebhookActionPtrOutputWithContext(ctx context.Context) AlertRuleWebhookActionPtrOutput {
-	return o.ApplyT(func(v AlertRuleWebhookAction) *AlertRuleWebhookAction {
-		return &v
-	}).(AlertRuleWebhookActionPtrOutput)
-}
-// A dictionary of custom properties to include with the webhook POST operation payload.
-func (o AlertRuleWebhookActionOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func (v AlertRuleWebhookAction) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
-}
-
-// The service uri of the webhook to POST the notification when the alert is triggered.
-func (o AlertRuleWebhookActionOutput) ServiceUri() pulumi.StringOutput {
-	return o.ApplyT(func (v AlertRuleWebhookAction) string { return v.ServiceUri }).(pulumi.StringOutput)
-}
-
-type AlertRuleWebhookActionPtrOutput struct { *pulumi.OutputState}
-
-func (AlertRuleWebhookActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertRuleWebhookAction)(nil)).Elem()
-}
-
-func (o AlertRuleWebhookActionPtrOutput) ToAlertRuleWebhookActionPtrOutput() AlertRuleWebhookActionPtrOutput {
-	return o
-}
-
-func (o AlertRuleWebhookActionPtrOutput) ToAlertRuleWebhookActionPtrOutputWithContext(ctx context.Context) AlertRuleWebhookActionPtrOutput {
-	return o
-}
-
-func (o AlertRuleWebhookActionPtrOutput) Elem() AlertRuleWebhookActionOutput {
-	return o.ApplyT(func (v *AlertRuleWebhookAction) AlertRuleWebhookAction { return *v }).(AlertRuleWebhookActionOutput)
-}
-
-// A dictionary of custom properties to include with the webhook POST operation payload.
-func (o AlertRuleWebhookActionPtrOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func (v AlertRuleWebhookAction) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
-}
-
-// The service uri of the webhook to POST the notification when the alert is triggered.
-func (o AlertRuleWebhookActionPtrOutput) ServiceUri() pulumi.StringOutput {
-	return o.ApplyT(func (v AlertRuleWebhookAction) string { return v.ServiceUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.SubStatus }).(pulumi.StringPtrOutput)
 }
 
 type AutoscaleSettingNotification struct {
-	Email *AutoscaleSettingNotificationEmail `pulumi:"email"`
+	Email    *AutoscaleSettingNotificationEmail    `pulumi:"email"`
 	Webhooks []AutoscaleSettingNotificationWebhook `pulumi:"webhooks"`
 }
 
@@ -1705,7 +1454,7 @@ type AutoscaleSettingNotificationInput interface {
 }
 
 type AutoscaleSettingNotificationArgs struct {
-	Email AutoscaleSettingNotificationEmailPtrInput `pulumi:"email"`
+	Email    AutoscaleSettingNotificationEmailPtrInput     `pulumi:"email"`
 	Webhooks AutoscaleSettingNotificationWebhookArrayInput `pulumi:"webhooks"`
 }
 
@@ -1738,7 +1487,8 @@ type AutoscaleSettingNotificationPtrInput interface {
 
 type autoscaleSettingNotificationPtrType AutoscaleSettingNotificationArgs
 
-func AutoscaleSettingNotificationPtr(v *AutoscaleSettingNotificationArgs) AutoscaleSettingNotificationPtrInput {	return (*autoscaleSettingNotificationPtrType)(v)
+func AutoscaleSettingNotificationPtr(v *AutoscaleSettingNotificationArgs) AutoscaleSettingNotificationPtrInput {
+	return (*autoscaleSettingNotificationPtrType)(v)
 }
 
 func (*autoscaleSettingNotificationPtrType) ElementType() reflect.Type {
@@ -1753,7 +1503,7 @@ func (i *autoscaleSettingNotificationPtrType) ToAutoscaleSettingNotificationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingNotificationPtrOutput)
 }
 
-type AutoscaleSettingNotificationOutput struct { *pulumi.OutputState }
+type AutoscaleSettingNotificationOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingNotificationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoscaleSettingNotification)(nil)).Elem()
@@ -1777,14 +1527,14 @@ func (o AutoscaleSettingNotificationOutput) ToAutoscaleSettingNotificationPtrOut
 	}).(AutoscaleSettingNotificationPtrOutput)
 }
 func (o AutoscaleSettingNotificationOutput) Email() AutoscaleSettingNotificationEmailPtrOutput {
-	return o.ApplyT(func (v AutoscaleSettingNotification) *AutoscaleSettingNotificationEmail { return v.Email }).(AutoscaleSettingNotificationEmailPtrOutput)
+	return o.ApplyT(func(v AutoscaleSettingNotification) *AutoscaleSettingNotificationEmail { return v.Email }).(AutoscaleSettingNotificationEmailPtrOutput)
 }
 
 func (o AutoscaleSettingNotificationOutput) Webhooks() AutoscaleSettingNotificationWebhookArrayOutput {
-	return o.ApplyT(func (v AutoscaleSettingNotification) []AutoscaleSettingNotificationWebhook { return v.Webhooks }).(AutoscaleSettingNotificationWebhookArrayOutput)
+	return o.ApplyT(func(v AutoscaleSettingNotification) []AutoscaleSettingNotificationWebhook { return v.Webhooks }).(AutoscaleSettingNotificationWebhookArrayOutput)
 }
 
-type AutoscaleSettingNotificationPtrOutput struct { *pulumi.OutputState}
+type AutoscaleSettingNotificationPtrOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingNotificationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AutoscaleSettingNotification)(nil)).Elem()
@@ -1799,21 +1549,21 @@ func (o AutoscaleSettingNotificationPtrOutput) ToAutoscaleSettingNotificationPtr
 }
 
 func (o AutoscaleSettingNotificationPtrOutput) Elem() AutoscaleSettingNotificationOutput {
-	return o.ApplyT(func (v *AutoscaleSettingNotification) AutoscaleSettingNotification { return *v }).(AutoscaleSettingNotificationOutput)
+	return o.ApplyT(func(v *AutoscaleSettingNotification) AutoscaleSettingNotification { return *v }).(AutoscaleSettingNotificationOutput)
 }
 
 func (o AutoscaleSettingNotificationPtrOutput) Email() AutoscaleSettingNotificationEmailPtrOutput {
-	return o.ApplyT(func (v AutoscaleSettingNotification) *AutoscaleSettingNotificationEmail { return v.Email }).(AutoscaleSettingNotificationEmailPtrOutput)
+	return o.ApplyT(func(v AutoscaleSettingNotification) *AutoscaleSettingNotificationEmail { return v.Email }).(AutoscaleSettingNotificationEmailPtrOutput)
 }
 
 func (o AutoscaleSettingNotificationPtrOutput) Webhooks() AutoscaleSettingNotificationWebhookArrayOutput {
-	return o.ApplyT(func (v AutoscaleSettingNotification) []AutoscaleSettingNotificationWebhook { return v.Webhooks }).(AutoscaleSettingNotificationWebhookArrayOutput)
+	return o.ApplyT(func(v AutoscaleSettingNotification) []AutoscaleSettingNotificationWebhook { return v.Webhooks }).(AutoscaleSettingNotificationWebhookArrayOutput)
 }
 
 type AutoscaleSettingNotificationEmail struct {
-	CustomEmails []string `pulumi:"customEmails"`
-	SendToSubscriptionAdministrator *bool `pulumi:"sendToSubscriptionAdministrator"`
-	SendToSubscriptionCoAdministrator *bool `pulumi:"sendToSubscriptionCoAdministrator"`
+	CustomEmails                      []string `pulumi:"customEmails"`
+	SendToSubscriptionAdministrator   *bool    `pulumi:"sendToSubscriptionAdministrator"`
+	SendToSubscriptionCoAdministrator *bool    `pulumi:"sendToSubscriptionCoAdministrator"`
 }
 
 type AutoscaleSettingNotificationEmailInput interface {
@@ -1824,9 +1574,9 @@ type AutoscaleSettingNotificationEmailInput interface {
 }
 
 type AutoscaleSettingNotificationEmailArgs struct {
-	CustomEmails pulumi.StringArrayInput `pulumi:"customEmails"`
-	SendToSubscriptionAdministrator pulumi.BoolPtrInput `pulumi:"sendToSubscriptionAdministrator"`
-	SendToSubscriptionCoAdministrator pulumi.BoolPtrInput `pulumi:"sendToSubscriptionCoAdministrator"`
+	CustomEmails                      pulumi.StringArrayInput `pulumi:"customEmails"`
+	SendToSubscriptionAdministrator   pulumi.BoolPtrInput     `pulumi:"sendToSubscriptionAdministrator"`
+	SendToSubscriptionCoAdministrator pulumi.BoolPtrInput     `pulumi:"sendToSubscriptionCoAdministrator"`
 }
 
 func (AutoscaleSettingNotificationEmailArgs) ElementType() reflect.Type {
@@ -1858,7 +1608,8 @@ type AutoscaleSettingNotificationEmailPtrInput interface {
 
 type autoscaleSettingNotificationEmailPtrType AutoscaleSettingNotificationEmailArgs
 
-func AutoscaleSettingNotificationEmailPtr(v *AutoscaleSettingNotificationEmailArgs) AutoscaleSettingNotificationEmailPtrInput {	return (*autoscaleSettingNotificationEmailPtrType)(v)
+func AutoscaleSettingNotificationEmailPtr(v *AutoscaleSettingNotificationEmailArgs) AutoscaleSettingNotificationEmailPtrInput {
+	return (*autoscaleSettingNotificationEmailPtrType)(v)
 }
 
 func (*autoscaleSettingNotificationEmailPtrType) ElementType() reflect.Type {
@@ -1873,7 +1624,7 @@ func (i *autoscaleSettingNotificationEmailPtrType) ToAutoscaleSettingNotificatio
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingNotificationEmailPtrOutput)
 }
 
-type AutoscaleSettingNotificationEmailOutput struct { *pulumi.OutputState }
+type AutoscaleSettingNotificationEmailOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingNotificationEmailOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoscaleSettingNotificationEmail)(nil)).Elem()
@@ -1897,18 +1648,18 @@ func (o AutoscaleSettingNotificationEmailOutput) ToAutoscaleSettingNotificationE
 	}).(AutoscaleSettingNotificationEmailPtrOutput)
 }
 func (o AutoscaleSettingNotificationEmailOutput) CustomEmails() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AutoscaleSettingNotificationEmail) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AutoscaleSettingNotificationEmail) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
 }
 
 func (o AutoscaleSettingNotificationEmailOutput) SendToSubscriptionAdministrator() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v AutoscaleSettingNotificationEmail) *bool { return v.SendToSubscriptionAdministrator }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v AutoscaleSettingNotificationEmail) *bool { return v.SendToSubscriptionAdministrator }).(pulumi.BoolPtrOutput)
 }
 
 func (o AutoscaleSettingNotificationEmailOutput) SendToSubscriptionCoAdministrator() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v AutoscaleSettingNotificationEmail) *bool { return v.SendToSubscriptionCoAdministrator }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v AutoscaleSettingNotificationEmail) *bool { return v.SendToSubscriptionCoAdministrator }).(pulumi.BoolPtrOutput)
 }
 
-type AutoscaleSettingNotificationEmailPtrOutput struct { *pulumi.OutputState}
+type AutoscaleSettingNotificationEmailPtrOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingNotificationEmailPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AutoscaleSettingNotificationEmail)(nil)).Elem()
@@ -1923,24 +1674,24 @@ func (o AutoscaleSettingNotificationEmailPtrOutput) ToAutoscaleSettingNotificati
 }
 
 func (o AutoscaleSettingNotificationEmailPtrOutput) Elem() AutoscaleSettingNotificationEmailOutput {
-	return o.ApplyT(func (v *AutoscaleSettingNotificationEmail) AutoscaleSettingNotificationEmail { return *v }).(AutoscaleSettingNotificationEmailOutput)
+	return o.ApplyT(func(v *AutoscaleSettingNotificationEmail) AutoscaleSettingNotificationEmail { return *v }).(AutoscaleSettingNotificationEmailOutput)
 }
 
 func (o AutoscaleSettingNotificationEmailPtrOutput) CustomEmails() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AutoscaleSettingNotificationEmail) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AutoscaleSettingNotificationEmail) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
 }
 
 func (o AutoscaleSettingNotificationEmailPtrOutput) SendToSubscriptionAdministrator() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v AutoscaleSettingNotificationEmail) *bool { return v.SendToSubscriptionAdministrator }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v AutoscaleSettingNotificationEmail) *bool { return v.SendToSubscriptionAdministrator }).(pulumi.BoolPtrOutput)
 }
 
 func (o AutoscaleSettingNotificationEmailPtrOutput) SendToSubscriptionCoAdministrator() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v AutoscaleSettingNotificationEmail) *bool { return v.SendToSubscriptionCoAdministrator }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v AutoscaleSettingNotificationEmail) *bool { return v.SendToSubscriptionCoAdministrator }).(pulumi.BoolPtrOutput)
 }
 
 type AutoscaleSettingNotificationWebhook struct {
 	Properties map[string]string `pulumi:"properties"`
-	ServiceUri string `pulumi:"serviceUri"`
+	ServiceUri string            `pulumi:"serviceUri"`
 }
 
 type AutoscaleSettingNotificationWebhookInput interface {
@@ -1952,7 +1703,7 @@ type AutoscaleSettingNotificationWebhookInput interface {
 
 type AutoscaleSettingNotificationWebhookArgs struct {
 	Properties pulumi.StringMapInput `pulumi:"properties"`
-	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
+	ServiceUri pulumi.StringInput    `pulumi:"serviceUri"`
 }
 
 func (AutoscaleSettingNotificationWebhookArgs) ElementType() reflect.Type {
@@ -1988,7 +1739,7 @@ func (i AutoscaleSettingNotificationWebhookArray) ToAutoscaleSettingNotification
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingNotificationWebhookArrayOutput)
 }
 
-type AutoscaleSettingNotificationWebhookOutput struct { *pulumi.OutputState }
+type AutoscaleSettingNotificationWebhookOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingNotificationWebhookOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoscaleSettingNotificationWebhook)(nil)).Elem()
@@ -2003,14 +1754,14 @@ func (o AutoscaleSettingNotificationWebhookOutput) ToAutoscaleSettingNotificatio
 }
 
 func (o AutoscaleSettingNotificationWebhookOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func (v AutoscaleSettingNotificationWebhook) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v AutoscaleSettingNotificationWebhook) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
 func (o AutoscaleSettingNotificationWebhookOutput) ServiceUri() pulumi.StringOutput {
-	return o.ApplyT(func (v AutoscaleSettingNotificationWebhook) string { return v.ServiceUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AutoscaleSettingNotificationWebhook) string { return v.ServiceUri }).(pulumi.StringOutput)
 }
 
-type AutoscaleSettingNotificationWebhookArrayOutput struct { *pulumi.OutputState}
+type AutoscaleSettingNotificationWebhookArrayOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingNotificationWebhookArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]AutoscaleSettingNotificationWebhook)(nil)).Elem()
@@ -2025,18 +1776,18 @@ func (o AutoscaleSettingNotificationWebhookArrayOutput) ToAutoscaleSettingNotifi
 }
 
 func (o AutoscaleSettingNotificationWebhookArrayOutput) Index(i pulumi.IntInput) AutoscaleSettingNotificationWebhookOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AutoscaleSettingNotificationWebhook {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoscaleSettingNotificationWebhook {
 		return vs[0].([]AutoscaleSettingNotificationWebhook)[vs[1].(int)]
 	}).(AutoscaleSettingNotificationWebhookOutput)
 }
 
 type AutoscaleSettingProfile struct {
-	Capacity AutoscaleSettingProfileCapacity `pulumi:"capacity"`
+	Capacity  AutoscaleSettingProfileCapacity   `pulumi:"capacity"`
 	FixedDate *AutoscaleSettingProfileFixedDate `pulumi:"fixedDate"`
 	// The name of the AutoScale Setting. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
+	Name       string                             `pulumi:"name"`
 	Recurrence *AutoscaleSettingProfileRecurrence `pulumi:"recurrence"`
-	Rules []AutoscaleSettingProfileRule `pulumi:"rules"`
+	Rules      []AutoscaleSettingProfileRule      `pulumi:"rules"`
 }
 
 type AutoscaleSettingProfileInput interface {
@@ -2047,12 +1798,12 @@ type AutoscaleSettingProfileInput interface {
 }
 
 type AutoscaleSettingProfileArgs struct {
-	Capacity AutoscaleSettingProfileCapacityInput `pulumi:"capacity"`
+	Capacity  AutoscaleSettingProfileCapacityInput     `pulumi:"capacity"`
 	FixedDate AutoscaleSettingProfileFixedDatePtrInput `pulumi:"fixedDate"`
 	// The name of the AutoScale Setting. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name       pulumi.StringInput                        `pulumi:"name"`
 	Recurrence AutoscaleSettingProfileRecurrencePtrInput `pulumi:"recurrence"`
-	Rules AutoscaleSettingProfileRuleArrayInput `pulumi:"rules"`
+	Rules      AutoscaleSettingProfileRuleArrayInput     `pulumi:"rules"`
 }
 
 func (AutoscaleSettingProfileArgs) ElementType() reflect.Type {
@@ -2088,7 +1839,7 @@ func (i AutoscaleSettingProfileArray) ToAutoscaleSettingProfileArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileArrayOutput)
 }
 
-type AutoscaleSettingProfileOutput struct { *pulumi.OutputState }
+type AutoscaleSettingProfileOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoscaleSettingProfile)(nil)).Elem()
@@ -2103,27 +1854,27 @@ func (o AutoscaleSettingProfileOutput) ToAutoscaleSettingProfileOutputWithContex
 }
 
 func (o AutoscaleSettingProfileOutput) Capacity() AutoscaleSettingProfileCapacityOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfile) AutoscaleSettingProfileCapacity { return v.Capacity }).(AutoscaleSettingProfileCapacityOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfile) AutoscaleSettingProfileCapacity { return v.Capacity }).(AutoscaleSettingProfileCapacityOutput)
 }
 
 func (o AutoscaleSettingProfileOutput) FixedDate() AutoscaleSettingProfileFixedDatePtrOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfile) *AutoscaleSettingProfileFixedDate { return v.FixedDate }).(AutoscaleSettingProfileFixedDatePtrOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfile) *AutoscaleSettingProfileFixedDate { return v.FixedDate }).(AutoscaleSettingProfileFixedDatePtrOutput)
 }
 
 // The name of the AutoScale Setting. Changing this forces a new resource to be created.
 func (o AutoscaleSettingProfileOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfile) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o AutoscaleSettingProfileOutput) Recurrence() AutoscaleSettingProfileRecurrencePtrOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfile) *AutoscaleSettingProfileRecurrence { return v.Recurrence }).(AutoscaleSettingProfileRecurrencePtrOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfile) *AutoscaleSettingProfileRecurrence { return v.Recurrence }).(AutoscaleSettingProfileRecurrencePtrOutput)
 }
 
 func (o AutoscaleSettingProfileOutput) Rules() AutoscaleSettingProfileRuleArrayOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfile) []AutoscaleSettingProfileRule { return v.Rules }).(AutoscaleSettingProfileRuleArrayOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfile) []AutoscaleSettingProfileRule { return v.Rules }).(AutoscaleSettingProfileRuleArrayOutput)
 }
 
-type AutoscaleSettingProfileArrayOutput struct { *pulumi.OutputState}
+type AutoscaleSettingProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]AutoscaleSettingProfile)(nil)).Elem()
@@ -2138,7 +1889,7 @@ func (o AutoscaleSettingProfileArrayOutput) ToAutoscaleSettingProfileArrayOutput
 }
 
 func (o AutoscaleSettingProfileArrayOutput) Index(i pulumi.IntInput) AutoscaleSettingProfileOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AutoscaleSettingProfile {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoscaleSettingProfile {
 		return vs[0].([]AutoscaleSettingProfile)[vs[1].(int)]
 	}).(AutoscaleSettingProfileOutput)
 }
@@ -2174,7 +1925,7 @@ func (i AutoscaleSettingProfileCapacityArgs) ToAutoscaleSettingProfileCapacityOu
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileCapacityOutput)
 }
 
-type AutoscaleSettingProfileCapacityOutput struct { *pulumi.OutputState }
+type AutoscaleSettingProfileCapacityOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileCapacityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoscaleSettingProfileCapacity)(nil)).Elem()
@@ -2189,20 +1940,20 @@ func (o AutoscaleSettingProfileCapacityOutput) ToAutoscaleSettingProfileCapacity
 }
 
 func (o AutoscaleSettingProfileCapacityOutput) Default() pulumi.IntOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileCapacity) int { return v.Default }).(pulumi.IntOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileCapacity) int { return v.Default }).(pulumi.IntOutput)
 }
 
 func (o AutoscaleSettingProfileCapacityOutput) Maximum() pulumi.IntOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileCapacity) int { return v.Maximum }).(pulumi.IntOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileCapacity) int { return v.Maximum }).(pulumi.IntOutput)
 }
 
 func (o AutoscaleSettingProfileCapacityOutput) Minimum() pulumi.IntOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileCapacity) int { return v.Minimum }).(pulumi.IntOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileCapacity) int { return v.Minimum }).(pulumi.IntOutput)
 }
 
 type AutoscaleSettingProfileFixedDate struct {
-	End string `pulumi:"end"`
-	Start string `pulumi:"start"`
+	End      string  `pulumi:"end"`
+	Start    string  `pulumi:"start"`
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -2214,8 +1965,8 @@ type AutoscaleSettingProfileFixedDateInput interface {
 }
 
 type AutoscaleSettingProfileFixedDateArgs struct {
-	End pulumi.StringInput `pulumi:"end"`
-	Start pulumi.StringInput `pulumi:"start"`
+	End      pulumi.StringInput    `pulumi:"end"`
+	Start    pulumi.StringInput    `pulumi:"start"`
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
@@ -2248,7 +1999,8 @@ type AutoscaleSettingProfileFixedDatePtrInput interface {
 
 type autoscaleSettingProfileFixedDatePtrType AutoscaleSettingProfileFixedDateArgs
 
-func AutoscaleSettingProfileFixedDatePtr(v *AutoscaleSettingProfileFixedDateArgs) AutoscaleSettingProfileFixedDatePtrInput {	return (*autoscaleSettingProfileFixedDatePtrType)(v)
+func AutoscaleSettingProfileFixedDatePtr(v *AutoscaleSettingProfileFixedDateArgs) AutoscaleSettingProfileFixedDatePtrInput {
+	return (*autoscaleSettingProfileFixedDatePtrType)(v)
 }
 
 func (*autoscaleSettingProfileFixedDatePtrType) ElementType() reflect.Type {
@@ -2263,7 +2015,7 @@ func (i *autoscaleSettingProfileFixedDatePtrType) ToAutoscaleSettingProfileFixed
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileFixedDatePtrOutput)
 }
 
-type AutoscaleSettingProfileFixedDateOutput struct { *pulumi.OutputState }
+type AutoscaleSettingProfileFixedDateOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileFixedDateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoscaleSettingProfileFixedDate)(nil)).Elem()
@@ -2287,18 +2039,18 @@ func (o AutoscaleSettingProfileFixedDateOutput) ToAutoscaleSettingProfileFixedDa
 	}).(AutoscaleSettingProfileFixedDatePtrOutput)
 }
 func (o AutoscaleSettingProfileFixedDateOutput) End() pulumi.StringOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileFixedDate) string { return v.End }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) string { return v.End }).(pulumi.StringOutput)
 }
 
 func (o AutoscaleSettingProfileFixedDateOutput) Start() pulumi.StringOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileFixedDate) string { return v.Start }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) string { return v.Start }).(pulumi.StringOutput)
 }
 
 func (o AutoscaleSettingProfileFixedDateOutput) Timezone() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileFixedDate) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
-type AutoscaleSettingProfileFixedDatePtrOutput struct { *pulumi.OutputState}
+type AutoscaleSettingProfileFixedDatePtrOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileFixedDatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AutoscaleSettingProfileFixedDate)(nil)).Elem()
@@ -2313,26 +2065,26 @@ func (o AutoscaleSettingProfileFixedDatePtrOutput) ToAutoscaleSettingProfileFixe
 }
 
 func (o AutoscaleSettingProfileFixedDatePtrOutput) Elem() AutoscaleSettingProfileFixedDateOutput {
-	return o.ApplyT(func (v *AutoscaleSettingProfileFixedDate) AutoscaleSettingProfileFixedDate { return *v }).(AutoscaleSettingProfileFixedDateOutput)
+	return o.ApplyT(func(v *AutoscaleSettingProfileFixedDate) AutoscaleSettingProfileFixedDate { return *v }).(AutoscaleSettingProfileFixedDateOutput)
 }
 
 func (o AutoscaleSettingProfileFixedDatePtrOutput) End() pulumi.StringOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileFixedDate) string { return v.End }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) string { return v.End }).(pulumi.StringOutput)
 }
 
 func (o AutoscaleSettingProfileFixedDatePtrOutput) Start() pulumi.StringOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileFixedDate) string { return v.Start }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) string { return v.Start }).(pulumi.StringOutput)
 }
 
 func (o AutoscaleSettingProfileFixedDatePtrOutput) Timezone() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileFixedDate) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
 type AutoscaleSettingProfileRecurrence struct {
-	Days []string `pulumi:"days"`
-	Hours int `pulumi:"hours"`
-	Minutes int `pulumi:"minutes"`
-	Timezone *string `pulumi:"timezone"`
+	Days     []string `pulumi:"days"`
+	Hours    int      `pulumi:"hours"`
+	Minutes  int      `pulumi:"minutes"`
+	Timezone *string  `pulumi:"timezone"`
 }
 
 type AutoscaleSettingProfileRecurrenceInput interface {
@@ -2343,10 +2095,10 @@ type AutoscaleSettingProfileRecurrenceInput interface {
 }
 
 type AutoscaleSettingProfileRecurrenceArgs struct {
-	Days pulumi.StringArrayInput `pulumi:"days"`
-	Hours pulumi.IntInput `pulumi:"hours"`
-	Minutes pulumi.IntInput `pulumi:"minutes"`
-	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+	Days     pulumi.StringArrayInput `pulumi:"days"`
+	Hours    pulumi.IntInput         `pulumi:"hours"`
+	Minutes  pulumi.IntInput         `pulumi:"minutes"`
+	Timezone pulumi.StringPtrInput   `pulumi:"timezone"`
 }
 
 func (AutoscaleSettingProfileRecurrenceArgs) ElementType() reflect.Type {
@@ -2378,7 +2130,8 @@ type AutoscaleSettingProfileRecurrencePtrInput interface {
 
 type autoscaleSettingProfileRecurrencePtrType AutoscaleSettingProfileRecurrenceArgs
 
-func AutoscaleSettingProfileRecurrencePtr(v *AutoscaleSettingProfileRecurrenceArgs) AutoscaleSettingProfileRecurrencePtrInput {	return (*autoscaleSettingProfileRecurrencePtrType)(v)
+func AutoscaleSettingProfileRecurrencePtr(v *AutoscaleSettingProfileRecurrenceArgs) AutoscaleSettingProfileRecurrencePtrInput {
+	return (*autoscaleSettingProfileRecurrencePtrType)(v)
 }
 
 func (*autoscaleSettingProfileRecurrencePtrType) ElementType() reflect.Type {
@@ -2393,7 +2146,7 @@ func (i *autoscaleSettingProfileRecurrencePtrType) ToAutoscaleSettingProfileRecu
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileRecurrencePtrOutput)
 }
 
-type AutoscaleSettingProfileRecurrenceOutput struct { *pulumi.OutputState }
+type AutoscaleSettingProfileRecurrenceOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileRecurrenceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoscaleSettingProfileRecurrence)(nil)).Elem()
@@ -2417,22 +2170,22 @@ func (o AutoscaleSettingProfileRecurrenceOutput) ToAutoscaleSettingProfileRecurr
 	}).(AutoscaleSettingProfileRecurrencePtrOutput)
 }
 func (o AutoscaleSettingProfileRecurrenceOutput) Days() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRecurrence) []string { return v.Days }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) []string { return v.Days }).(pulumi.StringArrayOutput)
 }
 
 func (o AutoscaleSettingProfileRecurrenceOutput) Hours() pulumi.IntOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRecurrence) int { return v.Hours }).(pulumi.IntOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) int { return v.Hours }).(pulumi.IntOutput)
 }
 
 func (o AutoscaleSettingProfileRecurrenceOutput) Minutes() pulumi.IntOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRecurrence) int { return v.Minutes }).(pulumi.IntOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) int { return v.Minutes }).(pulumi.IntOutput)
 }
 
 func (o AutoscaleSettingProfileRecurrenceOutput) Timezone() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRecurrence) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
-type AutoscaleSettingProfileRecurrencePtrOutput struct { *pulumi.OutputState}
+type AutoscaleSettingProfileRecurrencePtrOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileRecurrencePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AutoscaleSettingProfileRecurrence)(nil)).Elem()
@@ -2447,28 +2200,28 @@ func (o AutoscaleSettingProfileRecurrencePtrOutput) ToAutoscaleSettingProfileRec
 }
 
 func (o AutoscaleSettingProfileRecurrencePtrOutput) Elem() AutoscaleSettingProfileRecurrenceOutput {
-	return o.ApplyT(func (v *AutoscaleSettingProfileRecurrence) AutoscaleSettingProfileRecurrence { return *v }).(AutoscaleSettingProfileRecurrenceOutput)
+	return o.ApplyT(func(v *AutoscaleSettingProfileRecurrence) AutoscaleSettingProfileRecurrence { return *v }).(AutoscaleSettingProfileRecurrenceOutput)
 }
 
 func (o AutoscaleSettingProfileRecurrencePtrOutput) Days() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRecurrence) []string { return v.Days }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) []string { return v.Days }).(pulumi.StringArrayOutput)
 }
 
 func (o AutoscaleSettingProfileRecurrencePtrOutput) Hours() pulumi.IntOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRecurrence) int { return v.Hours }).(pulumi.IntOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) int { return v.Hours }).(pulumi.IntOutput)
 }
 
 func (o AutoscaleSettingProfileRecurrencePtrOutput) Minutes() pulumi.IntOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRecurrence) int { return v.Minutes }).(pulumi.IntOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) int { return v.Minutes }).(pulumi.IntOutput)
 }
 
 func (o AutoscaleSettingProfileRecurrencePtrOutput) Timezone() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRecurrence) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
 type AutoscaleSettingProfileRule struct {
 	MetricTrigger AutoscaleSettingProfileRuleMetricTrigger `pulumi:"metricTrigger"`
-	ScaleAction AutoscaleSettingProfileRuleScaleAction `pulumi:"scaleAction"`
+	ScaleAction   AutoscaleSettingProfileRuleScaleAction   `pulumi:"scaleAction"`
 }
 
 type AutoscaleSettingProfileRuleInput interface {
@@ -2480,7 +2233,7 @@ type AutoscaleSettingProfileRuleInput interface {
 
 type AutoscaleSettingProfileRuleArgs struct {
 	MetricTrigger AutoscaleSettingProfileRuleMetricTriggerInput `pulumi:"metricTrigger"`
-	ScaleAction AutoscaleSettingProfileRuleScaleActionInput `pulumi:"scaleAction"`
+	ScaleAction   AutoscaleSettingProfileRuleScaleActionInput   `pulumi:"scaleAction"`
 }
 
 func (AutoscaleSettingProfileRuleArgs) ElementType() reflect.Type {
@@ -2516,7 +2269,7 @@ func (i AutoscaleSettingProfileRuleArray) ToAutoscaleSettingProfileRuleArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileRuleArrayOutput)
 }
 
-type AutoscaleSettingProfileRuleOutput struct { *pulumi.OutputState }
+type AutoscaleSettingProfileRuleOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoscaleSettingProfileRule)(nil)).Elem()
@@ -2531,14 +2284,14 @@ func (o AutoscaleSettingProfileRuleOutput) ToAutoscaleSettingProfileRuleOutputWi
 }
 
 func (o AutoscaleSettingProfileRuleOutput) MetricTrigger() AutoscaleSettingProfileRuleMetricTriggerOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRule) AutoscaleSettingProfileRuleMetricTrigger { return v.MetricTrigger }).(AutoscaleSettingProfileRuleMetricTriggerOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRule) AutoscaleSettingProfileRuleMetricTrigger { return v.MetricTrigger }).(AutoscaleSettingProfileRuleMetricTriggerOutput)
 }
 
 func (o AutoscaleSettingProfileRuleOutput) ScaleAction() AutoscaleSettingProfileRuleScaleActionOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRule) AutoscaleSettingProfileRuleScaleAction { return v.ScaleAction }).(AutoscaleSettingProfileRuleScaleActionOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRule) AutoscaleSettingProfileRuleScaleAction { return v.ScaleAction }).(AutoscaleSettingProfileRuleScaleActionOutput)
 }
 
-type AutoscaleSettingProfileRuleArrayOutput struct { *pulumi.OutputState}
+type AutoscaleSettingProfileRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]AutoscaleSettingProfileRule)(nil)).Elem()
@@ -2553,20 +2306,20 @@ func (o AutoscaleSettingProfileRuleArrayOutput) ToAutoscaleSettingProfileRuleArr
 }
 
 func (o AutoscaleSettingProfileRuleArrayOutput) Index(i pulumi.IntInput) AutoscaleSettingProfileRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AutoscaleSettingProfileRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoscaleSettingProfileRule {
 		return vs[0].([]AutoscaleSettingProfileRule)[vs[1].(int)]
 	}).(AutoscaleSettingProfileRuleOutput)
 }
 
 type AutoscaleSettingProfileRuleMetricTrigger struct {
-	MetricName string `pulumi:"metricName"`
-	MetricResourceId string `pulumi:"metricResourceId"`
-	Operator string `pulumi:"operator"`
-	Statistic string `pulumi:"statistic"`
-	Threshold float64 `pulumi:"threshold"`
-	TimeAggregation string `pulumi:"timeAggregation"`
-	TimeGrain string `pulumi:"timeGrain"`
-	TimeWindow string `pulumi:"timeWindow"`
+	MetricName       string  `pulumi:"metricName"`
+	MetricResourceId string  `pulumi:"metricResourceId"`
+	Operator         string  `pulumi:"operator"`
+	Statistic        string  `pulumi:"statistic"`
+	Threshold        float64 `pulumi:"threshold"`
+	TimeAggregation  string  `pulumi:"timeAggregation"`
+	TimeGrain        string  `pulumi:"timeGrain"`
+	TimeWindow       string  `pulumi:"timeWindow"`
 }
 
 type AutoscaleSettingProfileRuleMetricTriggerInput interface {
@@ -2577,14 +2330,14 @@ type AutoscaleSettingProfileRuleMetricTriggerInput interface {
 }
 
 type AutoscaleSettingProfileRuleMetricTriggerArgs struct {
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	MetricResourceId pulumi.StringInput `pulumi:"metricResourceId"`
-	Operator pulumi.StringInput `pulumi:"operator"`
-	Statistic pulumi.StringInput `pulumi:"statistic"`
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
-	TimeGrain pulumi.StringInput `pulumi:"timeGrain"`
-	TimeWindow pulumi.StringInput `pulumi:"timeWindow"`
+	MetricName       pulumi.StringInput  `pulumi:"metricName"`
+	MetricResourceId pulumi.StringInput  `pulumi:"metricResourceId"`
+	Operator         pulumi.StringInput  `pulumi:"operator"`
+	Statistic        pulumi.StringInput  `pulumi:"statistic"`
+	Threshold        pulumi.Float64Input `pulumi:"threshold"`
+	TimeAggregation  pulumi.StringInput  `pulumi:"timeAggregation"`
+	TimeGrain        pulumi.StringInput  `pulumi:"timeGrain"`
+	TimeWindow       pulumi.StringInput  `pulumi:"timeWindow"`
 }
 
 func (AutoscaleSettingProfileRuleMetricTriggerArgs) ElementType() reflect.Type {
@@ -2599,7 +2352,7 @@ func (i AutoscaleSettingProfileRuleMetricTriggerArgs) ToAutoscaleSettingProfileR
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileRuleMetricTriggerOutput)
 }
 
-type AutoscaleSettingProfileRuleMetricTriggerOutput struct { *pulumi.OutputState }
+type AutoscaleSettingProfileRuleMetricTriggerOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileRuleMetricTriggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoscaleSettingProfileRuleMetricTrigger)(nil)).Elem()
@@ -2614,42 +2367,42 @@ func (o AutoscaleSettingProfileRuleMetricTriggerOutput) ToAutoscaleSettingProfil
 }
 
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) MetricName() pulumi.StringOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRuleMetricTrigger) string { return v.MetricName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) MetricResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRuleMetricTrigger) string { return v.MetricResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.MetricResourceId }).(pulumi.StringOutput)
 }
 
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRuleMetricTrigger) string { return v.Operator }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.Operator }).(pulumi.StringOutput)
 }
 
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) Statistic() pulumi.StringOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRuleMetricTrigger) string { return v.Statistic }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.Statistic }).(pulumi.StringOutput)
 }
 
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) Threshold() pulumi.Float64Output {
-	return o.ApplyT(func (v AutoscaleSettingProfileRuleMetricTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) TimeAggregation() pulumi.StringOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRuleMetricTrigger) string { return v.TimeAggregation }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.TimeAggregation }).(pulumi.StringOutput)
 }
 
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) TimeGrain() pulumi.StringOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRuleMetricTrigger) string { return v.TimeGrain }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.TimeGrain }).(pulumi.StringOutput)
 }
 
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) TimeWindow() pulumi.StringOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRuleMetricTrigger) string { return v.TimeWindow }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.TimeWindow }).(pulumi.StringOutput)
 }
 
 type AutoscaleSettingProfileRuleScaleAction struct {
-	Cooldown string `pulumi:"cooldown"`
+	Cooldown  string `pulumi:"cooldown"`
 	Direction string `pulumi:"direction"`
-	Type string `pulumi:"type"`
-	Value int `pulumi:"value"`
+	Type      string `pulumi:"type"`
+	Value     int    `pulumi:"value"`
 }
 
 type AutoscaleSettingProfileRuleScaleActionInput interface {
@@ -2660,10 +2413,10 @@ type AutoscaleSettingProfileRuleScaleActionInput interface {
 }
 
 type AutoscaleSettingProfileRuleScaleActionArgs struct {
-	Cooldown pulumi.StringInput `pulumi:"cooldown"`
+	Cooldown  pulumi.StringInput `pulumi:"cooldown"`
 	Direction pulumi.StringInput `pulumi:"direction"`
-	Type pulumi.StringInput `pulumi:"type"`
-	Value pulumi.IntInput `pulumi:"value"`
+	Type      pulumi.StringInput `pulumi:"type"`
+	Value     pulumi.IntInput    `pulumi:"value"`
 }
 
 func (AutoscaleSettingProfileRuleScaleActionArgs) ElementType() reflect.Type {
@@ -2678,7 +2431,7 @@ func (i AutoscaleSettingProfileRuleScaleActionArgs) ToAutoscaleSettingProfileRul
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileRuleScaleActionOutput)
 }
 
-type AutoscaleSettingProfileRuleScaleActionOutput struct { *pulumi.OutputState }
+type AutoscaleSettingProfileRuleScaleActionOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileRuleScaleActionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoscaleSettingProfileRuleScaleAction)(nil)).Elem()
@@ -2693,24 +2446,24 @@ func (o AutoscaleSettingProfileRuleScaleActionOutput) ToAutoscaleSettingProfileR
 }
 
 func (o AutoscaleSettingProfileRuleScaleActionOutput) Cooldown() pulumi.StringOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRuleScaleAction) string { return v.Cooldown }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleScaleAction) string { return v.Cooldown }).(pulumi.StringOutput)
 }
 
 func (o AutoscaleSettingProfileRuleScaleActionOutput) Direction() pulumi.StringOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRuleScaleAction) string { return v.Direction }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleScaleAction) string { return v.Direction }).(pulumi.StringOutput)
 }
 
 func (o AutoscaleSettingProfileRuleScaleActionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRuleScaleAction) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleScaleAction) string { return v.Type }).(pulumi.StringOutput)
 }
 
 func (o AutoscaleSettingProfileRuleScaleActionOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func (v AutoscaleSettingProfileRuleScaleAction) int { return v.Value }).(pulumi.IntOutput)
+	return o.ApplyT(func(v AutoscaleSettingProfileRuleScaleAction) int { return v.Value }).(pulumi.IntOutput)
 }
 
 type DiagnosticSettingLog struct {
-	Category string `pulumi:"category"`
-	Enabled *bool `pulumi:"enabled"`
+	Category        string                              `pulumi:"category"`
+	Enabled         *bool                               `pulumi:"enabled"`
 	RetentionPolicy DiagnosticSettingLogRetentionPolicy `pulumi:"retentionPolicy"`
 }
 
@@ -2722,8 +2475,8 @@ type DiagnosticSettingLogInput interface {
 }
 
 type DiagnosticSettingLogArgs struct {
-	Category pulumi.StringInput `pulumi:"category"`
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	Category        pulumi.StringInput                       `pulumi:"category"`
+	Enabled         pulumi.BoolPtrInput                      `pulumi:"enabled"`
 	RetentionPolicy DiagnosticSettingLogRetentionPolicyInput `pulumi:"retentionPolicy"`
 }
 
@@ -2760,7 +2513,7 @@ func (i DiagnosticSettingLogArray) ToDiagnosticSettingLogArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingLogArrayOutput)
 }
 
-type DiagnosticSettingLogOutput struct { *pulumi.OutputState }
+type DiagnosticSettingLogOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticSettingLogOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiagnosticSettingLog)(nil)).Elem()
@@ -2775,18 +2528,18 @@ func (o DiagnosticSettingLogOutput) ToDiagnosticSettingLogOutputWithContext(ctx 
 }
 
 func (o DiagnosticSettingLogOutput) Category() pulumi.StringOutput {
-	return o.ApplyT(func (v DiagnosticSettingLog) string { return v.Category }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DiagnosticSettingLog) string { return v.Category }).(pulumi.StringOutput)
 }
 
 func (o DiagnosticSettingLogOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DiagnosticSettingLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DiagnosticSettingLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o DiagnosticSettingLogOutput) RetentionPolicy() DiagnosticSettingLogRetentionPolicyOutput {
-	return o.ApplyT(func (v DiagnosticSettingLog) DiagnosticSettingLogRetentionPolicy { return v.RetentionPolicy }).(DiagnosticSettingLogRetentionPolicyOutput)
+	return o.ApplyT(func(v DiagnosticSettingLog) DiagnosticSettingLogRetentionPolicy { return v.RetentionPolicy }).(DiagnosticSettingLogRetentionPolicyOutput)
 }
 
-type DiagnosticSettingLogArrayOutput struct { *pulumi.OutputState}
+type DiagnosticSettingLogArrayOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticSettingLogArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DiagnosticSettingLog)(nil)).Elem()
@@ -2801,13 +2554,13 @@ func (o DiagnosticSettingLogArrayOutput) ToDiagnosticSettingLogArrayOutputWithCo
 }
 
 func (o DiagnosticSettingLogArrayOutput) Index(i pulumi.IntInput) DiagnosticSettingLogOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DiagnosticSettingLog {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticSettingLog {
 		return vs[0].([]DiagnosticSettingLog)[vs[1].(int)]
 	}).(DiagnosticSettingLogOutput)
 }
 
 type DiagnosticSettingLogRetentionPolicy struct {
-	Days *int `pulumi:"days"`
+	Days    *int `pulumi:"days"`
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -2819,8 +2572,8 @@ type DiagnosticSettingLogRetentionPolicyInput interface {
 }
 
 type DiagnosticSettingLogRetentionPolicyArgs struct {
-	Days pulumi.IntPtrInput `pulumi:"days"`
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Days    pulumi.IntPtrInput `pulumi:"days"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
 }
 
 func (DiagnosticSettingLogRetentionPolicyArgs) ElementType() reflect.Type {
@@ -2835,7 +2588,7 @@ func (i DiagnosticSettingLogRetentionPolicyArgs) ToDiagnosticSettingLogRetention
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingLogRetentionPolicyOutput)
 }
 
-type DiagnosticSettingLogRetentionPolicyOutput struct { *pulumi.OutputState }
+type DiagnosticSettingLogRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticSettingLogRetentionPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiagnosticSettingLogRetentionPolicy)(nil)).Elem()
@@ -2850,16 +2603,16 @@ func (o DiagnosticSettingLogRetentionPolicyOutput) ToDiagnosticSettingLogRetenti
 }
 
 func (o DiagnosticSettingLogRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DiagnosticSettingLogRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DiagnosticSettingLogRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
 func (o DiagnosticSettingLogRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v DiagnosticSettingLogRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v DiagnosticSettingLogRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 type DiagnosticSettingMetric struct {
-	Category string `pulumi:"category"`
-	Enabled *bool `pulumi:"enabled"`
+	Category        string                                 `pulumi:"category"`
+	Enabled         *bool                                  `pulumi:"enabled"`
 	RetentionPolicy DiagnosticSettingMetricRetentionPolicy `pulumi:"retentionPolicy"`
 }
 
@@ -2871,8 +2624,8 @@ type DiagnosticSettingMetricInput interface {
 }
 
 type DiagnosticSettingMetricArgs struct {
-	Category pulumi.StringInput `pulumi:"category"`
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	Category        pulumi.StringInput                          `pulumi:"category"`
+	Enabled         pulumi.BoolPtrInput                         `pulumi:"enabled"`
 	RetentionPolicy DiagnosticSettingMetricRetentionPolicyInput `pulumi:"retentionPolicy"`
 }
 
@@ -2909,7 +2662,7 @@ func (i DiagnosticSettingMetricArray) ToDiagnosticSettingMetricArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingMetricArrayOutput)
 }
 
-type DiagnosticSettingMetricOutput struct { *pulumi.OutputState }
+type DiagnosticSettingMetricOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticSettingMetricOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiagnosticSettingMetric)(nil)).Elem()
@@ -2924,18 +2677,18 @@ func (o DiagnosticSettingMetricOutput) ToDiagnosticSettingMetricOutputWithContex
 }
 
 func (o DiagnosticSettingMetricOutput) Category() pulumi.StringOutput {
-	return o.ApplyT(func (v DiagnosticSettingMetric) string { return v.Category }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DiagnosticSettingMetric) string { return v.Category }).(pulumi.StringOutput)
 }
 
 func (o DiagnosticSettingMetricOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DiagnosticSettingMetric) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DiagnosticSettingMetric) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o DiagnosticSettingMetricOutput) RetentionPolicy() DiagnosticSettingMetricRetentionPolicyOutput {
-	return o.ApplyT(func (v DiagnosticSettingMetric) DiagnosticSettingMetricRetentionPolicy { return v.RetentionPolicy }).(DiagnosticSettingMetricRetentionPolicyOutput)
+	return o.ApplyT(func(v DiagnosticSettingMetric) DiagnosticSettingMetricRetentionPolicy { return v.RetentionPolicy }).(DiagnosticSettingMetricRetentionPolicyOutput)
 }
 
-type DiagnosticSettingMetricArrayOutput struct { *pulumi.OutputState}
+type DiagnosticSettingMetricArrayOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticSettingMetricArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DiagnosticSettingMetric)(nil)).Elem()
@@ -2950,13 +2703,13 @@ func (o DiagnosticSettingMetricArrayOutput) ToDiagnosticSettingMetricArrayOutput
 }
 
 func (o DiagnosticSettingMetricArrayOutput) Index(i pulumi.IntInput) DiagnosticSettingMetricOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DiagnosticSettingMetric {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticSettingMetric {
 		return vs[0].([]DiagnosticSettingMetric)[vs[1].(int)]
 	}).(DiagnosticSettingMetricOutput)
 }
 
 type DiagnosticSettingMetricRetentionPolicy struct {
-	Days *int `pulumi:"days"`
+	Days    *int `pulumi:"days"`
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -2968,8 +2721,8 @@ type DiagnosticSettingMetricRetentionPolicyInput interface {
 }
 
 type DiagnosticSettingMetricRetentionPolicyArgs struct {
-	Days pulumi.IntPtrInput `pulumi:"days"`
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Days    pulumi.IntPtrInput `pulumi:"days"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
 }
 
 func (DiagnosticSettingMetricRetentionPolicyArgs) ElementType() reflect.Type {
@@ -2984,7 +2737,7 @@ func (i DiagnosticSettingMetricRetentionPolicyArgs) ToDiagnosticSettingMetricRet
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingMetricRetentionPolicyOutput)
 }
 
-type DiagnosticSettingMetricRetentionPolicyOutput struct { *pulumi.OutputState }
+type DiagnosticSettingMetricRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticSettingMetricRetentionPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiagnosticSettingMetricRetentionPolicy)(nil)).Elem()
@@ -2999,15 +2752,15 @@ func (o DiagnosticSettingMetricRetentionPolicyOutput) ToDiagnosticSettingMetricR
 }
 
 func (o DiagnosticSettingMetricRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DiagnosticSettingMetricRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DiagnosticSettingMetricRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
 func (o DiagnosticSettingMetricRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v DiagnosticSettingMetricRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v DiagnosticSettingMetricRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 type LogProfileRetentionPolicy struct {
-	Days *int `pulumi:"days"`
+	Days    *int `pulumi:"days"`
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -3019,8 +2772,8 @@ type LogProfileRetentionPolicyInput interface {
 }
 
 type LogProfileRetentionPolicyArgs struct {
-	Days pulumi.IntPtrInput `pulumi:"days"`
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Days    pulumi.IntPtrInput `pulumi:"days"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
 }
 
 func (LogProfileRetentionPolicyArgs) ElementType() reflect.Type {
@@ -3052,7 +2805,8 @@ type LogProfileRetentionPolicyPtrInput interface {
 
 type logProfileRetentionPolicyPtrType LogProfileRetentionPolicyArgs
 
-func LogProfileRetentionPolicyPtr(v *LogProfileRetentionPolicyArgs) LogProfileRetentionPolicyPtrInput {	return (*logProfileRetentionPolicyPtrType)(v)
+func LogProfileRetentionPolicyPtr(v *LogProfileRetentionPolicyArgs) LogProfileRetentionPolicyPtrInput {
+	return (*logProfileRetentionPolicyPtrType)(v)
 }
 
 func (*logProfileRetentionPolicyPtrType) ElementType() reflect.Type {
@@ -3067,7 +2821,7 @@ func (i *logProfileRetentionPolicyPtrType) ToLogProfileRetentionPolicyPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LogProfileRetentionPolicyPtrOutput)
 }
 
-type LogProfileRetentionPolicyOutput struct { *pulumi.OutputState }
+type LogProfileRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (LogProfileRetentionPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LogProfileRetentionPolicy)(nil)).Elem()
@@ -3091,14 +2845,14 @@ func (o LogProfileRetentionPolicyOutput) ToLogProfileRetentionPolicyPtrOutputWit
 	}).(LogProfileRetentionPolicyPtrOutput)
 }
 func (o LogProfileRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v LogProfileRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v LogProfileRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
 func (o LogProfileRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v LogProfileRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v LogProfileRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type LogProfileRetentionPolicyPtrOutput struct { *pulumi.OutputState}
+type LogProfileRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (LogProfileRetentionPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LogProfileRetentionPolicy)(nil)).Elem()
@@ -3113,19 +2867,19 @@ func (o LogProfileRetentionPolicyPtrOutput) ToLogProfileRetentionPolicyPtrOutput
 }
 
 func (o LogProfileRetentionPolicyPtrOutput) Elem() LogProfileRetentionPolicyOutput {
-	return o.ApplyT(func (v *LogProfileRetentionPolicy) LogProfileRetentionPolicy { return *v }).(LogProfileRetentionPolicyOutput)
+	return o.ApplyT(func(v *LogProfileRetentionPolicy) LogProfileRetentionPolicy { return *v }).(LogProfileRetentionPolicyOutput)
 }
 
 func (o LogProfileRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v LogProfileRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v LogProfileRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
 func (o LogProfileRetentionPolicyPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v LogProfileRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v LogProfileRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 type MetricAlertAction struct {
-	ActionGroupId string `pulumi:"actionGroupId"`
+	ActionGroupId     string            `pulumi:"actionGroupId"`
 	WebhookProperties map[string]string `pulumi:"webhookProperties"`
 }
 
@@ -3137,7 +2891,7 @@ type MetricAlertActionInput interface {
 }
 
 type MetricAlertActionArgs struct {
-	ActionGroupId pulumi.StringInput `pulumi:"actionGroupId"`
+	ActionGroupId     pulumi.StringInput    `pulumi:"actionGroupId"`
 	WebhookProperties pulumi.StringMapInput `pulumi:"webhookProperties"`
 }
 
@@ -3174,7 +2928,7 @@ func (i MetricAlertActionArray) ToMetricAlertActionArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertActionArrayOutput)
 }
 
-type MetricAlertActionOutput struct { *pulumi.OutputState }
+type MetricAlertActionOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertActionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MetricAlertAction)(nil)).Elem()
@@ -3189,14 +2943,14 @@ func (o MetricAlertActionOutput) ToMetricAlertActionOutputWithContext(ctx contex
 }
 
 func (o MetricAlertActionOutput) ActionGroupId() pulumi.StringOutput {
-	return o.ApplyT(func (v MetricAlertAction) string { return v.ActionGroupId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MetricAlertAction) string { return v.ActionGroupId }).(pulumi.StringOutput)
 }
 
 func (o MetricAlertActionOutput) WebhookProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func (v MetricAlertAction) map[string]string { return v.WebhookProperties }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v MetricAlertAction) map[string]string { return v.WebhookProperties }).(pulumi.StringMapOutput)
 }
 
-type MetricAlertActionArrayOutput struct { *pulumi.OutputState}
+type MetricAlertActionArrayOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertActionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]MetricAlertAction)(nil)).Elem()
@@ -3211,18 +2965,18 @@ func (o MetricAlertActionArrayOutput) ToMetricAlertActionArrayOutputWithContext(
 }
 
 func (o MetricAlertActionArrayOutput) Index(i pulumi.IntInput) MetricAlertActionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) MetricAlertAction {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricAlertAction {
 		return vs[0].([]MetricAlertAction)[vs[1].(int)]
 	}).(MetricAlertActionOutput)
 }
 
 type MetricAlertCriteria struct {
-	Aggregation string `pulumi:"aggregation"`
-	Dimensions []MetricAlertCriteriaDimension `pulumi:"dimensions"`
-	MetricName string `pulumi:"metricName"`
-	MetricNamespace string `pulumi:"metricNamespace"`
-	Operator string `pulumi:"operator"`
-	Threshold float64 `pulumi:"threshold"`
+	Aggregation     string                         `pulumi:"aggregation"`
+	Dimensions      []MetricAlertCriteriaDimension `pulumi:"dimensions"`
+	MetricName      string                         `pulumi:"metricName"`
+	MetricNamespace string                         `pulumi:"metricNamespace"`
+	Operator        string                         `pulumi:"operator"`
+	Threshold       float64                        `pulumi:"threshold"`
 }
 
 type MetricAlertCriteriaInput interface {
@@ -3233,12 +2987,12 @@ type MetricAlertCriteriaInput interface {
 }
 
 type MetricAlertCriteriaArgs struct {
-	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	Dimensions MetricAlertCriteriaDimensionArrayInput `pulumi:"dimensions"`
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	MetricNamespace pulumi.StringInput `pulumi:"metricNamespace"`
-	Operator pulumi.StringInput `pulumi:"operator"`
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	Aggregation     pulumi.StringInput                     `pulumi:"aggregation"`
+	Dimensions      MetricAlertCriteriaDimensionArrayInput `pulumi:"dimensions"`
+	MetricName      pulumi.StringInput                     `pulumi:"metricName"`
+	MetricNamespace pulumi.StringInput                     `pulumi:"metricNamespace"`
+	Operator        pulumi.StringInput                     `pulumi:"operator"`
+	Threshold       pulumi.Float64Input                    `pulumi:"threshold"`
 }
 
 func (MetricAlertCriteriaArgs) ElementType() reflect.Type {
@@ -3274,7 +3028,7 @@ func (i MetricAlertCriteriaArray) ToMetricAlertCriteriaArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaArrayOutput)
 }
 
-type MetricAlertCriteriaOutput struct { *pulumi.OutputState }
+type MetricAlertCriteriaOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertCriteriaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MetricAlertCriteria)(nil)).Elem()
@@ -3289,30 +3043,30 @@ func (o MetricAlertCriteriaOutput) ToMetricAlertCriteriaOutputWithContext(ctx co
 }
 
 func (o MetricAlertCriteriaOutput) Aggregation() pulumi.StringOutput {
-	return o.ApplyT(func (v MetricAlertCriteria) string { return v.Aggregation }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MetricAlertCriteria) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
 func (o MetricAlertCriteriaOutput) Dimensions() MetricAlertCriteriaDimensionArrayOutput {
-	return o.ApplyT(func (v MetricAlertCriteria) []MetricAlertCriteriaDimension { return v.Dimensions }).(MetricAlertCriteriaDimensionArrayOutput)
+	return o.ApplyT(func(v MetricAlertCriteria) []MetricAlertCriteriaDimension { return v.Dimensions }).(MetricAlertCriteriaDimensionArrayOutput)
 }
 
 func (o MetricAlertCriteriaOutput) MetricName() pulumi.StringOutput {
-	return o.ApplyT(func (v MetricAlertCriteria) string { return v.MetricName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MetricAlertCriteria) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
 func (o MetricAlertCriteriaOutput) MetricNamespace() pulumi.StringOutput {
-	return o.ApplyT(func (v MetricAlertCriteria) string { return v.MetricNamespace }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MetricAlertCriteria) string { return v.MetricNamespace }).(pulumi.StringOutput)
 }
 
 func (o MetricAlertCriteriaOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func (v MetricAlertCriteria) string { return v.Operator }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MetricAlertCriteria) string { return v.Operator }).(pulumi.StringOutput)
 }
 
 func (o MetricAlertCriteriaOutput) Threshold() pulumi.Float64Output {
-	return o.ApplyT(func (v MetricAlertCriteria) float64 { return v.Threshold }).(pulumi.Float64Output)
+	return o.ApplyT(func(v MetricAlertCriteria) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-type MetricAlertCriteriaArrayOutput struct { *pulumi.OutputState}
+type MetricAlertCriteriaArrayOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertCriteriaArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]MetricAlertCriteria)(nil)).Elem()
@@ -3327,16 +3081,16 @@ func (o MetricAlertCriteriaArrayOutput) ToMetricAlertCriteriaArrayOutputWithCont
 }
 
 func (o MetricAlertCriteriaArrayOutput) Index(i pulumi.IntInput) MetricAlertCriteriaOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) MetricAlertCriteria {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricAlertCriteria {
 		return vs[0].([]MetricAlertCriteria)[vs[1].(int)]
 	}).(MetricAlertCriteriaOutput)
 }
 
 type MetricAlertCriteriaDimension struct {
 	// The name of the Metric Alert. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	Operator string `pulumi:"operator"`
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 type MetricAlertCriteriaDimensionInput interface {
@@ -3348,9 +3102,9 @@ type MetricAlertCriteriaDimensionInput interface {
 
 type MetricAlertCriteriaDimensionArgs struct {
 	// The name of the Metric Alert. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	Operator pulumi.StringInput `pulumi:"operator"`
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (MetricAlertCriteriaDimensionArgs) ElementType() reflect.Type {
@@ -3386,7 +3140,7 @@ func (i MetricAlertCriteriaDimensionArray) ToMetricAlertCriteriaDimensionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaDimensionArrayOutput)
 }
 
-type MetricAlertCriteriaDimensionOutput struct { *pulumi.OutputState }
+type MetricAlertCriteriaDimensionOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertCriteriaDimensionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MetricAlertCriteriaDimension)(nil)).Elem()
@@ -3402,18 +3156,18 @@ func (o MetricAlertCriteriaDimensionOutput) ToMetricAlertCriteriaDimensionOutput
 
 // The name of the Metric Alert. Changing this forces a new resource to be created.
 func (o MetricAlertCriteriaDimensionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v MetricAlertCriteriaDimension) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MetricAlertCriteriaDimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o MetricAlertCriteriaDimensionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func (v MetricAlertCriteriaDimension) string { return v.Operator }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MetricAlertCriteriaDimension) string { return v.Operator }).(pulumi.StringOutput)
 }
 
 func (o MetricAlertCriteriaDimensionOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v MetricAlertCriteriaDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v MetricAlertCriteriaDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type MetricAlertCriteriaDimensionArrayOutput struct { *pulumi.OutputState}
+type MetricAlertCriteriaDimensionArrayOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertCriteriaDimensionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]MetricAlertCriteriaDimension)(nil)).Elem()
@@ -3428,261 +3182,676 @@ func (o MetricAlertCriteriaDimensionArrayOutput) ToMetricAlertCriteriaDimensionA
 }
 
 func (o MetricAlertCriteriaDimensionArrayOutput) Index(i pulumi.IntInput) MetricAlertCriteriaDimensionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) MetricAlertCriteriaDimension {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricAlertCriteriaDimension {
 		return vs[0].([]MetricAlertCriteriaDimension)[vs[1].(int)]
 	}).(MetricAlertCriteriaDimensionOutput)
 }
 
-type MetricAlertRuleEmailAction struct {
-	// A list of email addresses to be notified when the alert is triggered.
-	CustomEmails []string `pulumi:"customEmails"`
-	// If `true`, the administrators (service and co-administrators) of the subscription are notified when the alert is triggered. Defaults to `false`.
-	SendToServiceOwners *bool `pulumi:"sendToServiceOwners"`
+type ScheduledQueryRulesAlertAction struct {
+	// List of action group reference resource IDs.
+	ActionGroups []string `pulumi:"actionGroups"`
+	// Custom payload to be sent for all webhook payloads in alerting action.
+	CustomWebhookPayload *string `pulumi:"customWebhookPayload"`
+	// Custom subject override for all email ids in Azure action group.
+	EmailSubject *string `pulumi:"emailSubject"`
 }
 
-type MetricAlertRuleEmailActionInput interface {
+type ScheduledQueryRulesAlertActionInput interface {
 	pulumi.Input
 
-	ToMetricAlertRuleEmailActionOutput() MetricAlertRuleEmailActionOutput
-	ToMetricAlertRuleEmailActionOutputWithContext(context.Context) MetricAlertRuleEmailActionOutput
+	ToScheduledQueryRulesAlertActionOutput() ScheduledQueryRulesAlertActionOutput
+	ToScheduledQueryRulesAlertActionOutputWithContext(context.Context) ScheduledQueryRulesAlertActionOutput
 }
 
-type MetricAlertRuleEmailActionArgs struct {
-	// A list of email addresses to be notified when the alert is triggered.
-	CustomEmails pulumi.StringArrayInput `pulumi:"customEmails"`
-	// If `true`, the administrators (service and co-administrators) of the subscription are notified when the alert is triggered. Defaults to `false`.
-	SendToServiceOwners pulumi.BoolPtrInput `pulumi:"sendToServiceOwners"`
+type ScheduledQueryRulesAlertActionArgs struct {
+	// List of action group reference resource IDs.
+	ActionGroups pulumi.StringArrayInput `pulumi:"actionGroups"`
+	// Custom payload to be sent for all webhook payloads in alerting action.
+	CustomWebhookPayload pulumi.StringPtrInput `pulumi:"customWebhookPayload"`
+	// Custom subject override for all email ids in Azure action group.
+	EmailSubject pulumi.StringPtrInput `pulumi:"emailSubject"`
 }
 
-func (MetricAlertRuleEmailActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertRuleEmailAction)(nil)).Elem()
+func (ScheduledQueryRulesAlertActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlertAction)(nil)).Elem()
 }
 
-func (i MetricAlertRuleEmailActionArgs) ToMetricAlertRuleEmailActionOutput() MetricAlertRuleEmailActionOutput {
-	return i.ToMetricAlertRuleEmailActionOutputWithContext(context.Background())
+func (i ScheduledQueryRulesAlertActionArgs) ToScheduledQueryRulesAlertActionOutput() ScheduledQueryRulesAlertActionOutput {
+	return i.ToScheduledQueryRulesAlertActionOutputWithContext(context.Background())
 }
 
-func (i MetricAlertRuleEmailActionArgs) ToMetricAlertRuleEmailActionOutputWithContext(ctx context.Context) MetricAlertRuleEmailActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertRuleEmailActionOutput)
+func (i ScheduledQueryRulesAlertActionArgs) ToScheduledQueryRulesAlertActionOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertActionOutput)
 }
 
-func (i MetricAlertRuleEmailActionArgs) ToMetricAlertRuleEmailActionPtrOutput() MetricAlertRuleEmailActionPtrOutput {
-	return i.ToMetricAlertRuleEmailActionPtrOutputWithContext(context.Background())
+func (i ScheduledQueryRulesAlertActionArgs) ToScheduledQueryRulesAlertActionPtrOutput() ScheduledQueryRulesAlertActionPtrOutput {
+	return i.ToScheduledQueryRulesAlertActionPtrOutputWithContext(context.Background())
 }
 
-func (i MetricAlertRuleEmailActionArgs) ToMetricAlertRuleEmailActionPtrOutputWithContext(ctx context.Context) MetricAlertRuleEmailActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertRuleEmailActionOutput).ToMetricAlertRuleEmailActionPtrOutputWithContext(ctx)
+func (i ScheduledQueryRulesAlertActionArgs) ToScheduledQueryRulesAlertActionPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertActionOutput).ToScheduledQueryRulesAlertActionPtrOutputWithContext(ctx)
 }
 
-type MetricAlertRuleEmailActionPtrInput interface {
+type ScheduledQueryRulesAlertActionPtrInput interface {
 	pulumi.Input
 
-	ToMetricAlertRuleEmailActionPtrOutput() MetricAlertRuleEmailActionPtrOutput
-	ToMetricAlertRuleEmailActionPtrOutputWithContext(context.Context) MetricAlertRuleEmailActionPtrOutput
+	ToScheduledQueryRulesAlertActionPtrOutput() ScheduledQueryRulesAlertActionPtrOutput
+	ToScheduledQueryRulesAlertActionPtrOutputWithContext(context.Context) ScheduledQueryRulesAlertActionPtrOutput
 }
 
-type metricAlertRuleEmailActionPtrType MetricAlertRuleEmailActionArgs
+type scheduledQueryRulesAlertActionPtrType ScheduledQueryRulesAlertActionArgs
 
-func MetricAlertRuleEmailActionPtr(v *MetricAlertRuleEmailActionArgs) MetricAlertRuleEmailActionPtrInput {	return (*metricAlertRuleEmailActionPtrType)(v)
+func ScheduledQueryRulesAlertActionPtr(v *ScheduledQueryRulesAlertActionArgs) ScheduledQueryRulesAlertActionPtrInput {
+	return (*scheduledQueryRulesAlertActionPtrType)(v)
 }
 
-func (*metricAlertRuleEmailActionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricAlertRuleEmailAction)(nil)).Elem()
+func (*scheduledQueryRulesAlertActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryRulesAlertAction)(nil)).Elem()
 }
 
-func (i *metricAlertRuleEmailActionPtrType) ToMetricAlertRuleEmailActionPtrOutput() MetricAlertRuleEmailActionPtrOutput {
-	return i.ToMetricAlertRuleEmailActionPtrOutputWithContext(context.Background())
+func (i *scheduledQueryRulesAlertActionPtrType) ToScheduledQueryRulesAlertActionPtrOutput() ScheduledQueryRulesAlertActionPtrOutput {
+	return i.ToScheduledQueryRulesAlertActionPtrOutputWithContext(context.Background())
 }
 
-func (i *metricAlertRuleEmailActionPtrType) ToMetricAlertRuleEmailActionPtrOutputWithContext(ctx context.Context) MetricAlertRuleEmailActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertRuleEmailActionPtrOutput)
+func (i *scheduledQueryRulesAlertActionPtrType) ToScheduledQueryRulesAlertActionPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertActionPtrOutput)
 }
 
-type MetricAlertRuleEmailActionOutput struct { *pulumi.OutputState }
+type ScheduledQueryRulesAlertActionOutput struct{ *pulumi.OutputState }
 
-func (MetricAlertRuleEmailActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertRuleEmailAction)(nil)).Elem()
+func (ScheduledQueryRulesAlertActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlertAction)(nil)).Elem()
 }
 
-func (o MetricAlertRuleEmailActionOutput) ToMetricAlertRuleEmailActionOutput() MetricAlertRuleEmailActionOutput {
+func (o ScheduledQueryRulesAlertActionOutput) ToScheduledQueryRulesAlertActionOutput() ScheduledQueryRulesAlertActionOutput {
 	return o
 }
 
-func (o MetricAlertRuleEmailActionOutput) ToMetricAlertRuleEmailActionOutputWithContext(ctx context.Context) MetricAlertRuleEmailActionOutput {
+func (o ScheduledQueryRulesAlertActionOutput) ToScheduledQueryRulesAlertActionOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertActionOutput {
 	return o
 }
 
-func (o MetricAlertRuleEmailActionOutput) ToMetricAlertRuleEmailActionPtrOutput() MetricAlertRuleEmailActionPtrOutput {
-	return o.ToMetricAlertRuleEmailActionPtrOutputWithContext(context.Background())
+func (o ScheduledQueryRulesAlertActionOutput) ToScheduledQueryRulesAlertActionPtrOutput() ScheduledQueryRulesAlertActionPtrOutput {
+	return o.ToScheduledQueryRulesAlertActionPtrOutputWithContext(context.Background())
 }
 
-func (o MetricAlertRuleEmailActionOutput) ToMetricAlertRuleEmailActionPtrOutputWithContext(ctx context.Context) MetricAlertRuleEmailActionPtrOutput {
-	return o.ApplyT(func(v MetricAlertRuleEmailAction) *MetricAlertRuleEmailAction {
+func (o ScheduledQueryRulesAlertActionOutput) ToScheduledQueryRulesAlertActionPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertActionPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertAction) *ScheduledQueryRulesAlertAction {
 		return &v
-	}).(MetricAlertRuleEmailActionPtrOutput)
-}
-// A list of email addresses to be notified when the alert is triggered.
-func (o MetricAlertRuleEmailActionOutput) CustomEmails() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v MetricAlertRuleEmailAction) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
+	}).(ScheduledQueryRulesAlertActionPtrOutput)
 }
 
-// If `true`, the administrators (service and co-administrators) of the subscription are notified when the alert is triggered. Defaults to `false`.
-func (o MetricAlertRuleEmailActionOutput) SendToServiceOwners() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v MetricAlertRuleEmailAction) *bool { return v.SendToServiceOwners }).(pulumi.BoolPtrOutput)
+// List of action group reference resource IDs.
+func (o ScheduledQueryRulesAlertActionOutput) ActionGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertAction) []string { return v.ActionGroups }).(pulumi.StringArrayOutput)
 }
 
-type MetricAlertRuleEmailActionPtrOutput struct { *pulumi.OutputState}
-
-func (MetricAlertRuleEmailActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricAlertRuleEmailAction)(nil)).Elem()
+// Custom payload to be sent for all webhook payloads in alerting action.
+func (o ScheduledQueryRulesAlertActionOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertAction) *string { return v.CustomWebhookPayload }).(pulumi.StringPtrOutput)
 }
 
-func (o MetricAlertRuleEmailActionPtrOutput) ToMetricAlertRuleEmailActionPtrOutput() MetricAlertRuleEmailActionPtrOutput {
+// Custom subject override for all email ids in Azure action group.
+func (o ScheduledQueryRulesAlertActionOutput) EmailSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertAction) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
+}
+
+type ScheduledQueryRulesAlertActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesAlertActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryRulesAlertAction)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesAlertActionPtrOutput) ToScheduledQueryRulesAlertActionPtrOutput() ScheduledQueryRulesAlertActionPtrOutput {
 	return o
 }
 
-func (o MetricAlertRuleEmailActionPtrOutput) ToMetricAlertRuleEmailActionPtrOutputWithContext(ctx context.Context) MetricAlertRuleEmailActionPtrOutput {
+func (o ScheduledQueryRulesAlertActionPtrOutput) ToScheduledQueryRulesAlertActionPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertActionPtrOutput {
 	return o
 }
 
-func (o MetricAlertRuleEmailActionPtrOutput) Elem() MetricAlertRuleEmailActionOutput {
-	return o.ApplyT(func (v *MetricAlertRuleEmailAction) MetricAlertRuleEmailAction { return *v }).(MetricAlertRuleEmailActionOutput)
+func (o ScheduledQueryRulesAlertActionPtrOutput) Elem() ScheduledQueryRulesAlertActionOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertAction) ScheduledQueryRulesAlertAction { return *v }).(ScheduledQueryRulesAlertActionOutput)
 }
 
-// A list of email addresses to be notified when the alert is triggered.
-func (o MetricAlertRuleEmailActionPtrOutput) CustomEmails() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v MetricAlertRuleEmailAction) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
+// List of action group reference resource IDs.
+func (o ScheduledQueryRulesAlertActionPtrOutput) ActionGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertAction) []string { return v.ActionGroups }).(pulumi.StringArrayOutput)
 }
 
-// If `true`, the administrators (service and co-administrators) of the subscription are notified when the alert is triggered. Defaults to `false`.
-func (o MetricAlertRuleEmailActionPtrOutput) SendToServiceOwners() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v MetricAlertRuleEmailAction) *bool { return v.SendToServiceOwners }).(pulumi.BoolPtrOutput)
+// Custom payload to be sent for all webhook payloads in alerting action.
+func (o ScheduledQueryRulesAlertActionPtrOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertAction) *string { return v.CustomWebhookPayload }).(pulumi.StringPtrOutput)
 }
 
-type MetricAlertRuleWebhookAction struct {
-	// A dictionary of custom properties to include with the webhook POST operation payload.
-	Properties map[string]string `pulumi:"properties"`
-	// The service uri of the webhook to POST the notification when the alert is triggered.
-	ServiceUri string `pulumi:"serviceUri"`
+// Custom subject override for all email ids in Azure action group.
+func (o ScheduledQueryRulesAlertActionPtrOutput) EmailSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertAction) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
 }
 
-type MetricAlertRuleWebhookActionInput interface {
+type ScheduledQueryRulesAlertTrigger struct {
+	MetricTrigger *ScheduledQueryRulesAlertTriggerMetricTrigger `pulumi:"metricTrigger"`
+	// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+	Operator string `pulumi:"operator"`
+	// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+	Threshold float64 `pulumi:"threshold"`
+}
+
+type ScheduledQueryRulesAlertTriggerInput interface {
 	pulumi.Input
 
-	ToMetricAlertRuleWebhookActionOutput() MetricAlertRuleWebhookActionOutput
-	ToMetricAlertRuleWebhookActionOutputWithContext(context.Context) MetricAlertRuleWebhookActionOutput
+	ToScheduledQueryRulesAlertTriggerOutput() ScheduledQueryRulesAlertTriggerOutput
+	ToScheduledQueryRulesAlertTriggerOutputWithContext(context.Context) ScheduledQueryRulesAlertTriggerOutput
 }
 
-type MetricAlertRuleWebhookActionArgs struct {
-	// A dictionary of custom properties to include with the webhook POST operation payload.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// The service uri of the webhook to POST the notification when the alert is triggered.
-	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
+type ScheduledQueryRulesAlertTriggerArgs struct {
+	MetricTrigger ScheduledQueryRulesAlertTriggerMetricTriggerPtrInput `pulumi:"metricTrigger"`
+	// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
 }
 
-func (MetricAlertRuleWebhookActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertRuleWebhookAction)(nil)).Elem()
+func (ScheduledQueryRulesAlertTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlertTrigger)(nil)).Elem()
 }
 
-func (i MetricAlertRuleWebhookActionArgs) ToMetricAlertRuleWebhookActionOutput() MetricAlertRuleWebhookActionOutput {
-	return i.ToMetricAlertRuleWebhookActionOutputWithContext(context.Background())
+func (i ScheduledQueryRulesAlertTriggerArgs) ToScheduledQueryRulesAlertTriggerOutput() ScheduledQueryRulesAlertTriggerOutput {
+	return i.ToScheduledQueryRulesAlertTriggerOutputWithContext(context.Background())
 }
 
-func (i MetricAlertRuleWebhookActionArgs) ToMetricAlertRuleWebhookActionOutputWithContext(ctx context.Context) MetricAlertRuleWebhookActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertRuleWebhookActionOutput)
+func (i ScheduledQueryRulesAlertTriggerArgs) ToScheduledQueryRulesAlertTriggerOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertTriggerOutput)
 }
 
-func (i MetricAlertRuleWebhookActionArgs) ToMetricAlertRuleWebhookActionPtrOutput() MetricAlertRuleWebhookActionPtrOutput {
-	return i.ToMetricAlertRuleWebhookActionPtrOutputWithContext(context.Background())
+func (i ScheduledQueryRulesAlertTriggerArgs) ToScheduledQueryRulesAlertTriggerPtrOutput() ScheduledQueryRulesAlertTriggerPtrOutput {
+	return i.ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(context.Background())
 }
 
-func (i MetricAlertRuleWebhookActionArgs) ToMetricAlertRuleWebhookActionPtrOutputWithContext(ctx context.Context) MetricAlertRuleWebhookActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertRuleWebhookActionOutput).ToMetricAlertRuleWebhookActionPtrOutputWithContext(ctx)
+func (i ScheduledQueryRulesAlertTriggerArgs) ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertTriggerOutput).ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(ctx)
 }
 
-type MetricAlertRuleWebhookActionPtrInput interface {
+type ScheduledQueryRulesAlertTriggerPtrInput interface {
 	pulumi.Input
 
-	ToMetricAlertRuleWebhookActionPtrOutput() MetricAlertRuleWebhookActionPtrOutput
-	ToMetricAlertRuleWebhookActionPtrOutputWithContext(context.Context) MetricAlertRuleWebhookActionPtrOutput
+	ToScheduledQueryRulesAlertTriggerPtrOutput() ScheduledQueryRulesAlertTriggerPtrOutput
+	ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(context.Context) ScheduledQueryRulesAlertTriggerPtrOutput
 }
 
-type metricAlertRuleWebhookActionPtrType MetricAlertRuleWebhookActionArgs
+type scheduledQueryRulesAlertTriggerPtrType ScheduledQueryRulesAlertTriggerArgs
 
-func MetricAlertRuleWebhookActionPtr(v *MetricAlertRuleWebhookActionArgs) MetricAlertRuleWebhookActionPtrInput {	return (*metricAlertRuleWebhookActionPtrType)(v)
+func ScheduledQueryRulesAlertTriggerPtr(v *ScheduledQueryRulesAlertTriggerArgs) ScheduledQueryRulesAlertTriggerPtrInput {
+	return (*scheduledQueryRulesAlertTriggerPtrType)(v)
 }
 
-func (*metricAlertRuleWebhookActionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricAlertRuleWebhookAction)(nil)).Elem()
+func (*scheduledQueryRulesAlertTriggerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryRulesAlertTrigger)(nil)).Elem()
 }
 
-func (i *metricAlertRuleWebhookActionPtrType) ToMetricAlertRuleWebhookActionPtrOutput() MetricAlertRuleWebhookActionPtrOutput {
-	return i.ToMetricAlertRuleWebhookActionPtrOutputWithContext(context.Background())
+func (i *scheduledQueryRulesAlertTriggerPtrType) ToScheduledQueryRulesAlertTriggerPtrOutput() ScheduledQueryRulesAlertTriggerPtrOutput {
+	return i.ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(context.Background())
 }
 
-func (i *metricAlertRuleWebhookActionPtrType) ToMetricAlertRuleWebhookActionPtrOutputWithContext(ctx context.Context) MetricAlertRuleWebhookActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertRuleWebhookActionPtrOutput)
+func (i *scheduledQueryRulesAlertTriggerPtrType) ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertTriggerPtrOutput)
 }
 
-type MetricAlertRuleWebhookActionOutput struct { *pulumi.OutputState }
+type ScheduledQueryRulesAlertTriggerOutput struct{ *pulumi.OutputState }
 
-func (MetricAlertRuleWebhookActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertRuleWebhookAction)(nil)).Elem()
+func (ScheduledQueryRulesAlertTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlertTrigger)(nil)).Elem()
 }
 
-func (o MetricAlertRuleWebhookActionOutput) ToMetricAlertRuleWebhookActionOutput() MetricAlertRuleWebhookActionOutput {
+func (o ScheduledQueryRulesAlertTriggerOutput) ToScheduledQueryRulesAlertTriggerOutput() ScheduledQueryRulesAlertTriggerOutput {
 	return o
 }
 
-func (o MetricAlertRuleWebhookActionOutput) ToMetricAlertRuleWebhookActionOutputWithContext(ctx context.Context) MetricAlertRuleWebhookActionOutput {
+func (o ScheduledQueryRulesAlertTriggerOutput) ToScheduledQueryRulesAlertTriggerOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerOutput {
 	return o
 }
 
-func (o MetricAlertRuleWebhookActionOutput) ToMetricAlertRuleWebhookActionPtrOutput() MetricAlertRuleWebhookActionPtrOutput {
-	return o.ToMetricAlertRuleWebhookActionPtrOutputWithContext(context.Background())
+func (o ScheduledQueryRulesAlertTriggerOutput) ToScheduledQueryRulesAlertTriggerPtrOutput() ScheduledQueryRulesAlertTriggerPtrOutput {
+	return o.ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(context.Background())
 }
 
-func (o MetricAlertRuleWebhookActionOutput) ToMetricAlertRuleWebhookActionPtrOutputWithContext(ctx context.Context) MetricAlertRuleWebhookActionPtrOutput {
-	return o.ApplyT(func(v MetricAlertRuleWebhookAction) *MetricAlertRuleWebhookAction {
+func (o ScheduledQueryRulesAlertTriggerOutput) ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertTrigger) *ScheduledQueryRulesAlertTrigger {
 		return &v
-	}).(MetricAlertRuleWebhookActionPtrOutput)
+	}).(ScheduledQueryRulesAlertTriggerPtrOutput)
 }
-// A dictionary of custom properties to include with the webhook POST operation payload.
-func (o MetricAlertRuleWebhookActionOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func (v MetricAlertRuleWebhookAction) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
-}
-
-// The service uri of the webhook to POST the notification when the alert is triggered.
-func (o MetricAlertRuleWebhookActionOutput) ServiceUri() pulumi.StringOutput {
-	return o.ApplyT(func (v MetricAlertRuleWebhookAction) string { return v.ServiceUri }).(pulumi.StringOutput)
+func (o ScheduledQueryRulesAlertTriggerOutput) MetricTrigger() ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertTrigger) *ScheduledQueryRulesAlertTriggerMetricTrigger {
+		return v.MetricTrigger
+	}).(ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput)
 }
 
-type MetricAlertRuleWebhookActionPtrOutput struct { *pulumi.OutputState}
-
-func (MetricAlertRuleWebhookActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricAlertRuleWebhookAction)(nil)).Elem()
+// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+func (o ScheduledQueryRulesAlertTriggerOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertTrigger) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-func (o MetricAlertRuleWebhookActionPtrOutput) ToMetricAlertRuleWebhookActionPtrOutput() MetricAlertRuleWebhookActionPtrOutput {
+// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+func (o ScheduledQueryRulesAlertTriggerOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+type ScheduledQueryRulesAlertTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesAlertTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryRulesAlertTrigger)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesAlertTriggerPtrOutput) ToScheduledQueryRulesAlertTriggerPtrOutput() ScheduledQueryRulesAlertTriggerPtrOutput {
 	return o
 }
 
-func (o MetricAlertRuleWebhookActionPtrOutput) ToMetricAlertRuleWebhookActionPtrOutputWithContext(ctx context.Context) MetricAlertRuleWebhookActionPtrOutput {
+func (o ScheduledQueryRulesAlertTriggerPtrOutput) ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerPtrOutput {
 	return o
 }
 
-func (o MetricAlertRuleWebhookActionPtrOutput) Elem() MetricAlertRuleWebhookActionOutput {
-	return o.ApplyT(func (v *MetricAlertRuleWebhookAction) MetricAlertRuleWebhookAction { return *v }).(MetricAlertRuleWebhookActionOutput)
+func (o ScheduledQueryRulesAlertTriggerPtrOutput) Elem() ScheduledQueryRulesAlertTriggerOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertTrigger) ScheduledQueryRulesAlertTrigger { return *v }).(ScheduledQueryRulesAlertTriggerOutput)
 }
 
-// A dictionary of custom properties to include with the webhook POST operation payload.
-func (o MetricAlertRuleWebhookActionPtrOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func (v MetricAlertRuleWebhookAction) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+func (o ScheduledQueryRulesAlertTriggerPtrOutput) MetricTrigger() ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertTrigger) *ScheduledQueryRulesAlertTriggerMetricTrigger {
+		return v.MetricTrigger
+	}).(ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput)
 }
 
-// The service uri of the webhook to POST the notification when the alert is triggered.
-func (o MetricAlertRuleWebhookActionPtrOutput) ServiceUri() pulumi.StringOutput {
-	return o.ApplyT(func (v MetricAlertRuleWebhookAction) string { return v.ServiceUri }).(pulumi.StringOutput)
+// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+func (o ScheduledQueryRulesAlertTriggerPtrOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertTrigger) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+func (o ScheduledQueryRulesAlertTriggerPtrOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+type ScheduledQueryRulesAlertTriggerMetricTrigger struct {
+	MetricColumn      string `pulumi:"metricColumn"`
+	MetricTriggerType string `pulumi:"metricTriggerType"`
+	// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+	Operator string `pulumi:"operator"`
+	// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+	Threshold float64 `pulumi:"threshold"`
+}
+
+type ScheduledQueryRulesAlertTriggerMetricTriggerInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesAlertTriggerMetricTriggerOutput() ScheduledQueryRulesAlertTriggerMetricTriggerOutput
+	ToScheduledQueryRulesAlertTriggerMetricTriggerOutputWithContext(context.Context) ScheduledQueryRulesAlertTriggerMetricTriggerOutput
+}
+
+type ScheduledQueryRulesAlertTriggerMetricTriggerArgs struct {
+	MetricColumn      pulumi.StringInput `pulumi:"metricColumn"`
+	MetricTriggerType pulumi.StringInput `pulumi:"metricTriggerType"`
+	// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+}
+
+func (ScheduledQueryRulesAlertTriggerMetricTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlertTriggerMetricTrigger)(nil)).Elem()
+}
+
+func (i ScheduledQueryRulesAlertTriggerMetricTriggerArgs) ToScheduledQueryRulesAlertTriggerMetricTriggerOutput() ScheduledQueryRulesAlertTriggerMetricTriggerOutput {
+	return i.ToScheduledQueryRulesAlertTriggerMetricTriggerOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesAlertTriggerMetricTriggerArgs) ToScheduledQueryRulesAlertTriggerMetricTriggerOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerMetricTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertTriggerMetricTriggerOutput)
+}
+
+func (i ScheduledQueryRulesAlertTriggerMetricTriggerArgs) ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput() ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput {
+	return i.ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesAlertTriggerMetricTriggerArgs) ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertTriggerMetricTriggerOutput).ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutputWithContext(ctx)
+}
+
+type ScheduledQueryRulesAlertTriggerMetricTriggerPtrInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput() ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput
+	ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutputWithContext(context.Context) ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput
+}
+
+type scheduledQueryRulesAlertTriggerMetricTriggerPtrType ScheduledQueryRulesAlertTriggerMetricTriggerArgs
+
+func ScheduledQueryRulesAlertTriggerMetricTriggerPtr(v *ScheduledQueryRulesAlertTriggerMetricTriggerArgs) ScheduledQueryRulesAlertTriggerMetricTriggerPtrInput {
+	return (*scheduledQueryRulesAlertTriggerMetricTriggerPtrType)(v)
+}
+
+func (*scheduledQueryRulesAlertTriggerMetricTriggerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryRulesAlertTriggerMetricTrigger)(nil)).Elem()
+}
+
+func (i *scheduledQueryRulesAlertTriggerMetricTriggerPtrType) ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput() ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput {
+	return i.ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledQueryRulesAlertTriggerMetricTriggerPtrType) ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput)
+}
+
+type ScheduledQueryRulesAlertTriggerMetricTriggerOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesAlertTriggerMetricTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlertTriggerMetricTrigger)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) ToScheduledQueryRulesAlertTriggerMetricTriggerOutput() ScheduledQueryRulesAlertTriggerMetricTriggerOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) ToScheduledQueryRulesAlertTriggerMetricTriggerOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerMetricTriggerOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput() ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput {
+	return o.ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) *ScheduledQueryRulesAlertTriggerMetricTrigger {
+		return &v
+	}).(ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput)
+}
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) MetricColumn() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.MetricColumn }).(pulumi.StringOutput)
+}
+
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) MetricTriggerType() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.MetricTriggerType }).(pulumi.StringOutput)
+}
+
+// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+type ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryRulesAlertTriggerMetricTrigger)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput() ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Elem() ScheduledQueryRulesAlertTriggerMetricTriggerOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertTriggerMetricTrigger) ScheduledQueryRulesAlertTriggerMetricTrigger {
+		return *v
+	}).(ScheduledQueryRulesAlertTriggerMetricTriggerOutput)
+}
+
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) MetricColumn() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.MetricColumn }).(pulumi.StringOutput)
+}
+
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) MetricTriggerType() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.MetricTriggerType }).(pulumi.StringOutput)
+}
+
+// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+type ScheduledQueryRulesLogCriteria struct {
+	// A `dimension` block as defined below.
+	Dimensions []ScheduledQueryRulesLogCriteriaDimension `pulumi:"dimensions"`
+	// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+	MetricName string `pulumi:"metricName"`
+}
+
+type ScheduledQueryRulesLogCriteriaInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesLogCriteriaOutput() ScheduledQueryRulesLogCriteriaOutput
+	ToScheduledQueryRulesLogCriteriaOutputWithContext(context.Context) ScheduledQueryRulesLogCriteriaOutput
+}
+
+type ScheduledQueryRulesLogCriteriaArgs struct {
+	// A `dimension` block as defined below.
+	Dimensions ScheduledQueryRulesLogCriteriaDimensionArrayInput `pulumi:"dimensions"`
+	// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+}
+
+func (ScheduledQueryRulesLogCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesLogCriteria)(nil)).Elem()
+}
+
+func (i ScheduledQueryRulesLogCriteriaArgs) ToScheduledQueryRulesLogCriteriaOutput() ScheduledQueryRulesLogCriteriaOutput {
+	return i.ToScheduledQueryRulesLogCriteriaOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesLogCriteriaArgs) ToScheduledQueryRulesLogCriteriaOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogCriteriaOutput)
+}
+
+func (i ScheduledQueryRulesLogCriteriaArgs) ToScheduledQueryRulesLogCriteriaPtrOutput() ScheduledQueryRulesLogCriteriaPtrOutput {
+	return i.ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesLogCriteriaArgs) ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogCriteriaOutput).ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(ctx)
+}
+
+type ScheduledQueryRulesLogCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesLogCriteriaPtrOutput() ScheduledQueryRulesLogCriteriaPtrOutput
+	ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(context.Context) ScheduledQueryRulesLogCriteriaPtrOutput
+}
+
+type scheduledQueryRulesLogCriteriaPtrType ScheduledQueryRulesLogCriteriaArgs
+
+func ScheduledQueryRulesLogCriteriaPtr(v *ScheduledQueryRulesLogCriteriaArgs) ScheduledQueryRulesLogCriteriaPtrInput {
+	return (*scheduledQueryRulesLogCriteriaPtrType)(v)
+}
+
+func (*scheduledQueryRulesLogCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryRulesLogCriteria)(nil)).Elem()
+}
+
+func (i *scheduledQueryRulesLogCriteriaPtrType) ToScheduledQueryRulesLogCriteriaPtrOutput() ScheduledQueryRulesLogCriteriaPtrOutput {
+	return i.ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledQueryRulesLogCriteriaPtrType) ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogCriteriaPtrOutput)
+}
+
+type ScheduledQueryRulesLogCriteriaOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesLogCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesLogCriteria)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesLogCriteriaOutput) ToScheduledQueryRulesLogCriteriaOutput() ScheduledQueryRulesLogCriteriaOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesLogCriteriaOutput) ToScheduledQueryRulesLogCriteriaOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesLogCriteriaOutput) ToScheduledQueryRulesLogCriteriaPtrOutput() ScheduledQueryRulesLogCriteriaPtrOutput {
+	return o.ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryRulesLogCriteriaOutput) ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesLogCriteria) *ScheduledQueryRulesLogCriteria {
+		return &v
+	}).(ScheduledQueryRulesLogCriteriaPtrOutput)
+}
+
+// A `dimension` block as defined below.
+func (o ScheduledQueryRulesLogCriteriaOutput) Dimensions() ScheduledQueryRulesLogCriteriaDimensionArrayOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesLogCriteria) []ScheduledQueryRulesLogCriteriaDimension { return v.Dimensions }).(ScheduledQueryRulesLogCriteriaDimensionArrayOutput)
+}
+
+// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+func (o ScheduledQueryRulesLogCriteriaOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesLogCriteria) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+type ScheduledQueryRulesLogCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesLogCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryRulesLogCriteria)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesLogCriteriaPtrOutput) ToScheduledQueryRulesLogCriteriaPtrOutput() ScheduledQueryRulesLogCriteriaPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesLogCriteriaPtrOutput) ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesLogCriteriaPtrOutput) Elem() ScheduledQueryRulesLogCriteriaOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesLogCriteria) ScheduledQueryRulesLogCriteria { return *v }).(ScheduledQueryRulesLogCriteriaOutput)
+}
+
+// A `dimension` block as defined below.
+func (o ScheduledQueryRulesLogCriteriaPtrOutput) Dimensions() ScheduledQueryRulesLogCriteriaDimensionArrayOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesLogCriteria) []ScheduledQueryRulesLogCriteriaDimension { return v.Dimensions }).(ScheduledQueryRulesLogCriteriaDimensionArrayOutput)
+}
+
+// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+func (o ScheduledQueryRulesLogCriteriaPtrOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesLogCriteria) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+type ScheduledQueryRulesLogCriteriaDimension struct {
+	// Name of the dimension.
+	Name string `pulumi:"name"`
+	// Operator for dimension values, - 'Include'.
+	Operator *string `pulumi:"operator"`
+	// List of dimension values.
+	Values []string `pulumi:"values"`
+}
+
+type ScheduledQueryRulesLogCriteriaDimensionInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesLogCriteriaDimensionOutput() ScheduledQueryRulesLogCriteriaDimensionOutput
+	ToScheduledQueryRulesLogCriteriaDimensionOutputWithContext(context.Context) ScheduledQueryRulesLogCriteriaDimensionOutput
+}
+
+type ScheduledQueryRulesLogCriteriaDimensionArgs struct {
+	// Name of the dimension.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Operator for dimension values, - 'Include'.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// List of dimension values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ScheduledQueryRulesLogCriteriaDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesLogCriteriaDimension)(nil)).Elem()
+}
+
+func (i ScheduledQueryRulesLogCriteriaDimensionArgs) ToScheduledQueryRulesLogCriteriaDimensionOutput() ScheduledQueryRulesLogCriteriaDimensionOutput {
+	return i.ToScheduledQueryRulesLogCriteriaDimensionOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesLogCriteriaDimensionArgs) ToScheduledQueryRulesLogCriteriaDimensionOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogCriteriaDimensionOutput)
+}
+
+type ScheduledQueryRulesLogCriteriaDimensionArrayInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesLogCriteriaDimensionArrayOutput() ScheduledQueryRulesLogCriteriaDimensionArrayOutput
+	ToScheduledQueryRulesLogCriteriaDimensionArrayOutputWithContext(context.Context) ScheduledQueryRulesLogCriteriaDimensionArrayOutput
+}
+
+type ScheduledQueryRulesLogCriteriaDimensionArray []ScheduledQueryRulesLogCriteriaDimensionInput
+
+func (ScheduledQueryRulesLogCriteriaDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledQueryRulesLogCriteriaDimension)(nil)).Elem()
+}
+
+func (i ScheduledQueryRulesLogCriteriaDimensionArray) ToScheduledQueryRulesLogCriteriaDimensionArrayOutput() ScheduledQueryRulesLogCriteriaDimensionArrayOutput {
+	return i.ToScheduledQueryRulesLogCriteriaDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesLogCriteriaDimensionArray) ToScheduledQueryRulesLogCriteriaDimensionArrayOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogCriteriaDimensionArrayOutput)
+}
+
+type ScheduledQueryRulesLogCriteriaDimensionOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesLogCriteriaDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesLogCriteriaDimension)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesLogCriteriaDimensionOutput) ToScheduledQueryRulesLogCriteriaDimensionOutput() ScheduledQueryRulesLogCriteriaDimensionOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesLogCriteriaDimensionOutput) ToScheduledQueryRulesLogCriteriaDimensionOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaDimensionOutput {
+	return o
+}
+
+// Name of the dimension.
+func (o ScheduledQueryRulesLogCriteriaDimensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesLogCriteriaDimension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Operator for dimension values, - 'Include'.
+func (o ScheduledQueryRulesLogCriteriaDimensionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesLogCriteriaDimension) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// List of dimension values.
+func (o ScheduledQueryRulesLogCriteriaDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesLogCriteriaDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ScheduledQueryRulesLogCriteriaDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesLogCriteriaDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledQueryRulesLogCriteriaDimension)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesLogCriteriaDimensionArrayOutput) ToScheduledQueryRulesLogCriteriaDimensionArrayOutput() ScheduledQueryRulesLogCriteriaDimensionArrayOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesLogCriteriaDimensionArrayOutput) ToScheduledQueryRulesLogCriteriaDimensionArrayOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaDimensionArrayOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesLogCriteriaDimensionArrayOutput) Index(i pulumi.IntInput) ScheduledQueryRulesLogCriteriaDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduledQueryRulesLogCriteriaDimension {
+		return vs[0].([]ScheduledQueryRulesLogCriteriaDimension)[vs[1].(int)]
+	}).(ScheduledQueryRulesLogCriteriaDimensionOutput)
 }
 
 type GetActionGroupArmRoleReceiver struct {
@@ -3743,7 +3912,7 @@ func (i GetActionGroupArmRoleReceiverArray) ToGetActionGroupArmRoleReceiverArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupArmRoleReceiverArrayOutput)
 }
 
-type GetActionGroupArmRoleReceiverOutput struct { *pulumi.OutputState }
+type GetActionGroupArmRoleReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupArmRoleReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetActionGroupArmRoleReceiver)(nil)).Elem()
@@ -3759,20 +3928,20 @@ func (o GetActionGroupArmRoleReceiverOutput) ToGetActionGroupArmRoleReceiverOutp
 
 // Specifies the name of the Action Group.
 func (o GetActionGroupArmRoleReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupArmRoleReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupArmRoleReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The arm role id.
 func (o GetActionGroupArmRoleReceiverOutput) RoleId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupArmRoleReceiver) string { return v.RoleId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupArmRoleReceiver) string { return v.RoleId }).(pulumi.StringOutput)
 }
 
 // Indicates whether to use common alert schema.
 func (o GetActionGroupArmRoleReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetActionGroupArmRoleReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetActionGroupArmRoleReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
 }
 
-type GetActionGroupArmRoleReceiverArrayOutput struct { *pulumi.OutputState}
+type GetActionGroupArmRoleReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupArmRoleReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetActionGroupArmRoleReceiver)(nil)).Elem()
@@ -3787,7 +3956,7 @@ func (o GetActionGroupArmRoleReceiverArrayOutput) ToGetActionGroupArmRoleReceive
 }
 
 func (o GetActionGroupArmRoleReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupArmRoleReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetActionGroupArmRoleReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionGroupArmRoleReceiver {
 		return vs[0].([]GetActionGroupArmRoleReceiver)[vs[1].(int)]
 	}).(GetActionGroupArmRoleReceiverOutput)
 }
@@ -3866,7 +4035,7 @@ func (i GetActionGroupAutomationRunbookReceiverArray) ToGetActionGroupAutomation
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupAutomationRunbookReceiverArrayOutput)
 }
 
-type GetActionGroupAutomationRunbookReceiverOutput struct { *pulumi.OutputState }
+type GetActionGroupAutomationRunbookReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupAutomationRunbookReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetActionGroupAutomationRunbookReceiver)(nil)).Elem()
@@ -3882,40 +4051,40 @@ func (o GetActionGroupAutomationRunbookReceiverOutput) ToGetActionGroupAutomatio
 
 // The automation account ID which holds this runbook and authenticates to Azure resources.
 func (o GetActionGroupAutomationRunbookReceiverOutput) AutomationAccountId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupAutomationRunbookReceiver) string { return v.AutomationAccountId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupAutomationRunbookReceiver) string { return v.AutomationAccountId }).(pulumi.StringOutput)
 }
 
 // Indicates whether this instance is global runbook.
 func (o GetActionGroupAutomationRunbookReceiverOutput) IsGlobalRunbook() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetActionGroupAutomationRunbookReceiver) bool { return v.IsGlobalRunbook }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetActionGroupAutomationRunbookReceiver) bool { return v.IsGlobalRunbook }).(pulumi.BoolOutput)
 }
 
 // Specifies the name of the Action Group.
 func (o GetActionGroupAutomationRunbookReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupAutomationRunbookReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupAutomationRunbookReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The name for this runbook.
 func (o GetActionGroupAutomationRunbookReceiverOutput) RunbookName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupAutomationRunbookReceiver) string { return v.RunbookName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupAutomationRunbookReceiver) string { return v.RunbookName }).(pulumi.StringOutput)
 }
 
 // The URI where webhooks should be sent.
 func (o GetActionGroupAutomationRunbookReceiverOutput) ServiceUri() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupAutomationRunbookReceiver) string { return v.ServiceUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupAutomationRunbookReceiver) string { return v.ServiceUri }).(pulumi.StringOutput)
 }
 
 // Indicates whether to use common alert schema.
 func (o GetActionGroupAutomationRunbookReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetActionGroupAutomationRunbookReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetActionGroupAutomationRunbookReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
 }
 
 // The resource id for webhook linked to this runbook.
 func (o GetActionGroupAutomationRunbookReceiverOutput) WebhookResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupAutomationRunbookReceiver) string { return v.WebhookResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupAutomationRunbookReceiver) string { return v.WebhookResourceId }).(pulumi.StringOutput)
 }
 
-type GetActionGroupAutomationRunbookReceiverArrayOutput struct { *pulumi.OutputState}
+type GetActionGroupAutomationRunbookReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupAutomationRunbookReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetActionGroupAutomationRunbookReceiver)(nil)).Elem()
@@ -3930,7 +4099,7 @@ func (o GetActionGroupAutomationRunbookReceiverArrayOutput) ToGetActionGroupAuto
 }
 
 func (o GetActionGroupAutomationRunbookReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupAutomationRunbookReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetActionGroupAutomationRunbookReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionGroupAutomationRunbookReceiver {
 		return vs[0].([]GetActionGroupAutomationRunbookReceiver)[vs[1].(int)]
 	}).(GetActionGroupAutomationRunbookReceiverOutput)
 }
@@ -3989,7 +4158,7 @@ func (i GetActionGroupAzureAppPushReceiverArray) ToGetActionGroupAzureAppPushRec
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupAzureAppPushReceiverArrayOutput)
 }
 
-type GetActionGroupAzureAppPushReceiverOutput struct { *pulumi.OutputState }
+type GetActionGroupAzureAppPushReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupAzureAppPushReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetActionGroupAzureAppPushReceiver)(nil)).Elem()
@@ -4005,15 +4174,15 @@ func (o GetActionGroupAzureAppPushReceiverOutput) ToGetActionGroupAzureAppPushRe
 
 // The email address of this receiver.
 func (o GetActionGroupAzureAppPushReceiverOutput) EmailAddress() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupAzureAppPushReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupAzureAppPushReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Action Group.
 func (o GetActionGroupAzureAppPushReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupAzureAppPushReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupAzureAppPushReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type GetActionGroupAzureAppPushReceiverArrayOutput struct { *pulumi.OutputState}
+type GetActionGroupAzureAppPushReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupAzureAppPushReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetActionGroupAzureAppPushReceiver)(nil)).Elem()
@@ -4028,7 +4197,7 @@ func (o GetActionGroupAzureAppPushReceiverArrayOutput) ToGetActionGroupAzureAppP
 }
 
 func (o GetActionGroupAzureAppPushReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupAzureAppPushReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetActionGroupAzureAppPushReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionGroupAzureAppPushReceiver {
 		return vs[0].([]GetActionGroupAzureAppPushReceiver)[vs[1].(int)]
 	}).(GetActionGroupAzureAppPushReceiverOutput)
 }
@@ -4097,7 +4266,7 @@ func (i GetActionGroupAzureFunctionReceiverArray) ToGetActionGroupAzureFunctionR
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupAzureFunctionReceiverArrayOutput)
 }
 
-type GetActionGroupAzureFunctionReceiverOutput struct { *pulumi.OutputState }
+type GetActionGroupAzureFunctionReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupAzureFunctionReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetActionGroupAzureFunctionReceiver)(nil)).Elem()
@@ -4112,30 +4281,30 @@ func (o GetActionGroupAzureFunctionReceiverOutput) ToGetActionGroupAzureFunction
 }
 
 func (o GetActionGroupAzureFunctionReceiverOutput) FunctionAppResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupAzureFunctionReceiver) string { return v.FunctionAppResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupAzureFunctionReceiver) string { return v.FunctionAppResourceId }).(pulumi.StringOutput)
 }
 
 // The function name in the function app.
 func (o GetActionGroupAzureFunctionReceiverOutput) FunctionName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupAzureFunctionReceiver) string { return v.FunctionName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupAzureFunctionReceiver) string { return v.FunctionName }).(pulumi.StringOutput)
 }
 
 // The http trigger url where http request sent to.
 func (o GetActionGroupAzureFunctionReceiverOutput) HttpTriggerUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupAzureFunctionReceiver) string { return v.HttpTriggerUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupAzureFunctionReceiver) string { return v.HttpTriggerUrl }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Action Group.
 func (o GetActionGroupAzureFunctionReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupAzureFunctionReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupAzureFunctionReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Indicates whether to use common alert schema.
 func (o GetActionGroupAzureFunctionReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetActionGroupAzureFunctionReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetActionGroupAzureFunctionReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
 }
 
-type GetActionGroupAzureFunctionReceiverArrayOutput struct { *pulumi.OutputState}
+type GetActionGroupAzureFunctionReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupAzureFunctionReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetActionGroupAzureFunctionReceiver)(nil)).Elem()
@@ -4150,7 +4319,7 @@ func (o GetActionGroupAzureFunctionReceiverArrayOutput) ToGetActionGroupAzureFun
 }
 
 func (o GetActionGroupAzureFunctionReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupAzureFunctionReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetActionGroupAzureFunctionReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionGroupAzureFunctionReceiver {
 		return vs[0].([]GetActionGroupAzureFunctionReceiver)[vs[1].(int)]
 	}).(GetActionGroupAzureFunctionReceiverOutput)
 }
@@ -4213,7 +4382,7 @@ func (i GetActionGroupEmailReceiverArray) ToGetActionGroupEmailReceiverArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupEmailReceiverArrayOutput)
 }
 
-type GetActionGroupEmailReceiverOutput struct { *pulumi.OutputState }
+type GetActionGroupEmailReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupEmailReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetActionGroupEmailReceiver)(nil)).Elem()
@@ -4229,20 +4398,20 @@ func (o GetActionGroupEmailReceiverOutput) ToGetActionGroupEmailReceiverOutputWi
 
 // The email address of this receiver.
 func (o GetActionGroupEmailReceiverOutput) EmailAddress() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupEmailReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupEmailReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Action Group.
 func (o GetActionGroupEmailReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupEmailReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupEmailReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Indicates whether to use common alert schema.
 func (o GetActionGroupEmailReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetActionGroupEmailReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetActionGroupEmailReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
 }
 
-type GetActionGroupEmailReceiverArrayOutput struct { *pulumi.OutputState}
+type GetActionGroupEmailReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupEmailReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetActionGroupEmailReceiver)(nil)).Elem()
@@ -4257,7 +4426,7 @@ func (o GetActionGroupEmailReceiverArrayOutput) ToGetActionGroupEmailReceiverArr
 }
 
 func (o GetActionGroupEmailReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupEmailReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetActionGroupEmailReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionGroupEmailReceiver {
 		return vs[0].([]GetActionGroupEmailReceiver)[vs[1].(int)]
 	}).(GetActionGroupEmailReceiverOutput)
 }
@@ -4328,7 +4497,7 @@ func (i GetActionGroupItsmReceiverArray) ToGetActionGroupItsmReceiverArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupItsmReceiverArrayOutput)
 }
 
-type GetActionGroupItsmReceiverOutput struct { *pulumi.OutputState }
+type GetActionGroupItsmReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupItsmReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetActionGroupItsmReceiver)(nil)).Elem()
@@ -4344,30 +4513,30 @@ func (o GetActionGroupItsmReceiverOutput) ToGetActionGroupItsmReceiverOutputWith
 
 // The unique connection identifier of the ITSM connection.
 func (o GetActionGroupItsmReceiverOutput) ConnectionId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupItsmReceiver) string { return v.ConnectionId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupItsmReceiver) string { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Action Group.
 func (o GetActionGroupItsmReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupItsmReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupItsmReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The region of the workspace.
 func (o GetActionGroupItsmReceiverOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupItsmReceiver) string { return v.Region }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupItsmReceiver) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
 func (o GetActionGroupItsmReceiverOutput) TicketConfiguration() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupItsmReceiver) string { return v.TicketConfiguration }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupItsmReceiver) string { return v.TicketConfiguration }).(pulumi.StringOutput)
 }
 
 // The Azure Log Analytics workspace ID where this connection is defined.
 func (o GetActionGroupItsmReceiverOutput) WorkspaceId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupItsmReceiver) string { return v.WorkspaceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupItsmReceiver) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
-type GetActionGroupItsmReceiverArrayOutput struct { *pulumi.OutputState}
+type GetActionGroupItsmReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupItsmReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetActionGroupItsmReceiver)(nil)).Elem()
@@ -4382,7 +4551,7 @@ func (o GetActionGroupItsmReceiverArrayOutput) ToGetActionGroupItsmReceiverArray
 }
 
 func (o GetActionGroupItsmReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupItsmReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetActionGroupItsmReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionGroupItsmReceiver {
 		return vs[0].([]GetActionGroupItsmReceiver)[vs[1].(int)]
 	}).(GetActionGroupItsmReceiverOutput)
 }
@@ -4449,7 +4618,7 @@ func (i GetActionGroupLogicAppReceiverArray) ToGetActionGroupLogicAppReceiverArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupLogicAppReceiverArrayOutput)
 }
 
-type GetActionGroupLogicAppReceiverOutput struct { *pulumi.OutputState }
+type GetActionGroupLogicAppReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupLogicAppReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetActionGroupLogicAppReceiver)(nil)).Elem()
@@ -4465,25 +4634,25 @@ func (o GetActionGroupLogicAppReceiverOutput) ToGetActionGroupLogicAppReceiverOu
 
 // The callback url where http request sent to.
 func (o GetActionGroupLogicAppReceiverOutput) CallbackUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupLogicAppReceiver) string { return v.CallbackUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupLogicAppReceiver) string { return v.CallbackUrl }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Action Group.
 func (o GetActionGroupLogicAppReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupLogicAppReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupLogicAppReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The Azure resource ID of the logic app.
 func (o GetActionGroupLogicAppReceiverOutput) ResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupLogicAppReceiver) string { return v.ResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupLogicAppReceiver) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
 // Indicates whether to use common alert schema.
 func (o GetActionGroupLogicAppReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetActionGroupLogicAppReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetActionGroupLogicAppReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
 }
 
-type GetActionGroupLogicAppReceiverArrayOutput struct { *pulumi.OutputState}
+type GetActionGroupLogicAppReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupLogicAppReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetActionGroupLogicAppReceiver)(nil)).Elem()
@@ -4498,7 +4667,7 @@ func (o GetActionGroupLogicAppReceiverArrayOutput) ToGetActionGroupLogicAppRecei
 }
 
 func (o GetActionGroupLogicAppReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupLogicAppReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetActionGroupLogicAppReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionGroupLogicAppReceiver {
 		return vs[0].([]GetActionGroupLogicAppReceiver)[vs[1].(int)]
 	}).(GetActionGroupLogicAppReceiverOutput)
 }
@@ -4561,7 +4730,7 @@ func (i GetActionGroupSmsReceiverArray) ToGetActionGroupSmsReceiverArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupSmsReceiverArrayOutput)
 }
 
-type GetActionGroupSmsReceiverOutput struct { *pulumi.OutputState }
+type GetActionGroupSmsReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupSmsReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetActionGroupSmsReceiver)(nil)).Elem()
@@ -4577,20 +4746,20 @@ func (o GetActionGroupSmsReceiverOutput) ToGetActionGroupSmsReceiverOutputWithCo
 
 // The country code of the voice receiver.
 func (o GetActionGroupSmsReceiverOutput) CountryCode() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupSmsReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupSmsReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Action Group.
 func (o GetActionGroupSmsReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupSmsReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupSmsReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The phone number of the voice receiver.
 func (o GetActionGroupSmsReceiverOutput) PhoneNumber() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupSmsReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupSmsReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
 
-type GetActionGroupSmsReceiverArrayOutput struct { *pulumi.OutputState}
+type GetActionGroupSmsReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupSmsReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetActionGroupSmsReceiver)(nil)).Elem()
@@ -4605,7 +4774,7 @@ func (o GetActionGroupSmsReceiverArrayOutput) ToGetActionGroupSmsReceiverArrayOu
 }
 
 func (o GetActionGroupSmsReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupSmsReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetActionGroupSmsReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionGroupSmsReceiver {
 		return vs[0].([]GetActionGroupSmsReceiver)[vs[1].(int)]
 	}).(GetActionGroupSmsReceiverOutput)
 }
@@ -4668,7 +4837,7 @@ func (i GetActionGroupVoiceReceiverArray) ToGetActionGroupVoiceReceiverArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupVoiceReceiverArrayOutput)
 }
 
-type GetActionGroupVoiceReceiverOutput struct { *pulumi.OutputState }
+type GetActionGroupVoiceReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupVoiceReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetActionGroupVoiceReceiver)(nil)).Elem()
@@ -4684,20 +4853,20 @@ func (o GetActionGroupVoiceReceiverOutput) ToGetActionGroupVoiceReceiverOutputWi
 
 // The country code of the voice receiver.
 func (o GetActionGroupVoiceReceiverOutput) CountryCode() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupVoiceReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupVoiceReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Action Group.
 func (o GetActionGroupVoiceReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupVoiceReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupVoiceReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The phone number of the voice receiver.
 func (o GetActionGroupVoiceReceiverOutput) PhoneNumber() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupVoiceReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupVoiceReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
 
-type GetActionGroupVoiceReceiverArrayOutput struct { *pulumi.OutputState}
+type GetActionGroupVoiceReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupVoiceReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetActionGroupVoiceReceiver)(nil)).Elem()
@@ -4712,7 +4881,7 @@ func (o GetActionGroupVoiceReceiverArrayOutput) ToGetActionGroupVoiceReceiverArr
 }
 
 func (o GetActionGroupVoiceReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupVoiceReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetActionGroupVoiceReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionGroupVoiceReceiver {
 		return vs[0].([]GetActionGroupVoiceReceiver)[vs[1].(int)]
 	}).(GetActionGroupVoiceReceiverOutput)
 }
@@ -4775,7 +4944,7 @@ func (i GetActionGroupWebhookReceiverArray) ToGetActionGroupWebhookReceiverArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupWebhookReceiverArrayOutput)
 }
 
-type GetActionGroupWebhookReceiverOutput struct { *pulumi.OutputState }
+type GetActionGroupWebhookReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupWebhookReceiverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetActionGroupWebhookReceiver)(nil)).Elem()
@@ -4791,20 +4960,20 @@ func (o GetActionGroupWebhookReceiverOutput) ToGetActionGroupWebhookReceiverOutp
 
 // Specifies the name of the Action Group.
 func (o GetActionGroupWebhookReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupWebhookReceiver) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupWebhookReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The URI where webhooks should be sent.
 func (o GetActionGroupWebhookReceiverOutput) ServiceUri() pulumi.StringOutput {
-	return o.ApplyT(func (v GetActionGroupWebhookReceiver) string { return v.ServiceUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetActionGroupWebhookReceiver) string { return v.ServiceUri }).(pulumi.StringOutput)
 }
 
 // Indicates whether to use common alert schema.
 func (o GetActionGroupWebhookReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v GetActionGroupWebhookReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v GetActionGroupWebhookReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
-type GetActionGroupWebhookReceiverArrayOutput struct { *pulumi.OutputState}
+type GetActionGroupWebhookReceiverArrayOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupWebhookReceiverArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetActionGroupWebhookReceiver)(nil)).Elem()
@@ -4819,7 +4988,7 @@ func (o GetActionGroupWebhookReceiverArrayOutput) ToGetActionGroupWebhookReceive
 }
 
 func (o GetActionGroupWebhookReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupWebhookReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetActionGroupWebhookReceiver {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionGroupWebhookReceiver {
 		return vs[0].([]GetActionGroupWebhookReceiver)[vs[1].(int)]
 	}).(GetActionGroupWebhookReceiverOutput)
 }
@@ -4857,7 +5026,28 @@ func (i GetLogProfileRetentionPolicyArgs) ToGetLogProfileRetentionPolicyOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogProfileRetentionPolicyOutput)
 }
 
-type GetLogProfileRetentionPolicyOutput struct { *pulumi.OutputState }
+type GetLogProfileRetentionPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetLogProfileRetentionPolicyArrayOutput() GetLogProfileRetentionPolicyArrayOutput
+	ToGetLogProfileRetentionPolicyArrayOutputWithContext(context.Context) GetLogProfileRetentionPolicyArrayOutput
+}
+
+type GetLogProfileRetentionPolicyArray []GetLogProfileRetentionPolicyInput
+
+func (GetLogProfileRetentionPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLogProfileRetentionPolicy)(nil)).Elem()
+}
+
+func (i GetLogProfileRetentionPolicyArray) ToGetLogProfileRetentionPolicyArrayOutput() GetLogProfileRetentionPolicyArrayOutput {
+	return i.ToGetLogProfileRetentionPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetLogProfileRetentionPolicyArray) ToGetLogProfileRetentionPolicyArrayOutputWithContext(ctx context.Context) GetLogProfileRetentionPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogProfileRetentionPolicyArrayOutput)
+}
+
+type GetLogProfileRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetLogProfileRetentionPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetLogProfileRetentionPolicy)(nil)).Elem()
@@ -4873,12 +5063,32 @@ func (o GetLogProfileRetentionPolicyOutput) ToGetLogProfileRetentionPolicyOutput
 
 // The number of days for the retention policy.
 func (o GetLogProfileRetentionPolicyOutput) Days() pulumi.IntOutput {
-	return o.ApplyT(func (v GetLogProfileRetentionPolicy) int { return v.Days }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetLogProfileRetentionPolicy) int { return v.Days }).(pulumi.IntOutput)
 }
 
 // A boolean value indicating whether the retention policy is enabled.
 func (o GetLogProfileRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetLogProfileRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetLogProfileRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type GetLogProfileRetentionPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLogProfileRetentionPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLogProfileRetentionPolicy)(nil)).Elem()
+}
+
+func (o GetLogProfileRetentionPolicyArrayOutput) ToGetLogProfileRetentionPolicyArrayOutput() GetLogProfileRetentionPolicyArrayOutput {
+	return o
+}
+
+func (o GetLogProfileRetentionPolicyArrayOutput) ToGetLogProfileRetentionPolicyArrayOutputWithContext(ctx context.Context) GetLogProfileRetentionPolicyArrayOutput {
+	return o
+}
+
+func (o GetLogProfileRetentionPolicyArrayOutput) Index(i pulumi.IntInput) GetLogProfileRetentionPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLogProfileRetentionPolicy {
+		return vs[0].([]GetLogProfileRetentionPolicy)[vs[1].(int)]
+	}).(GetLogProfileRetentionPolicyOutput)
 }
 
 func init() {
@@ -4906,10 +5116,6 @@ func init() {
 	pulumi.RegisterOutputType(ActivityLogAlertActionArrayOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertCriteriaOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertCriteriaPtrOutput{})
-	pulumi.RegisterOutputType(AlertRuleEmailActionOutput{})
-	pulumi.RegisterOutputType(AlertRuleEmailActionPtrOutput{})
-	pulumi.RegisterOutputType(AlertRuleWebhookActionOutput{})
-	pulumi.RegisterOutputType(AlertRuleWebhookActionPtrOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingNotificationOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingNotificationPtrOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingNotificationEmailOutput{})
@@ -4941,10 +5147,16 @@ func init() {
 	pulumi.RegisterOutputType(MetricAlertCriteriaArrayOutput{})
 	pulumi.RegisterOutputType(MetricAlertCriteriaDimensionOutput{})
 	pulumi.RegisterOutputType(MetricAlertCriteriaDimensionArrayOutput{})
-	pulumi.RegisterOutputType(MetricAlertRuleEmailActionOutput{})
-	pulumi.RegisterOutputType(MetricAlertRuleEmailActionPtrOutput{})
-	pulumi.RegisterOutputType(MetricAlertRuleWebhookActionOutput{})
-	pulumi.RegisterOutputType(MetricAlertRuleWebhookActionPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertActionOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertActionPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertTriggerOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertTriggerPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertTriggerMetricTriggerOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesLogCriteriaOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesLogCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesLogCriteriaDimensionOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesLogCriteriaDimensionArrayOutput{})
 	pulumi.RegisterOutputType(GetActionGroupArmRoleReceiverOutput{})
 	pulumi.RegisterOutputType(GetActionGroupArmRoleReceiverArrayOutput{})
 	pulumi.RegisterOutputType(GetActionGroupAutomationRunbookReceiverOutput{})
@@ -4966,4 +5178,5 @@ func init() {
 	pulumi.RegisterOutputType(GetActionGroupWebhookReceiverOutput{})
 	pulumi.RegisterOutputType(GetActionGroupWebhookReceiverArrayOutput{})
 	pulumi.RegisterOutputType(GetLogProfileRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(GetLogProfileRetentionPolicyArrayOutput{})
 }

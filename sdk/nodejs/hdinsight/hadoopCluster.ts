@@ -8,65 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a HDInsight Hadoop Cluster.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleContainer = new azure.storage.Container("example", {
- *     containerAccessType: "private",
- *     resourceGroupName: exampleResourceGroup.name,
- *     storageAccountName: exampleAccount.name,
- * });
- * const exampleHadoopCluster = new azure.hdinsight.HadoopCluster("example", {
- *     clusterVersion: "3.6",
- *     componentVersion: {
- *         hadoop: "2.7",
- *     },
- *     gateway: {
- *         enabled: true,
- *         password: "TerrAform123!",
- *         username: "acctestusrgw",
- *     },
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     roles: {
- *         headNode: {
- *             password: "AccTestvdSC4daf986!",
- *             username: "acctestusrvm",
- *             vmSize: "Standard_D3_V2",
- *         },
- *         workerNode: {
- *             password: "AccTestvdSC4daf986!",
- *             targetInstanceCount: 3,
- *             username: "acctestusrvm",
- *             vmSize: "Standard_D4_V2",
- *         },
- *         zookeeperNode: {
- *             password: "AccTestvdSC4daf986!",
- *             username: "acctestusrvm",
- *             vmSize: "Standard_D3_V2",
- *         },
- *     },
- *     storageAccounts: [{
- *         isDefault: true,
- *         storageAccountKey: exampleAccount.primaryAccessKey,
- *         storageContainerId: exampleContainer.id,
- *     }],
- *     tier: "Standard",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_hadoop_cluster.html.markdown.
  */
@@ -144,7 +85,7 @@ export class HadoopCluster extends pulumi.CustomResource {
     /**
      * A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */

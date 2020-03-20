@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing API Management API.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api.html.markdown.
 func LookupApi(ctx *pulumi.Context, args *LookupApiArgs, opts ...pulumi.InvokeOption) (*LookupApiResult, error) {
 	var rv LookupApiResult
@@ -32,7 +32,6 @@ type LookupApiArgs struct {
 	Revision string `pulumi:"revision"`
 }
 
-
 // A collection of values returned by getApi.
 type LookupApiResult struct {
 	ApiManagementName string `pulumi:"apiManagementName"`
@@ -45,14 +44,14 @@ type LookupApiResult struct {
 	// Is this the current API Revision?
 	IsCurrent bool `pulumi:"isCurrent"`
 	// Is this API Revision online/accessible via the Gateway?
-	IsOnline bool `pulumi:"isOnline"`
-	Name string `pulumi:"name"`
+	IsOnline bool   `pulumi:"isOnline"`
+	Name     string `pulumi:"name"`
 	// The Path for this API Management API.
 	Path string `pulumi:"path"`
 	// A list of protocols the operations in this API can be invoked.
-	Protocols []string `pulumi:"protocols"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Revision string `pulumi:"revision"`
+	Protocols         []string `pulumi:"protocols"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
+	Revision          string   `pulumi:"revision"`
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl string `pulumi:"serviceUrl"`
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend?
@@ -64,4 +63,3 @@ type LookupApiResult struct {
 	// The ID of the Version Set which this API is associated with.
 	VersionSetId string `pulumi:"versionSetId"`
 }
-

@@ -45,7 +45,7 @@ class SharedImageVersion(pulumi.CustomResource):
     target_regions: pulumi.Output[list]
     """
     One or more `target_region` blocks as documented below.
-    
+
       * `name` (`str`) - The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
       * `regionalReplicaCount` (`float`)
       * `storage_account_type` (`str`)
@@ -53,7 +53,9 @@ class SharedImageVersion(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, exclude_from_latest=None, gallery_name=None, image_name=None, location=None, managed_image_id=None, name=None, resource_group_name=None, tags=None, target_regions=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Version of a Shared Image within a Shared Image Gallery.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image_version.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] exclude_from_latest: Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
@@ -65,14 +67,12 @@ class SharedImageVersion(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A collection of tags which should be applied to this resource.
         :param pulumi.Input[list] target_regions: One or more `target_region` blocks as documented below.
-        
+
         The **target_regions** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
           * `regionalReplicaCount` (`pulumi.Input[float]`)
           * `storage_account_type` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image_version.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,7 +121,7 @@ class SharedImageVersion(pulumi.CustomResource):
         """
         Get an existing SharedImageVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,18 +134,17 @@ class SharedImageVersion(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A collection of tags which should be applied to this resource.
         :param pulumi.Input[list] target_regions: One or more `target_region` blocks as documented below.
-        
+
         The **target_regions** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
           * `regionalReplicaCount` (`pulumi.Input[float]`)
           * `storage_account_type` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image_version.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["exclude_from_latest"] = exclude_from_latest
         __props__["gallery_name"] = gallery_name
         __props__["image_name"] = image_name

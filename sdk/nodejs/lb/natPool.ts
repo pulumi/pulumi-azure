@@ -7,44 +7,11 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Load Balancer NAT pool. 
+ * Manages a Load Balancer NAT pool.
  * 
  * > **NOTE:** This resource cannot be used with with virtual machines, instead use the `azure.lb.NatRule` resource.
  * 
  * > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
- *     allocationMethod: "Static",
- *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
- *     frontendIpConfigurations: [{
- *         name: "PublicIPAddress",
- *         publicIpAddressId: examplePublicIp.id,
- *     }],
- *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleNatPool = new azure.lb.NatPool("example", {
- *     backendPort: 8080,
- *     frontendIpConfigurationName: "PublicIPAddress",
- *     frontendPortEnd: 81,
- *     frontendPortStart: 80,
- *     loadbalancerId: exampleLoadBalancer.id,
- *     protocol: "Tcp",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_nat_pool.html.markdown.
  */
@@ -96,7 +63,6 @@ export class NatPool extends pulumi.CustomResource {
      * The ID of the Load Balancer in which to create the NAT pool.
      */
     public readonly loadbalancerId!: pulumi.Output<string>;
-    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the NAT pool.
      */
@@ -128,7 +94,6 @@ export class NatPool extends pulumi.CustomResource {
             inputs["frontendPortEnd"] = state ? state.frontendPortEnd : undefined;
             inputs["frontendPortStart"] = state ? state.frontendPortStart : undefined;
             inputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
-            inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["protocol"] = state ? state.protocol : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -160,7 +125,6 @@ export class NatPool extends pulumi.CustomResource {
             inputs["frontendPortEnd"] = args ? args.frontendPortEnd : undefined;
             inputs["frontendPortStart"] = args ? args.frontendPortStart : undefined;
             inputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["protocol"] = args ? args.protocol : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -202,7 +166,6 @@ export interface NatPoolState {
      * The ID of the Load Balancer in which to create the NAT pool.
      */
     readonly loadbalancerId?: pulumi.Input<string>;
-    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the NAT pool.
      */
@@ -241,7 +204,6 @@ export interface NatPoolArgs {
      * The ID of the Load Balancer in which to create the NAT pool.
      */
     readonly loadbalancerId: pulumi.Input<string>;
-    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the NAT pool.
      */

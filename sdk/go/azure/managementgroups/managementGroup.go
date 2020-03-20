@@ -11,8 +11,8 @@ import (
 )
 
 // Manages a Management Group.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_group_legacy.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_group.html.markdown.
 type ManagementGroup struct {
 	pulumi.CustomResourceState
 
@@ -105,4 +105,3 @@ type ManagementGroupArgs struct {
 func (ManagementGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managementGroupArgs)(nil)).Elem()
 }
-

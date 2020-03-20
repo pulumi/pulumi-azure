@@ -12,12 +12,12 @@ import (
 )
 
 // Manages the Pricing Tier for Azure Security Center in the current subscription.
-// 
+//
 // > **NOTE:** This resource requires the `Owner` permission on the Subscription.
-// 
+//
 // > **NOTE:** Deletion of this resource does not change or reset the pricing tier to `Free`
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_subscription_pricing.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_subscription_pricing.markdown.
 type SubscriptionPricing struct {
 	pulumi.CustomResourceState
 
@@ -83,4 +83,3 @@ type SubscriptionPricingArgs struct {
 func (SubscriptionPricingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionPricingArgs)(nil)).Elem()
 }
-

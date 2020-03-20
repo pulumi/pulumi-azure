@@ -59,7 +59,7 @@ func (i FunctionJavaScriptUDFInputArray) ToFunctionJavaScriptUDFInputArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFInputArrayOutput)
 }
 
-type FunctionJavaScriptUDFInputOutput struct { *pulumi.OutputState }
+type FunctionJavaScriptUDFInputOutput struct{ *pulumi.OutputState }
 
 func (FunctionJavaScriptUDFInputOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FunctionJavaScriptUDFInput)(nil)).Elem()
@@ -74,10 +74,10 @@ func (o FunctionJavaScriptUDFInputOutput) ToFunctionJavaScriptUDFInputOutputWith
 }
 
 func (o FunctionJavaScriptUDFInputOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v FunctionJavaScriptUDFInput) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FunctionJavaScriptUDFInput) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type FunctionJavaScriptUDFInputArrayOutput struct { *pulumi.OutputState}
+type FunctionJavaScriptUDFInputArrayOutput struct{ *pulumi.OutputState }
 
 func (FunctionJavaScriptUDFInputArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FunctionJavaScriptUDFInput)(nil)).Elem()
@@ -92,7 +92,7 @@ func (o FunctionJavaScriptUDFInputArrayOutput) ToFunctionJavaScriptUDFInputArray
 }
 
 func (o FunctionJavaScriptUDFInputArrayOutput) Index(i pulumi.IntInput) FunctionJavaScriptUDFInputOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FunctionJavaScriptUDFInput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionJavaScriptUDFInput {
 		return vs[0].([]FunctionJavaScriptUDFInput)[vs[1].(int)]
 	}).(FunctionJavaScriptUDFInputOutput)
 }
@@ -141,7 +141,8 @@ type FunctionJavaScriptUDFOutputPtrInput interface {
 
 type functionJavaScriptUDFOutputPtrType FunctionJavaScriptUDFOutputArgs
 
-func FunctionJavaScriptUDFOutputPtr(v *FunctionJavaScriptUDFOutputArgs) FunctionJavaScriptUDFOutputPtrInput {	return (*functionJavaScriptUDFOutputPtrType)(v)
+func FunctionJavaScriptUDFOutputPtr(v *FunctionJavaScriptUDFOutputArgs) FunctionJavaScriptUDFOutputPtrInput {
+	return (*functionJavaScriptUDFOutputPtrType)(v)
 }
 
 func (*functionJavaScriptUDFOutputPtrType) ElementType() reflect.Type {
@@ -156,7 +157,7 @@ func (i *functionJavaScriptUDFOutputPtrType) ToFunctionJavaScriptUDFOutputPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFOutputPtrOutput)
 }
 
-type FunctionJavaScriptUDFOutputOutput struct { *pulumi.OutputState }
+type FunctionJavaScriptUDFOutputOutput struct{ *pulumi.OutputState }
 
 func (FunctionJavaScriptUDFOutputOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FunctionJavaScriptUDFOutput)(nil)).Elem()
@@ -180,10 +181,10 @@ func (o FunctionJavaScriptUDFOutputOutput) ToFunctionJavaScriptUDFOutputPtrOutpu
 	}).(FunctionJavaScriptUDFOutputPtrOutput)
 }
 func (o FunctionJavaScriptUDFOutputOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v FunctionJavaScriptUDFOutput) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FunctionJavaScriptUDFOutput) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type FunctionJavaScriptUDFOutputPtrOutput struct { *pulumi.OutputState}
+type FunctionJavaScriptUDFOutputPtrOutput struct{ *pulumi.OutputState }
 
 func (FunctionJavaScriptUDFOutputPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FunctionJavaScriptUDFOutput)(nil)).Elem()
@@ -198,18 +199,18 @@ func (o FunctionJavaScriptUDFOutputPtrOutput) ToFunctionJavaScriptUDFOutputPtrOu
 }
 
 func (o FunctionJavaScriptUDFOutputPtrOutput) Elem() FunctionJavaScriptUDFOutputOutput {
-	return o.ApplyT(func (v *FunctionJavaScriptUDFOutput) FunctionJavaScriptUDFOutput { return *v }).(FunctionJavaScriptUDFOutputOutput)
+	return o.ApplyT(func(v *FunctionJavaScriptUDFOutput) FunctionJavaScriptUDFOutput { return *v }).(FunctionJavaScriptUDFOutputOutput)
 }
 
 func (o FunctionJavaScriptUDFOutputPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v FunctionJavaScriptUDFOutput) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FunctionJavaScriptUDFOutput) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type OutputBlobSerialization struct {
-	Encoding *string `pulumi:"encoding"`
+	Encoding       *string `pulumi:"encoding"`
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
-	Format *string `pulumi:"format"`
-	Type string `pulumi:"type"`
+	Format         *string `pulumi:"format"`
+	Type           string  `pulumi:"type"`
 }
 
 type OutputBlobSerializationInput interface {
@@ -220,10 +221,10 @@ type OutputBlobSerializationInput interface {
 }
 
 type OutputBlobSerializationArgs struct {
-	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	Encoding       pulumi.StringPtrInput `pulumi:"encoding"`
 	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Format         pulumi.StringPtrInput `pulumi:"format"`
+	Type           pulumi.StringInput    `pulumi:"type"`
 }
 
 func (OutputBlobSerializationArgs) ElementType() reflect.Type {
@@ -255,7 +256,8 @@ type OutputBlobSerializationPtrInput interface {
 
 type outputBlobSerializationPtrType OutputBlobSerializationArgs
 
-func OutputBlobSerializationPtr(v *OutputBlobSerializationArgs) OutputBlobSerializationPtrInput {	return (*outputBlobSerializationPtrType)(v)
+func OutputBlobSerializationPtr(v *OutputBlobSerializationArgs) OutputBlobSerializationPtrInput {
+	return (*outputBlobSerializationPtrType)(v)
 }
 
 func (*outputBlobSerializationPtrType) ElementType() reflect.Type {
@@ -270,7 +272,7 @@ func (i *outputBlobSerializationPtrType) ToOutputBlobSerializationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobSerializationPtrOutput)
 }
 
-type OutputBlobSerializationOutput struct { *pulumi.OutputState }
+type OutputBlobSerializationOutput struct{ *pulumi.OutputState }
 
 func (OutputBlobSerializationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OutputBlobSerialization)(nil)).Elem()
@@ -294,22 +296,22 @@ func (o OutputBlobSerializationOutput) ToOutputBlobSerializationPtrOutputWithCon
 	}).(OutputBlobSerializationPtrOutput)
 }
 func (o OutputBlobSerializationOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputBlobSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputBlobSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputBlobSerializationOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputBlobSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputBlobSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputBlobSerializationOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputBlobSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputBlobSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputBlobSerializationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v OutputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v OutputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type OutputBlobSerializationPtrOutput struct { *pulumi.OutputState}
+type OutputBlobSerializationPtrOutput struct{ *pulumi.OutputState }
 
 func (OutputBlobSerializationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OutputBlobSerialization)(nil)).Elem()
@@ -324,30 +326,30 @@ func (o OutputBlobSerializationPtrOutput) ToOutputBlobSerializationPtrOutputWith
 }
 
 func (o OutputBlobSerializationPtrOutput) Elem() OutputBlobSerializationOutput {
-	return o.ApplyT(func (v *OutputBlobSerialization) OutputBlobSerialization { return *v }).(OutputBlobSerializationOutput)
+	return o.ApplyT(func(v *OutputBlobSerialization) OutputBlobSerialization { return *v }).(OutputBlobSerializationOutput)
 }
 
 func (o OutputBlobSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputBlobSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputBlobSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputBlobSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputBlobSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputBlobSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputBlobSerializationPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputBlobSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputBlobSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputBlobSerializationPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v OutputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v OutputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type OutputEventHubSerialization struct {
-	Encoding *string `pulumi:"encoding"`
+	Encoding       *string `pulumi:"encoding"`
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
-	Format *string `pulumi:"format"`
-	Type string `pulumi:"type"`
+	Format         *string `pulumi:"format"`
+	Type           string  `pulumi:"type"`
 }
 
 type OutputEventHubSerializationInput interface {
@@ -358,10 +360,10 @@ type OutputEventHubSerializationInput interface {
 }
 
 type OutputEventHubSerializationArgs struct {
-	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	Encoding       pulumi.StringPtrInput `pulumi:"encoding"`
 	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Format         pulumi.StringPtrInput `pulumi:"format"`
+	Type           pulumi.StringInput    `pulumi:"type"`
 }
 
 func (OutputEventHubSerializationArgs) ElementType() reflect.Type {
@@ -393,7 +395,8 @@ type OutputEventHubSerializationPtrInput interface {
 
 type outputEventHubSerializationPtrType OutputEventHubSerializationArgs
 
-func OutputEventHubSerializationPtr(v *OutputEventHubSerializationArgs) OutputEventHubSerializationPtrInput {	return (*outputEventHubSerializationPtrType)(v)
+func OutputEventHubSerializationPtr(v *OutputEventHubSerializationArgs) OutputEventHubSerializationPtrInput {
+	return (*outputEventHubSerializationPtrType)(v)
 }
 
 func (*outputEventHubSerializationPtrType) ElementType() reflect.Type {
@@ -408,7 +411,7 @@ func (i *outputEventHubSerializationPtrType) ToOutputEventHubSerializationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(OutputEventHubSerializationPtrOutput)
 }
 
-type OutputEventHubSerializationOutput struct { *pulumi.OutputState }
+type OutputEventHubSerializationOutput struct{ *pulumi.OutputState }
 
 func (OutputEventHubSerializationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OutputEventHubSerialization)(nil)).Elem()
@@ -432,22 +435,22 @@ func (o OutputEventHubSerializationOutput) ToOutputEventHubSerializationPtrOutpu
 	}).(OutputEventHubSerializationPtrOutput)
 }
 func (o OutputEventHubSerializationOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputEventHubSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputEventHubSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputEventHubSerializationOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputEventHubSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputEventHubSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputEventHubSerializationOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputEventHubSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputEventHubSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputEventHubSerializationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v OutputEventHubSerialization) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v OutputEventHubSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type OutputEventHubSerializationPtrOutput struct { *pulumi.OutputState}
+type OutputEventHubSerializationPtrOutput struct{ *pulumi.OutputState }
 
 func (OutputEventHubSerializationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OutputEventHubSerialization)(nil)).Elem()
@@ -462,30 +465,30 @@ func (o OutputEventHubSerializationPtrOutput) ToOutputEventHubSerializationPtrOu
 }
 
 func (o OutputEventHubSerializationPtrOutput) Elem() OutputEventHubSerializationOutput {
-	return o.ApplyT(func (v *OutputEventHubSerialization) OutputEventHubSerialization { return *v }).(OutputEventHubSerializationOutput)
+	return o.ApplyT(func(v *OutputEventHubSerialization) OutputEventHubSerialization { return *v }).(OutputEventHubSerializationOutput)
 }
 
 func (o OutputEventHubSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputEventHubSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputEventHubSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputEventHubSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputEventHubSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputEventHubSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputEventHubSerializationPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputEventHubSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputEventHubSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputEventHubSerializationPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v OutputEventHubSerialization) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v OutputEventHubSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type OutputServiceBusQueueSerialization struct {
-	Encoding *string `pulumi:"encoding"`
+	Encoding       *string `pulumi:"encoding"`
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
-	Format *string `pulumi:"format"`
-	Type string `pulumi:"type"`
+	Format         *string `pulumi:"format"`
+	Type           string  `pulumi:"type"`
 }
 
 type OutputServiceBusQueueSerializationInput interface {
@@ -496,10 +499,10 @@ type OutputServiceBusQueueSerializationInput interface {
 }
 
 type OutputServiceBusQueueSerializationArgs struct {
-	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	Encoding       pulumi.StringPtrInput `pulumi:"encoding"`
 	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Format         pulumi.StringPtrInput `pulumi:"format"`
+	Type           pulumi.StringInput    `pulumi:"type"`
 }
 
 func (OutputServiceBusQueueSerializationArgs) ElementType() reflect.Type {
@@ -531,7 +534,8 @@ type OutputServiceBusQueueSerializationPtrInput interface {
 
 type outputServiceBusQueueSerializationPtrType OutputServiceBusQueueSerializationArgs
 
-func OutputServiceBusQueueSerializationPtr(v *OutputServiceBusQueueSerializationArgs) OutputServiceBusQueueSerializationPtrInput {	return (*outputServiceBusQueueSerializationPtrType)(v)
+func OutputServiceBusQueueSerializationPtr(v *OutputServiceBusQueueSerializationArgs) OutputServiceBusQueueSerializationPtrInput {
+	return (*outputServiceBusQueueSerializationPtrType)(v)
 }
 
 func (*outputServiceBusQueueSerializationPtrType) ElementType() reflect.Type {
@@ -546,7 +550,7 @@ func (i *outputServiceBusQueueSerializationPtrType) ToOutputServiceBusQueueSeria
 	return pulumi.ToOutputWithContext(ctx, i).(OutputServiceBusQueueSerializationPtrOutput)
 }
 
-type OutputServiceBusQueueSerializationOutput struct { *pulumi.OutputState }
+type OutputServiceBusQueueSerializationOutput struct{ *pulumi.OutputState }
 
 func (OutputServiceBusQueueSerializationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OutputServiceBusQueueSerialization)(nil)).Elem()
@@ -570,22 +574,22 @@ func (o OutputServiceBusQueueSerializationOutput) ToOutputServiceBusQueueSeriali
 	}).(OutputServiceBusQueueSerializationPtrOutput)
 }
 func (o OutputServiceBusQueueSerializationOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputServiceBusQueueSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputServiceBusQueueSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputServiceBusQueueSerializationOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputServiceBusQueueSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputServiceBusQueueSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputServiceBusQueueSerializationOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputServiceBusQueueSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputServiceBusQueueSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputServiceBusQueueSerializationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v OutputServiceBusQueueSerialization) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v OutputServiceBusQueueSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type OutputServiceBusQueueSerializationPtrOutput struct { *pulumi.OutputState}
+type OutputServiceBusQueueSerializationPtrOutput struct{ *pulumi.OutputState }
 
 func (OutputServiceBusQueueSerializationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OutputServiceBusQueueSerialization)(nil)).Elem()
@@ -600,30 +604,30 @@ func (o OutputServiceBusQueueSerializationPtrOutput) ToOutputServiceBusQueueSeri
 }
 
 func (o OutputServiceBusQueueSerializationPtrOutput) Elem() OutputServiceBusQueueSerializationOutput {
-	return o.ApplyT(func (v *OutputServiceBusQueueSerialization) OutputServiceBusQueueSerialization { return *v }).(OutputServiceBusQueueSerializationOutput)
+	return o.ApplyT(func(v *OutputServiceBusQueueSerialization) OutputServiceBusQueueSerialization { return *v }).(OutputServiceBusQueueSerializationOutput)
 }
 
 func (o OutputServiceBusQueueSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputServiceBusQueueSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputServiceBusQueueSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputServiceBusQueueSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputServiceBusQueueSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputServiceBusQueueSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputServiceBusQueueSerializationPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputServiceBusQueueSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputServiceBusQueueSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputServiceBusQueueSerializationPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v OutputServiceBusQueueSerialization) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v OutputServiceBusQueueSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type OutputServicebusTopicSerialization struct {
-	Encoding *string `pulumi:"encoding"`
+	Encoding       *string `pulumi:"encoding"`
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
-	Format *string `pulumi:"format"`
-	Type string `pulumi:"type"`
+	Format         *string `pulumi:"format"`
+	Type           string  `pulumi:"type"`
 }
 
 type OutputServicebusTopicSerializationInput interface {
@@ -634,10 +638,10 @@ type OutputServicebusTopicSerializationInput interface {
 }
 
 type OutputServicebusTopicSerializationArgs struct {
-	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	Encoding       pulumi.StringPtrInput `pulumi:"encoding"`
 	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Format         pulumi.StringPtrInput `pulumi:"format"`
+	Type           pulumi.StringInput    `pulumi:"type"`
 }
 
 func (OutputServicebusTopicSerializationArgs) ElementType() reflect.Type {
@@ -669,7 +673,8 @@ type OutputServicebusTopicSerializationPtrInput interface {
 
 type outputServicebusTopicSerializationPtrType OutputServicebusTopicSerializationArgs
 
-func OutputServicebusTopicSerializationPtr(v *OutputServicebusTopicSerializationArgs) OutputServicebusTopicSerializationPtrInput {	return (*outputServicebusTopicSerializationPtrType)(v)
+func OutputServicebusTopicSerializationPtr(v *OutputServicebusTopicSerializationArgs) OutputServicebusTopicSerializationPtrInput {
+	return (*outputServicebusTopicSerializationPtrType)(v)
 }
 
 func (*outputServicebusTopicSerializationPtrType) ElementType() reflect.Type {
@@ -684,7 +689,7 @@ func (i *outputServicebusTopicSerializationPtrType) ToOutputServicebusTopicSeria
 	return pulumi.ToOutputWithContext(ctx, i).(OutputServicebusTopicSerializationPtrOutput)
 }
 
-type OutputServicebusTopicSerializationOutput struct { *pulumi.OutputState }
+type OutputServicebusTopicSerializationOutput struct{ *pulumi.OutputState }
 
 func (OutputServicebusTopicSerializationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OutputServicebusTopicSerialization)(nil)).Elem()
@@ -708,22 +713,22 @@ func (o OutputServicebusTopicSerializationOutput) ToOutputServicebusTopicSeriali
 	}).(OutputServicebusTopicSerializationPtrOutput)
 }
 func (o OutputServicebusTopicSerializationOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputServicebusTopicSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputServicebusTopicSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputServicebusTopicSerializationOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputServicebusTopicSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputServicebusTopicSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputServicebusTopicSerializationOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputServicebusTopicSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputServicebusTopicSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputServicebusTopicSerializationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v OutputServicebusTopicSerialization) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v OutputServicebusTopicSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type OutputServicebusTopicSerializationPtrOutput struct { *pulumi.OutputState}
+type OutputServicebusTopicSerializationPtrOutput struct{ *pulumi.OutputState }
 
 func (OutputServicebusTopicSerializationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OutputServicebusTopicSerialization)(nil)).Elem()
@@ -738,29 +743,29 @@ func (o OutputServicebusTopicSerializationPtrOutput) ToOutputServicebusTopicSeri
 }
 
 func (o OutputServicebusTopicSerializationPtrOutput) Elem() OutputServicebusTopicSerializationOutput {
-	return o.ApplyT(func (v *OutputServicebusTopicSerialization) OutputServicebusTopicSerialization { return *v }).(OutputServicebusTopicSerializationOutput)
+	return o.ApplyT(func(v *OutputServicebusTopicSerialization) OutputServicebusTopicSerialization { return *v }).(OutputServicebusTopicSerializationOutput)
 }
 
 func (o OutputServicebusTopicSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputServicebusTopicSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputServicebusTopicSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputServicebusTopicSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputServicebusTopicSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputServicebusTopicSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputServicebusTopicSerializationPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutputServicebusTopicSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutputServicebusTopicSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputServicebusTopicSerializationPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v OutputServicebusTopicSerialization) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v OutputServicebusTopicSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ReferenceInputBlobSerialization struct {
-	Encoding *string `pulumi:"encoding"`
+	Encoding       *string `pulumi:"encoding"`
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
-	Type string `pulumi:"type"`
+	Type           string  `pulumi:"type"`
 }
 
 type ReferenceInputBlobSerializationInput interface {
@@ -771,9 +776,9 @@ type ReferenceInputBlobSerializationInput interface {
 }
 
 type ReferenceInputBlobSerializationArgs struct {
-	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	Encoding       pulumi.StringPtrInput `pulumi:"encoding"`
 	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Type           pulumi.StringInput    `pulumi:"type"`
 }
 
 func (ReferenceInputBlobSerializationArgs) ElementType() reflect.Type {
@@ -805,7 +810,8 @@ type ReferenceInputBlobSerializationPtrInput interface {
 
 type referenceInputBlobSerializationPtrType ReferenceInputBlobSerializationArgs
 
-func ReferenceInputBlobSerializationPtr(v *ReferenceInputBlobSerializationArgs) ReferenceInputBlobSerializationPtrInput {	return (*referenceInputBlobSerializationPtrType)(v)
+func ReferenceInputBlobSerializationPtr(v *ReferenceInputBlobSerializationArgs) ReferenceInputBlobSerializationPtrInput {
+	return (*referenceInputBlobSerializationPtrType)(v)
 }
 
 func (*referenceInputBlobSerializationPtrType) ElementType() reflect.Type {
@@ -820,7 +826,7 @@ func (i *referenceInputBlobSerializationPtrType) ToReferenceInputBlobSerializati
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputBlobSerializationPtrOutput)
 }
 
-type ReferenceInputBlobSerializationOutput struct { *pulumi.OutputState }
+type ReferenceInputBlobSerializationOutput struct{ *pulumi.OutputState }
 
 func (ReferenceInputBlobSerializationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReferenceInputBlobSerialization)(nil)).Elem()
@@ -844,18 +850,18 @@ func (o ReferenceInputBlobSerializationOutput) ToReferenceInputBlobSerialization
 	}).(ReferenceInputBlobSerializationPtrOutput)
 }
 func (o ReferenceInputBlobSerializationOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ReferenceInputBlobSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ReferenceInputBlobSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 func (o ReferenceInputBlobSerializationOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ReferenceInputBlobSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ReferenceInputBlobSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
 func (o ReferenceInputBlobSerializationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ReferenceInputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ReferenceInputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type ReferenceInputBlobSerializationPtrOutput struct { *pulumi.OutputState}
+type ReferenceInputBlobSerializationPtrOutput struct{ *pulumi.OutputState }
 
 func (ReferenceInputBlobSerializationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ReferenceInputBlobSerialization)(nil)).Elem()
@@ -870,25 +876,25 @@ func (o ReferenceInputBlobSerializationPtrOutput) ToReferenceInputBlobSerializat
 }
 
 func (o ReferenceInputBlobSerializationPtrOutput) Elem() ReferenceInputBlobSerializationOutput {
-	return o.ApplyT(func (v *ReferenceInputBlobSerialization) ReferenceInputBlobSerialization { return *v }).(ReferenceInputBlobSerializationOutput)
+	return o.ApplyT(func(v *ReferenceInputBlobSerialization) ReferenceInputBlobSerialization { return *v }).(ReferenceInputBlobSerializationOutput)
 }
 
 func (o ReferenceInputBlobSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ReferenceInputBlobSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ReferenceInputBlobSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 func (o ReferenceInputBlobSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ReferenceInputBlobSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ReferenceInputBlobSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
 func (o ReferenceInputBlobSerializationPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ReferenceInputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ReferenceInputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type StreamInputBlobSerialization struct {
-	Encoding *string `pulumi:"encoding"`
+	Encoding       *string `pulumi:"encoding"`
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
-	Type string `pulumi:"type"`
+	Type           string  `pulumi:"type"`
 }
 
 type StreamInputBlobSerializationInput interface {
@@ -899,9 +905,9 @@ type StreamInputBlobSerializationInput interface {
 }
 
 type StreamInputBlobSerializationArgs struct {
-	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	Encoding       pulumi.StringPtrInput `pulumi:"encoding"`
 	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Type           pulumi.StringInput    `pulumi:"type"`
 }
 
 func (StreamInputBlobSerializationArgs) ElementType() reflect.Type {
@@ -933,7 +939,8 @@ type StreamInputBlobSerializationPtrInput interface {
 
 type streamInputBlobSerializationPtrType StreamInputBlobSerializationArgs
 
-func StreamInputBlobSerializationPtr(v *StreamInputBlobSerializationArgs) StreamInputBlobSerializationPtrInput {	return (*streamInputBlobSerializationPtrType)(v)
+func StreamInputBlobSerializationPtr(v *StreamInputBlobSerializationArgs) StreamInputBlobSerializationPtrInput {
+	return (*streamInputBlobSerializationPtrType)(v)
 }
 
 func (*streamInputBlobSerializationPtrType) ElementType() reflect.Type {
@@ -948,7 +955,7 @@ func (i *streamInputBlobSerializationPtrType) ToStreamInputBlobSerializationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputBlobSerializationPtrOutput)
 }
 
-type StreamInputBlobSerializationOutput struct { *pulumi.OutputState }
+type StreamInputBlobSerializationOutput struct{ *pulumi.OutputState }
 
 func (StreamInputBlobSerializationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamInputBlobSerialization)(nil)).Elem()
@@ -972,18 +979,18 @@ func (o StreamInputBlobSerializationOutput) ToStreamInputBlobSerializationPtrOut
 	}).(StreamInputBlobSerializationPtrOutput)
 }
 func (o StreamInputBlobSerializationOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StreamInputBlobSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StreamInputBlobSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 func (o StreamInputBlobSerializationOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StreamInputBlobSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StreamInputBlobSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
 func (o StreamInputBlobSerializationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v StreamInputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StreamInputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type StreamInputBlobSerializationPtrOutput struct { *pulumi.OutputState}
+type StreamInputBlobSerializationPtrOutput struct{ *pulumi.OutputState }
 
 func (StreamInputBlobSerializationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StreamInputBlobSerialization)(nil)).Elem()
@@ -998,25 +1005,25 @@ func (o StreamInputBlobSerializationPtrOutput) ToStreamInputBlobSerializationPtr
 }
 
 func (o StreamInputBlobSerializationPtrOutput) Elem() StreamInputBlobSerializationOutput {
-	return o.ApplyT(func (v *StreamInputBlobSerialization) StreamInputBlobSerialization { return *v }).(StreamInputBlobSerializationOutput)
+	return o.ApplyT(func(v *StreamInputBlobSerialization) StreamInputBlobSerialization { return *v }).(StreamInputBlobSerializationOutput)
 }
 
 func (o StreamInputBlobSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StreamInputBlobSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StreamInputBlobSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 func (o StreamInputBlobSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StreamInputBlobSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StreamInputBlobSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
 func (o StreamInputBlobSerializationPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v StreamInputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StreamInputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type StreamInputEventHubSerialization struct {
-	Encoding *string `pulumi:"encoding"`
+	Encoding       *string `pulumi:"encoding"`
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
-	Type string `pulumi:"type"`
+	Type           string  `pulumi:"type"`
 }
 
 type StreamInputEventHubSerializationInput interface {
@@ -1027,9 +1034,9 @@ type StreamInputEventHubSerializationInput interface {
 }
 
 type StreamInputEventHubSerializationArgs struct {
-	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	Encoding       pulumi.StringPtrInput `pulumi:"encoding"`
 	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Type           pulumi.StringInput    `pulumi:"type"`
 }
 
 func (StreamInputEventHubSerializationArgs) ElementType() reflect.Type {
@@ -1061,7 +1068,8 @@ type StreamInputEventHubSerializationPtrInput interface {
 
 type streamInputEventHubSerializationPtrType StreamInputEventHubSerializationArgs
 
-func StreamInputEventHubSerializationPtr(v *StreamInputEventHubSerializationArgs) StreamInputEventHubSerializationPtrInput {	return (*streamInputEventHubSerializationPtrType)(v)
+func StreamInputEventHubSerializationPtr(v *StreamInputEventHubSerializationArgs) StreamInputEventHubSerializationPtrInput {
+	return (*streamInputEventHubSerializationPtrType)(v)
 }
 
 func (*streamInputEventHubSerializationPtrType) ElementType() reflect.Type {
@@ -1076,7 +1084,7 @@ func (i *streamInputEventHubSerializationPtrType) ToStreamInputEventHubSerializa
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputEventHubSerializationPtrOutput)
 }
 
-type StreamInputEventHubSerializationOutput struct { *pulumi.OutputState }
+type StreamInputEventHubSerializationOutput struct{ *pulumi.OutputState }
 
 func (StreamInputEventHubSerializationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamInputEventHubSerialization)(nil)).Elem()
@@ -1100,18 +1108,18 @@ func (o StreamInputEventHubSerializationOutput) ToStreamInputEventHubSerializati
 	}).(StreamInputEventHubSerializationPtrOutput)
 }
 func (o StreamInputEventHubSerializationOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StreamInputEventHubSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StreamInputEventHubSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 func (o StreamInputEventHubSerializationOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StreamInputEventHubSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StreamInputEventHubSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
 func (o StreamInputEventHubSerializationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v StreamInputEventHubSerialization) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StreamInputEventHubSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type StreamInputEventHubSerializationPtrOutput struct { *pulumi.OutputState}
+type StreamInputEventHubSerializationPtrOutput struct{ *pulumi.OutputState }
 
 func (StreamInputEventHubSerializationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StreamInputEventHubSerialization)(nil)).Elem()
@@ -1126,25 +1134,25 @@ func (o StreamInputEventHubSerializationPtrOutput) ToStreamInputEventHubSerializ
 }
 
 func (o StreamInputEventHubSerializationPtrOutput) Elem() StreamInputEventHubSerializationOutput {
-	return o.ApplyT(func (v *StreamInputEventHubSerialization) StreamInputEventHubSerialization { return *v }).(StreamInputEventHubSerializationOutput)
+	return o.ApplyT(func(v *StreamInputEventHubSerialization) StreamInputEventHubSerialization { return *v }).(StreamInputEventHubSerializationOutput)
 }
 
 func (o StreamInputEventHubSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StreamInputEventHubSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StreamInputEventHubSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 func (o StreamInputEventHubSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StreamInputEventHubSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StreamInputEventHubSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
 func (o StreamInputEventHubSerializationPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v StreamInputEventHubSerialization) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StreamInputEventHubSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type StreamInputIotHubSerialization struct {
-	Encoding *string `pulumi:"encoding"`
+	Encoding       *string `pulumi:"encoding"`
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
-	Type string `pulumi:"type"`
+	Type           string  `pulumi:"type"`
 }
 
 type StreamInputIotHubSerializationInput interface {
@@ -1155,9 +1163,9 @@ type StreamInputIotHubSerializationInput interface {
 }
 
 type StreamInputIotHubSerializationArgs struct {
-	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	Encoding       pulumi.StringPtrInput `pulumi:"encoding"`
 	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Type           pulumi.StringInput    `pulumi:"type"`
 }
 
 func (StreamInputIotHubSerializationArgs) ElementType() reflect.Type {
@@ -1189,7 +1197,8 @@ type StreamInputIotHubSerializationPtrInput interface {
 
 type streamInputIotHubSerializationPtrType StreamInputIotHubSerializationArgs
 
-func StreamInputIotHubSerializationPtr(v *StreamInputIotHubSerializationArgs) StreamInputIotHubSerializationPtrInput {	return (*streamInputIotHubSerializationPtrType)(v)
+func StreamInputIotHubSerializationPtr(v *StreamInputIotHubSerializationArgs) StreamInputIotHubSerializationPtrInput {
+	return (*streamInputIotHubSerializationPtrType)(v)
 }
 
 func (*streamInputIotHubSerializationPtrType) ElementType() reflect.Type {
@@ -1204,7 +1213,7 @@ func (i *streamInputIotHubSerializationPtrType) ToStreamInputIotHubSerialization
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputIotHubSerializationPtrOutput)
 }
 
-type StreamInputIotHubSerializationOutput struct { *pulumi.OutputState }
+type StreamInputIotHubSerializationOutput struct{ *pulumi.OutputState }
 
 func (StreamInputIotHubSerializationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamInputIotHubSerialization)(nil)).Elem()
@@ -1228,18 +1237,18 @@ func (o StreamInputIotHubSerializationOutput) ToStreamInputIotHubSerializationPt
 	}).(StreamInputIotHubSerializationPtrOutput)
 }
 func (o StreamInputIotHubSerializationOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StreamInputIotHubSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StreamInputIotHubSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 func (o StreamInputIotHubSerializationOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StreamInputIotHubSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StreamInputIotHubSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
 func (o StreamInputIotHubSerializationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v StreamInputIotHubSerialization) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StreamInputIotHubSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type StreamInputIotHubSerializationPtrOutput struct { *pulumi.OutputState}
+type StreamInputIotHubSerializationPtrOutput struct{ *pulumi.OutputState }
 
 func (StreamInputIotHubSerializationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StreamInputIotHubSerialization)(nil)).Elem()
@@ -1254,19 +1263,19 @@ func (o StreamInputIotHubSerializationPtrOutput) ToStreamInputIotHubSerializatio
 }
 
 func (o StreamInputIotHubSerializationPtrOutput) Elem() StreamInputIotHubSerializationOutput {
-	return o.ApplyT(func (v *StreamInputIotHubSerialization) StreamInputIotHubSerialization { return *v }).(StreamInputIotHubSerializationOutput)
+	return o.ApplyT(func(v *StreamInputIotHubSerialization) StreamInputIotHubSerialization { return *v }).(StreamInputIotHubSerializationOutput)
 }
 
 func (o StreamInputIotHubSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StreamInputIotHubSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StreamInputIotHubSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 func (o StreamInputIotHubSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StreamInputIotHubSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StreamInputIotHubSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
 func (o StreamInputIotHubSerializationPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v StreamInputIotHubSerialization) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StreamInputIotHubSerialization) string { return v.Type }).(pulumi.StringOutput)
 }
 
 func init() {

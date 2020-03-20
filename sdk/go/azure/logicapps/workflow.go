@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Logic App Workflow.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_workflow.html.markdown.
 type Workflow struct {
 	pulumi.CustomResourceState
@@ -145,4 +145,3 @@ type WorkflowArgs struct {
 func (WorkflowArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workflowArgs)(nil)).Elem()
 }
-

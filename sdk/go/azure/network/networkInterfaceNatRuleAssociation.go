@@ -12,7 +12,7 @@ import (
 )
 
 // Manages the association between a Network Interface and a Load Balancer's NAT Rule.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_nat_rule_association.html.markdown.
 type NetworkInterfaceNatRuleAssociation struct {
 	pulumi.CustomResourceState
@@ -105,4 +105,3 @@ type NetworkInterfaceNatRuleAssociationArgs struct {
 func (NetworkInterfaceNatRuleAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceNatRuleAssociationArgs)(nil)).Elem()
 }
-

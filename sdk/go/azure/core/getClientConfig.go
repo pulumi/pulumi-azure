@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access the configuration of the AzureRM provider.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/client_config.html.markdown.
 func GetClientConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClientConfigResult, error) {
 	var rv GetClientConfigResult
@@ -24,11 +24,8 @@ func GetClientConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClie
 type GetClientConfigResult struct {
 	ClientId string `pulumi:"clientId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	ObjectId string `pulumi:"objectId"`
-	ServicePrincipalApplicationId string `pulumi:"servicePrincipalApplicationId"`
-	ServicePrincipalObjectId string `pulumi:"servicePrincipalObjectId"`
+	Id             string `pulumi:"id"`
+	ObjectId       string `pulumi:"objectId"`
 	SubscriptionId string `pulumi:"subscriptionId"`
-	TenantId string `pulumi:"tenantId"`
+	TenantId       string `pulumi:"tenantId"`
 }
-

@@ -25,57 +25,49 @@ class AutoscaleSetting(pulumi.CustomResource):
     notification: pulumi.Output[dict]
     """
     Specifies a `notification` block as defined below.
-    
+
       * `email` (`dict`)
-    
         * `customEmails` (`list`)
         * `sendToSubscriptionAdministrator` (`bool`)
         * `sendToSubscriptionCoAdministrator` (`bool`)
-    
+
       * `webhooks` (`list`)
-    
         * `properties` (`dict`)
         * `service_uri` (`str`)
     """
     profiles: pulumi.Output[list]
     """
     Specifies one or more (up to 20) `profile` blocks as defined below.
-    
+
       * `capacity` (`dict`)
-    
         * `default` (`float`)
         * `maximum` (`float`)
         * `minimum` (`float`)
-    
+
       * `fixedDate` (`dict`)
-    
         * `end` (`str`)
         * `start` (`str`)
         * `timezone` (`str`)
-    
+
       * `name` (`str`) - The name of the AutoScale Setting. Changing this forces a new resource to be created.
       * `recurrence` (`dict`)
-    
         * `days` (`list`)
         * `hours` (`float`)
         * `minutes` (`float`)
         * `timezone` (`str`)
-    
+
       * `rules` (`list`)
-    
         * `metricTrigger` (`dict`)
-    
-          * `metric_name` (`str`)
+          * `metricName` (`str`)
           * `metricResourceId` (`str`)
           * `operator` (`str`)
           * `statistic` (`str`)
           * `threshold` (`float`)
           * `timeAggregation` (`str`)
           * `timeGrain` (`str`)
-          * `timeWindow` (`str`)
-    
+          * `time_window` (`str`)
+
         * `scaleAction` (`dict`)
-    
           * `cooldown` (`str`)
           * `direction` (`str`)
           * `type` (`str`)
@@ -96,7 +88,9 @@ class AutoscaleSetting(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, enabled=None, location=None, name=None, notification=None, profiles=None, resource_group_name=None, tags=None, target_resource_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_autoscale_setting.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
@@ -107,63 +101,53 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to.
-        
+
         The **notification** object supports the following:
-        
+
           * `email` (`pulumi.Input[dict]`)
-        
             * `customEmails` (`pulumi.Input[list]`)
             * `sendToSubscriptionAdministrator` (`pulumi.Input[bool]`)
             * `sendToSubscriptionCoAdministrator` (`pulumi.Input[bool]`)
-        
+
           * `webhooks` (`pulumi.Input[list]`)
-        
             * `properties` (`pulumi.Input[dict]`)
             * `service_uri` (`pulumi.Input[str]`)
-        
+
         The **profiles** object supports the following:
-        
+
           * `capacity` (`pulumi.Input[dict]`)
-        
             * `default` (`pulumi.Input[float]`)
             * `maximum` (`pulumi.Input[float]`)
             * `minimum` (`pulumi.Input[float]`)
-        
+
           * `fixedDate` (`pulumi.Input[dict]`)
-        
             * `end` (`pulumi.Input[str]`)
             * `start` (`pulumi.Input[str]`)
             * `timezone` (`pulumi.Input[str]`)
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the AutoScale Setting. Changing this forces a new resource to be created.
           * `recurrence` (`pulumi.Input[dict]`)
-        
             * `days` (`pulumi.Input[list]`)
             * `hours` (`pulumi.Input[float]`)
             * `minutes` (`pulumi.Input[float]`)
             * `timezone` (`pulumi.Input[str]`)
-        
+
           * `rules` (`pulumi.Input[list]`)
-        
             * `metricTrigger` (`pulumi.Input[dict]`)
-        
-              * `metric_name` (`pulumi.Input[str]`)
+              * `metricName` (`pulumi.Input[str]`)
               * `metricResourceId` (`pulumi.Input[str]`)
               * `operator` (`pulumi.Input[str]`)
               * `statistic` (`pulumi.Input[str]`)
               * `threshold` (`pulumi.Input[float]`)
               * `timeAggregation` (`pulumi.Input[str]`)
               * `timeGrain` (`pulumi.Input[str]`)
-              * `timeWindow` (`pulumi.Input[str]`)
-        
+              * `time_window` (`pulumi.Input[str]`)
+
             * `scaleAction` (`pulumi.Input[dict]`)
-        
               * `cooldown` (`pulumi.Input[str]`)
               * `direction` (`pulumi.Input[str]`)
               * `type` (`pulumi.Input[str]`)
               * `value` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_autoscale_setting.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -207,7 +191,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         """
         Get an existing AutoscaleSetting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,67 +203,58 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to.
-        
+
         The **notification** object supports the following:
-        
+
           * `email` (`pulumi.Input[dict]`)
-        
             * `customEmails` (`pulumi.Input[list]`)
             * `sendToSubscriptionAdministrator` (`pulumi.Input[bool]`)
             * `sendToSubscriptionCoAdministrator` (`pulumi.Input[bool]`)
-        
+
           * `webhooks` (`pulumi.Input[list]`)
-        
             * `properties` (`pulumi.Input[dict]`)
             * `service_uri` (`pulumi.Input[str]`)
-        
+
         The **profiles** object supports the following:
-        
+
           * `capacity` (`pulumi.Input[dict]`)
-        
             * `default` (`pulumi.Input[float]`)
             * `maximum` (`pulumi.Input[float]`)
             * `minimum` (`pulumi.Input[float]`)
-        
+
           * `fixedDate` (`pulumi.Input[dict]`)
-        
             * `end` (`pulumi.Input[str]`)
             * `start` (`pulumi.Input[str]`)
             * `timezone` (`pulumi.Input[str]`)
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the AutoScale Setting. Changing this forces a new resource to be created.
           * `recurrence` (`pulumi.Input[dict]`)
-        
             * `days` (`pulumi.Input[list]`)
             * `hours` (`pulumi.Input[float]`)
             * `minutes` (`pulumi.Input[float]`)
             * `timezone` (`pulumi.Input[str]`)
-        
+
           * `rules` (`pulumi.Input[list]`)
-        
             * `metricTrigger` (`pulumi.Input[dict]`)
-        
-              * `metric_name` (`pulumi.Input[str]`)
+              * `metricName` (`pulumi.Input[str]`)
               * `metricResourceId` (`pulumi.Input[str]`)
               * `operator` (`pulumi.Input[str]`)
               * `statistic` (`pulumi.Input[str]`)
               * `threshold` (`pulumi.Input[float]`)
               * `timeAggregation` (`pulumi.Input[str]`)
               * `timeGrain` (`pulumi.Input[str]`)
-              * `timeWindow` (`pulumi.Input[str]`)
-        
+              * `time_window` (`pulumi.Input[str]`)
+
             * `scaleAction` (`pulumi.Input[dict]`)
-        
               * `cooldown` (`pulumi.Input[str]`)
               * `direction` (`pulumi.Input[str]`)
               * `type` (`pulumi.Input[str]`)
               * `value` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_autoscale_setting.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["enabled"] = enabled
         __props__["location"] = location
         __props__["name"] = name

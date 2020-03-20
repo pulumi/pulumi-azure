@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an ExpressRoute circuit.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit.html.markdown.
 type ExpressRouteCircuit struct {
 	pulumi.CustomResourceState
@@ -183,4 +183,3 @@ type ExpressRouteCircuitArgs struct {
 func (ExpressRouteCircuitArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteCircuitArgs)(nil)).Elem()
 }
-

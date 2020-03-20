@@ -14,7 +14,7 @@ import (
 type EndpointCustomHeader struct {
 	// The name of the Traffic Manager endpoint. Changing this forces a
 	// new resource to be created.
-	Name string `pulumi:"name"`
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -28,7 +28,7 @@ type EndpointCustomHeaderInput interface {
 type EndpointCustomHeaderArgs struct {
 	// The name of the Traffic Manager endpoint. Changing this forces a
 	// new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -65,7 +65,7 @@ func (i EndpointCustomHeaderArray) ToEndpointCustomHeaderArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointCustomHeaderArrayOutput)
 }
 
-type EndpointCustomHeaderOutput struct { *pulumi.OutputState }
+type EndpointCustomHeaderOutput struct{ *pulumi.OutputState }
 
 func (EndpointCustomHeaderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EndpointCustomHeader)(nil)).Elem()
@@ -82,14 +82,14 @@ func (o EndpointCustomHeaderOutput) ToEndpointCustomHeaderOutputWithContext(ctx 
 // The name of the Traffic Manager endpoint. Changing this forces a
 // new resource to be created.
 func (o EndpointCustomHeaderOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v EndpointCustomHeader) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EndpointCustomHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o EndpointCustomHeaderOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v EndpointCustomHeader) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EndpointCustomHeader) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type EndpointCustomHeaderArrayOutput struct { *pulumi.OutputState}
+type EndpointCustomHeaderArrayOutput struct{ *pulumi.OutputState }
 
 func (EndpointCustomHeaderArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]EndpointCustomHeader)(nil)).Elem()
@@ -104,15 +104,15 @@ func (o EndpointCustomHeaderArrayOutput) ToEndpointCustomHeaderArrayOutputWithCo
 }
 
 func (o EndpointCustomHeaderArrayOutput) Index(i pulumi.IntInput) EndpointCustomHeaderOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) EndpointCustomHeader {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointCustomHeader {
 		return vs[0].([]EndpointCustomHeader)[vs[1].(int)]
 	}).(EndpointCustomHeaderOutput)
 }
 
 type EndpointSubnet struct {
-	First string `pulumi:"first"`
-	Last *string `pulumi:"last"`
-	Scope *int `pulumi:"scope"`
+	First string  `pulumi:"first"`
+	Last  *string `pulumi:"last"`
+	Scope *int    `pulumi:"scope"`
 }
 
 type EndpointSubnetInput interface {
@@ -123,9 +123,9 @@ type EndpointSubnetInput interface {
 }
 
 type EndpointSubnetArgs struct {
-	First pulumi.StringInput `pulumi:"first"`
-	Last pulumi.StringPtrInput `pulumi:"last"`
-	Scope pulumi.IntPtrInput `pulumi:"scope"`
+	First pulumi.StringInput    `pulumi:"first"`
+	Last  pulumi.StringPtrInput `pulumi:"last"`
+	Scope pulumi.IntPtrInput    `pulumi:"scope"`
 }
 
 func (EndpointSubnetArgs) ElementType() reflect.Type {
@@ -161,7 +161,7 @@ func (i EndpointSubnetArray) ToEndpointSubnetArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointSubnetArrayOutput)
 }
 
-type EndpointSubnetOutput struct { *pulumi.OutputState }
+type EndpointSubnetOutput struct{ *pulumi.OutputState }
 
 func (EndpointSubnetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EndpointSubnet)(nil)).Elem()
@@ -176,18 +176,18 @@ func (o EndpointSubnetOutput) ToEndpointSubnetOutputWithContext(ctx context.Cont
 }
 
 func (o EndpointSubnetOutput) First() pulumi.StringOutput {
-	return o.ApplyT(func (v EndpointSubnet) string { return v.First }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EndpointSubnet) string { return v.First }).(pulumi.StringOutput)
 }
 
 func (o EndpointSubnetOutput) Last() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v EndpointSubnet) *string { return v.Last }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v EndpointSubnet) *string { return v.Last }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointSubnetOutput) Scope() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v EndpointSubnet) *int { return v.Scope }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v EndpointSubnet) *int { return v.Scope }).(pulumi.IntPtrOutput)
 }
 
-type EndpointSubnetArrayOutput struct { *pulumi.OutputState}
+type EndpointSubnetArrayOutput struct{ *pulumi.OutputState }
 
 func (EndpointSubnetArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]EndpointSubnet)(nil)).Elem()
@@ -202,14 +202,14 @@ func (o EndpointSubnetArrayOutput) ToEndpointSubnetArrayOutputWithContext(ctx co
 }
 
 func (o EndpointSubnetArrayOutput) Index(i pulumi.IntInput) EndpointSubnetOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) EndpointSubnet {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointSubnet {
 		return vs[0].([]EndpointSubnet)[vs[1].(int)]
 	}).(EndpointSubnetOutput)
 }
 
 type ProfileDnsConfig struct {
 	RelativeName string `pulumi:"relativeName"`
-	Ttl int `pulumi:"ttl"`
+	Ttl          int    `pulumi:"ttl"`
 }
 
 type ProfileDnsConfigInput interface {
@@ -221,7 +221,7 @@ type ProfileDnsConfigInput interface {
 
 type ProfileDnsConfigArgs struct {
 	RelativeName pulumi.StringInput `pulumi:"relativeName"`
-	Ttl pulumi.IntInput `pulumi:"ttl"`
+	Ttl          pulumi.IntInput    `pulumi:"ttl"`
 }
 
 func (ProfileDnsConfigArgs) ElementType() reflect.Type {
@@ -253,7 +253,8 @@ type ProfileDnsConfigPtrInput interface {
 
 type profileDnsConfigPtrType ProfileDnsConfigArgs
 
-func ProfileDnsConfigPtr(v *ProfileDnsConfigArgs) ProfileDnsConfigPtrInput {	return (*profileDnsConfigPtrType)(v)
+func ProfileDnsConfigPtr(v *ProfileDnsConfigArgs) ProfileDnsConfigPtrInput {
+	return (*profileDnsConfigPtrType)(v)
 }
 
 func (*profileDnsConfigPtrType) ElementType() reflect.Type {
@@ -268,7 +269,7 @@ func (i *profileDnsConfigPtrType) ToProfileDnsConfigPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileDnsConfigPtrOutput)
 }
 
-type ProfileDnsConfigOutput struct { *pulumi.OutputState }
+type ProfileDnsConfigOutput struct{ *pulumi.OutputState }
 
 func (ProfileDnsConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProfileDnsConfig)(nil)).Elem()
@@ -292,14 +293,14 @@ func (o ProfileDnsConfigOutput) ToProfileDnsConfigPtrOutputWithContext(ctx conte
 	}).(ProfileDnsConfigPtrOutput)
 }
 func (o ProfileDnsConfigOutput) RelativeName() pulumi.StringOutput {
-	return o.ApplyT(func (v ProfileDnsConfig) string { return v.RelativeName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ProfileDnsConfig) string { return v.RelativeName }).(pulumi.StringOutput)
 }
 
 func (o ProfileDnsConfigOutput) Ttl() pulumi.IntOutput {
-	return o.ApplyT(func (v ProfileDnsConfig) int { return v.Ttl }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ProfileDnsConfig) int { return v.Ttl }).(pulumi.IntOutput)
 }
 
-type ProfileDnsConfigPtrOutput struct { *pulumi.OutputState}
+type ProfileDnsConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ProfileDnsConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ProfileDnsConfig)(nil)).Elem()
@@ -314,25 +315,25 @@ func (o ProfileDnsConfigPtrOutput) ToProfileDnsConfigPtrOutputWithContext(ctx co
 }
 
 func (o ProfileDnsConfigPtrOutput) Elem() ProfileDnsConfigOutput {
-	return o.ApplyT(func (v *ProfileDnsConfig) ProfileDnsConfig { return *v }).(ProfileDnsConfigOutput)
+	return o.ApplyT(func(v *ProfileDnsConfig) ProfileDnsConfig { return *v }).(ProfileDnsConfigOutput)
 }
 
 func (o ProfileDnsConfigPtrOutput) RelativeName() pulumi.StringOutput {
-	return o.ApplyT(func (v ProfileDnsConfig) string { return v.RelativeName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ProfileDnsConfig) string { return v.RelativeName }).(pulumi.StringOutput)
 }
 
 func (o ProfileDnsConfigPtrOutput) Ttl() pulumi.IntOutput {
-	return o.ApplyT(func (v ProfileDnsConfig) int { return v.Ttl }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ProfileDnsConfig) int { return v.Ttl }).(pulumi.IntOutput)
 }
 
 type ProfileMonitorConfig struct {
-	ExpectedStatusCodeRanges []string `pulumi:"expectedStatusCodeRanges"`
-	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	Path *string `pulumi:"path"`
-	Port int `pulumi:"port"`
-	Protocol string `pulumi:"protocol"`
-	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
-	ToleratedNumberOfFailures *int `pulumi:"toleratedNumberOfFailures"`
+	ExpectedStatusCodeRanges  []string `pulumi:"expectedStatusCodeRanges"`
+	IntervalInSeconds         *int     `pulumi:"intervalInSeconds"`
+	Path                      *string  `pulumi:"path"`
+	Port                      int      `pulumi:"port"`
+	Protocol                  string   `pulumi:"protocol"`
+	TimeoutInSeconds          *int     `pulumi:"timeoutInSeconds"`
+	ToleratedNumberOfFailures *int     `pulumi:"toleratedNumberOfFailures"`
 }
 
 type ProfileMonitorConfigInput interface {
@@ -343,13 +344,13 @@ type ProfileMonitorConfigInput interface {
 }
 
 type ProfileMonitorConfigArgs struct {
-	ExpectedStatusCodeRanges pulumi.StringArrayInput `pulumi:"expectedStatusCodeRanges"`
-	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	Port pulumi.IntInput `pulumi:"port"`
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
-	ToleratedNumberOfFailures pulumi.IntPtrInput `pulumi:"toleratedNumberOfFailures"`
+	ExpectedStatusCodeRanges  pulumi.StringArrayInput `pulumi:"expectedStatusCodeRanges"`
+	IntervalInSeconds         pulumi.IntPtrInput      `pulumi:"intervalInSeconds"`
+	Path                      pulumi.StringPtrInput   `pulumi:"path"`
+	Port                      pulumi.IntInput         `pulumi:"port"`
+	Protocol                  pulumi.StringInput      `pulumi:"protocol"`
+	TimeoutInSeconds          pulumi.IntPtrInput      `pulumi:"timeoutInSeconds"`
+	ToleratedNumberOfFailures pulumi.IntPtrInput      `pulumi:"toleratedNumberOfFailures"`
 }
 
 func (ProfileMonitorConfigArgs) ElementType() reflect.Type {
@@ -381,7 +382,8 @@ type ProfileMonitorConfigPtrInput interface {
 
 type profileMonitorConfigPtrType ProfileMonitorConfigArgs
 
-func ProfileMonitorConfigPtr(v *ProfileMonitorConfigArgs) ProfileMonitorConfigPtrInput {	return (*profileMonitorConfigPtrType)(v)
+func ProfileMonitorConfigPtr(v *ProfileMonitorConfigArgs) ProfileMonitorConfigPtrInput {
+	return (*profileMonitorConfigPtrType)(v)
 }
 
 func (*profileMonitorConfigPtrType) ElementType() reflect.Type {
@@ -396,7 +398,7 @@ func (i *profileMonitorConfigPtrType) ToProfileMonitorConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileMonitorConfigPtrOutput)
 }
 
-type ProfileMonitorConfigOutput struct { *pulumi.OutputState }
+type ProfileMonitorConfigOutput struct{ *pulumi.OutputState }
 
 func (ProfileMonitorConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProfileMonitorConfig)(nil)).Elem()
@@ -420,34 +422,34 @@ func (o ProfileMonitorConfigOutput) ToProfileMonitorConfigPtrOutputWithContext(c
 	}).(ProfileMonitorConfigPtrOutput)
 }
 func (o ProfileMonitorConfigOutput) ExpectedStatusCodeRanges() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ProfileMonitorConfig) []string { return v.ExpectedStatusCodeRanges }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ProfileMonitorConfig) []string { return v.ExpectedStatusCodeRanges }).(pulumi.StringArrayOutput)
 }
 
 func (o ProfileMonitorConfigOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ProfileMonitorConfig) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ProfileMonitorConfig) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
 func (o ProfileMonitorConfigOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ProfileMonitorConfig) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ProfileMonitorConfig) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 func (o ProfileMonitorConfigOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func (v ProfileMonitorConfig) int { return v.Port }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ProfileMonitorConfig) int { return v.Port }).(pulumi.IntOutput)
 }
 
 func (o ProfileMonitorConfigOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func (v ProfileMonitorConfig) string { return v.Protocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ProfileMonitorConfig) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
 func (o ProfileMonitorConfigOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ProfileMonitorConfig) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ProfileMonitorConfig) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
 func (o ProfileMonitorConfigOutput) ToleratedNumberOfFailures() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ProfileMonitorConfig) *int { return v.ToleratedNumberOfFailures }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ProfileMonitorConfig) *int { return v.ToleratedNumberOfFailures }).(pulumi.IntPtrOutput)
 }
 
-type ProfileMonitorConfigPtrOutput struct { *pulumi.OutputState}
+type ProfileMonitorConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ProfileMonitorConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ProfileMonitorConfig)(nil)).Elem()
@@ -462,35 +464,35 @@ func (o ProfileMonitorConfigPtrOutput) ToProfileMonitorConfigPtrOutputWithContex
 }
 
 func (o ProfileMonitorConfigPtrOutput) Elem() ProfileMonitorConfigOutput {
-	return o.ApplyT(func (v *ProfileMonitorConfig) ProfileMonitorConfig { return *v }).(ProfileMonitorConfigOutput)
+	return o.ApplyT(func(v *ProfileMonitorConfig) ProfileMonitorConfig { return *v }).(ProfileMonitorConfigOutput)
 }
 
 func (o ProfileMonitorConfigPtrOutput) ExpectedStatusCodeRanges() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ProfileMonitorConfig) []string { return v.ExpectedStatusCodeRanges }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ProfileMonitorConfig) []string { return v.ExpectedStatusCodeRanges }).(pulumi.StringArrayOutput)
 }
 
 func (o ProfileMonitorConfigPtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ProfileMonitorConfig) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ProfileMonitorConfig) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
 func (o ProfileMonitorConfigPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ProfileMonitorConfig) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ProfileMonitorConfig) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 func (o ProfileMonitorConfigPtrOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func (v ProfileMonitorConfig) int { return v.Port }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ProfileMonitorConfig) int { return v.Port }).(pulumi.IntOutput)
 }
 
 func (o ProfileMonitorConfigPtrOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func (v ProfileMonitorConfig) string { return v.Protocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ProfileMonitorConfig) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
 func (o ProfileMonitorConfigPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ProfileMonitorConfig) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ProfileMonitorConfig) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
 func (o ProfileMonitorConfigPtrOutput) ToleratedNumberOfFailures() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ProfileMonitorConfig) *int { return v.ToleratedNumberOfFailures }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ProfileMonitorConfig) *int { return v.ToleratedNumberOfFailures }).(pulumi.IntPtrOutput)
 }
 
 func init() {

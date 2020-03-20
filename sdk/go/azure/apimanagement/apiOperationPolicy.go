@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an API Management API Operation Policy
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_operation_policy.html.markdown.
 type ApiOperationPolicy struct {
 	pulumi.CustomResourceState
@@ -20,7 +20,7 @@ type ApiOperationPolicy struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
 	// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
-	ApiName pulumi.StringOutput `pulumi:"apiName"`
+	ApiName     pulumi.StringOutput `pulumi:"apiName"`
 	OperationId pulumi.StringOutput `pulumi:"operationId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -73,7 +73,7 @@ type apiOperationPolicyState struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName *string `pulumi:"apiManagementName"`
 	// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
-	ApiName *string `pulumi:"apiName"`
+	ApiName     *string `pulumi:"apiName"`
 	OperationId *string `pulumi:"operationId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -87,7 +87,7 @@ type ApiOperationPolicyState struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringPtrInput
 	// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
-	ApiName pulumi.StringPtrInput
+	ApiName     pulumi.StringPtrInput
 	OperationId pulumi.StringPtrInput
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -105,7 +105,7 @@ type apiOperationPolicyArgs struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`
 	// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
-	ApiName string `pulumi:"apiName"`
+	ApiName     string `pulumi:"apiName"`
 	OperationId string `pulumi:"operationId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -120,7 +120,7 @@ type ApiOperationPolicyArgs struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringInput
 	// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
-	ApiName pulumi.StringInput
+	ApiName     pulumi.StringInput
 	OperationId pulumi.StringInput
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -133,4 +133,3 @@ type ApiOperationPolicyArgs struct {
 func (ApiOperationPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiOperationPolicyArgs)(nil)).Elem()
 }
-

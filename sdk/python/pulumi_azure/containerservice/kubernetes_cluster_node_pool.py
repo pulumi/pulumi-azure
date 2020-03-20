@@ -46,6 +46,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     """
     The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
     """
+    node_labels: pulumi.Output[dict]
+    """
+    A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+    """
     node_taints: pulumi.Output[list]
     """
     A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
@@ -58,6 +62,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     """
     The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
     """
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
     vm_size: pulumi.Output[str]
     """
     The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
@@ -66,12 +74,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     """
     The ID of the Subnet where this Node Pool should exist.
     """
-    def __init__(__self__, resource_name, opts=None, availability_zones=None, enable_auto_scaling=None, enable_node_public_ip=None, kubernetes_cluster_id=None, max_count=None, max_pods=None, min_count=None, name=None, node_count=None, node_taints=None, os_disk_size_gb=None, os_type=None, vm_size=None, vnet_subnet_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, availability_zones=None, enable_auto_scaling=None, enable_node_public_ip=None, kubernetes_cluster_id=None, max_count=None, max_pods=None, min_count=None, name=None, node_count=None, node_labels=None, node_taints=None, os_disk_size_gb=None, os_type=None, tags=None, vm_size=None, vnet_subnet_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Node Pool within a Kubernetes Cluster
-        
+
         > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster_node_pool.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] availability_zones: A list of Availability Zones where the Nodes in this Node Pool should be created in.
@@ -83,13 +93,13 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[float] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `max_count`.
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[float] node_count: The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
+        :param pulumi.Input[dict] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input[list] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
         :param pulumi.Input[float] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster_node_pool.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,9 +129,11 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__['min_count'] = min_count
             __props__['name'] = name
             __props__['node_count'] = node_count
+            __props__['node_labels'] = node_labels
             __props__['node_taints'] = node_taints
             __props__['os_disk_size_gb'] = os_disk_size_gb
             __props__['os_type'] = os_type
+            __props__['tags'] = tags
             if vm_size is None:
                 raise TypeError("Missing required property 'vm_size'")
             __props__['vm_size'] = vm_size
@@ -133,11 +145,11 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, availability_zones=None, enable_auto_scaling=None, enable_node_public_ip=None, kubernetes_cluster_id=None, max_count=None, max_pods=None, min_count=None, name=None, node_count=None, node_taints=None, os_disk_size_gb=None, os_type=None, vm_size=None, vnet_subnet_id=None):
+    def get(resource_name, id, opts=None, availability_zones=None, enable_auto_scaling=None, enable_node_public_ip=None, kubernetes_cluster_id=None, max_count=None, max_pods=None, min_count=None, name=None, node_count=None, node_labels=None, node_taints=None, os_disk_size_gb=None, os_type=None, tags=None, vm_size=None, vnet_subnet_id=None):
         """
         Get an existing KubernetesClusterNodePool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,17 +162,18 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[float] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `max_count`.
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[float] node_count: The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
+        :param pulumi.Input[dict] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input[list] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
         :param pulumi.Input[float] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster_node_pool.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["availability_zones"] = availability_zones
         __props__["enable_auto_scaling"] = enable_auto_scaling
         __props__["enable_node_public_ip"] = enable_node_public_ip
@@ -170,9 +183,11 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__["min_count"] = min_count
         __props__["name"] = name
         __props__["node_count"] = node_count
+        __props__["node_labels"] = node_labels
         __props__["node_taints"] = node_taints
         __props__["os_disk_size_gb"] = os_disk_size_gb
         __props__["os_type"] = os_type
+        __props__["tags"] = tags
         __props__["vm_size"] = vm_size
         __props__["vnet_subnet_id"] = vnet_subnet_id
         return KubernetesClusterNodePool(resource_name, opts=opts, __props__=__props__)

@@ -13,7 +13,7 @@ class GetKubernetesClusterResult:
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, addon_profiles=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, dns_prefix=None, fqdn=None, kube_admin_configs=None, kube_admin_config_raw=None, kube_configs=None, kube_config_raw=None, kubernetes_version=None, linux_profiles=None, location=None, name=None, network_profiles=None, node_resource_group=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_controls=None, service_principals=None, tags=None, windows_profiles=None, id=None):
+    def __init__(__self__, addon_profiles=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, dns_prefix=None, fqdn=None, id=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubernetes_version=None, linux_profiles=None, location=None, name=None, network_profiles=None, node_resource_group=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_controls=None, service_principals=None, tags=None, windows_profiles=None):
         if addon_profiles and not isinstance(addon_profiles, list):
             raise TypeError("Expected argument 'addon_profiles' to be a list")
         __self__.addon_profiles = addon_profiles
@@ -44,11 +44,11 @@ class GetKubernetesClusterResult:
         """
         The FQDN of the Azure Kubernetes Managed Cluster.
         """
-        if kube_admin_configs and not isinstance(kube_admin_configs, list):
-            raise TypeError("Expected argument 'kube_admin_configs' to be a list")
-        __self__.kube_admin_configs = kube_admin_configs
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
         """
-        A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        id is the provider-assigned unique ID for this managed resource.
         """
         if kube_admin_config_raw and not isinstance(kube_admin_config_raw, str):
             raise TypeError("Expected argument 'kube_admin_config_raw' to be a str")
@@ -56,17 +56,23 @@ class GetKubernetesClusterResult:
         """
         Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         """
-        if kube_configs and not isinstance(kube_configs, list):
-            raise TypeError("Expected argument 'kube_configs' to be a list")
-        __self__.kube_configs = kube_configs
+        if kube_admin_configs and not isinstance(kube_admin_configs, list):
+            raise TypeError("Expected argument 'kube_admin_configs' to be a list")
+        __self__.kube_admin_configs = kube_admin_configs
         """
-        A `kube_config` block as defined below.
+        A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         """
         if kube_config_raw and not isinstance(kube_config_raw, str):
             raise TypeError("Expected argument 'kube_config_raw' to be a str")
         __self__.kube_config_raw = kube_config_raw
         """
         Base64 encoded Kubernetes configuration.
+        """
+        if kube_configs and not isinstance(kube_configs, list):
+            raise TypeError("Expected argument 'kube_configs' to be a list")
+        __self__.kube_configs = kube_configs
+        """
+        A `kube_config` block as defined below.
         """
         if kubernetes_version and not isinstance(kubernetes_version, str):
             raise TypeError("Expected argument 'kubernetes_version' to be a str")
@@ -135,19 +141,13 @@ class GetKubernetesClusterResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
-        A mapping of tags assigned to this resource.
+        A mapping of tags to assign to the resource.
         """
         if windows_profiles and not isinstance(windows_profiles, list):
             raise TypeError("Expected argument 'windows_profiles' to be a list")
         __self__.windows_profiles = windows_profiles
         """
         A `windows_profile` block as documented below.
-        """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
         """
 class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
     # pylint: disable=using-constant-test
@@ -160,10 +160,11 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             api_server_authorized_ip_ranges=self.api_server_authorized_ip_ranges,
             dns_prefix=self.dns_prefix,
             fqdn=self.fqdn,
-            kube_admin_configs=self.kube_admin_configs,
+            id=self.id,
             kube_admin_config_raw=self.kube_admin_config_raw,
-            kube_configs=self.kube_configs,
+            kube_admin_configs=self.kube_admin_configs,
             kube_config_raw=self.kube_config_raw,
+            kube_configs=self.kube_configs,
             kubernetes_version=self.kubernetes_version,
             linux_profiles=self.linux_profiles,
             location=self.location,
@@ -176,22 +177,23 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             role_based_access_controls=self.role_based_access_controls,
             service_principals=self.service_principals,
             tags=self.tags,
-            windows_profiles=self.windows_profiles,
-            id=self.id)
+            windows_profiles=self.windows_profiles)
 
 def get_kubernetes_cluster(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
-    
+
     > **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
     [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-    
-    :param str name: The name of the managed Kubernetes Cluster.
-    :param str resource_group_name: The name of the Resource Group in which the managed Kubernetes Cluster exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_cluster.html.markdown.
+
+
+    :param str name: The name of the managed Kubernetes Cluster.
+    :param str resource_group_name: The name of the Resource Group in which the managed Kubernetes Cluster exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -207,10 +209,11 @@ def get_kubernetes_cluster(name=None,resource_group_name=None,opts=None):
         api_server_authorized_ip_ranges=__ret__.get('apiServerAuthorizedIpRanges'),
         dns_prefix=__ret__.get('dnsPrefix'),
         fqdn=__ret__.get('fqdn'),
-        kube_admin_configs=__ret__.get('kubeAdminConfigs'),
+        id=__ret__.get('id'),
         kube_admin_config_raw=__ret__.get('kubeAdminConfigRaw'),
-        kube_configs=__ret__.get('kubeConfigs'),
+        kube_admin_configs=__ret__.get('kubeAdminConfigs'),
         kube_config_raw=__ret__.get('kubeConfigRaw'),
+        kube_configs=__ret__.get('kubeConfigs'),
         kubernetes_version=__ret__.get('kubernetesVersion'),
         linux_profiles=__ret__.get('linuxProfiles'),
         location=__ret__.get('location'),
@@ -223,5 +226,4 @@ def get_kubernetes_cluster(name=None,resource_group_name=None,opts=None):
         role_based_access_controls=__ret__.get('roleBasedAccessControls'),
         service_principals=__ret__.get('servicePrincipals'),
         tags=__ret__.get('tags'),
-        windows_profiles=__ret__.get('windowsProfiles'),
-        id=__ret__.get('id'))
+        windows_profiles=__ret__.get('windowsProfiles'))

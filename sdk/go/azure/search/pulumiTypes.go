@@ -12,9 +12,9 @@ import (
 )
 
 type ServiceQueryKey struct {
-	// The value of the query key.
+	// The value of this Query Key.
 	Key *string `pulumi:"key"`
-	// The name of the Search Service. Changing this forces a new resource to be created.
+	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name *string `pulumi:"name"`
 }
 
@@ -26,9 +26,9 @@ type ServiceQueryKeyInput interface {
 }
 
 type ServiceQueryKeyArgs struct {
-	// The value of the query key.
+	// The value of this Query Key.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The name of the Search Service. Changing this forces a new resource to be created.
+	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -65,7 +65,7 @@ func (i ServiceQueryKeyArray) ToServiceQueryKeyArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceQueryKeyArrayOutput)
 }
 
-type ServiceQueryKeyOutput struct { *pulumi.OutputState }
+type ServiceQueryKeyOutput struct{ *pulumi.OutputState }
 
 func (ServiceQueryKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceQueryKey)(nil)).Elem()
@@ -79,17 +79,17 @@ func (o ServiceQueryKeyOutput) ToServiceQueryKeyOutputWithContext(ctx context.Co
 	return o
 }
 
-// The value of the query key.
+// The value of this Query Key.
 func (o ServiceQueryKeyOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceQueryKey) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceQueryKey) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Search Service. Changing this forces a new resource to be created.
+// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 func (o ServiceQueryKeyOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceQueryKey) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceQueryKey) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type ServiceQueryKeyArrayOutput struct { *pulumi.OutputState}
+type ServiceQueryKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceQueryKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ServiceQueryKey)(nil)).Elem()
@@ -104,7 +104,7 @@ func (o ServiceQueryKeyArrayOutput) ToServiceQueryKeyArrayOutputWithContext(ctx 
 }
 
 func (o ServiceQueryKeyArrayOutput) Index(i pulumi.IntInput) ServiceQueryKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ServiceQueryKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceQueryKey {
 		return vs[0].([]ServiceQueryKey)[vs[1].(int)]
 	}).(ServiceQueryKeyOutput)
 }

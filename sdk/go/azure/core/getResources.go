@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about existing resources.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resources.html.markdown.
 func GetResources(ctx *pulumi.Context, args *GetResourcesArgs, opts ...pulumi.InvokeOption) (*GetResourcesResult, error) {
 	var rv GetResourcesResult
@@ -32,18 +32,16 @@ type GetResourcesArgs struct {
 	Type *string `pulumi:"type"`
 }
 
-
 // A collection of values returned by getResources.
 type GetResourcesResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of this Resource.
-	Name string `pulumi:"name"`
-	RequiredTags map[string]string `pulumi:"requiredTags"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Name              string            `pulumi:"name"`
+	RequiredTags      map[string]string `pulumi:"requiredTags"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
 	// One or more `resource` blocks as defined below.
 	Resources []GetResourcesResource `pulumi:"resources"`
 	// The type of this Resource. (e.g. `Microsoft.Network/virtualNetworks`).
 	Type string `pulumi:"type"`
 }
-

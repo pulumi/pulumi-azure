@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing SQL elastic pool.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mssql_elasticpool.html.markdown.
 func LookupElasticPool(ctx *pulumi.Context, args *LookupElasticPoolArgs, opts ...pulumi.InvokeOption) (*LookupElasticPoolResult, error) {
 	var rv LookupElasticPoolResult
@@ -30,7 +30,6 @@ type LookupElasticPoolArgs struct {
 	ServerName string `pulumi:"serverName"`
 }
 
-
 // A collection of values returned by getElasticPool.
 type LookupElasticPoolResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
@@ -41,16 +40,15 @@ type LookupElasticPoolResult struct {
 	MaxSizeBytes int `pulumi:"maxSizeBytes"`
 	// The max data size of the elastic pool in gigabytes.
 	MaxSizeGb float64 `pulumi:"maxSizeGb"`
-	Name string `pulumi:"name"`
+	Name      string  `pulumi:"name"`
 	// The maximum capacity any one database can consume.
 	PerDbMaxCapacity int `pulumi:"perDbMaxCapacity"`
 	// The minimum capacity all databases are guaranteed.
-	PerDbMinCapacity int `pulumi:"perDbMinCapacity"`
+	PerDbMinCapacity  int    `pulumi:"perDbMinCapacity"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	ServerName string `pulumi:"serverName"`
+	ServerName        string `pulumi:"serverName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether or not this elastic pool is zone redundant.
 	ZoneRedundant bool `pulumi:"zoneRedundant"`
 }
-

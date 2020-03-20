@@ -12,8 +12,8 @@ import (
 )
 
 type CaaRecordRecord struct {
-	Flags int `pulumi:"flags"`
-	Tag string `pulumi:"tag"`
+	Flags int    `pulumi:"flags"`
+	Tag   string `pulumi:"tag"`
 	Value string `pulumi:"value"`
 }
 
@@ -25,8 +25,8 @@ type CaaRecordRecordInput interface {
 }
 
 type CaaRecordRecordArgs struct {
-	Flags pulumi.IntInput `pulumi:"flags"`
-	Tag pulumi.StringInput `pulumi:"tag"`
+	Flags pulumi.IntInput    `pulumi:"flags"`
+	Tag   pulumi.StringInput `pulumi:"tag"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -63,7 +63,7 @@ func (i CaaRecordRecordArray) ToCaaRecordRecordArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CaaRecordRecordArrayOutput)
 }
 
-type CaaRecordRecordOutput struct { *pulumi.OutputState }
+type CaaRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (CaaRecordRecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CaaRecordRecord)(nil)).Elem()
@@ -78,18 +78,18 @@ func (o CaaRecordRecordOutput) ToCaaRecordRecordOutputWithContext(ctx context.Co
 }
 
 func (o CaaRecordRecordOutput) Flags() pulumi.IntOutput {
-	return o.ApplyT(func (v CaaRecordRecord) int { return v.Flags }).(pulumi.IntOutput)
+	return o.ApplyT(func(v CaaRecordRecord) int { return v.Flags }).(pulumi.IntOutput)
 }
 
 func (o CaaRecordRecordOutput) Tag() pulumi.StringOutput {
-	return o.ApplyT(func (v CaaRecordRecord) string { return v.Tag }).(pulumi.StringOutput)
+	return o.ApplyT(func(v CaaRecordRecord) string { return v.Tag }).(pulumi.StringOutput)
 }
 
 func (o CaaRecordRecordOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v CaaRecordRecord) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v CaaRecordRecord) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type CaaRecordRecordArrayOutput struct { *pulumi.OutputState}
+type CaaRecordRecordArrayOutput struct{ *pulumi.OutputState }
 
 func (CaaRecordRecordArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]CaaRecordRecord)(nil)).Elem()
@@ -104,13 +104,13 @@ func (o CaaRecordRecordArrayOutput) ToCaaRecordRecordArrayOutputWithContext(ctx 
 }
 
 func (o CaaRecordRecordArrayOutput) Index(i pulumi.IntInput) CaaRecordRecordOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) CaaRecordRecord {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CaaRecordRecord {
 		return vs[0].([]CaaRecordRecord)[vs[1].(int)]
 	}).(CaaRecordRecordOutput)
 }
 
 type MxRecordRecord struct {
-	Exchange string `pulumi:"exchange"`
+	Exchange   string `pulumi:"exchange"`
 	Preference string `pulumi:"preference"`
 }
 
@@ -122,7 +122,7 @@ type MxRecordRecordInput interface {
 }
 
 type MxRecordRecordArgs struct {
-	Exchange pulumi.StringInput `pulumi:"exchange"`
+	Exchange   pulumi.StringInput `pulumi:"exchange"`
 	Preference pulumi.StringInput `pulumi:"preference"`
 }
 
@@ -159,7 +159,7 @@ func (i MxRecordRecordArray) ToMxRecordRecordArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(MxRecordRecordArrayOutput)
 }
 
-type MxRecordRecordOutput struct { *pulumi.OutputState }
+type MxRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (MxRecordRecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MxRecordRecord)(nil)).Elem()
@@ -174,14 +174,14 @@ func (o MxRecordRecordOutput) ToMxRecordRecordOutputWithContext(ctx context.Cont
 }
 
 func (o MxRecordRecordOutput) Exchange() pulumi.StringOutput {
-	return o.ApplyT(func (v MxRecordRecord) string { return v.Exchange }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MxRecordRecord) string { return v.Exchange }).(pulumi.StringOutput)
 }
 
 func (o MxRecordRecordOutput) Preference() pulumi.StringOutput {
-	return o.ApplyT(func (v MxRecordRecord) string { return v.Preference }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MxRecordRecord) string { return v.Preference }).(pulumi.StringOutput)
 }
 
-type MxRecordRecordArrayOutput struct { *pulumi.OutputState}
+type MxRecordRecordArrayOutput struct{ *pulumi.OutputState }
 
 func (MxRecordRecordArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]MxRecordRecord)(nil)).Elem()
@@ -196,102 +196,16 @@ func (o MxRecordRecordArrayOutput) ToMxRecordRecordArrayOutputWithContext(ctx co
 }
 
 func (o MxRecordRecordArrayOutput) Index(i pulumi.IntInput) MxRecordRecordOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) MxRecordRecord {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MxRecordRecord {
 		return vs[0].([]MxRecordRecord)[vs[1].(int)]
 	}).(MxRecordRecordOutput)
 }
 
-type NsRecordRecord struct {
-	Nsdname string `pulumi:"nsdname"`
-}
-
-type NsRecordRecordInput interface {
-	pulumi.Input
-
-	ToNsRecordRecordOutput() NsRecordRecordOutput
-	ToNsRecordRecordOutputWithContext(context.Context) NsRecordRecordOutput
-}
-
-type NsRecordRecordArgs struct {
-	Nsdname pulumi.StringInput `pulumi:"nsdname"`
-}
-
-func (NsRecordRecordArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NsRecordRecord)(nil)).Elem()
-}
-
-func (i NsRecordRecordArgs) ToNsRecordRecordOutput() NsRecordRecordOutput {
-	return i.ToNsRecordRecordOutputWithContext(context.Background())
-}
-
-func (i NsRecordRecordArgs) ToNsRecordRecordOutputWithContext(ctx context.Context) NsRecordRecordOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NsRecordRecordOutput)
-}
-
-type NsRecordRecordArrayInput interface {
-	pulumi.Input
-
-	ToNsRecordRecordArrayOutput() NsRecordRecordArrayOutput
-	ToNsRecordRecordArrayOutputWithContext(context.Context) NsRecordRecordArrayOutput
-}
-
-type NsRecordRecordArray []NsRecordRecordInput
-
-func (NsRecordRecordArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NsRecordRecord)(nil)).Elem()
-}
-
-func (i NsRecordRecordArray) ToNsRecordRecordArrayOutput() NsRecordRecordArrayOutput {
-	return i.ToNsRecordRecordArrayOutputWithContext(context.Background())
-}
-
-func (i NsRecordRecordArray) ToNsRecordRecordArrayOutputWithContext(ctx context.Context) NsRecordRecordArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NsRecordRecordArrayOutput)
-}
-
-type NsRecordRecordOutput struct { *pulumi.OutputState }
-
-func (NsRecordRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NsRecordRecord)(nil)).Elem()
-}
-
-func (o NsRecordRecordOutput) ToNsRecordRecordOutput() NsRecordRecordOutput {
-	return o
-}
-
-func (o NsRecordRecordOutput) ToNsRecordRecordOutputWithContext(ctx context.Context) NsRecordRecordOutput {
-	return o
-}
-
-func (o NsRecordRecordOutput) Nsdname() pulumi.StringOutput {
-	return o.ApplyT(func (v NsRecordRecord) string { return v.Nsdname }).(pulumi.StringOutput)
-}
-
-type NsRecordRecordArrayOutput struct { *pulumi.OutputState}
-
-func (NsRecordRecordArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NsRecordRecord)(nil)).Elem()
-}
-
-func (o NsRecordRecordArrayOutput) ToNsRecordRecordArrayOutput() NsRecordRecordArrayOutput {
-	return o
-}
-
-func (o NsRecordRecordArrayOutput) ToNsRecordRecordArrayOutputWithContext(ctx context.Context) NsRecordRecordArrayOutput {
-	return o
-}
-
-func (o NsRecordRecordArrayOutput) Index(i pulumi.IntInput) NsRecordRecordOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) NsRecordRecord {
-		return vs[0].([]NsRecordRecord)[vs[1].(int)]
-	}).(NsRecordRecordOutput)
-}
-
 type SrvRecordRecord struct {
-	Port int `pulumi:"port"`
-	Priority int `pulumi:"priority"`
-	Target string `pulumi:"target"`
-	Weight int `pulumi:"weight"`
+	Port     int    `pulumi:"port"`
+	Priority int    `pulumi:"priority"`
+	Target   string `pulumi:"target"`
+	Weight   int    `pulumi:"weight"`
 }
 
 type SrvRecordRecordInput interface {
@@ -302,10 +216,10 @@ type SrvRecordRecordInput interface {
 }
 
 type SrvRecordRecordArgs struct {
-	Port pulumi.IntInput `pulumi:"port"`
-	Priority pulumi.IntInput `pulumi:"priority"`
-	Target pulumi.StringInput `pulumi:"target"`
-	Weight pulumi.IntInput `pulumi:"weight"`
+	Port     pulumi.IntInput    `pulumi:"port"`
+	Priority pulumi.IntInput    `pulumi:"priority"`
+	Target   pulumi.StringInput `pulumi:"target"`
+	Weight   pulumi.IntInput    `pulumi:"weight"`
 }
 
 func (SrvRecordRecordArgs) ElementType() reflect.Type {
@@ -341,7 +255,7 @@ func (i SrvRecordRecordArray) ToSrvRecordRecordArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SrvRecordRecordArrayOutput)
 }
 
-type SrvRecordRecordOutput struct { *pulumi.OutputState }
+type SrvRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (SrvRecordRecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SrvRecordRecord)(nil)).Elem()
@@ -356,22 +270,22 @@ func (o SrvRecordRecordOutput) ToSrvRecordRecordOutputWithContext(ctx context.Co
 }
 
 func (o SrvRecordRecordOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func (v SrvRecordRecord) int { return v.Port }).(pulumi.IntOutput)
+	return o.ApplyT(func(v SrvRecordRecord) int { return v.Port }).(pulumi.IntOutput)
 }
 
 func (o SrvRecordRecordOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func (v SrvRecordRecord) int { return v.Priority }).(pulumi.IntOutput)
+	return o.ApplyT(func(v SrvRecordRecord) int { return v.Priority }).(pulumi.IntOutput)
 }
 
 func (o SrvRecordRecordOutput) Target() pulumi.StringOutput {
-	return o.ApplyT(func (v SrvRecordRecord) string { return v.Target }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SrvRecordRecord) string { return v.Target }).(pulumi.StringOutput)
 }
 
 func (o SrvRecordRecordOutput) Weight() pulumi.IntOutput {
-	return o.ApplyT(func (v SrvRecordRecord) int { return v.Weight }).(pulumi.IntOutput)
+	return o.ApplyT(func(v SrvRecordRecord) int { return v.Weight }).(pulumi.IntOutput)
 }
 
-type SrvRecordRecordArrayOutput struct { *pulumi.OutputState}
+type SrvRecordRecordArrayOutput struct{ *pulumi.OutputState }
 
 func (SrvRecordRecordArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SrvRecordRecord)(nil)).Elem()
@@ -386,7 +300,7 @@ func (o SrvRecordRecordArrayOutput) ToSrvRecordRecordArrayOutputWithContext(ctx 
 }
 
 func (o SrvRecordRecordArrayOutput) Index(i pulumi.IntInput) SrvRecordRecordOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SrvRecordRecord {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SrvRecordRecord {
 		return vs[0].([]SrvRecordRecord)[vs[1].(int)]
 	}).(SrvRecordRecordOutput)
 }
@@ -439,7 +353,7 @@ func (i TxtRecordRecordArray) ToTxtRecordRecordArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordRecordArrayOutput)
 }
 
-type TxtRecordRecordOutput struct { *pulumi.OutputState }
+type TxtRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (TxtRecordRecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TxtRecordRecord)(nil)).Elem()
@@ -454,10 +368,10 @@ func (o TxtRecordRecordOutput) ToTxtRecordRecordOutputWithContext(ctx context.Co
 }
 
 func (o TxtRecordRecordOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v TxtRecordRecord) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v TxtRecordRecord) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type TxtRecordRecordArrayOutput struct { *pulumi.OutputState}
+type TxtRecordRecordArrayOutput struct{ *pulumi.OutputState }
 
 func (TxtRecordRecordArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]TxtRecordRecord)(nil)).Elem()
@@ -472,7 +386,7 @@ func (o TxtRecordRecordArrayOutput) ToTxtRecordRecordArrayOutputWithContext(ctx 
 }
 
 func (o TxtRecordRecordArrayOutput) Index(i pulumi.IntInput) TxtRecordRecordOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) TxtRecordRecord {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TxtRecordRecord {
 		return vs[0].([]TxtRecordRecord)[vs[1].(int)]
 	}).(TxtRecordRecordOutput)
 }
@@ -482,8 +396,6 @@ func init() {
 	pulumi.RegisterOutputType(CaaRecordRecordArrayOutput{})
 	pulumi.RegisterOutputType(MxRecordRecordOutput{})
 	pulumi.RegisterOutputType(MxRecordRecordArrayOutput{})
-	pulumi.RegisterOutputType(NsRecordRecordOutput{})
-	pulumi.RegisterOutputType(NsRecordRecordArrayOutput{})
 	pulumi.RegisterOutputType(SrvRecordRecordOutput{})
 	pulumi.RegisterOutputType(SrvRecordRecordArrayOutput{})
 	pulumi.RegisterOutputType(TxtRecordRecordOutput{})

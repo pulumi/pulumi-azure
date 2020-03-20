@@ -12,7 +12,7 @@ from .. import utilities, tables
 class EndpointStorageContainer(pulumi.CustomResource):
     batch_frequency_in_seconds: pulumi.Output[float]
     """
-    Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+    Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
     """
     connection_string: pulumi.Output[str]
     """
@@ -50,12 +50,14 @@ class EndpointStorageContainer(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, batch_frequency_in_seconds=None, connection_string=None, container_name=None, encoding=None, file_name_format=None, iothub_name=None, max_chunk_size_in_bytes=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an IotHub Storage Container Endpoint
-        
+
         > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_endpoint_storage_container.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+        :param pulumi.Input[float] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         :param pulumi.Input[str] connection_string: The connection string for the endpoint.
         :param pulumi.Input[str] container_name: The name of storage container in the storage account.
                *
@@ -65,8 +67,6 @@ class EndpointStorageContainer(pulumi.CustomResource):
         :param pulumi.Input[float] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_endpoint_storage_container.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -113,11 +113,11 @@ class EndpointStorageContainer(pulumi.CustomResource):
         """
         Get an existing EndpointStorageContainer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+        :param pulumi.Input[float] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         :param pulumi.Input[str] connection_string: The connection string for the endpoint.
         :param pulumi.Input[str] container_name: The name of storage container in the storage account.
                *
@@ -127,12 +127,11 @@ class EndpointStorageContainer(pulumi.CustomResource):
         :param pulumi.Input[float] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_endpoint_storage_container.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["batch_frequency_in_seconds"] = batch_frequency_in_seconds
         __props__["connection_string"] = connection_string
         __props__["container_name"] = container_name

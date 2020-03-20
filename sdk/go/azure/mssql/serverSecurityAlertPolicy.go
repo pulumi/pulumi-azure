@@ -12,9 +12,9 @@ import (
 )
 
 // Manages a Security Alert Policy for a MSSQL Server.
-// 
+//
 // > **NOTE** Security Alert Policy is currently only available for MS SQL databases.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_server_security_alert_policy.html.markdown.
 type ServerSecurityAlertPolicy struct {
 	pulumi.CustomResourceState
@@ -167,4 +167,3 @@ type ServerSecurityAlertPolicyArgs struct {
 func (ServerSecurityAlertPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverSecurityAlertPolicyArgs)(nil)).Elem()
 }
-

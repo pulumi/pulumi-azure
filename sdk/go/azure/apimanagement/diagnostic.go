@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an API Management Service Diagnostic.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_diagnostic.html.markdown.
 type Diagnostic struct {
 	pulumi.CustomResourceState
@@ -118,4 +118,3 @@ type DiagnosticArgs struct {
 func (DiagnosticArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*diagnosticArgs)(nil)).Elem()
 }
-

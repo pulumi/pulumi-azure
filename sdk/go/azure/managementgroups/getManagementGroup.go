@@ -9,8 +9,8 @@ import (
 )
 
 // Use this data source to access information about an existing Management Group.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group_legacy.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
 func LookupManagementGroup(ctx *pulumi.Context, args *LookupManagementGroupArgs, opts ...pulumi.InvokeOption) (*LookupManagementGroupResult, error) {
 	var rv LookupManagementGroupResult
 	err := ctx.Invoke("azure:managementgroups/getManagementGroup:getManagementGroup", args, &rv, opts...)
@@ -26,12 +26,11 @@ type LookupManagementGroupArgs struct {
 	GroupId string `pulumi:"groupId"`
 }
 
-
 // A collection of values returned by getManagementGroup.
 type LookupManagementGroupResult struct {
 	// A friendly name for the Management Group.
 	DisplayName string `pulumi:"displayName"`
-	GroupId string `pulumi:"groupId"`
+	GroupId     string `pulumi:"groupId"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ID of any Parent Management Group.
@@ -39,4 +38,3 @@ type LookupManagementGroupResult struct {
 	// A list of Subscription ID's which are assigned to the Management Group.
 	SubscriptionIds []string `pulumi:"subscriptionIds"`
 }
-

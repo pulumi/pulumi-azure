@@ -8,40 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Mongo Collection within a Cosmos DB Account.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleAccount = azure.cosmosdb.getAccount({
- *     name: "tfex-cosmosdb-account",
- *     resourceGroupName: "tfex-cosmosdb-account-rg",
- * });
- * const exampleMongoDatabase = new azure.cosmosdb.MongoDatabase("example", {
- *     accountName: exampleAccount.name,
- *     resourceGroupName: exampleAccount.resourceGroupName,
- * });
- * const exampleMongoCollection = new azure.cosmosdb.MongoCollection("example", {
- *     accountName: exampleAccount.name,
- *     databaseName: exampleMongoDatabase.name,
- *     defaultTtlSeconds: 777,
- *     indexes: [
- *         {
- *             key: "aKey",
- *             unique: false,
- *         },
- *         {
- *             key: "uniqueKey",
- *             unique: true,
- *         },
- *     ],
- *     resourceGroupName: exampleAccount.resourceGroupName,
- *     shardKey: "uniqueKey",
- *     throughput: 400,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_mongo_collection.html.markdown.
  */
@@ -78,13 +44,9 @@ export class MongoCollection extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
-     * The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
+     * The default Time To Live in seconds. If the value is `0` items are not automatically expired.
      */
     public readonly defaultTtlSeconds!: pulumi.Output<number | undefined>;
-    /**
-     * One or more `indexes` blocks as defined below.
-     */
-    public readonly indexes!: pulumi.Output<outputs.cosmosdb.MongoCollectionIndex[] | undefined>;
     /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
      */
@@ -114,7 +76,6 @@ export class MongoCollection extends pulumi.CustomResource {
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["defaultTtlSeconds"] = state ? state.defaultTtlSeconds : undefined;
-            inputs["indexes"] = state ? state.indexes : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["shardKey"] = state ? state.shardKey : undefined;
@@ -133,7 +94,6 @@ export class MongoCollection extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["defaultTtlSeconds"] = args ? args.defaultTtlSeconds : undefined;
-            inputs["indexes"] = args ? args.indexes : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shardKey"] = args ? args.shardKey : undefined;
@@ -160,13 +120,9 @@ export interface MongoCollectionState {
      */
     readonly databaseName?: pulumi.Input<string>;
     /**
-     * The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
+     * The default Time To Live in seconds. If the value is `0` items are not automatically expired.
      */
     readonly defaultTtlSeconds?: pulumi.Input<number>;
-    /**
-     * One or more `indexes` blocks as defined below.
-     */
-    readonly indexes?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionIndex>[]>;
     /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
      */
@@ -192,13 +148,9 @@ export interface MongoCollectionArgs {
      */
     readonly databaseName: pulumi.Input<string>;
     /**
-     * The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
+     * The default Time To Live in seconds. If the value is `0` items are not automatically expired.
      */
     readonly defaultTtlSeconds?: pulumi.Input<number>;
-    /**
-     * One or more `indexes` blocks as defined below.
-     */
-    readonly indexes?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionIndex>[]>;
     /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
      */

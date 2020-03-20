@@ -29,8 +29,8 @@ func TestAccMinimal(t *testing.T) {
 func TestAccEventgrid(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "eventgrid"),
-			RunUpdateTest: true,
+			Dir: path.Join(getCwd(t), "eventgrid"),
+			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
 		})
 
 	integration.ProgramTest(t, &test)
@@ -39,7 +39,7 @@ func TestAccEventgrid(t *testing.T) {
 func TestAccEventhub(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "eventhub"),
+			Dir: path.Join(getCwd(t), "eventhub"),
 			// Removed until the next release after 1.4.0,
 			// see https://github.com/pulumi/pulumi-azure/pull/417#issuecomment-558227019
 			// RunUpdateTest: true,
@@ -54,8 +54,8 @@ func TestAccEventhub(t *testing.T) {
 func TestAccHttpExternal(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "http-external"),
-			RunUpdateTest: true,
+			Dir: path.Join(getCwd(t), "http-external"),
+			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
 		})
 
 	integration.ProgramTest(t, &test)
@@ -64,8 +64,8 @@ func TestAccHttpExternal(t *testing.T) {
 func TestAccHttpMulti(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "http-multi"),
-			RunUpdateTest: true,
+			Dir: path.Join(getCwd(t), "http-multi"),
+			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
 		})
 
 	integration.ProgramTest(t, &test)
@@ -74,8 +74,8 @@ func TestAccHttpMulti(t *testing.T) {
 func TestAccIot(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "iot"),
-			RunUpdateTest: true,
+			Dir: path.Join(getCwd(t), "iot"),
+			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
 		})
 
 	integration.ProgramTest(t, &test)
@@ -84,8 +84,8 @@ func TestAccIot(t *testing.T) {
 func TestAccQueue(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "queue"),
-			RunUpdateTest: true,
+			Dir: path.Join(getCwd(t), "queue"),
+			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
 		})
 
 	integration.ProgramTest(t, &test)
@@ -94,8 +94,8 @@ func TestAccQueue(t *testing.T) {
 func TestAccTimer(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "timer"),
-			RunUpdateTest: true,
+			Dir: path.Join(getCwd(t), "timer"),
+			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
 		})
 
 	integration.ProgramTest(t, &test)
@@ -104,7 +104,7 @@ func TestAccTimer(t *testing.T) {
 func TestAccTopic(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "topic"),
+			Dir: path.Join(getCwd(t), "topic"),
 			// Removed until the next release after 1.4.0,
 			// see https://github.com/pulumi/pulumi-azure/pull/417#issuecomment-558227019
 			// RunUpdateTest: true,
@@ -127,8 +127,8 @@ func TestAccWebserver(t *testing.T) {
 func TestAccHttp(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "http"),
-			RunUpdateTest: true,
+			Dir: path.Join(getCwd(t), "http"),
+			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
 			ExtraRuntimeValidation: validateAPITest(func(body string) {
 				assert.Equal(t, body, "Hello World!")
 			}),
@@ -140,8 +140,8 @@ func TestAccHttp(t *testing.T) {
 func TestAccBlob(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "blob"),
-			RunUpdateTest: true,
+			Dir: path.Join(getCwd(t), "blob"),
+			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
 			ExtraRuntimeValidation: validateAPITest(func(body string) {
 				assert.Equal(t, body, "A File from Blob Storage")
 			}),
@@ -170,7 +170,7 @@ func TestAccMsiRenamed(t *testing.T) {
 func TestAccServicebusMigration(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "servicebus-migration-test"),
+			Dir: path.Join(getCwd(t), "servicebus-migration-test"),
 			// Removed until the next release after 1.4.0,
 			// see https://github.com/pulumi/pulumi-azure/pull/417#issuecomment-558227019
 			// RunUpdateTest: true,
@@ -189,8 +189,8 @@ func TestAccServicebusMigration(t *testing.T) {
 func TestAccTable(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "table"),
-			RunUpdateTest: true,
+			Dir: path.Join(getCwd(t), "table"),
+			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
 		})
 
 	integration.ProgramTest(t, &test)
@@ -255,7 +255,7 @@ func TestAccCosmosDb(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           path.Join(getCwd(t), "cosmosdb"),
-			RunUpdateTest: true,
+			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
 		})
 
 	integration.ProgramTest(t, &test)
@@ -276,7 +276,7 @@ func TestAccMultiCallback(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "multi-callback-all"),
+			Dir: path.Join(getCwd(t), "multi-callback-all"),
 			// Removed until the next release after 1.4.0,
 			// see https://github.com/pulumi/pulumi-azure/pull/417#issuecomment-558227019
 			// RunUpdateTest: true,
@@ -291,7 +291,7 @@ func TestAccMultiCallback(t *testing.T) {
 func TestAccAppServiceCs(t *testing.T) {
 	test := getCSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "appservice-cs"),
+			Dir: path.Join(getCwd(t), "appservice-cs"),
 			ExtraRuntimeValidation: validateAPITest(func(body string) {
 				assert.Equal(t, body, "Hello Pulumi")
 			}),

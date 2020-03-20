@@ -12,9 +12,9 @@ import (
 )
 
 // Manages a MariaDB Virtual Network Rule.
-// 
+//
 // > **NOTE:** MariaDB Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/en-us/azure/mariadb/concepts-data-access-security-vnet)
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mariadb_virtual_network_rule.html.markdown.
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
@@ -117,4 +117,3 @@ type VirtualNetworkRuleArgs struct {
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkRuleArgs)(nil)).Elem()
 }
-

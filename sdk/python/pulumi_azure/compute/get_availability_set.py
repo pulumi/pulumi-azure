@@ -13,7 +13,13 @@ class GetAvailabilitySetResult:
     """
     A collection of values returned by getAvailabilitySet.
     """
-    def __init__(__self__, location=None, managed=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, resource_group_name=None, tags=None, id=None):
+    def __init__(__self__, id=None, location=None, managed=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, resource_group_name=None, tags=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -50,37 +56,33 @@ class GetAvailabilitySetResult:
         """
         A mapping of tags assigned to the resource.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAvailabilitySetResult(GetAvailabilitySetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetAvailabilitySetResult(
+            id=self.id,
             location=self.location,
             managed=self.managed,
             name=self.name,
             platform_fault_domain_count=self.platform_fault_domain_count,
             platform_update_domain_count=self.platform_update_domain_count,
             resource_group_name=self.resource_group_name,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_availability_set(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Availability Set.
-    
-    :param str name: The name of the Availability Set.
-    :param str resource_group_name: The name of the resource group in which the Availability Set exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/availability_set.html.markdown.
+
+
+    :param str name: The name of the Availability Set.
+    :param str resource_group_name: The name of the resource group in which the Availability Set exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -91,11 +93,11 @@ def get_availability_set(name=None,resource_group_name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('azure:compute/getAvailabilitySet:getAvailabilitySet', __args__, opts=opts).value
 
     return AwaitableGetAvailabilitySetResult(
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         managed=__ret__.get('managed'),
         name=__ret__.get('name'),
         platform_fault_domain_count=__ret__.get('platformFaultDomainCount'),
         platform_update_domain_count=__ret__.get('platformUpdateDomainCount'),
         resource_group_name=__ret__.get('resourceGroupName'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

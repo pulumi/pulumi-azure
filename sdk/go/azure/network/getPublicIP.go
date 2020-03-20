@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Public IP Address.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip.html.markdown.
 func GetPublicIP(ctx *pulumi.Context, args *GetPublicIPArgs, opts ...pulumi.InvokeOption) (*GetPublicIPResult, error) {
 	var rv GetPublicIPResult
@@ -25,11 +25,10 @@ type GetPublicIPArgs struct {
 	// Specifies the name of the public IP address.
 	Name string `pulumi:"name"`
 	// Specifies the name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Tags map[string]string `pulumi:"tags"`
-	Zones []string `pulumi:"zones"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	Zones             []string          `pulumi:"zones"`
 }
-
 
 // A collection of values returned by getPublicIP.
 type GetPublicIPResult struct {
@@ -45,14 +44,13 @@ type GetPublicIPResult struct {
 	// The IP address value that was allocated.
 	IpAddress string `pulumi:"ipAddress"`
 	// The IP version being used, for example `IPv4` or `IPv6`.
-	IpVersion string `pulumi:"ipVersion"`
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	IpVersion         string `pulumi:"ipVersion"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	ReverseFqdn string `pulumi:"reverseFqdn"`
-	Sku string `pulumi:"sku"`
+	ReverseFqdn       string `pulumi:"reverseFqdn"`
+	Sku               string `pulumi:"sku"`
 	// A mapping of tags to assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
-	Zones []string `pulumi:"zones"`
+	Tags  map[string]string `pulumi:"tags"`
+	Zones []string          `pulumi:"zones"`
 }
-

@@ -8,36 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Subscription within a API Management Service.
- * 
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleService = azure.apimanagement.getService({
- *     name: "example-apim",
- *     resourceGroupName: "example-resources",
- * });
- * const exampleProduct = azure.apimanagement.getProduct({
- *     apiManagementName: exampleService.name,
- *     productId: "00000000-0000-0000-0000-000000000000",
- *     resourceGroupName: exampleService.resourceGroupName,
- * });
- * const exampleUser = azure.apimanagement.getUser({
- *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleService.resourceGroupName,
- *     userId: "11111111-1111-1111-1111-111111111111",
- * });
- * const exampleSubscription = new azure.apimanagement.Subscription("example", {
- *     apiManagementName: exampleService.name,
- *     displayName: "Parser API",
- *     productId: exampleProduct.id,
- *     resourceGroupName: exampleService.resourceGroupName,
- *     userId: exampleUser.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_subscription.html.markdown.
  */

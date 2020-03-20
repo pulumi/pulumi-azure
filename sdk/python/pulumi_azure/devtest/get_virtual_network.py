@@ -13,12 +13,18 @@ class GetVirtualNetworkResult:
     """
     A collection of values returned by getVirtualNetwork.
     """
-    def __init__(__self__, allowed_subnets=None, lab_name=None, name=None, resource_group_name=None, subnet_overrides=None, unique_identifier=None, id=None):
+    def __init__(__self__, allowed_subnets=None, id=None, lab_name=None, name=None, resource_group_name=None, subnet_overrides=None, unique_identifier=None):
         if allowed_subnets and not isinstance(allowed_subnets, list):
             raise TypeError("Expected argument 'allowed_subnets' to be a list")
         __self__.allowed_subnets = allowed_subnets
         """
         The list of subnets enabled for the virtual network as defined below.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if lab_name and not isinstance(lab_name, str):
             raise TypeError("Expected argument 'lab_name' to be a str")
@@ -29,8 +35,8 @@ class GetVirtualNetworkResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
-        if subnet_overrides and not isinstance(subnet_overrides, dict):
-            raise TypeError("Expected argument 'subnet_overrides' to be a dict")
+        if subnet_overrides and not isinstance(subnet_overrides, list):
+            raise TypeError("Expected argument 'subnet_overrides' to be a list")
         __self__.subnet_overrides = subnet_overrides
         """
         The list of permission overrides for the subnets as defined below.
@@ -41,12 +47,6 @@ class GetVirtualNetworkResult:
         """
         The unique immutable identifier of the virtual network.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -54,24 +54,26 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
             yield self
         return GetVirtualNetworkResult(
             allowed_subnets=self.allowed_subnets,
+            id=self.id,
             lab_name=self.lab_name,
             name=self.name,
             resource_group_name=self.resource_group_name,
             subnet_overrides=self.subnet_overrides,
-            unique_identifier=self.unique_identifier,
-            id=self.id)
+            unique_identifier=self.unique_identifier)
 
 def get_virtual_network(lab_name=None,name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Dev Test Lab Virtual Network.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_virtual_network.html.markdown.
+
+
     :param str lab_name: Specifies the name of the Dev Test Lab.
     :param str name: Specifies the name of the Virtual Network.
     :param str resource_group_name: Specifies the name of the resource group that contains the Virtual Network.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_virtual_network.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['labName'] = lab_name
     __args__['name'] = name
@@ -84,9 +86,9 @@ def get_virtual_network(lab_name=None,name=None,resource_group_name=None,opts=No
 
     return AwaitableGetVirtualNetworkResult(
         allowed_subnets=__ret__.get('allowedSubnets'),
+        id=__ret__.get('id'),
         lab_name=__ret__.get('labName'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
         subnet_overrides=__ret__.get('subnetOverrides'),
-        unique_identifier=__ret__.get('uniqueIdentifier'),
-        id=__ret__.get('id'))
+        unique_identifier=__ret__.get('uniqueIdentifier'))

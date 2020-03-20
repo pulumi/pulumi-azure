@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Resource Group.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resource_group.html.markdown.
 func LookupResourceGroup(ctx *pulumi.Context, args *LookupResourceGroupArgs, opts ...pulumi.InvokeOption) (*LookupResourceGroupResult, error) {
 	var rv LookupResourceGroupResult
@@ -22,19 +22,17 @@ func LookupResourceGroup(ctx *pulumi.Context, args *LookupResourceGroupArgs, opt
 
 // A collection of arguments for invoking getResourceGroup.
 type LookupResourceGroupArgs struct {
-	// Specifies the name of the resource group.
+	// The Name of this Resource Group.
 	Name string `pulumi:"name"`
 }
-
 
 // A collection of values returned by getResourceGroup.
 type LookupResourceGroupResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The location of the resource group.
+	// The Azure Region where the Resource Group exists.
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
-	// A mapping of tags assigned to the resource group.
+	Name     string `pulumi:"name"`
+	// A mapping of tags assigned to the Resource Group.
 	Tags map[string]string `pulumi:"tags"`
 }
-

@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Redis Cache
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.redis.getCache({
- *     name: "myrediscache",
- *     resourceGroupName: "redis-cache",
- * });
- * 
- * export const primaryAccessKey = example.primaryAccessKey;
- * export const hostname = example.hostname;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/redis_cache.html.markdown.
  */
@@ -95,6 +82,10 @@ export interface GetCacheResult {
      * The Primary Access Key for the Redis Instance
      */
     readonly primaryAccessKey: string;
+    /**
+     * The primary connection string of the Redis Instance.
+     */
+    readonly primaryConnectionString: string;
     readonly privateStaticIpAddress: string;
     /**
      * A `redisConfiguration` block as defined below.
@@ -105,6 +96,10 @@ export interface GetCacheResult {
      * The Secondary Access Key for the Redis Instance
      */
     readonly secondaryAccessKey: string;
+    /**
+     * The secondary connection string of the Redis Instance.
+     */
+    readonly secondaryConnectionString: string;
     readonly shardCount: number;
     /**
      * The SKU of Redis used. Possible values are `Basic`, `Standard` and `Premium`.

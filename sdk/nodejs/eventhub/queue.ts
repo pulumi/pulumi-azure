@@ -8,32 +8,8 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a ServiceBus Queue.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleNamespace = new azure.servicebus.Namespace("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- *     tags: {
- *         source: "example",
- *     },
- * });
- * const exampleQueue = new azure.servicebus.Queue("example", {
- *     enablePartitioning: true,
- *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue.html.markdown.
  */
 export class Queue extends pulumi.CustomResource {
     /**
@@ -81,7 +57,6 @@ export class Queue extends pulumi.CustomResource {
      * duplicates can be detected. Default value is 10 minutes. (`PT10M`)
      */
     public readonly duplicateDetectionHistoryTimeWindow!: pulumi.Output<string>;
-    public readonly enableBatchedOperations!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls whether Express Entities
      * are enabled. An express queue holds a message in memory temporarily before writing
@@ -96,11 +71,6 @@ export class Queue extends pulumi.CustomResource {
      * be set to `true`.
      */
     public readonly enablePartitioning!: pulumi.Output<boolean | undefined>;
-    /**
-     * Specifies the supported Azure location where the resource exists.
-     * Changing this forces a new resource to be created.
-     */
-    public readonly location!: pulumi.Output<string>;
     /**
      * The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
      */
@@ -143,7 +113,6 @@ export class Queue extends pulumi.CustomResource {
      * create the namespace. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
-    public readonly supportOrdering!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Queue resource with the given unique name, arguments, and options.
@@ -161,10 +130,8 @@ export class Queue extends pulumi.CustomResource {
             inputs["deadLetteringOnMessageExpiration"] = state ? state.deadLetteringOnMessageExpiration : undefined;
             inputs["defaultMessageTtl"] = state ? state.defaultMessageTtl : undefined;
             inputs["duplicateDetectionHistoryTimeWindow"] = state ? state.duplicateDetectionHistoryTimeWindow : undefined;
-            inputs["enableBatchedOperations"] = state ? state.enableBatchedOperations : undefined;
             inputs["enableExpress"] = state ? state.enableExpress : undefined;
             inputs["enablePartitioning"] = state ? state.enablePartitioning : undefined;
-            inputs["location"] = state ? state.location : undefined;
             inputs["lockDuration"] = state ? state.lockDuration : undefined;
             inputs["maxDeliveryCount"] = state ? state.maxDeliveryCount : undefined;
             inputs["maxSizeInMegabytes"] = state ? state.maxSizeInMegabytes : undefined;
@@ -173,7 +140,6 @@ export class Queue extends pulumi.CustomResource {
             inputs["requiresDuplicateDetection"] = state ? state.requiresDuplicateDetection : undefined;
             inputs["requiresSession"] = state ? state.requiresSession : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["supportOrdering"] = state ? state.supportOrdering : undefined;
         } else {
             const args = argsOrState as QueueArgs | undefined;
             if (!args || args.namespaceName === undefined) {
@@ -186,10 +152,8 @@ export class Queue extends pulumi.CustomResource {
             inputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
             inputs["defaultMessageTtl"] = args ? args.defaultMessageTtl : undefined;
             inputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
-            inputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
             inputs["enableExpress"] = args ? args.enableExpress : undefined;
             inputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["lockDuration"] = args ? args.lockDuration : undefined;
             inputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
             inputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
@@ -198,7 +162,6 @@ export class Queue extends pulumi.CustomResource {
             inputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
             inputs["requiresSession"] = args ? args.requiresSession : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["supportOrdering"] = args ? args.supportOrdering : undefined;
         }
         if (!opts) {
             opts = {}
@@ -234,7 +197,6 @@ export interface QueueState {
      * duplicates can be detected. Default value is 10 minutes. (`PT10M`)
      */
     readonly duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
-    readonly enableBatchedOperations?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls whether Express Entities
      * are enabled. An express queue holds a message in memory temporarily before writing
@@ -249,11 +211,6 @@ export interface QueueState {
      * be set to `true`.
      */
     readonly enablePartitioning?: pulumi.Input<boolean>;
-    /**
-     * Specifies the supported Azure location where the resource exists.
-     * Changing this forces a new resource to be created.
-     */
-    readonly location?: pulumi.Input<string>;
     /**
      * The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
      */
@@ -296,7 +253,6 @@ export interface QueueState {
      * create the namespace. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
-    readonly supportOrdering?: pulumi.Input<boolean>;
 }
 
 /**
@@ -322,7 +278,6 @@ export interface QueueArgs {
      * duplicates can be detected. Default value is 10 minutes. (`PT10M`)
      */
     readonly duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
-    readonly enableBatchedOperations?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls whether Express Entities
      * are enabled. An express queue holds a message in memory temporarily before writing
@@ -337,11 +292,6 @@ export interface QueueArgs {
      * be set to `true`.
      */
     readonly enablePartitioning?: pulumi.Input<boolean>;
-    /**
-     * Specifies the supported Azure location where the resource exists.
-     * Changing this forces a new resource to be created.
-     */
-    readonly location?: pulumi.Input<string>;
     /**
      * The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
      */
@@ -384,5 +334,4 @@ export interface QueueArgs {
      * create the namespace. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    readonly supportOrdering?: pulumi.Input<boolean>;
 }

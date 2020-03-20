@@ -12,12 +12,12 @@ import (
 )
 
 type PolicyCustomRule struct {
-	Action string `pulumi:"action"`
+	Action          string                           `pulumi:"action"`
 	MatchConditions []PolicyCustomRuleMatchCondition `pulumi:"matchConditions"`
 	// The name of the policy. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
-	Priority int `pulumi:"priority"`
-	RuleType string `pulumi:"ruleType"`
+	Name     *string `pulumi:"name"`
+	Priority int     `pulumi:"priority"`
+	RuleType string  `pulumi:"ruleType"`
 }
 
 type PolicyCustomRuleInput interface {
@@ -28,12 +28,12 @@ type PolicyCustomRuleInput interface {
 }
 
 type PolicyCustomRuleArgs struct {
-	Action pulumi.StringInput `pulumi:"action"`
+	Action          pulumi.StringInput                       `pulumi:"action"`
 	MatchConditions PolicyCustomRuleMatchConditionArrayInput `pulumi:"matchConditions"`
 	// The name of the policy. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	Priority pulumi.IntInput `pulumi:"priority"`
-	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Priority pulumi.IntInput       `pulumi:"priority"`
+	RuleType pulumi.StringInput    `pulumi:"ruleType"`
 }
 
 func (PolicyCustomRuleArgs) ElementType() reflect.Type {
@@ -69,7 +69,7 @@ func (i PolicyCustomRuleArray) ToPolicyCustomRuleArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyCustomRuleArrayOutput)
 }
 
-type PolicyCustomRuleOutput struct { *pulumi.OutputState }
+type PolicyCustomRuleOutput struct{ *pulumi.OutputState }
 
 func (PolicyCustomRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyCustomRule)(nil)).Elem()
@@ -84,27 +84,27 @@ func (o PolicyCustomRuleOutput) ToPolicyCustomRuleOutputWithContext(ctx context.
 }
 
 func (o PolicyCustomRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func (v PolicyCustomRule) string { return v.Action }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PolicyCustomRule) string { return v.Action }).(pulumi.StringOutput)
 }
 
 func (o PolicyCustomRuleOutput) MatchConditions() PolicyCustomRuleMatchConditionArrayOutput {
-	return o.ApplyT(func (v PolicyCustomRule) []PolicyCustomRuleMatchCondition { return v.MatchConditions }).(PolicyCustomRuleMatchConditionArrayOutput)
+	return o.ApplyT(func(v PolicyCustomRule) []PolicyCustomRuleMatchCondition { return v.MatchConditions }).(PolicyCustomRuleMatchConditionArrayOutput)
 }
 
 // The name of the policy. Changing this forces a new resource to be created.
 func (o PolicyCustomRuleOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyCustomRule) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyCustomRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyCustomRuleOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func (v PolicyCustomRule) int { return v.Priority }).(pulumi.IntOutput)
+	return o.ApplyT(func(v PolicyCustomRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
 func (o PolicyCustomRuleOutput) RuleType() pulumi.StringOutput {
-	return o.ApplyT(func (v PolicyCustomRule) string { return v.RuleType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PolicyCustomRule) string { return v.RuleType }).(pulumi.StringOutput)
 }
 
-type PolicyCustomRuleArrayOutput struct { *pulumi.OutputState}
+type PolicyCustomRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (PolicyCustomRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PolicyCustomRule)(nil)).Elem()
@@ -119,16 +119,16 @@ func (o PolicyCustomRuleArrayOutput) ToPolicyCustomRuleArrayOutputWithContext(ct
 }
 
 func (o PolicyCustomRuleArrayOutput) Index(i pulumi.IntInput) PolicyCustomRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PolicyCustomRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyCustomRule {
 		return vs[0].([]PolicyCustomRule)[vs[1].(int)]
 	}).(PolicyCustomRuleOutput)
 }
 
 type PolicyCustomRuleMatchCondition struct {
-	MatchValues []string `pulumi:"matchValues"`
-	MatchVariables []PolicyCustomRuleMatchConditionMatchVariable `pulumi:"matchVariables"`
-	NegationCondition *bool `pulumi:"negationCondition"`
-	Operator string `pulumi:"operator"`
+	MatchValues       []string                                      `pulumi:"matchValues"`
+	MatchVariables    []PolicyCustomRuleMatchConditionMatchVariable `pulumi:"matchVariables"`
+	NegationCondition *bool                                         `pulumi:"negationCondition"`
+	Operator          string                                        `pulumi:"operator"`
 }
 
 type PolicyCustomRuleMatchConditionInput interface {
@@ -139,10 +139,10 @@ type PolicyCustomRuleMatchConditionInput interface {
 }
 
 type PolicyCustomRuleMatchConditionArgs struct {
-	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
-	MatchVariables PolicyCustomRuleMatchConditionMatchVariableArrayInput `pulumi:"matchVariables"`
-	NegationCondition pulumi.BoolPtrInput `pulumi:"negationCondition"`
-	Operator pulumi.StringInput `pulumi:"operator"`
+	MatchValues       pulumi.StringArrayInput                               `pulumi:"matchValues"`
+	MatchVariables    PolicyCustomRuleMatchConditionMatchVariableArrayInput `pulumi:"matchVariables"`
+	NegationCondition pulumi.BoolPtrInput                                   `pulumi:"negationCondition"`
+	Operator          pulumi.StringInput                                    `pulumi:"operator"`
 }
 
 func (PolicyCustomRuleMatchConditionArgs) ElementType() reflect.Type {
@@ -178,7 +178,7 @@ func (i PolicyCustomRuleMatchConditionArray) ToPolicyCustomRuleMatchConditionArr
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyCustomRuleMatchConditionArrayOutput)
 }
 
-type PolicyCustomRuleMatchConditionOutput struct { *pulumi.OutputState }
+type PolicyCustomRuleMatchConditionOutput struct{ *pulumi.OutputState }
 
 func (PolicyCustomRuleMatchConditionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyCustomRuleMatchCondition)(nil)).Elem()
@@ -193,22 +193,24 @@ func (o PolicyCustomRuleMatchConditionOutput) ToPolicyCustomRuleMatchConditionOu
 }
 
 func (o PolicyCustomRuleMatchConditionOutput) MatchValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PolicyCustomRuleMatchCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
 
 func (o PolicyCustomRuleMatchConditionOutput) MatchVariables() PolicyCustomRuleMatchConditionMatchVariableArrayOutput {
-	return o.ApplyT(func (v PolicyCustomRuleMatchCondition) []PolicyCustomRuleMatchConditionMatchVariable { return v.MatchVariables }).(PolicyCustomRuleMatchConditionMatchVariableArrayOutput)
+	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) []PolicyCustomRuleMatchConditionMatchVariable {
+		return v.MatchVariables
+	}).(PolicyCustomRuleMatchConditionMatchVariableArrayOutput)
 }
 
 func (o PolicyCustomRuleMatchConditionOutput) NegationCondition() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyCustomRuleMatchCondition) *bool { return v.NegationCondition }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) *bool { return v.NegationCondition }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyCustomRuleMatchConditionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func (v PolicyCustomRuleMatchCondition) string { return v.Operator }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-type PolicyCustomRuleMatchConditionArrayOutput struct { *pulumi.OutputState}
+type PolicyCustomRuleMatchConditionArrayOutput struct{ *pulumi.OutputState }
 
 func (PolicyCustomRuleMatchConditionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PolicyCustomRuleMatchCondition)(nil)).Elem()
@@ -223,14 +225,14 @@ func (o PolicyCustomRuleMatchConditionArrayOutput) ToPolicyCustomRuleMatchCondit
 }
 
 func (o PolicyCustomRuleMatchConditionArrayOutput) Index(i pulumi.IntInput) PolicyCustomRuleMatchConditionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PolicyCustomRuleMatchCondition {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyCustomRuleMatchCondition {
 		return vs[0].([]PolicyCustomRuleMatchCondition)[vs[1].(int)]
 	}).(PolicyCustomRuleMatchConditionOutput)
 }
 
 type PolicyCustomRuleMatchConditionMatchVariable struct {
-	Selector *string `pulumi:"selector"`
-	VariableName string `pulumi:"variableName"`
+	Selector     *string `pulumi:"selector"`
+	VariableName string  `pulumi:"variableName"`
 }
 
 type PolicyCustomRuleMatchConditionMatchVariableInput interface {
@@ -241,8 +243,8 @@ type PolicyCustomRuleMatchConditionMatchVariableInput interface {
 }
 
 type PolicyCustomRuleMatchConditionMatchVariableArgs struct {
-	Selector pulumi.StringPtrInput `pulumi:"selector"`
-	VariableName pulumi.StringInput `pulumi:"variableName"`
+	Selector     pulumi.StringPtrInput `pulumi:"selector"`
+	VariableName pulumi.StringInput    `pulumi:"variableName"`
 }
 
 func (PolicyCustomRuleMatchConditionMatchVariableArgs) ElementType() reflect.Type {
@@ -278,7 +280,7 @@ func (i PolicyCustomRuleMatchConditionMatchVariableArray) ToPolicyCustomRuleMatc
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyCustomRuleMatchConditionMatchVariableArrayOutput)
 }
 
-type PolicyCustomRuleMatchConditionMatchVariableOutput struct { *pulumi.OutputState }
+type PolicyCustomRuleMatchConditionMatchVariableOutput struct{ *pulumi.OutputState }
 
 func (PolicyCustomRuleMatchConditionMatchVariableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyCustomRuleMatchConditionMatchVariable)(nil)).Elem()
@@ -293,14 +295,14 @@ func (o PolicyCustomRuleMatchConditionMatchVariableOutput) ToPolicyCustomRuleMat
 }
 
 func (o PolicyCustomRuleMatchConditionMatchVariableOutput) Selector() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyCustomRuleMatchConditionMatchVariable) *string { return v.Selector }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyCustomRuleMatchConditionMatchVariable) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyCustomRuleMatchConditionMatchVariableOutput) VariableName() pulumi.StringOutput {
-	return o.ApplyT(func (v PolicyCustomRuleMatchConditionMatchVariable) string { return v.VariableName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PolicyCustomRuleMatchConditionMatchVariable) string { return v.VariableName }).(pulumi.StringOutput)
 }
 
-type PolicyCustomRuleMatchConditionMatchVariableArrayOutput struct { *pulumi.OutputState}
+type PolicyCustomRuleMatchConditionMatchVariableArrayOutput struct{ *pulumi.OutputState }
 
 func (PolicyCustomRuleMatchConditionMatchVariableArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PolicyCustomRuleMatchConditionMatchVariable)(nil)).Elem()
@@ -315,14 +317,14 @@ func (o PolicyCustomRuleMatchConditionMatchVariableArrayOutput) ToPolicyCustomRu
 }
 
 func (o PolicyCustomRuleMatchConditionMatchVariableArrayOutput) Index(i pulumi.IntInput) PolicyCustomRuleMatchConditionMatchVariableOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PolicyCustomRuleMatchConditionMatchVariable {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyCustomRuleMatchConditionMatchVariable {
 		return vs[0].([]PolicyCustomRuleMatchConditionMatchVariable)[vs[1].(int)]
 	}).(PolicyCustomRuleMatchConditionMatchVariableOutput)
 }
 
 type PolicyPolicySettings struct {
-	Enabled *bool `pulumi:"enabled"`
-	Mode *string `pulumi:"mode"`
+	Enabled *bool   `pulumi:"enabled"`
+	Mode    *string `pulumi:"mode"`
 }
 
 type PolicyPolicySettingsInput interface {
@@ -333,8 +335,8 @@ type PolicyPolicySettingsInput interface {
 }
 
 type PolicyPolicySettingsArgs struct {
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	Enabled pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Mode    pulumi.StringPtrInput `pulumi:"mode"`
 }
 
 func (PolicyPolicySettingsArgs) ElementType() reflect.Type {
@@ -366,7 +368,8 @@ type PolicyPolicySettingsPtrInput interface {
 
 type policyPolicySettingsPtrType PolicyPolicySettingsArgs
 
-func PolicyPolicySettingsPtr(v *PolicyPolicySettingsArgs) PolicyPolicySettingsPtrInput {	return (*policyPolicySettingsPtrType)(v)
+func PolicyPolicySettingsPtr(v *PolicyPolicySettingsArgs) PolicyPolicySettingsPtrInput {
+	return (*policyPolicySettingsPtrType)(v)
 }
 
 func (*policyPolicySettingsPtrType) ElementType() reflect.Type {
@@ -381,7 +384,7 @@ func (i *policyPolicySettingsPtrType) ToPolicyPolicySettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicySettingsPtrOutput)
 }
 
-type PolicyPolicySettingsOutput struct { *pulumi.OutputState }
+type PolicyPolicySettingsOutput struct{ *pulumi.OutputState }
 
 func (PolicyPolicySettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyPolicySettings)(nil)).Elem()
@@ -405,14 +408,14 @@ func (o PolicyPolicySettingsOutput) ToPolicyPolicySettingsPtrOutputWithContext(c
 	}).(PolicyPolicySettingsPtrOutput)
 }
 func (o PolicyPolicySettingsOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyPolicySettings) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyPolicySettings) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyPolicySettingsOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyPolicySettings) *string { return v.Mode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyPolicySettings) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-type PolicyPolicySettingsPtrOutput struct { *pulumi.OutputState}
+type PolicyPolicySettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (PolicyPolicySettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PolicyPolicySettings)(nil)).Elem()
@@ -427,15 +430,15 @@ func (o PolicyPolicySettingsPtrOutput) ToPolicyPolicySettingsPtrOutputWithContex
 }
 
 func (o PolicyPolicySettingsPtrOutput) Elem() PolicyPolicySettingsOutput {
-	return o.ApplyT(func (v *PolicyPolicySettings) PolicyPolicySettings { return *v }).(PolicyPolicySettingsOutput)
+	return o.ApplyT(func(v *PolicyPolicySettings) PolicyPolicySettings { return *v }).(PolicyPolicySettingsOutput)
 }
 
 func (o PolicyPolicySettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyPolicySettings) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyPolicySettings) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyPolicySettingsPtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyPolicySettings) *string { return v.Mode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyPolicySettings) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -6,29 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS AAAA Records within Azure Private DNS.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "West US",
- * });
- * const testZone = new azure.privatedns.Zone("test", {
- *     resourceGroupName: testResourceGroup.name,
- * });
- * const testAAAARecord = new azure.privatedns.AAAARecord("test", {
- *     records: [
- *         "fd5d:70bc:930e:d008:0000:0000:0000:7334",
- *         "fd5d:70bc:930e:d008::7335",
- *     ],
- *     resourceGroupName: testResourceGroup.name,
- *     ttl: 300,
- *     zoneName: testZone.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_aaaa_record.html.markdown.
  */
@@ -60,6 +37,10 @@ export class AAAARecord extends pulumi.CustomResource {
     }
 
     /**
+     * The FQDN of the DNS AAAA Record.
+     */
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    /**
      * The name of the DNS A Record.
      */
     public readonly name!: pulumi.Output<string>;
@@ -74,7 +55,7 @@ export class AAAARecord extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly ttl!: pulumi.Output<number>;
     /**
      * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -93,6 +74,7 @@ export class AAAARecord extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AAAARecordState | undefined;
+            inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["records"] = state ? state.records : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -119,6 +101,7 @@ export class AAAARecord extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
+            inputs["fqdn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -135,6 +118,10 @@ export class AAAARecord extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AAAARecord resources.
  */
 export interface AAAARecordState {
+    /**
+     * The FQDN of the DNS AAAA Record.
+     */
+    readonly fqdn?: pulumi.Input<string>;
     /**
      * The name of the DNS A Record.
      */

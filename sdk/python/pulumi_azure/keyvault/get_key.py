@@ -13,12 +13,18 @@ class GetKeyResult:
     """
     A collection of values returned by getKey.
     """
-    def __init__(__self__, e=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, name=None, tags=None, vault_uri=None, version=None, id=None):
+    def __init__(__self__, e=None, id=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, name=None, tags=None, version=None):
         if e and not isinstance(e, str):
             raise TypeError("Expected argument 'e' to be a str")
         __self__.e = e
         """
         The RSA public exponent of this Key Vault Key.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if key_opts and not isinstance(key_opts, list):
             raise TypeError("Expected argument 'key_opts' to be a list")
@@ -56,20 +62,11 @@ class GetKeyResult:
         """
         A mapping of tags assigned to this Key Vault Key.
         """
-        if vault_uri and not isinstance(vault_uri, str):
-            raise TypeError("Expected argument 'vault_uri' to be a str")
-        __self__.vault_uri = vault_uri
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         __self__.version = version
         """
         The current version of the Key Vault Key.
-        """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
         """
 class AwaitableGetKeyResult(GetKeyResult):
     # pylint: disable=using-constant-test
@@ -78,6 +75,7 @@ class AwaitableGetKeyResult(GetKeyResult):
             yield self
         return GetKeyResult(
             e=self.e,
+            id=self.id,
             key_opts=self.key_opts,
             key_size=self.key_size,
             key_type=self.key_type,
@@ -85,27 +83,26 @@ class AwaitableGetKeyResult(GetKeyResult):
             n=self.n,
             name=self.name,
             tags=self.tags,
-            vault_uri=self.vault_uri,
-            version=self.version,
-            id=self.id)
+            version=self.version)
 
-def get_key(key_vault_id=None,name=None,vault_uri=None,opts=None):
+def get_key(key_vault_id=None,name=None,opts=None):
     """
     Use this data source to access information about an existing Key Vault Key.
-    
+
     > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
     [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-    
-    :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource. 
-    :param str name: Specifies the name of the Key Vault Key.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_key.html.markdown.
+
+
+    :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource. 
+    :param str name: Specifies the name of the Key Vault Key.
     """
     __args__ = dict()
 
+
     __args__['keyVaultId'] = key_vault_id
     __args__['name'] = name
-    __args__['vaultUri'] = vault_uri
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -114,6 +111,7 @@ def get_key(key_vault_id=None,name=None,vault_uri=None,opts=None):
 
     return AwaitableGetKeyResult(
         e=__ret__.get('e'),
+        id=__ret__.get('id'),
         key_opts=__ret__.get('keyOpts'),
         key_size=__ret__.get('keySize'),
         key_type=__ret__.get('keyType'),
@@ -121,6 +119,4 @@ def get_key(key_vault_id=None,name=None,vault_uri=None,opts=None):
         n=__ret__.get('n'),
         name=__ret__.get('name'),
         tags=__ret__.get('tags'),
-        vault_uri=__ret__.get('vaultUri'),
-        version=__ret__.get('version'),
-        id=__ret__.get('id'))
+        version=__ret__.get('version'))

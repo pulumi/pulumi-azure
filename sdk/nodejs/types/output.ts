@@ -4,6 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as outputs from "../types/output";
 
+
 export namespace analysisservices {
     export interface ServerIpv4FirewallRule {
         /**
@@ -305,17 +306,6 @@ export namespace apimanagement {
         negotiateClientCertificate: boolean;
     }
 
-    export interface GetServiceSku {
-        /**
-         * Specifies the number of units associated with this API Management service.
-         */
-        capacity: number;
-        /**
-         * The name of the API Management service.
-         */
-        name: string;
-    }
-
     export interface LoggerApplicationInsights {
         instrumentationKey: string;
     }
@@ -418,22 +408,18 @@ export namespace apimanagement {
         xmlLink?: string;
     }
 
+    export interface ServiceProtocols {
+        enableHttp2?: boolean;
+    }
+
     export interface ServiceSecurity {
-        disableBackendSsl30: boolean;
-        disableBackendTls10: boolean;
-        disableBackendTls11: boolean;
-        disableFrontendSsl30: boolean;
-        disableFrontendTls10: boolean;
-        disableFrontendTls11: boolean;
-        disableTripleDesChipers: boolean;
-        disableTripleDesCiphers: boolean;
-        enableBackendSsl30: boolean;
-        enableBackendTls10: boolean;
-        enableBackendTls11: boolean;
-        enableFrontendSsl30: boolean;
-        enableFrontendTls10: boolean;
-        enableFrontendTls11: boolean;
-        enableTripleDesCiphers: boolean;
+        enableBackendSsl30?: boolean;
+        enableBackendTls10?: boolean;
+        enableBackendTls11?: boolean;
+        enableFrontendSsl30?: boolean;
+        enableFrontendTls10?: boolean;
+        enableFrontendTls11?: boolean;
+        enableTripleDesCiphers?: boolean;
     }
 
     export interface ServiceSignIn {
@@ -449,14 +435,6 @@ export namespace apimanagement {
         consentRequired: boolean;
         enabled: boolean;
         text?: string;
-    }
-
-    export interface ServiceSku {
-        capacity?: number;
-        /**
-         * The name of the API Management Service. Changing this forces a new resource to be created.
-         */
-        name: string;
     }
 }
 
@@ -668,7 +646,6 @@ export namespace appservice {
         remoteDebuggingVersion: string;
         scmType?: string;
         use32BitWorkerProcess?: boolean;
-        virtualNetworkName?: string;
         websocketsEnabled: boolean;
         windowsFxVersion: string;
     }
@@ -680,7 +657,6 @@ export namespace appservice {
 
     export interface AppServiceSiteConfigIpRestriction {
         ipAddress?: string;
-        subnetMask: string;
         virtualNetworkSubnetId?: string;
     }
 
@@ -802,6 +778,7 @@ export namespace appservice {
     }
 
     export interface FunctionAppIdentity {
+        identityIds?: string[];
         /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
          */
@@ -834,6 +811,10 @@ export namespace appservice {
          */
         http2Enabled?: boolean;
         /**
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         */
+        ipRestrictions: outputs.appservice.FunctionAppSiteConfigIpRestriction[];
+        /**
          * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
          */
         linuxFxVersion: string;
@@ -846,10 +827,6 @@ export namespace appservice {
          */
         use32BitWorkerProcess?: boolean;
         /**
-         * The name of the Virtual Network which this App Service should be attached to.
-         */
-        virtualNetworkName?: string;
-        /**
          * Should WebSockets be enabled?
          */
         websocketsEnabled?: boolean;
@@ -858,6 +835,11 @@ export namespace appservice {
     export interface FunctionAppSiteConfigCors {
         allowedOrigins: string[];
         supportCredentials?: boolean;
+    }
+
+    export interface FunctionAppSiteConfigIpRestriction {
+        ipAddress?: string;
+        subnetId?: string;
     }
 
     export interface FunctionAppSiteCredential {
@@ -884,21 +866,6 @@ export namespace appservice {
          * The value for the Connection String.
          */
         value: string;
-    }
-
-    export interface GetAppServicePlanProperty {
-        /**
-         * The ID of the App Service Environment where the App Service Plan is located.
-         */
-        appServiceEnvironmentId: string;
-        /**
-         * Can Apps assigned to this App Service Plan be scaled independently?
-         */
-        perSiteScaling: boolean;
-        /**
-         * Is this App Service Plan `Reserved`?
-         */
-        reserved: boolean;
     }
 
     export interface GetAppServicePlanSku {
@@ -928,7 +895,7 @@ export namespace appservice {
         /**
          * A `cors` block as defined above.
          */
-        cors: outputs.appservice.GetAppServiceSiteConfigCors;
+        cors: outputs.appservice.GetAppServiceSiteConfigCor[];
         /**
          * The ordering of default documents to load, if an address isn't specified.
          */
@@ -1002,10 +969,6 @@ export namespace appservice {
          */
         use32BitWorkerProcess: boolean;
         /**
-         * The name of the Virtual Network which this App Service is attached to.
-         */
-        virtualNetworkName: string;
-        /**
          * Are WebSockets enabled for this App Service?
          */
         websocketsEnabled: boolean;
@@ -1015,7 +978,7 @@ export namespace appservice {
         windowsFxVersion: string;
     }
 
-    export interface GetAppServiceSiteConfigCors {
+    export interface GetAppServiceSiteConfigCor {
         /**
          * A list of origins which are able to make cross-origin calls.
          */
@@ -1031,10 +994,6 @@ export namespace appservice {
          * The IP Address used for this IP Restriction.
          */
         ipAddress: string;
-        /**
-         * The Subnet mask used for this IP Restriction.
-         */
-        subnetMask: string;
         virtualNetworkSubnetId: string;
     }
 
@@ -1067,19 +1026,30 @@ export namespace appservice {
         provisioningState: string;
     }
 
-    export interface PlanProperties {
+    export interface GetFunctionAppConnectionString {
         /**
-         * The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+         * The name of the Function App resource.
          */
-        appServiceEnvironmentId: string;
+        name: string;
         /**
-         * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+         * The type of the Connection String. 
          */
-        perSiteScaling: boolean;
+        type: string;
         /**
-         * Is this App Service Plan `Reserved`. Defaults to `false`.
+         * The value for the Connection String.
          */
-        reserved: boolean;
+        value: string;
+    }
+
+    export interface GetFunctionAppSiteCredential {
+        /**
+         * The password associated with the username, which can be used to publish to this App Service.
+         */
+        password: string;
+        /**
+         * The username which can be used to publish to this App Service
+         */
+        username: string;
     }
 
     export interface PlanSku {
@@ -1285,10 +1255,6 @@ export namespace appservice {
          */
         use32BitWorkerProcess?: boolean;
         /**
-         * The name of the Virtual Network which this App Service Slot should be attached to.
-         */
-        virtualNetworkName?: string;
-        /**
          * Should WebSockets be enabled?
          */
         websocketsEnabled: boolean;
@@ -1302,7 +1268,6 @@ export namespace appservice {
 
     export interface SlotSiteConfigIpRestriction {
         ipAddress?: string;
-        subnetMask: string;
         virtualNetworkSubnetId?: string;
     }
 
@@ -1319,25 +1284,6 @@ export namespace appservice {
 }
 
 export namespace authorization {
-    export interface GetBuiltinRoleDefinitionPermission {
-        /**
-         * a list of actions supported by this role
-         */
-        actions: string[];
-        /**
-         * a list of data actions supported by this role
-         */
-        dataActions: string[];
-        /**
-         * a list of actions which are denied by this role
-         */
-        notActions: string[];
-        /**
-         * a list of data actions which are denied by this role
-         */
-        notDataActions: string[];
-    }
-
     export interface GetRoleDefinitionPermission {
         /**
          * a list of actions supported by this role
@@ -1360,13 +1306,6 @@ export namespace authorization {
 }
 
 export namespace automation {
-    export interface AccountSku {
-        /**
-         * Specifies the name of the Automation Account. Changing this forces a new resource to be created.
-         */
-        name?: string;
-    }
-
     export interface ModuleModuleLink {
         hash?: outputs.automation.ModuleModuleLinkHash;
         /**
@@ -1397,77 +1336,6 @@ export namespace automation {
     export interface ScheduleMonthlyOccurrence {
         day: string;
         occurrence: number;
-    }
-}
-
-export namespace autoscale {
-    export interface SettingNotification {
-        email?: outputs.autoscale.SettingNotificationEmail;
-        webhooks?: outputs.autoscale.SettingNotificationWebhook[];
-    }
-
-    export interface SettingNotificationEmail {
-        customEmails?: string[];
-        sendToSubscriptionAdministrator?: boolean;
-        sendToSubscriptionCoAdministrator?: boolean;
-    }
-
-    export interface SettingNotificationWebhook {
-        properties?: {[key: string]: string};
-        serviceUri: string;
-    }
-
-    export interface SettingProfile {
-        capacity: outputs.autoscale.SettingProfileCapacity;
-        fixedDate?: outputs.autoscale.SettingProfileFixedDate;
-        /**
-         * The name of the AutoScale Setting. Changing this forces a new resource to be created.
-         */
-        name: string;
-        recurrence?: outputs.autoscale.SettingProfileRecurrence;
-        rules?: outputs.autoscale.SettingProfileRule[];
-    }
-
-    export interface SettingProfileCapacity {
-        default: number;
-        maximum: number;
-        minimum: number;
-    }
-
-    export interface SettingProfileFixedDate {
-        end: string;
-        start: string;
-        timezone?: string;
-    }
-
-    export interface SettingProfileRecurrence {
-        days: string[];
-        hours: number;
-        minutes: number;
-        timezone?: string;
-    }
-
-    export interface SettingProfileRule {
-        metricTrigger: outputs.autoscale.SettingProfileRuleMetricTrigger;
-        scaleAction: outputs.autoscale.SettingProfileRuleScaleAction;
-    }
-
-    export interface SettingProfileRuleMetricTrigger {
-        metricName: string;
-        metricResourceId: string;
-        operator: string;
-        statistic: string;
-        threshold: number;
-        timeAggregation: string;
-        timeGrain: string;
-        timeWindow: string;
-    }
-
-    export interface SettingProfileRuleScaleAction {
-        cooldown: string;
-        direction: string;
-        type: string;
-        value: number;
     }
 }
 
@@ -1513,7 +1381,7 @@ export namespace backup {
 export namespace batch {
     export interface AccountKeyVaultReference {
         /**
-         * The Batch account ID.
+         * The ID of the Batch Account.
          */
         id: string;
         url: string;
@@ -1603,11 +1471,11 @@ export namespace batch {
 
     export interface GetPoolNetworkConfiguration {
         /**
-         * (Optional) The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+         * The inbound NAT pools that are used to address specific ports on the individual compute node externally.
          */
         endpointConfiguration: outputs.batch.GetPoolNetworkConfigurationEndpointConfiguration;
         /**
-         * (Optional) The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
+         * The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
          */
         subnetId: string;
     }
@@ -1626,7 +1494,7 @@ export namespace batch {
          */
         name: string;
         /**
-         * (Optional) The list of network security group rules that are applied to the endpoint.
+         * The list of network security group rules that are applied to the endpoint.
          */
         networkSecurityGroupRules: outputs.batch.GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule[];
         /**
@@ -1664,7 +1532,7 @@ export namespace batch {
          */
         maxTaskRetryCount?: number;
         /**
-         * (Optional) One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+         * One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
          */
         resourceFiles: outputs.batch.GetPoolStartTaskResourceFile[];
         /**
@@ -1744,7 +1612,7 @@ export namespace batch {
 
     export interface PoolCertificate {
         /**
-         * The Batch pool ID.
+         * The ID of the Batch Pool.
          */
         id: string;
         storeLocation: string;
@@ -1771,6 +1639,7 @@ export namespace batch {
 
     export interface PoolNetworkConfiguration {
         endpointConfigurations?: outputs.batch.PoolNetworkConfigurationEndpointConfiguration[];
+        publicIps?: string[];
         subnetId: string;
     }
 
@@ -1821,13 +1690,27 @@ export namespace batch {
 
     export interface PoolStorageImageReference {
         /**
-         * The Batch pool ID.
+         * The ID of the Batch Pool.
          */
         id?: string;
         offer?: string;
         publisher?: string;
         sku?: string;
         version?: string;
+    }
+}
+
+export namespace bot {
+    export interface ChannelDirectLineSite {
+        enabled?: boolean;
+        enhancedAuthenticationEnabled?: boolean;
+        id: string;
+        key: string;
+        key2: string;
+        name: string;
+        trustedOrigins?: string[];
+        v1Allowed?: boolean;
+        v3Allowed?: boolean;
     }
 }
 
@@ -1846,16 +1729,6 @@ export namespace cdn {
          * Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
          */
         name: string;
-    }
-}
-
-export namespace cognitive {
-    export interface AccountSku {
-        /**
-         * Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
-         */
-        name: string;
-        tier: string;
     }
 }
 
@@ -2027,6 +1900,198 @@ export namespace compute {
         sizeGb: number;
     }
 
+    export interface LinuxVirtualMachineAdditionalCapabilities {
+        ultraSsdEnabled?: boolean;
+    }
+
+    export interface LinuxVirtualMachineAdminSshKey {
+        publicKey: string;
+        username: string;
+    }
+
+    export interface LinuxVirtualMachineBootDiagnostics {
+        storageAccountUri: string;
+    }
+
+    export interface LinuxVirtualMachineIdentity {
+        identityIds?: string[];
+        /**
+         * The ID of the System Managed Service Principal.
+         */
+        principalId: string;
+        type: string;
+    }
+
+    export interface LinuxVirtualMachineOsDisk {
+        caching: string;
+        diffDiskSettings?: outputs.compute.LinuxVirtualMachineOsDiskDiffDiskSettings;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        /**
+         * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+         */
+        name: string;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface LinuxVirtualMachineOsDiskDiffDiskSettings {
+        option: string;
+    }
+
+    export interface LinuxVirtualMachinePlan {
+        /**
+         * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+         */
+        name: string;
+        product: string;
+        publisher: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetAdditionalCapabilities {
+        ultraSsdEnabled?: boolean;
+    }
+
+    export interface LinuxVirtualMachineScaleSetAdminSshKey {
+        publicKey: string;
+        username: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+        disableAutomaticRollback: boolean;
+        enableAutomaticOsUpgrade: boolean;
+    }
+
+    export interface LinuxVirtualMachineScaleSetBootDiagnostics {
+        storageAccountUri: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetDataDisk {
+        caching: string;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        lun: number;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface LinuxVirtualMachineScaleSetIdentity {
+        identityIds?: string[];
+        /**
+         * The ID of the System Managed Service Principal.
+         */
+        principalId: string;
+        type: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetNetworkInterface {
+        dnsServers?: string[];
+        enableAcceleratedNetworking?: boolean;
+        enableIpForwarding?: boolean;
+        ipConfigurations: outputs.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration[];
+        /**
+         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        networkSecurityGroupId?: string;
+        primary?: boolean;
+    }
+
+    export interface LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+        applicationGatewayBackendAddressPoolIds?: string[];
+        applicationSecurityGroupIds?: string[];
+        loadBalancerBackendAddressPoolIds?: string[];
+        loadBalancerInboundNatRulesIds?: string[];
+        /**
+         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        primary?: boolean;
+        publicIpAddresses?: outputs.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
+        subnetId?: string;
+        version?: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+        domainNameLabel?: string;
+        idleTimeoutInMinutes: number;
+        ipTags?: outputs.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag[];
+        /**
+         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        publicIpPrefixId?: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+        tag: string;
+        type: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetOsDisk {
+        caching: string;
+        diffDiskSettings?: outputs.compute.LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
+        option: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetPlan {
+        /**
+         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        product: string;
+        publisher: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetRollingUpgradePolicy {
+        maxBatchInstancePercent: number;
+        maxUnhealthyInstancePercent: number;
+        maxUnhealthyUpgradedInstancePercent: number;
+        pauseTimeBetweenBatches: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetSecret {
+        certificates: outputs.compute.LinuxVirtualMachineScaleSetSecretCertificate[];
+        keyVaultId: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetSecretCertificate {
+        url: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetSourceImageReference {
+        offer: string;
+        publisher: string;
+        /**
+         * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+         */
+        sku: string;
+        version: string;
+    }
+
+    export interface LinuxVirtualMachineSecret {
+        certificates: outputs.compute.LinuxVirtualMachineSecretCertificate[];
+        keyVaultId: string;
+    }
+
+    export interface LinuxVirtualMachineSecretCertificate {
+        url: string;
+    }
+
+    export interface LinuxVirtualMachineSourceImageReference {
+        offer: string;
+        publisher: string;
+        sku: string;
+        version: string;
+    }
+
     export interface ManagedDiskEncryptionSettings {
         diskEncryptionKey?: outputs.compute.ManagedDiskEncryptionSettingsDiskEncryptionKey;
         enabled: boolean;
@@ -2135,7 +2200,7 @@ export namespace compute {
 
     export interface ScaleSetNetworkProfileIpConfiguration {
         /**
-         * Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+         * Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
          */
         applicationGatewayBackendAddressPoolIds?: string[];
         /**
@@ -2564,6 +2629,210 @@ export namespace compute {
         vhdUri?: string;
         writeAcceleratorEnabled?: boolean;
     }
+
+    export interface WindowsVirtualMachineAdditionalCapabilities {
+        ultraSsdEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineAdditionalUnattendContent {
+        content: string;
+        setting: string;
+    }
+
+    export interface WindowsVirtualMachineBootDiagnostics {
+        storageAccountUri: string;
+    }
+
+    export interface WindowsVirtualMachineIdentity {
+        identityIds?: string[];
+        /**
+         * The ID of the System Managed Service Principal.
+         */
+        principalId: string;
+        type: string;
+    }
+
+    export interface WindowsVirtualMachineOsDisk {
+        caching: string;
+        diffDiskSettings?: outputs.compute.WindowsVirtualMachineOsDiskDiffDiskSettings;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        /**
+         * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+         */
+        name: string;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineOsDiskDiffDiskSettings {
+        option: string;
+    }
+
+    export interface WindowsVirtualMachinePlan {
+        /**
+         * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+         */
+        name: string;
+        product: string;
+        publisher: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetAdditionalCapabilities {
+        ultraSsdEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineScaleSetAdditionalUnattendContent {
+        content: string;
+        setting: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+        disableAutomaticRollback: boolean;
+        enableAutomaticOsUpgrade: boolean;
+    }
+
+    export interface WindowsVirtualMachineScaleSetBootDiagnostics {
+        storageAccountUri: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetDataDisk {
+        caching: string;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        lun: number;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineScaleSetIdentity {
+        identityIds?: string[];
+        /**
+         * The ID of the System Managed Service Principal.
+         */
+        principalId: string;
+        type: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetNetworkInterface {
+        dnsServers?: string[];
+        enableAcceleratedNetworking?: boolean;
+        enableIpForwarding?: boolean;
+        ipConfigurations: outputs.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration[];
+        /**
+         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        networkSecurityGroupId?: string;
+        primary?: boolean;
+    }
+
+    export interface WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+        applicationGatewayBackendAddressPoolIds?: string[];
+        applicationSecurityGroupIds?: string[];
+        loadBalancerBackendAddressPoolIds?: string[];
+        loadBalancerInboundNatRulesIds?: string[];
+        /**
+         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        primary?: boolean;
+        publicIpAddresses?: outputs.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
+        subnetId?: string;
+        version?: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+        domainNameLabel?: string;
+        idleTimeoutInMinutes: number;
+        ipTags?: outputs.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag[];
+        /**
+         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        publicIpPrefixId?: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+        tag: string;
+        type: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetOsDisk {
+        caching: string;
+        diffDiskSettings?: outputs.compute.WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings {
+        option: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetPlan {
+        /**
+         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        product: string;
+        publisher: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetRollingUpgradePolicy {
+        maxBatchInstancePercent: number;
+        maxUnhealthyInstancePercent: number;
+        maxUnhealthyUpgradedInstancePercent: number;
+        pauseTimeBetweenBatches: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetSecret {
+        certificates: outputs.compute.WindowsVirtualMachineScaleSetSecretCertificate[];
+        keyVaultId: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetSecretCertificate {
+        store: string;
+        url: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetSourceImageReference {
+        offer: string;
+        publisher: string;
+        /**
+         * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+         */
+        sku: string;
+        version: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetWinrmListener {
+        certificateUrl?: string;
+        protocol: string;
+    }
+
+    export interface WindowsVirtualMachineSecret {
+        certificates: outputs.compute.WindowsVirtualMachineSecretCertificate[];
+        keyVaultId: string;
+    }
+
+    export interface WindowsVirtualMachineSecretCertificate {
+        store: string;
+        url: string;
+    }
+
+    export interface WindowsVirtualMachineSourceImageReference {
+        offer: string;
+        publisher: string;
+        sku: string;
+        version: string;
+    }
+
+    export interface WindowsVirtualMachineWinrmListener {
+        certificateUrl?: string;
+        protocol: string;
+    }
 }
 
 export namespace containerservice {
@@ -2632,10 +2901,6 @@ export namespace containerservice {
          */
         count: number;
         /**
-         * The DNS Prefix of the managed Kubernetes cluster.
-         */
-        dnsPrefix: string;
-        /**
          * If the auto-scaler is enabled.
          */
         enableAutoScaling: boolean;
@@ -2656,6 +2921,7 @@ export namespace containerservice {
          * The name of the managed Kubernetes Cluster.
          */
         name: string;
+        nodeLabels: {[key: string]: string};
         /**
          * The list of Kubernetes taints which are applied to nodes in the agent pool
          */
@@ -2668,6 +2934,10 @@ export namespace containerservice {
          * The Operating System used for the Agents.
          */
         osType: string;
+        /**
+         * A mapping of tags to assign to the resource.
+         */
+        tags: {[key: string]: string};
         /**
          * The type of the Agent Pool.
          */
@@ -2823,7 +3093,6 @@ export namespace containerservice {
     }
 
     export interface GroupContainer {
-        command: string;
         commands: string[];
         cpu: number;
         environmentVariables?: {[key: string]: string};
@@ -2835,9 +3104,7 @@ export namespace containerservice {
          * Specifies the name of the Container Group. Changing this forces a new resource to be created.
          */
         name: string;
-        port: number;
-        ports: outputs.containerservice.GroupContainerPort[];
-        protocol: string;
+        ports?: outputs.containerservice.GroupContainerPort[];
         readinessProbe?: outputs.containerservice.GroupContainerReadinessProbe;
         secureEnvironmentVariables?: {[key: string]: string};
         volumes?: outputs.containerservice.GroupContainerVolume[];
@@ -2865,8 +3132,8 @@ export namespace containerservice {
     }
 
     export interface GroupContainerPort {
-        port: number;
-        protocol: string;
+        port?: number;
+        protocol?: string;
     }
 
     export interface GroupContainerReadinessProbe {
@@ -2957,34 +3224,6 @@ export namespace containerservice {
         logAnalyticsWorkspaceId?: string;
     }
 
-    export interface KubernetesClusterAgentPoolProfile {
-        availabilityZones?: string[];
-        count?: number;
-        /**
-         * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-         */
-        dnsPrefix: string;
-        enableAutoScaling?: boolean;
-        enableNodePublicIp?: boolean;
-        /**
-         * The FQDN of the Azure Kubernetes Managed Cluster.
-         */
-        fqdn: string;
-        maxCount?: number;
-        maxPods: number;
-        minCount?: number;
-        /**
-         * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-         */
-        name: string;
-        nodeTaints?: string[];
-        osDiskSizeGb: number;
-        osType?: string;
-        type?: string;
-        vmSize: string;
-        vnetSubnetId?: string;
-    }
-
     export interface KubernetesClusterDefaultNodePool {
         availabilityZones?: string[];
         enableAutoScaling?: boolean;
@@ -2997,8 +3236,13 @@ export namespace containerservice {
          */
         name: string;
         nodeCount: number;
+        nodeLabels?: {[key: string]: string};
         nodeTaints?: string[];
         osDiskSizeGb: number;
+        /**
+         * A mapping of tags to assign to the resource.
+         */
+        tags?: {[key: string]: string};
         type?: string;
         vmSize: string;
         vnetSubnetId?: string;
@@ -3161,83 +3405,6 @@ export namespace containerservice {
          */
         subnetId: string;
     }
-
-    export interface RegistryStorageAccount {
-        accessKey: string;
-        /**
-         * Specifies the name of the Container Registry. Changing this forces a new resource to be created.
-         */
-        name: string;
-    }
-
-    export interface ServiceAgentPoolProfile {
-        /**
-         * Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-         */
-        count?: number;
-        /**
-         * The DNS Prefix given to Agents in this Agent Pool.
-         */
-        dnsPrefix: string;
-        fqdn: string;
-        /**
-         * Unique name of the agent pool profile in the context of the subscription and resource group.
-         */
-        name: string;
-        /**
-         * The VM Size of each of the Agent Pool VM's (e.g. Standard_F1 / Standard_D2v2).
-         */
-        vmSize: string;
-    }
-
-    export interface ServiceDiagnosticsProfile {
-        /**
-         * Should VM Diagnostics be enabled for the Container Service VM's
-         */
-        enabled: boolean;
-        storageUri: string;
-    }
-
-    export interface ServiceLinuxProfile {
-        /**
-         * The Admin Username for the Cluster.
-         */
-        adminUsername: string;
-        /**
-         * An SSH Key block as documented below.
-         */
-        sshKey: outputs.containerservice.ServiceLinuxProfileSshKey;
-    }
-
-    export interface ServiceLinuxProfileSshKey {
-        /**
-         * The Public SSH Key used to access the cluster.
-         */
-        keyData: string;
-    }
-
-    export interface ServiceMasterProfile {
-        /**
-         * Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-         */
-        count?: number;
-        /**
-         * The DNS Prefix given to Agents in this Agent Pool.
-         */
-        dnsPrefix: string;
-        fqdn: string;
-    }
-
-    export interface ServiceServicePrincipal {
-        /**
-         * The ID for the Service Principal.
-         */
-        clientId: string;
-        /**
-         * The secret password associated with the service principal.
-         */
-        clientSecret: string;
-    }
 }
 
 export namespace core {
@@ -3317,18 +3484,6 @@ export namespace cosmosdb {
          * When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
          */
         maxStalenessPrefix?: number;
-    }
-
-    export interface AccountFailoverPolicy {
-        /**
-         * The ID of the virtual network subnet.
-         */
-        id: string;
-        /**
-         * The name of the Azure region to host replicated data.
-         */
-        location: string;
-        priority: number;
     }
 
     export interface AccountGeoLocation {
@@ -3413,11 +3568,6 @@ export namespace cosmosdb {
 
     export interface GremlinGraphUniqueKey {
         paths: string[];
-    }
-
-    export interface MongoCollectionIndex {
-        key: string;
-        unique?: boolean;
     }
 
     export interface SqlContainerUniqueKey {
@@ -3598,16 +3748,6 @@ export namespace datafactory {
     }
 }
 
-export namespace devspace {
-    export interface ControllerSku {
-        /**
-         * Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
-         */
-        name: string;
-        tier: string;
-    }
-}
-
 export namespace devtest {
     export interface GetVirtualNetworkAllowedSubnet {
         /**
@@ -3624,7 +3764,7 @@ export namespace devtest {
         resourceId: string;
     }
 
-    export interface GetVirtualNetworkSubnetOverrides {
+    export interface GetVirtualNetworkSubnetOverride {
         /**
          * The name of the subnet.
          */
@@ -3735,10 +3875,6 @@ export namespace dns {
         preference: string;
     }
 
-    export interface NsRecordRecord {
-        nsdname: string;
-    }
-
     export interface SrvRecordRecord {
         port: number;
         priority: number;
@@ -3821,7 +3957,7 @@ export namespace eventgrid {
 
     export interface EventSubscriptionStorageBlobDeadLetterDestination {
         /**
-         * Specifies the id of the storage account id where the storage blob is located. 
+         * Specifies the id of the storage account id where the storage blob is located.
          */
         storageAccountId: string;
         /**
@@ -3836,7 +3972,7 @@ export namespace eventgrid {
          */
         queueName: string;
         /**
-         * Specifies the id of the storage account id where the storage blob is located. 
+         * Specifies the id of the storage account id where the storage blob is located.
          */
         storageAccountId: string;
     }
@@ -3858,7 +3994,7 @@ export namespace eventgrid {
 
     export interface EventSubscriptionWebhookEndpoint {
         /**
-         * Specifies the url of the webhook where the Event Subscription will receive events. 
+         * Specifies the url of the webhook where the Event Subscription will receive events.
          */
         url: string;
     }
@@ -3928,7 +4064,7 @@ export namespace eventhub {
 
     export interface EventHubNamespaceNetworkRulesets {
         defaultAction: string;
-        ipRule?: outputs.eventhub.EventHubNamespaceNetworkRulesetsIpRule;
+        ipRules?: outputs.eventhub.EventHubNamespaceNetworkRulesetsIpRule[];
         virtualNetworkRules?: outputs.eventhub.EventHubNamespaceNetworkRulesetsVirtualNetworkRule[];
     }
 
@@ -3969,7 +4105,7 @@ export namespace eventhub {
 
     export interface EventSubscriptionStorageBlobDeadLetterDestination {
         /**
-         * Specifies the id of the storage account id where the storage blob is located. 
+         * Specifies the id of the storage account id where the storage blob is located.
          */
         storageAccountId: string;
         /**
@@ -3984,7 +4120,7 @@ export namespace eventhub {
          */
         queueName: string;
         /**
-         * Specifies the id of the storage account id where the storage blob is located. 
+         * Specifies the id of the storage account id where the storage blob is located.
          */
         storageAccountId: string;
     }
@@ -4006,7 +4142,7 @@ export namespace eventhub {
 
     export interface EventSubscriptionWebhookEndpoint {
         /**
-         * Specifies the url of the webhook where the Event Subscription will receive events. 
+         * Specifies the url of the webhook where the Event Subscription will receive events.
          */
         url: string;
     }
@@ -4119,7 +4255,7 @@ export namespace frontdoor {
         backends: outputs.frontdoor.FrontdoorBackendPoolBackend[];
         healthProbeName: string;
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id: string;
         loadBalancingName: string;
@@ -4140,8 +4276,9 @@ export namespace frontdoor {
     }
 
     export interface FrontdoorBackendPoolHealthProbe {
+        enabled?: boolean;
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id: string;
         intervalInSeconds?: number;
@@ -4150,13 +4287,14 @@ export namespace frontdoor {
          */
         name: string;
         path?: string;
+        probeMethod?: string;
         protocol?: string;
     }
 
     export interface FrontdoorBackendPoolLoadBalancing {
         additionalLatencyMilliseconds?: number;
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id: string;
         /**
@@ -4172,7 +4310,7 @@ export namespace frontdoor {
         customHttpsProvisioningEnabled: boolean;
         hostName: string;
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id: string;
         /**
@@ -4193,6 +4331,10 @@ export namespace frontdoor {
         azureKeyVaultCertificateVaultId?: string;
         certificateSource?: string;
         /**
+         * Minimum client TLS version supported.
+         */
+        minimumTlsVersion: string;
+        /**
          * Provisioning state of the Front Door.
          */
         provisioningState: string;
@@ -4208,7 +4350,7 @@ export namespace frontdoor {
         forwardingConfiguration?: outputs.frontdoor.FrontdoorRoutingRuleForwardingConfiguration;
         frontendEndpoints: string[];
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id: string;
         /**
@@ -4770,9 +4912,6 @@ export namespace healthcare {
          * The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
          */
         audience?: string;
-        /**
-         * <elided>
-         */
         authority?: string;
         /**
          * Enables the 'SMART on FHIR' option for mobile and web implementations.
@@ -4790,26 +4929,6 @@ export namespace healthcare {
 }
 
 export namespace iot {
-    export interface DpsLinkedHub {
-        allocationWeight?: number;
-        applyAllocationPolicy?: boolean;
-        connectionString: string;
-        hostname: string;
-        /**
-         * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
-         */
-        location: string;
-    }
-
-    export interface DpsSku {
-        capacity: number;
-        /**
-         * Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
-         */
-        name: string;
-        tier: string;
-    }
-
     export interface IoTHubEndpoint {
         batchFrequencyInSeconds?: number;
         connectionString: string;
@@ -4886,7 +5005,6 @@ export namespace iot {
          * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
          */
         name: string;
-        tier: string;
     }
 
     export interface IotHubDpsLinkedHub {
@@ -4906,7 +5024,6 @@ export namespace iot {
          * Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
          */
         name: string;
-        tier: string;
     }
 }
 
@@ -5217,13 +5334,6 @@ export namespace keyvault {
         virtualNetworkSubnetIds: string[];
     }
 
-    export interface GetKeyVaultSku {
-        /**
-         * Specifies the name of the Key Vault.
-         */
-        name: string;
-    }
-
     export interface KeyVaultAccessPolicy {
         applicationId?: string;
         certificatePermissions?: string[];
@@ -5242,13 +5352,6 @@ export namespace keyvault {
         defaultAction: string;
         ipRules?: string[];
         virtualNetworkSubnetIds?: string[];
-    }
-
-    export interface KeyVaultSku {
-        /**
-         * Specifies the name of the Key Vault. Changing this forces a new resource to be created.
-         */
-        name?: string;
     }
 }
 
@@ -5288,6 +5391,10 @@ export namespace lb {
          */
         privateIpAddressAllocation: string;
         /**
+         * The Private IP Address Version, either `IPv4` or `IPv6`.
+         */
+        privateIpAddressVersion: string;
+        /**
          * The ID of a  Public IP Address which is associated with this Load Balancer.
          */
         publicIpAddressId: string;
@@ -5322,6 +5429,10 @@ export namespace lb {
          */
         privateIpAddressAllocation: string;
         /**
+         * The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
+         */
+        privateIpAddressVersion?: string;
+        /**
          * The ID of a Public IP Address which should be associated with the Load Balancer.
          */
         publicIpAddressId: string;
@@ -5351,24 +5462,24 @@ export namespace lb {
     }
 }
 
-export namespace loganalytics {
-    export interface LinkedServiceLinkedServiceProperties {
-        /**
-         * The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
-         */
-        resourceId: string;
-    }
-}
-
 export namespace mariadb {
-    export interface ServerSku {
-        capacity: number;
-        family: string;
+    export interface GetMariaDbServerStorageProfile {
         /**
-         * Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
+         * Whether autogrow is enabled or disabled for the storage.
          */
-        name: string;
-        tier: string;
+        autoGrow: string;
+        /**
+         * Backup retention days for the server.
+         */
+        backupRetentionDays: number;
+        /**
+         * Whether Geo-redundant is enabled or not for server backup.
+         */
+        geoRedundantBackup: string;
+        /**
+         * The max storage allowed for a server.
+         */
+        storageMb: number;
     }
 
     export interface ServerStorageProfile {
@@ -5382,7 +5493,7 @@ export namespace mariadb {
 export namespace mediaservices {
     export interface AccountStorageAccount {
         /**
-         * The Resource ID of the Media Services Account.
+         * The ID of the Media Services Account.
          */
         id: string;
         isPrimary?: boolean;
@@ -5585,28 +5696,6 @@ export namespace monitoring {
         resourceType?: string;
         status?: string;
         subStatus?: string;
-    }
-
-    export interface AlertRuleEmailAction {
-        /**
-         * A list of email addresses to be notified when the alert is triggered.
-         */
-        customEmails: string[];
-        /**
-         * If `true`, the administrators (service and co-administrators) of the subscription are notified when the alert is triggered. Defaults to `false`.
-         */
-        sendToServiceOwners: boolean;
-    }
-
-    export interface AlertRuleWebhookAction {
-        /**
-         * A dictionary of custom properties to include with the webhook POST operation payload.
-         */
-        properties: {[key: string]: string};
-        /**
-         * The service uri of the webhook to POST the notification when the alert is triggered.
-         */
-        serviceUri: string;
     }
 
     export interface AutoscaleSettingNotification {
@@ -5918,46 +6007,76 @@ export namespace monitoring {
         values: string[];
     }
 
-    export interface MetricAlertRuleEmailAction {
+    export interface ScheduledQueryRulesAlertAction {
         /**
-         * A list of email addresses to be notified when the alert is triggered.
+         * List of action group reference resource IDs.
          */
-        customEmails: string[];
+        actionGroups: string[];
         /**
-         * If `true`, the administrators (service and co-administrators) of the subscription are notified when the alert is triggered. Defaults to `false`.
+         * Custom payload to be sent for all webhook payloads in alerting action.
          */
-        sendToServiceOwners: boolean;
+        customWebhookPayload?: string;
+        /**
+         * Custom subject override for all email ids in Azure action group.
+         */
+        emailSubject?: string;
     }
 
-    export interface MetricAlertRuleWebhookAction {
+    export interface ScheduledQueryRulesAlertTrigger {
+        metricTrigger?: outputs.monitoring.ScheduledQueryRulesAlertTriggerMetricTrigger;
         /**
-         * A dictionary of custom properties to include with the webhook POST operation payload.
+         * Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
          */
-        properties: {[key: string]: string};
+        operator: string;
         /**
-         * The service uri of the webhook to POST the notification when the alert is triggered.
+         * Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
          */
-        serviceUri: string;
+        threshold: number;
+    }
+
+    export interface ScheduledQueryRulesAlertTriggerMetricTrigger {
+        metricColumn: string;
+        metricTriggerType: string;
+        /**
+         * Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
+         */
+        operator: string;
+        /**
+         * Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+         */
+        threshold: number;
+    }
+
+    export interface ScheduledQueryRulesLogCriteria {
+        /**
+         * A `dimension` block as defined below.
+         */
+        dimensions: outputs.monitoring.ScheduledQueryRulesLogCriteriaDimension[];
+        /**
+         * Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+         */
+        metricName: string;
+    }
+
+    export interface ScheduledQueryRulesLogCriteriaDimension {
+        /**
+         * Name of the dimension.
+         */
+        name: string;
+        /**
+         * Operator for dimension values, - 'Include'.
+         */
+        operator?: string;
+        /**
+         * List of dimension values.
+         */
+        values: string[];
     }
 }
 
 export namespace mssql {
     export interface DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult {
         results: string[];
-    }
-
-    export interface ElasticPoolElasticPoolProperties {
-        creationDate: string;
-        licenseType: string;
-        /**
-         * The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
-         */
-        maxSizeBytes: number;
-        state: string;
-        /**
-         * Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
-         */
-        zoneRedundant: boolean;
     }
 
     export interface ElasticPoolPerDatabaseSettings {
@@ -5981,7 +6100,7 @@ export namespace mssql {
          */
         family?: string;
         /**
-         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
          */
         name: string;
         /**
@@ -6007,16 +6126,6 @@ export namespace mssql {
 }
 
 export namespace mysql {
-    export interface ServerSku {
-        capacity: number;
-        family: string;
-        /**
-         * Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
-         */
-        name: string;
-        tier: string;
-    }
-
     export interface ServerStorageProfile {
         /**
          * Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
@@ -6052,6 +6161,7 @@ export namespace netapp {
         cifsEnabled: boolean;
         nfsv3Enabled: boolean;
         nfsv4Enabled: boolean;
+        protocolsEnabled: string;
         ruleIndex: number;
         unixReadOnly?: boolean;
         unixReadWrite?: boolean;
@@ -6077,14 +6187,12 @@ export namespace network {
     }
 
     export interface ApplicationGatewayBackendAddressPool {
-        fqdnLists: string[];
-        fqdns: string[];
+        fqdns?: string[];
         /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
-        ipAddressLists: string[];
-        ipAddresses: string[];
+        ipAddresses?: string[];
         /**
          * The name of the Application Gateway. Changing this forces a new resource to be created.
          */
@@ -6384,7 +6492,7 @@ export namespace network {
 
     export interface ApplicationGatewaySslPolicy {
         cipherSuites?: string[];
-        disabledProtocols: string[];
+        disabledProtocols?: string[];
         minProtocolVersion?: string;
         policyName?: string;
         policyType?: string;
@@ -6489,17 +6597,6 @@ export namespace network {
         selectorMatchOperator?: string;
     }
 
-    export interface ConnectionMonitorDestination {
-        address?: string;
-        port: number;
-        virtualMachineId?: string;
-    }
-
-    export interface ConnectionMonitorSource {
-        port?: number;
-        virtualMachineId: string;
-    }
-
     export interface ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
         advertisedPublicPrefixes: string[];
     }
@@ -6533,7 +6630,6 @@ export namespace network {
     }
 
     export interface FirewallIpConfiguration {
-        internalPublicIpAddressId: string;
         /**
          * Specifies the name of the Firewall. Changing this forces a new resource to be created.
          */
@@ -6583,7 +6679,6 @@ export namespace network {
         peerAsn: number;
         /**
          * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
-         * > **NOTE:** only one Peering of each Type can be created per ExpressRoute circuit.
          */
         peeringType: string;
         /**
@@ -6883,12 +6978,12 @@ export namespace network {
          */
         addressSpaces: string[];
         /**
-         * (Optional) The address of the Radius server.
+         * The address of the Radius server.
          * This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
          */
         radiusServerAddress: string;
         /**
-         * (Optional) The secret used by the Radius server.
+         * The secret used by the Radius server.
          * This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
          */
         radiusServerSecret: string;
@@ -6904,7 +6999,7 @@ export namespace network {
          */
         rootCertificates: outputs.network.GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate[];
         /**
-         * (Optional) List of the protocols supported by the vpn client.
+         * List of the protocols supported by the vpn client.
          * The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
          */
         vpnClientProtocols: string[];
@@ -6958,12 +7053,8 @@ export namespace network {
     }
 
     export interface NetworkInterfaceIpConfiguration {
-        applicationGatewayBackendAddressPoolsIds: string[];
-        applicationSecurityGroupIds: string[];
-        loadBalancerBackendAddressPoolsIds: string[];
-        loadBalancerInboundNatRulesIds: string[];
         /**
-         * The name of the network interface. Changing this forces a new resource to be created.
+         * The name of the Network Interface. Changing this forces a new resource to be created.
          */
         name: string;
         primary: boolean;
@@ -7078,6 +7169,10 @@ export namespace network {
          */
         enabled: boolean;
         /**
+         * How frequently service should do flow analytics in minutes.
+         */
+        intervalInMinutes?: number;
+        /**
          * The resource guid of the attached workspace.
          */
         workspaceId: string;
@@ -7164,7 +7259,7 @@ export namespace network {
     }
 
     export interface SubnetDelegationServiceDelegation {
-        actions: string[];
+        actions?: string[];
         /**
          * The name of the subnet. Changing this forces a new resource to be created.
          */
@@ -7401,13 +7496,6 @@ export namespace notificationhub {
     export interface HubGcmCredential {
         apiKey: string;
     }
-
-    export interface NamespaceSku {
-        /**
-         * The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
-         */
-        name: string;
-    }
 }
 
 export namespace operationalinsights {
@@ -7416,13 +7504,6 @@ export namespace operationalinsights {
         product: string;
         promotionCode?: string;
         publisher: string;
-    }
-
-    export interface AnalyticsWorkspaceLinkedServiceLinkedServiceProperties {
-        /**
-         * The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
-         */
-        resourceId: string;
     }
 }
 
@@ -7441,16 +7522,6 @@ export namespace policy {
 }
 
 export namespace postgresql {
-    export interface ServerSku {
-        capacity: number;
-        family: string;
-        /**
-         * Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
-         */
-        name: string;
-        tier: string;
-    }
-
     export interface ServerStorageProfile {
         /**
          * Enable/Disable auto-growing of the storage. Valid values for this property are `Enabled` or `Disabled`. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `Enabled`.  
@@ -7472,29 +7543,6 @@ export namespace postgresql {
 }
 
 export namespace privatedns {
-    export interface LinkEndpointPrivateServiceConnection {
-        /**
-         * Does the Private Link Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
-         */
-        isManualConnection: boolean;
-        /**
-         * Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
-         */
-        name: string;
-        /**
-         * The ID of the Private Link Enabled Remote Resource which this Private Link Endpoint should be connected to. Changing this forces a new resource to be created.
-         */
-        privateConnectionResourceId: string;
-        /**
-         * A message passed to the owner of the remote resource when the private link endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
-         */
-        requestMessage?: string;
-        /**
-         * A list of subresource names which the Private Link Endpoint is able to connect to. Changing this forces a new resource to be created.
-         */
-        subresourceNames?: string[];
-    }
-
     export interface LinkServiceNatIpConfiguration {
         /**
          * Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
@@ -7534,11 +7582,15 @@ export namespace privatelink {
          */
         privateConnectionResourceId: string;
         /**
+         * The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+         */
+        privateIpAddress: string;
+        /**
          * A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
          */
         requestMessage?: string;
         /**
-         * A list of subresource names which the Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+         * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
          */
         subresourceNames?: string[];
     }
@@ -7563,30 +7615,6 @@ export namespace privatelink {
         requestResponse: string;
         /**
          * The current status of the private endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
-         */
-        status: string;
-    }
-
-    export interface GetPrivateLinkEndpointConnectionPrivateServiceConnection {
-        /**
-         * Specifies the Name of the private link endpoint.
-         */
-        name: string;
-        /**
-         * The private IP address associated with the private link endpoint, note that you will have a private IP address assigned to the private link endpoint even if the connection request was `Rejected`.
-         */
-        privateIpAddress: string;
-        /**
-         * Possible values are as follows:
-         * Value | Meaning
-         * -- | --
-         * `Auto-Approved` | The remote resource owner has added you to the `Auto-Approved` RBAC permission list for the remote resource, all private link endpoint connection requests will be automatically `Approved`.
-         * `Deleted state` | The resource owner has `Rejected` the private link endpoint connection request and has removed your private link endpoint request from the remote resource.
-         * `request/response message` | If you submitted a manual private link endpoint connection request, while in the `Pending` status the `requestResponse` will display the same text from your `requestMessage` in the `privateServiceConnection` block above. If the private link endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `requestResponse` text, if the private link endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `requestResponse` text
-         */
-        requestResponse: string;
-        /**
-         * The current status of the private link endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
          */
         status: string;
     }
@@ -7643,47 +7671,6 @@ export namespace privatelink {
          * The ID of the subnet to be used by the service.
          */
         subnetId: string;
-    }
-}
-
-export namespace recoveryservices {
-    export interface ProtectionPolicyVMBackup {
-        frequency: string;
-        time: string;
-        weekdays?: string[];
-    }
-
-    export interface ProtectionPolicyVMRetentionDaily {
-        count: number;
-    }
-
-    export interface ProtectionPolicyVMRetentionMonthly {
-        count: number;
-        weekdays: string[];
-        weeks: string[];
-    }
-
-    export interface ProtectionPolicyVMRetentionWeekly {
-        count: number;
-        weekdays: string[];
-    }
-
-    export interface ProtectionPolicyVMRetentionYearly {
-        count: number;
-        months: string[];
-        weekdays: string[];
-        weeks: string[];
-    }
-
-    export interface ReplicatedVmManagedDisk {
-        diskId: string;
-        stagingStorageAccountId: string;
-        targetDiskType: string;
-        targetReplicaDiskType: string;
-        /**
-         * Id of resource group where the VM should be created when a failover is done.
-         */
-        targetResourceGroupId: string;
     }
 }
 
@@ -7769,15 +7756,6 @@ export namespace redis {
     }
 }
 
-export namespace relay {
-    export interface NamespaceSku {
-        /**
-         * Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
-         */
-        name: string;
-    }
-}
-
 export namespace role {
     export interface DefinitionPermission {
         actions?: string[];
@@ -7786,186 +7764,22 @@ export namespace role {
         notDataActions?: string[];
     }
 
-    export interface GetBuiltinRoleDefinitionPermission {
-        /**
-         * a list of actions supported by this role
-         */
-        actions: string[];
-        /**
-         * a list of data actions supported by this role
-         */
-        dataActions: string[];
-        /**
-         * a list of actions which are denied by this role
-         */
-        notActions: string[];
-        /**
-         * a list of data actions which are denied by this role
-         */
-        notDataActions: string[];
-    }
-
     export interface GetRoleDefinitionPermission {
-        /**
-         * a list of actions supported by this role
-         */
         actions: string[];
         dataActions?: string[];
-        /**
-         * a list of actions which are denied by this role
-         */
         notActions: string[];
         notDataActions?: string[];
-    }
-}
-
-export namespace scheduler {
-    export interface GetJobCollectionQuota {
-        /**
-         * Sets the maximum number of jobs in the collection.
-         */
-        maxJobCount: number;
-        /**
-         * The maximum frequency of recurrence.
-         */
-        maxRecurrenceFrequency: string;
-        maxRecurrenceInterval: number;
-        /**
-         * The maximum interval between retries.
-         */
-        maxRetryInterval: number;
-    }
-
-    export interface JobActionStorageQueue {
-        message: string;
-        sasToken: string;
-        storageAccountName: string;
-        storageQueueName: string;
-    }
-
-    export interface JobActionWeb {
-        authenticationActiveDirectory?: outputs.scheduler.JobActionWebAuthenticationActiveDirectory;
-        authenticationBasic?: outputs.scheduler.JobActionWebAuthenticationBasic;
-        authenticationCertificate?: outputs.scheduler.JobActionWebAuthenticationCertificate;
-        body?: string;
-        headers?: {[key: string]: string};
-        method: string;
-        url: string;
-    }
-
-    export interface JobActionWebAuthenticationActiveDirectory {
-        audience: string;
-        clientId: string;
-        secret: string;
-        tenantId: string;
-    }
-
-    export interface JobActionWebAuthenticationBasic {
-        password: string;
-        username: string;
-    }
-
-    export interface JobActionWebAuthenticationCertificate {
-        /**
-         * (Computed)  The certificate expiration date.
-         */
-        expiration: string;
-        password: string;
-        pfx: string;
-        /**
-         * (Computed) The certificate's certificate subject name.
-         */
-        subjectName: string;
-        /**
-         * (Computed) The certificate thumbprint.
-         */
-        thumbprint: string;
-    }
-
-    export interface JobCollectionQuota {
-        maxJobCount?: number;
-        maxRecurrenceFrequency: string;
-        maxRecurrenceInterval?: number;
-        maxRetryInterval: number;
-    }
-
-    export interface JobErrorActionStorageQueue {
-        message: string;
-        sasToken: string;
-        storageAccountName: string;
-        storageQueueName: string;
-    }
-
-    export interface JobErrorActionWeb {
-        authenticationActiveDirectory?: outputs.scheduler.JobErrorActionWebAuthenticationActiveDirectory;
-        authenticationBasic?: outputs.scheduler.JobErrorActionWebAuthenticationBasic;
-        authenticationCertificate?: outputs.scheduler.JobErrorActionWebAuthenticationCertificate;
-        body?: string;
-        headers?: {[key: string]: string};
-        method: string;
-        url: string;
-    }
-
-    export interface JobErrorActionWebAuthenticationActiveDirectory {
-        audience: string;
-        clientId: string;
-        secret: string;
-        tenantId: string;
-    }
-
-    export interface JobErrorActionWebAuthenticationBasic {
-        password: string;
-        username: string;
-    }
-
-    export interface JobErrorActionWebAuthenticationCertificate {
-        /**
-         * (Computed)  The certificate expiration date.
-         */
-        expiration: string;
-        password: string;
-        pfx: string;
-        /**
-         * (Computed) The certificate's certificate subject name.
-         */
-        subjectName: string;
-        /**
-         * (Computed) The certificate thumbprint.
-         */
-        thumbprint: string;
-    }
-
-    export interface JobRecurrence {
-        count?: number;
-        endTime: string;
-        frequency: string;
-        hours?: number[];
-        interval?: number;
-        minutes?: number[];
-        monthDays?: number[];
-        monthlyOccurrences?: outputs.scheduler.JobRecurrenceMonthlyOccurrence[];
-        weekDays?: string[];
-    }
-
-    export interface JobRecurrenceMonthlyOccurrence {
-        day: string;
-        occurrence: number;
-    }
-
-    export interface JobRetry {
-        count?: number;
-        interval?: string;
     }
 }
 
 export namespace search {
     export interface ServiceQueryKey {
         /**
-         * The value of the query key.
+         * The value of this Query Key.
          */
         key: string;
         /**
-         * The name of the Search Service. Changing this forces a new resource to be created.
+         * The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
          */
         name: string;
     }
@@ -8233,6 +8047,25 @@ export namespace sql {
         type: string;
     }
 
+    export interface SqlServerExtendedAuditingPolicy {
+        /**
+         * (Optional) Specifies the number of days to retain logs for in the storage account.
+         */
+        retentionInDays?: number;
+        /**
+         * (Required)  Specifies the access key to use for the auditing storage account.
+         */
+        storageAccountAccessKey: string;
+        /**
+         * (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+         */
+        storageAccountAccessKeyIsSecondary?: boolean;
+        /**
+         * (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+         */
+        storageEndpoint: string;
+    }
+
     export interface SqlServerIdentity {
         /**
          * The Principal ID for the Service Principal associated with the Identity of this SQL Server.
@@ -8248,7 +8081,16 @@ export namespace sql {
 
 export namespace storage {
     export interface AccountBlobProperties {
+        corsRules?: outputs.storage.AccountBlobPropertiesCorsRule[];
         deleteRetentionPolicy?: outputs.storage.AccountBlobPropertiesDeleteRetentionPolicy;
+    }
+
+    export interface AccountBlobPropertiesCorsRule {
+        allowedHeaders: string[];
+        allowedMethods: string[];
+        allowedOrigins: string[];
+        exposedHeaders: string[];
+        maxAgeInSeconds: number;
     }
 
     export interface AccountBlobPropertiesDeleteRetentionPolicy {
@@ -8319,6 +8161,11 @@ export namespace storage {
         version: string;
     }
 
+    export interface AccountStaticWebsite {
+        error404Document?: string;
+        indexDocument?: string;
+    }
+
     export interface GetAccountBlobContainerSASPermissions {
         add: boolean;
         create: boolean;
@@ -8363,33 +8210,33 @@ export namespace storage {
         /**
          * An `actions` block as documented below.
          */
-        actions: outputs.storage.GetPolicyRuleActions;
+        actions: outputs.storage.GetPolicyRuleAction[];
         /**
-         * (Required)  Boolean to specify whether the rule is enabled.
+         * Boolean to specify whether the rule is enabled.
          */
         enabled: boolean;
         /**
          * A `filter` block as documented below.
          */
-        filters: outputs.storage.GetPolicyRuleFilters;
+        filters: outputs.storage.GetPolicyRuleFilter[];
         /**
-         * (Required) A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+         * A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
          */
         name: string;
     }
 
-    export interface GetPolicyRuleActions {
+    export interface GetPolicyRuleAction {
         /**
          * A `baseBlob` block as documented below.
          */
-        baseBlob: outputs.storage.GetPolicyRuleActionsBaseBlob;
+        baseBlobs: outputs.storage.GetPolicyRuleActionBaseBlob[];
         /**
          * A `snapshot` block as documented below.
          */
-        snapshot: outputs.storage.GetPolicyRuleActionsSnapshot;
+        snapshots: outputs.storage.GetPolicyRuleActionSnapshot[];
     }
 
-    export interface GetPolicyRuleActionsBaseBlob {
+    export interface GetPolicyRuleActionBaseBlob {
         /**
          * The age in days after last modification to delete the blob.
          */
@@ -8404,14 +8251,14 @@ export namespace storage {
         tierToCoolAfterDaysSinceModificationGreaterThan: number;
     }
 
-    export interface GetPolicyRuleActionsSnapshot {
+    export interface GetPolicyRuleActionSnapshot {
         /**
          * The age in days after create to delete the snaphot.
          */
         deleteAfterDaysSinceCreationGreaterThan: number;
     }
 
-    export interface GetPolicyRuleFilters {
+    export interface GetPolicyRuleFilter {
         /**
          * An array of predefined values. Only `blockBlob` is supported.
          */

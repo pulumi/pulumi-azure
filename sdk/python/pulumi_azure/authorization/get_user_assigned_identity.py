@@ -13,12 +13,18 @@ class GetUserAssignedIdentityResult:
     """
     A collection of values returned by getUserAssignedIdentity.
     """
-    def __init__(__self__, client_id=None, location=None, name=None, principal_id=None, resource_group_name=None, tags=None, id=None):
+    def __init__(__self__, client_id=None, id=None, location=None, name=None, principal_id=None, resource_group_name=None, tags=None):
         if client_id and not isinstance(client_id, str):
             raise TypeError("Expected argument 'client_id' to be a str")
         __self__.client_id = client_id
         """
         The Client ID of the User Assigned Identity.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -44,12 +50,6 @@ class GetUserAssignedIdentityResult:
         """
         A mapping of tags assigned to the User Assigned Identity.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetUserAssignedIdentityResult(GetUserAssignedIdentityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -57,23 +57,25 @@ class AwaitableGetUserAssignedIdentityResult(GetUserAssignedIdentityResult):
             yield self
         return GetUserAssignedIdentityResult(
             client_id=self.client_id,
+            id=self.id,
             location=self.location,
             name=self.name,
             principal_id=self.principal_id,
             resource_group_name=self.resource_group_name,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_user_assigned_identity(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing User Assigned Identity.
-    
-    :param str name: The name of the User Assigned Identity.
-    :param str resource_group_name: The name of the Resource Group in which the User Assigned Identity exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity.html.markdown.
+
+
+    :param str name: The name of the User Assigned Identity.
+    :param str resource_group_name: The name of the Resource Group in which the User Assigned Identity exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -85,9 +87,9 @@ def get_user_assigned_identity(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetUserAssignedIdentityResult(
         client_id=__ret__.get('clientId'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         principal_id=__ret__.get('principalId'),
         resource_group_name=__ret__.get('resourceGroupName'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

@@ -2,36 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Manages a Automation DSC Configuration.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.automation.Account("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         name: "Basic",
- *     },
- * });
- * const exampleDscConfiguration = new azure.automation.DscConfiguration("example", {
- *     automationAccountName: exampleAccount.name,
- *     contentEmbedded: "configuration test {}",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_dsc_configuration.html.markdown.
  */
@@ -91,6 +65,10 @@ export class DscConfiguration extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a DscConfiguration resource with the given unique name, arguments, and options.
@@ -112,6 +90,7 @@ export class DscConfiguration extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["state"] = state ? state.state : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DscConfigurationArgs | undefined;
             if (!args || args.automationAccountName === undefined) {
@@ -130,6 +109,7 @@ export class DscConfiguration extends pulumi.CustomResource {
             inputs["logVerbose"] = args ? args.logVerbose : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["state"] = undefined /*out*/;
         }
         if (!opts) {
@@ -176,6 +156,10 @@ export interface DscConfigurationState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     readonly state?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -210,4 +194,8 @@ export interface DscConfigurationArgs {
      * The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

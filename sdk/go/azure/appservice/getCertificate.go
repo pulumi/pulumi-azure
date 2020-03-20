@@ -8,8 +8,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access information about an App Service certificate.
-// 
+// Use this data source to access information about an App Service Certificate.
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate.html.markdown.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
@@ -25,10 +25,9 @@ type LookupCertificateArgs struct {
 	// Specifies the name of the certificate.
 	Name string `pulumi:"name"`
 	// The name of the resource group in which to create the certificate.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Tags map[string]string `pulumi:"tags"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getCertificate.
 type LookupCertificateResult struct {
@@ -43,14 +42,13 @@ type LookupCertificateResult struct {
 	// The issue date for the certificate.
 	IssueDate string `pulumi:"issueDate"`
 	// The name of the certificate issuer.
-	Issuer string `pulumi:"issuer"`
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Issuer            string `pulumi:"issuer"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The subject name of the certificate.
-	SubjectName string `pulumi:"subjectName"`
-	Tags map[string]string `pulumi:"tags"`
+	SubjectName string            `pulumi:"subjectName"`
+	Tags        map[string]string `pulumi:"tags"`
 	// The thumbprint for the certificate.
 	Thumbprint string `pulumi:"thumbprint"`
 }
-

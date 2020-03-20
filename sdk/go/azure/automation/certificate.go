@@ -12,17 +12,18 @@ import (
 )
 
 // Manages an Automation Certificate.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_certificate.html.markdown.
 type Certificate struct {
 	pulumi.CustomResourceState
 
+	// The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringOutput `pulumi:"automationAccountName"`
 	// Base64 encoded value of the certificate.
 	Base64 pulumi.StringOutput `pulumi:"base64"`
 	// The description of this Automation Certificate.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Exportable pulumi.BoolOutput `pulumi:"exportable"`
+	Exportable  pulumi.BoolOutput      `pulumi:"exportable"`
 	// Specifies the name of the Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created.
@@ -68,12 +69,13 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
+	// The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
 	AutomationAccountName *string `pulumi:"automationAccountName"`
 	// Base64 encoded value of the certificate.
 	Base64 *string `pulumi:"base64"`
 	// The description of this Automation Certificate.
 	Description *string `pulumi:"description"`
-	Exportable *bool `pulumi:"exportable"`
+	Exportable  *bool   `pulumi:"exportable"`
 	// Specifies the name of the Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created.
@@ -83,12 +85,13 @@ type certificateState struct {
 }
 
 type CertificateState struct {
+	// The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringPtrInput
 	// Base64 encoded value of the certificate.
 	Base64 pulumi.StringPtrInput
 	// The description of this Automation Certificate.
 	Description pulumi.StringPtrInput
-	Exportable pulumi.BoolPtrInput
+	Exportable  pulumi.BoolPtrInput
 	// Specifies the name of the Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created.
@@ -102,6 +105,7 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
+	// The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// Base64 encoded value of the certificate.
 	Base64 string `pulumi:"base64"`
@@ -115,6 +119,7 @@ type certificateArgs struct {
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
+	// The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringInput
 	// Base64 encoded value of the certificate.
 	Base64 pulumi.StringInput
@@ -129,4 +134,3 @@ type CertificateArgs struct {
 func (CertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateArgs)(nil)).Elem()
 }
-

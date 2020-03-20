@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Automation Account.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_account.html.markdown.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
@@ -28,18 +28,16 @@ type LookupAccountArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getAccount.
 type LookupAccountResult struct {
 	// The Endpoint for this Auomation Account.
 	Endpoint string `pulumi:"endpoint"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The Primary Access Key for the Automation Account.
-	PrimaryKey string `pulumi:"primaryKey"`
+	PrimaryKey        string `pulumi:"primaryKey"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Secondary Access Key for the Automation Account.
 	SecondaryKey string `pulumi:"secondaryKey"`
 }
-

@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing EventHub Namespace.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace.html.markdown.
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	var rv LookupNamespaceResult
@@ -28,7 +28,6 @@ type LookupNamespaceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getNamespace.
 type LookupNamespaceResult struct {
 	// Is Auto Inflate enabled for the EventHub Namespace?
@@ -46,17 +45,16 @@ type LookupNamespaceResult struct {
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey string `pulumi:"defaultSecondaryKey"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	KafkaEnabled bool `pulumi:"kafkaEnabled"`
+	Id           string `pulumi:"id"`
+	KafkaEnabled bool   `pulumi:"kafkaEnabled"`
 	// The Azure location where the EventHub Namespace exists
 	Location string `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled.
-	MaximumThroughputUnits int `pulumi:"maximumThroughputUnits"`
-	Name string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	MaximumThroughputUnits int    `pulumi:"maximumThroughputUnits"`
+	Name                   string `pulumi:"name"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 	// Defines which tier to use.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the EventHub Namespace.
 	Tags map[string]string `pulumi:"tags"`
 }
-

@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an API Management User.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_user.html.markdown.
 type User struct {
 	pulumi.CustomResourceState
@@ -184,4 +184,3 @@ type UserArgs struct {
 func (UserArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userArgs)(nil)).Elem()
 }
-

@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Function App.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/function_app.html.markdown.
 type FunctionApp struct {
 	pulumi.CustomResourceState
@@ -43,6 +43,8 @@ type FunctionApp struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Connection String.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A string indicating the Operating System type for this function app.
+	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
@@ -52,7 +54,7 @@ type FunctionApp struct {
 	// A `siteConfig` object as defined below.
 	SiteConfig FunctionAppSiteConfigOutput `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential FunctionAppSiteCredentialOutput `pulumi:"siteCredential"`
+	SiteCredentials FunctionAppSiteCredentialArrayOutput `pulumi:"siteCredentials"`
 	// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
 	StorageConnectionString pulumi.StringOutput `pulumi:"storageConnectionString"`
 	// A mapping of tags to assign to the resource.
@@ -124,6 +126,8 @@ type functionAppState struct {
 	Location *string `pulumi:"location"`
 	// The name of the Connection String.
 	Name *string `pulumi:"name"`
+	// A string indicating the Operating System type for this function app.
+	OsType *string `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
@@ -133,7 +137,7 @@ type functionAppState struct {
 	// A `siteConfig` object as defined below.
 	SiteConfig *FunctionAppSiteConfig `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential *FunctionAppSiteCredential `pulumi:"siteCredential"`
+	SiteCredentials []FunctionAppSiteCredential `pulumi:"siteCredentials"`
 	// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
 	StorageConnectionString *string `pulumi:"storageConnectionString"`
 	// A mapping of tags to assign to the resource.
@@ -169,6 +173,8 @@ type FunctionAppState struct {
 	Location pulumi.StringPtrInput
 	// The name of the Connection String.
 	Name pulumi.StringPtrInput
+	// A string indicating the Operating System type for this function app.
+	OsType pulumi.StringPtrInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringPtrInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
@@ -178,7 +184,7 @@ type FunctionAppState struct {
 	// A `siteConfig` object as defined below.
 	SiteConfig FunctionAppSiteConfigPtrInput
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential FunctionAppSiteCredentialPtrInput
+	SiteCredentials FunctionAppSiteCredentialArrayInput
 	// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
 	StorageConnectionString pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -214,6 +220,8 @@ type functionAppArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the Connection String.
 	Name *string `pulumi:"name"`
+	// A string indicating the Operating System type for this function app.
+	OsType *string `pulumi:"osType"`
 	// The name of the resource group in which to create the Function App.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
@@ -250,6 +258,8 @@ type FunctionAppArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the Connection String.
 	Name pulumi.StringPtrInput
+	// A string indicating the Operating System type for this function app.
+	OsType pulumi.StringPtrInput
 	// The name of the resource group in which to create the Function App.
 	ResourceGroupName pulumi.StringInput
 	// A `siteConfig` object as defined below.
@@ -265,4 +275,3 @@ type FunctionAppArgs struct {
 func (FunctionAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionAppArgs)(nil)).Elem()
 }
-

@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Network Interface.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_interface.html.markdown.
 func LookupNetworkInterface(ctx *pulumi.Context, args *LookupNetworkInterfaceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfaceResult, error) {
 	var rv LookupNetworkInterfaceResult
@@ -28,7 +28,6 @@ type LookupNetworkInterfaceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getNetworkInterface.
 type LookupNetworkInterfaceResult struct {
 	// List of DNS servers applied to the specified Network Interface.
@@ -43,7 +42,6 @@ type LookupNetworkInterfaceResult struct {
 	Id string `pulumi:"id"`
 	// The internal dns name label of the specified Network Interface.
 	InternalDnsNameLabel string `pulumi:"internalDnsNameLabel"`
-	InternalFqdn string `pulumi:"internalFqdn"`
 	// One or more `ipConfiguration` blocks as defined below.
 	IpConfigurations []GetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
 	// The location of the specified Network Interface.
@@ -58,10 +56,9 @@ type LookupNetworkInterfaceResult struct {
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
 	// The list of private ip addresses associates to the specified Network Interface.
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName  string   `pulumi:"resourceGroupName"`
 	// List the tags associated to the specified Network Interface.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the virtual machine that the specified Network Interface is attached to.
 	VirtualMachineId string `pulumi:"virtualMachineId"`
 }
-

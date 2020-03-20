@@ -12,8 +12,8 @@ from .. import utilities, tables
 class PolicyVM(pulumi.CustomResource):
     backup: pulumi.Output[dict]
     """
-    Configures the Policy backup frequency, times & days as documented in the `backup` block below. 
-    
+    Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+
       * `frequency` (`str`)
       * `time` (`str`)
       * `weekdays` (`list`)
@@ -33,13 +33,13 @@ class PolicyVM(pulumi.CustomResource):
     retention_daily: pulumi.Output[dict]
     """
     Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
-    
+
       * `count` (`float`)
     """
     retention_monthly: pulumi.Output[dict]
     """
     Configures the policy monthly retention as documented in the `retention_monthly` block below.
-    
+
       * `count` (`float`)
       * `weekdays` (`list`)
       * `weeks` (`list`)
@@ -47,14 +47,14 @@ class PolicyVM(pulumi.CustomResource):
     retention_weekly: pulumi.Output[dict]
     """
     Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
-    
+
       * `count` (`float`)
       * `weekdays` (`list`)
     """
     retention_yearly: pulumi.Output[dict]
     """
     Configures the policy yearly retention as documented in the `retention_yearly` block below.
-    
+
       * `count` (`float`)
       * `months` (`list`)
       * `weekdays` (`list`)
@@ -71,10 +71,12 @@ class PolicyVM(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, backup=None, name=None, recovery_vault_name=None, resource_group_name=None, retention_daily=None, retention_monthly=None, retention_weekly=None, retention_yearly=None, tags=None, timezone=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Backup VM Backup Policy.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_policy_vm.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below. 
+        :param pulumi.Input[dict] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
@@ -84,36 +86,34 @@ class PolicyVM(pulumi.CustomResource):
         :param pulumi.Input[dict] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone: Specifies the timezone. Defaults to `UTC`
-        
+
         The **backup** object supports the following:
-        
+
           * `frequency` (`pulumi.Input[str]`)
           * `time` (`pulumi.Input[str]`)
           * `weekdays` (`pulumi.Input[list]`)
-        
+
         The **retention_daily** object supports the following:
-        
+
           * `count` (`pulumi.Input[float]`)
-        
+
         The **retention_monthly** object supports the following:
-        
+
           * `count` (`pulumi.Input[float]`)
           * `weekdays` (`pulumi.Input[list]`)
           * `weeks` (`pulumi.Input[list]`)
-        
+
         The **retention_weekly** object supports the following:
-        
+
           * `count` (`pulumi.Input[float]`)
           * `weekdays` (`pulumi.Input[list]`)
-        
+
         The **retention_yearly** object supports the following:
-        
+
           * `count` (`pulumi.Input[float]`)
           * `months` (`pulumi.Input[list]`)
           * `weekdays` (`pulumi.Input[list]`)
           * `weeks` (`pulumi.Input[list]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_policy_vm.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -159,11 +159,11 @@ class PolicyVM(pulumi.CustomResource):
         """
         Get an existing PolicyVM resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below. 
+        :param pulumi.Input[dict] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
@@ -173,40 +173,39 @@ class PolicyVM(pulumi.CustomResource):
         :param pulumi.Input[dict] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone: Specifies the timezone. Defaults to `UTC`
-        
+
         The **backup** object supports the following:
-        
+
           * `frequency` (`pulumi.Input[str]`)
           * `time` (`pulumi.Input[str]`)
           * `weekdays` (`pulumi.Input[list]`)
-        
+
         The **retention_daily** object supports the following:
-        
+
           * `count` (`pulumi.Input[float]`)
-        
+
         The **retention_monthly** object supports the following:
-        
+
           * `count` (`pulumi.Input[float]`)
           * `weekdays` (`pulumi.Input[list]`)
           * `weeks` (`pulumi.Input[list]`)
-        
+
         The **retention_weekly** object supports the following:
-        
+
           * `count` (`pulumi.Input[float]`)
           * `weekdays` (`pulumi.Input[list]`)
-        
+
         The **retention_yearly** object supports the following:
-        
+
           * `count` (`pulumi.Input[float]`)
           * `months` (`pulumi.Input[list]`)
           * `weekdays` (`pulumi.Input[list]`)
           * `weeks` (`pulumi.Input[list]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_policy_vm.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["backup"] = backup
         __props__["name"] = name
         __props__["recovery_vault_name"] = recovery_vault_name

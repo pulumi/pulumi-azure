@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Private Endpoint.
+ * Manages a Private Endpoint.
  * 
  * > **NOTE** Private Endpoint is currently in Public Preview.
  * 

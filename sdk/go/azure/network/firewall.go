@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Azure Firewall.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall.html.markdown.
 type Firewall struct {
 	pulumi.CustomResourceState
@@ -132,4 +132,3 @@ type FirewallArgs struct {
 func (FirewallArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallArgs)(nil)).Elem()
 }
-

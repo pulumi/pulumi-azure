@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Application Insights Analytics Item component.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_analytics_item.html.markdown.
 type AnalyticsItem struct {
 	pulumi.CustomResourceState
@@ -156,4 +156,3 @@ type AnalyticsItemArgs struct {
 func (AnalyticsItemArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyticsItemArgs)(nil)).Elem()
 }
-

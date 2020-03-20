@@ -12,8 +12,8 @@ from .. import utilities, tables
 class PolicyFileShare(pulumi.CustomResource):
     backup: pulumi.Output[dict]
     """
-    Configures the Policy backup frequency and times as documented in the `backup` block below. 
-    
+    Configures the Policy backup frequency and times as documented in the `backup` block below.
+
       * `frequency` (`str`)
       * `time` (`str`)
     """
@@ -32,7 +32,7 @@ class PolicyFileShare(pulumi.CustomResource):
     retention_daily: pulumi.Output[dict]
     """
     Configures the policy daily retention as documented in the `retention_daily` block below.
-    
+
       * `count` (`float`)
     """
     timezone: pulumi.Output[str]
@@ -42,28 +42,28 @@ class PolicyFileShare(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, backup=None, name=None, recovery_vault_name=None, resource_group_name=None, retention_daily=None, timezone=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure File Share Backup Policy within a Recovery Services vault.
-        
+
         > **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_policy_file_share.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] backup: Configures the Policy backup frequency and times as documented in the `backup` block below. 
+        :param pulumi.Input[dict] backup: Configures the Policy backup frequency and times as documented in the `backup` block below.
         :param pulumi.Input[str] name: Specifies the name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below.
         :param pulumi.Input[str] timezone: Specifies the timezone. Defaults to `UTC`
-        
+
         The **backup** object supports the following:
-        
+
           * `frequency` (`pulumi.Input[str]`)
           * `time` (`pulumi.Input[str]`)
-        
-        The **retention_daily** object supports the following:
-        
-          * `count` (`pulumi.Input[float]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_policy_file_share.html.markdown.
+        The **retention_daily** object supports the following:
+
+          * `count` (`pulumi.Input[float]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -107,31 +107,30 @@ class PolicyFileShare(pulumi.CustomResource):
         """
         Get an existing PolicyFileShare resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] backup: Configures the Policy backup frequency and times as documented in the `backup` block below. 
+        :param pulumi.Input[dict] backup: Configures the Policy backup frequency and times as documented in the `backup` block below.
         :param pulumi.Input[str] name: Specifies the name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below.
         :param pulumi.Input[str] timezone: Specifies the timezone. Defaults to `UTC`
-        
+
         The **backup** object supports the following:
-        
+
           * `frequency` (`pulumi.Input[str]`)
           * `time` (`pulumi.Input[str]`)
-        
-        The **retention_daily** object supports the following:
-        
-          * `count` (`pulumi.Input[float]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_policy_file_share.html.markdown.
+        The **retention_daily** object supports the following:
+
+          * `count` (`pulumi.Input[float]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["backup"] = backup
         __props__["name"] = name
         __props__["recovery_vault_name"] = recovery_vault_name

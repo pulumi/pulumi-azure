@@ -17,7 +17,7 @@ class AnalyticsSolution(pulumi.CustomResource):
     plan: pulumi.Output[dict]
     """
     A `plan` block as documented below.
-    
+
       * `name` (`str`)
       * `product` (`str`)
       * `promotionCode` (`str`)
@@ -42,7 +42,9 @@ class AnalyticsSolution(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, location=None, plan=None, resource_group_name=None, solution_name=None, workspace_name=None, workspace_resource_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Log Analytics (formally Operational Insights) Solution.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_solution.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -51,15 +53,13 @@ class AnalyticsSolution(pulumi.CustomResource):
         :param pulumi.Input[str] solution_name: Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
         :param pulumi.Input[str] workspace_name: The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workspace_resource_id: The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
-        
+
         The **plan** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`)
           * `product` (`pulumi.Input[str]`)
           * `promotionCode` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_solution.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -105,7 +105,7 @@ class AnalyticsSolution(pulumi.CustomResource):
         """
         Get an existing AnalyticsSolution resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,19 +115,18 @@ class AnalyticsSolution(pulumi.CustomResource):
         :param pulumi.Input[str] solution_name: Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
         :param pulumi.Input[str] workspace_name: The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workspace_resource_id: The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
-        
+
         The **plan** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`)
           * `product` (`pulumi.Input[str]`)
           * `promotionCode` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_solution.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["location"] = location
         __props__["plan"] = plan
         __props__["resource_group_name"] = resource_group_name

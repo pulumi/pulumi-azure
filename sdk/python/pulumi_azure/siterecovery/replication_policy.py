@@ -33,7 +33,9 @@ class ReplicationPolicy(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, application_consistent_snapshot_frequency_in_minutes=None, name=None, recovery_point_retention_in_minutes=None, recovery_vault_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Azure Site Recovery replication policy within a recovery vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_replication_policy.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] application_consistent_snapshot_frequency_in_minutes: Specifies the frequency(in minutes) at which to create application consistent recovery points.
@@ -41,8 +43,6 @@ class ReplicationPolicy(pulumi.CustomResource):
         :param pulumi.Input[float] recovery_point_retention_in_minutes: The duration in minutes for which the recovery points need to be stored.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_replication_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -85,7 +85,7 @@ class ReplicationPolicy(pulumi.CustomResource):
         """
         Get an existing ReplicationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -94,12 +94,11 @@ class ReplicationPolicy(pulumi.CustomResource):
         :param pulumi.Input[float] recovery_point_retention_in_minutes: The duration in minutes for which the recovery points need to be stored.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_replication_policy.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["application_consistent_snapshot_frequency_in_minutes"] = application_consistent_snapshot_frequency_in_minutes
         __props__["name"] = name
         __props__["recovery_point_retention_in_minutes"] = recovery_point_retention_in_minutes

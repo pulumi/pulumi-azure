@@ -21,9 +21,9 @@ class CertificateOrder(pulumi.CustomResource):
     certificates: pulumi.Output[list]
     """
     State of the Key Vault secret. A `certificates` block as defined below.
-    
+
       * `certificateName` (`str`) - The name of the App Service Certificate.
-      * `keyVaultId` (`str`) - Key Vault resource Id.
+      * `key_vault_id` (`str`) - Key Vault resource Id.
       * `keyVaultSecretName` (`str`) - Key Vault secret name.
       * `provisioningState` (`str`) - Status of the Key Vault secret.
     """
@@ -94,7 +94,9 @@ class CertificateOrder(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, auto_renew=None, csr=None, distinguished_name=None, key_size=None, location=None, name=None, product_type=None, resource_group_name=None, tags=None, validity_in_years=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an App Service Certificate Order.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_certificate_order.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
@@ -107,8 +109,6 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] validity_in_years: Duration in years (must be between `1` and `3`).  Defaults to `1`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_certificate_order.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -159,7 +159,7 @@ class CertificateOrder(pulumi.CustomResource):
         """
         Get an existing CertificateOrder resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,19 +182,18 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[str] status: Current order status.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] validity_in_years: Duration in years (must be between `1` and `3`).  Defaults to `1`.
-        
+
         The **certificates** object supports the following:
-        
+
           * `certificateName` (`pulumi.Input[str]`) - The name of the App Service Certificate.
-          * `keyVaultId` (`pulumi.Input[str]`) - Key Vault resource Id.
+          * `key_vault_id` (`pulumi.Input[str]`) - Key Vault resource Id.
           * `keyVaultSecretName` (`pulumi.Input[str]`) - Key Vault secret name.
           * `provisioningState` (`pulumi.Input[str]`) - Status of the Key Vault secret.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_certificate_order.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["app_service_certificate_not_renewable_reasons"] = app_service_certificate_not_renewable_reasons
         __props__["auto_renew"] = auto_renew
         __props__["certificates"] = certificates

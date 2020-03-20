@@ -8,51 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Stream Analytics Stream Input EventHub.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = azure.core.getResourceGroup({
- *     name: "example-resources",
- * });
- * const exampleJob = azurerm_resource_group_example.name.apply(name => azure.streamanalytics.getJob({
- *     name: "example-job",
- *     resourceGroupName: name,
- * }));
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
- *     capacity: 1,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- * });
- * const exampleEventHub = new azure.eventhub.EventHub("example", {
- *     messageRetention: 1,
- *     namespaceName: exampleEventHubNamespace.name,
- *     partitionCount: 2,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("example", {
- *     eventhubName: exampleEventHub.name,
- *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleStreamInputEventHub = new azure.streamanalytics.StreamInputEventHub("example", {
- *     eventhubConsumerGroupName: exampleConsumerGroup.name,
- *     eventhubName: exampleEventHub.name,
- *     resourceGroupName: exampleJob.resourceGroupName,
- *     serialization: {
- *         encoding: "UTF8",
- *         type: "Json",
- *     },
- *     servicebusNamespace: exampleEventHubNamespace.name,
- *     sharedAccessPolicyKey: exampleEventHubNamespace.defaultPrimaryKey,
- *     sharedAccessPolicyName: "RootManageSharedAccessKey",
- *     streamAnalyticsJobName: exampleJob.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_stream_input_eventhub.html.markdown.
  */
@@ -116,7 +71,7 @@ export class StreamInputEventHub extends pulumi.CustomResource {
      */
     public readonly sharedAccessPolicyName!: pulumi.Output<string>;
     /**
-     * The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+     * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
     public readonly streamAnalyticsJobName!: pulumi.Output<string>;
 
@@ -225,7 +180,7 @@ export interface StreamInputEventHubState {
      */
     readonly sharedAccessPolicyName?: pulumi.Input<string>;
     /**
-     * The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+     * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
     readonly streamAnalyticsJobName?: pulumi.Input<string>;
 }
@@ -267,7 +222,7 @@ export interface StreamInputEventHubArgs {
      */
     readonly sharedAccessPolicyName: pulumi.Input<string>;
     /**
-     * The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+     * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
     readonly streamAnalyticsJobName: pulumi.Input<string>;
 }

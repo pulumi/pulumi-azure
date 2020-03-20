@@ -12,9 +12,9 @@ import (
 )
 
 type ClusterAzureActiveDirectory struct {
-	ClientApplicationId string `pulumi:"clientApplicationId"`
+	ClientApplicationId  string `pulumi:"clientApplicationId"`
 	ClusterApplicationId string `pulumi:"clusterApplicationId"`
-	TenantId string `pulumi:"tenantId"`
+	TenantId             string `pulumi:"tenantId"`
 }
 
 type ClusterAzureActiveDirectoryInput interface {
@@ -25,9 +25,9 @@ type ClusterAzureActiveDirectoryInput interface {
 }
 
 type ClusterAzureActiveDirectoryArgs struct {
-	ClientApplicationId pulumi.StringInput `pulumi:"clientApplicationId"`
+	ClientApplicationId  pulumi.StringInput `pulumi:"clientApplicationId"`
 	ClusterApplicationId pulumi.StringInput `pulumi:"clusterApplicationId"`
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	TenantId             pulumi.StringInput `pulumi:"tenantId"`
 }
 
 func (ClusterAzureActiveDirectoryArgs) ElementType() reflect.Type {
@@ -59,7 +59,8 @@ type ClusterAzureActiveDirectoryPtrInput interface {
 
 type clusterAzureActiveDirectoryPtrType ClusterAzureActiveDirectoryArgs
 
-func ClusterAzureActiveDirectoryPtr(v *ClusterAzureActiveDirectoryArgs) ClusterAzureActiveDirectoryPtrInput {	return (*clusterAzureActiveDirectoryPtrType)(v)
+func ClusterAzureActiveDirectoryPtr(v *ClusterAzureActiveDirectoryArgs) ClusterAzureActiveDirectoryPtrInput {
+	return (*clusterAzureActiveDirectoryPtrType)(v)
 }
 
 func (*clusterAzureActiveDirectoryPtrType) ElementType() reflect.Type {
@@ -74,7 +75,7 @@ func (i *clusterAzureActiveDirectoryPtrType) ToClusterAzureActiveDirectoryPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterAzureActiveDirectoryPtrOutput)
 }
 
-type ClusterAzureActiveDirectoryOutput struct { *pulumi.OutputState }
+type ClusterAzureActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (ClusterAzureActiveDirectoryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterAzureActiveDirectory)(nil)).Elem()
@@ -98,18 +99,18 @@ func (o ClusterAzureActiveDirectoryOutput) ToClusterAzureActiveDirectoryPtrOutpu
 	}).(ClusterAzureActiveDirectoryPtrOutput)
 }
 func (o ClusterAzureActiveDirectoryOutput) ClientApplicationId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterAzureActiveDirectory) string { return v.ClientApplicationId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterAzureActiveDirectory) string { return v.ClientApplicationId }).(pulumi.StringOutput)
 }
 
 func (o ClusterAzureActiveDirectoryOutput) ClusterApplicationId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterAzureActiveDirectory) string { return v.ClusterApplicationId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterAzureActiveDirectory) string { return v.ClusterApplicationId }).(pulumi.StringOutput)
 }
 
 func (o ClusterAzureActiveDirectoryOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterAzureActiveDirectory) string { return v.TenantId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterAzureActiveDirectory) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-type ClusterAzureActiveDirectoryPtrOutput struct { *pulumi.OutputState}
+type ClusterAzureActiveDirectoryPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterAzureActiveDirectoryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterAzureActiveDirectory)(nil)).Elem()
@@ -124,25 +125,25 @@ func (o ClusterAzureActiveDirectoryPtrOutput) ToClusterAzureActiveDirectoryPtrOu
 }
 
 func (o ClusterAzureActiveDirectoryPtrOutput) Elem() ClusterAzureActiveDirectoryOutput {
-	return o.ApplyT(func (v *ClusterAzureActiveDirectory) ClusterAzureActiveDirectory { return *v }).(ClusterAzureActiveDirectoryOutput)
+	return o.ApplyT(func(v *ClusterAzureActiveDirectory) ClusterAzureActiveDirectory { return *v }).(ClusterAzureActiveDirectoryOutput)
 }
 
 func (o ClusterAzureActiveDirectoryPtrOutput) ClientApplicationId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterAzureActiveDirectory) string { return v.ClientApplicationId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterAzureActiveDirectory) string { return v.ClientApplicationId }).(pulumi.StringOutput)
 }
 
 func (o ClusterAzureActiveDirectoryPtrOutput) ClusterApplicationId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterAzureActiveDirectory) string { return v.ClusterApplicationId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterAzureActiveDirectory) string { return v.ClusterApplicationId }).(pulumi.StringOutput)
 }
 
 func (o ClusterAzureActiveDirectoryPtrOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterAzureActiveDirectory) string { return v.TenantId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterAzureActiveDirectory) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 type ClusterCertificate struct {
-	Thumbprint string `pulumi:"thumbprint"`
+	Thumbprint          string  `pulumi:"thumbprint"`
 	ThumbprintSecondary *string `pulumi:"thumbprintSecondary"`
-	X509StoreName string `pulumi:"x509StoreName"`
+	X509StoreName       string  `pulumi:"x509StoreName"`
 }
 
 type ClusterCertificateInput interface {
@@ -153,9 +154,9 @@ type ClusterCertificateInput interface {
 }
 
 type ClusterCertificateArgs struct {
-	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+	Thumbprint          pulumi.StringInput    `pulumi:"thumbprint"`
 	ThumbprintSecondary pulumi.StringPtrInput `pulumi:"thumbprintSecondary"`
-	X509StoreName pulumi.StringInput `pulumi:"x509StoreName"`
+	X509StoreName       pulumi.StringInput    `pulumi:"x509StoreName"`
 }
 
 func (ClusterCertificateArgs) ElementType() reflect.Type {
@@ -187,7 +188,8 @@ type ClusterCertificatePtrInput interface {
 
 type clusterCertificatePtrType ClusterCertificateArgs
 
-func ClusterCertificatePtr(v *ClusterCertificateArgs) ClusterCertificatePtrInput {	return (*clusterCertificatePtrType)(v)
+func ClusterCertificatePtr(v *ClusterCertificateArgs) ClusterCertificatePtrInput {
+	return (*clusterCertificatePtrType)(v)
 }
 
 func (*clusterCertificatePtrType) ElementType() reflect.Type {
@@ -202,7 +204,7 @@ func (i *clusterCertificatePtrType) ToClusterCertificatePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificatePtrOutput)
 }
 
-type ClusterCertificateOutput struct { *pulumi.OutputState }
+type ClusterCertificateOutput struct{ *pulumi.OutputState }
 
 func (ClusterCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCertificate)(nil)).Elem()
@@ -226,18 +228,18 @@ func (o ClusterCertificateOutput) ToClusterCertificatePtrOutputWithContext(ctx c
 	}).(ClusterCertificatePtrOutput)
 }
 func (o ClusterCertificateOutput) Thumbprint() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
 }
 
 func (o ClusterCertificateOutput) ThumbprintSecondary() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCertificate) *string { return v.ThumbprintSecondary }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCertificate) *string { return v.ThumbprintSecondary }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterCertificateOutput) X509StoreName() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCertificate) string { return v.X509StoreName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCertificate) string { return v.X509StoreName }).(pulumi.StringOutput)
 }
 
-type ClusterCertificatePtrOutput struct { *pulumi.OutputState}
+type ClusterCertificatePtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCertificatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCertificate)(nil)).Elem()
@@ -252,24 +254,24 @@ func (o ClusterCertificatePtrOutput) ToClusterCertificatePtrOutputWithContext(ct
 }
 
 func (o ClusterCertificatePtrOutput) Elem() ClusterCertificateOutput {
-	return o.ApplyT(func (v *ClusterCertificate) ClusterCertificate { return *v }).(ClusterCertificateOutput)
+	return o.ApplyT(func(v *ClusterCertificate) ClusterCertificate { return *v }).(ClusterCertificateOutput)
 }
 
 func (o ClusterCertificatePtrOutput) Thumbprint() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
 }
 
 func (o ClusterCertificatePtrOutput) ThumbprintSecondary() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCertificate) *string { return v.ThumbprintSecondary }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCertificate) *string { return v.ThumbprintSecondary }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterCertificatePtrOutput) X509StoreName() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCertificate) string { return v.X509StoreName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCertificate) string { return v.X509StoreName }).(pulumi.StringOutput)
 }
 
 type ClusterCertificateCommonNames struct {
-	CommonNames []ClusterCertificateCommonNamesCommonName `pulumi:"commonNames"`
-	X509StoreName string `pulumi:"x509StoreName"`
+	CommonNames   []ClusterCertificateCommonNamesCommonName `pulumi:"commonNames"`
+	X509StoreName string                                    `pulumi:"x509StoreName"`
 }
 
 type ClusterCertificateCommonNamesInput interface {
@@ -280,8 +282,8 @@ type ClusterCertificateCommonNamesInput interface {
 }
 
 type ClusterCertificateCommonNamesArgs struct {
-	CommonNames ClusterCertificateCommonNamesCommonNameArrayInput `pulumi:"commonNames"`
-	X509StoreName pulumi.StringInput `pulumi:"x509StoreName"`
+	CommonNames   ClusterCertificateCommonNamesCommonNameArrayInput `pulumi:"commonNames"`
+	X509StoreName pulumi.StringInput                                `pulumi:"x509StoreName"`
 }
 
 func (ClusterCertificateCommonNamesArgs) ElementType() reflect.Type {
@@ -313,7 +315,8 @@ type ClusterCertificateCommonNamesPtrInput interface {
 
 type clusterCertificateCommonNamesPtrType ClusterCertificateCommonNamesArgs
 
-func ClusterCertificateCommonNamesPtr(v *ClusterCertificateCommonNamesArgs) ClusterCertificateCommonNamesPtrInput {	return (*clusterCertificateCommonNamesPtrType)(v)
+func ClusterCertificateCommonNamesPtr(v *ClusterCertificateCommonNamesArgs) ClusterCertificateCommonNamesPtrInput {
+	return (*clusterCertificateCommonNamesPtrType)(v)
 }
 
 func (*clusterCertificateCommonNamesPtrType) ElementType() reflect.Type {
@@ -328,7 +331,7 @@ func (i *clusterCertificateCommonNamesPtrType) ToClusterCertificateCommonNamesPt
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateCommonNamesPtrOutput)
 }
 
-type ClusterCertificateCommonNamesOutput struct { *pulumi.OutputState }
+type ClusterCertificateCommonNamesOutput struct{ *pulumi.OutputState }
 
 func (ClusterCertificateCommonNamesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCertificateCommonNames)(nil)).Elem()
@@ -352,14 +355,14 @@ func (o ClusterCertificateCommonNamesOutput) ToClusterCertificateCommonNamesPtrO
 	}).(ClusterCertificateCommonNamesPtrOutput)
 }
 func (o ClusterCertificateCommonNamesOutput) CommonNames() ClusterCertificateCommonNamesCommonNameArrayOutput {
-	return o.ApplyT(func (v ClusterCertificateCommonNames) []ClusterCertificateCommonNamesCommonName { return v.CommonNames }).(ClusterCertificateCommonNamesCommonNameArrayOutput)
+	return o.ApplyT(func(v ClusterCertificateCommonNames) []ClusterCertificateCommonNamesCommonName { return v.CommonNames }).(ClusterCertificateCommonNamesCommonNameArrayOutput)
 }
 
 func (o ClusterCertificateCommonNamesOutput) X509StoreName() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCertificateCommonNames) string { return v.X509StoreName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCertificateCommonNames) string { return v.X509StoreName }).(pulumi.StringOutput)
 }
 
-type ClusterCertificateCommonNamesPtrOutput struct { *pulumi.OutputState}
+type ClusterCertificateCommonNamesPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterCertificateCommonNamesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterCertificateCommonNames)(nil)).Elem()
@@ -374,19 +377,19 @@ func (o ClusterCertificateCommonNamesPtrOutput) ToClusterCertificateCommonNamesP
 }
 
 func (o ClusterCertificateCommonNamesPtrOutput) Elem() ClusterCertificateCommonNamesOutput {
-	return o.ApplyT(func (v *ClusterCertificateCommonNames) ClusterCertificateCommonNames { return *v }).(ClusterCertificateCommonNamesOutput)
+	return o.ApplyT(func(v *ClusterCertificateCommonNames) ClusterCertificateCommonNames { return *v }).(ClusterCertificateCommonNamesOutput)
 }
 
 func (o ClusterCertificateCommonNamesPtrOutput) CommonNames() ClusterCertificateCommonNamesCommonNameArrayOutput {
-	return o.ApplyT(func (v ClusterCertificateCommonNames) []ClusterCertificateCommonNamesCommonName { return v.CommonNames }).(ClusterCertificateCommonNamesCommonNameArrayOutput)
+	return o.ApplyT(func(v ClusterCertificateCommonNames) []ClusterCertificateCommonNamesCommonName { return v.CommonNames }).(ClusterCertificateCommonNamesCommonNameArrayOutput)
 }
 
 func (o ClusterCertificateCommonNamesPtrOutput) X509StoreName() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCertificateCommonNames) string { return v.X509StoreName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCertificateCommonNames) string { return v.X509StoreName }).(pulumi.StringOutput)
 }
 
 type ClusterCertificateCommonNamesCommonName struct {
-	CertificateCommonName string `pulumi:"certificateCommonName"`
+	CertificateCommonName       string  `pulumi:"certificateCommonName"`
 	CertificateIssuerThumbprint *string `pulumi:"certificateIssuerThumbprint"`
 }
 
@@ -398,7 +401,7 @@ type ClusterCertificateCommonNamesCommonNameInput interface {
 }
 
 type ClusterCertificateCommonNamesCommonNameArgs struct {
-	CertificateCommonName pulumi.StringInput `pulumi:"certificateCommonName"`
+	CertificateCommonName       pulumi.StringInput    `pulumi:"certificateCommonName"`
 	CertificateIssuerThumbprint pulumi.StringPtrInput `pulumi:"certificateIssuerThumbprint"`
 }
 
@@ -435,7 +438,7 @@ func (i ClusterCertificateCommonNamesCommonNameArray) ToClusterCertificateCommon
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateCommonNamesCommonNameArrayOutput)
 }
 
-type ClusterCertificateCommonNamesCommonNameOutput struct { *pulumi.OutputState }
+type ClusterCertificateCommonNamesCommonNameOutput struct{ *pulumi.OutputState }
 
 func (ClusterCertificateCommonNamesCommonNameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCertificateCommonNamesCommonName)(nil)).Elem()
@@ -450,14 +453,14 @@ func (o ClusterCertificateCommonNamesCommonNameOutput) ToClusterCertificateCommo
 }
 
 func (o ClusterCertificateCommonNamesCommonNameOutput) CertificateCommonName() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterCertificateCommonNamesCommonName) string { return v.CertificateCommonName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterCertificateCommonNamesCommonName) string { return v.CertificateCommonName }).(pulumi.StringOutput)
 }
 
 func (o ClusterCertificateCommonNamesCommonNameOutput) CertificateIssuerThumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterCertificateCommonNamesCommonName) *string { return v.CertificateIssuerThumbprint }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterCertificateCommonNamesCommonName) *string { return v.CertificateIssuerThumbprint }).(pulumi.StringPtrOutput)
 }
 
-type ClusterCertificateCommonNamesCommonNameArrayOutput struct { *pulumi.OutputState}
+type ClusterCertificateCommonNamesCommonNameArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterCertificateCommonNamesCommonNameArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterCertificateCommonNamesCommonName)(nil)).Elem()
@@ -472,13 +475,13 @@ func (o ClusterCertificateCommonNamesCommonNameArrayOutput) ToClusterCertificate
 }
 
 func (o ClusterCertificateCommonNamesCommonNameArrayOutput) Index(i pulumi.IntInput) ClusterCertificateCommonNamesCommonNameOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterCertificateCommonNamesCommonName {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCertificateCommonNamesCommonName {
 		return vs[0].([]ClusterCertificateCommonNamesCommonName)[vs[1].(int)]
 	}).(ClusterCertificateCommonNamesCommonNameOutput)
 }
 
 type ClusterClientCertificateThumbprint struct {
-	IsAdmin bool `pulumi:"isAdmin"`
+	IsAdmin    bool   `pulumi:"isAdmin"`
 	Thumbprint string `pulumi:"thumbprint"`
 }
 
@@ -490,7 +493,7 @@ type ClusterClientCertificateThumbprintInput interface {
 }
 
 type ClusterClientCertificateThumbprintArgs struct {
-	IsAdmin pulumi.BoolInput `pulumi:"isAdmin"`
+	IsAdmin    pulumi.BoolInput   `pulumi:"isAdmin"`
 	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
 }
 
@@ -527,7 +530,7 @@ func (i ClusterClientCertificateThumbprintArray) ToClusterClientCertificateThumb
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientCertificateThumbprintArrayOutput)
 }
 
-type ClusterClientCertificateThumbprintOutput struct { *pulumi.OutputState }
+type ClusterClientCertificateThumbprintOutput struct{ *pulumi.OutputState }
 
 func (ClusterClientCertificateThumbprintOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterClientCertificateThumbprint)(nil)).Elem()
@@ -542,14 +545,14 @@ func (o ClusterClientCertificateThumbprintOutput) ToClusterClientCertificateThum
 }
 
 func (o ClusterClientCertificateThumbprintOutput) IsAdmin() pulumi.BoolOutput {
-	return o.ApplyT(func (v ClusterClientCertificateThumbprint) bool { return v.IsAdmin }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ClusterClientCertificateThumbprint) bool { return v.IsAdmin }).(pulumi.BoolOutput)
 }
 
 func (o ClusterClientCertificateThumbprintOutput) Thumbprint() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterClientCertificateThumbprint) string { return v.Thumbprint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterClientCertificateThumbprint) string { return v.Thumbprint }).(pulumi.StringOutput)
 }
 
-type ClusterClientCertificateThumbprintArrayOutput struct { *pulumi.OutputState}
+type ClusterClientCertificateThumbprintArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterClientCertificateThumbprintArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterClientCertificateThumbprint)(nil)).Elem()
@@ -564,17 +567,17 @@ func (o ClusterClientCertificateThumbprintArrayOutput) ToClusterClientCertificat
 }
 
 func (o ClusterClientCertificateThumbprintArrayOutput) Index(i pulumi.IntInput) ClusterClientCertificateThumbprintOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterClientCertificateThumbprint {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterClientCertificateThumbprint {
 		return vs[0].([]ClusterClientCertificateThumbprint)[vs[1].(int)]
 	}).(ClusterClientCertificateThumbprintOutput)
 }
 
 type ClusterDiagnosticsConfig struct {
-	BlobEndpoint string `pulumi:"blobEndpoint"`
+	BlobEndpoint            string `pulumi:"blobEndpoint"`
 	ProtectedAccountKeyName string `pulumi:"protectedAccountKeyName"`
-	QueueEndpoint string `pulumi:"queueEndpoint"`
-	StorageAccountName string `pulumi:"storageAccountName"`
-	TableEndpoint string `pulumi:"tableEndpoint"`
+	QueueEndpoint           string `pulumi:"queueEndpoint"`
+	StorageAccountName      string `pulumi:"storageAccountName"`
+	TableEndpoint           string `pulumi:"tableEndpoint"`
 }
 
 type ClusterDiagnosticsConfigInput interface {
@@ -585,11 +588,11 @@ type ClusterDiagnosticsConfigInput interface {
 }
 
 type ClusterDiagnosticsConfigArgs struct {
-	BlobEndpoint pulumi.StringInput `pulumi:"blobEndpoint"`
+	BlobEndpoint            pulumi.StringInput `pulumi:"blobEndpoint"`
 	ProtectedAccountKeyName pulumi.StringInput `pulumi:"protectedAccountKeyName"`
-	QueueEndpoint pulumi.StringInput `pulumi:"queueEndpoint"`
-	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
-	TableEndpoint pulumi.StringInput `pulumi:"tableEndpoint"`
+	QueueEndpoint           pulumi.StringInput `pulumi:"queueEndpoint"`
+	StorageAccountName      pulumi.StringInput `pulumi:"storageAccountName"`
+	TableEndpoint           pulumi.StringInput `pulumi:"tableEndpoint"`
 }
 
 func (ClusterDiagnosticsConfigArgs) ElementType() reflect.Type {
@@ -621,7 +624,8 @@ type ClusterDiagnosticsConfigPtrInput interface {
 
 type clusterDiagnosticsConfigPtrType ClusterDiagnosticsConfigArgs
 
-func ClusterDiagnosticsConfigPtr(v *ClusterDiagnosticsConfigArgs) ClusterDiagnosticsConfigPtrInput {	return (*clusterDiagnosticsConfigPtrType)(v)
+func ClusterDiagnosticsConfigPtr(v *ClusterDiagnosticsConfigArgs) ClusterDiagnosticsConfigPtrInput {
+	return (*clusterDiagnosticsConfigPtrType)(v)
 }
 
 func (*clusterDiagnosticsConfigPtrType) ElementType() reflect.Type {
@@ -636,7 +640,7 @@ func (i *clusterDiagnosticsConfigPtrType) ToClusterDiagnosticsConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterDiagnosticsConfigPtrOutput)
 }
 
-type ClusterDiagnosticsConfigOutput struct { *pulumi.OutputState }
+type ClusterDiagnosticsConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterDiagnosticsConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterDiagnosticsConfig)(nil)).Elem()
@@ -660,26 +664,26 @@ func (o ClusterDiagnosticsConfigOutput) ToClusterDiagnosticsConfigPtrOutputWithC
 	}).(ClusterDiagnosticsConfigPtrOutput)
 }
 func (o ClusterDiagnosticsConfigOutput) BlobEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterDiagnosticsConfig) string { return v.BlobEndpoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.BlobEndpoint }).(pulumi.StringOutput)
 }
 
 func (o ClusterDiagnosticsConfigOutput) ProtectedAccountKeyName() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterDiagnosticsConfig) string { return v.ProtectedAccountKeyName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.ProtectedAccountKeyName }).(pulumi.StringOutput)
 }
 
 func (o ClusterDiagnosticsConfigOutput) QueueEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterDiagnosticsConfig) string { return v.QueueEndpoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.QueueEndpoint }).(pulumi.StringOutput)
 }
 
 func (o ClusterDiagnosticsConfigOutput) StorageAccountName() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterDiagnosticsConfig) string { return v.StorageAccountName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.StorageAccountName }).(pulumi.StringOutput)
 }
 
 func (o ClusterDiagnosticsConfigOutput) TableEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterDiagnosticsConfig) string { return v.TableEndpoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.TableEndpoint }).(pulumi.StringOutput)
 }
 
-type ClusterDiagnosticsConfigPtrOutput struct { *pulumi.OutputState}
+type ClusterDiagnosticsConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterDiagnosticsConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterDiagnosticsConfig)(nil)).Elem()
@@ -694,32 +698,32 @@ func (o ClusterDiagnosticsConfigPtrOutput) ToClusterDiagnosticsConfigPtrOutputWi
 }
 
 func (o ClusterDiagnosticsConfigPtrOutput) Elem() ClusterDiagnosticsConfigOutput {
-	return o.ApplyT(func (v *ClusterDiagnosticsConfig) ClusterDiagnosticsConfig { return *v }).(ClusterDiagnosticsConfigOutput)
+	return o.ApplyT(func(v *ClusterDiagnosticsConfig) ClusterDiagnosticsConfig { return *v }).(ClusterDiagnosticsConfigOutput)
 }
 
 func (o ClusterDiagnosticsConfigPtrOutput) BlobEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterDiagnosticsConfig) string { return v.BlobEndpoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.BlobEndpoint }).(pulumi.StringOutput)
 }
 
 func (o ClusterDiagnosticsConfigPtrOutput) ProtectedAccountKeyName() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterDiagnosticsConfig) string { return v.ProtectedAccountKeyName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.ProtectedAccountKeyName }).(pulumi.StringOutput)
 }
 
 func (o ClusterDiagnosticsConfigPtrOutput) QueueEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterDiagnosticsConfig) string { return v.QueueEndpoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.QueueEndpoint }).(pulumi.StringOutput)
 }
 
 func (o ClusterDiagnosticsConfigPtrOutput) StorageAccountName() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterDiagnosticsConfig) string { return v.StorageAccountName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.StorageAccountName }).(pulumi.StringOutput)
 }
 
 func (o ClusterDiagnosticsConfigPtrOutput) TableEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterDiagnosticsConfig) string { return v.TableEndpoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.TableEndpoint }).(pulumi.StringOutput)
 }
 
 type ClusterFabricSetting struct {
 	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
+	Name       string            `pulumi:"name"`
 	Parameters map[string]string `pulumi:"parameters"`
 }
 
@@ -732,7 +736,7 @@ type ClusterFabricSettingInput interface {
 
 type ClusterFabricSettingArgs struct {
 	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name       pulumi.StringInput    `pulumi:"name"`
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 }
 
@@ -769,7 +773,7 @@ func (i ClusterFabricSettingArray) ToClusterFabricSettingArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterFabricSettingArrayOutput)
 }
 
-type ClusterFabricSettingOutput struct { *pulumi.OutputState }
+type ClusterFabricSettingOutput struct{ *pulumi.OutputState }
 
 func (ClusterFabricSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterFabricSetting)(nil)).Elem()
@@ -785,14 +789,14 @@ func (o ClusterFabricSettingOutput) ToClusterFabricSettingOutputWithContext(ctx 
 
 // The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
 func (o ClusterFabricSettingOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterFabricSetting) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterFabricSetting) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o ClusterFabricSettingOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func (v ClusterFabricSetting) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v ClusterFabricSetting) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-type ClusterFabricSettingArrayOutput struct { *pulumi.OutputState}
+type ClusterFabricSettingArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterFabricSettingArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterFabricSetting)(nil)).Elem()
@@ -807,24 +811,24 @@ func (o ClusterFabricSettingArrayOutput) ToClusterFabricSettingArrayOutputWithCo
 }
 
 func (o ClusterFabricSettingArrayOutput) Index(i pulumi.IntInput) ClusterFabricSettingOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterFabricSetting {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterFabricSetting {
 		return vs[0].([]ClusterFabricSetting)[vs[1].(int)]
 	}).(ClusterFabricSettingOutput)
 }
 
 type ClusterNodeType struct {
-	ApplicationPorts *ClusterNodeTypeApplicationPorts `pulumi:"applicationPorts"`
-	Capacities map[string]string `pulumi:"capacities"`
-	ClientEndpointPort int `pulumi:"clientEndpointPort"`
-	DurabilityLevel *string `pulumi:"durabilityLevel"`
-	EphemeralPorts *ClusterNodeTypeEphemeralPorts `pulumi:"ephemeralPorts"`
-	HttpEndpointPort int `pulumi:"httpEndpointPort"`
-	InstanceCount int `pulumi:"instanceCount"`
-	IsPrimary bool `pulumi:"isPrimary"`
+	ApplicationPorts   *ClusterNodeTypeApplicationPorts `pulumi:"applicationPorts"`
+	Capacities         map[string]string                `pulumi:"capacities"`
+	ClientEndpointPort int                              `pulumi:"clientEndpointPort"`
+	DurabilityLevel    *string                          `pulumi:"durabilityLevel"`
+	EphemeralPorts     *ClusterNodeTypeEphemeralPorts   `pulumi:"ephemeralPorts"`
+	HttpEndpointPort   int                              `pulumi:"httpEndpointPort"`
+	InstanceCount      int                              `pulumi:"instanceCount"`
+	IsPrimary          bool                             `pulumi:"isPrimary"`
 	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	PlacementProperties map[string]string `pulumi:"placementProperties"`
-	ReverseProxyEndpointPort *int `pulumi:"reverseProxyEndpointPort"`
+	Name                     string            `pulumi:"name"`
+	PlacementProperties      map[string]string `pulumi:"placementProperties"`
+	ReverseProxyEndpointPort *int              `pulumi:"reverseProxyEndpointPort"`
 }
 
 type ClusterNodeTypeInput interface {
@@ -835,18 +839,18 @@ type ClusterNodeTypeInput interface {
 }
 
 type ClusterNodeTypeArgs struct {
-	ApplicationPorts ClusterNodeTypeApplicationPortsPtrInput `pulumi:"applicationPorts"`
-	Capacities pulumi.StringMapInput `pulumi:"capacities"`
-	ClientEndpointPort pulumi.IntInput `pulumi:"clientEndpointPort"`
-	DurabilityLevel pulumi.StringPtrInput `pulumi:"durabilityLevel"`
-	EphemeralPorts ClusterNodeTypeEphemeralPortsPtrInput `pulumi:"ephemeralPorts"`
-	HttpEndpointPort pulumi.IntInput `pulumi:"httpEndpointPort"`
-	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
-	IsPrimary pulumi.BoolInput `pulumi:"isPrimary"`
+	ApplicationPorts   ClusterNodeTypeApplicationPortsPtrInput `pulumi:"applicationPorts"`
+	Capacities         pulumi.StringMapInput                   `pulumi:"capacities"`
+	ClientEndpointPort pulumi.IntInput                         `pulumi:"clientEndpointPort"`
+	DurabilityLevel    pulumi.StringPtrInput                   `pulumi:"durabilityLevel"`
+	EphemeralPorts     ClusterNodeTypeEphemeralPortsPtrInput   `pulumi:"ephemeralPorts"`
+	HttpEndpointPort   pulumi.IntInput                         `pulumi:"httpEndpointPort"`
+	InstanceCount      pulumi.IntInput                         `pulumi:"instanceCount"`
+	IsPrimary          pulumi.BoolInput                        `pulumi:"isPrimary"`
 	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	PlacementProperties pulumi.StringMapInput `pulumi:"placementProperties"`
-	ReverseProxyEndpointPort pulumi.IntPtrInput `pulumi:"reverseProxyEndpointPort"`
+	Name                     pulumi.StringInput    `pulumi:"name"`
+	PlacementProperties      pulumi.StringMapInput `pulumi:"placementProperties"`
+	ReverseProxyEndpointPort pulumi.IntPtrInput    `pulumi:"reverseProxyEndpointPort"`
 }
 
 func (ClusterNodeTypeArgs) ElementType() reflect.Type {
@@ -882,7 +886,7 @@ func (i ClusterNodeTypeArray) ToClusterNodeTypeArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeTypeArrayOutput)
 }
 
-type ClusterNodeTypeOutput struct { *pulumi.OutputState }
+type ClusterNodeTypeOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeTypeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterNodeType)(nil)).Elem()
@@ -897,51 +901,51 @@ func (o ClusterNodeTypeOutput) ToClusterNodeTypeOutputWithContext(ctx context.Co
 }
 
 func (o ClusterNodeTypeOutput) ApplicationPorts() ClusterNodeTypeApplicationPortsPtrOutput {
-	return o.ApplyT(func (v ClusterNodeType) *ClusterNodeTypeApplicationPorts { return v.ApplicationPorts }).(ClusterNodeTypeApplicationPortsPtrOutput)
+	return o.ApplyT(func(v ClusterNodeType) *ClusterNodeTypeApplicationPorts { return v.ApplicationPorts }).(ClusterNodeTypeApplicationPortsPtrOutput)
 }
 
 func (o ClusterNodeTypeOutput) Capacities() pulumi.StringMapOutput {
-	return o.ApplyT(func (v ClusterNodeType) map[string]string { return v.Capacities }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v ClusterNodeType) map[string]string { return v.Capacities }).(pulumi.StringMapOutput)
 }
 
 func (o ClusterNodeTypeOutput) ClientEndpointPort() pulumi.IntOutput {
-	return o.ApplyT(func (v ClusterNodeType) int { return v.ClientEndpointPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ClusterNodeType) int { return v.ClientEndpointPort }).(pulumi.IntOutput)
 }
 
 func (o ClusterNodeTypeOutput) DurabilityLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNodeType) *string { return v.DurabilityLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNodeType) *string { return v.DurabilityLevel }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterNodeTypeOutput) EphemeralPorts() ClusterNodeTypeEphemeralPortsPtrOutput {
-	return o.ApplyT(func (v ClusterNodeType) *ClusterNodeTypeEphemeralPorts { return v.EphemeralPorts }).(ClusterNodeTypeEphemeralPortsPtrOutput)
+	return o.ApplyT(func(v ClusterNodeType) *ClusterNodeTypeEphemeralPorts { return v.EphemeralPorts }).(ClusterNodeTypeEphemeralPortsPtrOutput)
 }
 
 func (o ClusterNodeTypeOutput) HttpEndpointPort() pulumi.IntOutput {
-	return o.ApplyT(func (v ClusterNodeType) int { return v.HttpEndpointPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ClusterNodeType) int { return v.HttpEndpointPort }).(pulumi.IntOutput)
 }
 
 func (o ClusterNodeTypeOutput) InstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func (v ClusterNodeType) int { return v.InstanceCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ClusterNodeType) int { return v.InstanceCount }).(pulumi.IntOutput)
 }
 
 func (o ClusterNodeTypeOutput) IsPrimary() pulumi.BoolOutput {
-	return o.ApplyT(func (v ClusterNodeType) bool { return v.IsPrimary }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ClusterNodeType) bool { return v.IsPrimary }).(pulumi.BoolOutput)
 }
 
 // The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
 func (o ClusterNodeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterNodeType) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterNodeType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o ClusterNodeTypeOutput) PlacementProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func (v ClusterNodeType) map[string]string { return v.PlacementProperties }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v ClusterNodeType) map[string]string { return v.PlacementProperties }).(pulumi.StringMapOutput)
 }
 
 func (o ClusterNodeTypeOutput) ReverseProxyEndpointPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterNodeType) *int { return v.ReverseProxyEndpointPort }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterNodeType) *int { return v.ReverseProxyEndpointPort }).(pulumi.IntPtrOutput)
 }
 
-type ClusterNodeTypeArrayOutput struct { *pulumi.OutputState}
+type ClusterNodeTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeTypeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterNodeType)(nil)).Elem()
@@ -956,13 +960,13 @@ func (o ClusterNodeTypeArrayOutput) ToClusterNodeTypeArrayOutputWithContext(ctx 
 }
 
 func (o ClusterNodeTypeArrayOutput) Index(i pulumi.IntInput) ClusterNodeTypeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterNodeType {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterNodeType {
 		return vs[0].([]ClusterNodeType)[vs[1].(int)]
 	}).(ClusterNodeTypeOutput)
 }
 
 type ClusterNodeTypeApplicationPorts struct {
-	EndPort int `pulumi:"endPort"`
+	EndPort   int `pulumi:"endPort"`
 	StartPort int `pulumi:"startPort"`
 }
 
@@ -974,7 +978,7 @@ type ClusterNodeTypeApplicationPortsInput interface {
 }
 
 type ClusterNodeTypeApplicationPortsArgs struct {
-	EndPort pulumi.IntInput `pulumi:"endPort"`
+	EndPort   pulumi.IntInput `pulumi:"endPort"`
 	StartPort pulumi.IntInput `pulumi:"startPort"`
 }
 
@@ -1007,7 +1011,8 @@ type ClusterNodeTypeApplicationPortsPtrInput interface {
 
 type clusterNodeTypeApplicationPortsPtrType ClusterNodeTypeApplicationPortsArgs
 
-func ClusterNodeTypeApplicationPortsPtr(v *ClusterNodeTypeApplicationPortsArgs) ClusterNodeTypeApplicationPortsPtrInput {	return (*clusterNodeTypeApplicationPortsPtrType)(v)
+func ClusterNodeTypeApplicationPortsPtr(v *ClusterNodeTypeApplicationPortsArgs) ClusterNodeTypeApplicationPortsPtrInput {
+	return (*clusterNodeTypeApplicationPortsPtrType)(v)
 }
 
 func (*clusterNodeTypeApplicationPortsPtrType) ElementType() reflect.Type {
@@ -1022,7 +1027,7 @@ func (i *clusterNodeTypeApplicationPortsPtrType) ToClusterNodeTypeApplicationPor
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeTypeApplicationPortsPtrOutput)
 }
 
-type ClusterNodeTypeApplicationPortsOutput struct { *pulumi.OutputState }
+type ClusterNodeTypeApplicationPortsOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeTypeApplicationPortsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterNodeTypeApplicationPorts)(nil)).Elem()
@@ -1046,14 +1051,14 @@ func (o ClusterNodeTypeApplicationPortsOutput) ToClusterNodeTypeApplicationPorts
 	}).(ClusterNodeTypeApplicationPortsPtrOutput)
 }
 func (o ClusterNodeTypeApplicationPortsOutput) EndPort() pulumi.IntOutput {
-	return o.ApplyT(func (v ClusterNodeTypeApplicationPorts) int { return v.EndPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ClusterNodeTypeApplicationPorts) int { return v.EndPort }).(pulumi.IntOutput)
 }
 
 func (o ClusterNodeTypeApplicationPortsOutput) StartPort() pulumi.IntOutput {
-	return o.ApplyT(func (v ClusterNodeTypeApplicationPorts) int { return v.StartPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ClusterNodeTypeApplicationPorts) int { return v.StartPort }).(pulumi.IntOutput)
 }
 
-type ClusterNodeTypeApplicationPortsPtrOutput struct { *pulumi.OutputState}
+type ClusterNodeTypeApplicationPortsPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeTypeApplicationPortsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterNodeTypeApplicationPorts)(nil)).Elem()
@@ -1068,19 +1073,19 @@ func (o ClusterNodeTypeApplicationPortsPtrOutput) ToClusterNodeTypeApplicationPo
 }
 
 func (o ClusterNodeTypeApplicationPortsPtrOutput) Elem() ClusterNodeTypeApplicationPortsOutput {
-	return o.ApplyT(func (v *ClusterNodeTypeApplicationPorts) ClusterNodeTypeApplicationPorts { return *v }).(ClusterNodeTypeApplicationPortsOutput)
+	return o.ApplyT(func(v *ClusterNodeTypeApplicationPorts) ClusterNodeTypeApplicationPorts { return *v }).(ClusterNodeTypeApplicationPortsOutput)
 }
 
 func (o ClusterNodeTypeApplicationPortsPtrOutput) EndPort() pulumi.IntOutput {
-	return o.ApplyT(func (v ClusterNodeTypeApplicationPorts) int { return v.EndPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ClusterNodeTypeApplicationPorts) int { return v.EndPort }).(pulumi.IntOutput)
 }
 
 func (o ClusterNodeTypeApplicationPortsPtrOutput) StartPort() pulumi.IntOutput {
-	return o.ApplyT(func (v ClusterNodeTypeApplicationPorts) int { return v.StartPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ClusterNodeTypeApplicationPorts) int { return v.StartPort }).(pulumi.IntOutput)
 }
 
 type ClusterNodeTypeEphemeralPorts struct {
-	EndPort int `pulumi:"endPort"`
+	EndPort   int `pulumi:"endPort"`
 	StartPort int `pulumi:"startPort"`
 }
 
@@ -1092,7 +1097,7 @@ type ClusterNodeTypeEphemeralPortsInput interface {
 }
 
 type ClusterNodeTypeEphemeralPortsArgs struct {
-	EndPort pulumi.IntInput `pulumi:"endPort"`
+	EndPort   pulumi.IntInput `pulumi:"endPort"`
 	StartPort pulumi.IntInput `pulumi:"startPort"`
 }
 
@@ -1125,7 +1130,8 @@ type ClusterNodeTypeEphemeralPortsPtrInput interface {
 
 type clusterNodeTypeEphemeralPortsPtrType ClusterNodeTypeEphemeralPortsArgs
 
-func ClusterNodeTypeEphemeralPortsPtr(v *ClusterNodeTypeEphemeralPortsArgs) ClusterNodeTypeEphemeralPortsPtrInput {	return (*clusterNodeTypeEphemeralPortsPtrType)(v)
+func ClusterNodeTypeEphemeralPortsPtr(v *ClusterNodeTypeEphemeralPortsArgs) ClusterNodeTypeEphemeralPortsPtrInput {
+	return (*clusterNodeTypeEphemeralPortsPtrType)(v)
 }
 
 func (*clusterNodeTypeEphemeralPortsPtrType) ElementType() reflect.Type {
@@ -1140,7 +1146,7 @@ func (i *clusterNodeTypeEphemeralPortsPtrType) ToClusterNodeTypeEphemeralPortsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeTypeEphemeralPortsPtrOutput)
 }
 
-type ClusterNodeTypeEphemeralPortsOutput struct { *pulumi.OutputState }
+type ClusterNodeTypeEphemeralPortsOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeTypeEphemeralPortsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterNodeTypeEphemeralPorts)(nil)).Elem()
@@ -1164,14 +1170,14 @@ func (o ClusterNodeTypeEphemeralPortsOutput) ToClusterNodeTypeEphemeralPortsPtrO
 	}).(ClusterNodeTypeEphemeralPortsPtrOutput)
 }
 func (o ClusterNodeTypeEphemeralPortsOutput) EndPort() pulumi.IntOutput {
-	return o.ApplyT(func (v ClusterNodeTypeEphemeralPorts) int { return v.EndPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ClusterNodeTypeEphemeralPorts) int { return v.EndPort }).(pulumi.IntOutput)
 }
 
 func (o ClusterNodeTypeEphemeralPortsOutput) StartPort() pulumi.IntOutput {
-	return o.ApplyT(func (v ClusterNodeTypeEphemeralPorts) int { return v.StartPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ClusterNodeTypeEphemeralPorts) int { return v.StartPort }).(pulumi.IntOutput)
 }
 
-type ClusterNodeTypeEphemeralPortsPtrOutput struct { *pulumi.OutputState}
+type ClusterNodeTypeEphemeralPortsPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeTypeEphemeralPortsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterNodeTypeEphemeralPorts)(nil)).Elem()
@@ -1186,21 +1192,21 @@ func (o ClusterNodeTypeEphemeralPortsPtrOutput) ToClusterNodeTypeEphemeralPortsP
 }
 
 func (o ClusterNodeTypeEphemeralPortsPtrOutput) Elem() ClusterNodeTypeEphemeralPortsOutput {
-	return o.ApplyT(func (v *ClusterNodeTypeEphemeralPorts) ClusterNodeTypeEphemeralPorts { return *v }).(ClusterNodeTypeEphemeralPortsOutput)
+	return o.ApplyT(func(v *ClusterNodeTypeEphemeralPorts) ClusterNodeTypeEphemeralPorts { return *v }).(ClusterNodeTypeEphemeralPortsOutput)
 }
 
 func (o ClusterNodeTypeEphemeralPortsPtrOutput) EndPort() pulumi.IntOutput {
-	return o.ApplyT(func (v ClusterNodeTypeEphemeralPorts) int { return v.EndPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ClusterNodeTypeEphemeralPorts) int { return v.EndPort }).(pulumi.IntOutput)
 }
 
 func (o ClusterNodeTypeEphemeralPortsPtrOutput) StartPort() pulumi.IntOutput {
-	return o.ApplyT(func (v ClusterNodeTypeEphemeralPorts) int { return v.StartPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ClusterNodeTypeEphemeralPorts) int { return v.StartPort }).(pulumi.IntOutput)
 }
 
 type ClusterReverseProxyCertificate struct {
-	Thumbprint string `pulumi:"thumbprint"`
+	Thumbprint          string  `pulumi:"thumbprint"`
 	ThumbprintSecondary *string `pulumi:"thumbprintSecondary"`
-	X509StoreName string `pulumi:"x509StoreName"`
+	X509StoreName       string  `pulumi:"x509StoreName"`
 }
 
 type ClusterReverseProxyCertificateInput interface {
@@ -1211,9 +1217,9 @@ type ClusterReverseProxyCertificateInput interface {
 }
 
 type ClusterReverseProxyCertificateArgs struct {
-	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+	Thumbprint          pulumi.StringInput    `pulumi:"thumbprint"`
 	ThumbprintSecondary pulumi.StringPtrInput `pulumi:"thumbprintSecondary"`
-	X509StoreName pulumi.StringInput `pulumi:"x509StoreName"`
+	X509StoreName       pulumi.StringInput    `pulumi:"x509StoreName"`
 }
 
 func (ClusterReverseProxyCertificateArgs) ElementType() reflect.Type {
@@ -1245,7 +1251,8 @@ type ClusterReverseProxyCertificatePtrInput interface {
 
 type clusterReverseProxyCertificatePtrType ClusterReverseProxyCertificateArgs
 
-func ClusterReverseProxyCertificatePtr(v *ClusterReverseProxyCertificateArgs) ClusterReverseProxyCertificatePtrInput {	return (*clusterReverseProxyCertificatePtrType)(v)
+func ClusterReverseProxyCertificatePtr(v *ClusterReverseProxyCertificateArgs) ClusterReverseProxyCertificatePtrInput {
+	return (*clusterReverseProxyCertificatePtrType)(v)
 }
 
 func (*clusterReverseProxyCertificatePtrType) ElementType() reflect.Type {
@@ -1260,7 +1267,7 @@ func (i *clusterReverseProxyCertificatePtrType) ToClusterReverseProxyCertificate
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterReverseProxyCertificatePtrOutput)
 }
 
-type ClusterReverseProxyCertificateOutput struct { *pulumi.OutputState }
+type ClusterReverseProxyCertificateOutput struct{ *pulumi.OutputState }
 
 func (ClusterReverseProxyCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterReverseProxyCertificate)(nil)).Elem()
@@ -1284,18 +1291,18 @@ func (o ClusterReverseProxyCertificateOutput) ToClusterReverseProxyCertificatePt
 	}).(ClusterReverseProxyCertificatePtrOutput)
 }
 func (o ClusterReverseProxyCertificateOutput) Thumbprint() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterReverseProxyCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterReverseProxyCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
 }
 
 func (o ClusterReverseProxyCertificateOutput) ThumbprintSecondary() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterReverseProxyCertificate) *string { return v.ThumbprintSecondary }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterReverseProxyCertificate) *string { return v.ThumbprintSecondary }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterReverseProxyCertificateOutput) X509StoreName() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterReverseProxyCertificate) string { return v.X509StoreName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterReverseProxyCertificate) string { return v.X509StoreName }).(pulumi.StringOutput)
 }
 
-type ClusterReverseProxyCertificatePtrOutput struct { *pulumi.OutputState}
+type ClusterReverseProxyCertificatePtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterReverseProxyCertificatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterReverseProxyCertificate)(nil)).Elem()
@@ -1310,19 +1317,19 @@ func (o ClusterReverseProxyCertificatePtrOutput) ToClusterReverseProxyCertificat
 }
 
 func (o ClusterReverseProxyCertificatePtrOutput) Elem() ClusterReverseProxyCertificateOutput {
-	return o.ApplyT(func (v *ClusterReverseProxyCertificate) ClusterReverseProxyCertificate { return *v }).(ClusterReverseProxyCertificateOutput)
+	return o.ApplyT(func(v *ClusterReverseProxyCertificate) ClusterReverseProxyCertificate { return *v }).(ClusterReverseProxyCertificateOutput)
 }
 
 func (o ClusterReverseProxyCertificatePtrOutput) Thumbprint() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterReverseProxyCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterReverseProxyCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
 }
 
 func (o ClusterReverseProxyCertificatePtrOutput) ThumbprintSecondary() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterReverseProxyCertificate) *string { return v.ThumbprintSecondary }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterReverseProxyCertificate) *string { return v.ThumbprintSecondary }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterReverseProxyCertificatePtrOutput) X509StoreName() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterReverseProxyCertificate) string { return v.X509StoreName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterReverseProxyCertificate) string { return v.X509StoreName }).(pulumi.StringOutput)
 }
 
 func init() {

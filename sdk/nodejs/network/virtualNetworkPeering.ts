@@ -10,37 +10,6 @@ import * as utilities from "../utilities";
  * Manages a virtual network peering which allows resources to access other
  * resources in the linked virtual network.
  * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const example_1VirtualNetwork = new azure.network.VirtualNetwork("example-1", {
- *     addressSpaces: ["10.0.1.0/24"],
- *     location: "West US",
- *     resourceGroupName: example.name,
- * });
- * const example_2VirtualNetwork = new azure.network.VirtualNetwork("example-2", {
- *     addressSpaces: ["10.0.2.0/24"],
- *     location: "West US",
- *     resourceGroupName: example.name,
- * });
- * const example_1VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("example-1", {
- *     remoteVirtualNetworkId: example_2VirtualNetwork.id,
- *     resourceGroupName: example.name,
- *     virtualNetworkName: example_1VirtualNetwork.name,
- * });
- * const example_2VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("example-2", {
- *     remoteVirtualNetworkId: example_1VirtualNetwork.id,
- *     resourceGroupName: example.name,
- *     virtualNetworkName: example_2VirtualNetwork.name,
- * });
- * ```
- * 
  * ## Note
  * 
  * Virtual Network peerings cannot be created, updated or deleted concurrently.
@@ -87,9 +56,9 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**
      * Controls if the VMs in the remote
      * virtual network can access VMs in the local virtual network. Defaults to
-     * false.
+     * true.
      */
-    public readonly allowVirtualNetworkAccess!: pulumi.Output<boolean>;
+    public readonly allowVirtualNetworkAccess!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the virtual network peering. Changing this
      * forces a new resource to be created.
@@ -189,7 +158,7 @@ export interface VirtualNetworkPeeringState {
     /**
      * Controls if the VMs in the remote
      * virtual network can access VMs in the local virtual network. Defaults to
-     * false.
+     * true.
      */
     readonly allowVirtualNetworkAccess?: pulumi.Input<boolean>;
     /**
@@ -241,7 +210,7 @@ export interface VirtualNetworkPeeringArgs {
     /**
      * Controls if the VMs in the remote
      * virtual network can access VMs in the local virtual network. Defaults to
-     * false.
+     * true.
      */
     readonly allowVirtualNetworkAccess?: pulumi.Input<boolean>;
     /**

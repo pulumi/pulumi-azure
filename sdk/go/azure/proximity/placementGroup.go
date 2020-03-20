@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a proximity placement group for virtual machines, virtual machine scale sets and availability sets.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/proximity_placement_group.html.markdown.
 type PlacementGroup struct {
 	pulumi.CustomResourceState
@@ -109,4 +109,3 @@ type PlacementGroupArgs struct {
 func (PlacementGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*placementGroupArgs)(nil)).Elem()
 }
-

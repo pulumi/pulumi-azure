@@ -13,13 +13,13 @@ class Service(pulumi.CustomResource):
     cors: pulumi.Output[list]
     """
     A `cors` block as documented below.
-    
+
       * `allowedOrigins` (`list`)
     """
     features: pulumi.Output[list]
     """
     A `features` block as documented below.
-    
+
       * `flag` (`str`)
       * `value` (`str`)
     """
@@ -70,7 +70,7 @@ class Service(pulumi.CustomResource):
     sku: pulumi.Output[dict]
     """
     A `sku` block as documented below.
-    
+
       * `capacity` (`float`)
       * `name` (`str`) - The name of the SignalR service. Changing this forces a new resource to be created.
     """
@@ -81,7 +81,9 @@ class Service(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, cors=None, features=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure SignalR service.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/signalr_service.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] cors: A `cors` block as documented below.
@@ -91,22 +93,20 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] sku: A `sku` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **cors** object supports the following:
-        
+
           * `allowedOrigins` (`pulumi.Input[list]`)
-        
+
         The **features** object supports the following:
-        
+
           * `flag` (`pulumi.Input[str]`)
           * `value` (`pulumi.Input[str]`)
-        
+
         The **sku** object supports the following:
-        
+
           * `capacity` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - The name of the SignalR service. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/signalr_service.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -155,7 +155,7 @@ class Service(pulumi.CustomResource):
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,26 +174,25 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[float] server_port: The publicly accessible port of the SignalR service which is designed for customer server side use.
         :param pulumi.Input[dict] sku: A `sku` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **cors** object supports the following:
-        
+
           * `allowedOrigins` (`pulumi.Input[list]`)
-        
+
         The **features** object supports the following:
-        
+
           * `flag` (`pulumi.Input[str]`)
           * `value` (`pulumi.Input[str]`)
-        
+
         The **sku** object supports the following:
-        
+
           * `capacity` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - The name of the SignalR service. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/signalr_service.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["cors"] = cors
         __props__["features"] = features
         __props__["hostname"] = hostname

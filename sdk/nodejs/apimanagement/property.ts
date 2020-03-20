@@ -8,31 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Management Property.
- * 
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleService = new azure.apimanagement.Service("example", {
- *     location: exampleResourceGroup.location,
- *     publisherEmail: "pub1@email.com",
- *     publisherName: "pub1",
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Developer_1",
- * });
- * const exampleProperty = new azure.apimanagement.Property("example", {
- *     apiManagementName: exampleService.name,
- *     displayName: "ExampleProperty",
- *     resourceGroupName: exampleResourceGroup.name,
- *     value: "Example Value",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_property.html.markdown.
  */

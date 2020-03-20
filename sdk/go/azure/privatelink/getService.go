@@ -9,9 +9,9 @@ import (
 )
 
 // Use this data source to access information about an existing Private Link Service.
-// 
+//
 // > **NOTE** Private Link is currently in Public Preview.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service.html.markdown.
 func GetService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.InvokeOption) (*GetServiceResult, error) {
 	var rv GetServiceResult
@@ -30,7 +30,6 @@ type GetServiceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getService.
 type GetServiceResult struct {
 	// The alias is a globally unique name for your private link service which Azure generates for you. Your can use this alias to request a connection to your private link service.
@@ -48,12 +47,10 @@ type GetServiceResult struct {
 	// The name of private link service NAT IP configuration.
 	Name string `pulumi:"name"`
 	// The `natIpConfiguration` block as defined below.
-	NatIpConfiguration GetServiceNatIpConfiguration `pulumi:"natIpConfiguration"`
-	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	NatIpConfigurations []GetServiceNatIpConfiguration `pulumi:"natIpConfigurations"`
+	ResourceGroupName   string                         `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The list of subscription(s) globally unique identifiers(GUID) that will be able to see the private link service.
 	VisibilitySubscriptionIds []string `pulumi:"visibilitySubscriptionIds"`
 }
-

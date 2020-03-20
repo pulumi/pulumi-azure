@@ -8,35 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Version of a Shared Image within a Shared Image Gallery.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const existingImage = azure.compute.getImage({
- *     name: "search-api",
- *     resourceGroupName: "packerimages",
- * });
- * const existingSharedImage = azure.compute.getSharedImage({
- *     galleryName: "existingGallery",
- *     name: "existing-image",
- *     resourceGroupName: "existing-resources",
- * });
- * const example = new azure.compute.SharedImageVersion("example", {
- *     galleryName: existingSharedImage.galleryName,
- *     imageName: existingSharedImage.name,
- *     location: existingSharedImage.location,
- *     managedImageId: existingImage.id,
- *     resourceGroupName: existingSharedImage.resourceGroupName,
- *     targetRegions: [{
- *         name: existingSharedImage.location,
- *         regionalReplicaCount: 5,
- *         storageAccountType: "Standard_LRS",
- *     }],
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image_version.html.markdown.
  */
@@ -98,7 +69,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
     /**
      * A collection of tags which should be applied to this resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * One or more `targetRegion` blocks as documented below.
      */

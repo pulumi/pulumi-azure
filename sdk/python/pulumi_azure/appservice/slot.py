@@ -25,44 +25,39 @@ class Slot(pulumi.CustomResource):
     auth_settings: pulumi.Output[dict]
     """
     A `auth_settings` block as defined below.
-    
-      * `activeDirectory` (`dict`)
-    
+
+      * `active_directory` (`dict`)
         * `allowedAudiences` (`list`)
         * `client_id` (`str`)
         * `client_secret` (`str`)
-    
+
       * `additionalLoginParams` (`dict`)
       * `allowedExternalRedirectUrls` (`list`)
       * `defaultProvider` (`str`)
       * `enabled` (`bool`) - Is the App Service Slot Enabled?
       * `facebook` (`dict`)
-    
         * `app_id` (`str`)
         * `app_secret` (`str`)
         * `oauthScopes` (`list`)
-    
+
       * `google` (`dict`)
-    
         * `client_id` (`str`)
         * `client_secret` (`str`)
         * `oauthScopes` (`list`)
-    
+
       * `issuer` (`str`)
       * `microsoft` (`dict`)
-    
         * `client_id` (`str`)
         * `client_secret` (`str`)
         * `oauthScopes` (`list`)
-    
+
       * `runtimeVersion` (`str`)
       * `tokenRefreshExtensionHours` (`float`)
       * `tokenStoreEnabled` (`bool`)
       * `twitter` (`dict`)
-    
         * `consumerKey` (`str`)
         * `consumerSecret` (`str`)
-    
+
       * `unauthenticatedClientAction` (`str`)
     """
     client_affinity_enabled: pulumi.Output[bool]
@@ -72,7 +67,7 @@ class Slot(pulumi.CustomResource):
     connection_strings: pulumi.Output[list]
     """
     An `connection_string` block as defined below.
-    
+
       * `name` (`str`) - The name of the Connection String.
       * `type` (`str`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
       * `value` (`str`) - The value for the Connection String.
@@ -92,10 +87,10 @@ class Slot(pulumi.CustomResource):
     identity: pulumi.Output[dict]
     """
     A Managed Service Identity block as defined below.
-    
+
       * `identityIds` (`list`)
-      * `principalId` (`str`)
-      * `tenantId` (`str`)
+      * `principal_id` (`str`)
+      * `tenant_id` (`str`)
       * `type` (`str`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
     """
     location: pulumi.Output[str]
@@ -114,25 +109,22 @@ class Slot(pulumi.CustomResource):
     site_config: pulumi.Output[dict]
     """
     A `site_config` object as defined below.
-    
+
       * `alwaysOn` (`bool`) - Should the app be loaded at all times? Defaults to `false`.
       * `appCommandLine` (`str`) - App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
       * `autoSwapSlotName` (`str`) - The name of the swap to automatically swap to during deployment
       * `cors` (`dict`) - A `cors` block as defined below.
-    
         * `allowedOrigins` (`list`)
         * `supportCredentials` (`bool`)
-    
+
       * `defaultDocuments` (`list`) - The ordering of default documents to load, if an address isn't specified.
       * `dotnetFrameworkVersion` (`str`) - The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
       * `ftpsState` (`str`)
       * `http2Enabled` (`bool`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
       * `ipRestrictions` (`list`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
-    
-        * `ipAddress` (`str`)
-        * `subnetMask` (`str`)
+        * `ip_address` (`str`)
         * `virtualNetworkSubnetId` (`str`)
-    
+
       * `javaContainer` (`str`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
       * `javaContainerVersion` (`str`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
       * `javaVersion` (`str`) - The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
@@ -146,14 +138,13 @@ class Slot(pulumi.CustomResource):
       * `remoteDebuggingVersion` (`str`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
       * `scmType` (`str`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
       * `use32BitWorkerProcess` (`bool`) - Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
-      * `virtualNetworkName` (`str`) - The name of the Virtual Network which this App Service Slot should be attached to.
       * `websocketsEnabled` (`bool`) - Should WebSockets be enabled?
       * `windowsFxVersion` (`str`)
     """
-    site_credential: pulumi.Output[dict]
+    site_credentials: pulumi.Output[list]
     """
     A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-    
+
       * `password` (`str`) - The password associated with the username, which can be used to publish to this App Service.
       * `username` (`str`) - The username which can be used to publish to this App Service
     """
@@ -164,9 +155,11 @@ class Slot(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, app_service_name=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, resource_group_name=None, site_config=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an App Service Slot (within an App Service).
-        
+
         > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_slot.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_name: The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
@@ -183,103 +176,90 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Slot component.
         :param pulumi.Input[dict] site_config: A `site_config` object as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **auth_settings** object supports the following:
-        
-          * `activeDirectory` (`pulumi.Input[dict]`)
-        
+
+          * `active_directory` (`pulumi.Input[dict]`)
             * `allowedAudiences` (`pulumi.Input[list]`)
             * `client_id` (`pulumi.Input[str]`)
             * `client_secret` (`pulumi.Input[str]`)
-        
+
           * `additionalLoginParams` (`pulumi.Input[dict]`)
           * `allowedExternalRedirectUrls` (`pulumi.Input[list]`)
           * `defaultProvider` (`pulumi.Input[str]`)
           * `enabled` (`pulumi.Input[bool]`) - Is the App Service Slot Enabled?
           * `facebook` (`pulumi.Input[dict]`)
-        
             * `app_id` (`pulumi.Input[str]`)
             * `app_secret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
-        
+
           * `google` (`pulumi.Input[dict]`)
-        
             * `client_id` (`pulumi.Input[str]`)
             * `client_secret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
-        
+
           * `issuer` (`pulumi.Input[str]`)
           * `microsoft` (`pulumi.Input[dict]`)
-        
             * `client_id` (`pulumi.Input[str]`)
             * `client_secret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
-        
+
           * `runtimeVersion` (`pulumi.Input[str]`)
           * `tokenRefreshExtensionHours` (`pulumi.Input[float]`)
           * `tokenStoreEnabled` (`pulumi.Input[bool]`)
           * `twitter` (`pulumi.Input[dict]`)
-        
             * `consumerKey` (`pulumi.Input[str]`)
             * `consumerSecret` (`pulumi.Input[str]`)
-        
+
           * `unauthenticatedClientAction` (`pulumi.Input[str]`)
-        
+
         The **connection_strings** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the Connection String.
           * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
           * `value` (`pulumi.Input[str]`) - The value for the Connection String.
-        
+
         The **identity** object supports the following:
-        
+
           * `identityIds` (`pulumi.Input[list]`)
-          * `principalId` (`pulumi.Input[str]`)
-          * `tenantId` (`pulumi.Input[str]`)
+          * `principal_id` (`pulumi.Input[str]`)
+          * `tenant_id` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
-        
+
         The **logs** object supports the following:
-        
+
           * `applicationLogs` (`pulumi.Input[dict]`)
-        
             * `azureBlobStorage` (`pulumi.Input[dict]`)
-        
               * `level` (`pulumi.Input[str]`)
               * `retention_in_days` (`pulumi.Input[float]`)
               * `sasUrl` (`pulumi.Input[str]`)
-        
+
           * `httpLogs` (`pulumi.Input[dict]`)
-        
             * `azureBlobStorage` (`pulumi.Input[dict]`)
-        
               * `retention_in_days` (`pulumi.Input[float]`)
               * `sasUrl` (`pulumi.Input[str]`)
-        
+
             * `fileSystem` (`pulumi.Input[dict]`)
-        
               * `retention_in_days` (`pulumi.Input[float]`)
               * `retentionInMb` (`pulumi.Input[float]`)
-        
+
         The **site_config** object supports the following:
-        
+
           * `alwaysOn` (`pulumi.Input[bool]`) - Should the app be loaded at all times? Defaults to `false`.
           * `appCommandLine` (`pulumi.Input[str]`) - App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
           * `autoSwapSlotName` (`pulumi.Input[str]`) - The name of the swap to automatically swap to during deployment
           * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
-        
             * `allowedOrigins` (`pulumi.Input[list]`)
             * `supportCredentials` (`pulumi.Input[bool]`)
-        
+
           * `defaultDocuments` (`pulumi.Input[list]`) - The ordering of default documents to load, if an address isn't specified.
           * `dotnetFrameworkVersion` (`pulumi.Input[str]`) - The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
           * `ftpsState` (`pulumi.Input[str]`)
           * `http2Enabled` (`pulumi.Input[bool]`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
           * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
-        
-            * `ipAddress` (`pulumi.Input[str]`)
-            * `subnetMask` (`pulumi.Input[str]`)
+            * `ip_address` (`pulumi.Input[str]`)
             * `virtualNetworkSubnetId` (`pulumi.Input[str]`)
-        
+
           * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
           * `javaContainerVersion` (`pulumi.Input[str]`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
           * `javaVersion` (`pulumi.Input[str]`) - The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
@@ -293,11 +273,8 @@ class Slot(pulumi.CustomResource):
           * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
           * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
-          * `virtualNetworkName` (`pulumi.Input[str]`) - The name of the Virtual Network which this App Service Slot should be attached to.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
           * `windowsFxVersion` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_slot.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -338,7 +315,7 @@ class Slot(pulumi.CustomResource):
             __props__['site_config'] = site_config
             __props__['tags'] = tags
             __props__['default_site_hostname'] = None
-            __props__['site_credential'] = None
+            __props__['site_credentials'] = None
         super(Slot, __self__).__init__(
             'azure:appservice/slot:Slot',
             resource_name,
@@ -346,11 +323,11 @@ class Slot(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_service_name=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, resource_group_name=None, site_config=None, site_credential=None, tags=None):
+    def get(resource_name, id, opts=None, app_service_name=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, resource_group_name=None, site_config=None, site_credentials=None, tags=None):
         """
         Get an existing Slot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -368,105 +345,92 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Connection String.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Slot component.
         :param pulumi.Input[dict] site_config: A `site_config` object as defined below.
-        :param pulumi.Input[dict] site_credential: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        :param pulumi.Input[list] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **auth_settings** object supports the following:
-        
-          * `activeDirectory` (`pulumi.Input[dict]`)
-        
+
+          * `active_directory` (`pulumi.Input[dict]`)
             * `allowedAudiences` (`pulumi.Input[list]`)
             * `client_id` (`pulumi.Input[str]`)
             * `client_secret` (`pulumi.Input[str]`)
-        
+
           * `additionalLoginParams` (`pulumi.Input[dict]`)
           * `allowedExternalRedirectUrls` (`pulumi.Input[list]`)
           * `defaultProvider` (`pulumi.Input[str]`)
           * `enabled` (`pulumi.Input[bool]`) - Is the App Service Slot Enabled?
           * `facebook` (`pulumi.Input[dict]`)
-        
             * `app_id` (`pulumi.Input[str]`)
             * `app_secret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
-        
+
           * `google` (`pulumi.Input[dict]`)
-        
             * `client_id` (`pulumi.Input[str]`)
             * `client_secret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
-        
+
           * `issuer` (`pulumi.Input[str]`)
           * `microsoft` (`pulumi.Input[dict]`)
-        
             * `client_id` (`pulumi.Input[str]`)
             * `client_secret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
-        
+
           * `runtimeVersion` (`pulumi.Input[str]`)
           * `tokenRefreshExtensionHours` (`pulumi.Input[float]`)
           * `tokenStoreEnabled` (`pulumi.Input[bool]`)
           * `twitter` (`pulumi.Input[dict]`)
-        
             * `consumerKey` (`pulumi.Input[str]`)
             * `consumerSecret` (`pulumi.Input[str]`)
-        
+
           * `unauthenticatedClientAction` (`pulumi.Input[str]`)
-        
+
         The **connection_strings** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the Connection String.
           * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
           * `value` (`pulumi.Input[str]`) - The value for the Connection String.
-        
+
         The **identity** object supports the following:
-        
+
           * `identityIds` (`pulumi.Input[list]`)
-          * `principalId` (`pulumi.Input[str]`)
-          * `tenantId` (`pulumi.Input[str]`)
+          * `principal_id` (`pulumi.Input[str]`)
+          * `tenant_id` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
-        
+
         The **logs** object supports the following:
-        
+
           * `applicationLogs` (`pulumi.Input[dict]`)
-        
             * `azureBlobStorage` (`pulumi.Input[dict]`)
-        
               * `level` (`pulumi.Input[str]`)
               * `retention_in_days` (`pulumi.Input[float]`)
               * `sasUrl` (`pulumi.Input[str]`)
-        
+
           * `httpLogs` (`pulumi.Input[dict]`)
-        
             * `azureBlobStorage` (`pulumi.Input[dict]`)
-        
               * `retention_in_days` (`pulumi.Input[float]`)
               * `sasUrl` (`pulumi.Input[str]`)
-        
+
             * `fileSystem` (`pulumi.Input[dict]`)
-        
               * `retention_in_days` (`pulumi.Input[float]`)
               * `retentionInMb` (`pulumi.Input[float]`)
-        
+
         The **site_config** object supports the following:
-        
+
           * `alwaysOn` (`pulumi.Input[bool]`) - Should the app be loaded at all times? Defaults to `false`.
           * `appCommandLine` (`pulumi.Input[str]`) - App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
           * `autoSwapSlotName` (`pulumi.Input[str]`) - The name of the swap to automatically swap to during deployment
           * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
-        
             * `allowedOrigins` (`pulumi.Input[list]`)
             * `supportCredentials` (`pulumi.Input[bool]`)
-        
+
           * `defaultDocuments` (`pulumi.Input[list]`) - The ordering of default documents to load, if an address isn't specified.
           * `dotnetFrameworkVersion` (`pulumi.Input[str]`) - The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
           * `ftpsState` (`pulumi.Input[str]`)
           * `http2Enabled` (`pulumi.Input[bool]`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
           * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
-        
-            * `ipAddress` (`pulumi.Input[str]`)
-            * `subnetMask` (`pulumi.Input[str]`)
+            * `ip_address` (`pulumi.Input[str]`)
             * `virtualNetworkSubnetId` (`pulumi.Input[str]`)
-        
+
           * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
           * `javaContainerVersion` (`pulumi.Input[str]`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
           * `javaVersion` (`pulumi.Input[str]`) - The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
@@ -480,20 +444,18 @@ class Slot(pulumi.CustomResource):
           * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
           * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
-          * `virtualNetworkName` (`pulumi.Input[str]`) - The name of the Virtual Network which this App Service Slot should be attached to.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
           * `windowsFxVersion` (`pulumi.Input[str]`)
-        
-        The **site_credential** object supports the following:
-        
+
+        The **site_credentials** object supports the following:
+
           * `password` (`pulumi.Input[str]`) - The password associated with the username, which can be used to publish to this App Service.
           * `username` (`pulumi.Input[str]`) - The username which can be used to publish to this App Service
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_slot.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["app_service_name"] = app_service_name
         __props__["app_service_plan_id"] = app_service_plan_id
         __props__["app_settings"] = app_settings
@@ -509,7 +471,7 @@ class Slot(pulumi.CustomResource):
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["site_config"] = site_config
-        __props__["site_credential"] = site_credential
+        __props__["site_credentials"] = site_credentials
         __props__["tags"] = tags
         return Slot(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

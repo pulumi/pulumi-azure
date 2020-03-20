@@ -8,33 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Management Service.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleService = new azure.apimanagement.Service("example", {
- *     location: exampleResourceGroup.location,
- *     policy: {
- *         xmlContent: `    <policies>
- *       <inbound />
- *       <backend />
- *       <outbound />
- *       <on-error />
- *     </policies>
- * `,
- *     },
- *     publisherEmail: "company@exmaple.com",
- *     publisherName: "My Company",
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Developer_1",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management.html.markdown.
  */
@@ -114,6 +87,10 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly portalUrl!: pulumi.Output<string>;
     /**
+     * A `protocols` block as defined below.
+     */
+    public readonly protocols!: pulumi.Output<outputs.apimanagement.ServiceProtocols>;
+    /**
      * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
      */
     public /*out*/ readonly publicIpAddresses!: pulumi.Output<string[]>;
@@ -146,17 +123,13 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly signUp!: pulumi.Output<outputs.apimanagement.ServiceSignUp>;
     /**
-     * A `sku` block as documented below
-     */
-    public readonly sku!: pulumi.Output<outputs.apimanagement.ServiceSku>;
-    /**
      * `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -182,6 +155,7 @@ export class Service extends pulumi.CustomResource {
             inputs["notificationSenderEmail"] = state ? state.notificationSenderEmail : undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["portalUrl"] = state ? state.portalUrl : undefined;
+            inputs["protocols"] = state ? state.protocols : undefined;
             inputs["publicIpAddresses"] = state ? state.publicIpAddresses : undefined;
             inputs["publisherEmail"] = state ? state.publisherEmail : undefined;
             inputs["publisherName"] = state ? state.publisherName : undefined;
@@ -190,7 +164,6 @@ export class Service extends pulumi.CustomResource {
             inputs["security"] = state ? state.security : undefined;
             inputs["signIn"] = state ? state.signIn : undefined;
             inputs["signUp"] = state ? state.signUp : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -204,6 +177,9 @@ export class Service extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.skuName === undefined) {
+                throw new Error("Missing required property 'skuName'");
+            }
             inputs["additionalLocations"] = args ? args.additionalLocations : undefined;
             inputs["certificates"] = args ? args.certificates : undefined;
             inputs["hostnameConfiguration"] = args ? args.hostnameConfiguration : undefined;
@@ -212,13 +188,13 @@ export class Service extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
             inputs["policy"] = args ? args.policy : undefined;
+            inputs["protocols"] = args ? args.protocols : undefined;
             inputs["publisherEmail"] = args ? args.publisherEmail : undefined;
             inputs["publisherName"] = args ? args.publisherName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["security"] = args ? args.security : undefined;
             inputs["signIn"] = args ? args.signIn : undefined;
             inputs["signUp"] = args ? args.signUp : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["gatewayRegionalUrl"] = undefined /*out*/;
@@ -292,6 +268,10 @@ export interface ServiceState {
      */
     readonly portalUrl?: pulumi.Input<string>;
     /**
+     * A `protocols` block as defined below.
+     */
+    readonly protocols?: pulumi.Input<inputs.apimanagement.ServiceProtocols>;
+    /**
      * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
      */
     readonly publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
@@ -323,10 +303,6 @@ export interface ServiceState {
      * A `signUp` block as defined below.
      */
     readonly signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
-    /**
-     * A `sku` block as documented below
-     */
-    readonly sku?: pulumi.Input<inputs.apimanagement.ServiceSku>;
     /**
      * `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      */
@@ -374,6 +350,10 @@ export interface ServiceArgs {
      */
     readonly policy?: pulumi.Input<inputs.apimanagement.ServicePolicy>;
     /**
+     * A `protocols` block as defined below.
+     */
+    readonly protocols?: pulumi.Input<inputs.apimanagement.ServiceProtocols>;
+    /**
      * The email of publisher/company.
      */
     readonly publisherEmail: pulumi.Input<string>;
@@ -398,13 +378,9 @@ export interface ServiceArgs {
      */
     readonly signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
     /**
-     * A `sku` block as documented below
-     */
-    readonly sku?: pulumi.Input<inputs.apimanagement.ServiceSku>;
-    /**
      * `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      */
-    readonly skuName?: pulumi.Input<string>;
+    readonly skuName: pulumi.Input<string>;
     /**
      * A mapping of tags assigned to the resource.
      */

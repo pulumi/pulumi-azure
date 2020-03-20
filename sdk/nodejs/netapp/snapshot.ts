@@ -8,65 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a NetApp Snapshot.
- * 
- * ## NetApp Snapshot Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     addressPrefix: "10.0.2.0/24",
- *     delegations: [{
- *         name: "netapp",
- *         serviceDelegation: {
- *             actions: [
- *                 "Microsoft.Network/networkinterfaces/*",
- *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
- *             ],
- *             name: "Microsoft.Netapp/volumes",
- *         },
- *     }],
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * const exampleAccount = new azure.netapp.Account("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const examplePool = new azure.netapp.Pool("example", {
- *     accountName: exampleAccount.name,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     serviceLevel: "Premium",
- *     sizeInTb: 4,
- * });
- * const exampleVolume = new azure.netapp.Volume("example", {
- *     accountName: exampleAccount.name,
- *     location: exampleResourceGroup.location,
- *     poolName: examplePool.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     serviceLevel: "Premium",
- *     storageQuotaInGb: 100,
- *     subnetId: azurerm_subnet_test.id,
- *     volumePath: "my-unique-file-path",
- * });
- * const exampleSnapshot = new azure.netapp.Snapshot("example", {
- *     accountName: exampleAccount.name,
- *     location: exampleResourceGroup.location,
- *     poolName: examplePool.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     volumeName: exampleVolume.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_snapshot.html.markdown.
  */
@@ -118,6 +59,10 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
      */
     public readonly volumeName!: pulumi.Output<string>;
@@ -139,6 +84,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["poolName"] = state ? state.poolName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["volumeName"] = state ? state.volumeName : undefined;
         } else {
             const args = argsOrState as SnapshotArgs | undefined;
@@ -159,6 +105,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["volumeName"] = args ? args.volumeName : undefined;
         }
         if (!opts) {
@@ -197,6 +144,10 @@ export interface SnapshotState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
      */
     readonly volumeName?: pulumi.Input<string>;
@@ -226,6 +177,10 @@ export interface SnapshotArgs {
      * The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
      */

@@ -12,7 +12,7 @@ import (
 )
 
 // A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviors and origins. The CDN Endpoint is exposed using the URL format <endpointname>.azureedge.net.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cdn_endpoint.html.markdown.
 type Endpoint struct {
 	pulumi.CustomResourceState
@@ -21,7 +21,7 @@ type Endpoint struct {
 	ContentTypesToCompresses pulumi.StringArrayOutput `pulumi:"contentTypesToCompresses"`
 	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
 	GeoFilters EndpointGeoFilterArrayOutput `pulumi:"geoFilters"`
-	HostName pulumi.StringOutput `pulumi:"hostName"`
+	HostName   pulumi.StringOutput          `pulumi:"hostName"`
 	// Indicates whether compression is to be enabled. Defaults to false.
 	IsCompressionEnabled pulumi.BoolPtrOutput `pulumi:"isCompressionEnabled"`
 	// Defaults to `true`.
@@ -93,7 +93,7 @@ type endpointState struct {
 	ContentTypesToCompresses []string `pulumi:"contentTypesToCompresses"`
 	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
 	GeoFilters []EndpointGeoFilter `pulumi:"geoFilters"`
-	HostName *string `pulumi:"hostName"`
+	HostName   *string             `pulumi:"hostName"`
 	// Indicates whether compression is to be enabled. Defaults to false.
 	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
 	// Defaults to `true`.
@@ -129,7 +129,7 @@ type EndpointState struct {
 	ContentTypesToCompresses pulumi.StringArrayInput
 	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
 	GeoFilters EndpointGeoFilterArrayInput
-	HostName pulumi.StringPtrInput
+	HostName   pulumi.StringPtrInput
 	// Indicates whether compression is to be enabled. Defaults to false.
 	IsCompressionEnabled pulumi.BoolPtrInput
 	// Defaults to `true`.
@@ -238,4 +238,3 @@ type EndpointArgs struct {
 func (EndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointArgs)(nil)).Elem()
 }
-

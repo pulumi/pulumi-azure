@@ -13,7 +13,13 @@ class GetApplicationSecurityGroupResult:
     """
     A collection of values returned by getApplicationSecurityGroup.
     """
-    def __init__(__self__, location=None, name=None, resource_group_name=None, tags=None, id=None):
+    def __init__(__self__, id=None, location=None, name=None, resource_group_name=None, tags=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -32,34 +38,30 @@ class GetApplicationSecurityGroupResult:
         """
         A mapping of tags assigned to the resource.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetApplicationSecurityGroupResult(GetApplicationSecurityGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetApplicationSecurityGroupResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_application_security_group(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Application Security Group.
-    
-    :param str name: The name of the Application Security Group.
-    :param str resource_group_name: The name of the resource group in which the Application Security Group exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/application_security_group.html.markdown.
+
+
+    :param str name: The name of the Application Security Group.
+    :param str resource_group_name: The name of the resource group in which the Application Security Group exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -70,8 +72,8 @@ def get_application_security_group(name=None,resource_group_name=None,opts=None)
     __ret__ = pulumi.runtime.invoke('azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup', __args__, opts=opts).value
 
     return AwaitableGetApplicationSecurityGroupResult(
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

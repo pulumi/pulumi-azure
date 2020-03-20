@@ -77,7 +77,7 @@ func (i GetResourcesResourceArray) ToGetResourcesResourceArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetResourcesResourceArrayOutput)
 }
 
-type GetResourcesResourceOutput struct { *pulumi.OutputState }
+type GetResourcesResourceOutput struct{ *pulumi.OutputState }
 
 func (GetResourcesResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetResourcesResource)(nil)).Elem()
@@ -93,30 +93,30 @@ func (o GetResourcesResourceOutput) ToGetResourcesResourceOutputWithContext(ctx 
 
 // The ID of this Resource.
 func (o GetResourcesResourceOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetResourcesResource) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetResourcesResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The Azure Region in which this Resource exists.
 func (o GetResourcesResourceOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func (v GetResourcesResource) string { return v.Location }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetResourcesResource) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // The name of the Resource.
 func (o GetResourcesResourceOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetResourcesResource) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetResourcesResource) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // A map of tags assigned to this Resource.
 func (o GetResourcesResourceOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func (v GetResourcesResource) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v GetResourcesResource) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/azure-services-resource-providers).
 func (o GetResourcesResourceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v GetResourcesResource) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetResourcesResource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type GetResourcesResourceArrayOutput struct { *pulumi.OutputState}
+type GetResourcesResourceArrayOutput struct{ *pulumi.OutputState }
 
 func (GetResourcesResourceArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetResourcesResource)(nil)).Elem()
@@ -131,7 +131,7 @@ func (o GetResourcesResourceArrayOutput) ToGetResourcesResourceArrayOutputWithCo
 }
 
 func (o GetResourcesResourceArrayOutput) Index(i pulumi.IntInput) GetResourcesResourceOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetResourcesResource {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResourcesResource {
 		return vs[0].([]GetResourcesResource)[vs[1].(int)]
 	}).(GetResourcesResourceOutput)
 }
@@ -210,7 +210,7 @@ func (i GetSubscriptionsSubscriptionArray) ToGetSubscriptionsSubscriptionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetSubscriptionsSubscriptionArrayOutput)
 }
 
-type GetSubscriptionsSubscriptionOutput struct { *pulumi.OutputState }
+type GetSubscriptionsSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (GetSubscriptionsSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetSubscriptionsSubscription)(nil)).Elem()
@@ -226,40 +226,40 @@ func (o GetSubscriptionsSubscriptionOutput) ToGetSubscriptionsSubscriptionOutput
 
 // The subscription display name.
 func (o GetSubscriptionsSubscriptionOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSubscriptionsSubscription) string { return v.DisplayName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSubscriptionsSubscription) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
 // The subscription location placement ID.
 func (o GetSubscriptionsSubscriptionOutput) LocationPlacementId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSubscriptionsSubscription) string { return v.LocationPlacementId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSubscriptionsSubscription) string { return v.LocationPlacementId }).(pulumi.StringOutput)
 }
 
 // The subscription quota ID.
 func (o GetSubscriptionsSubscriptionOutput) QuotaId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSubscriptionsSubscription) string { return v.QuotaId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSubscriptionsSubscription) string { return v.QuotaId }).(pulumi.StringOutput)
 }
 
 // The subscription spending limit.
 func (o GetSubscriptionsSubscriptionOutput) SpendingLimit() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSubscriptionsSubscription) string { return v.SpendingLimit }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSubscriptionsSubscription) string { return v.SpendingLimit }).(pulumi.StringOutput)
 }
 
 // The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.
 func (o GetSubscriptionsSubscriptionOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSubscriptionsSubscription) string { return v.State }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSubscriptionsSubscription) string { return v.State }).(pulumi.StringOutput)
 }
 
 // The subscription GUID.
 func (o GetSubscriptionsSubscriptionOutput) SubscriptionId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSubscriptionsSubscription) string { return v.SubscriptionId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSubscriptionsSubscription) string { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
 // The subscription tenant ID.
 func (o GetSubscriptionsSubscriptionOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSubscriptionsSubscription) string { return v.TenantId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSubscriptionsSubscription) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-type GetSubscriptionsSubscriptionArrayOutput struct { *pulumi.OutputState}
+type GetSubscriptionsSubscriptionArrayOutput struct{ *pulumi.OutputState }
 
 func (GetSubscriptionsSubscriptionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetSubscriptionsSubscription)(nil)).Elem()
@@ -274,7 +274,7 @@ func (o GetSubscriptionsSubscriptionArrayOutput) ToGetSubscriptionsSubscriptionA
 }
 
 func (o GetSubscriptionsSubscriptionArrayOutput) Index(i pulumi.IntInput) GetSubscriptionsSubscriptionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetSubscriptionsSubscription {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSubscriptionsSubscription {
 		return vs[0].([]GetSubscriptionsSubscription)[vs[1].(int)]
 	}).(GetSubscriptionsSubscriptionOutput)
 }

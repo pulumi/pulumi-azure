@@ -8,36 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API within an API Management Service.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleService = new azure.apimanagement.Service("example", {
- *     location: exampleResourceGroup.location,
- *     publisherEmail: "company@exmaple.com",
- *     publisherName: "My Company",
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Developer_1",
- * });
- * const exampleApi = new azure.apimanagement.Api("example", {
- *     apiManagementName: exampleService.name,
- *     displayName: "Example API",
- *     import: {
- *         contentFormat: "swagger-link-json",
- *         contentValue: "http://conferenceapi.azurewebsites.net/?format=json",
- *     },
- *     path: "example",
- *     protocols: ["https"],
- *     resourceGroupName: exampleResourceGroup.name,
- *     revision: "1",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api.html.markdown.
  */

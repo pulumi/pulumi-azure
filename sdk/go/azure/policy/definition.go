@@ -11,10 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a policy rule definition on a management group or your provider subscription. 
-// 
+// Manages a policy rule definition on a management group or your provider subscription.
+//
 // Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_definition.html.markdown.
 type Definition struct {
 	pulumi.CustomResourceState
@@ -217,4 +217,3 @@ type DefinitionArgs struct {
 func (DefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*definitionArgs)(nil)).Elem()
 }
-

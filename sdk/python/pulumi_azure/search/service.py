@@ -12,62 +12,62 @@ from .. import utilities, tables
 class Service(pulumi.CustomResource):
     location: pulumi.Output[str]
     """
-    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+    The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
     """
     name: pulumi.Output[str]
     """
-    The name of the Search Service. Changing this forces a new resource to be created.
+    The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
     """
     partition_count: pulumi.Output[float]
     """
-    Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+    The number of partitions which should be created.
     """
     primary_key: pulumi.Output[str]
     """
-    The Search Service Administration primary key.
+    The Primary Key used for Search Service Administration.
     """
     query_keys: pulumi.Output[list]
     """
     A `query_keys` block as defined below.
-    
-      * `key` (`str`) - The value of the query key.
-      * `name` (`str`) - The name of the Search Service. Changing this forces a new resource to be created.
+
+      * `key` (`str`) - The value of this Query Key.
+      * `name` (`str`) - The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
     """
     replica_count: pulumi.Output[float]
     """
-    Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+    The number of replica's which should be created.
     """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
+    The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
     """
     secondary_key: pulumi.Output[str]
     """
-    The Search Service Administration secondary key.
+    The Secondary Key used for Search Service Administration.
     """
     sku: pulumi.Output[str]
     """
-    Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
+    The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A mapping of tags which should be assigned to the Search Service.
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, partition_count=None, replica_count=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Allows you to manage an Azure Search Service.
-        
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Search Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] partition_count: Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] replica_count: Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        Manages a Search Service.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/search_service.html.markdown.
+
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
+        :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
+        :param pulumi.Input[float] partition_count: The number of partitions which should be created.
+        :param pulumi.Input[float] replica_count: The number of replica's which should be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
+        :param pulumi.Input[str] sku: The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
+        :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to the Search Service.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -111,31 +111,30 @@ class Service(pulumi.CustomResource):
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Search Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] partition_count: Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] primary_key: The Search Service Administration primary key.
+        :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
+        :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
+        :param pulumi.Input[float] partition_count: The number of partitions which should be created.
+        :param pulumi.Input[str] primary_key: The Primary Key used for Search Service Administration.
         :param pulumi.Input[list] query_keys: A `query_keys` block as defined below.
-        :param pulumi.Input[float] replica_count: Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] secondary_key: The Search Service Administration secondary key.
-        :param pulumi.Input[str] sku: Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
-        The **query_keys** object supports the following:
-        
-          * `key` (`pulumi.Input[str]`) - The value of the query key.
-          * `name` (`pulumi.Input[str]`) - The name of the Search Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] replica_count: The number of replica's which should be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
+        :param pulumi.Input[str] secondary_key: The Secondary Key used for Search Service Administration.
+        :param pulumi.Input[str] sku: The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
+        :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to the Search Service.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/search_service.html.markdown.
+        The **query_keys** object supports the following:
+
+          * `key` (`pulumi.Input[str]`) - The value of this Query Key.
+          * `name` (`pulumi.Input[str]`) - The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["location"] = location
         __props__["name"] = name
         __props__["partition_count"] = partition_count

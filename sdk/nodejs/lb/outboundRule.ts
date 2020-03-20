@@ -10,43 +10,6 @@ import * as utilities from "../utilities";
  * Manages a Load Balancer Outbound Rule.
  * 
  * > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
- *     allocationMethod: "Static",
- *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
- *     frontendIpConfigurations: [{
- *         name: "PublicIPAddress",
- *         publicIpAddressId: examplePublicIp.id,
- *     }],
- *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleBackendAddressPool = new azure.lb.BackendAddressPool("example", {
- *     loadbalancerId: exampleLoadBalancer.id,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleOutboundRule = new azure.lb.OutboundRule("example", {
- *     backendAddressPoolId: exampleBackendAddressPool.id,
- *     frontendIpConfigurations: [{
- *         name: "PublicIPAddress",
- *     }],
- *     loadbalancerId: exampleLoadBalancer.id,
- *     protocol: "Tcp",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_outbound_rule.html.markdown.
  */

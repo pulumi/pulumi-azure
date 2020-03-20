@@ -9,50 +9,11 @@ import * as utilities from "../utilities";
 /**
  * Manages network rules inside of a Azure Storage Account.
  * 
- * > **NOTE:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. Spurious changes will occur if both are used against the same Storage Account. 
+ * > **NOTE:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. Spurious changes will occur if both are used against the same Storage Account.
  * 
  * > **NOTE:** Only one `azure.storage.AccountNetworkRules` can be tied to an `azure.storage.Account`. Spurious changes will occur if more than `azure.storage.AccountNetworkRules` is tied to the same `azure.storage.Account`.
  * 
  * > **NOTE:** Deleting this resource updates the storage account back to the default values it had when the storage account was created.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     addressPrefix: "10.0.2.0/24",
- *     resourceGroupName: exampleResourceGroup.name,
- *     serviceEndpoints: ["Microsoft.Storage"],
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     accountReplicationType: "GRS",
- *     accountTier: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tags: {
- *         environment: "staging",
- *     },
- * });
- * const test = new azure.storage.AccountNetworkRules("test", {
- *     bypasses: ["Metrics"],
- *     defaultAction: "Allow",
- *     ipRules: ["127.0.0.1"],
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     storageAccountName: azurerm_storage_account_test.name,
- *     virtualNetworkSubnetIds: [azurerm_subnet_test.id],
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account_network_rules.html.markdown.
  */
@@ -84,7 +45,7 @@ export class AccountNetworkRules extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. 
+     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
      */
     public readonly bypasses!: pulumi.Output<string[]>;
     /**
@@ -160,7 +121,7 @@ export class AccountNetworkRules extends pulumi.CustomResource {
  */
 export interface AccountNetworkRulesState {
     /**
-     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. 
+     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
      */
     readonly bypasses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -190,7 +151,7 @@ export interface AccountNetworkRulesState {
  */
 export interface AccountNetworkRulesArgs {
     /**
-     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. 
+     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
      */
     readonly bypasses?: pulumi.Input<pulumi.Input<string>[]>;
     /**

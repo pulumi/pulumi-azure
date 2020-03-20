@@ -29,7 +29,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
     retention_policy: pulumi.Output[dict]
     """
     A `retention_policy` block as documented below.
-    
+
       * `days` (`float`) - The number of days to retain flow log records.
       * `enabled` (`bool`) - Boolean flag to enable/disable traffic analytics.
     """
@@ -40,11 +40,12 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
     traffic_analytics: pulumi.Output[dict]
     """
     A `traffic_analytics` block as documented below.
-    
+
       * `enabled` (`bool`) - Boolean flag to enable/disable traffic analytics.
-      * `workspaceId` (`str`) - The resource guid of the attached workspace.
+      * `intervalInMinutes` (`float`) - How frequently service should do flow analytics in minutes.
+      * `workspace_id` (`str`) - The resource guid of the attached workspace.
       * `workspaceRegion` (`str`) - The location of the attached workspace.
-      * `workspaceResourceId` (`str`) - The resource ID of the attached workspace.
+      * `workspace_resource_id` (`str`) - The resource ID of the attached workspace.
     """
     version: pulumi.Output[float]
     """
@@ -53,7 +54,9 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, enabled=None, network_security_group_id=None, network_watcher_name=None, resource_group_name=None, retention_policy=None, storage_account_id=None, traffic_analytics=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Network Watcher Flow Log.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_watcher_flow_log.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Boolean flag to enable/disable traffic analytics.
@@ -64,20 +67,19 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where flow logs are stored.
         :param pulumi.Input[dict] traffic_analytics: A `traffic_analytics` block as documented below.
         :param pulumi.Input[float] version: The version (revision) of the flow log. Possible values are `1` and `2`.
-        
+
         The **retention_policy** object supports the following:
-        
+
           * `days` (`pulumi.Input[float]`) - The number of days to retain flow log records.
           * `enabled` (`pulumi.Input[bool]`) - Boolean flag to enable/disable traffic analytics.
-        
-        The **traffic_analytics** object supports the following:
-        
-          * `enabled` (`pulumi.Input[bool]`) - Boolean flag to enable/disable traffic analytics.
-          * `workspaceId` (`pulumi.Input[str]`) - The resource guid of the attached workspace.
-          * `workspaceRegion` (`pulumi.Input[str]`) - The location of the attached workspace.
-          * `workspaceResourceId` (`pulumi.Input[str]`) - The resource ID of the attached workspace.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_watcher_flow_log.html.markdown.
+        The **traffic_analytics** object supports the following:
+
+          * `enabled` (`pulumi.Input[bool]`) - Boolean flag to enable/disable traffic analytics.
+          * `intervalInMinutes` (`pulumi.Input[float]`) - How frequently service should do flow analytics in minutes.
+          * `workspace_id` (`pulumi.Input[str]`) - The resource guid of the attached workspace.
+          * `workspaceRegion` (`pulumi.Input[str]`) - The location of the attached workspace.
+          * `workspace_resource_id` (`pulumi.Input[str]`) - The resource ID of the attached workspace.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -127,7 +129,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         """
         Get an existing NetworkWatcherFlowLog resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,24 +141,24 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where flow logs are stored.
         :param pulumi.Input[dict] traffic_analytics: A `traffic_analytics` block as documented below.
         :param pulumi.Input[float] version: The version (revision) of the flow log. Possible values are `1` and `2`.
-        
+
         The **retention_policy** object supports the following:
-        
+
           * `days` (`pulumi.Input[float]`) - The number of days to retain flow log records.
           * `enabled` (`pulumi.Input[bool]`) - Boolean flag to enable/disable traffic analytics.
-        
-        The **traffic_analytics** object supports the following:
-        
-          * `enabled` (`pulumi.Input[bool]`) - Boolean flag to enable/disable traffic analytics.
-          * `workspaceId` (`pulumi.Input[str]`) - The resource guid of the attached workspace.
-          * `workspaceRegion` (`pulumi.Input[str]`) - The location of the attached workspace.
-          * `workspaceResourceId` (`pulumi.Input[str]`) - The resource ID of the attached workspace.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_watcher_flow_log.html.markdown.
+        The **traffic_analytics** object supports the following:
+
+          * `enabled` (`pulumi.Input[bool]`) - Boolean flag to enable/disable traffic analytics.
+          * `intervalInMinutes` (`pulumi.Input[float]`) - How frequently service should do flow analytics in minutes.
+          * `workspace_id` (`pulumi.Input[str]`) - The resource guid of the attached workspace.
+          * `workspaceRegion` (`pulumi.Input[str]`) - The location of the attached workspace.
+          * `workspace_resource_id` (`pulumi.Input[str]`) - The resource ID of the attached workspace.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["enabled"] = enabled
         __props__["network_security_group_id"] = network_security_group_id
         __props__["network_watcher_name"] = network_watcher_name

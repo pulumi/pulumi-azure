@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing API Management User.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_user.html.markdown.
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
@@ -30,7 +30,6 @@ type LookupUserArgs struct {
 	UserId string `pulumi:"userId"`
 }
 
-
 // A collection of values returned by getUser.
 type LookupUserResult struct {
 	ApiManagementName string `pulumi:"apiManagementName"`
@@ -43,10 +42,9 @@ type LookupUserResult struct {
 	// The Last Name for the User.
 	LastName string `pulumi:"lastName"`
 	// Any notes about this User.
-	Note string `pulumi:"note"`
+	Note              string `pulumi:"note"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The current state of this User, for example `active`, `blocked` or `pending`.
-	State string `pulumi:"state"`
+	State  string `pulumi:"state"`
 	UserId string `pulumi:"userId"`
 }
-

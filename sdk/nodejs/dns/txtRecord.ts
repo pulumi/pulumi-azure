@@ -8,36 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS TXT Records within Azure DNS.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleZone = new azure.dns.Zone("example", {
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleTxtRecord = new azure.dns.TxtRecord("example", {
- *     records: [
- *         {
- *             value: "google-site-authenticator",
- *         },
- *         {
- *             value: "more site information here",
- *         },
- *     ],
- *     resourceGroupName: exampleResourceGroup.name,
- *     tags: {
- *         Environment: "Production",
- *     },
- *     ttl: 300,
- *     zoneName: exampleZone.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_txt_record.html.markdown.
  */
@@ -87,7 +57,7 @@ export class TxtRecord extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */

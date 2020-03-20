@@ -12,19 +12,18 @@ import (
 )
 
 // Manages a LoadBalancer Probe Resource.
-// 
+//
 // > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_probe.html.markdown.
 type Probe struct {
 	pulumi.CustomResourceState
 
 	// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
-	IntervalInSeconds pulumi.IntPtrOutput `pulumi:"intervalInSeconds"`
+	IntervalInSeconds pulumi.IntPtrOutput      `pulumi:"intervalInSeconds"`
 	LoadBalancerRules pulumi.StringArrayOutput `pulumi:"loadBalancerRules"`
 	// The ID of the LoadBalancer in which to create the NAT Rule.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
-	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Probe.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
@@ -77,11 +76,10 @@ func GetProbe(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Probe resources.
 type probeState struct {
 	// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
-	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
+	IntervalInSeconds *int     `pulumi:"intervalInSeconds"`
 	LoadBalancerRules []string `pulumi:"loadBalancerRules"`
 	// The ID of the LoadBalancer in which to create the NAT Rule.
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
-	Location *string `pulumi:"location"`
 	// Specifies the name of the Probe.
 	Name *string `pulumi:"name"`
 	// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
@@ -102,7 +100,6 @@ type ProbeState struct {
 	LoadBalancerRules pulumi.StringArrayInput
 	// The ID of the LoadBalancer in which to create the NAT Rule.
 	LoadbalancerId pulumi.StringPtrInput
-	Location pulumi.StringPtrInput
 	// Specifies the name of the Probe.
 	Name pulumi.StringPtrInput
 	// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
@@ -126,7 +123,6 @@ type probeArgs struct {
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
 	// The ID of the LoadBalancer in which to create the NAT Rule.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
-	Location *string `pulumi:"location"`
 	// Specifies the name of the Probe.
 	Name *string `pulumi:"name"`
 	// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
@@ -147,7 +143,6 @@ type ProbeArgs struct {
 	IntervalInSeconds pulumi.IntPtrInput
 	// The ID of the LoadBalancer in which to create the NAT Rule.
 	LoadbalancerId pulumi.StringInput
-	Location pulumi.StringPtrInput
 	// Specifies the name of the Probe.
 	Name pulumi.StringPtrInput
 	// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
@@ -165,4 +160,3 @@ type ProbeArgs struct {
 func (ProbeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*probeArgs)(nil)).Elem()
 }
-

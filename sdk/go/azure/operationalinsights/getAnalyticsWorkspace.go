@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/log_analytics_workspace.html.markdown.
 func LookupAnalyticsWorkspace(ctx *pulumi.Context, args *LookupAnalyticsWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupAnalyticsWorkspaceResult, error) {
 	var rv LookupAnalyticsWorkspaceResult
@@ -28,17 +28,16 @@ type LookupAnalyticsWorkspaceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getAnalyticsWorkspace.
 type LookupAnalyticsWorkspaceResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id       string `pulumi:"id"`
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// The Portal URL for the Log Analytics Workspace.
 	PortalUrl string `pulumi:"portalUrl"`
 	// The Primary shared key for the Log Analytics Workspace.
-	PrimarySharedKey string `pulumi:"primarySharedKey"`
+	PrimarySharedKey  string `pulumi:"primarySharedKey"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The workspace data retention in days.
 	RetentionInDays int `pulumi:"retentionInDays"`
@@ -51,4 +50,3 @@ type LookupAnalyticsWorkspaceResult struct {
 	// The Workspace (or Customer) ID for the Log Analytics Workspace.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
-

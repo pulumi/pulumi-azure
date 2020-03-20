@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing App Service Certificate Order.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.appservice.getCertificateOrder({
- *     name: "example-cert-order",
- *     resourceGroupName: "example-resources",
- * });
- * 
- * export const certificateOrderId = example.id;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate_order.html.markdown.
  */

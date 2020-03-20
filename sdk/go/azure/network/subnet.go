@@ -12,11 +12,11 @@ import (
 )
 
 // Manages a subnet. Subnets represent network segments within the IP space defined by the virtual network.
-// 
+//
 // > **NOTE on Virtual Networks and Subnet's:** This provider currently
 // provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
 // At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet.html.markdown.
 type Subnet struct {
 	pulumi.CustomResourceState
@@ -25,20 +25,14 @@ type Subnet struct {
 	AddressPrefix pulumi.StringOutput `pulumi:"addressPrefix"`
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayOutput `pulumi:"delegations"`
-	// Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+	// Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
 	EnforcePrivateLinkEndpointNetworkPolicies pulumi.BoolPtrOutput `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
+	// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
 	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolPtrOutput `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
-	// The collection of IP Configurations with IPs within this subnet.
-	IpConfigurations pulumi.StringArrayOutput `pulumi:"ipConfigurations"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the Network Security Group to associate with the subnet.
-	NetworkSecurityGroupId pulumi.StringPtrOutput `pulumi:"networkSecurityGroupId"`
 	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The ID of the Route Table to associate with the subnet.
-	RouteTableId pulumi.StringPtrOutput `pulumi:"routeTableId"`
 	// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
 	ServiceEndpoints pulumi.StringArrayOutput `pulumi:"serviceEndpoints"`
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
@@ -86,20 +80,14 @@ type subnetState struct {
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// One or more `delegation` blocks as defined below.
 	Delegations []SubnetDelegation `pulumi:"delegations"`
-	// Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+	// Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
 	EnforcePrivateLinkEndpointNetworkPolicies *bool `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
+	// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
 	EnforcePrivateLinkServiceNetworkPolicies *bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
-	// The collection of IP Configurations with IPs within this subnet.
-	IpConfigurations []string `pulumi:"ipConfigurations"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Network Security Group to associate with the subnet.
-	NetworkSecurityGroupId *string `pulumi:"networkSecurityGroupId"`
 	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The ID of the Route Table to associate with the subnet.
-	RouteTableId *string `pulumi:"routeTableId"`
 	// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
 	ServiceEndpoints []string `pulumi:"serviceEndpoints"`
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
@@ -111,20 +99,14 @@ type SubnetState struct {
 	AddressPrefix pulumi.StringPtrInput
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayInput
-	// Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+	// Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
 	EnforcePrivateLinkEndpointNetworkPolicies pulumi.BoolPtrInput
-	// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
+	// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
 	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolPtrInput
-	// The collection of IP Configurations with IPs within this subnet.
-	IpConfigurations pulumi.StringArrayInput
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Network Security Group to associate with the subnet.
-	NetworkSecurityGroupId pulumi.StringPtrInput
 	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The ID of the Route Table to associate with the subnet.
-	RouteTableId pulumi.StringPtrInput
 	// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
 	ServiceEndpoints pulumi.StringArrayInput
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
@@ -140,20 +122,14 @@ type subnetArgs struct {
 	AddressPrefix string `pulumi:"addressPrefix"`
 	// One or more `delegation` blocks as defined below.
 	Delegations []SubnetDelegation `pulumi:"delegations"`
-	// Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+	// Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
 	EnforcePrivateLinkEndpointNetworkPolicies *bool `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
+	// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
 	EnforcePrivateLinkServiceNetworkPolicies *bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
-	// The collection of IP Configurations with IPs within this subnet.
-	IpConfigurations []string `pulumi:"ipConfigurations"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Network Security Group to associate with the subnet.
-	NetworkSecurityGroupId *string `pulumi:"networkSecurityGroupId"`
 	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The ID of the Route Table to associate with the subnet.
-	RouteTableId *string `pulumi:"routeTableId"`
 	// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
 	ServiceEndpoints []string `pulumi:"serviceEndpoints"`
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
@@ -166,20 +142,14 @@ type SubnetArgs struct {
 	AddressPrefix pulumi.StringInput
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayInput
-	// Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+	// Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
 	EnforcePrivateLinkEndpointNetworkPolicies pulumi.BoolPtrInput
-	// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
+	// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
 	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolPtrInput
-	// The collection of IP Configurations with IPs within this subnet.
-	IpConfigurations pulumi.StringArrayInput
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Network Security Group to associate with the subnet.
-	NetworkSecurityGroupId pulumi.StringPtrInput
 	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The ID of the Route Table to associate with the subnet.
-	RouteTableId pulumi.StringPtrInput
 	// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
 	ServiceEndpoints pulumi.StringArrayInput
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
@@ -189,4 +159,3 @@ type SubnetArgs struct {
 func (SubnetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetArgs)(nil)).Elem()
 }
-

@@ -8,35 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Blob within a Storage Container.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleContainer = new azure.storage.Container("example", {
- *     containerAccessType: "private",
- *     resourceGroupName: exampleResourceGroup.name,
- *     storageAccountName: exampleAccount.name,
- * });
- * const exampleBlob = new azure.storage.Blob("example", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     source: "some-local-file.zip",
- *     storageAccountName: exampleAccount.name,
- *     storageContainerName: exampleContainer.name,
- *     type: "Block",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_blob.html.markdown.
  */
@@ -72,10 +43,6 @@ export class Blob extends pulumi.CustomResource {
      */
     public readonly accessTier!: pulumi.Output<string>;
     /**
-     * The number of attempts to make per page or block when uploading. Defaults to `1`.
-     */
-    public readonly attempts!: pulumi.Output<number | undefined>;
-    /**
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
     public readonly contentType!: pulumi.Output<string | undefined>;
@@ -92,17 +59,13 @@ export class Blob extends pulumi.CustomResource {
      */
     public readonly parallelism!: pulumi.Output<number | undefined>;
     /**
-     * The name of the resource group in which to create the storage container.
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
      */
     public readonly size!: pulumi.Output<number | undefined>;
     /**
      * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
      */
-    public readonly source!: pulumi.Output<string | undefined>;
+    public readonly source!: pulumi.Output<pulumi.asset.Asset | pulumi.asset.Archive | undefined>;
     /**
      * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
      */
@@ -143,12 +106,10 @@ export class Blob extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as BlobState | undefined;
             inputs["accessTier"] = state ? state.accessTier : undefined;
-            inputs["attempts"] = state ? state.attempts : undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parallelism"] = state ? state.parallelism : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["size"] = state ? state.size : undefined;
             inputs["source"] = state ? state.source : undefined;
             inputs["sourceContent"] = state ? state.sourceContent : undefined;
@@ -169,12 +130,10 @@ export class Blob extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             inputs["accessTier"] = args ? args.accessTier : undefined;
-            inputs["attempts"] = args ? args.attempts : undefined;
             inputs["contentType"] = args ? args.contentType : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parallelism"] = args ? args.parallelism : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["size"] = args ? args.size : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["sourceContent"] = args ? args.sourceContent : undefined;
@@ -204,10 +163,6 @@ export interface BlobState {
      */
     readonly accessTier?: pulumi.Input<string>;
     /**
-     * The number of attempts to make per page or block when uploading. Defaults to `1`.
-     */
-    readonly attempts?: pulumi.Input<number>;
-    /**
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
     readonly contentType?: pulumi.Input<string>;
@@ -224,17 +179,13 @@ export interface BlobState {
      */
     readonly parallelism?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to create the storage container.
-     */
-    readonly resourceGroupName?: pulumi.Input<string>;
-    /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
      */
     readonly size?: pulumi.Input<number>;
     /**
      * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
      */
-    readonly source?: pulumi.Input<string>;
+    readonly source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**
      * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
      */
@@ -272,10 +223,6 @@ export interface BlobArgs {
      */
     readonly accessTier?: pulumi.Input<string>;
     /**
-     * The number of attempts to make per page or block when uploading. Defaults to `1`.
-     */
-    readonly attempts?: pulumi.Input<number>;
-    /**
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
     readonly contentType?: pulumi.Input<string>;
@@ -292,17 +239,13 @@ export interface BlobArgs {
      */
     readonly parallelism?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to create the storage container.
-     */
-    readonly resourceGroupName?: pulumi.Input<string>;
-    /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
      */
     readonly size?: pulumi.Input<number>;
     /**
      * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
      */
-    readonly source?: pulumi.Input<string>;
+    readonly source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**
      * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
      */

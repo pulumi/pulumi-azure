@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a string variable in Azure Automation
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_variable_string.html.markdown.
 type StringVariable struct {
 	pulumi.CustomResourceState
@@ -132,4 +132,3 @@ type StringVariableArgs struct {
 func (StringVariableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stringVariableArgs)(nil)).Elem()
 }
-

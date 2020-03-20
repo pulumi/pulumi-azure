@@ -12,11 +12,13 @@ import (
 )
 
 // Enables you to manage DNS A Records within Azure Private DNS.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_a_record.html.markdown.
 type ARecord struct {
 	pulumi.CustomResourceState
 
+	// The FQDN of the DNS A Record.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS A Record.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of IPv4 Addresses.
@@ -25,7 +27,7 @@ type ARecord struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	Ttl pulumi.IntOutput `pulumi:"ttl"`
+	Ttl  pulumi.IntOutput       `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
@@ -70,6 +72,8 @@ func GetARecord(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ARecord resources.
 type arecordState struct {
+	// The FQDN of the DNS A Record.
+	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS A Record.
 	Name *string `pulumi:"name"`
 	// List of IPv4 Addresses.
@@ -78,12 +82,14 @@ type arecordState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	Ttl *int `pulumi:"ttl"`
+	Ttl  *int              `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName *string `pulumi:"zoneName"`
 }
 
 type ARecordState struct {
+	// The FQDN of the DNS A Record.
+	Fqdn pulumi.StringPtrInput
 	// The name of the DNS A Record.
 	Name pulumi.StringPtrInput
 	// List of IPv4 Addresses.
@@ -92,7 +98,7 @@ type ARecordState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	Ttl pulumi.IntPtrInput
+	Ttl  pulumi.IntPtrInput
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringPtrInput
 }
@@ -110,7 +116,7 @@ type arecordArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	Ttl int `pulumi:"ttl"`
+	Ttl  int               `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName string `pulumi:"zoneName"`
 }
@@ -125,7 +131,7 @@ type ARecordArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	Ttl pulumi.IntInput
+	Ttl  pulumi.IntInput
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringInput
 }
@@ -133,4 +139,3 @@ type ARecordArgs struct {
 func (ARecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*arecordArgs)(nil)).Elem()
 }
-

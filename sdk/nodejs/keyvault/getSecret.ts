@@ -11,20 +11,6 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azurerm_key_vault_existing.id.apply(id => azure.keyvault.getSecret({
- *     keyVaultId: id,
- *     name: "secret-sauce",
- * }));
- * 
- * export const secretValue = example.value;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_secret.html.markdown.
  */
@@ -39,7 +25,6 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
     return pulumi.runtime.invoke("azure:keyvault/getSecret:getSecret", {
         "keyVaultId": args.keyVaultId,
         "name": args.name,
-        "vaultUri": args.vaultUri,
     }, opts);
 }
 
@@ -50,12 +35,11 @@ export interface GetSecretArgs {
     /**
      * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource. 
      */
-    readonly keyVaultId?: string;
+    readonly keyVaultId: string;
     /**
      * Specifies the name of the Key Vault Secret.
      */
     readonly name: string;
-    readonly vaultUri?: string;
 }
 
 /**
@@ -76,7 +60,6 @@ export interface GetSecretResult {
      * The value of the Key Vault Secret.
      */
     readonly value: string;
-    readonly vaultUri: string;
     /**
      * The current version of the Key Vault Secret.
      */

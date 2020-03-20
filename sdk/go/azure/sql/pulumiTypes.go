@@ -81,7 +81,8 @@ type DatabaseImportPtrInput interface {
 
 type databaseImportPtrType DatabaseImportArgs
 
-func DatabaseImportPtr(v *DatabaseImportArgs) DatabaseImportPtrInput {	return (*databaseImportPtrType)(v)
+func DatabaseImportPtr(v *DatabaseImportArgs) DatabaseImportPtrInput {
+	return (*databaseImportPtrType)(v)
 }
 
 func (*databaseImportPtrType) ElementType() reflect.Type {
@@ -96,7 +97,7 @@ func (i *databaseImportPtrType) ToDatabaseImportPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseImportPtrOutput)
 }
 
-type DatabaseImportOutput struct { *pulumi.OutputState }
+type DatabaseImportOutput struct{ *pulumi.OutputState }
 
 func (DatabaseImportOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseImport)(nil)).Elem()
@@ -119,42 +120,43 @@ func (o DatabaseImportOutput) ToDatabaseImportPtrOutputWithContext(ctx context.C
 		return &v
 	}).(DatabaseImportPtrOutput)
 }
+
 // Specifies the name of the SQL administrator.
 func (o DatabaseImportOutput) AdministratorLogin() pulumi.StringOutput {
-	return o.ApplyT(func (v DatabaseImport) string { return v.AdministratorLogin }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DatabaseImport) string { return v.AdministratorLogin }).(pulumi.StringOutput)
 }
 
 // Specifies the password of the SQL administrator.
 func (o DatabaseImportOutput) AdministratorLoginPassword() pulumi.StringOutput {
-	return o.ApplyT(func (v DatabaseImport) string { return v.AdministratorLoginPassword }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DatabaseImport) string { return v.AdministratorLoginPassword }).(pulumi.StringOutput)
 }
 
 // Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
 func (o DatabaseImportOutput) AuthenticationType() pulumi.StringOutput {
-	return o.ApplyT(func (v DatabaseImport) string { return v.AuthenticationType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DatabaseImport) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
 // Specifies the type of import operation being performed. The only allowable value is `Import`.
 func (o DatabaseImportOutput) OperationMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatabaseImport) *string { return v.OperationMode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatabaseImport) *string { return v.OperationMode }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the access key for the storage account.
 func (o DatabaseImportOutput) StorageKey() pulumi.StringOutput {
-	return o.ApplyT(func (v DatabaseImport) string { return v.StorageKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DatabaseImport) string { return v.StorageKey }).(pulumi.StringOutput)
 }
 
 // Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
 func (o DatabaseImportOutput) StorageKeyType() pulumi.StringOutput {
-	return o.ApplyT(func (v DatabaseImport) string { return v.StorageKeyType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DatabaseImport) string { return v.StorageKeyType }).(pulumi.StringOutput)
 }
 
 // Specifies the blob URI of the .bacpac file.
 func (o DatabaseImportOutput) StorageUri() pulumi.StringOutput {
-	return o.ApplyT(func (v DatabaseImport) string { return v.StorageUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DatabaseImport) string { return v.StorageUri }).(pulumi.StringOutput)
 }
 
-type DatabaseImportPtrOutput struct { *pulumi.OutputState}
+type DatabaseImportPtrOutput struct{ *pulumi.OutputState }
 
 func (DatabaseImportPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DatabaseImport)(nil)).Elem()
@@ -169,42 +171,42 @@ func (o DatabaseImportPtrOutput) ToDatabaseImportPtrOutputWithContext(ctx contex
 }
 
 func (o DatabaseImportPtrOutput) Elem() DatabaseImportOutput {
-	return o.ApplyT(func (v *DatabaseImport) DatabaseImport { return *v }).(DatabaseImportOutput)
+	return o.ApplyT(func(v *DatabaseImport) DatabaseImport { return *v }).(DatabaseImportOutput)
 }
 
 // Specifies the name of the SQL administrator.
 func (o DatabaseImportPtrOutput) AdministratorLogin() pulumi.StringOutput {
-	return o.ApplyT(func (v DatabaseImport) string { return v.AdministratorLogin }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DatabaseImport) string { return v.AdministratorLogin }).(pulumi.StringOutput)
 }
 
 // Specifies the password of the SQL administrator.
 func (o DatabaseImportPtrOutput) AdministratorLoginPassword() pulumi.StringOutput {
-	return o.ApplyT(func (v DatabaseImport) string { return v.AdministratorLoginPassword }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DatabaseImport) string { return v.AdministratorLoginPassword }).(pulumi.StringOutput)
 }
 
 // Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
 func (o DatabaseImportPtrOutput) AuthenticationType() pulumi.StringOutput {
-	return o.ApplyT(func (v DatabaseImport) string { return v.AuthenticationType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DatabaseImport) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
 // Specifies the type of import operation being performed. The only allowable value is `Import`.
 func (o DatabaseImportPtrOutput) OperationMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatabaseImport) *string { return v.OperationMode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatabaseImport) *string { return v.OperationMode }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the access key for the storage account.
 func (o DatabaseImportPtrOutput) StorageKey() pulumi.StringOutput {
-	return o.ApplyT(func (v DatabaseImport) string { return v.StorageKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DatabaseImport) string { return v.StorageKey }).(pulumi.StringOutput)
 }
 
 // Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
 func (o DatabaseImportPtrOutput) StorageKeyType() pulumi.StringOutput {
-	return o.ApplyT(func (v DatabaseImport) string { return v.StorageKeyType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DatabaseImport) string { return v.StorageKeyType }).(pulumi.StringOutput)
 }
 
 // Specifies the blob URI of the .bacpac file.
 func (o DatabaseImportPtrOutput) StorageUri() pulumi.StringOutput {
-	return o.ApplyT(func (v DatabaseImport) string { return v.StorageUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DatabaseImport) string { return v.StorageUri }).(pulumi.StringOutput)
 }
 
 type DatabaseThreatDetectionPolicy struct {
@@ -281,7 +283,8 @@ type DatabaseThreatDetectionPolicyPtrInput interface {
 
 type databaseThreatDetectionPolicyPtrType DatabaseThreatDetectionPolicyArgs
 
-func DatabaseThreatDetectionPolicyPtr(v *DatabaseThreatDetectionPolicyArgs) DatabaseThreatDetectionPolicyPtrInput {	return (*databaseThreatDetectionPolicyPtrType)(v)
+func DatabaseThreatDetectionPolicyPtr(v *DatabaseThreatDetectionPolicyArgs) DatabaseThreatDetectionPolicyPtrInput {
+	return (*databaseThreatDetectionPolicyPtrType)(v)
 }
 
 func (*databaseThreatDetectionPolicyPtrType) ElementType() reflect.Type {
@@ -296,7 +299,7 @@ func (i *databaseThreatDetectionPolicyPtrType) ToDatabaseThreatDetectionPolicyPt
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseThreatDetectionPolicyPtrOutput)
 }
 
-type DatabaseThreatDetectionPolicyOutput struct { *pulumi.OutputState }
+type DatabaseThreatDetectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (DatabaseThreatDetectionPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseThreatDetectionPolicy)(nil)).Elem()
@@ -319,47 +322,48 @@ func (o DatabaseThreatDetectionPolicyOutput) ToDatabaseThreatDetectionPolicyPtrO
 		return &v
 	}).(DatabaseThreatDetectionPolicyPtrOutput)
 }
+
 // Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
 func (o DatabaseThreatDetectionPolicyOutput) DisabledAlerts() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DatabaseThreatDetectionPolicy) []string { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) []string { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
 }
 
 // Should the account administrators be emailed when this alert is triggered?
 func (o DatabaseThreatDetectionPolicyOutput) EmailAccountAdmins() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatabaseThreatDetectionPolicy) *string { return v.EmailAccountAdmins }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.EmailAccountAdmins }).(pulumi.StringPtrOutput)
 }
 
 // A list of email addresses which alerts should be sent to.
 func (o DatabaseThreatDetectionPolicyOutput) EmailAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DatabaseThreatDetectionPolicy) []string { return v.EmailAddresses }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) []string { return v.EmailAddresses }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the number of days to keep in the Threat Detection audit logs.
 func (o DatabaseThreatDetectionPolicyOutput) RetentionDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DatabaseThreatDetectionPolicy) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
 }
 
 // The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
 func (o DatabaseThreatDetectionPolicyOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatabaseThreatDetectionPolicy) *string { return v.State }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 func (o DatabaseThreatDetectionPolicyOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatabaseThreatDetectionPolicy) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 func (o DatabaseThreatDetectionPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatabaseThreatDetectionPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // Should the default server policy be used? Defaults to `Disabled`.
 func (o DatabaseThreatDetectionPolicyOutput) UseServerDefault() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatabaseThreatDetectionPolicy) *string { return v.UseServerDefault }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.UseServerDefault }).(pulumi.StringPtrOutput)
 }
 
-type DatabaseThreatDetectionPolicyPtrOutput struct { *pulumi.OutputState}
+type DatabaseThreatDetectionPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (DatabaseThreatDetectionPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DatabaseThreatDetectionPolicy)(nil)).Elem()
@@ -374,47 +378,47 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) ToDatabaseThreatDetectionPolicyP
 }
 
 func (o DatabaseThreatDetectionPolicyPtrOutput) Elem() DatabaseThreatDetectionPolicyOutput {
-	return o.ApplyT(func (v *DatabaseThreatDetectionPolicy) DatabaseThreatDetectionPolicy { return *v }).(DatabaseThreatDetectionPolicyOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) DatabaseThreatDetectionPolicy { return *v }).(DatabaseThreatDetectionPolicyOutput)
 }
 
 // Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) DisabledAlerts() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DatabaseThreatDetectionPolicy) []string { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) []string { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
 }
 
 // Should the account administrators be emailed when this alert is triggered?
 func (o DatabaseThreatDetectionPolicyPtrOutput) EmailAccountAdmins() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatabaseThreatDetectionPolicy) *string { return v.EmailAccountAdmins }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.EmailAccountAdmins }).(pulumi.StringPtrOutput)
 }
 
 // A list of email addresses which alerts should be sent to.
 func (o DatabaseThreatDetectionPolicyPtrOutput) EmailAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DatabaseThreatDetectionPolicy) []string { return v.EmailAddresses }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) []string { return v.EmailAddresses }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the number of days to keep in the Threat Detection audit logs.
 func (o DatabaseThreatDetectionPolicyPtrOutput) RetentionDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DatabaseThreatDetectionPolicy) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
 }
 
 // The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatabaseThreatDetectionPolicy) *string { return v.State }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatabaseThreatDetectionPolicy) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatabaseThreatDetectionPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // Should the default server policy be used? Defaults to `Disabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) UseServerDefault() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatabaseThreatDetectionPolicy) *string { return v.UseServerDefault }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.UseServerDefault }).(pulumi.StringPtrOutput)
 }
 
 type FailoverGroupPartnerServer struct {
@@ -475,7 +479,7 @@ func (i FailoverGroupPartnerServerArray) ToFailoverGroupPartnerServerArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupPartnerServerArrayOutput)
 }
 
-type FailoverGroupPartnerServerOutput struct { *pulumi.OutputState }
+type FailoverGroupPartnerServerOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupPartnerServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FailoverGroupPartnerServer)(nil)).Elem()
@@ -491,20 +495,20 @@ func (o FailoverGroupPartnerServerOutput) ToFailoverGroupPartnerServerOutputWith
 
 // the SQL server ID
 func (o FailoverGroupPartnerServerOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v FailoverGroupPartnerServer) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FailoverGroupPartnerServer) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // the location of the failover group.
 func (o FailoverGroupPartnerServerOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FailoverGroupPartnerServer) *string { return v.Location }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FailoverGroupPartnerServer) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // local replication role of the failover group instance.
 func (o FailoverGroupPartnerServerOutput) Role() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FailoverGroupPartnerServer) *string { return v.Role }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FailoverGroupPartnerServer) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-type FailoverGroupPartnerServerArrayOutput struct { *pulumi.OutputState}
+type FailoverGroupPartnerServerArrayOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupPartnerServerArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FailoverGroupPartnerServer)(nil)).Elem()
@@ -519,7 +523,7 @@ func (o FailoverGroupPartnerServerArrayOutput) ToFailoverGroupPartnerServerArray
 }
 
 func (o FailoverGroupPartnerServerArrayOutput) Index(i pulumi.IntInput) FailoverGroupPartnerServerOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FailoverGroupPartnerServer {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FailoverGroupPartnerServer {
 		return vs[0].([]FailoverGroupPartnerServer)[vs[1].(int)]
 	}).(FailoverGroupPartnerServerOutput)
 }
@@ -574,7 +578,8 @@ type FailoverGroupReadWriteEndpointFailoverPolicyPtrInput interface {
 
 type failoverGroupReadWriteEndpointFailoverPolicyPtrType FailoverGroupReadWriteEndpointFailoverPolicyArgs
 
-func FailoverGroupReadWriteEndpointFailoverPolicyPtr(v *FailoverGroupReadWriteEndpointFailoverPolicyArgs) FailoverGroupReadWriteEndpointFailoverPolicyPtrInput {	return (*failoverGroupReadWriteEndpointFailoverPolicyPtrType)(v)
+func FailoverGroupReadWriteEndpointFailoverPolicyPtr(v *FailoverGroupReadWriteEndpointFailoverPolicyArgs) FailoverGroupReadWriteEndpointFailoverPolicyPtrInput {
+	return (*failoverGroupReadWriteEndpointFailoverPolicyPtrType)(v)
 }
 
 func (*failoverGroupReadWriteEndpointFailoverPolicyPtrType) ElementType() reflect.Type {
@@ -589,7 +594,7 @@ func (i *failoverGroupReadWriteEndpointFailoverPolicyPtrType) ToFailoverGroupRea
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
 }
 
-type FailoverGroupReadWriteEndpointFailoverPolicyOutput struct { *pulumi.OutputState }
+type FailoverGroupReadWriteEndpointFailoverPolicyOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupReadWriteEndpointFailoverPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FailoverGroupReadWriteEndpointFailoverPolicy)(nil)).Elem()
@@ -612,17 +617,18 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) ToFailoverGroupReadW
 		return &v
 	}).(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
 }
+
 // Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
 func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) GraceMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FailoverGroupReadWriteEndpointFailoverPolicy) *int { return v.GraceMinutes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FailoverGroupReadWriteEndpointFailoverPolicy) *int { return v.GraceMinutes }).(pulumi.IntPtrOutput)
 }
 
 // Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
 func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func (v FailoverGroupReadWriteEndpointFailoverPolicy) string { return v.Mode }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FailoverGroupReadWriteEndpointFailoverPolicy) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-type FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput struct { *pulumi.OutputState}
+type FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FailoverGroupReadWriteEndpointFailoverPolicy)(nil)).Elem()
@@ -637,17 +643,19 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToFailoverGroupRe
 }
 
 func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Elem() FailoverGroupReadWriteEndpointFailoverPolicyOutput {
-	return o.ApplyT(func (v *FailoverGroupReadWriteEndpointFailoverPolicy) FailoverGroupReadWriteEndpointFailoverPolicy { return *v }).(FailoverGroupReadWriteEndpointFailoverPolicyOutput)
+	return o.ApplyT(func(v *FailoverGroupReadWriteEndpointFailoverPolicy) FailoverGroupReadWriteEndpointFailoverPolicy {
+		return *v
+	}).(FailoverGroupReadWriteEndpointFailoverPolicyOutput)
 }
 
 // Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
 func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) GraceMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FailoverGroupReadWriteEndpointFailoverPolicy) *int { return v.GraceMinutes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FailoverGroupReadWriteEndpointFailoverPolicy) *int { return v.GraceMinutes }).(pulumi.IntPtrOutput)
 }
 
 // Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
 func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func (v FailoverGroupReadWriteEndpointFailoverPolicy) string { return v.Mode }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FailoverGroupReadWriteEndpointFailoverPolicy) string { return v.Mode }).(pulumi.StringOutput)
 }
 
 type FailoverGroupReadonlyEndpointFailoverPolicy struct {
@@ -696,7 +704,8 @@ type FailoverGroupReadonlyEndpointFailoverPolicyPtrInput interface {
 
 type failoverGroupReadonlyEndpointFailoverPolicyPtrType FailoverGroupReadonlyEndpointFailoverPolicyArgs
 
-func FailoverGroupReadonlyEndpointFailoverPolicyPtr(v *FailoverGroupReadonlyEndpointFailoverPolicyArgs) FailoverGroupReadonlyEndpointFailoverPolicyPtrInput {	return (*failoverGroupReadonlyEndpointFailoverPolicyPtrType)(v)
+func FailoverGroupReadonlyEndpointFailoverPolicyPtr(v *FailoverGroupReadonlyEndpointFailoverPolicyArgs) FailoverGroupReadonlyEndpointFailoverPolicyPtrInput {
+	return (*failoverGroupReadonlyEndpointFailoverPolicyPtrType)(v)
 }
 
 func (*failoverGroupReadonlyEndpointFailoverPolicyPtrType) ElementType() reflect.Type {
@@ -711,7 +720,7 @@ func (i *failoverGroupReadonlyEndpointFailoverPolicyPtrType) ToFailoverGroupRead
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput)
 }
 
-type FailoverGroupReadonlyEndpointFailoverPolicyOutput struct { *pulumi.OutputState }
+type FailoverGroupReadonlyEndpointFailoverPolicyOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupReadonlyEndpointFailoverPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FailoverGroupReadonlyEndpointFailoverPolicy)(nil)).Elem()
@@ -734,12 +743,13 @@ func (o FailoverGroupReadonlyEndpointFailoverPolicyOutput) ToFailoverGroupReadon
 		return &v
 	}).(FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput)
 }
+
 // Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
 func (o FailoverGroupReadonlyEndpointFailoverPolicyOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func (v FailoverGroupReadonlyEndpointFailoverPolicy) string { return v.Mode }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FailoverGroupReadonlyEndpointFailoverPolicy) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-type FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput struct { *pulumi.OutputState}
+type FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FailoverGroupReadonlyEndpointFailoverPolicy)(nil)).Elem()
@@ -754,12 +764,170 @@ func (o FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput) ToFailoverGroupRea
 }
 
 func (o FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput) Elem() FailoverGroupReadonlyEndpointFailoverPolicyOutput {
-	return o.ApplyT(func (v *FailoverGroupReadonlyEndpointFailoverPolicy) FailoverGroupReadonlyEndpointFailoverPolicy { return *v }).(FailoverGroupReadonlyEndpointFailoverPolicyOutput)
+	return o.ApplyT(func(v *FailoverGroupReadonlyEndpointFailoverPolicy) FailoverGroupReadonlyEndpointFailoverPolicy {
+		return *v
+	}).(FailoverGroupReadonlyEndpointFailoverPolicyOutput)
 }
 
 // Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
 func (o FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func (v FailoverGroupReadonlyEndpointFailoverPolicy) string { return v.Mode }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FailoverGroupReadonlyEndpointFailoverPolicy) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+type SqlServerExtendedAuditingPolicy struct {
+	// (Optional) Specifies the number of days to retain logs for in the storage account.
+	RetentionInDays *int `pulumi:"retentionInDays"`
+	// (Required)  Specifies the access key to use for the auditing storage account.
+	StorageAccountAccessKey string `pulumi:"storageAccountAccessKey"`
+	// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
+	// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+	StorageEndpoint string `pulumi:"storageEndpoint"`
+}
+
+type SqlServerExtendedAuditingPolicyInput interface {
+	pulumi.Input
+
+	ToSqlServerExtendedAuditingPolicyOutput() SqlServerExtendedAuditingPolicyOutput
+	ToSqlServerExtendedAuditingPolicyOutputWithContext(context.Context) SqlServerExtendedAuditingPolicyOutput
+}
+
+type SqlServerExtendedAuditingPolicyArgs struct {
+	// (Optional) Specifies the number of days to retain logs for in the storage account.
+	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
+	// (Required)  Specifies the access key to use for the auditing storage account.
+	StorageAccountAccessKey pulumi.StringInput `pulumi:"storageAccountAccessKey"`
+	// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput `pulumi:"storageAccountAccessKeyIsSecondary"`
+	// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+	StorageEndpoint pulumi.StringInput `pulumi:"storageEndpoint"`
+}
+
+func (SqlServerExtendedAuditingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlServerExtendedAuditingPolicy)(nil)).Elem()
+}
+
+func (i SqlServerExtendedAuditingPolicyArgs) ToSqlServerExtendedAuditingPolicyOutput() SqlServerExtendedAuditingPolicyOutput {
+	return i.ToSqlServerExtendedAuditingPolicyOutputWithContext(context.Background())
+}
+
+func (i SqlServerExtendedAuditingPolicyArgs) ToSqlServerExtendedAuditingPolicyOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlServerExtendedAuditingPolicyOutput)
+}
+
+func (i SqlServerExtendedAuditingPolicyArgs) ToSqlServerExtendedAuditingPolicyPtrOutput() SqlServerExtendedAuditingPolicyPtrOutput {
+	return i.ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i SqlServerExtendedAuditingPolicyArgs) ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlServerExtendedAuditingPolicyOutput).ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(ctx)
+}
+
+type SqlServerExtendedAuditingPolicyPtrInput interface {
+	pulumi.Input
+
+	ToSqlServerExtendedAuditingPolicyPtrOutput() SqlServerExtendedAuditingPolicyPtrOutput
+	ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(context.Context) SqlServerExtendedAuditingPolicyPtrOutput
+}
+
+type sqlServerExtendedAuditingPolicyPtrType SqlServerExtendedAuditingPolicyArgs
+
+func SqlServerExtendedAuditingPolicyPtr(v *SqlServerExtendedAuditingPolicyArgs) SqlServerExtendedAuditingPolicyPtrInput {
+	return (*sqlServerExtendedAuditingPolicyPtrType)(v)
+}
+
+func (*sqlServerExtendedAuditingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlServerExtendedAuditingPolicy)(nil)).Elem()
+}
+
+func (i *sqlServerExtendedAuditingPolicyPtrType) ToSqlServerExtendedAuditingPolicyPtrOutput() SqlServerExtendedAuditingPolicyPtrOutput {
+	return i.ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlServerExtendedAuditingPolicyPtrType) ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlServerExtendedAuditingPolicyPtrOutput)
+}
+
+type SqlServerExtendedAuditingPolicyOutput struct{ *pulumi.OutputState }
+
+func (SqlServerExtendedAuditingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlServerExtendedAuditingPolicy)(nil)).Elem()
+}
+
+func (o SqlServerExtendedAuditingPolicyOutput) ToSqlServerExtendedAuditingPolicyOutput() SqlServerExtendedAuditingPolicyOutput {
+	return o
+}
+
+func (o SqlServerExtendedAuditingPolicyOutput) ToSqlServerExtendedAuditingPolicyOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyOutput {
+	return o
+}
+
+func (o SqlServerExtendedAuditingPolicyOutput) ToSqlServerExtendedAuditingPolicyPtrOutput() SqlServerExtendedAuditingPolicyPtrOutput {
+	return o.ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o SqlServerExtendedAuditingPolicyOutput) ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyPtrOutput {
+	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *SqlServerExtendedAuditingPolicy {
+		return &v
+	}).(SqlServerExtendedAuditingPolicyPtrOutput)
+}
+
+// (Optional) Specifies the number of days to retain logs for in the storage account.
+func (o SqlServerExtendedAuditingPolicyOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// (Required)  Specifies the access key to use for the auditing storage account.
+func (o SqlServerExtendedAuditingPolicyOutput) StorageAccountAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) string { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
+}
+
+// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+func (o SqlServerExtendedAuditingPolicyOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
+}
+
+// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+func (o SqlServerExtendedAuditingPolicyOutput) StorageEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) string { return v.StorageEndpoint }).(pulumi.StringOutput)
+}
+
+type SqlServerExtendedAuditingPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (SqlServerExtendedAuditingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlServerExtendedAuditingPolicy)(nil)).Elem()
+}
+
+func (o SqlServerExtendedAuditingPolicyPtrOutput) ToSqlServerExtendedAuditingPolicyPtrOutput() SqlServerExtendedAuditingPolicyPtrOutput {
+	return o
+}
+
+func (o SqlServerExtendedAuditingPolicyPtrOutput) ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyPtrOutput {
+	return o
+}
+
+func (o SqlServerExtendedAuditingPolicyPtrOutput) Elem() SqlServerExtendedAuditingPolicyOutput {
+	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) SqlServerExtendedAuditingPolicy { return *v }).(SqlServerExtendedAuditingPolicyOutput)
+}
+
+// (Optional) Specifies the number of days to retain logs for in the storage account.
+func (o SqlServerExtendedAuditingPolicyPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// (Required)  Specifies the access key to use for the auditing storage account.
+func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageAccountAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) string { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
+}
+
+// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
+}
+
+// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) string { return v.StorageEndpoint }).(pulumi.StringOutput)
 }
 
 type SqlServerIdentity struct {
@@ -767,7 +935,7 @@ type SqlServerIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
 	TenantId *string `pulumi:"tenantId"`
-	Type string `pulumi:"type"`
+	Type     string  `pulumi:"type"`
 }
 
 type SqlServerIdentityInput interface {
@@ -782,7 +950,7 @@ type SqlServerIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Type     pulumi.StringInput    `pulumi:"type"`
 }
 
 func (SqlServerIdentityArgs) ElementType() reflect.Type {
@@ -814,7 +982,8 @@ type SqlServerIdentityPtrInput interface {
 
 type sqlServerIdentityPtrType SqlServerIdentityArgs
 
-func SqlServerIdentityPtr(v *SqlServerIdentityArgs) SqlServerIdentityPtrInput {	return (*sqlServerIdentityPtrType)(v)
+func SqlServerIdentityPtr(v *SqlServerIdentityArgs) SqlServerIdentityPtrInput {
+	return (*sqlServerIdentityPtrType)(v)
 }
 
 func (*sqlServerIdentityPtrType) ElementType() reflect.Type {
@@ -829,7 +998,7 @@ func (i *sqlServerIdentityPtrType) ToSqlServerIdentityPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerIdentityPtrOutput)
 }
 
-type SqlServerIdentityOutput struct { *pulumi.OutputState }
+type SqlServerIdentityOutput struct{ *pulumi.OutputState }
 
 func (SqlServerIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlServerIdentity)(nil)).Elem()
@@ -852,21 +1021,22 @@ func (o SqlServerIdentityOutput) ToSqlServerIdentityPtrOutputWithContext(ctx con
 		return &v
 	}).(SqlServerIdentityPtrOutput)
 }
+
 // The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 func (o SqlServerIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SqlServerIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SqlServerIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
 func (o SqlServerIdentityOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SqlServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SqlServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 func (o SqlServerIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v SqlServerIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SqlServerIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type SqlServerIdentityPtrOutput struct { *pulumi.OutputState}
+type SqlServerIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (SqlServerIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SqlServerIdentity)(nil)).Elem()
@@ -881,21 +1051,21 @@ func (o SqlServerIdentityPtrOutput) ToSqlServerIdentityPtrOutputWithContext(ctx 
 }
 
 func (o SqlServerIdentityPtrOutput) Elem() SqlServerIdentityOutput {
-	return o.ApplyT(func (v *SqlServerIdentity) SqlServerIdentity { return *v }).(SqlServerIdentityOutput)
+	return o.ApplyT(func(v *SqlServerIdentity) SqlServerIdentity { return *v }).(SqlServerIdentityOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 func (o SqlServerIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SqlServerIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SqlServerIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
 func (o SqlServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SqlServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SqlServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 func (o SqlServerIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v SqlServerIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SqlServerIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type GetServerIdentity struct {
@@ -956,7 +1126,7 @@ func (i GetServerIdentityArray) ToGetServerIdentityArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetServerIdentityArrayOutput)
 }
 
-type GetServerIdentityOutput struct { *pulumi.OutputState }
+type GetServerIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetServerIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetServerIdentity)(nil)).Elem()
@@ -972,20 +1142,20 @@ func (o GetServerIdentityOutput) ToGetServerIdentityOutputWithContext(ctx contex
 
 // The ID of the Principal (Client) in Azure Active Directory.
 func (o GetServerIdentityOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServerIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServerIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
 // The ID of the Azure Active Directory Tenant.
 func (o GetServerIdentityOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServerIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServerIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 // The identity type of the SQL Server.
 func (o GetServerIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServerIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServerIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type GetServerIdentityArrayOutput struct { *pulumi.OutputState}
+type GetServerIdentityArrayOutput struct{ *pulumi.OutputState }
 
 func (GetServerIdentityArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetServerIdentity)(nil)).Elem()
@@ -1000,7 +1170,7 @@ func (o GetServerIdentityArrayOutput) ToGetServerIdentityArrayOutputWithContext(
 }
 
 func (o GetServerIdentityArrayOutput) Index(i pulumi.IntInput) GetServerIdentityOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetServerIdentity {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServerIdentity {
 		return vs[0].([]GetServerIdentity)[vs[1].(int)]
 	}).(GetServerIdentityOutput)
 }
@@ -1016,6 +1186,8 @@ func init() {
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadonlyEndpointFailoverPolicyOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput{})
+	pulumi.RegisterOutputType(SqlServerExtendedAuditingPolicyOutput{})
+	pulumi.RegisterOutputType(SqlServerExtendedAuditingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SqlServerIdentityOutput{})
 	pulumi.RegisterOutputType(SqlServerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityOutput{})

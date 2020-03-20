@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Key Vault.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault.html.markdown.
 func LookupKeyVault(ctx *pulumi.Context, args *LookupKeyVaultArgs, opts ...pulumi.InvokeOption) (*LookupKeyVaultResult, error) {
 	var rv LookupKeyVaultResult
@@ -28,7 +28,6 @@ type LookupKeyVaultArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getKeyVault.
 type LookupKeyVaultResult struct {
 	// One or more `accessPolicy` blocks as defined below.
@@ -42,14 +41,16 @@ type LookupKeyVaultResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region in which the Key Vault exists.
-	Location string `pulumi:"location"`
-	// The name of the SKU used for this Key Vault.
-	Name string `pulumi:"name"`
+	Location    string                  `pulumi:"location"`
+	Name        string                  `pulumi:"name"`
 	NetworkAcls []GetKeyVaultNetworkAcl `pulumi:"networkAcls"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `sku` block as described below.
-	Sku GetKeyVaultSku `pulumi:"sku"`
+	// Is purge protection enabled on this Key Vault?
+	PurgeProtectionEnabled bool   `pulumi:"purgeProtectionEnabled"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
+	// The Name of the SKU used for this Key Vault.
 	SkuName string `pulumi:"skuName"`
+	// Is soft delete enabled on this Key Vault?
+	SoftDeleteEnabled bool `pulumi:"softDeleteEnabled"`
 	// A mapping of tags assigned to the Key Vault.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure Active Directory Tenant ID used to authenticate requests for this Key Vault.
@@ -57,4 +58,3 @@ type LookupKeyVaultResult struct {
 	// The URI of the vault for performing operations on keys and secrets.
 	VaultUri string `pulumi:"vaultUri"`
 }
-

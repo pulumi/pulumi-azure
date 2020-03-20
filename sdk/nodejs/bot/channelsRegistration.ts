@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -19,13 +21,13 @@ import * as utilities from "../utilities";
  * });
  * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("example", {
  *     location: "global",
- *     microsoftAppId: current.servicePrincipalApplicationId,
+ *     microsoftAppId: current.clientId,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "F0",
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channels_registration.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channels_registration.markdown.
  */
 export class ChannelsRegistration extends pulumi.CustomResource {
     /**
@@ -67,7 +69,7 @@ export class ChannelsRegistration extends pulumi.CustomResource {
      */
     public readonly developerAppInsightsKey!: pulumi.Output<string>;
     /**
-     * The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified. 
+     * The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
@@ -97,7 +99,7 @@ export class ChannelsRegistration extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ChannelsRegistration resource with the given unique name, arguments, and options.
@@ -173,7 +175,7 @@ export interface ChannelsRegistrationState {
      */
     readonly developerAppInsightsKey?: pulumi.Input<string>;
     /**
-     * The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified. 
+     * The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
      */
     readonly displayName?: pulumi.Input<string>;
     /**
@@ -223,7 +225,7 @@ export interface ChannelsRegistrationArgs {
      */
     readonly developerAppInsightsKey?: pulumi.Input<string>;
     /**
-     * The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified. 
+     * The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
      */
     readonly displayName?: pulumi.Input<string>;
     /**

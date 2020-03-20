@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Uses this data source to access information about an API Version Set within an API Management Service.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.apimanagement.getApiVersionSet({
- *     apiManagementName: "example-api",
- *     name: "example-api-version-set",
- *     resourceGroupName: "example-resources",
- * });
- * 
- * export const apiManagementApiVersionSetId = example.id;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api_version_set.html.markdown.
  */

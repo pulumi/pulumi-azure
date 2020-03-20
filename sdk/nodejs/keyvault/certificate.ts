@@ -8,119 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Key Vault Certificate.
- * 
- * ## Example Usage (Generating a new certificate)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const current = azure.core.getClientConfig();
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     accessPolicies: [{
- *         certificatePermissions: [
- *             "create",
- *             "delete",
- *             "deleteissuers",
- *             "get",
- *             "getissuers",
- *             "import",
- *             "list",
- *             "listissuers",
- *             "managecontacts",
- *             "manageissuers",
- *             "setissuers",
- *             "update",
- *         ],
- *         keyPermissions: [
- *             "backup",
- *             "create",
- *             "decrypt",
- *             "delete",
- *             "encrypt",
- *             "get",
- *             "import",
- *             "list",
- *             "purge",
- *             "recover",
- *             "restore",
- *             "sign",
- *             "unwrapKey",
- *             "update",
- *             "verify",
- *             "wrapKey",
- *         ],
- *         objectId: current.servicePrincipalObjectId,
- *         secretPermissions: [
- *             "backup",
- *             "delete",
- *             "get",
- *             "list",
- *             "purge",
- *             "recover",
- *             "restore",
- *             "set",
- *         ],
- *         tenantId: current.tenantId,
- *     }],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "standard",
- *     tags: {
- *         environment: "Production",
- *     },
- *     tenantId: current.tenantId,
- * });
- * const exampleCertificate = new azure.keyvault.Certificate("example", {
- *     certificatePolicy: {
- *         issuerParameters: {
- *             name: "Self",
- *         },
- *         keyProperties: {
- *             exportable: true,
- *             keySize: 2048,
- *             keyType: "RSA",
- *             reuseKey: true,
- *         },
- *         lifetimeActions: [{
- *             action: {
- *                 actionType: "AutoRenew",
- *             },
- *             trigger: {
- *                 daysBeforeExpiry: 30,
- *             },
- *         }],
- *         secretProperties: {
- *             contentType: "application/x-pkcs12",
- *         },
- *         x509CertificateProperties: {
- *             // Server Authentication = 1.3.6.1.5.5.7.3.1
- *             // Client Authentication = 1.3.6.1.5.5.7.3.2
- *             extendedKeyUsages: ["1.3.6.1.5.5.7.3.1"],
- *             keyUsages: [
- *                 "cRLSign",
- *                 "dataEncipherment",
- *                 "digitalSignature",
- *                 "keyAgreement",
- *                 "keyCertSign",
- *                 "keyEncipherment",
- *             ],
- *             subject: "CN=hello-world",
- *             subjectAlternativeNames: {
- *                 dnsNames: [
- *                     "internal.contoso.com",
- *                     "domain.hello.world",
- *                 ],
- *             },
- *             validityInMonths: 12,
- *         },
- *     },
- *     keyVaultId: exampleKeyVault.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_certificate.html.markdown.
  */
@@ -178,12 +65,11 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
      */
     public /*out*/ readonly thumbprint!: pulumi.Output<string>;
-    public readonly vaultUri!: pulumi.Output<string>;
     /**
      * The current version of the Key Vault Certificate.
      */
@@ -209,19 +95,20 @@ export class Certificate extends pulumi.CustomResource {
             inputs["secretId"] = state ? state.secretId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["thumbprint"] = state ? state.thumbprint : undefined;
-            inputs["vaultUri"] = state ? state.vaultUri : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
             if (!args || args.certificatePolicy === undefined) {
                 throw new Error("Missing required property 'certificatePolicy'");
             }
+            if (!args || args.keyVaultId === undefined) {
+                throw new Error("Missing required property 'keyVaultId'");
+            }
             inputs["certificate"] = args ? args.certificate : undefined;
             inputs["certificatePolicy"] = args ? args.certificatePolicy : undefined;
             inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["vaultUri"] = args ? args.vaultUri : undefined;
             inputs["certificateData"] = undefined /*out*/;
             inputs["secretId"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
@@ -276,7 +163,6 @@ export interface CertificateState {
      * The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
      */
     readonly thumbprint?: pulumi.Input<string>;
-    readonly vaultUri?: pulumi.Input<string>;
     /**
      * The current version of the Key Vault Certificate.
      */
@@ -298,7 +184,7 @@ export interface CertificateArgs {
     /**
      * The ID of the Key Vault where the Certificate should be created.
      */
-    readonly keyVaultId?: pulumi.Input<string>;
+    readonly keyVaultId: pulumi.Input<string>;
     /**
      * The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
      */
@@ -307,5 +193,4 @@ export interface CertificateArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly vaultUri?: pulumi.Input<string>;
 }

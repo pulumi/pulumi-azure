@@ -4,11 +4,11 @@
 // Export members:
 export * from "./applicationGateway";
 export * from "./applicationSecurityGroup";
-export * from "./connectionMonitor";
 export * from "./ddosProtectionPlan";
 export * from "./expressRouteCircuit";
 export * from "./expressRouteCircuitAuthorization";
 export * from "./expressRouteCircuitPeering";
+export * from "./expressRouteGateway";
 export * from "./firewall";
 export * from "./firewallApplicationRuleCollection";
 export * from "./firewallNatRuleCollection";
@@ -39,6 +39,7 @@ export * from "./networkInterfaceApplicationGatewayBackendAddressPoolAssociation
 export * from "./networkInterfaceApplicationSecurityGroupAssociation";
 export * from "./networkInterfaceBackendAddressPoolAssociation";
 export * from "./networkInterfaceNatRuleAssociation";
+export * from "./networkInterfaceSecurityGroupAssociation";
 export * from "./networkPacketCapture";
 export * from "./networkSecurityGroup";
 export * from "./networkSecurityRule";

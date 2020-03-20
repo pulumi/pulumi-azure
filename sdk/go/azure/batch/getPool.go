@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Batch pool
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_pool.html.markdown.
 func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.InvokeOption) (*LookupPoolResult, error) {
 	var rv LookupPoolResult
@@ -22,14 +22,13 @@ func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getPool.
 type LookupPoolArgs struct {
-	AccountName string `pulumi:"accountName"`
-	Certificates []GetPoolCertificate `pulumi:"certificates"`
-	Name string `pulumi:"name"`
+	AccountName          string                       `pulumi:"accountName"`
+	Certificates         []GetPoolCertificate         `pulumi:"certificates"`
+	Name                 string                       `pulumi:"name"`
 	NetworkConfiguration *GetPoolNetworkConfiguration `pulumi:"networkConfiguration"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	StartTask *GetPoolStartTask `pulumi:"startTask"`
+	ResourceGroupName    string                       `pulumi:"resourceGroupName"`
+	StartTask            *GetPoolStartTask            `pulumi:"startTask"`
 }
-
 
 // A collection of values returned by getPool.
 type LookupPoolResult struct {
@@ -41,19 +40,19 @@ type LookupPoolResult struct {
 	Certificates []GetPoolCertificate `pulumi:"certificates"`
 	// The container configuration used in the pool's VMs.
 	ContainerConfigurations []GetPoolContainerConfiguration `pulumi:"containerConfigurations"`
-	DisplayName string `pulumi:"displayName"`
+	DisplayName             string                          `pulumi:"displayName"`
 	// A `fixedScale` block that describes the scale settings when using fixed scale.
 	FixedScales []GetPoolFixedScale `pulumi:"fixedScales"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The maximum number of tasks that can run concurrently on a single compute node in the pool.
-	MaxTasksPerNode int `pulumi:"maxTasksPerNode"`
-	Metadata map[string]string `pulumi:"metadata"`
+	MaxTasksPerNode int               `pulumi:"maxTasksPerNode"`
+	Metadata        map[string]string `pulumi:"metadata"`
 	// The name of the endpoint.
-	Name string `pulumi:"name"`
+	Name                 string                      `pulumi:"name"`
 	NetworkConfiguration GetPoolNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The Sku of the node agents in the Batch pool.
-	NodeAgentSkuId string `pulumi:"nodeAgentSkuId"`
+	NodeAgentSkuId    string `pulumi:"nodeAgentSkuId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `startTask` block that describes the start task settings for the Batch pool.
 	StartTask *GetPoolStartTask `pulumi:"startTask"`
@@ -62,4 +61,3 @@ type LookupPoolResult struct {
 	// The size of the VM created in the Batch pool.
 	VmSize string `pulumi:"vmSize"`
 }
-

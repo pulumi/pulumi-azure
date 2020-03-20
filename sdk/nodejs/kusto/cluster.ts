@@ -8,28 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Kusto (also known as Azure Data Explorer) Cluster
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const rg = new azure.core.ResourceGroup("rg", {
- *     location: "East US",
- * });
- * const example = new azure.kusto.Cluster("example", {
- *     location: rg.location,
- *     resourceGroupName: rg.name,
- *     sku: {
- *         capacity: 2,
- *         name: "Standard_D13_v2",
- *     },
- *     tags: {
- *         Environment: "Production",
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_cluster.html.markdown.
  */
@@ -65,6 +43,14 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly dataIngestionUri!: pulumi.Output<string>;
     /**
+     * Specifies if the cluster's disks are encrypted.
+     */
+    public readonly enableDiskEncryption!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies if the streaming ingest is enabled.
+     */
+    public readonly enableStreamingIngest!: pulumi.Output<boolean | undefined>;
+    /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -83,7 +69,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The FQDN of the Azure Kusto Cluster.
      */
@@ -102,6 +88,8 @@ export class Cluster extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ClusterState | undefined;
             inputs["dataIngestionUri"] = state ? state.dataIngestionUri : undefined;
+            inputs["enableDiskEncryption"] = state ? state.enableDiskEncryption : undefined;
+            inputs["enableStreamingIngest"] = state ? state.enableStreamingIngest : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -116,6 +104,8 @@ export class Cluster extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["enableDiskEncryption"] = args ? args.enableDiskEncryption : undefined;
+            inputs["enableStreamingIngest"] = args ? args.enableStreamingIngest : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -143,6 +133,14 @@ export interface ClusterState {
      * The Kusto Cluster URI to be used for data ingestion.
      */
     readonly dataIngestionUri?: pulumi.Input<string>;
+    /**
+     * Specifies if the cluster's disks are encrypted.
+     */
+    readonly enableDiskEncryption?: pulumi.Input<boolean>;
+    /**
+     * Specifies if the streaming ingest is enabled.
+     */
+    readonly enableStreamingIngest?: pulumi.Input<boolean>;
     /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */
@@ -173,6 +171,14 @@ export interface ClusterState {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * Specifies if the cluster's disks are encrypted.
+     */
+    readonly enableDiskEncryption?: pulumi.Input<boolean>;
+    /**
+     * Specifies if the streaming ingest is enabled.
+     */
+    readonly enableStreamingIngest?: pulumi.Input<boolean>;
     /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */

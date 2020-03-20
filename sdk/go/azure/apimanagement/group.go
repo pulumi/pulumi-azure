@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an API Management Group.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_group.html.markdown.
 type Group struct {
 	pulumi.CustomResourceState
@@ -145,4 +145,3 @@ type GroupArgs struct {
 func (GroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupArgs)(nil)).Elem()
 }
-

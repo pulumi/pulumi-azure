@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_service_versions.html.markdown.
 func GetKubernetesServiceVersions(ctx *pulumi.Context, args *GetKubernetesServiceVersionsArgs, opts ...pulumi.InvokeOption) (*GetKubernetesServiceVersionsResult, error) {
 	var rv GetKubernetesServiceVersionsResult
@@ -22,22 +22,23 @@ func GetKubernetesServiceVersions(ctx *pulumi.Context, args *GetKubernetesServic
 
 // A collection of arguments for invoking getKubernetesServiceVersions.
 type GetKubernetesServiceVersionsArgs struct {
+	// Should Preview versions of Kubernetes in AKS be included? Defaults to `true`
+	IncludePreview *bool `pulumi:"includePreview"`
 	// Specifies the location in which to query for versions.
 	Location string `pulumi:"location"`
 	// A prefix filter for the versions of Kubernetes which should be returned; for example `1.` will return `1.9` to `1.14`, whereas `1.12` will return `1.12.2`.
 	VersionPrefix *string `pulumi:"versionPrefix"`
 }
 
-
 // A collection of values returned by getKubernetesServiceVersions.
 type GetKubernetesServiceVersionsResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The most recent version available.
-	LatestVersion string `pulumi:"latestVersion"`
-	Location string `pulumi:"location"`
+	Id             string `pulumi:"id"`
+	IncludePreview *bool  `pulumi:"includePreview"`
+	// The most recent version available. If `includePreview == false`, this is the most recent non-preview version available.
+	LatestVersion string  `pulumi:"latestVersion"`
+	Location      string  `pulumi:"location"`
 	VersionPrefix *string `pulumi:"versionPrefix"`
 	// The list of all supported versions.
 	Versions []string `pulumi:"versions"`
 }
-

@@ -12,15 +12,13 @@ import (
 )
 
 // Manages the association between a Network Interface and a Application Security Group.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_application_security_group_association.html.markdown.
 type NetworkInterfaceApplicationSecurityGroupAssociation struct {
 	pulumi.CustomResourceState
 
 	// The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
 	ApplicationSecurityGroupId pulumi.StringOutput `pulumi:"applicationSecurityGroupId"`
-	// The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
-	IpConfigurationName pulumi.StringOutput `pulumi:"ipConfigurationName"`
 	// The ID of the Network Interface. Changing this forces a new resource to be created.
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
 }
@@ -30,9 +28,6 @@ func NewNetworkInterfaceApplicationSecurityGroupAssociation(ctx *pulumi.Context,
 	name string, args *NetworkInterfaceApplicationSecurityGroupAssociationArgs, opts ...pulumi.ResourceOption) (*NetworkInterfaceApplicationSecurityGroupAssociation, error) {
 	if args == nil || args.ApplicationSecurityGroupId == nil {
 		return nil, errors.New("missing required argument 'ApplicationSecurityGroupId'")
-	}
-	if args == nil || args.IpConfigurationName == nil {
-		return nil, errors.New("missing required argument 'IpConfigurationName'")
 	}
 	if args == nil || args.NetworkInterfaceId == nil {
 		return nil, errors.New("missing required argument 'NetworkInterfaceId'")
@@ -64,8 +59,6 @@ func GetNetworkInterfaceApplicationSecurityGroupAssociation(ctx *pulumi.Context,
 type networkInterfaceApplicationSecurityGroupAssociationState struct {
 	// The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
 	ApplicationSecurityGroupId *string `pulumi:"applicationSecurityGroupId"`
-	// The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
-	IpConfigurationName *string `pulumi:"ipConfigurationName"`
 	// The ID of the Network Interface. Changing this forces a new resource to be created.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 }
@@ -73,8 +66,6 @@ type networkInterfaceApplicationSecurityGroupAssociationState struct {
 type NetworkInterfaceApplicationSecurityGroupAssociationState struct {
 	// The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
 	ApplicationSecurityGroupId pulumi.StringPtrInput
-	// The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
-	IpConfigurationName pulumi.StringPtrInput
 	// The ID of the Network Interface. Changing this forces a new resource to be created.
 	NetworkInterfaceId pulumi.StringPtrInput
 }
@@ -86,8 +77,6 @@ func (NetworkInterfaceApplicationSecurityGroupAssociationState) ElementType() re
 type networkInterfaceApplicationSecurityGroupAssociationArgs struct {
 	// The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
 	ApplicationSecurityGroupId string `pulumi:"applicationSecurityGroupId"`
-	// The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
-	IpConfigurationName string `pulumi:"ipConfigurationName"`
 	// The ID of the Network Interface. Changing this forces a new resource to be created.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 }
@@ -96,8 +85,6 @@ type networkInterfaceApplicationSecurityGroupAssociationArgs struct {
 type NetworkInterfaceApplicationSecurityGroupAssociationArgs struct {
 	// The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
 	ApplicationSecurityGroupId pulumi.StringInput
-	// The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
-	IpConfigurationName pulumi.StringInput
 	// The ID of the Network Interface. Changing this forces a new resource to be created.
 	NetworkInterfaceId pulumi.StringInput
 }
@@ -105,4 +92,3 @@ type NetworkInterfaceApplicationSecurityGroupAssociationArgs struct {
 func (NetworkInterfaceApplicationSecurityGroupAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceApplicationSecurityGroupAssociationArgs)(nil)).Elem()
 }
-

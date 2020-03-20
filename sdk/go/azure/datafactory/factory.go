@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Azure Data Factory (Version 2).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory.html.markdown.
 type Factory struct {
 	pulumi.CustomResourceState
@@ -139,4 +139,3 @@ type FactoryArgs struct {
 func (FactoryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*factoryArgs)(nil)).Elem()
 }
-

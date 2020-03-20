@@ -10,19 +10,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a resource group on Azure.
-// 
+// Manages a Resource Group.
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/resource_group.html.markdown.
 type ResourceGroup struct {
 	pulumi.CustomResourceState
 
-	// The location where the resource group should be created.
-	// For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
+	// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource group. Must be unique on your
-	// Azure subscription.
+	// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags which should be assigned to the Resource Group.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -54,24 +52,20 @@ func GetResourceGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceGroup resources.
 type resourceGroupState struct {
-	// The location where the resource group should be created.
-	// For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
+	// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	Location *string `pulumi:"location"`
-	// The name of the resource group. Must be unique on your
-	// Azure subscription.
+	// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags which should be assigned to the Resource Group.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type ResourceGroupState struct {
-	// The location where the resource group should be created.
-	// For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
+	// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	Location pulumi.StringPtrInput
-	// The name of the resource group. Must be unique on your
-	// Azure subscription.
+	// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags which should be assigned to the Resource Group.
 	Tags pulumi.StringMapInput
 }
 
@@ -80,29 +74,24 @@ func (ResourceGroupState) ElementType() reflect.Type {
 }
 
 type resourceGroupArgs struct {
-	// The location where the resource group should be created.
-	// For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
+	// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	Location *string `pulumi:"location"`
-	// The name of the resource group. Must be unique on your
-	// Azure subscription.
+	// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags which should be assigned to the Resource Group.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceGroup resource.
 type ResourceGroupArgs struct {
-	// The location where the resource group should be created.
-	// For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
+	// The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
 	Location pulumi.StringPtrInput
-	// The name of the resource group. Must be unique on your
-	// Azure subscription.
+	// The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags which should be assigned to the Resource Group.
 	Tags pulumi.StringMapInput
 }
 
 func (ResourceGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceGroupArgs)(nil)).Elem()
 }
-

@@ -13,7 +13,13 @@ class GetPolicyResult:
     """
     A collection of values returned by getPolicy.
     """
-    def __init__(__self__, rules=None, storage_account_id=None, id=None):
+    def __init__(__self__, id=None, rules=None, storage_account_id=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if rules and not isinstance(rules, list):
             raise TypeError("Expected argument 'rules' to be a list")
         __self__.rules = rules
@@ -23,31 +29,27 @@ class GetPolicyResult:
         if storage_account_id and not isinstance(storage_account_id, str):
             raise TypeError("Expected argument 'storage_account_id' to be a str")
         __self__.storage_account_id = storage_account_id
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetPolicyResult(GetPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetPolicyResult(
+            id=self.id,
             rules=self.rules,
-            storage_account_id=self.storage_account_id,
-            id=self.id)
+            storage_account_id=self.storage_account_id)
 
 def get_policy(storage_account_id=None,opts=None):
     """
     Use this data source to access information about an existing Storage Management Policy.
-    
-    :param str storage_account_id: Specifies the id of the storage account to retrieve the management policy for.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_management_policy.html.markdown.
+
+
+    :param str storage_account_id: Specifies the id of the storage account to retrieve the management policy for.
     """
     __args__ = dict()
+
 
     __args__['storageAccountId'] = storage_account_id
     if opts is None:
@@ -57,6 +59,6 @@ def get_policy(storage_account_id=None,opts=None):
     __ret__ = pulumi.runtime.invoke('azure:storage/getPolicy:getPolicy', __args__, opts=opts).value
 
     return AwaitableGetPolicyResult(
+        id=__ret__.get('id'),
         rules=__ret__.get('rules'),
-        storage_account_id=__ret__.get('storageAccountId'),
-        id=__ret__.get('id'))
+        storage_account_id=__ret__.get('storageAccountId'))

@@ -12,7 +12,7 @@ import (
 )
 
 // Create a failover group of databases on a collection of Azure SQL servers.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_failover_group.html.markdown.
 type FailoverGroup struct {
 	pulumi.CustomResourceState
@@ -170,4 +170,3 @@ type FailoverGroupArgs struct {
 func (FailoverGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*failoverGroupArgs)(nil)).Elem()
 }
-

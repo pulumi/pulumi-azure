@@ -13,7 +13,13 @@ class GetNatGatewayResult:
     """
     A collection of values returned by getNatGateway.
     """
-    def __init__(__self__, idle_timeout_in_minutes=None, location=None, name=None, public_ip_address_ids=None, public_ip_prefix_ids=None, resource_group_name=None, resource_guid=None, sku_name=None, tags=None, zones=None, id=None):
+    def __init__(__self__, id=None, idle_timeout_in_minutes=None, location=None, name=None, public_ip_address_ids=None, public_ip_prefix_ids=None, resource_group_name=None, resource_guid=None, sku_name=None, tags=None, zones=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, float):
             raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a float")
         __self__.idle_timeout_in_minutes = idle_timeout_in_minutes
@@ -68,18 +74,13 @@ class GetNatGatewayResult:
         """
         A list of Availability Zones which the NAT Gateway exists in.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetNatGatewayResult(GetNatGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetNatGatewayResult(
+            id=self.id,
             idle_timeout_in_minutes=self.idle_timeout_in_minutes,
             location=self.location,
             name=self.name,
@@ -89,21 +90,22 @@ class AwaitableGetNatGatewayResult(GetNatGatewayResult):
             resource_guid=self.resource_guid,
             sku_name=self.sku_name,
             tags=self.tags,
-            zones=self.zones,
-            id=self.id)
+            zones=self.zones)
 
 def get_nat_gateway(name=None,public_ip_address_ids=None,public_ip_prefix_ids=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing NAT Gateway.
-    
+
     > **NOTE:** The Azure NAT Gateway service is currently in private preview. Your subscription must be on the NAT Gateway private preview whitelist for this resource to be provisioned correctly. If you attempt to provision this resource and receive an `InvalidResourceType` error may mean that your subscription is not part of the NAT Gateway private preview or you are using a region which does not yet support the NAT Gateway private preview service. The NAT Gateway private preview service is currently available in a limited set of regions. Private preview resources may have multiple breaking changes over their lifecycle until they GA. You can opt into the Private Preview by contacting your Microsoft Representative.
-    
-    :param str name: Specifies the Name of the NAT Gateway.
-    :param str resource_group_name: Specifies the name of the Resource Group where the NAT Gateway exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/nat_gateway.html.markdown.
+
+
+    :param str name: Specifies the Name of the NAT Gateway.
+    :param str resource_group_name: Specifies the name of the Resource Group where the NAT Gateway exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['publicIpAddressIds'] = public_ip_address_ids
@@ -116,6 +118,7 @@ def get_nat_gateway(name=None,public_ip_address_ids=None,public_ip_prefix_ids=No
     __ret__ = pulumi.runtime.invoke('azure:network/getNatGateway:getNatGateway', __args__, opts=opts).value
 
     return AwaitableGetNatGatewayResult(
+        id=__ret__.get('id'),
         idle_timeout_in_minutes=__ret__.get('idleTimeoutInMinutes'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
@@ -125,5 +128,4 @@ def get_nat_gateway(name=None,public_ip_address_ids=None,public_ip_prefix_ids=No
         resource_guid=__ret__.get('resourceGuid'),
         sku_name=__ret__.get('skuName'),
         tags=__ret__.get('tags'),
-        zones=__ret__.get('zones'),
-        id=__ret__.get('id'))
+        zones=__ret__.get('zones'))

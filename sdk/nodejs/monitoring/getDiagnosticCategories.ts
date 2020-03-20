@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleKeyVault = pulumi.all([azurerm_key_vault_example.name, azurerm_key_vault_example.resourceGroupName]).apply(([name, resourceGroupName]) => azure.keyvault.getKeyVault({
- *     name: name,
- *     resourceGroupName: resourceGroupName,
- * }));
- * const exampleDiagnosticCategories = exampleKeyVault.apply(exampleKeyVault => azure.monitoring.getDiagnosticCategories({
- *     resourceId: exampleKeyVault.id,
- * }));
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_diagnostic_categories.html.markdown.
  */

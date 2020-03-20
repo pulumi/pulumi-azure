@@ -7,31 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a date/time variable in Azure Automation
- * 
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleAccount = new azure.automation.Account("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         name: "Basic",
- *     },
- * });
- * const exampleDateTimeVariable = new azure.automation.DateTimeVariable("example", {
- *     automationAccountName: exampleAccount.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     value: "2019-04-24T21:40:54.074Z",
- * });
- * ```
+ * Manages a DateTime variable in Azure Automation
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_variable_datetime.html.markdown.
  */

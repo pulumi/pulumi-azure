@@ -13,7 +13,7 @@ class GetAccountSASResult:
     """
     A collection of values returned by getAccountSAS.
     """
-    def __init__(__self__, connection_string=None, expiry=None, https_only=None, permissions=None, resource_types=None, sas=None, services=None, start=None, id=None):
+    def __init__(__self__, connection_string=None, expiry=None, https_only=None, id=None, permissions=None, resource_types=None, sas=None, services=None, start=None):
         if connection_string and not isinstance(connection_string, str):
             raise TypeError("Expected argument 'connection_string' to be a str")
         __self__.connection_string = connection_string
@@ -23,6 +23,12 @@ class GetAccountSASResult:
         if https_only and not isinstance(https_only, bool):
             raise TypeError("Expected argument 'https_only' to be a bool")
         __self__.https_only = https_only
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if permissions and not isinstance(permissions, dict):
             raise TypeError("Expected argument 'permissions' to be a dict")
         __self__.permissions = permissions
@@ -41,12 +47,6 @@ class GetAccountSASResult:
         if start and not isinstance(start, str):
             raise TypeError("Expected argument 'start' to be a str")
         __self__.start = start
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAccountSASResult(GetAccountSASResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -56,22 +56,25 @@ class AwaitableGetAccountSASResult(GetAccountSASResult):
             connection_string=self.connection_string,
             expiry=self.expiry,
             https_only=self.https_only,
+            id=self.id,
             permissions=self.permissions,
             resource_types=self.resource_types,
             sas=self.sas,
             services=self.services,
-            start=self.start,
-            id=self.id)
+            start=self.start)
 
 def get_account_sas(connection_string=None,expiry=None,https_only=None,permissions=None,resource_types=None,services=None,start=None,opts=None):
     """
     Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account.
-    
+
     Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account.
-    
+
     Note that this is an [Account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-an-account-sas)
     and *not* a [Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas).
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_sas.html.markdown.
+
+
     :param str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `storage.Account` resource.
     :param str expiry: The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
     :param bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
@@ -79,9 +82,9 @@ def get_account_sas(connection_string=None,expiry=None,https_only=None,permissio
     :param dict resource_types: A `resource_types` block as defined below.
     :param dict services: A `services` block as defined below.
     :param str start: The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
-    
+
     The **permissions** object supports the following:
-    
+
       * `add` (`bool`)
       * `create` (`bool`)
       * `delete` (`bool`)
@@ -90,23 +93,22 @@ def get_account_sas(connection_string=None,expiry=None,https_only=None,permissio
       * `read` (`bool`)
       * `update` (`bool`)
       * `write` (`bool`)
-    
+
     The **resource_types** object supports the following:
-    
+
       * `container` (`bool`)
       * `object` (`bool`)
       * `service` (`bool`)
-    
+
     The **services** object supports the following:
-    
+
       * `blob` (`bool`)
       * `file` (`bool`)
       * `queue` (`bool`)
       * `table` (`bool`)
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_sas.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['connectionString'] = connection_string
     __args__['expiry'] = expiry
@@ -125,9 +127,9 @@ def get_account_sas(connection_string=None,expiry=None,https_only=None,permissio
         connection_string=__ret__.get('connectionString'),
         expiry=__ret__.get('expiry'),
         https_only=__ret__.get('httpsOnly'),
+        id=__ret__.get('id'),
         permissions=__ret__.get('permissions'),
         resource_types=__ret__.get('resourceTypes'),
         sas=__ret__.get('sas'),
         services=__ret__.get('services'),
-        start=__ret__.get('start'),
-        id=__ret__.get('id'))
+        start=__ret__.get('start'))

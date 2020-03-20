@@ -12,12 +12,12 @@ import (
 )
 
 // Manages a managed disk.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_disk.html.markdown.
 type ManagedDisk struct {
 	pulumi.CustomResourceState
 
-	// The method to use when creating the managed disk. Possible values include:
+	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption pulumi.StringOutput `pulumi:"createOption"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"diskEncryptionSetId"`
@@ -43,7 +43,7 @@ type ManagedDisk struct {
 	SourceResourceId pulumi.StringPtrOutput `pulumi:"sourceResourceId"`
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
 	SourceUri pulumi.StringOutput `pulumi:"sourceUri"`
-	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.
+	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
 	StorageAccountType pulumi.StringOutput `pulumi:"storageAccountType"`
@@ -90,7 +90,7 @@ func GetManagedDisk(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedDisk resources.
 type managedDiskState struct {
-	// The method to use when creating the managed disk. Possible values include:
+	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption *string `pulumi:"createOption"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -116,7 +116,7 @@ type managedDiskState struct {
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
 	SourceUri *string `pulumi:"sourceUri"`
-	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.
+	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
@@ -127,7 +127,7 @@ type managedDiskState struct {
 }
 
 type ManagedDiskState struct {
-	// The method to use when creating the managed disk. Possible values include:
+	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption pulumi.StringPtrInput
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput
@@ -153,7 +153,7 @@ type ManagedDiskState struct {
 	SourceResourceId pulumi.StringPtrInput
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
 	SourceUri pulumi.StringPtrInput
-	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.
+	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
 	// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
 	StorageAccountType pulumi.StringPtrInput
@@ -168,7 +168,7 @@ func (ManagedDiskState) ElementType() reflect.Type {
 }
 
 type managedDiskArgs struct {
-	// The method to use when creating the managed disk. Possible values include:
+	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption string `pulumi:"createOption"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -194,7 +194,7 @@ type managedDiskArgs struct {
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
 	SourceUri *string `pulumi:"sourceUri"`
-	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.
+	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
 	StorageAccountType string `pulumi:"storageAccountType"`
@@ -206,7 +206,7 @@ type managedDiskArgs struct {
 
 // The set of arguments for constructing a ManagedDisk resource.
 type ManagedDiskArgs struct {
-	// The method to use when creating the managed disk. Possible values include:
+	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption pulumi.StringInput
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput
@@ -232,7 +232,7 @@ type ManagedDiskArgs struct {
 	SourceResourceId pulumi.StringPtrInput
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
 	SourceUri pulumi.StringPtrInput
-	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.
+	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
 	// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
 	StorageAccountType pulumi.StringInput
@@ -245,4 +245,3 @@ type ManagedDiskArgs struct {
 func (ManagedDiskArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedDiskArgs)(nil)).Elem()
 }
-

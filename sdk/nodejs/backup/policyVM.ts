@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_policy_vm.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_policy_vm.markdown.
  */
 export class PolicyVM extends pulumi.CustomResource {
     /**
@@ -93,7 +93,7 @@ export class PolicyVM extends pulumi.CustomResource {
     }
 
     /**
-     * Configures the Policy backup frequency, times & days as documented in the `backup` block below. 
+     * Configures the Policy backup frequency, times & days as documented in the `backup` block below.
      */
     public readonly backup!: pulumi.Output<outputs.backup.PolicyVMBackup>;
     /**
@@ -127,7 +127,7 @@ export class PolicyVM extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the timezone. Defaults to `UTC`
      */
@@ -193,7 +193,7 @@ export class PolicyVM extends pulumi.CustomResource {
  */
 export interface PolicyVMState {
     /**
-     * Configures the Policy backup frequency, times & days as documented in the `backup` block below. 
+     * Configures the Policy backup frequency, times & days as documented in the `backup` block below.
      */
     readonly backup?: pulumi.Input<inputs.backup.PolicyVMBackup>;
     /**
@@ -239,7 +239,7 @@ export interface PolicyVMState {
  */
 export interface PolicyVMArgs {
     /**
-     * Configures the Policy backup frequency, times & days as documented in the `backup` block below. 
+     * Configures the Policy backup frequency, times & days as documented in the `backup` block below.
      */
     readonly backup: pulumi.Input<inputs.backup.PolicyVMBackup>;
     /**

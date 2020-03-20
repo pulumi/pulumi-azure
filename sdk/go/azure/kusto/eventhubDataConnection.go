@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Kusto (also known as Azure Data Explorer) EventHub Data Connection
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_eventhub_data_connection.html.markdown.
 type EventhubDataConnection struct {
 	pulumi.CustomResourceState
@@ -181,4 +181,3 @@ type EventhubDataConnectionArgs struct {
 func (EventhubDataConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventhubDataConnectionArgs)(nil)).Elem()
 }
-

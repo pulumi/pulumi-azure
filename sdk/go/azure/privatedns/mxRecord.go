@@ -12,11 +12,13 @@ import (
 )
 
 // Enables you to manage DNS MX Records within Azure Private DNS.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_mx_record.html.markdown.
 type MxRecord struct {
 	pulumi.CustomResourceState
 
+	// The FQDN of the DNS MX Record.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `record` blocks as defined below.
@@ -25,7 +27,7 @@ type MxRecord struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	Ttl pulumi.IntOutput `pulumi:"ttl"`
+	Ttl  pulumi.IntOutput       `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
@@ -70,6 +72,8 @@ func GetMxRecord(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MxRecord resources.
 type mxRecordState struct {
+	// The FQDN of the DNS MX Record.
+	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
 	Name *string `pulumi:"name"`
 	// One or more `record` blocks as defined below.
@@ -78,12 +82,14 @@ type mxRecordState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	Ttl *int `pulumi:"ttl"`
+	Ttl  *int              `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName *string `pulumi:"zoneName"`
 }
 
 type MxRecordState struct {
+	// The FQDN of the DNS MX Record.
+	Fqdn pulumi.StringPtrInput
 	// The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
 	Name pulumi.StringPtrInput
 	// One or more `record` blocks as defined below.
@@ -92,7 +98,7 @@ type MxRecordState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	Ttl pulumi.IntPtrInput
+	Ttl  pulumi.IntPtrInput
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringPtrInput
 }
@@ -110,7 +116,7 @@ type mxRecordArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	Ttl int `pulumi:"ttl"`
+	Ttl  int               `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName string `pulumi:"zoneName"`
 }
@@ -125,7 +131,7 @@ type MxRecordArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	Ttl pulumi.IntInput
+	Ttl  pulumi.IntInput
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringInput
 }
@@ -133,4 +139,3 @@ type MxRecordArgs struct {
 func (MxRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mxRecordArgs)(nil)).Elem()
 }
-

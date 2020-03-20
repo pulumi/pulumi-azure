@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a SQL Container within a Cosmos DB Account.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_sql_container.html.markdown.
 type SqlContainer struct {
 	pulumi.CustomResourceState
@@ -29,7 +29,7 @@ type SqlContainer struct {
 	PartitionKeyPath pulumi.StringPtrOutput `pulumi:"partitionKeyPath"`
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	Throughput pulumi.IntOutput `pulumi:"throughput"`
+	Throughput        pulumi.IntOutput    `pulumi:"throughput"`
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys SqlContainerUniqueKeyArrayOutput `pulumi:"uniqueKeys"`
 }
@@ -83,7 +83,7 @@ type sqlContainerState struct {
 	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int    `pulumi:"throughput"`
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys []SqlContainerUniqueKey `pulumi:"uniqueKeys"`
 }
@@ -101,7 +101,7 @@ type SqlContainerState struct {
 	PartitionKeyPath pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	Throughput pulumi.IntPtrInput
+	Throughput        pulumi.IntPtrInput
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys SqlContainerUniqueKeyArrayInput
 }
@@ -123,7 +123,7 @@ type sqlContainerArgs struct {
 	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int   `pulumi:"throughput"`
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys []SqlContainerUniqueKey `pulumi:"uniqueKeys"`
 }
@@ -142,7 +142,7 @@ type SqlContainerArgs struct {
 	PartitionKeyPath pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Throughput pulumi.IntPtrInput
+	Throughput        pulumi.IntPtrInput
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys SqlContainerUniqueKeyArrayInput
 }
@@ -150,4 +150,3 @@ type SqlContainerArgs struct {
 func (SqlContainerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlContainerArgs)(nil)).Elem()
 }
-

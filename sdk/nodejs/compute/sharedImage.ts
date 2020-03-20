@@ -8,37 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Shared Image within a Shared Image Gallery.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleSharedImageGallery = new azure.compute.SharedImageGallery("example", {
- *     description: "Shared images and things.",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tags: {
- *         Hello: "There",
- *         World: "Example",
- *     },
- * });
- * const exampleSharedImage = new azure.compute.SharedImage("example", {
- *     galleryName: exampleSharedImageGallery.name,
- *     identifier: {
- *         offer: "OfferName",
- *         publisher: "PublisherName",
- *         sku: "ExampleSku",
- *     },
- *     location: exampleResourceGroup.location,
- *     osType: "Linux",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image.html.markdown.
  */
@@ -112,7 +81,7 @@ export class SharedImage extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the Shared Image.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a SharedImage resource with the given unique name, arguments, and options.

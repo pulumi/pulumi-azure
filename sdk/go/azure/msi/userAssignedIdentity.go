@@ -12,8 +12,8 @@ import (
 )
 
 // Manages a user assigned identity.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/user_assigned_identity_legacy.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/user_assigned_identity.markdown.
 type UserAssignedIdentity struct {
 	pulumi.CustomResourceState
 
@@ -136,4 +136,3 @@ type UserAssignedIdentityArgs struct {
 func (UserAssignedIdentityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userAssignedIdentityArgs)(nil)).Elem()
 }
-

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleAccount = new azure.netapp.Account("example", {
  *     activeDirectory: {
- *         dns: ["1.2.3.4"],
+ *         dnsServers: ["1.2.3.4"],
  *         domain: "westcentralus.com",
  *         organizationalUnit: "OU=FirstLevel",
  *         password: "aduserpwd",
@@ -79,6 +79,10 @@ export class Account extends pulumi.CustomResource {
      * The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -96,6 +100,7 @@ export class Account extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
@@ -105,6 +110,7 @@ export class Account extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts) {
             opts = {}
@@ -137,6 +143,10 @@ export interface AccountState {
      * The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -159,4 +169,8 @@ export interface AccountArgs {
      * The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

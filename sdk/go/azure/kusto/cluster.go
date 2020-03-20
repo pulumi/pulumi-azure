@@ -12,13 +12,17 @@ import (
 )
 
 // Manages a Kusto (also known as Azure Data Explorer) Cluster
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_cluster.html.markdown.
 type Cluster struct {
 	pulumi.CustomResourceState
 
 	// The Kusto Cluster URI to be used for data ingestion.
 	DataIngestionUri pulumi.StringOutput `pulumi:"dataIngestionUri"`
+	// Specifies if the cluster's disks are encrypted.
+	EnableDiskEncryption pulumi.BoolPtrOutput `pulumi:"enableDiskEncryption"`
+	// Specifies if the streaming ingest is enabled.
+	EnableStreamingIngest pulumi.BoolPtrOutput `pulumi:"enableStreamingIngest"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -69,6 +73,10 @@ func GetCluster(ctx *pulumi.Context,
 type clusterState struct {
 	// The Kusto Cluster URI to be used for data ingestion.
 	DataIngestionUri *string `pulumi:"dataIngestionUri"`
+	// Specifies if the cluster's disks are encrypted.
+	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
+	// Specifies if the streaming ingest is enabled.
+	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -86,6 +94,10 @@ type clusterState struct {
 type ClusterState struct {
 	// The Kusto Cluster URI to be used for data ingestion.
 	DataIngestionUri pulumi.StringPtrInput
+	// Specifies if the cluster's disks are encrypted.
+	EnableDiskEncryption pulumi.BoolPtrInput
+	// Specifies if the streaming ingest is enabled.
+	EnableStreamingIngest pulumi.BoolPtrInput
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -105,6 +117,10 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
+	// Specifies if the cluster's disks are encrypted.
+	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
+	// Specifies if the streaming ingest is enabled.
+	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -119,6 +135,10 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// Specifies if the cluster's disks are encrypted.
+	EnableDiskEncryption pulumi.BoolPtrInput
+	// Specifies if the streaming ingest is enabled.
+	EnableStreamingIngest pulumi.BoolPtrInput
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -134,4 +154,3 @@ type ClusterArgs struct {
 func (ClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterArgs)(nil)).Elem()
 }
-

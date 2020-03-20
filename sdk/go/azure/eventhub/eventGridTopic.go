@@ -12,10 +12,10 @@ import (
 )
 
 // Manages an EventGrid Topic
-// 
+//
 // > **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_topic_legacy.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_topic.html.markdown.
 type EventGridTopic struct {
 	pulumi.CustomResourceState
 
@@ -129,4 +129,3 @@ type EventGridTopicArgs struct {
 func (EventGridTopicArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventGridTopicArgs)(nil)).Elem()
 }
-

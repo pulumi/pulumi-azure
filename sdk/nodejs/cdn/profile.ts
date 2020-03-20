@@ -8,26 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a CDN Profile to create a collection of CDN Endpoints.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleProfile = new azure.cdn.Profile("example", {
- *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard_Verizon",
- *     tags: {
- *         cost_center: "MSFT",
- *         environment: "Production",
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cdn_profile.html.markdown.
  */
@@ -79,7 +59,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.

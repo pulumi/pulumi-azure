@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Virtual WAN.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleVirtualWan = new azure.network.VirtualWan("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_wan.html.markdown.
  */
@@ -81,11 +66,14 @@ export class VirtualWan extends pulumi.CustomResource {
      * The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
-    public readonly securityProviderName!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the Virtual WAN.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+     */
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualWan resource with the given unique name, arguments, and options.
@@ -106,8 +94,8 @@ export class VirtualWan extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["office365LocalBreakoutCategory"] = state ? state.office365LocalBreakoutCategory : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["securityProviderName"] = state ? state.securityProviderName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as VirtualWanArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
@@ -120,8 +108,8 @@ export class VirtualWan extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["office365LocalBreakoutCategory"] = args ? args.office365LocalBreakoutCategory : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["securityProviderName"] = args ? args.securityProviderName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
         }
         if (!opts) {
             opts = {}
@@ -166,11 +154,14 @@ export interface VirtualWanState {
      * The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
-    readonly securityProviderName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the Virtual WAN.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+     */
+    readonly type?: pulumi.Input<string>;
 }
 
 /**
@@ -205,9 +196,12 @@ export interface VirtualWanArgs {
      * The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    readonly securityProviderName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the Virtual WAN.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+     */
+    readonly type?: pulumi.Input<string>;
 }

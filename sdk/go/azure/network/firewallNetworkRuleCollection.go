@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Network Rule Collection within an Azure Firewall.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_network_rule_collection.html.markdown.
 type FirewallNetworkRuleCollection struct {
 	pulumi.CustomResourceState
@@ -141,4 +141,3 @@ type FirewallNetworkRuleCollectionArgs struct {
 func (FirewallNetworkRuleCollectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallNetworkRuleCollectionArgs)(nil)).Elem()
 }
-

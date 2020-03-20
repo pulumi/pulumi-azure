@@ -26,7 +26,7 @@ class LogProfile(pulumi.CustomResource):
     retention_policy: pulumi.Output[dict]
     """
     A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
-    
+
       * `days` (`float`)
       * `enabled` (`bool`)
     """
@@ -41,9 +41,11 @@ class LogProfile(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, categories=None, locations=None, name=None, retention_policy=None, servicebus_rule_id=None, storage_account_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a [Log Profile](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#export-the-activity-log-with-a-log-profile). A Log Profile configures how Activity Logs are exported.
-        
+
         > **NOTE:** It's only possible to configure one Log Profile per Subscription. If you are trying to create more than one Log Profile, an error with `StatusCode=409` will occur.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_log_profile.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] categories: List of categories of the logs.
@@ -53,13 +55,11 @@ class LogProfile(pulumi.CustomResource):
         :param pulumi.Input[dict] retention_policy: A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
         :param pulumi.Input[str] servicebus_rule_id: The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
         :param pulumi.Input[str] storage_account_id: The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
-        
+
         The **retention_policy** object supports the following:
-        
+
           * `days` (`pulumi.Input[float]`)
           * `enabled` (`pulumi.Input[bool]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_log_profile.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -101,7 +101,7 @@ class LogProfile(pulumi.CustomResource):
         """
         Get an existing LogProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,17 +112,16 @@ class LogProfile(pulumi.CustomResource):
         :param pulumi.Input[dict] retention_policy: A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
         :param pulumi.Input[str] servicebus_rule_id: The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
         :param pulumi.Input[str] storage_account_id: The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
-        
+
         The **retention_policy** object supports the following:
-        
+
           * `days` (`pulumi.Input[float]`)
           * `enabled` (`pulumi.Input[bool]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_log_profile.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["categories"] = categories
         __props__["locations"] = locations
         __props__["name"] = name

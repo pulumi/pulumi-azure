@@ -12,10 +12,10 @@ import (
 )
 
 // Manages a Email integration for a Bot Channel
-// 
+//
 // > **Note** A bot can only have a single Email Channel associated with it.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_email.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_email.markdown.
 type ChannelEmail struct {
 	pulumi.CustomResourceState
 
@@ -130,4 +130,3 @@ type ChannelEmailArgs struct {
 func (ChannelEmailArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelEmailArgs)(nil)).Elem()
 }
-

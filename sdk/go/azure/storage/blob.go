@@ -12,15 +12,13 @@ import (
 )
 
 // Manages a Blob within a Storage Container.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_blob.html.markdown.
 type Blob struct {
 	pulumi.CustomResourceState
 
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
 	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
-	// The number of attempts to make per page or block when uploading. Defaults to `1`.
-	Attempts pulumi.IntPtrOutput `pulumi:"attempts"`
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
 	// A map of custom blob metadata.
@@ -29,12 +27,10 @@ type Blob struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
 	Parallelism pulumi.IntPtrOutput `pulumi:"parallelism"`
-	// The name of the resource group in which to create the storage container.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
 	Size pulumi.IntPtrOutput `pulumi:"size"`
 	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
-	Source pulumi.StringPtrOutput `pulumi:"source"`
+	Source pulumi.AssetOrArchiveOutput `pulumi:"source"`
 	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
 	SourceContent pulumi.StringPtrOutput `pulumi:"sourceContent"`
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
@@ -90,8 +86,6 @@ func GetBlob(ctx *pulumi.Context,
 type blobState struct {
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
 	AccessTier *string `pulumi:"accessTier"`
-	// The number of attempts to make per page or block when uploading. Defaults to `1`.
-	Attempts *int `pulumi:"attempts"`
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType *string `pulumi:"contentType"`
 	// A map of custom blob metadata.
@@ -100,12 +94,10 @@ type blobState struct {
 	Name *string `pulumi:"name"`
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
 	Parallelism *int `pulumi:"parallelism"`
-	// The name of the resource group in which to create the storage container.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
 	Size *int `pulumi:"size"`
 	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
-	Source *string `pulumi:"source"`
+	Source pulumi.AssetOrArchive `pulumi:"source"`
 	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
 	SourceContent *string `pulumi:"sourceContent"`
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
@@ -125,8 +117,6 @@ type blobState struct {
 type BlobState struct {
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
 	AccessTier pulumi.StringPtrInput
-	// The number of attempts to make per page or block when uploading. Defaults to `1`.
-	Attempts pulumi.IntPtrInput
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrInput
 	// A map of custom blob metadata.
@@ -135,12 +125,10 @@ type BlobState struct {
 	Name pulumi.StringPtrInput
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
 	Parallelism pulumi.IntPtrInput
-	// The name of the resource group in which to create the storage container.
-	ResourceGroupName pulumi.StringPtrInput
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
 	Size pulumi.IntPtrInput
 	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
-	Source pulumi.StringPtrInput
+	Source pulumi.AssetOrArchiveInput
 	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
 	SourceContent pulumi.StringPtrInput
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
@@ -164,8 +152,6 @@ func (BlobState) ElementType() reflect.Type {
 type blobArgs struct {
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
 	AccessTier *string `pulumi:"accessTier"`
-	// The number of attempts to make per page or block when uploading. Defaults to `1`.
-	Attempts *int `pulumi:"attempts"`
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType *string `pulumi:"contentType"`
 	// A map of custom blob metadata.
@@ -174,12 +160,10 @@ type blobArgs struct {
 	Name *string `pulumi:"name"`
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
 	Parallelism *int `pulumi:"parallelism"`
-	// The name of the resource group in which to create the storage container.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
 	Size *int `pulumi:"size"`
 	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
-	Source *string `pulumi:"source"`
+	Source pulumi.AssetOrArchive `pulumi:"source"`
 	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
 	SourceContent *string `pulumi:"sourceContent"`
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
@@ -198,8 +182,6 @@ type blobArgs struct {
 type BlobArgs struct {
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
 	AccessTier pulumi.StringPtrInput
-	// The number of attempts to make per page or block when uploading. Defaults to `1`.
-	Attempts pulumi.IntPtrInput
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrInput
 	// A map of custom blob metadata.
@@ -208,12 +190,10 @@ type BlobArgs struct {
 	Name pulumi.StringPtrInput
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
 	Parallelism pulumi.IntPtrInput
-	// The name of the resource group in which to create the storage container.
-	ResourceGroupName pulumi.StringPtrInput
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
 	Size pulumi.IntPtrInput
 	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
-	Source pulumi.StringPtrInput
+	Source pulumi.AssetOrArchiveInput
 	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
 	SourceContent pulumi.StringPtrInput
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
@@ -231,4 +211,3 @@ type BlobArgs struct {
 func (BlobArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*blobArgs)(nil)).Elem()
 }
-

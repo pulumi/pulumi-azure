@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Redis Cache
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/redis_cache.html.markdown.
 func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.InvokeOption) (*LookupCacheResult, error) {
 	var rv LookupCacheResult
@@ -25,10 +25,9 @@ type LookupCacheArgs struct {
 	// The name of the Redis cache
 	Name string `pulumi:"name"`
 	// The name of the resource group the Redis cache instance is located in.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Zones []string `pulumi:"zones"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
+	Zones             []string `pulumi:"zones"`
 }
-
 
 // A collection of values returned by getCache.
 type LookupCacheResult struct {
@@ -46,26 +45,29 @@ type LookupCacheResult struct {
 	Location string `pulumi:"location"`
 	// The minimum TLS version.
 	MinimumTlsVersion string `pulumi:"minimumTlsVersion"`
-	Name string `pulumi:"name"`
+	Name              string `pulumi:"name"`
 	// A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
 	PatchSchedules []GetCachePatchSchedule `pulumi:"patchSchedules"`
 	// The non-SSL Port of the Redis Instance
 	Port int `pulumi:"port"`
 	// The Primary Access Key for the Redis Instance
 	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
-	PrivateStaticIpAddress string `pulumi:"privateStaticIpAddress"`
+	// The primary connection string of the Redis Instance.
+	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
+	PrivateStaticIpAddress  string `pulumi:"privateStaticIpAddress"`
 	// A `redisConfiguration` block as defined below.
 	RedisConfigurations []GetCacheRedisConfiguration `pulumi:"redisConfigurations"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName   string                       `pulumi:"resourceGroupName"`
 	// The Secondary Access Key for the Redis Instance
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
-	ShardCount int `pulumi:"shardCount"`
+	// The secondary connection string of the Redis Instance.
+	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
+	ShardCount                int    `pulumi:"shardCount"`
 	// The SKU of Redis used. Possible values are `Basic`, `Standard` and `Premium`.
 	SkuName string `pulumi:"skuName"`
 	// The SSL Port of the Redis Instance
-	SslPort int `pulumi:"sslPort"`
-	SubnetId string `pulumi:"subnetId"`
-	Tags map[string]string `pulumi:"tags"`
-	Zones []string `pulumi:"zones"`
+	SslPort  int               `pulumi:"sslPort"`
+	SubnetId string            `pulumi:"subnetId"`
+	Tags     map[string]string `pulumi:"tags"`
+	Zones    []string          `pulumi:"zones"`
 }
-

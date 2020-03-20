@@ -12,11 +12,13 @@ import (
 )
 
 // Enables you to manage DNS SRV Records within Azure Private DNS.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_srv_record.html.markdown.
 type SRVRecord struct {
 	pulumi.CustomResourceState
 
+	// The FQDN of the DNS SRV Record.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `record` blocks as defined below.
@@ -25,7 +27,7 @@ type SRVRecord struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	Ttl pulumi.IntOutput `pulumi:"ttl"`
+	Ttl  pulumi.IntOutput       `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
@@ -70,6 +72,8 @@ func GetSRVRecord(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SRVRecord resources.
 type srvrecordState struct {
+	// The FQDN of the DNS SRV Record.
+	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// One or more `record` blocks as defined below.
@@ -78,12 +82,14 @@ type srvrecordState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	Ttl *int `pulumi:"ttl"`
+	Ttl  *int              `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName *string `pulumi:"zoneName"`
 }
 
 type SRVRecordState struct {
+	// The FQDN of the DNS SRV Record.
+	Fqdn pulumi.StringPtrInput
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// One or more `record` blocks as defined below.
@@ -92,7 +98,7 @@ type SRVRecordState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	Ttl pulumi.IntPtrInput
+	Ttl  pulumi.IntPtrInput
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringPtrInput
 }
@@ -110,7 +116,7 @@ type srvrecordArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	Ttl int `pulumi:"ttl"`
+	Ttl  int               `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName string `pulumi:"zoneName"`
 }
@@ -125,7 +131,7 @@ type SRVRecordArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	Ttl pulumi.IntInput
+	Ttl  pulumi.IntInput
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringInput
 }
@@ -133,4 +139,3 @@ type SRVRecordArgs struct {
 func (SRVRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*srvrecordArgs)(nil)).Elem()
 }
-

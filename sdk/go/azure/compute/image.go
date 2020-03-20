@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a custom virtual machine image that can be used to create virtual machines.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/image.html.markdown.
 type Image struct {
 	pulumi.CustomResourceState
@@ -174,4 +174,3 @@ type ImageArgs struct {
 func (ImageArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*imageArgs)(nil)).Elem()
 }
-

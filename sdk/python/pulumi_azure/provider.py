@@ -10,17 +10,49 @@ from typing import Union
 from . import utilities, tables
 
 class Provider(pulumi.ProviderResource):
-    def __init__(__self__, resource_name, opts=None, auxiliary_tenant_ids=None, client_certificate_password=None, client_certificate_path=None, client_id=None, client_secret=None, disable_correlation_request_id=None, disable_terraform_partner_id=None, environment=None, msi_endpoint=None, partner_id=None, skip_credentials_validation=None, skip_provider_registration=None, subscription_id=None, tenant_id=None, use_msi=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auxiliary_tenant_ids=None, client_certificate_password=None, client_certificate_path=None, client_id=None, client_secret=None, disable_correlation_request_id=None, disable_terraform_partner_id=None, environment=None, features=None, msi_endpoint=None, partner_id=None, skip_credentials_validation=None, skip_provider_registration=None, storage_use_azuread=None, subscription_id=None, tenant_id=None, use_msi=None, __props__=None, __name__=None, __opts__=None):
         """
         The provider type for the azurerm package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
         construction to achieve fine-grained programmatic control over provider settings. See the
         [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
-        
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/index.html.markdown.
+
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] client_certificate_password: The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
+               Certificate
+        :param pulumi.Input[str] client_certificate_path: The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
+               Principal using a Client Certificate.
+        :param pulumi.Input[str] client_id: The Client ID which should be used.
+        :param pulumi.Input[str] client_secret: The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
+        :param pulumi.Input[bool] disable_correlation_request_id: This will disable the x-ms-correlation-request-id header.
+        :param pulumi.Input[bool] disable_terraform_partner_id: This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
+        :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
+               public.
+        :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
+               automatically.
+        :param pulumi.Input[str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
+        :param pulumi.Input[bool] skip_credentials_validation: This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
+        :param pulumi.Input[bool] skip_provider_registration: Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
+               registered?
+        :param pulumi.Input[bool] storage_use_azuread: Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+        :param pulumi.Input[str] subscription_id: The Subscription ID which should be used.
+        :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
+        :param pulumi.Input[bool] use_msi: Allowed Managed Service Identity be used for Authentication.
+
+        The **features** object supports the following:
+
+          * `keyVault` (`pulumi.Input[dict]`)
+            * `purgeSoftDeleteOnDestroy` (`pulumi.Input[bool]`)
+            * `recoverSoftDeletedKeyVaults` (`pulumi.Input[bool]`)
+
+          * `virtualMachine` (`pulumi.Input[dict]`)
+            * `deleteOsDiskOnDeletion` (`pulumi.Input[bool]`)
+
+          * `virtualMachineScaleSet` (`pulumi.Input[dict]`)
+            * `rollInstancesWhenRequired` (`pulumi.Input[bool]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -59,6 +91,7 @@ class Provider(pulumi.ProviderResource):
             if environment is None:
                 environment = (utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
             __props__['environment'] = environment
+            __props__['features'] = pulumi.Output.from_input(features).apply(json.dumps) if features is not None else None
             if msi_endpoint is None:
                 msi_endpoint = (utilities.get_env('ARM_MSI_ENDPOINT') or '')
             __props__['msi_endpoint'] = msi_endpoint
@@ -71,6 +104,7 @@ class Provider(pulumi.ProviderResource):
             if skip_provider_registration is None:
                 skip_provider_registration = (utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
             __props__['skip_provider_registration'] = pulumi.Output.from_input(skip_provider_registration).apply(json.dumps) if skip_provider_registration is not None else None
+            __props__['storage_use_azuread'] = pulumi.Output.from_input(storage_use_azuread).apply(json.dumps) if storage_use_azuread is not None else None
             if subscription_id is None:
                 subscription_id = (utilities.get_env('ARM_SUBSCRIPTION_ID') or '')
             __props__['subscription_id'] = subscription_id
@@ -86,22 +120,6 @@ class Provider(pulumi.ProviderResource):
             __props__,
             opts)
 
-    @staticmethod
-    def get(resource_name, id, opts=None):
-        """
-        Get an existing Provider resource's state with the given name, id, and optional extra
-        properties used to qualify the lookup.
-        
-        :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
-        :param pulumi.ResourceOptions opts: Options for the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/index.html.markdown.
-        """
-        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
-
-        __props__ = dict()
-        return Provider(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

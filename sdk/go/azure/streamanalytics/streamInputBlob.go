@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Stream Analytics Stream Input Blob.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_stream_input_blob.html.markdown.
 type StreamInputBlob struct {
 	pulumi.CustomResourceState
@@ -193,4 +193,3 @@ type StreamInputBlobArgs struct {
 func (StreamInputBlobArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamInputBlobArgs)(nil)).Elem()
 }
-

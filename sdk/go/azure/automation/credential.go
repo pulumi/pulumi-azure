@@ -12,12 +12,11 @@ import (
 )
 
 // Manages a Automation Credential.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_credential.html.markdown.
 type Credential struct {
 	pulumi.CustomResourceState
 
-	AccountName pulumi.StringOutput `pulumi:"accountName"`
 	// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringOutput `pulumi:"automationAccountName"`
 	// The description associated with this Automation Credential.
@@ -35,6 +34,9 @@ type Credential struct {
 // NewCredential registers a new resource with the given unique name, arguments, and options.
 func NewCredential(ctx *pulumi.Context,
 	name string, args *CredentialArgs, opts ...pulumi.ResourceOption) (*Credential, error) {
+	if args == nil || args.AutomationAccountName == nil {
+		return nil, errors.New("missing required argument 'AutomationAccountName'")
+	}
 	if args == nil || args.Password == nil {
 		return nil, errors.New("missing required argument 'Password'")
 	}
@@ -69,7 +71,6 @@ func GetCredential(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Credential resources.
 type credentialState struct {
-	AccountName *string `pulumi:"accountName"`
 	// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
 	AutomationAccountName *string `pulumi:"automationAccountName"`
 	// The description associated with this Automation Credential.
@@ -85,7 +86,6 @@ type credentialState struct {
 }
 
 type CredentialState struct {
-	AccountName pulumi.StringPtrInput
 	// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringPtrInput
 	// The description associated with this Automation Credential.
@@ -105,9 +105,8 @@ func (CredentialState) ElementType() reflect.Type {
 }
 
 type credentialArgs struct {
-	AccountName *string `pulumi:"accountName"`
 	// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
-	AutomationAccountName *string `pulumi:"automationAccountName"`
+	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The description associated with this Automation Credential.
 	Description *string `pulumi:"description"`
 	// Specifies the name of the Credential. Changing this forces a new resource to be created.
@@ -122,9 +121,8 @@ type credentialArgs struct {
 
 // The set of arguments for constructing a Credential resource.
 type CredentialArgs struct {
-	AccountName pulumi.StringPtrInput
 	// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
-	AutomationAccountName pulumi.StringPtrInput
+	AutomationAccountName pulumi.StringInput
 	// The description associated with this Automation Credential.
 	Description pulumi.StringPtrInput
 	// Specifies the name of the Credential. Changing this forces a new resource to be created.
@@ -140,4 +138,3 @@ type CredentialArgs struct {
 func (CredentialArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*credentialArgs)(nil)).Elem()
 }
-

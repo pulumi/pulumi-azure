@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Role Definition.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition.html.markdown.
 func LookupRoleDefinition(ctx *pulumi.Context, args *LookupRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupRoleDefinitionResult, error) {
 	var rv LookupRoleDefinitionResult
@@ -30,7 +30,6 @@ type LookupRoleDefinitionArgs struct {
 	Scope *string `pulumi:"scope"`
 }
 
-
 // A collection of values returned by getRoleDefinition.
 type LookupRoleDefinitionResult struct {
 	// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
@@ -38,13 +37,12 @@ type LookupRoleDefinitionResult struct {
 	// the Description of the built-in Role.
 	Description string `pulumi:"description"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// a `permissions` block as documented below.
-	Permissions []GetRoleDefinitionPermission `pulumi:"permissions"`
-	RoleDefinitionId string `pulumi:"roleDefinitionId"`
-	Scope *string `pulumi:"scope"`
+	Permissions      []GetRoleDefinitionPermission `pulumi:"permissions"`
+	RoleDefinitionId string                        `pulumi:"roleDefinitionId"`
+	Scope            *string                       `pulumi:"scope"`
 	// the Type of the Role.
 	Type string `pulumi:"type"`
 }
-

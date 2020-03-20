@@ -8,40 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Allows you to manage an Azure SQL Elastic Pool via the `2017-10-01-preview` API which allows for `vCore` and `DTU` based configurations.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "westeurope",
- * });
- * const exampleSqlServer = new azure.sql.SqlServer("example", {
- *     administratorLogin: "4dm1n157r470r",
- *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     version: "12.0",
- * });
- * const exampleElasticPool = new azure.mssql.ElasticPool("example", {
- *     location: exampleResourceGroup.location,
- *     maxSizeGb: 756,
- *     perDatabaseSettings: {
- *         maxCapacity: 4,
- *         minCapacity: 0.25,
- *     },
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleSqlServer.name,
- *     sku: {
- *         capacity: 4,
- *         family: "Gen5",
- *         name: "GP_Gen5",
- *         tier: "GeneralPurpose",
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_elasticpool.html.markdown.
  */
@@ -72,7 +38,6 @@ export class ElasticPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === ElasticPool.__pulumiType;
     }
 
-    public /*out*/ readonly elasticPoolProperties!: pulumi.Output<outputs.mssql.ElasticPoolElasticPoolProperties>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -82,11 +47,11 @@ export class ElasticPool extends pulumi.CustomResource {
      */
     public readonly maxSizeBytes!: pulumi.Output<number>;
     /**
-     * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
+     * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
      */
     public readonly maxSizeGb!: pulumi.Output<number>;
     /**
-     * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+     * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -108,7 +73,7 @@ export class ElasticPool extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
      */
@@ -126,7 +91,6 @@ export class ElasticPool extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ElasticPoolState | undefined;
-            inputs["elasticPoolProperties"] = state ? state.elasticPoolProperties : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maxSizeBytes"] = state ? state.maxSizeBytes : undefined;
             inputs["maxSizeGb"] = state ? state.maxSizeGb : undefined;
@@ -161,7 +125,6 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
-            inputs["elasticPoolProperties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -178,7 +141,6 @@ export class ElasticPool extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ElasticPool resources.
  */
 export interface ElasticPoolState {
-    readonly elasticPoolProperties?: pulumi.Input<inputs.mssql.ElasticPoolElasticPoolProperties>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -188,11 +150,11 @@ export interface ElasticPoolState {
      */
     readonly maxSizeBytes?: pulumi.Input<number>;
     /**
-     * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
+     * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
      */
     readonly maxSizeGb?: pulumi.Input<number>;
     /**
-     * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+     * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -234,11 +196,11 @@ export interface ElasticPoolArgs {
      */
     readonly maxSizeBytes?: pulumi.Input<number>;
     /**
-     * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
+     * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
      */
     readonly maxSizeGb?: pulumi.Input<number>;
     /**
-     * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+     * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
      */
     readonly name?: pulumi.Input<string>;
     /**

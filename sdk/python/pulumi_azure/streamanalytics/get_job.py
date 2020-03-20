@@ -13,7 +13,7 @@ class GetJobResult:
     """
     A collection of values returned by getJob.
     """
-    def __init__(__self__, compatibility_level=None, data_locale=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, job_id=None, location=None, name=None, output_error_policy=None, resource_group_name=None, streaming_units=None, transformation_query=None, id=None):
+    def __init__(__self__, compatibility_level=None, data_locale=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, id=None, job_id=None, location=None, name=None, output_error_policy=None, resource_group_name=None, streaming_units=None, transformation_query=None):
         if compatibility_level and not isinstance(compatibility_level, str):
             raise TypeError("Expected argument 'compatibility_level' to be a str")
         __self__.compatibility_level = compatibility_level
@@ -43,6 +43,12 @@ class GetJobResult:
         __self__.events_out_of_order_policy = events_out_of_order_policy
         """
         The policy which should be applied to events which arrive out of order in the input event stream.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if job_id and not isinstance(job_id, str):
             raise TypeError("Expected argument 'job_id' to be a str")
@@ -80,12 +86,6 @@ class GetJobResult:
         """
         The query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetJobResult(GetJobResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -97,25 +97,27 @@ class AwaitableGetJobResult(GetJobResult):
             events_late_arrival_max_delay_in_seconds=self.events_late_arrival_max_delay_in_seconds,
             events_out_of_order_max_delay_in_seconds=self.events_out_of_order_max_delay_in_seconds,
             events_out_of_order_policy=self.events_out_of_order_policy,
+            id=self.id,
             job_id=self.job_id,
             location=self.location,
             name=self.name,
             output_error_policy=self.output_error_policy,
             resource_group_name=self.resource_group_name,
             streaming_units=self.streaming_units,
-            transformation_query=self.transformation_query,
-            id=self.id)
+            transformation_query=self.transformation_query)
 
 def get_job(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Stream Analytics Job.
-    
-    :param str name: Specifies the name of the Stream Analytics Job.
-    :param str resource_group_name: Specifies the name of the resource group the Stream Analytics Job is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/stream_analytics_job.html.markdown.
+
+
+    :param str name: Specifies the name of the Stream Analytics Job.
+    :param str resource_group_name: Specifies the name of the resource group the Stream Analytics Job is located in.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -131,11 +133,11 @@ def get_job(name=None,resource_group_name=None,opts=None):
         events_late_arrival_max_delay_in_seconds=__ret__.get('eventsLateArrivalMaxDelayInSeconds'),
         events_out_of_order_max_delay_in_seconds=__ret__.get('eventsOutOfOrderMaxDelayInSeconds'),
         events_out_of_order_policy=__ret__.get('eventsOutOfOrderPolicy'),
+        id=__ret__.get('id'),
         job_id=__ret__.get('jobId'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         output_error_policy=__ret__.get('outputErrorPolicy'),
         resource_group_name=__ret__.get('resourceGroupName'),
         streaming_units=__ret__.get('streamingUnits'),
-        transformation_query=__ret__.get('transformationQuery'),
-        id=__ret__.get('id'))
+        transformation_query=__ret__.get('transformationQuery'))

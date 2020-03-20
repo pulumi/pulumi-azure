@@ -13,7 +13,13 @@ class GetExpressRouteCircuitResult:
     """
     A collection of values returned by getExpressRouteCircuit.
     """
-    def __init__(__self__, location=None, name=None, peerings=None, resource_group_name=None, service_key=None, service_provider_properties=None, service_provider_provisioning_state=None, sku=None, id=None):
+    def __init__(__self__, id=None, location=None, name=None, peerings=None, resource_group_name=None, service_key=None, service_provider_properties=None, service_provider_provisioning_state=None, sku=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -56,18 +62,13 @@ class GetExpressRouteCircuitResult:
         """
         A `sku` block for the ExpressRoute circuit as documented below.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetExpressRouteCircuitResult(GetExpressRouteCircuitResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetExpressRouteCircuitResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             peerings=self.peerings,
@@ -75,19 +76,20 @@ class AwaitableGetExpressRouteCircuitResult(GetExpressRouteCircuitResult):
             service_key=self.service_key,
             service_provider_properties=self.service_provider_properties,
             service_provider_provisioning_state=self.service_provider_provisioning_state,
-            sku=self.sku,
-            id=self.id)
+            sku=self.sku)
 
 def get_express_route_circuit(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing ExpressRoute circuit.
-    
-    :param str name: The name of the ExpressRoute circuit.
-    :param str resource_group_name: The Name of the Resource Group where the ExpressRoute circuit exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/express_route_circuit.html.markdown.
+
+
+    :param str name: The name of the ExpressRoute circuit.
+    :param str resource_group_name: The Name of the Resource Group where the ExpressRoute circuit exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -98,6 +100,7 @@ def get_express_route_circuit(name=None,resource_group_name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('azure:network/getExpressRouteCircuit:getExpressRouteCircuit', __args__, opts=opts).value
 
     return AwaitableGetExpressRouteCircuitResult(
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         peerings=__ret__.get('peerings'),
@@ -105,5 +108,4 @@ def get_express_route_circuit(name=None,resource_group_name=None,opts=None):
         service_key=__ret__.get('serviceKey'),
         service_provider_properties=__ret__.get('serviceProviderProperties'),
         service_provider_provisioning_state=__ret__.get('serviceProviderProvisioningState'),
-        sku=__ret__.get('sku'),
-        id=__ret__.get('id'))
+        sku=__ret__.get('sku'))

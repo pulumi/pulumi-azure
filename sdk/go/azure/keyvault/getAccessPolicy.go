@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about the permissions from the Management Key Vault Templates.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_access_policy.html.markdown.
 func LookupAccessPolicy(ctx *pulumi.Context, args *LookupAccessPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAccessPolicyResult, error) {
 	var rv LookupAccessPolicyResult
@@ -28,7 +28,6 @@ type LookupAccessPolicyArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getAccessPolicy.
 type LookupAccessPolicyResult struct {
 	// the certificate permissions for the access policy
@@ -37,8 +36,7 @@ type LookupAccessPolicyResult struct {
 	Id string `pulumi:"id"`
 	// the key permissions for the access policy
 	KeyPermissions []string `pulumi:"keyPermissions"`
-	Name string `pulumi:"name"`
+	Name           string   `pulumi:"name"`
 	// the secret permissions for the access policy
 	SecretPermissions []string `pulumi:"secretPermissions"`
 }
-

@@ -13,7 +13,13 @@ class GetPlatformImageResult:
     """
     A collection of values returned by getPlatformImage.
     """
-    def __init__(__self__, location=None, offer=None, publisher=None, sku=None, version=None, id=None):
+    def __init__(__self__, id=None, location=None, offer=None, publisher=None, sku=None, version=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -32,37 +38,33 @@ class GetPlatformImageResult:
         """
         The latest version of the Platform Image.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetPlatformImageResult(GetPlatformImageResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetPlatformImageResult(
+            id=self.id,
             location=self.location,
             offer=self.offer,
             publisher=self.publisher,
             sku=self.sku,
-            version=self.version,
-            id=self.id)
+            version=self.version)
 
 def get_platform_image(location=None,offer=None,publisher=None,sku=None,opts=None):
     """
     Use this data source to access information about a Platform Image.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/platform_image.html.markdown.
+
+
     :param str location: Specifies the Location to pull information about this Platform Image from.
     :param str offer: Specifies the Offer associated with the Platform Image.
     :param str publisher: Specifies the Publisher associated with the Platform Image.
     :param str sku: Specifies the SKU of the Platform Image.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/platform_image.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['location'] = location
     __args__['offer'] = offer
@@ -75,9 +77,9 @@ def get_platform_image(location=None,offer=None,publisher=None,sku=None,opts=Non
     __ret__ = pulumi.runtime.invoke('azure:compute/getPlatformImage:getPlatformImage', __args__, opts=opts).value
 
     return AwaitableGetPlatformImageResult(
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         offer=__ret__.get('offer'),
         publisher=__ret__.get('publisher'),
         sku=__ret__.get('sku'),
-        version=__ret__.get('version'),
-        id=__ret__.get('id'))
+        version=__ret__.get('version'))

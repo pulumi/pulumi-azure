@@ -11,54 +11,6 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
- * 
- * const current = azure.core.getClientConfig();
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const server = new random.RandomId("server", {
- *     byteLength: 8,
- *     keepers: {
- *         ami_id: 1,
- *     },
- * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     accessPolicies: [{
- *         keyPermissions: [
- *             "create",
- *             "get",
- *         ],
- *         objectId: current.servicePrincipalObjectId,
- *         secretPermissions: [
- *             "set",
- *             "get",
- *             "delete",
- *         ],
- *         tenantId: current.tenantId,
- *     }],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "premium",
- *     tags: {
- *         environment: "Production",
- *     },
- *     tenantId: current.tenantId,
- * });
- * const exampleSecret = new azure.keyvault.Secret("example", {
- *     keyVaultId: exampleKeyVault.id,
- *     tags: {
- *         environment: "Production",
- *     },
- *     value: "szechuan",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_secret.html.markdown.
  */
@@ -112,12 +64,11 @@ export class Secret extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the value of the Key Vault Secret.
      */
     public readonly value!: pulumi.Output<string>;
-    public readonly vaultUri!: pulumi.Output<string>;
     /**
      * The current version of the Key Vault Secret.
      */
@@ -142,10 +93,12 @@ export class Secret extends pulumi.CustomResource {
             inputs["notBeforeDate"] = state ? state.notBeforeDate : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["value"] = state ? state.value : undefined;
-            inputs["vaultUri"] = state ? state.vaultUri : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as SecretArgs | undefined;
+            if (!args || args.keyVaultId === undefined) {
+                throw new Error("Missing required property 'keyVaultId'");
+            }
             if (!args || args.value === undefined) {
                 throw new Error("Missing required property 'value'");
             }
@@ -156,7 +109,6 @@ export class Secret extends pulumi.CustomResource {
             inputs["notBeforeDate"] = args ? args.notBeforeDate : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["value"] = args ? args.value : undefined;
-            inputs["vaultUri"] = args ? args.vaultUri : undefined;
             inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
@@ -202,7 +154,6 @@ export interface SecretState {
      * Specifies the value of the Key Vault Secret.
      */
     readonly value?: pulumi.Input<string>;
-    readonly vaultUri?: pulumi.Input<string>;
     /**
      * The current version of the Key Vault Secret.
      */
@@ -224,7 +175,7 @@ export interface SecretArgs {
     /**
      * The ID of the Key Vault where the Secret should be created.
      */
-    readonly keyVaultId?: pulumi.Input<string>;
+    readonly keyVaultId: pulumi.Input<string>;
     /**
      * Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
      */
@@ -241,5 +192,4 @@ export interface SecretArgs {
      * Specifies the value of the Key Vault Secret.
      */
     readonly value: pulumi.Input<string>;
-    readonly vaultUri?: pulumi.Input<string>;
 }

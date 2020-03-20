@@ -8,73 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Public IP Address.
- * 
- * ## Example Usage (reference an existing)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.network.getPublicIP({
- *     name: "nameOfPublicIp",
- *     resourceGroupName: "nameOfResourceGroup",
- * });
- * 
- * export const domainNameLabel = example.domainNameLabel;
- * export const publicIpAddress = example.ipAddress;
- * ```
- * 
- * ## Example Usage (Retrieve the Dynamic Public IP of a new VM)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US 2",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     addressPrefix: "10.0.2.0/24",
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
- *     allocationMethod: "Dynamic",
- *     idleTimeoutInMinutes: 30,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tags: {
- *         environment: "test",
- *     },
- * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     ipConfigurations: [{
- *         name: "testconfiguration1",
- *         privateIpAddress: "10.0.2.5",
- *         privateIpAddressAllocation: "Static",
- *         publicIpAddressId: examplePublicIp.id,
- *         subnetId: exampleSubnet.id,
- *     }],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleVirtualMachine = new azure.compute.VirtualMachine("example", {
- *     location: exampleResourceGroup.location,
- *     networkInterfaceIds: [exampleNetworkInterface.id],
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const examplePublicIP = pulumi.all([examplePublicIp.name, exampleVirtualMachine.resourceGroupName]).apply(([name, resourceGroupName]) => azure.network.getPublicIP({
- *     name: name,
- *     resourceGroupName: resourceGroupName,
- * }));
- * 
- * export const publicIpAddress = examplePublicIP.ipAddress;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip.html.markdown.
  */
@@ -143,7 +76,7 @@ export interface GetPublicIPResult {
     /**
      * A mapping of tags to assigned to the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     readonly zones: string[];
     /**
      * id is the provider-assigned unique ID for this managed resource.

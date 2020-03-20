@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Logger within an API Management Service.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_logger.html.markdown.
 type Logger struct {
 	pulumi.CustomResourceState
@@ -142,4 +142,3 @@ type LoggerArgs struct {
 func (LoggerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loggerArgs)(nil)).Elem()
 }
-

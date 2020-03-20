@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Mongo Collection within a Cosmos DB Account.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_mongo_collection.html.markdown.
 type MongoCollection struct {
 	pulumi.CustomResourceState
@@ -20,17 +20,15 @@ type MongoCollection struct {
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
+	// The default Time To Live in seconds. If the value is `0` items are not automatically expired.
 	DefaultTtlSeconds pulumi.IntPtrOutput `pulumi:"defaultTtlSeconds"`
-	// One or more `indexes` blocks as defined below.
-	Indexes MongoCollectionIndexArrayOutput `pulumi:"indexes"`
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
-	ShardKey pulumi.StringPtrOutput `pulumi:"shardKey"`
-	Throughput pulumi.IntOutput `pulumi:"throughput"`
+	ShardKey   pulumi.StringPtrOutput `pulumi:"shardKey"`
+	Throughput pulumi.IntOutput       `pulumi:"throughput"`
 }
 
 // NewMongoCollection registers a new resource with the given unique name, arguments, and options.
@@ -73,33 +71,29 @@ type mongoCollectionState struct {
 	AccountName *string `pulumi:"accountName"`
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
-	// The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
+	// The default Time To Live in seconds. If the value is `0` items are not automatically expired.
 	DefaultTtlSeconds *int `pulumi:"defaultTtlSeconds"`
-	// One or more `indexes` blocks as defined below.
-	Indexes []MongoCollectionIndex `pulumi:"indexes"`
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
-	ShardKey *string `pulumi:"shardKey"`
-	Throughput *int `pulumi:"throughput"`
+	ShardKey   *string `pulumi:"shardKey"`
+	Throughput *int    `pulumi:"throughput"`
 }
 
 type MongoCollectionState struct {
 	AccountName pulumi.StringPtrInput
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
-	// The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
+	// The default Time To Live in seconds. If the value is `0` items are not automatically expired.
 	DefaultTtlSeconds pulumi.IntPtrInput
-	// One or more `indexes` blocks as defined below.
-	Indexes MongoCollectionIndexArrayInput
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
-	ShardKey pulumi.StringPtrInput
+	ShardKey   pulumi.StringPtrInput
 	Throughput pulumi.IntPtrInput
 }
 
@@ -111,17 +105,15 @@ type mongoCollectionArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
+	// The default Time To Live in seconds. If the value is `0` items are not automatically expired.
 	DefaultTtlSeconds *int `pulumi:"defaultTtlSeconds"`
-	// One or more `indexes` blocks as defined below.
-	Indexes []MongoCollectionIndex `pulumi:"indexes"`
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
-	ShardKey *string `pulumi:"shardKey"`
-	Throughput *int `pulumi:"throughput"`
+	ShardKey   *string `pulumi:"shardKey"`
+	Throughput *int    `pulumi:"throughput"`
 }
 
 // The set of arguments for constructing a MongoCollection resource.
@@ -129,20 +121,17 @@ type MongoCollectionArgs struct {
 	AccountName pulumi.StringInput
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
-	// The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
+	// The default Time To Live in seconds. If the value is `0` items are not automatically expired.
 	DefaultTtlSeconds pulumi.IntPtrInput
-	// One or more `indexes` blocks as defined below.
-	Indexes MongoCollectionIndexArrayInput
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
-	ShardKey pulumi.StringPtrInput
+	ShardKey   pulumi.StringPtrInput
 	Throughput pulumi.IntPtrInput
 }
 
 func (MongoCollectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mongoCollectionArgs)(nil)).Elem()
 }
-

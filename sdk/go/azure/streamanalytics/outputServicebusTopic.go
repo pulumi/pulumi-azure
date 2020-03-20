@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Stream Analytics Output to a ServiceBus Topic.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_servicebus_topic.html.markdown.
 type OutputServicebusTopic struct {
 	pulumi.CustomResourceState
@@ -167,4 +167,3 @@ type OutputServicebusTopicArgs struct {
 func (OutputServicebusTopicArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*outputServicebusTopicArgs)(nil)).Elem()
 }
-

@@ -8,40 +8,8 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
- *     capacity: 2,
- *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Basic",
- *     tags: {
- *         environment: "Production",
- *     },
- * });
- * const exampleEventHub = new azure.eventhub.EventHub("example", {
- *     messageRetention: 2,
- *     namespaceName: exampleEventHubNamespace.name,
- *     partitionCount: 2,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("example", {
- *     eventhubName: exampleEventHub.name,
- *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     userMetadata: "some-meta-data",
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_consumer_group_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_consumer_group.html.markdown.
  */
 export class EventHubConsumerGroup extends pulumi.CustomResource {
     /**
@@ -74,7 +42,6 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
     public readonly eventhubName!: pulumi.Output<string>;
-    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
      */
@@ -105,7 +72,6 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as EventHubConsumerGroupState | undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
-            inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -122,7 +88,6 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eventhubName"] = args ? args.eventhubName : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -147,7 +112,6 @@ export interface EventHubConsumerGroupState {
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
     readonly eventhubName?: pulumi.Input<string>;
-    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
      */
@@ -174,7 +138,6 @@ export interface EventHubConsumerGroupArgs {
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
     readonly eventhubName: pulumi.Input<string>;
-    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
      */

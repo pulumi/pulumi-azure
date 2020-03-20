@@ -13,7 +13,13 @@ class GetEndpointConnectionResult:
     """
     A collection of values returned by getEndpointConnection.
     """
-    def __init__(__self__, location=None, name=None, private_service_connections=None, resource_group_name=None, id=None):
+    def __init__(__self__, id=None, location=None, name=None, private_service_connections=None, resource_group_name=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -32,36 +38,32 @@ class GetEndpointConnectionResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetEndpointConnectionResult(GetEndpointConnectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetEndpointConnectionResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             private_service_connections=self.private_service_connections,
-            resource_group_name=self.resource_group_name,
-            id=self.id)
+            resource_group_name=self.resource_group_name)
 
 def get_endpoint_connection(name=None,resource_group_name=None,opts=None):
     """
-    Use this data source to access the connection status information about an existing Private Endpoint.
-    
+    Use this data source to access the connection status information about an existing Private Endpoint Connection.
+
     > **NOTE** Private Endpoint is currently in Public Preview.
-    
-    :param str name: Specifies the Name of the private endpoint.
-    :param str resource_group_name: Specifies the Name of the Resource Group within which the private endpoint exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_endpoint_connection.html.markdown.
+
+
+    :param str name: Specifies the Name of the private endpoint.
+    :param str resource_group_name: Specifies the Name of the Resource Group within which the private endpoint exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -72,8 +74,8 @@ def get_endpoint_connection(name=None,resource_group_name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('azure:privatelink/getEndpointConnection:getEndpointConnection', __args__, opts=opts).value
 
     return AwaitableGetEndpointConnectionResult(
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         private_service_connections=__ret__.get('privateServiceConnections'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        id=__ret__.get('id'))
+        resource_group_name=__ret__.get('resourceGroupName'))

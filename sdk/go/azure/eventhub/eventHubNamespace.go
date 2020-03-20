@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an EventHub Namespace.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_namespace.html.markdown.
 type EventHubNamespace struct {
 	pulumi.CustomResourceState
@@ -31,8 +31,6 @@ type EventHubNamespace struct {
 	DefaultSecondaryConnectionString pulumi.StringOutput `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey pulumi.StringOutput `pulumi:"defaultSecondaryKey"`
-	// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
-	KafkaEnabled pulumi.BoolOutput `pulumi:"kafkaEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
@@ -97,8 +95,6 @@ type eventHubNamespaceState struct {
 	DefaultSecondaryConnectionString *string `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey *string `pulumi:"defaultSecondaryKey"`
-	// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
-	KafkaEnabled *bool `pulumi:"kafkaEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
@@ -130,8 +126,6 @@ type EventHubNamespaceState struct {
 	DefaultSecondaryConnectionString pulumi.StringPtrInput
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey pulumi.StringPtrInput
-	// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
-	KafkaEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
@@ -157,8 +151,6 @@ type eventHubNamespaceArgs struct {
 	AutoInflateEnabled *bool `pulumi:"autoInflateEnabled"`
 	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
 	Capacity *int `pulumi:"capacity"`
-	// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
-	KafkaEnabled *bool `pulumi:"kafkaEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
@@ -181,8 +173,6 @@ type EventHubNamespaceArgs struct {
 	AutoInflateEnabled pulumi.BoolPtrInput
 	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
 	Capacity pulumi.IntPtrInput
-	// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
-	KafkaEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
@@ -202,4 +192,3 @@ type EventHubNamespaceArgs struct {
 func (EventHubNamespaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventHubNamespaceArgs)(nil)).Elem()
 }
-

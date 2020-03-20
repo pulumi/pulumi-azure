@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Traffic Manager Endpoint.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_endpoint.html.markdown.
 type TrafficManagerEndpoint struct {
 	pulumi.CustomResourceState
@@ -24,7 +24,7 @@ type TrafficManagerEndpoint struct {
 	// if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
 	// For Endpoints of type `azureEndpoints` the value will be taken from the
 	// location of the Azure target resource.
-	EndpointLocation pulumi.StringOutput `pulumi:"endpointLocation"`
+	EndpointLocation      pulumi.StringOutput `pulumi:"endpointLocation"`
 	EndpointMonitorStatus pulumi.StringOutput `pulumi:"endpointMonitorStatus"`
 	// The status of the Endpoint, can be set to
 	// either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -116,7 +116,7 @@ type trafficManagerEndpointState struct {
 	// if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
 	// For Endpoints of type `azureEndpoints` the value will be taken from the
 	// location of the Azure target resource.
-	EndpointLocation *string `pulumi:"endpointLocation"`
+	EndpointLocation      *string `pulumi:"endpointLocation"`
 	EndpointMonitorStatus *string `pulumi:"endpointMonitorStatus"`
 	// The status of the Endpoint, can be set to
 	// either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -172,7 +172,7 @@ type TrafficManagerEndpointState struct {
 	// if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
 	// For Endpoints of type `azureEndpoints` the value will be taken from the
 	// location of the Azure target resource.
-	EndpointLocation pulumi.StringPtrInput
+	EndpointLocation      pulumi.StringPtrInput
 	EndpointMonitorStatus pulumi.StringPtrInput
 	// The status of the Endpoint, can be set to
 	// either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -338,4 +338,3 @@ type TrafficManagerEndpointArgs struct {
 func (TrafficManagerEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficManagerEndpointArgs)(nil)).Elem()
 }
-

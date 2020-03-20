@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Azure Container Registry Webhook.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_registry_webhook.html.markdown.
 type RegistryWebook struct {
 	pulumi.CustomResourceState
@@ -29,13 +29,13 @@ type RegistryWebook struct {
 	RegistryName pulumi.StringOutput `pulumi:"registryName"`
 	// The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Specifies the scope of repositories that can trigger an event. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+	// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
 	// Specifies the service URI for the Webhook to post notifications.
 	ServiceUri pulumi.StringOutput `pulumi:"serviceUri"`
-	// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`. 
+	// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags   pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewRegistryWebook registers a new resource with the given unique name, arguments, and options.
@@ -90,13 +90,13 @@ type registryWebookState struct {
 	RegistryName *string `pulumi:"registryName"`
 	// The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Specifies the scope of repositories that can trigger an event. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+	// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
 	Scope *string `pulumi:"scope"`
 	// Specifies the service URI for the Webhook to post notifications.
 	ServiceUri *string `pulumi:"serviceUri"`
-	// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`. 
-	Status *string `pulumi:"status"`
-	Tags map[string]string `pulumi:"tags"`
+	// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
+	Status *string           `pulumi:"status"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 type RegistryWebookState struct {
@@ -112,13 +112,13 @@ type RegistryWebookState struct {
 	RegistryName pulumi.StringPtrInput
 	// The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Specifies the scope of repositories that can trigger an event. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+	// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
 	Scope pulumi.StringPtrInput
 	// Specifies the service URI for the Webhook to post notifications.
 	ServiceUri pulumi.StringPtrInput
-	// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`. 
+	// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
 	Status pulumi.StringPtrInput
-	Tags pulumi.StringMapInput
+	Tags   pulumi.StringMapInput
 }
 
 func (RegistryWebookState) ElementType() reflect.Type {
@@ -138,13 +138,13 @@ type registryWebookArgs struct {
 	RegistryName string `pulumi:"registryName"`
 	// The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the scope of repositories that can trigger an event. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+	// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
 	Scope *string `pulumi:"scope"`
 	// Specifies the service URI for the Webhook to post notifications.
 	ServiceUri string `pulumi:"serviceUri"`
-	// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`. 
-	Status *string `pulumi:"status"`
-	Tags map[string]string `pulumi:"tags"`
+	// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
+	Status *string           `pulumi:"status"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RegistryWebook resource.
@@ -161,16 +161,15 @@ type RegistryWebookArgs struct {
 	RegistryName pulumi.StringInput
 	// The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specifies the scope of repositories that can trigger an event. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+	// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
 	Scope pulumi.StringPtrInput
 	// Specifies the service URI for the Webhook to post notifications.
 	ServiceUri pulumi.StringInput
-	// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`. 
+	// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
 	Status pulumi.StringPtrInput
-	Tags pulumi.StringMapInput
+	Tags   pulumi.StringMapInput
 }
 
 func (RegistryWebookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryWebookArgs)(nil)).Elem()
 }
-

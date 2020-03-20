@@ -9,10 +9,10 @@ import (
 )
 
 // Use this data source to access information about an existing IotHub Device Provisioning Service.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps.html.markdown.
-func LookupDps(ctx *pulumi.Context, args *LookupDpsArgs, opts ...pulumi.InvokeOption) (*LookupDpsResult, error) {
-	var rv LookupDpsResult
+func GetDps(ctx *pulumi.Context, args *GetDpsArgs, opts ...pulumi.InvokeOption) (*GetDpsResult, error) {
+	var rv GetDpsResult
 	err := ctx.Invoke("azure:iot/getDps:getDps", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -21,17 +21,16 @@ func LookupDps(ctx *pulumi.Context, args *LookupDpsArgs, opts ...pulumi.InvokeOp
 }
 
 // A collection of arguments for invoking getDps.
-type LookupDpsArgs struct {
+type GetDpsArgs struct {
 	// Specifies the name of the Iot Device Provisioning Service resource.
 	Name string `pulumi:"name"`
 	// The name of the resource group under which the Iot Device Provisioning Service is located in.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Tags map[string]string `pulumi:"tags"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
-
 // A collection of values returned by getDps.
-type LookupDpsResult struct {
+type GetDpsResult struct {
 	// The allocation policy of the IoT Device Provisioning Service.
 	AllocationPolicy string `pulumi:"allocationPolicy"`
 	// The device endpoint of the IoT Device Provisioning Service.
@@ -41,11 +40,10 @@ type LookupDpsResult struct {
 	// The unique identifier of the IoT Device Provisioning Service.
 	IdScope string `pulumi:"idScope"`
 	// Specifies the supported Azure location where the IoT Device Provisioning Service exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The service endpoint of the IoT Device Provisioning Service.
-	ServiceOperationsHostName string `pulumi:"serviceOperationsHostName"`
-	Tags map[string]string `pulumi:"tags"`
+	ServiceOperationsHostName string            `pulumi:"serviceOperationsHostName"`
+	Tags                      map[string]string `pulumi:"tags"`
 }
-

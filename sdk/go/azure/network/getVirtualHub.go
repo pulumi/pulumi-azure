@@ -9,7 +9,7 @@ import (
 )
 
 // Uses this data source to access information about an existing Virtual Hub.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_hub.html.markdown.
 func LookupVirtualHub(ctx *pulumi.Context, args *LookupVirtualHubArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubResult, error) {
 	var rv LookupVirtualHubResult
@@ -28,7 +28,6 @@ type LookupVirtualHubArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getVirtualHub.
 type LookupVirtualHubResult struct {
 	// The Address Prefix used for this Virtual Hub.
@@ -36,12 +35,11 @@ type LookupVirtualHubResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region where the Virtual Hub exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the Virtual Hub.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Virtual WAN within which the Virtual Hub exists.
 	VirtualWanId string `pulumi:"virtualWanId"`
 }
-

@@ -13,9 +13,9 @@ import (
 
 type BastionHostIpConfiguration struct {
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
+	Name              string `pulumi:"name"`
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
-	SubnetId string `pulumi:"subnetId"`
+	SubnetId          string `pulumi:"subnetId"`
 }
 
 type BastionHostIpConfigurationInput interface {
@@ -27,9 +27,9 @@ type BastionHostIpConfigurationInput interface {
 
 type BastionHostIpConfigurationArgs struct {
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name              pulumi.StringInput `pulumi:"name"`
 	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	SubnetId          pulumi.StringInput `pulumi:"subnetId"`
 }
 
 func (BastionHostIpConfigurationArgs) ElementType() reflect.Type {
@@ -61,7 +61,8 @@ type BastionHostIpConfigurationPtrInput interface {
 
 type bastionHostIpConfigurationPtrType BastionHostIpConfigurationArgs
 
-func BastionHostIpConfigurationPtr(v *BastionHostIpConfigurationArgs) BastionHostIpConfigurationPtrInput {	return (*bastionHostIpConfigurationPtrType)(v)
+func BastionHostIpConfigurationPtr(v *BastionHostIpConfigurationArgs) BastionHostIpConfigurationPtrInput {
+	return (*bastionHostIpConfigurationPtrType)(v)
 }
 
 func (*bastionHostIpConfigurationPtrType) ElementType() reflect.Type {
@@ -76,7 +77,7 @@ func (i *bastionHostIpConfigurationPtrType) ToBastionHostIpConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BastionHostIpConfigurationPtrOutput)
 }
 
-type BastionHostIpConfigurationOutput struct { *pulumi.OutputState }
+type BastionHostIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BastionHostIpConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BastionHostIpConfiguration)(nil)).Elem()
@@ -99,20 +100,21 @@ func (o BastionHostIpConfigurationOutput) ToBastionHostIpConfigurationPtrOutputW
 		return &v
 	}).(BastionHostIpConfigurationPtrOutput)
 }
+
 // Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 func (o BastionHostIpConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v BastionHostIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BastionHostIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o BastionHostIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
-	return o.ApplyT(func (v BastionHostIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BastionHostIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
 }
 
 func (o BastionHostIpConfigurationOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v BastionHostIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BastionHostIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-type BastionHostIpConfigurationPtrOutput struct { *pulumi.OutputState}
+type BastionHostIpConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (BastionHostIpConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BastionHostIpConfiguration)(nil)).Elem()
@@ -127,20 +129,20 @@ func (o BastionHostIpConfigurationPtrOutput) ToBastionHostIpConfigurationPtrOutp
 }
 
 func (o BastionHostIpConfigurationPtrOutput) Elem() BastionHostIpConfigurationOutput {
-	return o.ApplyT(func (v *BastionHostIpConfiguration) BastionHostIpConfiguration { return *v }).(BastionHostIpConfigurationOutput)
+	return o.ApplyT(func(v *BastionHostIpConfiguration) BastionHostIpConfiguration { return *v }).(BastionHostIpConfigurationOutput)
 }
 
 // Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 func (o BastionHostIpConfigurationPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v BastionHostIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BastionHostIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o BastionHostIpConfigurationPtrOutput) PublicIpAddressId() pulumi.StringOutput {
-	return o.ApplyT(func (v BastionHostIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BastionHostIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
 }
 
 func (o BastionHostIpConfigurationPtrOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v BastionHostIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BastionHostIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
 type DiskEncryptionSetIdentity struct {
@@ -148,7 +150,7 @@ type DiskEncryptionSetIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The ID of the Tenant the Service Principal is assigned in.
 	TenantId *string `pulumi:"tenantId"`
-	Type string `pulumi:"type"`
+	Type     string  `pulumi:"type"`
 }
 
 type DiskEncryptionSetIdentityInput interface {
@@ -163,7 +165,7 @@ type DiskEncryptionSetIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The ID of the Tenant the Service Principal is assigned in.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Type     pulumi.StringInput    `pulumi:"type"`
 }
 
 func (DiskEncryptionSetIdentityArgs) ElementType() reflect.Type {
@@ -195,7 +197,8 @@ type DiskEncryptionSetIdentityPtrInput interface {
 
 type diskEncryptionSetIdentityPtrType DiskEncryptionSetIdentityArgs
 
-func DiskEncryptionSetIdentityPtr(v *DiskEncryptionSetIdentityArgs) DiskEncryptionSetIdentityPtrInput {	return (*diskEncryptionSetIdentityPtrType)(v)
+func DiskEncryptionSetIdentityPtr(v *DiskEncryptionSetIdentityArgs) DiskEncryptionSetIdentityPtrInput {
+	return (*diskEncryptionSetIdentityPtrType)(v)
 }
 
 func (*diskEncryptionSetIdentityPtrType) ElementType() reflect.Type {
@@ -210,7 +213,7 @@ func (i *diskEncryptionSetIdentityPtrType) ToDiskEncryptionSetIdentityPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetIdentityPtrOutput)
 }
 
-type DiskEncryptionSetIdentityOutput struct { *pulumi.OutputState }
+type DiskEncryptionSetIdentityOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionSetIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiskEncryptionSetIdentity)(nil)).Elem()
@@ -233,21 +236,22 @@ func (o DiskEncryptionSetIdentityOutput) ToDiskEncryptionSetIdentityPtrOutputWit
 		return &v
 	}).(DiskEncryptionSetIdentityPtrOutput)
 }
+
 // The (Client) ID of the Service Principal.
 func (o DiskEncryptionSetIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DiskEncryptionSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DiskEncryptionSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Tenant the Service Principal is assigned in.
 func (o DiskEncryptionSetIdentityOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DiskEncryptionSetIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DiskEncryptionSetIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 func (o DiskEncryptionSetIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v DiskEncryptionSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DiskEncryptionSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type DiskEncryptionSetIdentityPtrOutput struct { *pulumi.OutputState}
+type DiskEncryptionSetIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionSetIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DiskEncryptionSetIdentity)(nil)).Elem()
@@ -262,21 +266,21 @@ func (o DiskEncryptionSetIdentityPtrOutput) ToDiskEncryptionSetIdentityPtrOutput
 }
 
 func (o DiskEncryptionSetIdentityPtrOutput) Elem() DiskEncryptionSetIdentityOutput {
-	return o.ApplyT(func (v *DiskEncryptionSetIdentity) DiskEncryptionSetIdentity { return *v }).(DiskEncryptionSetIdentityOutput)
+	return o.ApplyT(func(v *DiskEncryptionSetIdentity) DiskEncryptionSetIdentity { return *v }).(DiskEncryptionSetIdentityOutput)
 }
 
 // The (Client) ID of the Service Principal.
 func (o DiskEncryptionSetIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DiskEncryptionSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DiskEncryptionSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Tenant the Service Principal is assigned in.
 func (o DiskEncryptionSetIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DiskEncryptionSetIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DiskEncryptionSetIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 func (o DiskEncryptionSetIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v DiskEncryptionSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DiskEncryptionSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ImageDataDisk struct {
@@ -345,7 +349,7 @@ func (i ImageDataDiskArray) ToImageDataDiskArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ImageDataDiskArrayOutput)
 }
 
-type ImageDataDiskOutput struct { *pulumi.OutputState }
+type ImageDataDiskOutput struct{ *pulumi.OutputState }
 
 func (ImageDataDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ImageDataDisk)(nil)).Elem()
@@ -361,30 +365,30 @@ func (o ImageDataDiskOutput) ToImageDataDiskOutputWithContext(ctx context.Contex
 
 // Specifies the URI in Azure storage of the blob that you want to use to create the image.
 func (o ImageDataDiskOutput) BlobUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageDataDisk) *string { return v.BlobUri }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageDataDisk) *string { return v.BlobUri }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
 func (o ImageDataDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the logical unit number of the data disk.
 func (o ImageDataDiskOutput) Lun() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ImageDataDisk) *int { return v.Lun }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ImageDataDisk) *int { return v.Lun }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the ID of the managed disk resource that you want to use to create the image.
 func (o ImageDataDiskOutput) ManagedDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageDataDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageDataDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the size of the image to be created. The target size can't be smaller than the source size.
 func (o ImageDataDiskOutput) SizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ImageDataDisk) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ImageDataDisk) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
 }
 
-type ImageDataDiskArrayOutput struct { *pulumi.OutputState}
+type ImageDataDiskArrayOutput struct{ *pulumi.OutputState }
 
 func (ImageDataDiskArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ImageDataDisk)(nil)).Elem()
@@ -399,7 +403,7 @@ func (o ImageDataDiskArrayOutput) ToImageDataDiskArrayOutputWithContext(ctx cont
 }
 
 func (o ImageDataDiskArrayOutput) Index(i pulumi.IntInput) ImageDataDiskOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ImageDataDisk {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageDataDisk {
 		return vs[0].([]ImageDataDisk)[vs[1].(int)]
 	}).(ImageDataDiskOutput)
 }
@@ -470,7 +474,8 @@ type ImageOsDiskPtrInput interface {
 
 type imageOsDiskPtrType ImageOsDiskArgs
 
-func ImageOsDiskPtr(v *ImageOsDiskArgs) ImageOsDiskPtrInput {	return (*imageOsDiskPtrType)(v)
+func ImageOsDiskPtr(v *ImageOsDiskArgs) ImageOsDiskPtrInput {
+	return (*imageOsDiskPtrType)(v)
 }
 
 func (*imageOsDiskPtrType) ElementType() reflect.Type {
@@ -485,7 +490,7 @@ func (i *imageOsDiskPtrType) ToImageOsDiskPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ImageOsDiskPtrOutput)
 }
 
-type ImageOsDiskOutput struct { *pulumi.OutputState }
+type ImageOsDiskOutput struct{ *pulumi.OutputState }
 
 func (ImageOsDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ImageOsDisk)(nil)).Elem()
@@ -508,37 +513,38 @@ func (o ImageOsDiskOutput) ToImageOsDiskPtrOutputWithContext(ctx context.Context
 		return &v
 	}).(ImageOsDiskPtrOutput)
 }
+
 // Specifies the URI in Azure storage of the blob that you want to use to create the image.
 func (o ImageOsDiskOutput) BlobUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.BlobUri }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.BlobUri }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
 func (o ImageOsDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the ID of the managed disk resource that you want to use to create the image.
 func (o ImageOsDiskOutput) ManagedDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
 func (o ImageOsDiskOutput) OsState() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.OsState }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.OsState }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
 func (o ImageOsDiskOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the size of the image to be created. The target size can't be smaller than the source size.
 func (o ImageOsDiskOutput) SizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
 }
 
-type ImageOsDiskPtrOutput struct { *pulumi.OutputState}
+type ImageOsDiskPtrOutput struct{ *pulumi.OutputState }
 
 func (ImageOsDiskPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ImageOsDisk)(nil)).Elem()
@@ -553,43 +559,3282 @@ func (o ImageOsDiskPtrOutput) ToImageOsDiskPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ImageOsDiskPtrOutput) Elem() ImageOsDiskOutput {
-	return o.ApplyT(func (v *ImageOsDisk) ImageOsDisk { return *v }).(ImageOsDiskOutput)
+	return o.ApplyT(func(v *ImageOsDisk) ImageOsDisk { return *v }).(ImageOsDiskOutput)
 }
 
 // Specifies the URI in Azure storage of the blob that you want to use to create the image.
 func (o ImageOsDiskPtrOutput) BlobUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.BlobUri }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.BlobUri }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
 func (o ImageOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the ID of the managed disk resource that you want to use to create the image.
 func (o ImageOsDiskPtrOutput) ManagedDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
 func (o ImageOsDiskPtrOutput) OsState() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.OsState }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.OsState }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
 func (o ImageOsDiskPtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the size of the image to be created. The target size can't be smaller than the source size.
 func (o ImageOsDiskPtrOutput) SizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
+}
+
+type LinuxVirtualMachineAdditionalCapabilities struct {
+	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
+}
+
+type LinuxVirtualMachineAdditionalCapabilitiesInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineAdditionalCapabilitiesOutput() LinuxVirtualMachineAdditionalCapabilitiesOutput
+	ToLinuxVirtualMachineAdditionalCapabilitiesOutputWithContext(context.Context) LinuxVirtualMachineAdditionalCapabilitiesOutput
+}
+
+type LinuxVirtualMachineAdditionalCapabilitiesArgs struct {
+	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
+}
+
+func (LinuxVirtualMachineAdditionalCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineAdditionalCapabilities)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineAdditionalCapabilitiesArgs) ToLinuxVirtualMachineAdditionalCapabilitiesOutput() LinuxVirtualMachineAdditionalCapabilitiesOutput {
+	return i.ToLinuxVirtualMachineAdditionalCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineAdditionalCapabilitiesArgs) ToLinuxVirtualMachineAdditionalCapabilitiesOutputWithContext(ctx context.Context) LinuxVirtualMachineAdditionalCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineAdditionalCapabilitiesOutput)
+}
+
+func (i LinuxVirtualMachineAdditionalCapabilitiesArgs) ToLinuxVirtualMachineAdditionalCapabilitiesPtrOutput() LinuxVirtualMachineAdditionalCapabilitiesPtrOutput {
+	return i.ToLinuxVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineAdditionalCapabilitiesArgs) ToLinuxVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineAdditionalCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineAdditionalCapabilitiesOutput).ToLinuxVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx)
+}
+
+type LinuxVirtualMachineAdditionalCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineAdditionalCapabilitiesPtrOutput() LinuxVirtualMachineAdditionalCapabilitiesPtrOutput
+	ToLinuxVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(context.Context) LinuxVirtualMachineAdditionalCapabilitiesPtrOutput
+}
+
+type linuxVirtualMachineAdditionalCapabilitiesPtrType LinuxVirtualMachineAdditionalCapabilitiesArgs
+
+func LinuxVirtualMachineAdditionalCapabilitiesPtr(v *LinuxVirtualMachineAdditionalCapabilitiesArgs) LinuxVirtualMachineAdditionalCapabilitiesPtrInput {
+	return (*linuxVirtualMachineAdditionalCapabilitiesPtrType)(v)
+}
+
+func (*linuxVirtualMachineAdditionalCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineAdditionalCapabilities)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineAdditionalCapabilitiesPtrType) ToLinuxVirtualMachineAdditionalCapabilitiesPtrOutput() LinuxVirtualMachineAdditionalCapabilitiesPtrOutput {
+	return i.ToLinuxVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineAdditionalCapabilitiesPtrType) ToLinuxVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineAdditionalCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineAdditionalCapabilitiesPtrOutput)
+}
+
+type LinuxVirtualMachineAdditionalCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineAdditionalCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineAdditionalCapabilities)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineAdditionalCapabilitiesOutput) ToLinuxVirtualMachineAdditionalCapabilitiesOutput() LinuxVirtualMachineAdditionalCapabilitiesOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineAdditionalCapabilitiesOutput) ToLinuxVirtualMachineAdditionalCapabilitiesOutputWithContext(ctx context.Context) LinuxVirtualMachineAdditionalCapabilitiesOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineAdditionalCapabilitiesOutput) ToLinuxVirtualMachineAdditionalCapabilitiesPtrOutput() LinuxVirtualMachineAdditionalCapabilitiesPtrOutput {
+	return o.ToLinuxVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineAdditionalCapabilitiesOutput) ToLinuxVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineAdditionalCapabilitiesPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineAdditionalCapabilities) *LinuxVirtualMachineAdditionalCapabilities {
+		return &v
+	}).(LinuxVirtualMachineAdditionalCapabilitiesPtrOutput)
+}
+func (o LinuxVirtualMachineAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type LinuxVirtualMachineAdditionalCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineAdditionalCapabilities)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) ToLinuxVirtualMachineAdditionalCapabilitiesPtrOutput() LinuxVirtualMachineAdditionalCapabilitiesPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) ToLinuxVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineAdditionalCapabilitiesPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) Elem() LinuxVirtualMachineAdditionalCapabilitiesOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineAdditionalCapabilities) LinuxVirtualMachineAdditionalCapabilities {
+		return *v
+	}).(LinuxVirtualMachineAdditionalCapabilitiesOutput)
+}
+
+func (o LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type LinuxVirtualMachineAdminSshKey struct {
+	PublicKey string `pulumi:"publicKey"`
+	Username  string `pulumi:"username"`
+}
+
+type LinuxVirtualMachineAdminSshKeyInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineAdminSshKeyOutput() LinuxVirtualMachineAdminSshKeyOutput
+	ToLinuxVirtualMachineAdminSshKeyOutputWithContext(context.Context) LinuxVirtualMachineAdminSshKeyOutput
+}
+
+type LinuxVirtualMachineAdminSshKeyArgs struct {
+	PublicKey pulumi.StringInput `pulumi:"publicKey"`
+	Username  pulumi.StringInput `pulumi:"username"`
+}
+
+func (LinuxVirtualMachineAdminSshKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineAdminSshKey)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineAdminSshKeyArgs) ToLinuxVirtualMachineAdminSshKeyOutput() LinuxVirtualMachineAdminSshKeyOutput {
+	return i.ToLinuxVirtualMachineAdminSshKeyOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineAdminSshKeyArgs) ToLinuxVirtualMachineAdminSshKeyOutputWithContext(ctx context.Context) LinuxVirtualMachineAdminSshKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineAdminSshKeyOutput)
+}
+
+type LinuxVirtualMachineAdminSshKeyArrayInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineAdminSshKeyArrayOutput() LinuxVirtualMachineAdminSshKeyArrayOutput
+	ToLinuxVirtualMachineAdminSshKeyArrayOutputWithContext(context.Context) LinuxVirtualMachineAdminSshKeyArrayOutput
+}
+
+type LinuxVirtualMachineAdminSshKeyArray []LinuxVirtualMachineAdminSshKeyInput
+
+func (LinuxVirtualMachineAdminSshKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineAdminSshKey)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineAdminSshKeyArray) ToLinuxVirtualMachineAdminSshKeyArrayOutput() LinuxVirtualMachineAdminSshKeyArrayOutput {
+	return i.ToLinuxVirtualMachineAdminSshKeyArrayOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineAdminSshKeyArray) ToLinuxVirtualMachineAdminSshKeyArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineAdminSshKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineAdminSshKeyArrayOutput)
+}
+
+type LinuxVirtualMachineAdminSshKeyOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineAdminSshKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineAdminSshKey)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineAdminSshKeyOutput) ToLinuxVirtualMachineAdminSshKeyOutput() LinuxVirtualMachineAdminSshKeyOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineAdminSshKeyOutput) ToLinuxVirtualMachineAdminSshKeyOutputWithContext(ctx context.Context) LinuxVirtualMachineAdminSshKeyOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineAdminSshKeyOutput) PublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineAdminSshKey) string { return v.PublicKey }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineAdminSshKeyOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineAdminSshKey) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineAdminSshKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineAdminSshKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineAdminSshKey)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineAdminSshKeyArrayOutput) ToLinuxVirtualMachineAdminSshKeyArrayOutput() LinuxVirtualMachineAdminSshKeyArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineAdminSshKeyArrayOutput) ToLinuxVirtualMachineAdminSshKeyArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineAdminSshKeyArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineAdminSshKeyArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineAdminSshKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineAdminSshKey {
+		return vs[0].([]LinuxVirtualMachineAdminSshKey)[vs[1].(int)]
+	}).(LinuxVirtualMachineAdminSshKeyOutput)
+}
+
+type LinuxVirtualMachineBootDiagnostics struct {
+	StorageAccountUri string `pulumi:"storageAccountUri"`
+}
+
+type LinuxVirtualMachineBootDiagnosticsInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineBootDiagnosticsOutput() LinuxVirtualMachineBootDiagnosticsOutput
+	ToLinuxVirtualMachineBootDiagnosticsOutputWithContext(context.Context) LinuxVirtualMachineBootDiagnosticsOutput
+}
+
+type LinuxVirtualMachineBootDiagnosticsArgs struct {
+	StorageAccountUri pulumi.StringInput `pulumi:"storageAccountUri"`
+}
+
+func (LinuxVirtualMachineBootDiagnosticsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineBootDiagnostics)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineBootDiagnosticsArgs) ToLinuxVirtualMachineBootDiagnosticsOutput() LinuxVirtualMachineBootDiagnosticsOutput {
+	return i.ToLinuxVirtualMachineBootDiagnosticsOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineBootDiagnosticsArgs) ToLinuxVirtualMachineBootDiagnosticsOutputWithContext(ctx context.Context) LinuxVirtualMachineBootDiagnosticsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineBootDiagnosticsOutput)
+}
+
+func (i LinuxVirtualMachineBootDiagnosticsArgs) ToLinuxVirtualMachineBootDiagnosticsPtrOutput() LinuxVirtualMachineBootDiagnosticsPtrOutput {
+	return i.ToLinuxVirtualMachineBootDiagnosticsPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineBootDiagnosticsArgs) ToLinuxVirtualMachineBootDiagnosticsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineBootDiagnosticsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineBootDiagnosticsOutput).ToLinuxVirtualMachineBootDiagnosticsPtrOutputWithContext(ctx)
+}
+
+type LinuxVirtualMachineBootDiagnosticsPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineBootDiagnosticsPtrOutput() LinuxVirtualMachineBootDiagnosticsPtrOutput
+	ToLinuxVirtualMachineBootDiagnosticsPtrOutputWithContext(context.Context) LinuxVirtualMachineBootDiagnosticsPtrOutput
+}
+
+type linuxVirtualMachineBootDiagnosticsPtrType LinuxVirtualMachineBootDiagnosticsArgs
+
+func LinuxVirtualMachineBootDiagnosticsPtr(v *LinuxVirtualMachineBootDiagnosticsArgs) LinuxVirtualMachineBootDiagnosticsPtrInput {
+	return (*linuxVirtualMachineBootDiagnosticsPtrType)(v)
+}
+
+func (*linuxVirtualMachineBootDiagnosticsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineBootDiagnostics)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineBootDiagnosticsPtrType) ToLinuxVirtualMachineBootDiagnosticsPtrOutput() LinuxVirtualMachineBootDiagnosticsPtrOutput {
+	return i.ToLinuxVirtualMachineBootDiagnosticsPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineBootDiagnosticsPtrType) ToLinuxVirtualMachineBootDiagnosticsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineBootDiagnosticsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineBootDiagnosticsPtrOutput)
+}
+
+type LinuxVirtualMachineBootDiagnosticsOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineBootDiagnosticsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineBootDiagnostics)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineBootDiagnosticsOutput) ToLinuxVirtualMachineBootDiagnosticsOutput() LinuxVirtualMachineBootDiagnosticsOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineBootDiagnosticsOutput) ToLinuxVirtualMachineBootDiagnosticsOutputWithContext(ctx context.Context) LinuxVirtualMachineBootDiagnosticsOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineBootDiagnosticsOutput) ToLinuxVirtualMachineBootDiagnosticsPtrOutput() LinuxVirtualMachineBootDiagnosticsPtrOutput {
+	return o.ToLinuxVirtualMachineBootDiagnosticsPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineBootDiagnosticsOutput) ToLinuxVirtualMachineBootDiagnosticsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineBootDiagnosticsPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineBootDiagnostics) *LinuxVirtualMachineBootDiagnostics {
+		return &v
+	}).(LinuxVirtualMachineBootDiagnosticsPtrOutput)
+}
+func (o LinuxVirtualMachineBootDiagnosticsOutput) StorageAccountUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineBootDiagnosticsPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineBootDiagnosticsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineBootDiagnostics)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineBootDiagnosticsPtrOutput) ToLinuxVirtualMachineBootDiagnosticsPtrOutput() LinuxVirtualMachineBootDiagnosticsPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineBootDiagnosticsPtrOutput) ToLinuxVirtualMachineBootDiagnosticsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineBootDiagnosticsPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineBootDiagnosticsPtrOutput) Elem() LinuxVirtualMachineBootDiagnosticsOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineBootDiagnostics) LinuxVirtualMachineBootDiagnostics { return *v }).(LinuxVirtualMachineBootDiagnosticsOutput)
+}
+
+func (o LinuxVirtualMachineBootDiagnosticsPtrOutput) StorageAccountUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
+	// The ID of the System Managed Service Principal.
+	PrincipalId *string `pulumi:"principalId"`
+	Type        string  `pulumi:"type"`
+}
+
+type LinuxVirtualMachineIdentityInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineIdentityOutput() LinuxVirtualMachineIdentityOutput
+	ToLinuxVirtualMachineIdentityOutputWithContext(context.Context) LinuxVirtualMachineIdentityOutput
+}
+
+type LinuxVirtualMachineIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The ID of the System Managed Service Principal.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	Type        pulumi.StringInput    `pulumi:"type"`
+}
+
+func (LinuxVirtualMachineIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineIdentity)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineIdentityArgs) ToLinuxVirtualMachineIdentityOutput() LinuxVirtualMachineIdentityOutput {
+	return i.ToLinuxVirtualMachineIdentityOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineIdentityArgs) ToLinuxVirtualMachineIdentityOutputWithContext(ctx context.Context) LinuxVirtualMachineIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineIdentityOutput)
+}
+
+func (i LinuxVirtualMachineIdentityArgs) ToLinuxVirtualMachineIdentityPtrOutput() LinuxVirtualMachineIdentityPtrOutput {
+	return i.ToLinuxVirtualMachineIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineIdentityArgs) ToLinuxVirtualMachineIdentityPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineIdentityOutput).ToLinuxVirtualMachineIdentityPtrOutputWithContext(ctx)
+}
+
+type LinuxVirtualMachineIdentityPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineIdentityPtrOutput() LinuxVirtualMachineIdentityPtrOutput
+	ToLinuxVirtualMachineIdentityPtrOutputWithContext(context.Context) LinuxVirtualMachineIdentityPtrOutput
+}
+
+type linuxVirtualMachineIdentityPtrType LinuxVirtualMachineIdentityArgs
+
+func LinuxVirtualMachineIdentityPtr(v *LinuxVirtualMachineIdentityArgs) LinuxVirtualMachineIdentityPtrInput {
+	return (*linuxVirtualMachineIdentityPtrType)(v)
+}
+
+func (*linuxVirtualMachineIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineIdentity)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineIdentityPtrType) ToLinuxVirtualMachineIdentityPtrOutput() LinuxVirtualMachineIdentityPtrOutput {
+	return i.ToLinuxVirtualMachineIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineIdentityPtrType) ToLinuxVirtualMachineIdentityPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineIdentityPtrOutput)
+}
+
+type LinuxVirtualMachineIdentityOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineIdentity)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineIdentityOutput) ToLinuxVirtualMachineIdentityOutput() LinuxVirtualMachineIdentityOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineIdentityOutput) ToLinuxVirtualMachineIdentityOutputWithContext(ctx context.Context) LinuxVirtualMachineIdentityOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineIdentityOutput) ToLinuxVirtualMachineIdentityPtrOutput() LinuxVirtualMachineIdentityPtrOutput {
+	return o.ToLinuxVirtualMachineIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineIdentityOutput) ToLinuxVirtualMachineIdentityPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineIdentityPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineIdentity) *LinuxVirtualMachineIdentity {
+		return &v
+	}).(LinuxVirtualMachineIdentityPtrOutput)
+}
+func (o LinuxVirtualMachineIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the System Managed Service Principal.
+func (o LinuxVirtualMachineIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o LinuxVirtualMachineIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineIdentity)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineIdentityPtrOutput) ToLinuxVirtualMachineIdentityPtrOutput() LinuxVirtualMachineIdentityPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineIdentityPtrOutput) ToLinuxVirtualMachineIdentityPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineIdentityPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineIdentityPtrOutput) Elem() LinuxVirtualMachineIdentityOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineIdentity) LinuxVirtualMachineIdentity { return *v }).(LinuxVirtualMachineIdentityOutput)
+}
+
+func (o LinuxVirtualMachineIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the System Managed Service Principal.
+func (o LinuxVirtualMachineIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o LinuxVirtualMachineIdentityPtrOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineOsDisk struct {
+	Caching             string                                     `pulumi:"caching"`
+	DiffDiskSettings    *LinuxVirtualMachineOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
+	DiskEncryptionSetId *string                                    `pulumi:"diskEncryptionSetId"`
+	DiskSizeGb          *int                                       `pulumi:"diskSizeGb"`
+	// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+	Name                    *string `pulumi:"name"`
+	StorageAccountType      string  `pulumi:"storageAccountType"`
+	WriteAcceleratorEnabled *bool   `pulumi:"writeAcceleratorEnabled"`
+}
+
+type LinuxVirtualMachineOsDiskInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineOsDiskOutput() LinuxVirtualMachineOsDiskOutput
+	ToLinuxVirtualMachineOsDiskOutputWithContext(context.Context) LinuxVirtualMachineOsDiskOutput
+}
+
+type LinuxVirtualMachineOsDiskArgs struct {
+	Caching             pulumi.StringInput                                `pulumi:"caching"`
+	DiffDiskSettings    LinuxVirtualMachineOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
+	DiskEncryptionSetId pulumi.StringPtrInput                             `pulumi:"diskEncryptionSetId"`
+	DiskSizeGb          pulumi.IntPtrInput                                `pulumi:"diskSizeGb"`
+	// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+	Name                    pulumi.StringPtrInput `pulumi:"name"`
+	StorageAccountType      pulumi.StringInput    `pulumi:"storageAccountType"`
+	WriteAcceleratorEnabled pulumi.BoolPtrInput   `pulumi:"writeAcceleratorEnabled"`
+}
+
+func (LinuxVirtualMachineOsDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineOsDisk)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineOsDiskArgs) ToLinuxVirtualMachineOsDiskOutput() LinuxVirtualMachineOsDiskOutput {
+	return i.ToLinuxVirtualMachineOsDiskOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineOsDiskArgs) ToLinuxVirtualMachineOsDiskOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOsDiskOutput)
+}
+
+func (i LinuxVirtualMachineOsDiskArgs) ToLinuxVirtualMachineOsDiskPtrOutput() LinuxVirtualMachineOsDiskPtrOutput {
+	return i.ToLinuxVirtualMachineOsDiskPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineOsDiskArgs) ToLinuxVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOsDiskOutput).ToLinuxVirtualMachineOsDiskPtrOutputWithContext(ctx)
+}
+
+type LinuxVirtualMachineOsDiskPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineOsDiskPtrOutput() LinuxVirtualMachineOsDiskPtrOutput
+	ToLinuxVirtualMachineOsDiskPtrOutputWithContext(context.Context) LinuxVirtualMachineOsDiskPtrOutput
+}
+
+type linuxVirtualMachineOsDiskPtrType LinuxVirtualMachineOsDiskArgs
+
+func LinuxVirtualMachineOsDiskPtr(v *LinuxVirtualMachineOsDiskArgs) LinuxVirtualMachineOsDiskPtrInput {
+	return (*linuxVirtualMachineOsDiskPtrType)(v)
+}
+
+func (*linuxVirtualMachineOsDiskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineOsDisk)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineOsDiskPtrType) ToLinuxVirtualMachineOsDiskPtrOutput() LinuxVirtualMachineOsDiskPtrOutput {
+	return i.ToLinuxVirtualMachineOsDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineOsDiskPtrType) ToLinuxVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOsDiskPtrOutput)
+}
+
+type LinuxVirtualMachineOsDiskOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineOsDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineOsDisk)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineOsDiskOutput) ToLinuxVirtualMachineOsDiskOutput() LinuxVirtualMachineOsDiskOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineOsDiskOutput) ToLinuxVirtualMachineOsDiskOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineOsDiskOutput) ToLinuxVirtualMachineOsDiskPtrOutput() LinuxVirtualMachineOsDiskPtrOutput {
+	return o.ToLinuxVirtualMachineOsDiskPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineOsDiskOutput) ToLinuxVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *LinuxVirtualMachineOsDisk {
+		return &v
+	}).(LinuxVirtualMachineOsDiskPtrOutput)
+}
+func (o LinuxVirtualMachineOsDiskOutput) Caching() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineOsDiskOutput) DiffDiskSettings() LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *LinuxVirtualMachineOsDiskDiffDiskSettings {
+		return v.DiffDiskSettings
+	}).(LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
+}
+
+func (o LinuxVirtualMachineOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+func (o LinuxVirtualMachineOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+}
+
+// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineOsDiskOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LinuxVirtualMachineOsDiskOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type LinuxVirtualMachineOsDiskPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineOsDiskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineOsDisk)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineOsDiskPtrOutput) ToLinuxVirtualMachineOsDiskPtrOutput() LinuxVirtualMachineOsDiskPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineOsDiskPtrOutput) ToLinuxVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineOsDiskPtrOutput) Elem() LinuxVirtualMachineOsDiskOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) LinuxVirtualMachineOsDisk { return *v }).(LinuxVirtualMachineOsDiskOutput)
+}
+
+func (o LinuxVirtualMachineOsDiskPtrOutput) Caching() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineOsDiskPtrOutput) DiffDiskSettings() LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *LinuxVirtualMachineOsDiskDiffDiskSettings {
+		return v.DiffDiskSettings
+	}).(LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
+}
+
+func (o LinuxVirtualMachineOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+func (o LinuxVirtualMachineOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+}
+
+// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LinuxVirtualMachineOsDiskPtrOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type LinuxVirtualMachineOsDiskDiffDiskSettings struct {
+	Option string `pulumi:"option"`
+}
+
+type LinuxVirtualMachineOsDiskDiffDiskSettingsInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineOsDiskDiffDiskSettingsOutput() LinuxVirtualMachineOsDiskDiffDiskSettingsOutput
+	ToLinuxVirtualMachineOsDiskDiffDiskSettingsOutputWithContext(context.Context) LinuxVirtualMachineOsDiskDiffDiskSettingsOutput
+}
+
+type LinuxVirtualMachineOsDiskDiffDiskSettingsArgs struct {
+	Option pulumi.StringInput `pulumi:"option"`
+}
+
+func (LinuxVirtualMachineOsDiskDiffDiskSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineOsDiskDiffDiskSettingsArgs) ToLinuxVirtualMachineOsDiskDiffDiskSettingsOutput() LinuxVirtualMachineOsDiskDiffDiskSettingsOutput {
+	return i.ToLinuxVirtualMachineOsDiskDiffDiskSettingsOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineOsDiskDiffDiskSettingsArgs) ToLinuxVirtualMachineOsDiskDiffDiskSettingsOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskDiffDiskSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOsDiskDiffDiskSettingsOutput)
+}
+
+func (i LinuxVirtualMachineOsDiskDiffDiskSettingsArgs) ToLinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput() LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return i.ToLinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineOsDiskDiffDiskSettingsArgs) ToLinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOsDiskDiffDiskSettingsOutput).ToLinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(ctx)
+}
+
+type LinuxVirtualMachineOsDiskDiffDiskSettingsPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput() LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput
+	ToLinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(context.Context) LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput
+}
+
+type linuxVirtualMachineOsDiskDiffDiskSettingsPtrType LinuxVirtualMachineOsDiskDiffDiskSettingsArgs
+
+func LinuxVirtualMachineOsDiskDiffDiskSettingsPtr(v *LinuxVirtualMachineOsDiskDiffDiskSettingsArgs) LinuxVirtualMachineOsDiskDiffDiskSettingsPtrInput {
+	return (*linuxVirtualMachineOsDiskDiffDiskSettingsPtrType)(v)
+}
+
+func (*linuxVirtualMachineOsDiskDiffDiskSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineOsDiskDiffDiskSettingsPtrType) ToLinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput() LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return i.ToLinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineOsDiskDiffDiskSettingsPtrType) ToLinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
+}
+
+type LinuxVirtualMachineOsDiskDiffDiskSettingsOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineOsDiskDiffDiskSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineOsDiskDiffDiskSettingsOutput) ToLinuxVirtualMachineOsDiskDiffDiskSettingsOutput() LinuxVirtualMachineOsDiskDiffDiskSettingsOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineOsDiskDiffDiskSettingsOutput) ToLinuxVirtualMachineOsDiskDiffDiskSettingsOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskDiffDiskSettingsOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineOsDiskDiffDiskSettingsOutput) ToLinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput() LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return o.ToLinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineOsDiskDiffDiskSettingsOutput) ToLinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDiskDiffDiskSettings) *LinuxVirtualMachineOsDiskDiffDiskSettings {
+		return &v
+	}).(LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
+}
+func (o LinuxVirtualMachineOsDiskDiffDiskSettingsOutput) Option() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) ToLinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput() LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) ToLinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Elem() LinuxVirtualMachineOsDiskDiffDiskSettingsOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineOsDiskDiffDiskSettings) LinuxVirtualMachineOsDiskDiffDiskSettings {
+		return *v
+	}).(LinuxVirtualMachineOsDiskDiffDiskSettingsOutput)
+}
+
+func (o LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachinePlan struct {
+	// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+	Name      string `pulumi:"name"`
+	Product   string `pulumi:"product"`
+	Publisher string `pulumi:"publisher"`
+}
+
+type LinuxVirtualMachinePlanInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachinePlanOutput() LinuxVirtualMachinePlanOutput
+	ToLinuxVirtualMachinePlanOutputWithContext(context.Context) LinuxVirtualMachinePlanOutput
+}
+
+type LinuxVirtualMachinePlanArgs struct {
+	// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+	Name      pulumi.StringInput `pulumi:"name"`
+	Product   pulumi.StringInput `pulumi:"product"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+}
+
+func (LinuxVirtualMachinePlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachinePlan)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachinePlanArgs) ToLinuxVirtualMachinePlanOutput() LinuxVirtualMachinePlanOutput {
+	return i.ToLinuxVirtualMachinePlanOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachinePlanArgs) ToLinuxVirtualMachinePlanOutputWithContext(ctx context.Context) LinuxVirtualMachinePlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachinePlanOutput)
+}
+
+func (i LinuxVirtualMachinePlanArgs) ToLinuxVirtualMachinePlanPtrOutput() LinuxVirtualMachinePlanPtrOutput {
+	return i.ToLinuxVirtualMachinePlanPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachinePlanArgs) ToLinuxVirtualMachinePlanPtrOutputWithContext(ctx context.Context) LinuxVirtualMachinePlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachinePlanOutput).ToLinuxVirtualMachinePlanPtrOutputWithContext(ctx)
+}
+
+type LinuxVirtualMachinePlanPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachinePlanPtrOutput() LinuxVirtualMachinePlanPtrOutput
+	ToLinuxVirtualMachinePlanPtrOutputWithContext(context.Context) LinuxVirtualMachinePlanPtrOutput
+}
+
+type linuxVirtualMachinePlanPtrType LinuxVirtualMachinePlanArgs
+
+func LinuxVirtualMachinePlanPtr(v *LinuxVirtualMachinePlanArgs) LinuxVirtualMachinePlanPtrInput {
+	return (*linuxVirtualMachinePlanPtrType)(v)
+}
+
+func (*linuxVirtualMachinePlanPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachinePlan)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachinePlanPtrType) ToLinuxVirtualMachinePlanPtrOutput() LinuxVirtualMachinePlanPtrOutput {
+	return i.ToLinuxVirtualMachinePlanPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachinePlanPtrType) ToLinuxVirtualMachinePlanPtrOutputWithContext(ctx context.Context) LinuxVirtualMachinePlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachinePlanPtrOutput)
+}
+
+type LinuxVirtualMachinePlanOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachinePlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachinePlan)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachinePlanOutput) ToLinuxVirtualMachinePlanOutput() LinuxVirtualMachinePlanOutput {
+	return o
+}
+
+func (o LinuxVirtualMachinePlanOutput) ToLinuxVirtualMachinePlanOutputWithContext(ctx context.Context) LinuxVirtualMachinePlanOutput {
+	return o
+}
+
+func (o LinuxVirtualMachinePlanOutput) ToLinuxVirtualMachinePlanPtrOutput() LinuxVirtualMachinePlanPtrOutput {
+	return o.ToLinuxVirtualMachinePlanPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachinePlanOutput) ToLinuxVirtualMachinePlanPtrOutputWithContext(ctx context.Context) LinuxVirtualMachinePlanPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachinePlan) *LinuxVirtualMachinePlan {
+		return &v
+	}).(LinuxVirtualMachinePlanPtrOutput)
+}
+
+// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachinePlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachinePlanOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachinePlanOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachinePlanPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachinePlanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachinePlan)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachinePlanPtrOutput) ToLinuxVirtualMachinePlanPtrOutput() LinuxVirtualMachinePlanPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachinePlanPtrOutput) ToLinuxVirtualMachinePlanPtrOutputWithContext(ctx context.Context) LinuxVirtualMachinePlanPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachinePlanPtrOutput) Elem() LinuxVirtualMachinePlanOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachinePlan) LinuxVirtualMachinePlan { return *v }).(LinuxVirtualMachinePlanOutput)
+}
+
+// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachinePlanPtrOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachinePlanPtrOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachinePlanPtrOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetAdditionalCapabilities struct {
+	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
+}
+
+type LinuxVirtualMachineScaleSetAdditionalCapabilitiesInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput() LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput
+	ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesOutputWithContext(context.Context) LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput
+}
+
+type LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs struct {
+	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
+}
+
+func (LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetAdditionalCapabilities)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs) ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput() LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput {
+	return i.ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs) ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput)
+}
+
+func (i LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs) ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput() LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs) ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput).ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(ctx)
+}
+
+type LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput() LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput
+	ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(context.Context) LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput
+}
+
+type linuxVirtualMachineScaleSetAdditionalCapabilitiesPtrType LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs
+
+func LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtr(v *LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs) LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrInput {
+	return (*linuxVirtualMachineScaleSetAdditionalCapabilitiesPtrType)(v)
+}
+
+func (*linuxVirtualMachineScaleSetAdditionalCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetAdditionalCapabilities)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineScaleSetAdditionalCapabilitiesPtrType) ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput() LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineScaleSetAdditionalCapabilitiesPtrType) ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetAdditionalCapabilities)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput() LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput() LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return o.ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAdditionalCapabilities) *LinuxVirtualMachineScaleSetAdditionalCapabilities {
+		return &v
+	}).(LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput)
+}
+func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetAdditionalCapabilities)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput() LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) ToLinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) Elem() LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetAdditionalCapabilities) LinuxVirtualMachineScaleSetAdditionalCapabilities {
+		return *v
+	}).(LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetAdminSshKey struct {
+	PublicKey string `pulumi:"publicKey"`
+	Username  string `pulumi:"username"`
+}
+
+type LinuxVirtualMachineScaleSetAdminSshKeyInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetAdminSshKeyOutput() LinuxVirtualMachineScaleSetAdminSshKeyOutput
+	ToLinuxVirtualMachineScaleSetAdminSshKeyOutputWithContext(context.Context) LinuxVirtualMachineScaleSetAdminSshKeyOutput
+}
+
+type LinuxVirtualMachineScaleSetAdminSshKeyArgs struct {
+	PublicKey pulumi.StringInput `pulumi:"publicKey"`
+	Username  pulumi.StringInput `pulumi:"username"`
+}
+
+func (LinuxVirtualMachineScaleSetAdminSshKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetAdminSshKey)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetAdminSshKeyArgs) ToLinuxVirtualMachineScaleSetAdminSshKeyOutput() LinuxVirtualMachineScaleSetAdminSshKeyOutput {
+	return i.ToLinuxVirtualMachineScaleSetAdminSshKeyOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetAdminSshKeyArgs) ToLinuxVirtualMachineScaleSetAdminSshKeyOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAdminSshKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetAdminSshKeyOutput)
+}
+
+type LinuxVirtualMachineScaleSetAdminSshKeyArrayInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetAdminSshKeyArrayOutput() LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput
+	ToLinuxVirtualMachineScaleSetAdminSshKeyArrayOutputWithContext(context.Context) LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput
+}
+
+type LinuxVirtualMachineScaleSetAdminSshKeyArray []LinuxVirtualMachineScaleSetAdminSshKeyInput
+
+func (LinuxVirtualMachineScaleSetAdminSshKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetAdminSshKey)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetAdminSshKeyArray) ToLinuxVirtualMachineScaleSetAdminSshKeyArrayOutput() LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput {
+	return i.ToLinuxVirtualMachineScaleSetAdminSshKeyArrayOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetAdminSshKeyArray) ToLinuxVirtualMachineScaleSetAdminSshKeyArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput)
+}
+
+type LinuxVirtualMachineScaleSetAdminSshKeyOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetAdminSshKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetAdminSshKey)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetAdminSshKeyOutput) ToLinuxVirtualMachineScaleSetAdminSshKeyOutput() LinuxVirtualMachineScaleSetAdminSshKeyOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetAdminSshKeyOutput) ToLinuxVirtualMachineScaleSetAdminSshKeyOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAdminSshKeyOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetAdminSshKeyOutput) PublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAdminSshKey) string { return v.PublicKey }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetAdminSshKeyOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAdminSshKey) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetAdminSshKey)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput) ToLinuxVirtualMachineScaleSetAdminSshKeyArrayOutput() LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput) ToLinuxVirtualMachineScaleSetAdminSshKeyArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetAdminSshKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetAdminSshKey {
+		return vs[0].([]LinuxVirtualMachineScaleSetAdminSshKey)[vs[1].(int)]
+	}).(LinuxVirtualMachineScaleSetAdminSshKeyOutput)
+}
+
+type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy struct {
+	DisableAutomaticRollback bool `pulumi:"disableAutomaticRollback"`
+	EnableAutomaticOsUpgrade bool `pulumi:"enableAutomaticOsUpgrade"`
+}
+
+type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput() LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput
+	ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutputWithContext(context.Context) LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput
+}
+
+type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs struct {
+	DisableAutomaticRollback pulumi.BoolInput `pulumi:"disableAutomaticRollback"`
+	EnableAutomaticOsUpgrade pulumi.BoolInput `pulumi:"enableAutomaticOsUpgrade"`
+}
+
+func (LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput() LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput {
+	return i.ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput)
+}
+
+func (i LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput() LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput).ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(ctx)
+}
+
+type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput() LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput
+	ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(context.Context) LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput
+}
+
+type linuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs
+
+func LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtr(v *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput {
+	return (*linuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType)(v)
+}
+
+func (*linuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType) ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput() LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType) ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput() LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput() LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
+	return o.ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+		return &v
+	}).(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput)
+}
+func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) DisableAutomaticRollback() pulumi.BoolOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.DisableAutomaticRollback }).(pulumi.BoolOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) EnableAutomaticOsUpgrade() pulumi.BoolOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.EnableAutomaticOsUpgrade }).(pulumi.BoolOutput)
+}
+
+type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput() LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) ToLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) Elem() LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+		return *v
+	}).(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) DisableAutomaticRollback() pulumi.BoolOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.DisableAutomaticRollback }).(pulumi.BoolOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) EnableAutomaticOsUpgrade() pulumi.BoolOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.EnableAutomaticOsUpgrade }).(pulumi.BoolOutput)
+}
+
+type LinuxVirtualMachineScaleSetBootDiagnostics struct {
+	StorageAccountUri string `pulumi:"storageAccountUri"`
+}
+
+type LinuxVirtualMachineScaleSetBootDiagnosticsInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetBootDiagnosticsOutput() LinuxVirtualMachineScaleSetBootDiagnosticsOutput
+	ToLinuxVirtualMachineScaleSetBootDiagnosticsOutputWithContext(context.Context) LinuxVirtualMachineScaleSetBootDiagnosticsOutput
+}
+
+type LinuxVirtualMachineScaleSetBootDiagnosticsArgs struct {
+	StorageAccountUri pulumi.StringInput `pulumi:"storageAccountUri"`
+}
+
+func (LinuxVirtualMachineScaleSetBootDiagnosticsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetBootDiagnostics)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetBootDiagnosticsArgs) ToLinuxVirtualMachineScaleSetBootDiagnosticsOutput() LinuxVirtualMachineScaleSetBootDiagnosticsOutput {
+	return i.ToLinuxVirtualMachineScaleSetBootDiagnosticsOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetBootDiagnosticsArgs) ToLinuxVirtualMachineScaleSetBootDiagnosticsOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetBootDiagnosticsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetBootDiagnosticsOutput)
+}
+
+func (i LinuxVirtualMachineScaleSetBootDiagnosticsArgs) ToLinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput() LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetBootDiagnosticsArgs) ToLinuxVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetBootDiagnosticsOutput).ToLinuxVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(ctx)
+}
+
+type LinuxVirtualMachineScaleSetBootDiagnosticsPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput() LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput
+	ToLinuxVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(context.Context) LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput
+}
+
+type linuxVirtualMachineScaleSetBootDiagnosticsPtrType LinuxVirtualMachineScaleSetBootDiagnosticsArgs
+
+func LinuxVirtualMachineScaleSetBootDiagnosticsPtr(v *LinuxVirtualMachineScaleSetBootDiagnosticsArgs) LinuxVirtualMachineScaleSetBootDiagnosticsPtrInput {
+	return (*linuxVirtualMachineScaleSetBootDiagnosticsPtrType)(v)
+}
+
+func (*linuxVirtualMachineScaleSetBootDiagnosticsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetBootDiagnostics)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineScaleSetBootDiagnosticsPtrType) ToLinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput() LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineScaleSetBootDiagnosticsPtrType) ToLinuxVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetBootDiagnosticsOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetBootDiagnosticsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetBootDiagnostics)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetBootDiagnosticsOutput) ToLinuxVirtualMachineScaleSetBootDiagnosticsOutput() LinuxVirtualMachineScaleSetBootDiagnosticsOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetBootDiagnosticsOutput) ToLinuxVirtualMachineScaleSetBootDiagnosticsOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetBootDiagnosticsOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetBootDiagnosticsOutput) ToLinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput() LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return o.ToLinuxVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineScaleSetBootDiagnosticsOutput) ToLinuxVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetBootDiagnostics) *LinuxVirtualMachineScaleSetBootDiagnostics {
+		return &v
+	}).(LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput)
+}
+func (o LinuxVirtualMachineScaleSetBootDiagnosticsOutput) StorageAccountUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetBootDiagnostics)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput) ToLinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput() LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput) ToLinuxVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput) Elem() LinuxVirtualMachineScaleSetBootDiagnosticsOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetBootDiagnostics) LinuxVirtualMachineScaleSetBootDiagnostics {
+		return *v
+	}).(LinuxVirtualMachineScaleSetBootDiagnosticsOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput) StorageAccountUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetDataDisk struct {
+	Caching                 string  `pulumi:"caching"`
+	DiskEncryptionSetId     *string `pulumi:"diskEncryptionSetId"`
+	DiskSizeGb              int     `pulumi:"diskSizeGb"`
+	Lun                     int     `pulumi:"lun"`
+	StorageAccountType      string  `pulumi:"storageAccountType"`
+	WriteAcceleratorEnabled *bool   `pulumi:"writeAcceleratorEnabled"`
+}
+
+type LinuxVirtualMachineScaleSetDataDiskInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetDataDiskOutput() LinuxVirtualMachineScaleSetDataDiskOutput
+	ToLinuxVirtualMachineScaleSetDataDiskOutputWithContext(context.Context) LinuxVirtualMachineScaleSetDataDiskOutput
+}
+
+type LinuxVirtualMachineScaleSetDataDiskArgs struct {
+	Caching                 pulumi.StringInput    `pulumi:"caching"`
+	DiskEncryptionSetId     pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	DiskSizeGb              pulumi.IntInput       `pulumi:"diskSizeGb"`
+	Lun                     pulumi.IntInput       `pulumi:"lun"`
+	StorageAccountType      pulumi.StringInput    `pulumi:"storageAccountType"`
+	WriteAcceleratorEnabled pulumi.BoolPtrInput   `pulumi:"writeAcceleratorEnabled"`
+}
+
+func (LinuxVirtualMachineScaleSetDataDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetDataDisk)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetDataDiskArgs) ToLinuxVirtualMachineScaleSetDataDiskOutput() LinuxVirtualMachineScaleSetDataDiskOutput {
+	return i.ToLinuxVirtualMachineScaleSetDataDiskOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetDataDiskArgs) ToLinuxVirtualMachineScaleSetDataDiskOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetDataDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetDataDiskOutput)
+}
+
+type LinuxVirtualMachineScaleSetDataDiskArrayInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetDataDiskArrayOutput() LinuxVirtualMachineScaleSetDataDiskArrayOutput
+	ToLinuxVirtualMachineScaleSetDataDiskArrayOutputWithContext(context.Context) LinuxVirtualMachineScaleSetDataDiskArrayOutput
+}
+
+type LinuxVirtualMachineScaleSetDataDiskArray []LinuxVirtualMachineScaleSetDataDiskInput
+
+func (LinuxVirtualMachineScaleSetDataDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetDataDisk)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetDataDiskArray) ToLinuxVirtualMachineScaleSetDataDiskArrayOutput() LinuxVirtualMachineScaleSetDataDiskArrayOutput {
+	return i.ToLinuxVirtualMachineScaleSetDataDiskArrayOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetDataDiskArray) ToLinuxVirtualMachineScaleSetDataDiskArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetDataDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetDataDiskArrayOutput)
+}
+
+type LinuxVirtualMachineScaleSetDataDiskOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetDataDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetDataDisk)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetDataDiskOutput) ToLinuxVirtualMachineScaleSetDataDiskOutput() LinuxVirtualMachineScaleSetDataDiskOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetDataDiskOutput) ToLinuxVirtualMachineScaleSetDataDiskOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetDataDiskOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetDataDiskOutput) Caching() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskSizeGb() pulumi.IntOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) int { return v.DiskSizeGb }).(pulumi.IntOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetDataDiskOutput) Lun() pulumi.IntOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetDataDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetDataDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetDataDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetDataDisk)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetDataDiskArrayOutput) ToLinuxVirtualMachineScaleSetDataDiskArrayOutput() LinuxVirtualMachineScaleSetDataDiskArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetDataDiskArrayOutput) ToLinuxVirtualMachineScaleSetDataDiskArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetDataDiskArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetDataDiskArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetDataDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetDataDisk {
+		return vs[0].([]LinuxVirtualMachineScaleSetDataDisk)[vs[1].(int)]
+	}).(LinuxVirtualMachineScaleSetDataDiskOutput)
+}
+
+type LinuxVirtualMachineScaleSetIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
+	// The ID of the System Managed Service Principal.
+	PrincipalId *string `pulumi:"principalId"`
+	Type        string  `pulumi:"type"`
+}
+
+type LinuxVirtualMachineScaleSetIdentityInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetIdentityOutput() LinuxVirtualMachineScaleSetIdentityOutput
+	ToLinuxVirtualMachineScaleSetIdentityOutputWithContext(context.Context) LinuxVirtualMachineScaleSetIdentityOutput
+}
+
+type LinuxVirtualMachineScaleSetIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The ID of the System Managed Service Principal.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	Type        pulumi.StringInput    `pulumi:"type"`
+}
+
+func (LinuxVirtualMachineScaleSetIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetIdentityArgs) ToLinuxVirtualMachineScaleSetIdentityOutput() LinuxVirtualMachineScaleSetIdentityOutput {
+	return i.ToLinuxVirtualMachineScaleSetIdentityOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetIdentityArgs) ToLinuxVirtualMachineScaleSetIdentityOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetIdentityOutput)
+}
+
+func (i LinuxVirtualMachineScaleSetIdentityArgs) ToLinuxVirtualMachineScaleSetIdentityPtrOutput() LinuxVirtualMachineScaleSetIdentityPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetIdentityArgs) ToLinuxVirtualMachineScaleSetIdentityPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetIdentityOutput).ToLinuxVirtualMachineScaleSetIdentityPtrOutputWithContext(ctx)
+}
+
+type LinuxVirtualMachineScaleSetIdentityPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetIdentityPtrOutput() LinuxVirtualMachineScaleSetIdentityPtrOutput
+	ToLinuxVirtualMachineScaleSetIdentityPtrOutputWithContext(context.Context) LinuxVirtualMachineScaleSetIdentityPtrOutput
+}
+
+type linuxVirtualMachineScaleSetIdentityPtrType LinuxVirtualMachineScaleSetIdentityArgs
+
+func LinuxVirtualMachineScaleSetIdentityPtr(v *LinuxVirtualMachineScaleSetIdentityArgs) LinuxVirtualMachineScaleSetIdentityPtrInput {
+	return (*linuxVirtualMachineScaleSetIdentityPtrType)(v)
+}
+
+func (*linuxVirtualMachineScaleSetIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineScaleSetIdentityPtrType) ToLinuxVirtualMachineScaleSetIdentityPtrOutput() LinuxVirtualMachineScaleSetIdentityPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineScaleSetIdentityPtrType) ToLinuxVirtualMachineScaleSetIdentityPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetIdentityPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetIdentityOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetIdentityOutput) ToLinuxVirtualMachineScaleSetIdentityOutput() LinuxVirtualMachineScaleSetIdentityOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetIdentityOutput) ToLinuxVirtualMachineScaleSetIdentityOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetIdentityOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetIdentityOutput) ToLinuxVirtualMachineScaleSetIdentityPtrOutput() LinuxVirtualMachineScaleSetIdentityPtrOutput {
+	return o.ToLinuxVirtualMachineScaleSetIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineScaleSetIdentityOutput) ToLinuxVirtualMachineScaleSetIdentityPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetIdentityPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) *LinuxVirtualMachineScaleSetIdentity {
+		return &v
+	}).(LinuxVirtualMachineScaleSetIdentityPtrOutput)
+}
+func (o LinuxVirtualMachineScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the System Managed Service Principal.
+func (o LinuxVirtualMachineScaleSetIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) ToLinuxVirtualMachineScaleSetIdentityPtrOutput() LinuxVirtualMachineScaleSetIdentityPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) ToLinuxVirtualMachineScaleSetIdentityPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetIdentityPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) Elem() LinuxVirtualMachineScaleSetIdentityOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetIdentity) LinuxVirtualMachineScaleSetIdentity { return *v }).(LinuxVirtualMachineScaleSetIdentityOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the System Managed Service Principal.
+func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterface struct {
+	DnsServers                  []string                                                     `pulumi:"dnsServers"`
+	EnableAcceleratedNetworking *bool                                                        `pulumi:"enableAcceleratedNetworking"`
+	EnableIpForwarding          *bool                                                        `pulumi:"enableIpForwarding"`
+	IpConfigurations            []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
+	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name                   string  `pulumi:"name"`
+	NetworkSecurityGroupId *string `pulumi:"networkSecurityGroupId"`
+	Primary                *bool   `pulumi:"primary"`
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetNetworkInterfaceOutput() LinuxVirtualMachineScaleSetNetworkInterfaceOutput
+	ToLinuxVirtualMachineScaleSetNetworkInterfaceOutputWithContext(context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceOutput
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceArgs struct {
+	DnsServers                  pulumi.StringArrayInput                                              `pulumi:"dnsServers"`
+	EnableAcceleratedNetworking pulumi.BoolPtrInput                                                  `pulumi:"enableAcceleratedNetworking"`
+	EnableIpForwarding          pulumi.BoolPtrInput                                                  `pulumi:"enableIpForwarding"`
+	IpConfigurations            LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput `pulumi:"ipConfigurations"`
+	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name                   pulumi.StringInput    `pulumi:"name"`
+	NetworkSecurityGroupId pulumi.StringPtrInput `pulumi:"networkSecurityGroupId"`
+	Primary                pulumi.BoolPtrInput   `pulumi:"primary"`
+}
+
+func (LinuxVirtualMachineScaleSetNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetNetworkInterfaceArgs) ToLinuxVirtualMachineScaleSetNetworkInterfaceOutput() LinuxVirtualMachineScaleSetNetworkInterfaceOutput {
+	return i.ToLinuxVirtualMachineScaleSetNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetNetworkInterfaceArgs) ToLinuxVirtualMachineScaleSetNetworkInterfaceOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetNetworkInterfaceOutput)
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput() LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput
+	ToLinuxVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceArray []LinuxVirtualMachineScaleSetNetworkInterfaceInput
+
+func (LinuxVirtualMachineScaleSetNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetNetworkInterfaceArray) ToLinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput() LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return i.ToLinuxVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetNetworkInterfaceArray) ToLinuxVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput)
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) ToLinuxVirtualMachineScaleSetNetworkInterfaceOutput() LinuxVirtualMachineScaleSetNetworkInterfaceOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) ToLinuxVirtualMachineScaleSetNetworkInterfaceOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) EnableIpForwarding() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableIpForwarding }).(pulumi.BoolPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) IpConfigurations() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+		return v.IpConfigurations
+	}).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
+}
+
+// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) NetworkSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) *string { return v.NetworkSecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput) ToLinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput() LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput) ToLinuxVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetNetworkInterface {
+		return vs[0].([]LinuxVirtualMachineScaleSetNetworkInterface)[vs[1].(int)]
+	}).(LinuxVirtualMachineScaleSetNetworkInterfaceOutput)
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
+	ApplicationGatewayBackendAddressPoolIds []string `pulumi:"applicationGatewayBackendAddressPoolIds"`
+	ApplicationSecurityGroupIds             []string `pulumi:"applicationSecurityGroupIds"`
+	LoadBalancerBackendAddressPoolIds       []string `pulumi:"loadBalancerBackendAddressPoolIds"`
+	LoadBalancerInboundNatRulesIds          []string `pulumi:"loadBalancerInboundNatRulesIds"`
+	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name              string                                                                      `pulumi:"name"`
+	Primary           *bool                                                                       `pulumi:"primary"`
+	PublicIpAddresses []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress `pulumi:"publicIpAddresses"`
+	SubnetId          *string                                                                     `pulumi:"subnetId"`
+	Version           *string                                                                     `pulumi:"version"`
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput
+	ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struct {
+	ApplicationGatewayBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"applicationGatewayBackendAddressPoolIds"`
+	ApplicationSecurityGroupIds             pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
+	LoadBalancerBackendAddressPoolIds       pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolIds"`
+	LoadBalancerInboundNatRulesIds          pulumi.StringArrayInput `pulumi:"loadBalancerInboundNatRulesIds"`
+	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name              pulumi.StringInput                                                                  `pulumi:"name"`
+	Primary           pulumi.BoolPtrInput                                                                 `pulumi:"primary"`
+	PublicIpAddresses LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput `pulumi:"publicIpAddresses"`
+	SubnetId          pulumi.StringPtrInput                                                               `pulumi:"subnetId"`
+	Version           pulumi.StringPtrInput                                                               `pulumi:"version"`
+}
+
+func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return i.ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput)
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput
+	ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput
+
+func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return i.ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ApplicationGatewayBackendAddressPoolIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.ApplicationGatewayBackendAddressPoolIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.ApplicationSecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) LoadBalancerBackendAddressPoolIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.LoadBalancerBackendAddressPoolIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) LoadBalancerInboundNatRulesIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.LoadBalancerInboundNatRulesIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) PublicIpAddresses() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+		return v.PublicIpAddresses
+	}).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+		return vs[0].([]LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration)[vs[1].(int)]
+	}).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput)
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress struct {
+	DomainNameLabel      *string                                                                          `pulumi:"domainNameLabel"`
+	IdleTimeoutInMinutes *int                                                                             `pulumi:"idleTimeoutInMinutes"`
+	IpTags               []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag `pulumi:"ipTags"`
+	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name             string  `pulumi:"name"`
+	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput
+	ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs struct {
+	DomainNameLabel      pulumi.StringPtrInput                                                                    `pulumi:"domainNameLabel"`
+	IdleTimeoutInMinutes pulumi.IntPtrInput                                                                       `pulumi:"idleTimeoutInMinutes"`
+	IpTags               LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput `pulumi:"ipTags"`
+	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name             pulumi.StringInput    `pulumi:"name"`
+	PublicIpPrefixId pulumi.StringPtrInput `pulumi:"publicIpPrefixId"`
+}
+
+func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return i.ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput)
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput
+	ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput
+
+func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return i.ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) DomainNameLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
+		return v.DomainNameLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *int {
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) IpTags() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+		return v.IpTags
+	}).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput)
+}
+
+// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) PublicIpPrefixId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
+		return v.PublicIpPrefixId
+	}).(pulumi.StringPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+		return vs[0].([]LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)[vs[1].(int)]
+	}).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput)
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag struct {
+	Tag  string `pulumi:"tag"`
+	Type string `pulumi:"type"`
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput
+	ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs struct {
+	Tag  pulumi.StringInput `pulumi:"tag"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return i.ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput)
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput
+	ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput
+
+func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return i.ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput)
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) Tag() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string {
+		return v.Tag
+	}).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) ToLinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+		return vs[0].([]LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)[vs[1].(int)]
+	}).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput)
+}
+
+type LinuxVirtualMachineScaleSetOsDisk struct {
+	Caching                 string                                             `pulumi:"caching"`
+	DiffDiskSettings        *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
+	DiskEncryptionSetId     *string                                            `pulumi:"diskEncryptionSetId"`
+	DiskSizeGb              *int                                               `pulumi:"diskSizeGb"`
+	StorageAccountType      string                                             `pulumi:"storageAccountType"`
+	WriteAcceleratorEnabled *bool                                              `pulumi:"writeAcceleratorEnabled"`
+}
+
+type LinuxVirtualMachineScaleSetOsDiskInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetOsDiskOutput() LinuxVirtualMachineScaleSetOsDiskOutput
+	ToLinuxVirtualMachineScaleSetOsDiskOutputWithContext(context.Context) LinuxVirtualMachineScaleSetOsDiskOutput
+}
+
+type LinuxVirtualMachineScaleSetOsDiskArgs struct {
+	Caching                 pulumi.StringInput                                        `pulumi:"caching"`
+	DiffDiskSettings        LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
+	DiskEncryptionSetId     pulumi.StringPtrInput                                     `pulumi:"diskEncryptionSetId"`
+	DiskSizeGb              pulumi.IntPtrInput                                        `pulumi:"diskSizeGb"`
+	StorageAccountType      pulumi.StringInput                                        `pulumi:"storageAccountType"`
+	WriteAcceleratorEnabled pulumi.BoolPtrInput                                       `pulumi:"writeAcceleratorEnabled"`
+}
+
+func (LinuxVirtualMachineScaleSetOsDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetOsDisk)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetOsDiskArgs) ToLinuxVirtualMachineScaleSetOsDiskOutput() LinuxVirtualMachineScaleSetOsDiskOutput {
+	return i.ToLinuxVirtualMachineScaleSetOsDiskOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetOsDiskArgs) ToLinuxVirtualMachineScaleSetOsDiskOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetOsDiskOutput)
+}
+
+func (i LinuxVirtualMachineScaleSetOsDiskArgs) ToLinuxVirtualMachineScaleSetOsDiskPtrOutput() LinuxVirtualMachineScaleSetOsDiskPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetOsDiskArgs) ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetOsDiskOutput).ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx)
+}
+
+type LinuxVirtualMachineScaleSetOsDiskPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetOsDiskPtrOutput() LinuxVirtualMachineScaleSetOsDiskPtrOutput
+	ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Context) LinuxVirtualMachineScaleSetOsDiskPtrOutput
+}
+
+type linuxVirtualMachineScaleSetOsDiskPtrType LinuxVirtualMachineScaleSetOsDiskArgs
+
+func LinuxVirtualMachineScaleSetOsDiskPtr(v *LinuxVirtualMachineScaleSetOsDiskArgs) LinuxVirtualMachineScaleSetOsDiskPtrInput {
+	return (*linuxVirtualMachineScaleSetOsDiskPtrType)(v)
+}
+
+func (*linuxVirtualMachineScaleSetOsDiskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetOsDisk)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineScaleSetOsDiskPtrType) ToLinuxVirtualMachineScaleSetOsDiskPtrOutput() LinuxVirtualMachineScaleSetOsDiskPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineScaleSetOsDiskPtrType) ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetOsDiskPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetOsDiskOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetOsDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetOsDisk)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskOutput) ToLinuxVirtualMachineScaleSetOsDiskOutput() LinuxVirtualMachineScaleSetOsDiskOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskOutput) ToLinuxVirtualMachineScaleSetOsDiskOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskOutput) ToLinuxVirtualMachineScaleSetOsDiskPtrOutput() LinuxVirtualMachineScaleSetOsDiskPtrOutput {
+	return o.ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskOutput) ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *LinuxVirtualMachineScaleSetOsDisk {
+		return &v
+	}).(LinuxVirtualMachineScaleSetOsDiskPtrOutput)
+}
+func (o LinuxVirtualMachineScaleSetOsDiskOutput) Caching() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskOutput) DiffDiskSettings() LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		return v.DiffDiskSettings
+	}).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetOsDiskPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetOsDiskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetOsDisk)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) ToLinuxVirtualMachineScaleSetOsDiskPtrOutput() LinuxVirtualMachineScaleSetOsDiskPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) Elem() LinuxVirtualMachineScaleSetOsDiskOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) LinuxVirtualMachineScaleSetOsDisk { return *v }).(LinuxVirtualMachineScaleSetOsDiskOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) Caching() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) DiffDiskSettings() LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		return v.DiffDiskSettings
+	}).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
+	Option string `pulumi:"option"`
+}
+
+type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput() LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput
+	ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutputWithContext(context.Context) LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput
+}
+
+type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs struct {
+	Option pulumi.StringInput `pulumi:"option"`
+}
+
+func (LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput() LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
+	return i.ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput)
+}
+
+func (i LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput() LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput).ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(ctx)
+}
+
+type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput() LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput
+	ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(context.Context) LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput
+}
+
+type linuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs
+
+func LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtr(v *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput {
+	return (*linuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType)(v)
+}
+
+func (*linuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType) ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput() LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType) ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput() LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput() LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o.ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		return &v
+	}).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
+}
+func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Option() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput() LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) ToLinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Elem() LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		return *v
+	}).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetPlan struct {
+	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name      string `pulumi:"name"`
+	Product   string `pulumi:"product"`
+	Publisher string `pulumi:"publisher"`
+}
+
+type LinuxVirtualMachineScaleSetPlanInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetPlanOutput() LinuxVirtualMachineScaleSetPlanOutput
+	ToLinuxVirtualMachineScaleSetPlanOutputWithContext(context.Context) LinuxVirtualMachineScaleSetPlanOutput
+}
+
+type LinuxVirtualMachineScaleSetPlanArgs struct {
+	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name      pulumi.StringInput `pulumi:"name"`
+	Product   pulumi.StringInput `pulumi:"product"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+}
+
+func (LinuxVirtualMachineScaleSetPlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetPlan)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetPlanArgs) ToLinuxVirtualMachineScaleSetPlanOutput() LinuxVirtualMachineScaleSetPlanOutput {
+	return i.ToLinuxVirtualMachineScaleSetPlanOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetPlanArgs) ToLinuxVirtualMachineScaleSetPlanOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetPlanOutput)
+}
+
+func (i LinuxVirtualMachineScaleSetPlanArgs) ToLinuxVirtualMachineScaleSetPlanPtrOutput() LinuxVirtualMachineScaleSetPlanPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetPlanPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetPlanArgs) ToLinuxVirtualMachineScaleSetPlanPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetPlanOutput).ToLinuxVirtualMachineScaleSetPlanPtrOutputWithContext(ctx)
+}
+
+type LinuxVirtualMachineScaleSetPlanPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetPlanPtrOutput() LinuxVirtualMachineScaleSetPlanPtrOutput
+	ToLinuxVirtualMachineScaleSetPlanPtrOutputWithContext(context.Context) LinuxVirtualMachineScaleSetPlanPtrOutput
+}
+
+type linuxVirtualMachineScaleSetPlanPtrType LinuxVirtualMachineScaleSetPlanArgs
+
+func LinuxVirtualMachineScaleSetPlanPtr(v *LinuxVirtualMachineScaleSetPlanArgs) LinuxVirtualMachineScaleSetPlanPtrInput {
+	return (*linuxVirtualMachineScaleSetPlanPtrType)(v)
+}
+
+func (*linuxVirtualMachineScaleSetPlanPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetPlan)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineScaleSetPlanPtrType) ToLinuxVirtualMachineScaleSetPlanPtrOutput() LinuxVirtualMachineScaleSetPlanPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetPlanPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineScaleSetPlanPtrType) ToLinuxVirtualMachineScaleSetPlanPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetPlanPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetPlanOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetPlan)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetPlanOutput) ToLinuxVirtualMachineScaleSetPlanOutput() LinuxVirtualMachineScaleSetPlanOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetPlanOutput) ToLinuxVirtualMachineScaleSetPlanOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetPlanOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetPlanOutput) ToLinuxVirtualMachineScaleSetPlanPtrOutput() LinuxVirtualMachineScaleSetPlanPtrOutput {
+	return o.ToLinuxVirtualMachineScaleSetPlanPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineScaleSetPlanOutput) ToLinuxVirtualMachineScaleSetPlanPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetPlanPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) *LinuxVirtualMachineScaleSetPlan {
+		return &v
+	}).(LinuxVirtualMachineScaleSetPlanPtrOutput)
+}
+
+// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetPlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetPlanOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetPlanOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetPlanPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetPlanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetPlan)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetPlanPtrOutput) ToLinuxVirtualMachineScaleSetPlanPtrOutput() LinuxVirtualMachineScaleSetPlanPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetPlanPtrOutput) ToLinuxVirtualMachineScaleSetPlanPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetPlanPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Elem() LinuxVirtualMachineScaleSetPlanOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetPlan) LinuxVirtualMachineScaleSetPlan { return *v }).(LinuxVirtualMachineScaleSetPlanOutput)
+}
+
+// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetRollingUpgradePolicy struct {
+	MaxBatchInstancePercent             int    `pulumi:"maxBatchInstancePercent"`
+	MaxUnhealthyInstancePercent         int    `pulumi:"maxUnhealthyInstancePercent"`
+	MaxUnhealthyUpgradedInstancePercent int    `pulumi:"maxUnhealthyUpgradedInstancePercent"`
+	PauseTimeBetweenBatches             string `pulumi:"pauseTimeBetweenBatches"`
+}
+
+type LinuxVirtualMachineScaleSetRollingUpgradePolicyInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetRollingUpgradePolicyOutput() LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput
+	ToLinuxVirtualMachineScaleSetRollingUpgradePolicyOutputWithContext(context.Context) LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput
+}
+
+type LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
+	MaxBatchInstancePercent             pulumi.IntInput    `pulumi:"maxBatchInstancePercent"`
+	MaxUnhealthyInstancePercent         pulumi.IntInput    `pulumi:"maxUnhealthyInstancePercent"`
+	MaxUnhealthyUpgradedInstancePercent pulumi.IntInput    `pulumi:"maxUnhealthyUpgradedInstancePercent"`
+	PauseTimeBetweenBatches             pulumi.StringInput `pulumi:"pauseTimeBetweenBatches"`
+}
+
+func (LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetRollingUpgradePolicy)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs) ToLinuxVirtualMachineScaleSetRollingUpgradePolicyOutput() LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput {
+	return i.ToLinuxVirtualMachineScaleSetRollingUpgradePolicyOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs) ToLinuxVirtualMachineScaleSetRollingUpgradePolicyOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput)
+}
+
+func (i LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs) ToLinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput() LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs) ToLinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput).ToLinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx)
+}
+
+type LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput() LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput
+	ToLinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(context.Context) LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput
+}
+
+type linuxVirtualMachineScaleSetRollingUpgradePolicyPtrType LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs
+
+func LinuxVirtualMachineScaleSetRollingUpgradePolicyPtr(v *LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs) LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput {
+	return (*linuxVirtualMachineScaleSetRollingUpgradePolicyPtrType)(v)
+}
+
+func (*linuxVirtualMachineScaleSetRollingUpgradePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetRollingUpgradePolicy)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineScaleSetRollingUpgradePolicyPtrType) ToLinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput() LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineScaleSetRollingUpgradePolicyPtrType) ToLinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetRollingUpgradePolicy)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) ToLinuxVirtualMachineScaleSetRollingUpgradePolicyOutput() LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) ToLinuxVirtualMachineScaleSetRollingUpgradePolicyOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) ToLinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput() LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return o.ToLinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) ToLinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) *LinuxVirtualMachineScaleSetRollingUpgradePolicy {
+		return &v
+	}).(LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
+}
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxBatchInstancePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxBatchInstancePercent }).(pulumi.IntOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyInstancePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int {
+		return v.MaxUnhealthyUpgradedInstancePercent
+	}).(pulumi.IntOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) PauseTimeBetweenBatches() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetRollingUpgradePolicy)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) ToLinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput() LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) ToLinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) Elem() LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetRollingUpgradePolicy) LinuxVirtualMachineScaleSetRollingUpgradePolicy {
+		return *v
+	}).(LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxBatchInstancePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxBatchInstancePercent }).(pulumi.IntOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyInstancePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int {
+		return v.MaxUnhealthyUpgradedInstancePercent
+	}).(pulumi.IntOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PauseTimeBetweenBatches() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetSecret struct {
+	Certificates []LinuxVirtualMachineScaleSetSecretCertificate `pulumi:"certificates"`
+	KeyVaultId   string                                         `pulumi:"keyVaultId"`
+}
+
+type LinuxVirtualMachineScaleSetSecretInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetSecretOutput() LinuxVirtualMachineScaleSetSecretOutput
+	ToLinuxVirtualMachineScaleSetSecretOutputWithContext(context.Context) LinuxVirtualMachineScaleSetSecretOutput
+}
+
+type LinuxVirtualMachineScaleSetSecretArgs struct {
+	Certificates LinuxVirtualMachineScaleSetSecretCertificateArrayInput `pulumi:"certificates"`
+	KeyVaultId   pulumi.StringInput                                     `pulumi:"keyVaultId"`
+}
+
+func (LinuxVirtualMachineScaleSetSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetSecret)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetSecretArgs) ToLinuxVirtualMachineScaleSetSecretOutput() LinuxVirtualMachineScaleSetSecretOutput {
+	return i.ToLinuxVirtualMachineScaleSetSecretOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetSecretArgs) ToLinuxVirtualMachineScaleSetSecretOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetSecretOutput)
+}
+
+type LinuxVirtualMachineScaleSetSecretArrayInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetSecretArrayOutput() LinuxVirtualMachineScaleSetSecretArrayOutput
+	ToLinuxVirtualMachineScaleSetSecretArrayOutputWithContext(context.Context) LinuxVirtualMachineScaleSetSecretArrayOutput
+}
+
+type LinuxVirtualMachineScaleSetSecretArray []LinuxVirtualMachineScaleSetSecretInput
+
+func (LinuxVirtualMachineScaleSetSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetSecret)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetSecretArray) ToLinuxVirtualMachineScaleSetSecretArrayOutput() LinuxVirtualMachineScaleSetSecretArrayOutput {
+	return i.ToLinuxVirtualMachineScaleSetSecretArrayOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetSecretArray) ToLinuxVirtualMachineScaleSetSecretArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetSecretArrayOutput)
+}
+
+type LinuxVirtualMachineScaleSetSecretOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetSecret)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetSecretOutput) ToLinuxVirtualMachineScaleSetSecretOutput() LinuxVirtualMachineScaleSetSecretOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetSecretOutput) ToLinuxVirtualMachineScaleSetSecretOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSecretOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetSecretOutput) Certificates() LinuxVirtualMachineScaleSetSecretCertificateArrayOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSecret) []LinuxVirtualMachineScaleSetSecretCertificate {
+		return v.Certificates
+	}).(LinuxVirtualMachineScaleSetSecretCertificateArrayOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetSecretOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSecret) string { return v.KeyVaultId }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetSecret)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetSecretArrayOutput) ToLinuxVirtualMachineScaleSetSecretArrayOutput() LinuxVirtualMachineScaleSetSecretArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetSecretArrayOutput) ToLinuxVirtualMachineScaleSetSecretArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSecretArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetSecretArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetSecret {
+		return vs[0].([]LinuxVirtualMachineScaleSetSecret)[vs[1].(int)]
+	}).(LinuxVirtualMachineScaleSetSecretOutput)
+}
+
+type LinuxVirtualMachineScaleSetSecretCertificate struct {
+	Url string `pulumi:"url"`
+}
+
+type LinuxVirtualMachineScaleSetSecretCertificateInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetSecretCertificateOutput() LinuxVirtualMachineScaleSetSecretCertificateOutput
+	ToLinuxVirtualMachineScaleSetSecretCertificateOutputWithContext(context.Context) LinuxVirtualMachineScaleSetSecretCertificateOutput
+}
+
+type LinuxVirtualMachineScaleSetSecretCertificateArgs struct {
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (LinuxVirtualMachineScaleSetSecretCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetSecretCertificate)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetSecretCertificateArgs) ToLinuxVirtualMachineScaleSetSecretCertificateOutput() LinuxVirtualMachineScaleSetSecretCertificateOutput {
+	return i.ToLinuxVirtualMachineScaleSetSecretCertificateOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetSecretCertificateArgs) ToLinuxVirtualMachineScaleSetSecretCertificateOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSecretCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetSecretCertificateOutput)
+}
+
+type LinuxVirtualMachineScaleSetSecretCertificateArrayInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetSecretCertificateArrayOutput() LinuxVirtualMachineScaleSetSecretCertificateArrayOutput
+	ToLinuxVirtualMachineScaleSetSecretCertificateArrayOutputWithContext(context.Context) LinuxVirtualMachineScaleSetSecretCertificateArrayOutput
+}
+
+type LinuxVirtualMachineScaleSetSecretCertificateArray []LinuxVirtualMachineScaleSetSecretCertificateInput
+
+func (LinuxVirtualMachineScaleSetSecretCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetSecretCertificate)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetSecretCertificateArray) ToLinuxVirtualMachineScaleSetSecretCertificateArrayOutput() LinuxVirtualMachineScaleSetSecretCertificateArrayOutput {
+	return i.ToLinuxVirtualMachineScaleSetSecretCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetSecretCertificateArray) ToLinuxVirtualMachineScaleSetSecretCertificateArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSecretCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetSecretCertificateArrayOutput)
+}
+
+type LinuxVirtualMachineScaleSetSecretCertificateOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetSecretCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetSecretCertificate)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetSecretCertificateOutput) ToLinuxVirtualMachineScaleSetSecretCertificateOutput() LinuxVirtualMachineScaleSetSecretCertificateOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetSecretCertificateOutput) ToLinuxVirtualMachineScaleSetSecretCertificateOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSecretCertificateOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetSecretCertificateOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSecretCertificate) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetSecretCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetSecretCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetSecretCertificate)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetSecretCertificateArrayOutput) ToLinuxVirtualMachineScaleSetSecretCertificateArrayOutput() LinuxVirtualMachineScaleSetSecretCertificateArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetSecretCertificateArrayOutput) ToLinuxVirtualMachineScaleSetSecretCertificateArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSecretCertificateArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetSecretCertificateArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetSecretCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetSecretCertificate {
+		return vs[0].([]LinuxVirtualMachineScaleSetSecretCertificate)[vs[1].(int)]
+	}).(LinuxVirtualMachineScaleSetSecretCertificateOutput)
+}
+
+type LinuxVirtualMachineScaleSetSourceImageReference struct {
+	Offer     string `pulumi:"offer"`
+	Publisher string `pulumi:"publisher"`
+	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+	Sku     string `pulumi:"sku"`
+	Version string `pulumi:"version"`
+}
+
+type LinuxVirtualMachineScaleSetSourceImageReferenceInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetSourceImageReferenceOutput() LinuxVirtualMachineScaleSetSourceImageReferenceOutput
+	ToLinuxVirtualMachineScaleSetSourceImageReferenceOutputWithContext(context.Context) LinuxVirtualMachineScaleSetSourceImageReferenceOutput
+}
+
+type LinuxVirtualMachineScaleSetSourceImageReferenceArgs struct {
+	Offer     pulumi.StringInput `pulumi:"offer"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+	Sku     pulumi.StringInput `pulumi:"sku"`
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (LinuxVirtualMachineScaleSetSourceImageReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetSourceImageReference)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetSourceImageReferenceArgs) ToLinuxVirtualMachineScaleSetSourceImageReferenceOutput() LinuxVirtualMachineScaleSetSourceImageReferenceOutput {
+	return i.ToLinuxVirtualMachineScaleSetSourceImageReferenceOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetSourceImageReferenceArgs) ToLinuxVirtualMachineScaleSetSourceImageReferenceOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSourceImageReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetSourceImageReferenceOutput)
+}
+
+func (i LinuxVirtualMachineScaleSetSourceImageReferenceArgs) ToLinuxVirtualMachineScaleSetSourceImageReferencePtrOutput() LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetSourceImageReferenceArgs) ToLinuxVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetSourceImageReferenceOutput).ToLinuxVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(ctx)
+}
+
+type LinuxVirtualMachineScaleSetSourceImageReferencePtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetSourceImageReferencePtrOutput() LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput
+	ToLinuxVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(context.Context) LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput
+}
+
+type linuxVirtualMachineScaleSetSourceImageReferencePtrType LinuxVirtualMachineScaleSetSourceImageReferenceArgs
+
+func LinuxVirtualMachineScaleSetSourceImageReferencePtr(v *LinuxVirtualMachineScaleSetSourceImageReferenceArgs) LinuxVirtualMachineScaleSetSourceImageReferencePtrInput {
+	return (*linuxVirtualMachineScaleSetSourceImageReferencePtrType)(v)
+}
+
+func (*linuxVirtualMachineScaleSetSourceImageReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetSourceImageReference)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineScaleSetSourceImageReferencePtrType) ToLinuxVirtualMachineScaleSetSourceImageReferencePtrOutput() LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineScaleSetSourceImageReferencePtrType) ToLinuxVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetSourceImageReferenceOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetSourceImageReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetSourceImageReference)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) ToLinuxVirtualMachineScaleSetSourceImageReferenceOutput() LinuxVirtualMachineScaleSetSourceImageReferenceOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) ToLinuxVirtualMachineScaleSetSourceImageReferenceOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSourceImageReferenceOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) ToLinuxVirtualMachineScaleSetSourceImageReferencePtrOutput() LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return o.ToLinuxVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) ToLinuxVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) *LinuxVirtualMachineScaleSetSourceImageReference {
+		return &v
+	}).(LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput)
+}
+func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) Offer() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetSourceImageReference)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) ToLinuxVirtualMachineScaleSetSourceImageReferencePtrOutput() LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) ToLinuxVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Elem() LinuxVirtualMachineScaleSetSourceImageReferenceOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetSourceImageReference) LinuxVirtualMachineScaleSetSourceImageReference {
+		return *v
+	}).(LinuxVirtualMachineScaleSetSourceImageReferenceOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Offer() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineSecret struct {
+	Certificates []LinuxVirtualMachineSecretCertificate `pulumi:"certificates"`
+	KeyVaultId   string                                 `pulumi:"keyVaultId"`
+}
+
+type LinuxVirtualMachineSecretInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineSecretOutput() LinuxVirtualMachineSecretOutput
+	ToLinuxVirtualMachineSecretOutputWithContext(context.Context) LinuxVirtualMachineSecretOutput
+}
+
+type LinuxVirtualMachineSecretArgs struct {
+	Certificates LinuxVirtualMachineSecretCertificateArrayInput `pulumi:"certificates"`
+	KeyVaultId   pulumi.StringInput                             `pulumi:"keyVaultId"`
+}
+
+func (LinuxVirtualMachineSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineSecret)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineSecretArgs) ToLinuxVirtualMachineSecretOutput() LinuxVirtualMachineSecretOutput {
+	return i.ToLinuxVirtualMachineSecretOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineSecretArgs) ToLinuxVirtualMachineSecretOutputWithContext(ctx context.Context) LinuxVirtualMachineSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineSecretOutput)
+}
+
+type LinuxVirtualMachineSecretArrayInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineSecretArrayOutput() LinuxVirtualMachineSecretArrayOutput
+	ToLinuxVirtualMachineSecretArrayOutputWithContext(context.Context) LinuxVirtualMachineSecretArrayOutput
+}
+
+type LinuxVirtualMachineSecretArray []LinuxVirtualMachineSecretInput
+
+func (LinuxVirtualMachineSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineSecret)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineSecretArray) ToLinuxVirtualMachineSecretArrayOutput() LinuxVirtualMachineSecretArrayOutput {
+	return i.ToLinuxVirtualMachineSecretArrayOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineSecretArray) ToLinuxVirtualMachineSecretArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineSecretArrayOutput)
+}
+
+type LinuxVirtualMachineSecretOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineSecret)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineSecretOutput) ToLinuxVirtualMachineSecretOutput() LinuxVirtualMachineSecretOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineSecretOutput) ToLinuxVirtualMachineSecretOutputWithContext(ctx context.Context) LinuxVirtualMachineSecretOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineSecretOutput) Certificates() LinuxVirtualMachineSecretCertificateArrayOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineSecret) []LinuxVirtualMachineSecretCertificate { return v.Certificates }).(LinuxVirtualMachineSecretCertificateArrayOutput)
+}
+
+func (o LinuxVirtualMachineSecretOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineSecret) string { return v.KeyVaultId }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineSecret)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineSecretArrayOutput) ToLinuxVirtualMachineSecretArrayOutput() LinuxVirtualMachineSecretArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineSecretArrayOutput) ToLinuxVirtualMachineSecretArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineSecretArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineSecretArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineSecret {
+		return vs[0].([]LinuxVirtualMachineSecret)[vs[1].(int)]
+	}).(LinuxVirtualMachineSecretOutput)
+}
+
+type LinuxVirtualMachineSecretCertificate struct {
+	Url string `pulumi:"url"`
+}
+
+type LinuxVirtualMachineSecretCertificateInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineSecretCertificateOutput() LinuxVirtualMachineSecretCertificateOutput
+	ToLinuxVirtualMachineSecretCertificateOutputWithContext(context.Context) LinuxVirtualMachineSecretCertificateOutput
+}
+
+type LinuxVirtualMachineSecretCertificateArgs struct {
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (LinuxVirtualMachineSecretCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineSecretCertificate)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineSecretCertificateArgs) ToLinuxVirtualMachineSecretCertificateOutput() LinuxVirtualMachineSecretCertificateOutput {
+	return i.ToLinuxVirtualMachineSecretCertificateOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineSecretCertificateArgs) ToLinuxVirtualMachineSecretCertificateOutputWithContext(ctx context.Context) LinuxVirtualMachineSecretCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineSecretCertificateOutput)
+}
+
+type LinuxVirtualMachineSecretCertificateArrayInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineSecretCertificateArrayOutput() LinuxVirtualMachineSecretCertificateArrayOutput
+	ToLinuxVirtualMachineSecretCertificateArrayOutputWithContext(context.Context) LinuxVirtualMachineSecretCertificateArrayOutput
+}
+
+type LinuxVirtualMachineSecretCertificateArray []LinuxVirtualMachineSecretCertificateInput
+
+func (LinuxVirtualMachineSecretCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineSecretCertificate)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineSecretCertificateArray) ToLinuxVirtualMachineSecretCertificateArrayOutput() LinuxVirtualMachineSecretCertificateArrayOutput {
+	return i.ToLinuxVirtualMachineSecretCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineSecretCertificateArray) ToLinuxVirtualMachineSecretCertificateArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineSecretCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineSecretCertificateArrayOutput)
+}
+
+type LinuxVirtualMachineSecretCertificateOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineSecretCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineSecretCertificate)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineSecretCertificateOutput) ToLinuxVirtualMachineSecretCertificateOutput() LinuxVirtualMachineSecretCertificateOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineSecretCertificateOutput) ToLinuxVirtualMachineSecretCertificateOutputWithContext(ctx context.Context) LinuxVirtualMachineSecretCertificateOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineSecretCertificateOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineSecretCertificate) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineSecretCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineSecretCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineSecretCertificate)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineSecretCertificateArrayOutput) ToLinuxVirtualMachineSecretCertificateArrayOutput() LinuxVirtualMachineSecretCertificateArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineSecretCertificateArrayOutput) ToLinuxVirtualMachineSecretCertificateArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineSecretCertificateArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineSecretCertificateArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineSecretCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineSecretCertificate {
+		return vs[0].([]LinuxVirtualMachineSecretCertificate)[vs[1].(int)]
+	}).(LinuxVirtualMachineSecretCertificateOutput)
+}
+
+type LinuxVirtualMachineSourceImageReference struct {
+	Offer     string `pulumi:"offer"`
+	Publisher string `pulumi:"publisher"`
+	Sku       string `pulumi:"sku"`
+	Version   string `pulumi:"version"`
+}
+
+type LinuxVirtualMachineSourceImageReferenceInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineSourceImageReferenceOutput() LinuxVirtualMachineSourceImageReferenceOutput
+	ToLinuxVirtualMachineSourceImageReferenceOutputWithContext(context.Context) LinuxVirtualMachineSourceImageReferenceOutput
+}
+
+type LinuxVirtualMachineSourceImageReferenceArgs struct {
+	Offer     pulumi.StringInput `pulumi:"offer"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	Sku       pulumi.StringInput `pulumi:"sku"`
+	Version   pulumi.StringInput `pulumi:"version"`
+}
+
+func (LinuxVirtualMachineSourceImageReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineSourceImageReference)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineSourceImageReferenceArgs) ToLinuxVirtualMachineSourceImageReferenceOutput() LinuxVirtualMachineSourceImageReferenceOutput {
+	return i.ToLinuxVirtualMachineSourceImageReferenceOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineSourceImageReferenceArgs) ToLinuxVirtualMachineSourceImageReferenceOutputWithContext(ctx context.Context) LinuxVirtualMachineSourceImageReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineSourceImageReferenceOutput)
+}
+
+func (i LinuxVirtualMachineSourceImageReferenceArgs) ToLinuxVirtualMachineSourceImageReferencePtrOutput() LinuxVirtualMachineSourceImageReferencePtrOutput {
+	return i.ToLinuxVirtualMachineSourceImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineSourceImageReferenceArgs) ToLinuxVirtualMachineSourceImageReferencePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineSourceImageReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineSourceImageReferenceOutput).ToLinuxVirtualMachineSourceImageReferencePtrOutputWithContext(ctx)
+}
+
+type LinuxVirtualMachineSourceImageReferencePtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineSourceImageReferencePtrOutput() LinuxVirtualMachineSourceImageReferencePtrOutput
+	ToLinuxVirtualMachineSourceImageReferencePtrOutputWithContext(context.Context) LinuxVirtualMachineSourceImageReferencePtrOutput
+}
+
+type linuxVirtualMachineSourceImageReferencePtrType LinuxVirtualMachineSourceImageReferenceArgs
+
+func LinuxVirtualMachineSourceImageReferencePtr(v *LinuxVirtualMachineSourceImageReferenceArgs) LinuxVirtualMachineSourceImageReferencePtrInput {
+	return (*linuxVirtualMachineSourceImageReferencePtrType)(v)
+}
+
+func (*linuxVirtualMachineSourceImageReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineSourceImageReference)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineSourceImageReferencePtrType) ToLinuxVirtualMachineSourceImageReferencePtrOutput() LinuxVirtualMachineSourceImageReferencePtrOutput {
+	return i.ToLinuxVirtualMachineSourceImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineSourceImageReferencePtrType) ToLinuxVirtualMachineSourceImageReferencePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineSourceImageReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineSourceImageReferencePtrOutput)
+}
+
+type LinuxVirtualMachineSourceImageReferenceOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineSourceImageReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineSourceImageReference)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineSourceImageReferenceOutput) ToLinuxVirtualMachineSourceImageReferenceOutput() LinuxVirtualMachineSourceImageReferenceOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineSourceImageReferenceOutput) ToLinuxVirtualMachineSourceImageReferenceOutputWithContext(ctx context.Context) LinuxVirtualMachineSourceImageReferenceOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineSourceImageReferenceOutput) ToLinuxVirtualMachineSourceImageReferencePtrOutput() LinuxVirtualMachineSourceImageReferencePtrOutput {
+	return o.ToLinuxVirtualMachineSourceImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineSourceImageReferenceOutput) ToLinuxVirtualMachineSourceImageReferencePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineSourceImageReferencePtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) *LinuxVirtualMachineSourceImageReference {
+		return &v
+	}).(LinuxVirtualMachineSourceImageReferencePtrOutput)
+}
+func (o LinuxVirtualMachineSourceImageReferenceOutput) Offer() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineSourceImageReferenceOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineSourceImageReferenceOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineSourceImageReferenceOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineSourceImageReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineSourceImageReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineSourceImageReference)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineSourceImageReferencePtrOutput) ToLinuxVirtualMachineSourceImageReferencePtrOutput() LinuxVirtualMachineSourceImageReferencePtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineSourceImageReferencePtrOutput) ToLinuxVirtualMachineSourceImageReferencePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineSourceImageReferencePtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Elem() LinuxVirtualMachineSourceImageReferenceOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineSourceImageReference) LinuxVirtualMachineSourceImageReference { return *v }).(LinuxVirtualMachineSourceImageReferenceOutput)
+}
+
+func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Offer() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
 
 type ManagedDiskEncryptionSettings struct {
 	DiskEncryptionKey *ManagedDiskEncryptionSettingsDiskEncryptionKey `pulumi:"diskEncryptionKey"`
-	Enabled bool `pulumi:"enabled"`
-	KeyEncryptionKey *ManagedDiskEncryptionSettingsKeyEncryptionKey `pulumi:"keyEncryptionKey"`
+	Enabled           bool                                            `pulumi:"enabled"`
+	KeyEncryptionKey  *ManagedDiskEncryptionSettingsKeyEncryptionKey  `pulumi:"keyEncryptionKey"`
 }
 
 type ManagedDiskEncryptionSettingsInput interface {
@@ -601,8 +3846,8 @@ type ManagedDiskEncryptionSettingsInput interface {
 
 type ManagedDiskEncryptionSettingsArgs struct {
 	DiskEncryptionKey ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrInput `pulumi:"diskEncryptionKey"`
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	KeyEncryptionKey ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrInput `pulumi:"keyEncryptionKey"`
+	Enabled           pulumi.BoolInput                                       `pulumi:"enabled"`
+	KeyEncryptionKey  ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrInput  `pulumi:"keyEncryptionKey"`
 }
 
 func (ManagedDiskEncryptionSettingsArgs) ElementType() reflect.Type {
@@ -634,7 +3879,8 @@ type ManagedDiskEncryptionSettingsPtrInput interface {
 
 type managedDiskEncryptionSettingsPtrType ManagedDiskEncryptionSettingsArgs
 
-func ManagedDiskEncryptionSettingsPtr(v *ManagedDiskEncryptionSettingsArgs) ManagedDiskEncryptionSettingsPtrInput {	return (*managedDiskEncryptionSettingsPtrType)(v)
+func ManagedDiskEncryptionSettingsPtr(v *ManagedDiskEncryptionSettingsArgs) ManagedDiskEncryptionSettingsPtrInput {
+	return (*managedDiskEncryptionSettingsPtrType)(v)
 }
 
 func (*managedDiskEncryptionSettingsPtrType) ElementType() reflect.Type {
@@ -649,7 +3895,7 @@ func (i *managedDiskEncryptionSettingsPtrType) ToManagedDiskEncryptionSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskEncryptionSettingsPtrOutput)
 }
 
-type ManagedDiskEncryptionSettingsOutput struct { *pulumi.OutputState }
+type ManagedDiskEncryptionSettingsOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskEncryptionSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedDiskEncryptionSettings)(nil)).Elem()
@@ -673,18 +3919,22 @@ func (o ManagedDiskEncryptionSettingsOutput) ToManagedDiskEncryptionSettingsPtrO
 	}).(ManagedDiskEncryptionSettingsPtrOutput)
 }
 func (o ManagedDiskEncryptionSettingsOutput) DiskEncryptionKey() ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettingsDiskEncryptionKey { return v.DiskEncryptionKey }).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettingsDiskEncryptionKey {
+		return v.DiskEncryptionKey
+	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
 func (o ManagedDiskEncryptionSettingsOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o ManagedDiskEncryptionSettingsOutput) KeyEncryptionKey() ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettingsKeyEncryptionKey { return v.KeyEncryptionKey }).(ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettingsKeyEncryptionKey {
+		return v.KeyEncryptionKey
+	}).(ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
 
-type ManagedDiskEncryptionSettingsPtrOutput struct { *pulumi.OutputState}
+type ManagedDiskEncryptionSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskEncryptionSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ManagedDiskEncryptionSettings)(nil)).Elem()
@@ -699,23 +3949,27 @@ func (o ManagedDiskEncryptionSettingsPtrOutput) ToManagedDiskEncryptionSettingsP
 }
 
 func (o ManagedDiskEncryptionSettingsPtrOutput) Elem() ManagedDiskEncryptionSettingsOutput {
-	return o.ApplyT(func (v *ManagedDiskEncryptionSettings) ManagedDiskEncryptionSettings { return *v }).(ManagedDiskEncryptionSettingsOutput)
+	return o.ApplyT(func(v *ManagedDiskEncryptionSettings) ManagedDiskEncryptionSettings { return *v }).(ManagedDiskEncryptionSettingsOutput)
 }
 
 func (o ManagedDiskEncryptionSettingsPtrOutput) DiskEncryptionKey() ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettingsDiskEncryptionKey { return v.DiskEncryptionKey }).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettingsDiskEncryptionKey {
+		return v.DiskEncryptionKey
+	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
 func (o ManagedDiskEncryptionSettingsPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o ManagedDiskEncryptionSettingsPtrOutput) KeyEncryptionKey() ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettingsKeyEncryptionKey { return v.KeyEncryptionKey }).(ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettingsKeyEncryptionKey {
+		return v.KeyEncryptionKey
+	}).(ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
 
 type ManagedDiskEncryptionSettingsDiskEncryptionKey struct {
-	SecretUrl string `pulumi:"secretUrl"`
+	SecretUrl     string `pulumi:"secretUrl"`
 	SourceVaultId string `pulumi:"sourceVaultId"`
 }
 
@@ -727,7 +3981,7 @@ type ManagedDiskEncryptionSettingsDiskEncryptionKeyInput interface {
 }
 
 type ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs struct {
-	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	SecretUrl     pulumi.StringInput `pulumi:"secretUrl"`
 	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
 }
 
@@ -760,7 +4014,8 @@ type ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrInput interface {
 
 type managedDiskEncryptionSettingsDiskEncryptionKeyPtrType ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs
 
-func ManagedDiskEncryptionSettingsDiskEncryptionKeyPtr(v *ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs) ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrInput {	return (*managedDiskEncryptionSettingsDiskEncryptionKeyPtrType)(v)
+func ManagedDiskEncryptionSettingsDiskEncryptionKeyPtr(v *ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs) ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrInput {
+	return (*managedDiskEncryptionSettingsDiskEncryptionKeyPtrType)(v)
 }
 
 func (*managedDiskEncryptionSettingsDiskEncryptionKeyPtrType) ElementType() reflect.Type {
@@ -775,7 +4030,7 @@ func (i *managedDiskEncryptionSettingsDiskEncryptionKeyPtrType) ToManagedDiskEnc
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
-type ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput struct { *pulumi.OutputState }
+type ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedDiskEncryptionSettingsDiskEncryptionKey)(nil)).Elem()
@@ -799,14 +4054,14 @@ func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput) ToManagedDiskEncry
 	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput) SecretUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
 }
 
 func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
-type ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput struct { *pulumi.OutputState}
+type ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ManagedDiskEncryptionSettingsDiskEncryptionKey)(nil)).Elem()
@@ -821,19 +4076,21 @@ func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput) ToManagedDiskEn
 }
 
 func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput) Elem() ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput {
-	return o.ApplyT(func (v *ManagedDiskEncryptionSettingsDiskEncryptionKey) ManagedDiskEncryptionSettingsDiskEncryptionKey { return *v }).(ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput)
+	return o.ApplyT(func(v *ManagedDiskEncryptionSettingsDiskEncryptionKey) ManagedDiskEncryptionSettingsDiskEncryptionKey {
+		return *v
+	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput)
 }
 
 func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput) SecretUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
 }
 
 func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
 type ManagedDiskEncryptionSettingsKeyEncryptionKey struct {
-	KeyUrl string `pulumi:"keyUrl"`
+	KeyUrl        string `pulumi:"keyUrl"`
 	SourceVaultId string `pulumi:"sourceVaultId"`
 }
 
@@ -845,7 +4102,7 @@ type ManagedDiskEncryptionSettingsKeyEncryptionKeyInput interface {
 }
 
 type ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs struct {
-	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	KeyUrl        pulumi.StringInput `pulumi:"keyUrl"`
 	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
 }
 
@@ -878,7 +4135,8 @@ type ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrInput interface {
 
 type managedDiskEncryptionSettingsKeyEncryptionKeyPtrType ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs
 
-func ManagedDiskEncryptionSettingsKeyEncryptionKeyPtr(v *ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs) ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrInput {	return (*managedDiskEncryptionSettingsKeyEncryptionKeyPtrType)(v)
+func ManagedDiskEncryptionSettingsKeyEncryptionKeyPtr(v *ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs) ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrInput {
+	return (*managedDiskEncryptionSettingsKeyEncryptionKeyPtrType)(v)
 }
 
 func (*managedDiskEncryptionSettingsKeyEncryptionKeyPtrType) ElementType() reflect.Type {
@@ -893,7 +4151,7 @@ func (i *managedDiskEncryptionSettingsKeyEncryptionKeyPtrType) ToManagedDiskEncr
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
 
-type ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput struct { *pulumi.OutputState }
+type ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedDiskEncryptionSettingsKeyEncryptionKey)(nil)).Elem()
@@ -917,14 +4175,14 @@ func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput) ToManagedDiskEncryp
 	}).(ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
 func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput) KeyUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
 func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
-type ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput struct { *pulumi.OutputState}
+type ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ManagedDiskEncryptionSettingsKeyEncryptionKey)(nil)).Elem()
@@ -939,19 +4197,21 @@ func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput) ToManagedDiskEnc
 }
 
 func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput) Elem() ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput {
-	return o.ApplyT(func (v *ManagedDiskEncryptionSettingsKeyEncryptionKey) ManagedDiskEncryptionSettingsKeyEncryptionKey { return *v }).(ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput)
+	return o.ApplyT(func(v *ManagedDiskEncryptionSettingsKeyEncryptionKey) ManagedDiskEncryptionSettingsKeyEncryptionKey {
+		return *v
+	}).(ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput)
 }
 
 func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput) KeyUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
 func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
 type ScaleSetBootDiagnostics struct {
-	Enabled *bool `pulumi:"enabled"`
+	Enabled    *bool  `pulumi:"enabled"`
 	StorageUri string `pulumi:"storageUri"`
 }
 
@@ -963,8 +4223,8 @@ type ScaleSetBootDiagnosticsInput interface {
 }
 
 type ScaleSetBootDiagnosticsArgs struct {
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	StorageUri pulumi.StringInput `pulumi:"storageUri"`
+	Enabled    pulumi.BoolPtrInput `pulumi:"enabled"`
+	StorageUri pulumi.StringInput  `pulumi:"storageUri"`
 }
 
 func (ScaleSetBootDiagnosticsArgs) ElementType() reflect.Type {
@@ -996,7 +4256,8 @@ type ScaleSetBootDiagnosticsPtrInput interface {
 
 type scaleSetBootDiagnosticsPtrType ScaleSetBootDiagnosticsArgs
 
-func ScaleSetBootDiagnosticsPtr(v *ScaleSetBootDiagnosticsArgs) ScaleSetBootDiagnosticsPtrInput {	return (*scaleSetBootDiagnosticsPtrType)(v)
+func ScaleSetBootDiagnosticsPtr(v *ScaleSetBootDiagnosticsArgs) ScaleSetBootDiagnosticsPtrInput {
+	return (*scaleSetBootDiagnosticsPtrType)(v)
 }
 
 func (*scaleSetBootDiagnosticsPtrType) ElementType() reflect.Type {
@@ -1011,7 +4272,7 @@ func (i *scaleSetBootDiagnosticsPtrType) ToScaleSetBootDiagnosticsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetBootDiagnosticsPtrOutput)
 }
 
-type ScaleSetBootDiagnosticsOutput struct { *pulumi.OutputState }
+type ScaleSetBootDiagnosticsOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetBootDiagnosticsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetBootDiagnostics)(nil)).Elem()
@@ -1035,14 +4296,14 @@ func (o ScaleSetBootDiagnosticsOutput) ToScaleSetBootDiagnosticsPtrOutputWithCon
 	}).(ScaleSetBootDiagnosticsPtrOutput)
 }
 func (o ScaleSetBootDiagnosticsOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetBootDiagnostics) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetBootDiagnostics) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o ScaleSetBootDiagnosticsOutput) StorageUri() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetBootDiagnostics) string { return v.StorageUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetBootDiagnostics) string { return v.StorageUri }).(pulumi.StringOutput)
 }
 
-type ScaleSetBootDiagnosticsPtrOutput struct { *pulumi.OutputState}
+type ScaleSetBootDiagnosticsPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetBootDiagnosticsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetBootDiagnostics)(nil)).Elem()
@@ -1057,15 +4318,15 @@ func (o ScaleSetBootDiagnosticsPtrOutput) ToScaleSetBootDiagnosticsPtrOutputWith
 }
 
 func (o ScaleSetBootDiagnosticsPtrOutput) Elem() ScaleSetBootDiagnosticsOutput {
-	return o.ApplyT(func (v *ScaleSetBootDiagnostics) ScaleSetBootDiagnostics { return *v }).(ScaleSetBootDiagnosticsOutput)
+	return o.ApplyT(func(v *ScaleSetBootDiagnostics) ScaleSetBootDiagnostics { return *v }).(ScaleSetBootDiagnosticsOutput)
 }
 
 func (o ScaleSetBootDiagnosticsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetBootDiagnostics) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetBootDiagnostics) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o ScaleSetBootDiagnosticsPtrOutput) StorageUri() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetBootDiagnostics) string { return v.StorageUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetBootDiagnostics) string { return v.StorageUri }).(pulumi.StringOutput)
 }
 
 type ScaleSetExtension struct {
@@ -1146,7 +4407,7 @@ func (i ScaleSetExtensionArray) ToScaleSetExtensionArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetExtensionArrayOutput)
 }
 
-type ScaleSetExtensionOutput struct { *pulumi.OutputState }
+type ScaleSetExtensionOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetExtensionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetExtension)(nil)).Elem()
@@ -1162,45 +4423,45 @@ func (o ScaleSetExtensionOutput) ToScaleSetExtensionOutputWithContext(ctx contex
 
 // Specifies whether or not to use the latest minor version available.
 func (o ScaleSetExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetExtension) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetExtension) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the name of the image from the marketplace.
 func (o ScaleSetExtensionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetExtension) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetExtension) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
 func (o ScaleSetExtensionOutput) ProtectedSettings() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetExtension) *string { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetExtension) *string { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
 }
 
 // Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
 func (o ScaleSetExtensionOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetExtension) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetExtension) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the publisher of the image.
 func (o ScaleSetExtensionOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetExtension) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetExtension) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 // The settings passed to the extension, these are specified as a JSON object in a string.
 func (o ScaleSetExtensionOutput) Settings() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetExtension) *string { return v.Settings }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetExtension) *string { return v.Settings }).(pulumi.StringPtrOutput)
 }
 
 // The type of extension, available types for a publisher can be found using the Azure CLI.
 func (o ScaleSetExtensionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetExtension) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetExtension) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 func (o ScaleSetExtensionOutput) TypeHandlerVersion() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetExtension) string { return v.TypeHandlerVersion }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetExtension) string { return v.TypeHandlerVersion }).(pulumi.StringOutput)
 }
 
-type ScaleSetExtensionArrayOutput struct { *pulumi.OutputState}
+type ScaleSetExtensionArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetExtensionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetExtension)(nil)).Elem()
@@ -1215,7 +4476,7 @@ func (o ScaleSetExtensionArrayOutput) ToScaleSetExtensionArrayOutputWithContext(
 }
 
 func (o ScaleSetExtensionArrayOutput) Index(i pulumi.IntInput) ScaleSetExtensionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetExtension {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetExtension {
 		return vs[0].([]ScaleSetExtension)[vs[1].(int)]
 	}).(ScaleSetExtensionOutput)
 }
@@ -1223,7 +4484,7 @@ func (o ScaleSetExtensionArrayOutput) Index(i pulumi.IntInput) ScaleSetExtension
 type ScaleSetIdentity struct {
 	// Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
-	PrincipalId *string `pulumi:"principalId"`
+	PrincipalId *string  `pulumi:"principalId"`
 	// The type of extension, available types for a publisher can be found using the Azure CLI.
 	Type string `pulumi:"type"`
 }
@@ -1238,7 +4499,7 @@ type ScaleSetIdentityInput interface {
 type ScaleSetIdentityArgs struct {
 	// Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	// The type of extension, available types for a publisher can be found using the Azure CLI.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -1272,7 +4533,8 @@ type ScaleSetIdentityPtrInput interface {
 
 type scaleSetIdentityPtrType ScaleSetIdentityArgs
 
-func ScaleSetIdentityPtr(v *ScaleSetIdentityArgs) ScaleSetIdentityPtrInput {	return (*scaleSetIdentityPtrType)(v)
+func ScaleSetIdentityPtr(v *ScaleSetIdentityArgs) ScaleSetIdentityPtrInput {
+	return (*scaleSetIdentityPtrType)(v)
 }
 
 func (*scaleSetIdentityPtrType) ElementType() reflect.Type {
@@ -1287,7 +4549,7 @@ func (i *scaleSetIdentityPtrType) ToScaleSetIdentityPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetIdentityPtrOutput)
 }
 
-type ScaleSetIdentityOutput struct { *pulumi.OutputState }
+type ScaleSetIdentityOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetIdentity)(nil)).Elem()
@@ -1310,21 +4572,22 @@ func (o ScaleSetIdentityOutput) ToScaleSetIdentityPtrOutputWithContext(ctx conte
 		return &v
 	}).(ScaleSetIdentityPtrOutput)
 }
+
 // Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
 func (o ScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 func (o ScaleSetIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The type of extension, available types for a publisher can be found using the Azure CLI.
 func (o ScaleSetIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type ScaleSetIdentityPtrOutput struct { *pulumi.OutputState}
+type ScaleSetIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetIdentity)(nil)).Elem()
@@ -1339,21 +4602,21 @@ func (o ScaleSetIdentityPtrOutput) ToScaleSetIdentityPtrOutputWithContext(ctx co
 }
 
 func (o ScaleSetIdentityPtrOutput) Elem() ScaleSetIdentityOutput {
-	return o.ApplyT(func (v *ScaleSetIdentity) ScaleSetIdentity { return *v }).(ScaleSetIdentityOutput)
+	return o.ApplyT(func(v *ScaleSetIdentity) ScaleSetIdentity { return *v }).(ScaleSetIdentityOutput)
 }
 
 // Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
 func (o ScaleSetIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 func (o ScaleSetIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The type of extension, available types for a publisher can be found using the Azure CLI.
 func (o ScaleSetIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ScaleSetNetworkProfile struct {
@@ -1430,7 +4693,7 @@ func (i ScaleSetNetworkProfileArray) ToScaleSetNetworkProfileArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetNetworkProfileArrayOutput)
 }
 
-type ScaleSetNetworkProfileOutput struct { *pulumi.OutputState }
+type ScaleSetNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetNetworkProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetNetworkProfile)(nil)).Elem()
@@ -1446,40 +4709,40 @@ func (o ScaleSetNetworkProfileOutput) ToScaleSetNetworkProfileOutputWithContext(
 
 // Specifies whether to enable accelerated networking or not. Defaults to `false`.
 func (o ScaleSetNetworkProfileOutput) AcceleratedNetworking() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfile) *bool { return v.AcceleratedNetworking }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfile) *bool { return v.AcceleratedNetworking }).(pulumi.BoolPtrOutput)
 }
 
 // A dnsSettings block as documented below.
 func (o ScaleSetNetworkProfileOutput) DnsSettings() ScaleSetNetworkProfileDnsSettingsPtrOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfile) *ScaleSetNetworkProfileDnsSettings { return v.DnsSettings }).(ScaleSetNetworkProfileDnsSettingsPtrOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfile) *ScaleSetNetworkProfileDnsSettings { return v.DnsSettings }).(ScaleSetNetworkProfileDnsSettingsPtrOutput)
 }
 
 // An ipConfiguration block as documented below.
 func (o ScaleSetNetworkProfileOutput) IpConfigurations() ScaleSetNetworkProfileIpConfigurationArrayOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfile) []ScaleSetNetworkProfileIpConfiguration { return v.IpConfigurations }).(ScaleSetNetworkProfileIpConfigurationArrayOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfile) []ScaleSetNetworkProfileIpConfiguration { return v.IpConfigurations }).(ScaleSetNetworkProfileIpConfigurationArrayOutput)
 }
 
 // Whether IP forwarding is enabled on this NIC. Defaults to `false`.
 func (o ScaleSetNetworkProfileOutput) IpForwarding() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfile) *bool { return v.IpForwarding }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfile) *bool { return v.IpForwarding }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the name of the image from the marketplace.
 func (o ScaleSetNetworkProfileOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfile) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Specifies the identifier for the network security group.
 func (o ScaleSetNetworkProfileOutput) NetworkSecurityGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfile) *string { return v.NetworkSecurityGroupId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfile) *string { return v.NetworkSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies if this ipConfiguration is the primary one.
 func (o ScaleSetNetworkProfileOutput) Primary() pulumi.BoolOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfile) bool { return v.Primary }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfile) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
-type ScaleSetNetworkProfileArrayOutput struct { *pulumi.OutputState}
+type ScaleSetNetworkProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetNetworkProfileArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetNetworkProfile)(nil)).Elem()
@@ -1494,7 +4757,7 @@ func (o ScaleSetNetworkProfileArrayOutput) ToScaleSetNetworkProfileArrayOutputWi
 }
 
 func (o ScaleSetNetworkProfileArrayOutput) Index(i pulumi.IntInput) ScaleSetNetworkProfileOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetNetworkProfile {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetNetworkProfile {
 		return vs[0].([]ScaleSetNetworkProfile)[vs[1].(int)]
 	}).(ScaleSetNetworkProfileOutput)
 }
@@ -1545,7 +4808,8 @@ type ScaleSetNetworkProfileDnsSettingsPtrInput interface {
 
 type scaleSetNetworkProfileDnsSettingsPtrType ScaleSetNetworkProfileDnsSettingsArgs
 
-func ScaleSetNetworkProfileDnsSettingsPtr(v *ScaleSetNetworkProfileDnsSettingsArgs) ScaleSetNetworkProfileDnsSettingsPtrInput {	return (*scaleSetNetworkProfileDnsSettingsPtrType)(v)
+func ScaleSetNetworkProfileDnsSettingsPtr(v *ScaleSetNetworkProfileDnsSettingsArgs) ScaleSetNetworkProfileDnsSettingsPtrInput {
+	return (*scaleSetNetworkProfileDnsSettingsPtrType)(v)
 }
 
 func (*scaleSetNetworkProfileDnsSettingsPtrType) ElementType() reflect.Type {
@@ -1560,7 +4824,7 @@ func (i *scaleSetNetworkProfileDnsSettingsPtrType) ToScaleSetNetworkProfileDnsSe
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetNetworkProfileDnsSettingsPtrOutput)
 }
 
-type ScaleSetNetworkProfileDnsSettingsOutput struct { *pulumi.OutputState }
+type ScaleSetNetworkProfileDnsSettingsOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetNetworkProfileDnsSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetNetworkProfileDnsSettings)(nil)).Elem()
@@ -1583,12 +4847,13 @@ func (o ScaleSetNetworkProfileDnsSettingsOutput) ToScaleSetNetworkProfileDnsSett
 		return &v
 	}).(ScaleSetNetworkProfileDnsSettingsPtrOutput)
 }
+
 // Specifies an array of dns servers.
 func (o ScaleSetNetworkProfileDnsSettingsOutput) DnsServers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileDnsSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileDnsSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-type ScaleSetNetworkProfileDnsSettingsPtrOutput struct { *pulumi.OutputState}
+type ScaleSetNetworkProfileDnsSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetNetworkProfileDnsSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetNetworkProfileDnsSettings)(nil)).Elem()
@@ -1603,16 +4868,16 @@ func (o ScaleSetNetworkProfileDnsSettingsPtrOutput) ToScaleSetNetworkProfileDnsS
 }
 
 func (o ScaleSetNetworkProfileDnsSettingsPtrOutput) Elem() ScaleSetNetworkProfileDnsSettingsOutput {
-	return o.ApplyT(func (v *ScaleSetNetworkProfileDnsSettings) ScaleSetNetworkProfileDnsSettings { return *v }).(ScaleSetNetworkProfileDnsSettingsOutput)
+	return o.ApplyT(func(v *ScaleSetNetworkProfileDnsSettings) ScaleSetNetworkProfileDnsSettings { return *v }).(ScaleSetNetworkProfileDnsSettingsOutput)
 }
 
 // Specifies an array of dns servers.
 func (o ScaleSetNetworkProfileDnsSettingsPtrOutput) DnsServers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileDnsSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileDnsSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
 type ScaleSetNetworkProfileIpConfiguration struct {
-	// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+	// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
 	ApplicationGatewayBackendAddressPoolIds []string `pulumi:"applicationGatewayBackendAddressPoolIds"`
 	// Specifies up to `20` application security group IDs.
 	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
@@ -1638,7 +4903,7 @@ type ScaleSetNetworkProfileIpConfigurationInput interface {
 }
 
 type ScaleSetNetworkProfileIpConfigurationArgs struct {
-	// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+	// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
 	ApplicationGatewayBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"applicationGatewayBackendAddressPoolIds"`
 	// Specifies up to `20` application security group IDs.
 	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
@@ -1689,7 +4954,7 @@ func (i ScaleSetNetworkProfileIpConfigurationArray) ToScaleSetNetworkProfileIpCo
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetNetworkProfileIpConfigurationArrayOutput)
 }
 
-type ScaleSetNetworkProfileIpConfigurationOutput struct { *pulumi.OutputState }
+type ScaleSetNetworkProfileIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetNetworkProfileIpConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetNetworkProfileIpConfiguration)(nil)).Elem()
@@ -1703,47 +4968,51 @@ func (o ScaleSetNetworkProfileIpConfigurationOutput) ToScaleSetNetworkProfileIpC
 	return o
 }
 
-// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) ApplicationGatewayBackendAddressPoolIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfiguration) []string { return v.ApplicationGatewayBackendAddressPoolIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) []string {
+		return v.ApplicationGatewayBackendAddressPoolIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // Specifies up to `20` application security group IDs.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfiguration) []string { return v.ApplicationSecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) []string { return v.ApplicationSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
 // Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) LoadBalancerBackendAddressPoolIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfiguration) []string { return v.LoadBalancerBackendAddressPoolIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) []string { return v.LoadBalancerBackendAddressPoolIds }).(pulumi.StringArrayOutput)
 }
 
 // Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) LoadBalancerInboundNatRulesIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfiguration) []string { return v.LoadBalancerInboundNatRulesIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) []string { return v.LoadBalancerInboundNatRulesIds }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the name of the image from the marketplace.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Specifies if this ipConfiguration is the primary one.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) Primary() pulumi.BoolOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfiguration) bool { return v.Primary }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
 // Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The publicIpAddressConfiguration is documented below.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) PublicIpAddressConfiguration() ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfiguration) *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration { return v.PublicIpAddressConfiguration }).(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration {
+		return v.PublicIpAddressConfiguration
+	}).(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput)
 }
 
 // Specifies the identifier of the subnet.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-type ScaleSetNetworkProfileIpConfigurationArrayOutput struct { *pulumi.OutputState}
+type ScaleSetNetworkProfileIpConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetNetworkProfileIpConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetNetworkProfileIpConfiguration)(nil)).Elem()
@@ -1758,7 +5027,7 @@ func (o ScaleSetNetworkProfileIpConfigurationArrayOutput) ToScaleSetNetworkProfi
 }
 
 func (o ScaleSetNetworkProfileIpConfigurationArrayOutput) Index(i pulumi.IntInput) ScaleSetNetworkProfileIpConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetNetworkProfileIpConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetNetworkProfileIpConfiguration {
 		return vs[0].([]ScaleSetNetworkProfileIpConfiguration)[vs[1].(int)]
 	}).(ScaleSetNetworkProfileIpConfigurationOutput)
 }
@@ -1817,7 +5086,8 @@ type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrInput i
 
 type scaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrType ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs
 
-func ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtr(v *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs) ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrInput {	return (*scaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrType)(v)
+func ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtr(v *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs) ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrInput {
+	return (*scaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrType)(v)
 }
 
 func (*scaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrType) ElementType() reflect.Type {
@@ -1832,7 +5102,7 @@ func (i *scaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput)
 }
 
-type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput struct { *pulumi.OutputState }
+type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration)(nil)).Elem()
@@ -1855,22 +5125,25 @@ func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput)
 		return &v
 	}).(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput)
 }
+
 // The domain name label for the dns settings.
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput) DomainNameLabel() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string { return v.DomainNameLabel }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string {
+		return v.DomainNameLabel
+	}).(pulumi.StringOutput)
 }
 
 // The idle timeout in minutes. This value must be between 4 and 30.
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput) IdleTimeout() pulumi.IntOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) int { return v.IdleTimeout }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) int { return v.IdleTimeout }).(pulumi.IntOutput)
 }
 
 // Specifies the name of the image from the marketplace.
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput struct { *pulumi.OutputState}
+type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration)(nil)).Elem()
@@ -1885,22 +5158,26 @@ func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutp
 }
 
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput) Elem() ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput {
-	return o.ApplyT(func (v *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration { return *v }).(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput)
+	return o.ApplyT(func(v *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration {
+		return *v
+	}).(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput)
 }
 
 // The domain name label for the dns settings.
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput) DomainNameLabel() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string { return v.DomainNameLabel }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string {
+		return v.DomainNameLabel
+	}).(pulumi.StringOutput)
 }
 
 // The idle timeout in minutes. This value must be between 4 and 30.
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput) IdleTimeout() pulumi.IntOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) int { return v.IdleTimeout }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) int { return v.IdleTimeout }).(pulumi.IntOutput)
 }
 
 // Specifies the name of the image from the marketplace.
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type ScaleSetOsProfile struct {
@@ -1961,7 +5238,8 @@ type ScaleSetOsProfilePtrInput interface {
 
 type scaleSetOsProfilePtrType ScaleSetOsProfileArgs
 
-func ScaleSetOsProfilePtr(v *ScaleSetOsProfileArgs) ScaleSetOsProfilePtrInput {	return (*scaleSetOsProfilePtrType)(v)
+func ScaleSetOsProfilePtr(v *ScaleSetOsProfileArgs) ScaleSetOsProfilePtrInput {
+	return (*scaleSetOsProfilePtrType)(v)
 }
 
 func (*scaleSetOsProfilePtrType) ElementType() reflect.Type {
@@ -1976,7 +5254,7 @@ func (i *scaleSetOsProfilePtrType) ToScaleSetOsProfilePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfilePtrOutput)
 }
 
-type ScaleSetOsProfileOutput struct { *pulumi.OutputState }
+type ScaleSetOsProfileOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetOsProfile)(nil)).Elem()
@@ -1999,27 +5277,28 @@ func (o ScaleSetOsProfileOutput) ToScaleSetOsProfilePtrOutputWithContext(ctx con
 		return &v
 	}).(ScaleSetOsProfilePtrOutput)
 }
+
 // Specifies the administrator password to use for all the instances of virtual machines in a scale set.
 func (o ScaleSetOsProfileOutput) AdminPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
 func (o ScaleSetOsProfileOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
 // Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
 func (o ScaleSetOsProfileOutput) ComputerNamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfile) string { return v.ComputerNamePrefix }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfile) string { return v.ComputerNamePrefix }).(pulumi.StringOutput)
 }
 
 // Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
 func (o ScaleSetOsProfileOutput) CustomData() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
 
-type ScaleSetOsProfilePtrOutput struct { *pulumi.OutputState}
+type ScaleSetOsProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetOsProfile)(nil)).Elem()
@@ -2034,27 +5313,27 @@ func (o ScaleSetOsProfilePtrOutput) ToScaleSetOsProfilePtrOutputWithContext(ctx 
 }
 
 func (o ScaleSetOsProfilePtrOutput) Elem() ScaleSetOsProfileOutput {
-	return o.ApplyT(func (v *ScaleSetOsProfile) ScaleSetOsProfile { return *v }).(ScaleSetOsProfileOutput)
+	return o.ApplyT(func(v *ScaleSetOsProfile) ScaleSetOsProfile { return *v }).(ScaleSetOsProfileOutput)
 }
 
 // Specifies the administrator password to use for all the instances of virtual machines in a scale set.
 func (o ScaleSetOsProfilePtrOutput) AdminPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
 func (o ScaleSetOsProfilePtrOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
 // Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
 func (o ScaleSetOsProfilePtrOutput) ComputerNamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfile) string { return v.ComputerNamePrefix }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfile) string { return v.ComputerNamePrefix }).(pulumi.StringOutput)
 }
 
 // Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
 func (o ScaleSetOsProfilePtrOutput) CustomData() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
 
 type ScaleSetOsProfileLinuxConfig struct {
@@ -2107,7 +5386,8 @@ type ScaleSetOsProfileLinuxConfigPtrInput interface {
 
 type scaleSetOsProfileLinuxConfigPtrType ScaleSetOsProfileLinuxConfigArgs
 
-func ScaleSetOsProfileLinuxConfigPtr(v *ScaleSetOsProfileLinuxConfigArgs) ScaleSetOsProfileLinuxConfigPtrInput {	return (*scaleSetOsProfileLinuxConfigPtrType)(v)
+func ScaleSetOsProfileLinuxConfigPtr(v *ScaleSetOsProfileLinuxConfigArgs) ScaleSetOsProfileLinuxConfigPtrInput {
+	return (*scaleSetOsProfileLinuxConfigPtrType)(v)
 }
 
 func (*scaleSetOsProfileLinuxConfigPtrType) ElementType() reflect.Type {
@@ -2122,7 +5402,7 @@ func (i *scaleSetOsProfileLinuxConfigPtrType) ToScaleSetOsProfileLinuxConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfileLinuxConfigPtrOutput)
 }
 
-type ScaleSetOsProfileLinuxConfigOutput struct { *pulumi.OutputState }
+type ScaleSetOsProfileLinuxConfigOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileLinuxConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetOsProfileLinuxConfig)(nil)).Elem()
@@ -2145,17 +5425,18 @@ func (o ScaleSetOsProfileLinuxConfigOutput) ToScaleSetOsProfileLinuxConfigPtrOut
 		return &v
 	}).(ScaleSetOsProfileLinuxConfigPtrOutput)
 }
+
 // Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
 func (o ScaleSetOsProfileLinuxConfigOutput) DisablePasswordAuthentication() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileLinuxConfig) *bool { return v.DisablePasswordAuthentication }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileLinuxConfig) *bool { return v.DisablePasswordAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies a collection of `path` and `keyData` to be placed on the virtual machine.
 func (o ScaleSetOsProfileLinuxConfigOutput) SshKeys() ScaleSetOsProfileLinuxConfigSshKeyArrayOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileLinuxConfig) []ScaleSetOsProfileLinuxConfigSshKey { return v.SshKeys }).(ScaleSetOsProfileLinuxConfigSshKeyArrayOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileLinuxConfig) []ScaleSetOsProfileLinuxConfigSshKey { return v.SshKeys }).(ScaleSetOsProfileLinuxConfigSshKeyArrayOutput)
 }
 
-type ScaleSetOsProfileLinuxConfigPtrOutput struct { *pulumi.OutputState}
+type ScaleSetOsProfileLinuxConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileLinuxConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetOsProfileLinuxConfig)(nil)).Elem()
@@ -2170,22 +5451,22 @@ func (o ScaleSetOsProfileLinuxConfigPtrOutput) ToScaleSetOsProfileLinuxConfigPtr
 }
 
 func (o ScaleSetOsProfileLinuxConfigPtrOutput) Elem() ScaleSetOsProfileLinuxConfigOutput {
-	return o.ApplyT(func (v *ScaleSetOsProfileLinuxConfig) ScaleSetOsProfileLinuxConfig { return *v }).(ScaleSetOsProfileLinuxConfigOutput)
+	return o.ApplyT(func(v *ScaleSetOsProfileLinuxConfig) ScaleSetOsProfileLinuxConfig { return *v }).(ScaleSetOsProfileLinuxConfigOutput)
 }
 
 // Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
 func (o ScaleSetOsProfileLinuxConfigPtrOutput) DisablePasswordAuthentication() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileLinuxConfig) *bool { return v.DisablePasswordAuthentication }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileLinuxConfig) *bool { return v.DisablePasswordAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies a collection of `path` and `keyData` to be placed on the virtual machine.
 func (o ScaleSetOsProfileLinuxConfigPtrOutput) SshKeys() ScaleSetOsProfileLinuxConfigSshKeyArrayOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileLinuxConfig) []ScaleSetOsProfileLinuxConfigSshKey { return v.SshKeys }).(ScaleSetOsProfileLinuxConfigSshKeyArrayOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileLinuxConfig) []ScaleSetOsProfileLinuxConfigSshKey { return v.SshKeys }).(ScaleSetOsProfileLinuxConfigSshKeyArrayOutput)
 }
 
 type ScaleSetOsProfileLinuxConfigSshKey struct {
 	KeyData *string `pulumi:"keyData"`
-	Path string `pulumi:"path"`
+	Path    string  `pulumi:"path"`
 }
 
 type ScaleSetOsProfileLinuxConfigSshKeyInput interface {
@@ -2197,7 +5478,7 @@ type ScaleSetOsProfileLinuxConfigSshKeyInput interface {
 
 type ScaleSetOsProfileLinuxConfigSshKeyArgs struct {
 	KeyData pulumi.StringPtrInput `pulumi:"keyData"`
-	Path pulumi.StringInput `pulumi:"path"`
+	Path    pulumi.StringInput    `pulumi:"path"`
 }
 
 func (ScaleSetOsProfileLinuxConfigSshKeyArgs) ElementType() reflect.Type {
@@ -2233,7 +5514,7 @@ func (i ScaleSetOsProfileLinuxConfigSshKeyArray) ToScaleSetOsProfileLinuxConfigS
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfileLinuxConfigSshKeyArrayOutput)
 }
 
-type ScaleSetOsProfileLinuxConfigSshKeyOutput struct { *pulumi.OutputState }
+type ScaleSetOsProfileLinuxConfigSshKeyOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileLinuxConfigSshKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetOsProfileLinuxConfigSshKey)(nil)).Elem()
@@ -2248,14 +5529,14 @@ func (o ScaleSetOsProfileLinuxConfigSshKeyOutput) ToScaleSetOsProfileLinuxConfig
 }
 
 func (o ScaleSetOsProfileLinuxConfigSshKeyOutput) KeyData() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileLinuxConfigSshKey) *string { return v.KeyData }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileLinuxConfigSshKey) *string { return v.KeyData }).(pulumi.StringPtrOutput)
 }
 
 func (o ScaleSetOsProfileLinuxConfigSshKeyOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileLinuxConfigSshKey) string { return v.Path }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileLinuxConfigSshKey) string { return v.Path }).(pulumi.StringOutput)
 }
 
-type ScaleSetOsProfileLinuxConfigSshKeyArrayOutput struct { *pulumi.OutputState}
+type ScaleSetOsProfileLinuxConfigSshKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileLinuxConfigSshKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetOsProfileLinuxConfigSshKey)(nil)).Elem()
@@ -2270,7 +5551,7 @@ func (o ScaleSetOsProfileLinuxConfigSshKeyArrayOutput) ToScaleSetOsProfileLinuxC
 }
 
 func (o ScaleSetOsProfileLinuxConfigSshKeyArrayOutput) Index(i pulumi.IntInput) ScaleSetOsProfileLinuxConfigSshKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetOsProfileLinuxConfigSshKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetOsProfileLinuxConfigSshKey {
 		return vs[0].([]ScaleSetOsProfileLinuxConfigSshKey)[vs[1].(int)]
 	}).(ScaleSetOsProfileLinuxConfigSshKeyOutput)
 }
@@ -2329,7 +5610,7 @@ func (i ScaleSetOsProfileSecretArray) ToScaleSetOsProfileSecretArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfileSecretArrayOutput)
 }
 
-type ScaleSetOsProfileSecretOutput struct { *pulumi.OutputState }
+type ScaleSetOsProfileSecretOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileSecretOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetOsProfileSecret)(nil)).Elem()
@@ -2345,15 +5626,15 @@ func (o ScaleSetOsProfileSecretOutput) ToScaleSetOsProfileSecretOutputWithContex
 
 // Specifies the key vault to use.
 func (o ScaleSetOsProfileSecretOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileSecret) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileSecret) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
 // A collection of Vault Certificates as documented below
 func (o ScaleSetOsProfileSecretOutput) VaultCertificates() ScaleSetOsProfileSecretVaultCertificateArrayOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileSecret) []ScaleSetOsProfileSecretVaultCertificate { return v.VaultCertificates }).(ScaleSetOsProfileSecretVaultCertificateArrayOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileSecret) []ScaleSetOsProfileSecretVaultCertificate { return v.VaultCertificates }).(ScaleSetOsProfileSecretVaultCertificateArrayOutput)
 }
 
-type ScaleSetOsProfileSecretArrayOutput struct { *pulumi.OutputState}
+type ScaleSetOsProfileSecretArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileSecretArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetOsProfileSecret)(nil)).Elem()
@@ -2368,7 +5649,7 @@ func (o ScaleSetOsProfileSecretArrayOutput) ToScaleSetOsProfileSecretArrayOutput
 }
 
 func (o ScaleSetOsProfileSecretArrayOutput) Index(i pulumi.IntInput) ScaleSetOsProfileSecretOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetOsProfileSecret {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetOsProfileSecret {
 		return vs[0].([]ScaleSetOsProfileSecret)[vs[1].(int)]
 	}).(ScaleSetOsProfileSecretOutput)
 }
@@ -2427,7 +5708,7 @@ func (i ScaleSetOsProfileSecretVaultCertificateArray) ToScaleSetOsProfileSecretV
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfileSecretVaultCertificateArrayOutput)
 }
 
-type ScaleSetOsProfileSecretVaultCertificateOutput struct { *pulumi.OutputState }
+type ScaleSetOsProfileSecretVaultCertificateOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileSecretVaultCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetOsProfileSecretVaultCertificate)(nil)).Elem()
@@ -2443,15 +5724,15 @@ func (o ScaleSetOsProfileSecretVaultCertificateOutput) ToScaleSetOsProfileSecret
 
 // Specifies the certificate store on the Virtual Machine where the certificate should be added to.
 func (o ScaleSetOsProfileSecretVaultCertificateOutput) CertificateStore() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileSecretVaultCertificate) *string { return v.CertificateStore }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileSecretVaultCertificate) *string { return v.CertificateStore }).(pulumi.StringPtrOutput)
 }
 
 // Specifies URL of the certificate with which new Virtual Machines is provisioned.
 func (o ScaleSetOsProfileSecretVaultCertificateOutput) CertificateUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileSecretVaultCertificate) string { return v.CertificateUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileSecretVaultCertificate) string { return v.CertificateUrl }).(pulumi.StringOutput)
 }
 
-type ScaleSetOsProfileSecretVaultCertificateArrayOutput struct { *pulumi.OutputState}
+type ScaleSetOsProfileSecretVaultCertificateArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileSecretVaultCertificateArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetOsProfileSecretVaultCertificate)(nil)).Elem()
@@ -2466,7 +5747,7 @@ func (o ScaleSetOsProfileSecretVaultCertificateArrayOutput) ToScaleSetOsProfileS
 }
 
 func (o ScaleSetOsProfileSecretVaultCertificateArrayOutput) Index(i pulumi.IntInput) ScaleSetOsProfileSecretVaultCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetOsProfileSecretVaultCertificate {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetOsProfileSecretVaultCertificate {
 		return vs[0].([]ScaleSetOsProfileSecretVaultCertificate)[vs[1].(int)]
 	}).(ScaleSetOsProfileSecretVaultCertificateOutput)
 }
@@ -2529,7 +5810,8 @@ type ScaleSetOsProfileWindowsConfigPtrInput interface {
 
 type scaleSetOsProfileWindowsConfigPtrType ScaleSetOsProfileWindowsConfigArgs
 
-func ScaleSetOsProfileWindowsConfigPtr(v *ScaleSetOsProfileWindowsConfigArgs) ScaleSetOsProfileWindowsConfigPtrInput {	return (*scaleSetOsProfileWindowsConfigPtrType)(v)
+func ScaleSetOsProfileWindowsConfigPtr(v *ScaleSetOsProfileWindowsConfigArgs) ScaleSetOsProfileWindowsConfigPtrInput {
+	return (*scaleSetOsProfileWindowsConfigPtrType)(v)
 }
 
 func (*scaleSetOsProfileWindowsConfigPtrType) ElementType() reflect.Type {
@@ -2544,7 +5826,7 @@ func (i *scaleSetOsProfileWindowsConfigPtrType) ToScaleSetOsProfileWindowsConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfileWindowsConfigPtrOutput)
 }
 
-type ScaleSetOsProfileWindowsConfigOutput struct { *pulumi.OutputState }
+type ScaleSetOsProfileWindowsConfigOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileWindowsConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetOsProfileWindowsConfig)(nil)).Elem()
@@ -2567,27 +5849,30 @@ func (o ScaleSetOsProfileWindowsConfigOutput) ToScaleSetOsProfileWindowsConfigPt
 		return &v
 	}).(ScaleSetOsProfileWindowsConfigPtrOutput)
 }
+
 // An Additional Unattended Config block as documented below.
 func (o ScaleSetOsProfileWindowsConfigOutput) AdditionalUnattendConfigs() ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig { return v.AdditionalUnattendConfigs }).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig {
+		return v.AdditionalUnattendConfigs
+	}).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
 }
 
 // Indicates whether virtual machines in the scale set are enabled for automatic updates.
 func (o ScaleSetOsProfileWindowsConfigOutput) EnableAutomaticUpgrades() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfig) *bool { return v.EnableAutomaticUpgrades }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) *bool { return v.EnableAutomaticUpgrades }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
 func (o ScaleSetOsProfileWindowsConfigOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
 }
 
 // A collection of WinRM configuration blocks as documented below.
 func (o ScaleSetOsProfileWindowsConfigOutput) Winrms() ScaleSetOsProfileWindowsConfigWinrmArrayOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigWinrm { return v.Winrms }).(ScaleSetOsProfileWindowsConfigWinrmArrayOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigWinrm { return v.Winrms }).(ScaleSetOsProfileWindowsConfigWinrmArrayOutput)
 }
 
-type ScaleSetOsProfileWindowsConfigPtrOutput struct { *pulumi.OutputState}
+type ScaleSetOsProfileWindowsConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileWindowsConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetOsProfileWindowsConfig)(nil)).Elem()
@@ -2602,27 +5887,29 @@ func (o ScaleSetOsProfileWindowsConfigPtrOutput) ToScaleSetOsProfileWindowsConfi
 }
 
 func (o ScaleSetOsProfileWindowsConfigPtrOutput) Elem() ScaleSetOsProfileWindowsConfigOutput {
-	return o.ApplyT(func (v *ScaleSetOsProfileWindowsConfig) ScaleSetOsProfileWindowsConfig { return *v }).(ScaleSetOsProfileWindowsConfigOutput)
+	return o.ApplyT(func(v *ScaleSetOsProfileWindowsConfig) ScaleSetOsProfileWindowsConfig { return *v }).(ScaleSetOsProfileWindowsConfigOutput)
 }
 
 // An Additional Unattended Config block as documented below.
 func (o ScaleSetOsProfileWindowsConfigPtrOutput) AdditionalUnattendConfigs() ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig { return v.AdditionalUnattendConfigs }).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig {
+		return v.AdditionalUnattendConfigs
+	}).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
 }
 
 // Indicates whether virtual machines in the scale set are enabled for automatic updates.
 func (o ScaleSetOsProfileWindowsConfigPtrOutput) EnableAutomaticUpgrades() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfig) *bool { return v.EnableAutomaticUpgrades }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) *bool { return v.EnableAutomaticUpgrades }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
 func (o ScaleSetOsProfileWindowsConfigPtrOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
 }
 
 // A collection of WinRM configuration blocks as documented below.
 func (o ScaleSetOsProfileWindowsConfigPtrOutput) Winrms() ScaleSetOsProfileWindowsConfigWinrmArrayOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigWinrm { return v.Winrms }).(ScaleSetOsProfileWindowsConfigWinrmArrayOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigWinrm { return v.Winrms }).(ScaleSetOsProfileWindowsConfigWinrmArrayOutput)
 }
 
 type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig struct {
@@ -2687,7 +5974,7 @@ func (i ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArray) ToScaleSetO
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
 }
 
-type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput struct { *pulumi.OutputState }
+type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig)(nil)).Elem()
@@ -2703,25 +5990,25 @@ func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput) ToScaleSet
 
 // Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
 func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput) Component() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Component }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Component }).(pulumi.StringOutput)
 }
 
 // Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
 func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Content }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Content }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
 func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput) Pass() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Pass }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Pass }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
 func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput) SettingName() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.SettingName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.SettingName }).(pulumi.StringOutput)
 }
 
-type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput struct { *pulumi.OutputState}
+type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig)(nil)).Elem()
@@ -2736,7 +6023,7 @@ func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput) ToSca
 }
 
 func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput) Index(i pulumi.IntInput) ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig {
 		return vs[0].([]ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig)[vs[1].(int)]
 	}).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput)
 }
@@ -2795,7 +6082,7 @@ func (i ScaleSetOsProfileWindowsConfigWinrmArray) ToScaleSetOsProfileWindowsConf
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfileWindowsConfigWinrmArrayOutput)
 }
 
-type ScaleSetOsProfileWindowsConfigWinrmOutput struct { *pulumi.OutputState }
+type ScaleSetOsProfileWindowsConfigWinrmOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileWindowsConfigWinrmOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetOsProfileWindowsConfigWinrm)(nil)).Elem()
@@ -2811,15 +6098,15 @@ func (o ScaleSetOsProfileWindowsConfigWinrmOutput) ToScaleSetOsProfileWindowsCon
 
 // Specifies URL of the certificate with which new Virtual Machines is provisioned.
 func (o ScaleSetOsProfileWindowsConfigWinrmOutput) CertificateUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfigWinrm) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfigWinrm) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the protocol of listener
 func (o ScaleSetOsProfileWindowsConfigWinrmOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfigWinrm) string { return v.Protocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfigWinrm) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-type ScaleSetOsProfileWindowsConfigWinrmArrayOutput struct { *pulumi.OutputState}
+type ScaleSetOsProfileWindowsConfigWinrmArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileWindowsConfigWinrmArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetOsProfileWindowsConfigWinrm)(nil)).Elem()
@@ -2834,7 +6121,7 @@ func (o ScaleSetOsProfileWindowsConfigWinrmArrayOutput) ToScaleSetOsProfileWindo
 }
 
 func (o ScaleSetOsProfileWindowsConfigWinrmArrayOutput) Index(i pulumi.IntInput) ScaleSetOsProfileWindowsConfigWinrmOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetOsProfileWindowsConfigWinrm {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetOsProfileWindowsConfigWinrm {
 		return vs[0].([]ScaleSetOsProfileWindowsConfigWinrm)[vs[1].(int)]
 	}).(ScaleSetOsProfileWindowsConfigWinrmOutput)
 }
@@ -2893,7 +6180,8 @@ type ScaleSetPlanPtrInput interface {
 
 type scaleSetPlanPtrType ScaleSetPlanArgs
 
-func ScaleSetPlanPtr(v *ScaleSetPlanArgs) ScaleSetPlanPtrInput {	return (*scaleSetPlanPtrType)(v)
+func ScaleSetPlanPtr(v *ScaleSetPlanArgs) ScaleSetPlanPtrInput {
+	return (*scaleSetPlanPtrType)(v)
 }
 
 func (*scaleSetPlanPtrType) ElementType() reflect.Type {
@@ -2908,7 +6196,7 @@ func (i *scaleSetPlanPtrType) ToScaleSetPlanPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetPlanPtrOutput)
 }
 
-type ScaleSetPlanOutput struct { *pulumi.OutputState }
+type ScaleSetPlanOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetPlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetPlan)(nil)).Elem()
@@ -2931,22 +6219,23 @@ func (o ScaleSetPlanOutput) ToScaleSetPlanPtrOutputWithContext(ctx context.Conte
 		return &v
 	}).(ScaleSetPlanPtrOutput)
 }
+
 // Specifies the name of the image from the marketplace.
 func (o ScaleSetPlanOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Specifies the product of the image from the marketplace.
 func (o ScaleSetPlanOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
 // Specifies the publisher of the image.
 func (o ScaleSetPlanOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-type ScaleSetPlanPtrOutput struct { *pulumi.OutputState}
+type ScaleSetPlanPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetPlanPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetPlan)(nil)).Elem()
@@ -2961,22 +6250,22 @@ func (o ScaleSetPlanPtrOutput) ToScaleSetPlanPtrOutputWithContext(ctx context.Co
 }
 
 func (o ScaleSetPlanPtrOutput) Elem() ScaleSetPlanOutput {
-	return o.ApplyT(func (v *ScaleSetPlan) ScaleSetPlan { return *v }).(ScaleSetPlanOutput)
+	return o.ApplyT(func(v *ScaleSetPlan) ScaleSetPlan { return *v }).(ScaleSetPlanOutput)
 }
 
 // Specifies the name of the image from the marketplace.
 func (o ScaleSetPlanPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Specifies the product of the image from the marketplace.
 func (o ScaleSetPlanPtrOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
 // Specifies the publisher of the image.
 func (o ScaleSetPlanPtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 type ScaleSetRollingUpgradePolicy struct {
@@ -3037,7 +6326,8 @@ type ScaleSetRollingUpgradePolicyPtrInput interface {
 
 type scaleSetRollingUpgradePolicyPtrType ScaleSetRollingUpgradePolicyArgs
 
-func ScaleSetRollingUpgradePolicyPtr(v *ScaleSetRollingUpgradePolicyArgs) ScaleSetRollingUpgradePolicyPtrInput {	return (*scaleSetRollingUpgradePolicyPtrType)(v)
+func ScaleSetRollingUpgradePolicyPtr(v *ScaleSetRollingUpgradePolicyArgs) ScaleSetRollingUpgradePolicyPtrInput {
+	return (*scaleSetRollingUpgradePolicyPtrType)(v)
 }
 
 func (*scaleSetRollingUpgradePolicyPtrType) ElementType() reflect.Type {
@@ -3052,7 +6342,7 @@ func (i *scaleSetRollingUpgradePolicyPtrType) ToScaleSetRollingUpgradePolicyPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetRollingUpgradePolicyPtrOutput)
 }
 
-type ScaleSetRollingUpgradePolicyOutput struct { *pulumi.OutputState }
+type ScaleSetRollingUpgradePolicyOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetRollingUpgradePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetRollingUpgradePolicy)(nil)).Elem()
@@ -3075,27 +6365,28 @@ func (o ScaleSetRollingUpgradePolicyOutput) ToScaleSetRollingUpgradePolicyPtrOut
 		return &v
 	}).(ScaleSetRollingUpgradePolicyPtrOutput)
 }
+
 // The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
 func (o ScaleSetRollingUpgradePolicyOutput) MaxBatchInstancePercent() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ScaleSetRollingUpgradePolicy) *int { return v.MaxBatchInstancePercent }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *int { return v.MaxBatchInstancePercent }).(pulumi.IntPtrOutput)
 }
 
 // The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Defaults to `20`.
 func (o ScaleSetRollingUpgradePolicyOutput) MaxUnhealthyInstancePercent() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntPtrOutput)
 }
 
 // The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
 func (o ScaleSetRollingUpgradePolicyOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyUpgradedInstancePercent }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyUpgradedInstancePercent }).(pulumi.IntPtrOutput)
 }
 
 // The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `0` seconds represented as `PT0S`.
 func (o ScaleSetRollingUpgradePolicyOutput) PauseTimeBetweenBatches() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetRollingUpgradePolicy) *string { return v.PauseTimeBetweenBatches }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *string { return v.PauseTimeBetweenBatches }).(pulumi.StringPtrOutput)
 }
 
-type ScaleSetRollingUpgradePolicyPtrOutput struct { *pulumi.OutputState}
+type ScaleSetRollingUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetRollingUpgradePolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetRollingUpgradePolicy)(nil)).Elem()
@@ -3110,27 +6401,27 @@ func (o ScaleSetRollingUpgradePolicyPtrOutput) ToScaleSetRollingUpgradePolicyPtr
 }
 
 func (o ScaleSetRollingUpgradePolicyPtrOutput) Elem() ScaleSetRollingUpgradePolicyOutput {
-	return o.ApplyT(func (v *ScaleSetRollingUpgradePolicy) ScaleSetRollingUpgradePolicy { return *v }).(ScaleSetRollingUpgradePolicyOutput)
+	return o.ApplyT(func(v *ScaleSetRollingUpgradePolicy) ScaleSetRollingUpgradePolicy { return *v }).(ScaleSetRollingUpgradePolicyOutput)
 }
 
 // The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
 func (o ScaleSetRollingUpgradePolicyPtrOutput) MaxBatchInstancePercent() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ScaleSetRollingUpgradePolicy) *int { return v.MaxBatchInstancePercent }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *int { return v.MaxBatchInstancePercent }).(pulumi.IntPtrOutput)
 }
 
 // The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Defaults to `20`.
 func (o ScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyInstancePercent() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntPtrOutput)
 }
 
 // The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
 func (o ScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyUpgradedInstancePercent }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyUpgradedInstancePercent }).(pulumi.IntPtrOutput)
 }
 
 // The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `0` seconds represented as `PT0S`.
 func (o ScaleSetRollingUpgradePolicyPtrOutput) PauseTimeBetweenBatches() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetRollingUpgradePolicy) *string { return v.PauseTimeBetweenBatches }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *string { return v.PauseTimeBetweenBatches }).(pulumi.StringPtrOutput)
 }
 
 type ScaleSetSku struct {
@@ -3187,7 +6478,8 @@ type ScaleSetSkuPtrInput interface {
 
 type scaleSetSkuPtrType ScaleSetSkuArgs
 
-func ScaleSetSkuPtr(v *ScaleSetSkuArgs) ScaleSetSkuPtrInput {	return (*scaleSetSkuPtrType)(v)
+func ScaleSetSkuPtr(v *ScaleSetSkuArgs) ScaleSetSkuPtrInput {
+	return (*scaleSetSkuPtrType)(v)
 }
 
 func (*scaleSetSkuPtrType) ElementType() reflect.Type {
@@ -3202,7 +6494,7 @@ func (i *scaleSetSkuPtrType) ToScaleSetSkuPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetSkuPtrOutput)
 }
 
-type ScaleSetSkuOutput struct { *pulumi.OutputState }
+type ScaleSetSkuOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetSkuOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetSku)(nil)).Elem()
@@ -3225,22 +6517,23 @@ func (o ScaleSetSkuOutput) ToScaleSetSkuPtrOutputWithContext(ctx context.Context
 		return &v
 	}).(ScaleSetSkuPtrOutput)
 }
+
 // Specifies the number of virtual machines in the scale set.
 func (o ScaleSetSkuOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func (v ScaleSetSku) int { return v.Capacity }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ScaleSetSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
 // Specifies the name of the image from the marketplace.
 func (o ScaleSetSkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetSku) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
 func (o ScaleSetSkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
-type ScaleSetSkuPtrOutput struct { *pulumi.OutputState}
+type ScaleSetSkuPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetSkuPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetSku)(nil)).Elem()
@@ -3255,22 +6548,22 @@ func (o ScaleSetSkuPtrOutput) ToScaleSetSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ScaleSetSkuPtrOutput) Elem() ScaleSetSkuOutput {
-	return o.ApplyT(func (v *ScaleSetSku) ScaleSetSku { return *v }).(ScaleSetSkuOutput)
+	return o.ApplyT(func(v *ScaleSetSku) ScaleSetSku { return *v }).(ScaleSetSkuOutput)
 }
 
 // Specifies the number of virtual machines in the scale set.
 func (o ScaleSetSkuPtrOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func (v ScaleSetSku) int { return v.Capacity }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ScaleSetSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
 // Specifies the name of the image from the marketplace.
 func (o ScaleSetSkuPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetSku) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
 func (o ScaleSetSkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 type ScaleSetStorageProfileDataDisk struct {
@@ -3339,7 +6632,7 @@ func (i ScaleSetStorageProfileDataDiskArray) ToScaleSetStorageProfileDataDiskArr
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetStorageProfileDataDiskArrayOutput)
 }
 
-type ScaleSetStorageProfileDataDiskOutput struct { *pulumi.OutputState }
+type ScaleSetStorageProfileDataDiskOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetStorageProfileDataDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetStorageProfileDataDisk)(nil)).Elem()
@@ -3355,30 +6648,30 @@ func (o ScaleSetStorageProfileDataDiskOutput) ToScaleSetStorageProfileDataDiskOu
 
 // Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
 func (o ScaleSetStorageProfileDataDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
 // Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
 func (o ScaleSetStorageProfileDataDiskOutput) CreateOption() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileDataDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileDataDisk) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
 // Specifies the size of the disk in GB. This element is required when creating an empty disk.
 func (o ScaleSetStorageProfileDataDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileDataDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileDataDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the Logical Unit Number of the disk in each virtual machine in the scale set.
 func (o ScaleSetStorageProfileDataDiskOutput) Lun() pulumi.IntOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileDataDisk) int { return v.Lun }).(pulumi.IntOutput)
 }
 
 // Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
 func (o ScaleSetStorageProfileDataDiskOutput) ManagedDiskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileDataDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileDataDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
 }
 
-type ScaleSetStorageProfileDataDiskArrayOutput struct { *pulumi.OutputState}
+type ScaleSetStorageProfileDataDiskArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetStorageProfileDataDiskArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetStorageProfileDataDisk)(nil)).Elem()
@@ -3393,7 +6686,7 @@ func (o ScaleSetStorageProfileDataDiskArrayOutput) ToScaleSetStorageProfileDataD
 }
 
 func (o ScaleSetStorageProfileDataDiskArrayOutput) Index(i pulumi.IntInput) ScaleSetStorageProfileDataDiskOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetStorageProfileDataDisk {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetStorageProfileDataDisk {
 		return vs[0].([]ScaleSetStorageProfileDataDisk)[vs[1].(int)]
 	}).(ScaleSetStorageProfileDataDiskOutput)
 }
@@ -3462,7 +6755,8 @@ type ScaleSetStorageProfileImageReferencePtrInput interface {
 
 type scaleSetStorageProfileImageReferencePtrType ScaleSetStorageProfileImageReferenceArgs
 
-func ScaleSetStorageProfileImageReferencePtr(v *ScaleSetStorageProfileImageReferenceArgs) ScaleSetStorageProfileImageReferencePtrInput {	return (*scaleSetStorageProfileImageReferencePtrType)(v)
+func ScaleSetStorageProfileImageReferencePtr(v *ScaleSetStorageProfileImageReferenceArgs) ScaleSetStorageProfileImageReferencePtrInput {
+	return (*scaleSetStorageProfileImageReferencePtrType)(v)
 }
 
 func (*scaleSetStorageProfileImageReferencePtrType) ElementType() reflect.Type {
@@ -3477,7 +6771,7 @@ func (i *scaleSetStorageProfileImageReferencePtrType) ToScaleSetStorageProfileIm
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetStorageProfileImageReferencePtrOutput)
 }
 
-type ScaleSetStorageProfileImageReferenceOutput struct { *pulumi.OutputState }
+type ScaleSetStorageProfileImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetStorageProfileImageReferenceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetStorageProfileImageReference)(nil)).Elem()
@@ -3500,33 +6794,34 @@ func (o ScaleSetStorageProfileImageReferenceOutput) ToScaleSetStorageProfileImag
 		return &v
 	}).(ScaleSetStorageProfileImageReferencePtrOutput)
 }
+
 // Specifies the ID of the (custom) image to use to create the virtual
 // machine scale set, as in the example below.
 func (o ScaleSetStorageProfileImageReferenceOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the offer of the image used to create the virtual machines.
 func (o ScaleSetStorageProfileImageReferenceOutput) Offer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the publisher of the image.
 func (o ScaleSetStorageProfileImageReferenceOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the SKU of the image used to create the virtual machines.
 func (o ScaleSetStorageProfileImageReferenceOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the version of the image used to create the virtual machines.
 func (o ScaleSetStorageProfileImageReferenceOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-type ScaleSetStorageProfileImageReferencePtrOutput struct { *pulumi.OutputState}
+type ScaleSetStorageProfileImageReferencePtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetStorageProfileImageReferencePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetStorageProfileImageReference)(nil)).Elem()
@@ -3541,33 +6836,33 @@ func (o ScaleSetStorageProfileImageReferencePtrOutput) ToScaleSetStorageProfileI
 }
 
 func (o ScaleSetStorageProfileImageReferencePtrOutput) Elem() ScaleSetStorageProfileImageReferenceOutput {
-	return o.ApplyT(func (v *ScaleSetStorageProfileImageReference) ScaleSetStorageProfileImageReference { return *v }).(ScaleSetStorageProfileImageReferenceOutput)
+	return o.ApplyT(func(v *ScaleSetStorageProfileImageReference) ScaleSetStorageProfileImageReference { return *v }).(ScaleSetStorageProfileImageReferenceOutput)
 }
 
 // Specifies the ID of the (custom) image to use to create the virtual
 // machine scale set, as in the example below.
 func (o ScaleSetStorageProfileImageReferencePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the offer of the image used to create the virtual machines.
 func (o ScaleSetStorageProfileImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the publisher of the image.
 func (o ScaleSetStorageProfileImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the SKU of the image used to create the virtual machines.
 func (o ScaleSetStorageProfileImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the version of the image used to create the virtual machines.
 func (o ScaleSetStorageProfileImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type ScaleSetStorageProfileOsDisk struct {
@@ -3644,7 +6939,8 @@ type ScaleSetStorageProfileOsDiskPtrInput interface {
 
 type scaleSetStorageProfileOsDiskPtrType ScaleSetStorageProfileOsDiskArgs
 
-func ScaleSetStorageProfileOsDiskPtr(v *ScaleSetStorageProfileOsDiskArgs) ScaleSetStorageProfileOsDiskPtrInput {	return (*scaleSetStorageProfileOsDiskPtrType)(v)
+func ScaleSetStorageProfileOsDiskPtr(v *ScaleSetStorageProfileOsDiskArgs) ScaleSetStorageProfileOsDiskPtrInput {
+	return (*scaleSetStorageProfileOsDiskPtrType)(v)
 }
 
 func (*scaleSetStorageProfileOsDiskPtrType) ElementType() reflect.Type {
@@ -3659,7 +6955,7 @@ func (i *scaleSetStorageProfileOsDiskPtrType) ToScaleSetStorageProfileOsDiskPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetStorageProfileOsDiskPtrOutput)
 }
 
-type ScaleSetStorageProfileOsDiskOutput struct { *pulumi.OutputState }
+type ScaleSetStorageProfileOsDiskOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetStorageProfileOsDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetStorageProfileOsDisk)(nil)).Elem()
@@ -3682,44 +6978,45 @@ func (o ScaleSetStorageProfileOsDiskOutput) ToScaleSetStorageProfileOsDiskPtrOut
 		return &v
 	}).(ScaleSetStorageProfileOsDiskPtrOutput)
 }
+
 // Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
 func (o ScaleSetStorageProfileOsDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
 // Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
 func (o ScaleSetStorageProfileOsDiskOutput) CreateOption() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
 // Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
 // Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
 // When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
 func (o ScaleSetStorageProfileOsDiskOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
 func (o ScaleSetStorageProfileOsDiskOutput) ManagedDiskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the image from the marketplace.
 func (o ScaleSetStorageProfileOsDiskOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the operating system Type, valid values are windows, linux.
 func (o ScaleSetStorageProfileOsDiskOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the vhd uri. Cannot be used when `image` or `managedDiskType` is specified.
 func (o ScaleSetStorageProfileOsDiskOutput) VhdContainers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) []string { return v.VhdContainers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) []string { return v.VhdContainers }).(pulumi.StringArrayOutput)
 }
 
-type ScaleSetStorageProfileOsDiskPtrOutput struct { *pulumi.OutputState}
+type ScaleSetStorageProfileOsDiskPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetStorageProfileOsDiskPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetStorageProfileOsDisk)(nil)).Elem()
@@ -3734,50 +7031,50 @@ func (o ScaleSetStorageProfileOsDiskPtrOutput) ToScaleSetStorageProfileOsDiskPtr
 }
 
 func (o ScaleSetStorageProfileOsDiskPtrOutput) Elem() ScaleSetStorageProfileOsDiskOutput {
-	return o.ApplyT(func (v *ScaleSetStorageProfileOsDisk) ScaleSetStorageProfileOsDisk { return *v }).(ScaleSetStorageProfileOsDiskOutput)
+	return o.ApplyT(func(v *ScaleSetStorageProfileOsDisk) ScaleSetStorageProfileOsDisk { return *v }).(ScaleSetStorageProfileOsDiskOutput)
 }
 
 // Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
 func (o ScaleSetStorageProfileOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
 // Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
 func (o ScaleSetStorageProfileOsDiskPtrOutput) CreateOption() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
 // Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
 // Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
 // When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
 func (o ScaleSetStorageProfileOsDiskPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
 func (o ScaleSetStorageProfileOsDiskPtrOutput) ManagedDiskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the image from the marketplace.
 func (o ScaleSetStorageProfileOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the operating system Type, valid values are windows, linux.
 func (o ScaleSetStorageProfileOsDiskPtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the vhd uri. Cannot be used when `image` or `managedDiskType` is specified.
 func (o ScaleSetStorageProfileOsDiskPtrOutput) VhdContainers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) []string { return v.VhdContainers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) []string { return v.VhdContainers }).(pulumi.StringArrayOutput)
 }
 
 type SharedImageIdentifier struct {
-	Offer string `pulumi:"offer"`
+	Offer     string `pulumi:"offer"`
 	Publisher string `pulumi:"publisher"`
-	Sku string `pulumi:"sku"`
+	Sku       string `pulumi:"sku"`
 }
 
 type SharedImageIdentifierInput interface {
@@ -3788,9 +7085,9 @@ type SharedImageIdentifierInput interface {
 }
 
 type SharedImageIdentifierArgs struct {
-	Offer pulumi.StringInput `pulumi:"offer"`
+	Offer     pulumi.StringInput `pulumi:"offer"`
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	Sku pulumi.StringInput `pulumi:"sku"`
+	Sku       pulumi.StringInput `pulumi:"sku"`
 }
 
 func (SharedImageIdentifierArgs) ElementType() reflect.Type {
@@ -3822,7 +7119,8 @@ type SharedImageIdentifierPtrInput interface {
 
 type sharedImageIdentifierPtrType SharedImageIdentifierArgs
 
-func SharedImageIdentifierPtr(v *SharedImageIdentifierArgs) SharedImageIdentifierPtrInput {	return (*sharedImageIdentifierPtrType)(v)
+func SharedImageIdentifierPtr(v *SharedImageIdentifierArgs) SharedImageIdentifierPtrInput {
+	return (*sharedImageIdentifierPtrType)(v)
 }
 
 func (*sharedImageIdentifierPtrType) ElementType() reflect.Type {
@@ -3837,7 +7135,7 @@ func (i *sharedImageIdentifierPtrType) ToSharedImageIdentifierPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageIdentifierPtrOutput)
 }
 
-type SharedImageIdentifierOutput struct { *pulumi.OutputState }
+type SharedImageIdentifierOutput struct{ *pulumi.OutputState }
 
 func (SharedImageIdentifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SharedImageIdentifier)(nil)).Elem()
@@ -3861,18 +7159,18 @@ func (o SharedImageIdentifierOutput) ToSharedImageIdentifierPtrOutputWithContext
 	}).(SharedImageIdentifierPtrOutput)
 }
 func (o SharedImageIdentifierOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func (v SharedImageIdentifier) string { return v.Offer }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SharedImageIdentifier) string { return v.Offer }).(pulumi.StringOutput)
 }
 
 func (o SharedImageIdentifierOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v SharedImageIdentifier) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SharedImageIdentifier) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 func (o SharedImageIdentifierOutput) Sku() pulumi.StringOutput {
-	return o.ApplyT(func (v SharedImageIdentifier) string { return v.Sku }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SharedImageIdentifier) string { return v.Sku }).(pulumi.StringOutput)
 }
 
-type SharedImageIdentifierPtrOutput struct { *pulumi.OutputState}
+type SharedImageIdentifierPtrOutput struct{ *pulumi.OutputState }
 
 func (SharedImageIdentifierPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SharedImageIdentifier)(nil)).Elem()
@@ -3887,26 +7185,26 @@ func (o SharedImageIdentifierPtrOutput) ToSharedImageIdentifierPtrOutputWithCont
 }
 
 func (o SharedImageIdentifierPtrOutput) Elem() SharedImageIdentifierOutput {
-	return o.ApplyT(func (v *SharedImageIdentifier) SharedImageIdentifier { return *v }).(SharedImageIdentifierOutput)
+	return o.ApplyT(func(v *SharedImageIdentifier) SharedImageIdentifier { return *v }).(SharedImageIdentifierOutput)
 }
 
 func (o SharedImageIdentifierPtrOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func (v SharedImageIdentifier) string { return v.Offer }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SharedImageIdentifier) string { return v.Offer }).(pulumi.StringOutput)
 }
 
 func (o SharedImageIdentifierPtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v SharedImageIdentifier) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SharedImageIdentifier) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 func (o SharedImageIdentifierPtrOutput) Sku() pulumi.StringOutput {
-	return o.ApplyT(func (v SharedImageIdentifier) string { return v.Sku }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SharedImageIdentifier) string { return v.Sku }).(pulumi.StringOutput)
 }
 
 type SharedImageVersionTargetRegion struct {
 	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	RegionalReplicaCount int `pulumi:"regionalReplicaCount"`
-	StorageAccountType *string `pulumi:"storageAccountType"`
+	Name                 string  `pulumi:"name"`
+	RegionalReplicaCount int     `pulumi:"regionalReplicaCount"`
+	StorageAccountType   *string `pulumi:"storageAccountType"`
 }
 
 type SharedImageVersionTargetRegionInput interface {
@@ -3918,9 +7216,9 @@ type SharedImageVersionTargetRegionInput interface {
 
 type SharedImageVersionTargetRegionArgs struct {
 	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	RegionalReplicaCount pulumi.IntInput `pulumi:"regionalReplicaCount"`
-	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
+	Name                 pulumi.StringInput    `pulumi:"name"`
+	RegionalReplicaCount pulumi.IntInput       `pulumi:"regionalReplicaCount"`
+	StorageAccountType   pulumi.StringPtrInput `pulumi:"storageAccountType"`
 }
 
 func (SharedImageVersionTargetRegionArgs) ElementType() reflect.Type {
@@ -3956,7 +7254,7 @@ func (i SharedImageVersionTargetRegionArray) ToSharedImageVersionTargetRegionArr
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionTargetRegionArrayOutput)
 }
 
-type SharedImageVersionTargetRegionOutput struct { *pulumi.OutputState }
+type SharedImageVersionTargetRegionOutput struct{ *pulumi.OutputState }
 
 func (SharedImageVersionTargetRegionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SharedImageVersionTargetRegion)(nil)).Elem()
@@ -3972,18 +7270,18 @@ func (o SharedImageVersionTargetRegionOutput) ToSharedImageVersionTargetRegionOu
 
 // The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
 func (o SharedImageVersionTargetRegionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v SharedImageVersionTargetRegion) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SharedImageVersionTargetRegion) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o SharedImageVersionTargetRegionOutput) RegionalReplicaCount() pulumi.IntOutput {
-	return o.ApplyT(func (v SharedImageVersionTargetRegion) int { return v.RegionalReplicaCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v SharedImageVersionTargetRegion) int { return v.RegionalReplicaCount }).(pulumi.IntOutput)
 }
 
 func (o SharedImageVersionTargetRegionOutput) StorageAccountType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SharedImageVersionTargetRegion) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SharedImageVersionTargetRegion) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
 
-type SharedImageVersionTargetRegionArrayOutput struct { *pulumi.OutputState}
+type SharedImageVersionTargetRegionArrayOutput struct{ *pulumi.OutputState }
 
 func (SharedImageVersionTargetRegionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SharedImageVersionTargetRegion)(nil)).Elem()
@@ -3998,15 +7296,15 @@ func (o SharedImageVersionTargetRegionArrayOutput) ToSharedImageVersionTargetReg
 }
 
 func (o SharedImageVersionTargetRegionArrayOutput) Index(i pulumi.IntInput) SharedImageVersionTargetRegionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SharedImageVersionTargetRegion {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedImageVersionTargetRegion {
 		return vs[0].([]SharedImageVersionTargetRegion)[vs[1].(int)]
 	}).(SharedImageVersionTargetRegionOutput)
 }
 
 type SnapshotEncryptionSettings struct {
 	DiskEncryptionKey *SnapshotEncryptionSettingsDiskEncryptionKey `pulumi:"diskEncryptionKey"`
-	Enabled bool `pulumi:"enabled"`
-	KeyEncryptionKey *SnapshotEncryptionSettingsKeyEncryptionKey `pulumi:"keyEncryptionKey"`
+	Enabled           bool                                         `pulumi:"enabled"`
+	KeyEncryptionKey  *SnapshotEncryptionSettingsKeyEncryptionKey  `pulumi:"keyEncryptionKey"`
 }
 
 type SnapshotEncryptionSettingsInput interface {
@@ -4018,8 +7316,8 @@ type SnapshotEncryptionSettingsInput interface {
 
 type SnapshotEncryptionSettingsArgs struct {
 	DiskEncryptionKey SnapshotEncryptionSettingsDiskEncryptionKeyPtrInput `pulumi:"diskEncryptionKey"`
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	KeyEncryptionKey SnapshotEncryptionSettingsKeyEncryptionKeyPtrInput `pulumi:"keyEncryptionKey"`
+	Enabled           pulumi.BoolInput                                    `pulumi:"enabled"`
+	KeyEncryptionKey  SnapshotEncryptionSettingsKeyEncryptionKeyPtrInput  `pulumi:"keyEncryptionKey"`
 }
 
 func (SnapshotEncryptionSettingsArgs) ElementType() reflect.Type {
@@ -4051,7 +7349,8 @@ type SnapshotEncryptionSettingsPtrInput interface {
 
 type snapshotEncryptionSettingsPtrType SnapshotEncryptionSettingsArgs
 
-func SnapshotEncryptionSettingsPtr(v *SnapshotEncryptionSettingsArgs) SnapshotEncryptionSettingsPtrInput {	return (*snapshotEncryptionSettingsPtrType)(v)
+func SnapshotEncryptionSettingsPtr(v *SnapshotEncryptionSettingsArgs) SnapshotEncryptionSettingsPtrInput {
+	return (*snapshotEncryptionSettingsPtrType)(v)
 }
 
 func (*snapshotEncryptionSettingsPtrType) ElementType() reflect.Type {
@@ -4066,7 +7365,7 @@ func (i *snapshotEncryptionSettingsPtrType) ToSnapshotEncryptionSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotEncryptionSettingsPtrOutput)
 }
 
-type SnapshotEncryptionSettingsOutput struct { *pulumi.OutputState }
+type SnapshotEncryptionSettingsOutput struct{ *pulumi.OutputState }
 
 func (SnapshotEncryptionSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SnapshotEncryptionSettings)(nil)).Elem()
@@ -4090,18 +7389,22 @@ func (o SnapshotEncryptionSettingsOutput) ToSnapshotEncryptionSettingsPtrOutputW
 	}).(SnapshotEncryptionSettingsPtrOutput)
 }
 func (o SnapshotEncryptionSettingsOutput) DiskEncryptionKey() SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsDiskEncryptionKey { return v.DiskEncryptionKey }).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsDiskEncryptionKey {
+		return v.DiskEncryptionKey
+	}).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
 func (o SnapshotEncryptionSettingsOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o SnapshotEncryptionSettingsOutput) KeyEncryptionKey() SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsKeyEncryptionKey { return v.KeyEncryptionKey }).(SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsKeyEncryptionKey {
+		return v.KeyEncryptionKey
+	}).(SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
 
-type SnapshotEncryptionSettingsPtrOutput struct { *pulumi.OutputState}
+type SnapshotEncryptionSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (SnapshotEncryptionSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SnapshotEncryptionSettings)(nil)).Elem()
@@ -4116,23 +7419,27 @@ func (o SnapshotEncryptionSettingsPtrOutput) ToSnapshotEncryptionSettingsPtrOutp
 }
 
 func (o SnapshotEncryptionSettingsPtrOutput) Elem() SnapshotEncryptionSettingsOutput {
-	return o.ApplyT(func (v *SnapshotEncryptionSettings) SnapshotEncryptionSettings { return *v }).(SnapshotEncryptionSettingsOutput)
+	return o.ApplyT(func(v *SnapshotEncryptionSettings) SnapshotEncryptionSettings { return *v }).(SnapshotEncryptionSettingsOutput)
 }
 
 func (o SnapshotEncryptionSettingsPtrOutput) DiskEncryptionKey() SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsDiskEncryptionKey { return v.DiskEncryptionKey }).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsDiskEncryptionKey {
+		return v.DiskEncryptionKey
+	}).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
 func (o SnapshotEncryptionSettingsPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o SnapshotEncryptionSettingsPtrOutput) KeyEncryptionKey() SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsKeyEncryptionKey { return v.KeyEncryptionKey }).(SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsKeyEncryptionKey {
+		return v.KeyEncryptionKey
+	}).(SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
 
 type SnapshotEncryptionSettingsDiskEncryptionKey struct {
-	SecretUrl string `pulumi:"secretUrl"`
+	SecretUrl     string `pulumi:"secretUrl"`
 	SourceVaultId string `pulumi:"sourceVaultId"`
 }
 
@@ -4144,7 +7451,7 @@ type SnapshotEncryptionSettingsDiskEncryptionKeyInput interface {
 }
 
 type SnapshotEncryptionSettingsDiskEncryptionKeyArgs struct {
-	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	SecretUrl     pulumi.StringInput `pulumi:"secretUrl"`
 	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
 }
 
@@ -4177,7 +7484,8 @@ type SnapshotEncryptionSettingsDiskEncryptionKeyPtrInput interface {
 
 type snapshotEncryptionSettingsDiskEncryptionKeyPtrType SnapshotEncryptionSettingsDiskEncryptionKeyArgs
 
-func SnapshotEncryptionSettingsDiskEncryptionKeyPtr(v *SnapshotEncryptionSettingsDiskEncryptionKeyArgs) SnapshotEncryptionSettingsDiskEncryptionKeyPtrInput {	return (*snapshotEncryptionSettingsDiskEncryptionKeyPtrType)(v)
+func SnapshotEncryptionSettingsDiskEncryptionKeyPtr(v *SnapshotEncryptionSettingsDiskEncryptionKeyArgs) SnapshotEncryptionSettingsDiskEncryptionKeyPtrInput {
+	return (*snapshotEncryptionSettingsDiskEncryptionKeyPtrType)(v)
 }
 
 func (*snapshotEncryptionSettingsDiskEncryptionKeyPtrType) ElementType() reflect.Type {
@@ -4192,7 +7500,7 @@ func (i *snapshotEncryptionSettingsDiskEncryptionKeyPtrType) ToSnapshotEncryptio
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
-type SnapshotEncryptionSettingsDiskEncryptionKeyOutput struct { *pulumi.OutputState }
+type SnapshotEncryptionSettingsDiskEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (SnapshotEncryptionSettingsDiskEncryptionKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SnapshotEncryptionSettingsDiskEncryptionKey)(nil)).Elem()
@@ -4216,14 +7524,14 @@ func (o SnapshotEncryptionSettingsDiskEncryptionKeyOutput) ToSnapshotEncryptionS
 	}).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 func (o SnapshotEncryptionSettingsDiskEncryptionKeyOutput) SecretUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
 }
 
 func (o SnapshotEncryptionSettingsDiskEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
-type SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput struct { *pulumi.OutputState}
+type SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SnapshotEncryptionSettingsDiskEncryptionKey)(nil)).Elem()
@@ -4238,19 +7546,21 @@ func (o SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput) ToSnapshotEncrypti
 }
 
 func (o SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput) Elem() SnapshotEncryptionSettingsDiskEncryptionKeyOutput {
-	return o.ApplyT(func (v *SnapshotEncryptionSettingsDiskEncryptionKey) SnapshotEncryptionSettingsDiskEncryptionKey { return *v }).(SnapshotEncryptionSettingsDiskEncryptionKeyOutput)
+	return o.ApplyT(func(v *SnapshotEncryptionSettingsDiskEncryptionKey) SnapshotEncryptionSettingsDiskEncryptionKey {
+		return *v
+	}).(SnapshotEncryptionSettingsDiskEncryptionKeyOutput)
 }
 
 func (o SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput) SecretUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
 }
 
 func (o SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
 type SnapshotEncryptionSettingsKeyEncryptionKey struct {
-	KeyUrl string `pulumi:"keyUrl"`
+	KeyUrl        string `pulumi:"keyUrl"`
 	SourceVaultId string `pulumi:"sourceVaultId"`
 }
 
@@ -4262,7 +7572,7 @@ type SnapshotEncryptionSettingsKeyEncryptionKeyInput interface {
 }
 
 type SnapshotEncryptionSettingsKeyEncryptionKeyArgs struct {
-	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	KeyUrl        pulumi.StringInput `pulumi:"keyUrl"`
 	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
 }
 
@@ -4295,7 +7605,8 @@ type SnapshotEncryptionSettingsKeyEncryptionKeyPtrInput interface {
 
 type snapshotEncryptionSettingsKeyEncryptionKeyPtrType SnapshotEncryptionSettingsKeyEncryptionKeyArgs
 
-func SnapshotEncryptionSettingsKeyEncryptionKeyPtr(v *SnapshotEncryptionSettingsKeyEncryptionKeyArgs) SnapshotEncryptionSettingsKeyEncryptionKeyPtrInput {	return (*snapshotEncryptionSettingsKeyEncryptionKeyPtrType)(v)
+func SnapshotEncryptionSettingsKeyEncryptionKeyPtr(v *SnapshotEncryptionSettingsKeyEncryptionKeyArgs) SnapshotEncryptionSettingsKeyEncryptionKeyPtrInput {
+	return (*snapshotEncryptionSettingsKeyEncryptionKeyPtrType)(v)
 }
 
 func (*snapshotEncryptionSettingsKeyEncryptionKeyPtrType) ElementType() reflect.Type {
@@ -4310,7 +7621,7 @@ func (i *snapshotEncryptionSettingsKeyEncryptionKeyPtrType) ToSnapshotEncryption
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
 
-type SnapshotEncryptionSettingsKeyEncryptionKeyOutput struct { *pulumi.OutputState }
+type SnapshotEncryptionSettingsKeyEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (SnapshotEncryptionSettingsKeyEncryptionKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SnapshotEncryptionSettingsKeyEncryptionKey)(nil)).Elem()
@@ -4334,14 +7645,14 @@ func (o SnapshotEncryptionSettingsKeyEncryptionKeyOutput) ToSnapshotEncryptionSe
 	}).(SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
 func (o SnapshotEncryptionSettingsKeyEncryptionKeyOutput) KeyUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
 func (o SnapshotEncryptionSettingsKeyEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
-type SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput struct { *pulumi.OutputState}
+type SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SnapshotEncryptionSettingsKeyEncryptionKey)(nil)).Elem()
@@ -4356,15 +7667,17 @@ func (o SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput) ToSnapshotEncryptio
 }
 
 func (o SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput) Elem() SnapshotEncryptionSettingsKeyEncryptionKeyOutput {
-	return o.ApplyT(func (v *SnapshotEncryptionSettingsKeyEncryptionKey) SnapshotEncryptionSettingsKeyEncryptionKey { return *v }).(SnapshotEncryptionSettingsKeyEncryptionKeyOutput)
+	return o.ApplyT(func(v *SnapshotEncryptionSettingsKeyEncryptionKey) SnapshotEncryptionSettingsKeyEncryptionKey {
+		return *v
+	}).(SnapshotEncryptionSettingsKeyEncryptionKeyOutput)
 }
 
 func (o SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput) KeyUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
 func (o SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
 type VirtualMachineAdditionalCapabilities struct {
@@ -4411,7 +7724,8 @@ type VirtualMachineAdditionalCapabilitiesPtrInput interface {
 
 type virtualMachineAdditionalCapabilitiesPtrType VirtualMachineAdditionalCapabilitiesArgs
 
-func VirtualMachineAdditionalCapabilitiesPtr(v *VirtualMachineAdditionalCapabilitiesArgs) VirtualMachineAdditionalCapabilitiesPtrInput {	return (*virtualMachineAdditionalCapabilitiesPtrType)(v)
+func VirtualMachineAdditionalCapabilitiesPtr(v *VirtualMachineAdditionalCapabilitiesArgs) VirtualMachineAdditionalCapabilitiesPtrInput {
+	return (*virtualMachineAdditionalCapabilitiesPtrType)(v)
 }
 
 func (*virtualMachineAdditionalCapabilitiesPtrType) ElementType() reflect.Type {
@@ -4426,7 +7740,7 @@ func (i *virtualMachineAdditionalCapabilitiesPtrType) ToVirtualMachineAdditional
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAdditionalCapabilitiesPtrOutput)
 }
 
-type VirtualMachineAdditionalCapabilitiesOutput struct { *pulumi.OutputState }
+type VirtualMachineAdditionalCapabilitiesOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineAdditionalCapabilitiesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineAdditionalCapabilities)(nil)).Elem()
@@ -4450,10 +7764,10 @@ func (o VirtualMachineAdditionalCapabilitiesOutput) ToVirtualMachineAdditionalCa
 	}).(VirtualMachineAdditionalCapabilitiesPtrOutput)
 }
 func (o VirtualMachineAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v VirtualMachineAdditionalCapabilities) bool { return v.UltraSsdEnabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v VirtualMachineAdditionalCapabilities) bool { return v.UltraSsdEnabled }).(pulumi.BoolOutput)
 }
 
-type VirtualMachineAdditionalCapabilitiesPtrOutput struct { *pulumi.OutputState}
+type VirtualMachineAdditionalCapabilitiesPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineAdditionalCapabilitiesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachineAdditionalCapabilities)(nil)).Elem()
@@ -4468,15 +7782,15 @@ func (o VirtualMachineAdditionalCapabilitiesPtrOutput) ToVirtualMachineAdditiona
 }
 
 func (o VirtualMachineAdditionalCapabilitiesPtrOutput) Elem() VirtualMachineAdditionalCapabilitiesOutput {
-	return o.ApplyT(func (v *VirtualMachineAdditionalCapabilities) VirtualMachineAdditionalCapabilities { return *v }).(VirtualMachineAdditionalCapabilitiesOutput)
+	return o.ApplyT(func(v *VirtualMachineAdditionalCapabilities) VirtualMachineAdditionalCapabilities { return *v }).(VirtualMachineAdditionalCapabilitiesOutput)
 }
 
 func (o VirtualMachineAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v VirtualMachineAdditionalCapabilities) bool { return v.UltraSsdEnabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v VirtualMachineAdditionalCapabilities) bool { return v.UltraSsdEnabled }).(pulumi.BoolOutput)
 }
 
 type VirtualMachineBootDiagnostics struct {
-	Enabled bool `pulumi:"enabled"`
+	Enabled    bool   `pulumi:"enabled"`
 	StorageUri string `pulumi:"storageUri"`
 }
 
@@ -4488,7 +7802,7 @@ type VirtualMachineBootDiagnosticsInput interface {
 }
 
 type VirtualMachineBootDiagnosticsArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled    pulumi.BoolInput   `pulumi:"enabled"`
 	StorageUri pulumi.StringInput `pulumi:"storageUri"`
 }
 
@@ -4521,7 +7835,8 @@ type VirtualMachineBootDiagnosticsPtrInput interface {
 
 type virtualMachineBootDiagnosticsPtrType VirtualMachineBootDiagnosticsArgs
 
-func VirtualMachineBootDiagnosticsPtr(v *VirtualMachineBootDiagnosticsArgs) VirtualMachineBootDiagnosticsPtrInput {	return (*virtualMachineBootDiagnosticsPtrType)(v)
+func VirtualMachineBootDiagnosticsPtr(v *VirtualMachineBootDiagnosticsArgs) VirtualMachineBootDiagnosticsPtrInput {
+	return (*virtualMachineBootDiagnosticsPtrType)(v)
 }
 
 func (*virtualMachineBootDiagnosticsPtrType) ElementType() reflect.Type {
@@ -4536,7 +7851,7 @@ func (i *virtualMachineBootDiagnosticsPtrType) ToVirtualMachineBootDiagnosticsPt
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineBootDiagnosticsPtrOutput)
 }
 
-type VirtualMachineBootDiagnosticsOutput struct { *pulumi.OutputState }
+type VirtualMachineBootDiagnosticsOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineBootDiagnosticsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineBootDiagnostics)(nil)).Elem()
@@ -4560,14 +7875,14 @@ func (o VirtualMachineBootDiagnosticsOutput) ToVirtualMachineBootDiagnosticsPtrO
 	}).(VirtualMachineBootDiagnosticsPtrOutput)
 }
 func (o VirtualMachineBootDiagnosticsOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v VirtualMachineBootDiagnostics) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v VirtualMachineBootDiagnostics) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o VirtualMachineBootDiagnosticsOutput) StorageUri() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineBootDiagnostics) string { return v.StorageUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineBootDiagnostics) string { return v.StorageUri }).(pulumi.StringOutput)
 }
 
-type VirtualMachineBootDiagnosticsPtrOutput struct { *pulumi.OutputState}
+type VirtualMachineBootDiagnosticsPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineBootDiagnosticsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachineBootDiagnostics)(nil)).Elem()
@@ -4582,22 +7897,22 @@ func (o VirtualMachineBootDiagnosticsPtrOutput) ToVirtualMachineBootDiagnosticsP
 }
 
 func (o VirtualMachineBootDiagnosticsPtrOutput) Elem() VirtualMachineBootDiagnosticsOutput {
-	return o.ApplyT(func (v *VirtualMachineBootDiagnostics) VirtualMachineBootDiagnostics { return *v }).(VirtualMachineBootDiagnosticsOutput)
+	return o.ApplyT(func(v *VirtualMachineBootDiagnostics) VirtualMachineBootDiagnostics { return *v }).(VirtualMachineBootDiagnosticsOutput)
 }
 
 func (o VirtualMachineBootDiagnosticsPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v VirtualMachineBootDiagnostics) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v VirtualMachineBootDiagnostics) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o VirtualMachineBootDiagnosticsPtrOutput) StorageUri() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineBootDiagnostics) string { return v.StorageUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineBootDiagnostics) string { return v.StorageUri }).(pulumi.StringOutput)
 }
 
 type VirtualMachineIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
 	PrincipalId *string `pulumi:"principalId"`
-	Type string `pulumi:"type"`
+	Type        string  `pulumi:"type"`
 }
 
 type VirtualMachineIdentityInput interface {
@@ -4611,7 +7926,7 @@ type VirtualMachineIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Type        pulumi.StringInput    `pulumi:"type"`
 }
 
 func (VirtualMachineIdentityArgs) ElementType() reflect.Type {
@@ -4643,7 +7958,8 @@ type VirtualMachineIdentityPtrInput interface {
 
 type virtualMachineIdentityPtrType VirtualMachineIdentityArgs
 
-func VirtualMachineIdentityPtr(v *VirtualMachineIdentityArgs) VirtualMachineIdentityPtrInput {	return (*virtualMachineIdentityPtrType)(v)
+func VirtualMachineIdentityPtr(v *VirtualMachineIdentityArgs) VirtualMachineIdentityPtrInput {
+	return (*virtualMachineIdentityPtrType)(v)
 }
 
 func (*virtualMachineIdentityPtrType) ElementType() reflect.Type {
@@ -4658,7 +7974,7 @@ func (i *virtualMachineIdentityPtrType) ToVirtualMachineIdentityPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineIdentityPtrOutput)
 }
 
-type VirtualMachineIdentityOutput struct { *pulumi.OutputState }
+type VirtualMachineIdentityOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineIdentity)(nil)).Elem()
@@ -4682,19 +7998,19 @@ func (o VirtualMachineIdentityOutput) ToVirtualMachineIdentityPtrOutputWithConte
 	}).(VirtualMachineIdentityPtrOutput)
 }
 func (o VirtualMachineIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v VirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v VirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
 func (o VirtualMachineIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type VirtualMachineIdentityPtrOutput struct { *pulumi.OutputState}
+type VirtualMachineIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachineIdentity)(nil)).Elem()
@@ -4709,27 +8025,27 @@ func (o VirtualMachineIdentityPtrOutput) ToVirtualMachineIdentityPtrOutputWithCo
 }
 
 func (o VirtualMachineIdentityPtrOutput) Elem() VirtualMachineIdentityOutput {
-	return o.ApplyT(func (v *VirtualMachineIdentity) VirtualMachineIdentity { return *v }).(VirtualMachineIdentityOutput)
+	return o.ApplyT(func(v *VirtualMachineIdentity) VirtualMachineIdentity { return *v }).(VirtualMachineIdentityOutput)
 }
 
 func (o VirtualMachineIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v VirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v VirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
 func (o VirtualMachineIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type VirtualMachineOsProfile struct {
 	AdminPassword *string `pulumi:"adminPassword"`
-	AdminUsername string `pulumi:"adminUsername"`
-	ComputerName string `pulumi:"computerName"`
-	CustomData *string `pulumi:"customData"`
+	AdminUsername string  `pulumi:"adminUsername"`
+	ComputerName  string  `pulumi:"computerName"`
+	CustomData    *string `pulumi:"customData"`
 }
 
 type VirtualMachineOsProfileInput interface {
@@ -4741,9 +8057,9 @@ type VirtualMachineOsProfileInput interface {
 
 type VirtualMachineOsProfileArgs struct {
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
-	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
-	ComputerName pulumi.StringInput `pulumi:"computerName"`
-	CustomData pulumi.StringPtrInput `pulumi:"customData"`
+	AdminUsername pulumi.StringInput    `pulumi:"adminUsername"`
+	ComputerName  pulumi.StringInput    `pulumi:"computerName"`
+	CustomData    pulumi.StringPtrInput `pulumi:"customData"`
 }
 
 func (VirtualMachineOsProfileArgs) ElementType() reflect.Type {
@@ -4775,7 +8091,8 @@ type VirtualMachineOsProfilePtrInput interface {
 
 type virtualMachineOsProfilePtrType VirtualMachineOsProfileArgs
 
-func VirtualMachineOsProfilePtr(v *VirtualMachineOsProfileArgs) VirtualMachineOsProfilePtrInput {	return (*virtualMachineOsProfilePtrType)(v)
+func VirtualMachineOsProfilePtr(v *VirtualMachineOsProfileArgs) VirtualMachineOsProfilePtrInput {
+	return (*virtualMachineOsProfilePtrType)(v)
 }
 
 func (*virtualMachineOsProfilePtrType) ElementType() reflect.Type {
@@ -4790,7 +8107,7 @@ func (i *virtualMachineOsProfilePtrType) ToVirtualMachineOsProfilePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOsProfilePtrOutput)
 }
 
-type VirtualMachineOsProfileOutput struct { *pulumi.OutputState }
+type VirtualMachineOsProfileOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineOsProfile)(nil)).Elem()
@@ -4814,22 +8131,22 @@ func (o VirtualMachineOsProfileOutput) ToVirtualMachineOsProfilePtrOutputWithCon
 	}).(VirtualMachineOsProfilePtrOutput)
 }
 func (o VirtualMachineOsProfileOutput) AdminPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineOsProfileOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachineOsProfileOutput) ComputerName() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfile) string { return v.ComputerName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfile) string { return v.ComputerName }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachineOsProfileOutput) CustomData() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
 
-type VirtualMachineOsProfilePtrOutput struct { *pulumi.OutputState}
+type VirtualMachineOsProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachineOsProfile)(nil)).Elem()
@@ -4844,28 +8161,28 @@ func (o VirtualMachineOsProfilePtrOutput) ToVirtualMachineOsProfilePtrOutputWith
 }
 
 func (o VirtualMachineOsProfilePtrOutput) Elem() VirtualMachineOsProfileOutput {
-	return o.ApplyT(func (v *VirtualMachineOsProfile) VirtualMachineOsProfile { return *v }).(VirtualMachineOsProfileOutput)
+	return o.ApplyT(func(v *VirtualMachineOsProfile) VirtualMachineOsProfile { return *v }).(VirtualMachineOsProfileOutput)
 }
 
 func (o VirtualMachineOsProfilePtrOutput) AdminPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineOsProfilePtrOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachineOsProfilePtrOutput) ComputerName() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfile) string { return v.ComputerName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfile) string { return v.ComputerName }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachineOsProfilePtrOutput) CustomData() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
 
 type VirtualMachineOsProfileLinuxConfig struct {
-	DisablePasswordAuthentication bool `pulumi:"disablePasswordAuthentication"`
-	SshKeys []VirtualMachineOsProfileLinuxConfigSshKey `pulumi:"sshKeys"`
+	DisablePasswordAuthentication bool                                       `pulumi:"disablePasswordAuthentication"`
+	SshKeys                       []VirtualMachineOsProfileLinuxConfigSshKey `pulumi:"sshKeys"`
 }
 
 type VirtualMachineOsProfileLinuxConfigInput interface {
@@ -4876,8 +8193,8 @@ type VirtualMachineOsProfileLinuxConfigInput interface {
 }
 
 type VirtualMachineOsProfileLinuxConfigArgs struct {
-	DisablePasswordAuthentication pulumi.BoolInput `pulumi:"disablePasswordAuthentication"`
-	SshKeys VirtualMachineOsProfileLinuxConfigSshKeyArrayInput `pulumi:"sshKeys"`
+	DisablePasswordAuthentication pulumi.BoolInput                                   `pulumi:"disablePasswordAuthentication"`
+	SshKeys                       VirtualMachineOsProfileLinuxConfigSshKeyArrayInput `pulumi:"sshKeys"`
 }
 
 func (VirtualMachineOsProfileLinuxConfigArgs) ElementType() reflect.Type {
@@ -4909,7 +8226,8 @@ type VirtualMachineOsProfileLinuxConfigPtrInput interface {
 
 type virtualMachineOsProfileLinuxConfigPtrType VirtualMachineOsProfileLinuxConfigArgs
 
-func VirtualMachineOsProfileLinuxConfigPtr(v *VirtualMachineOsProfileLinuxConfigArgs) VirtualMachineOsProfileLinuxConfigPtrInput {	return (*virtualMachineOsProfileLinuxConfigPtrType)(v)
+func VirtualMachineOsProfileLinuxConfigPtr(v *VirtualMachineOsProfileLinuxConfigArgs) VirtualMachineOsProfileLinuxConfigPtrInput {
+	return (*virtualMachineOsProfileLinuxConfigPtrType)(v)
 }
 
 func (*virtualMachineOsProfileLinuxConfigPtrType) ElementType() reflect.Type {
@@ -4924,7 +8242,7 @@ func (i *virtualMachineOsProfileLinuxConfigPtrType) ToVirtualMachineOsProfileLin
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOsProfileLinuxConfigPtrOutput)
 }
 
-type VirtualMachineOsProfileLinuxConfigOutput struct { *pulumi.OutputState }
+type VirtualMachineOsProfileLinuxConfigOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileLinuxConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineOsProfileLinuxConfig)(nil)).Elem()
@@ -4948,14 +8266,16 @@ func (o VirtualMachineOsProfileLinuxConfigOutput) ToVirtualMachineOsProfileLinux
 	}).(VirtualMachineOsProfileLinuxConfigPtrOutput)
 }
 func (o VirtualMachineOsProfileLinuxConfigOutput) DisablePasswordAuthentication() pulumi.BoolOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileLinuxConfig) bool { return v.DisablePasswordAuthentication }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileLinuxConfig) bool { return v.DisablePasswordAuthentication }).(pulumi.BoolOutput)
 }
 
 func (o VirtualMachineOsProfileLinuxConfigOutput) SshKeys() VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileLinuxConfig) []VirtualMachineOsProfileLinuxConfigSshKey { return v.SshKeys }).(VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileLinuxConfig) []VirtualMachineOsProfileLinuxConfigSshKey {
+		return v.SshKeys
+	}).(VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput)
 }
 
-type VirtualMachineOsProfileLinuxConfigPtrOutput struct { *pulumi.OutputState}
+type VirtualMachineOsProfileLinuxConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileLinuxConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachineOsProfileLinuxConfig)(nil)).Elem()
@@ -4970,20 +8290,22 @@ func (o VirtualMachineOsProfileLinuxConfigPtrOutput) ToVirtualMachineOsProfileLi
 }
 
 func (o VirtualMachineOsProfileLinuxConfigPtrOutput) Elem() VirtualMachineOsProfileLinuxConfigOutput {
-	return o.ApplyT(func (v *VirtualMachineOsProfileLinuxConfig) VirtualMachineOsProfileLinuxConfig { return *v }).(VirtualMachineOsProfileLinuxConfigOutput)
+	return o.ApplyT(func(v *VirtualMachineOsProfileLinuxConfig) VirtualMachineOsProfileLinuxConfig { return *v }).(VirtualMachineOsProfileLinuxConfigOutput)
 }
 
 func (o VirtualMachineOsProfileLinuxConfigPtrOutput) DisablePasswordAuthentication() pulumi.BoolOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileLinuxConfig) bool { return v.DisablePasswordAuthentication }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileLinuxConfig) bool { return v.DisablePasswordAuthentication }).(pulumi.BoolOutput)
 }
 
 func (o VirtualMachineOsProfileLinuxConfigPtrOutput) SshKeys() VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileLinuxConfig) []VirtualMachineOsProfileLinuxConfigSshKey { return v.SshKeys }).(VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileLinuxConfig) []VirtualMachineOsProfileLinuxConfigSshKey {
+		return v.SshKeys
+	}).(VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput)
 }
 
 type VirtualMachineOsProfileLinuxConfigSshKey struct {
 	KeyData string `pulumi:"keyData"`
-	Path string `pulumi:"path"`
+	Path    string `pulumi:"path"`
 }
 
 type VirtualMachineOsProfileLinuxConfigSshKeyInput interface {
@@ -4995,7 +8317,7 @@ type VirtualMachineOsProfileLinuxConfigSshKeyInput interface {
 
 type VirtualMachineOsProfileLinuxConfigSshKeyArgs struct {
 	KeyData pulumi.StringInput `pulumi:"keyData"`
-	Path pulumi.StringInput `pulumi:"path"`
+	Path    pulumi.StringInput `pulumi:"path"`
 }
 
 func (VirtualMachineOsProfileLinuxConfigSshKeyArgs) ElementType() reflect.Type {
@@ -5031,7 +8353,7 @@ func (i VirtualMachineOsProfileLinuxConfigSshKeyArray) ToVirtualMachineOsProfile
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput)
 }
 
-type VirtualMachineOsProfileLinuxConfigSshKeyOutput struct { *pulumi.OutputState }
+type VirtualMachineOsProfileLinuxConfigSshKeyOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileLinuxConfigSshKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineOsProfileLinuxConfigSshKey)(nil)).Elem()
@@ -5046,14 +8368,14 @@ func (o VirtualMachineOsProfileLinuxConfigSshKeyOutput) ToVirtualMachineOsProfil
 }
 
 func (o VirtualMachineOsProfileLinuxConfigSshKeyOutput) KeyData() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileLinuxConfigSshKey) string { return v.KeyData }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileLinuxConfigSshKey) string { return v.KeyData }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachineOsProfileLinuxConfigSshKeyOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileLinuxConfigSshKey) string { return v.Path }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileLinuxConfigSshKey) string { return v.Path }).(pulumi.StringOutput)
 }
 
-type VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput struct { *pulumi.OutputState}
+type VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]VirtualMachineOsProfileLinuxConfigSshKey)(nil)).Elem()
@@ -5068,13 +8390,13 @@ func (o VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput) ToVirtualMachineOsP
 }
 
 func (o VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput) Index(i pulumi.IntInput) VirtualMachineOsProfileLinuxConfigSshKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) VirtualMachineOsProfileLinuxConfigSshKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineOsProfileLinuxConfigSshKey {
 		return vs[0].([]VirtualMachineOsProfileLinuxConfigSshKey)[vs[1].(int)]
 	}).(VirtualMachineOsProfileLinuxConfigSshKeyOutput)
 }
 
 type VirtualMachineOsProfileSecret struct {
-	SourceVaultId string `pulumi:"sourceVaultId"`
+	SourceVaultId     string                                          `pulumi:"sourceVaultId"`
 	VaultCertificates []VirtualMachineOsProfileSecretVaultCertificate `pulumi:"vaultCertificates"`
 }
 
@@ -5086,7 +8408,7 @@ type VirtualMachineOsProfileSecretInput interface {
 }
 
 type VirtualMachineOsProfileSecretArgs struct {
-	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+	SourceVaultId     pulumi.StringInput                                      `pulumi:"sourceVaultId"`
 	VaultCertificates VirtualMachineOsProfileSecretVaultCertificateArrayInput `pulumi:"vaultCertificates"`
 }
 
@@ -5123,7 +8445,7 @@ func (i VirtualMachineOsProfileSecretArray) ToVirtualMachineOsProfileSecretArray
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOsProfileSecretArrayOutput)
 }
 
-type VirtualMachineOsProfileSecretOutput struct { *pulumi.OutputState }
+type VirtualMachineOsProfileSecretOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileSecretOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineOsProfileSecret)(nil)).Elem()
@@ -5138,14 +8460,16 @@ func (o VirtualMachineOsProfileSecretOutput) ToVirtualMachineOsProfileSecretOutp
 }
 
 func (o VirtualMachineOsProfileSecretOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileSecret) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileSecret) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachineOsProfileSecretOutput) VaultCertificates() VirtualMachineOsProfileSecretVaultCertificateArrayOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileSecret) []VirtualMachineOsProfileSecretVaultCertificate { return v.VaultCertificates }).(VirtualMachineOsProfileSecretVaultCertificateArrayOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileSecret) []VirtualMachineOsProfileSecretVaultCertificate {
+		return v.VaultCertificates
+	}).(VirtualMachineOsProfileSecretVaultCertificateArrayOutput)
 }
 
-type VirtualMachineOsProfileSecretArrayOutput struct { *pulumi.OutputState}
+type VirtualMachineOsProfileSecretArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileSecretArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]VirtualMachineOsProfileSecret)(nil)).Elem()
@@ -5160,14 +8484,14 @@ func (o VirtualMachineOsProfileSecretArrayOutput) ToVirtualMachineOsProfileSecre
 }
 
 func (o VirtualMachineOsProfileSecretArrayOutput) Index(i pulumi.IntInput) VirtualMachineOsProfileSecretOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) VirtualMachineOsProfileSecret {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineOsProfileSecret {
 		return vs[0].([]VirtualMachineOsProfileSecret)[vs[1].(int)]
 	}).(VirtualMachineOsProfileSecretOutput)
 }
 
 type VirtualMachineOsProfileSecretVaultCertificate struct {
 	CertificateStore *string `pulumi:"certificateStore"`
-	CertificateUrl string `pulumi:"certificateUrl"`
+	CertificateUrl   string  `pulumi:"certificateUrl"`
 }
 
 type VirtualMachineOsProfileSecretVaultCertificateInput interface {
@@ -5179,7 +8503,7 @@ type VirtualMachineOsProfileSecretVaultCertificateInput interface {
 
 type VirtualMachineOsProfileSecretVaultCertificateArgs struct {
 	CertificateStore pulumi.StringPtrInput `pulumi:"certificateStore"`
-	CertificateUrl pulumi.StringInput `pulumi:"certificateUrl"`
+	CertificateUrl   pulumi.StringInput    `pulumi:"certificateUrl"`
 }
 
 func (VirtualMachineOsProfileSecretVaultCertificateArgs) ElementType() reflect.Type {
@@ -5215,7 +8539,7 @@ func (i VirtualMachineOsProfileSecretVaultCertificateArray) ToVirtualMachineOsPr
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOsProfileSecretVaultCertificateArrayOutput)
 }
 
-type VirtualMachineOsProfileSecretVaultCertificateOutput struct { *pulumi.OutputState }
+type VirtualMachineOsProfileSecretVaultCertificateOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileSecretVaultCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineOsProfileSecretVaultCertificate)(nil)).Elem()
@@ -5230,14 +8554,14 @@ func (o VirtualMachineOsProfileSecretVaultCertificateOutput) ToVirtualMachineOsP
 }
 
 func (o VirtualMachineOsProfileSecretVaultCertificateOutput) CertificateStore() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileSecretVaultCertificate) *string { return v.CertificateStore }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileSecretVaultCertificate) *string { return v.CertificateStore }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineOsProfileSecretVaultCertificateOutput) CertificateUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileSecretVaultCertificate) string { return v.CertificateUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileSecretVaultCertificate) string { return v.CertificateUrl }).(pulumi.StringOutput)
 }
 
-type VirtualMachineOsProfileSecretVaultCertificateArrayOutput struct { *pulumi.OutputState}
+type VirtualMachineOsProfileSecretVaultCertificateArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileSecretVaultCertificateArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]VirtualMachineOsProfileSecretVaultCertificate)(nil)).Elem()
@@ -5252,17 +8576,17 @@ func (o VirtualMachineOsProfileSecretVaultCertificateArrayOutput) ToVirtualMachi
 }
 
 func (o VirtualMachineOsProfileSecretVaultCertificateArrayOutput) Index(i pulumi.IntInput) VirtualMachineOsProfileSecretVaultCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) VirtualMachineOsProfileSecretVaultCertificate {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineOsProfileSecretVaultCertificate {
 		return vs[0].([]VirtualMachineOsProfileSecretVaultCertificate)[vs[1].(int)]
 	}).(VirtualMachineOsProfileSecretVaultCertificateOutput)
 }
 
 type VirtualMachineOsProfileWindowsConfig struct {
 	AdditionalUnattendConfigs []VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig `pulumi:"additionalUnattendConfigs"`
-	EnableAutomaticUpgrades *bool `pulumi:"enableAutomaticUpgrades"`
-	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
-	Timezone *string `pulumi:"timezone"`
-	Winrms []VirtualMachineOsProfileWindowsConfigWinrm `pulumi:"winrms"`
+	EnableAutomaticUpgrades   *bool                                                          `pulumi:"enableAutomaticUpgrades"`
+	ProvisionVmAgent          *bool                                                          `pulumi:"provisionVmAgent"`
+	Timezone                  *string                                                        `pulumi:"timezone"`
+	Winrms                    []VirtualMachineOsProfileWindowsConfigWinrm                    `pulumi:"winrms"`
 }
 
 type VirtualMachineOsProfileWindowsConfigInput interface {
@@ -5274,10 +8598,10 @@ type VirtualMachineOsProfileWindowsConfigInput interface {
 
 type VirtualMachineOsProfileWindowsConfigArgs struct {
 	AdditionalUnattendConfigs VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayInput `pulumi:"additionalUnattendConfigs"`
-	EnableAutomaticUpgrades pulumi.BoolPtrInput `pulumi:"enableAutomaticUpgrades"`
-	ProvisionVmAgent pulumi.BoolPtrInput `pulumi:"provisionVmAgent"`
-	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
-	Winrms VirtualMachineOsProfileWindowsConfigWinrmArrayInput `pulumi:"winrms"`
+	EnableAutomaticUpgrades   pulumi.BoolPtrInput                                                    `pulumi:"enableAutomaticUpgrades"`
+	ProvisionVmAgent          pulumi.BoolPtrInput                                                    `pulumi:"provisionVmAgent"`
+	Timezone                  pulumi.StringPtrInput                                                  `pulumi:"timezone"`
+	Winrms                    VirtualMachineOsProfileWindowsConfigWinrmArrayInput                    `pulumi:"winrms"`
 }
 
 func (VirtualMachineOsProfileWindowsConfigArgs) ElementType() reflect.Type {
@@ -5309,7 +8633,8 @@ type VirtualMachineOsProfileWindowsConfigPtrInput interface {
 
 type virtualMachineOsProfileWindowsConfigPtrType VirtualMachineOsProfileWindowsConfigArgs
 
-func VirtualMachineOsProfileWindowsConfigPtr(v *VirtualMachineOsProfileWindowsConfigArgs) VirtualMachineOsProfileWindowsConfigPtrInput {	return (*virtualMachineOsProfileWindowsConfigPtrType)(v)
+func VirtualMachineOsProfileWindowsConfigPtr(v *VirtualMachineOsProfileWindowsConfigArgs) VirtualMachineOsProfileWindowsConfigPtrInput {
+	return (*virtualMachineOsProfileWindowsConfigPtrType)(v)
 }
 
 func (*virtualMachineOsProfileWindowsConfigPtrType) ElementType() reflect.Type {
@@ -5324,7 +8649,7 @@ func (i *virtualMachineOsProfileWindowsConfigPtrType) ToVirtualMachineOsProfileW
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOsProfileWindowsConfigPtrOutput)
 }
 
-type VirtualMachineOsProfileWindowsConfigOutput struct { *pulumi.OutputState }
+type VirtualMachineOsProfileWindowsConfigOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileWindowsConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineOsProfileWindowsConfig)(nil)).Elem()
@@ -5348,26 +8673,30 @@ func (o VirtualMachineOsProfileWindowsConfigOutput) ToVirtualMachineOsProfileWin
 	}).(VirtualMachineOsProfileWindowsConfigPtrOutput)
 }
 func (o VirtualMachineOsProfileWindowsConfigOutput) AdditionalUnattendConfigs() VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig { return v.AdditionalUnattendConfigs }).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig {
+		return v.AdditionalUnattendConfigs
+	}).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
 }
 
 func (o VirtualMachineOsProfileWindowsConfigOutput) EnableAutomaticUpgrades() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) *bool { return v.EnableAutomaticUpgrades }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) *bool { return v.EnableAutomaticUpgrades }).(pulumi.BoolPtrOutput)
 }
 
 func (o VirtualMachineOsProfileWindowsConfigOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
 }
 
 func (o VirtualMachineOsProfileWindowsConfigOutput) Timezone() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineOsProfileWindowsConfigOutput) Winrms() VirtualMachineOsProfileWindowsConfigWinrmArrayOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigWinrm { return v.Winrms }).(VirtualMachineOsProfileWindowsConfigWinrmArrayOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigWinrm {
+		return v.Winrms
+	}).(VirtualMachineOsProfileWindowsConfigWinrmArrayOutput)
 }
 
-type VirtualMachineOsProfileWindowsConfigPtrOutput struct { *pulumi.OutputState}
+type VirtualMachineOsProfileWindowsConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileWindowsConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachineOsProfileWindowsConfig)(nil)).Elem()
@@ -5382,33 +8711,37 @@ func (o VirtualMachineOsProfileWindowsConfigPtrOutput) ToVirtualMachineOsProfile
 }
 
 func (o VirtualMachineOsProfileWindowsConfigPtrOutput) Elem() VirtualMachineOsProfileWindowsConfigOutput {
-	return o.ApplyT(func (v *VirtualMachineOsProfileWindowsConfig) VirtualMachineOsProfileWindowsConfig { return *v }).(VirtualMachineOsProfileWindowsConfigOutput)
+	return o.ApplyT(func(v *VirtualMachineOsProfileWindowsConfig) VirtualMachineOsProfileWindowsConfig { return *v }).(VirtualMachineOsProfileWindowsConfigOutput)
 }
 
 func (o VirtualMachineOsProfileWindowsConfigPtrOutput) AdditionalUnattendConfigs() VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig { return v.AdditionalUnattendConfigs }).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig {
+		return v.AdditionalUnattendConfigs
+	}).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
 }
 
 func (o VirtualMachineOsProfileWindowsConfigPtrOutput) EnableAutomaticUpgrades() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) *bool { return v.EnableAutomaticUpgrades }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) *bool { return v.EnableAutomaticUpgrades }).(pulumi.BoolPtrOutput)
 }
 
 func (o VirtualMachineOsProfileWindowsConfigPtrOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
 }
 
 func (o VirtualMachineOsProfileWindowsConfigPtrOutput) Timezone() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineOsProfileWindowsConfigPtrOutput) Winrms() VirtualMachineOsProfileWindowsConfigWinrmArrayOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigWinrm { return v.Winrms }).(VirtualMachineOsProfileWindowsConfigWinrmArrayOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigWinrm {
+		return v.Winrms
+	}).(VirtualMachineOsProfileWindowsConfigWinrmArrayOutput)
 }
 
 type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig struct {
-	Component string `pulumi:"component"`
-	Content string `pulumi:"content"`
-	Pass string `pulumi:"pass"`
+	Component   string `pulumi:"component"`
+	Content     string `pulumi:"content"`
+	Pass        string `pulumi:"pass"`
 	SettingName string `pulumi:"settingName"`
 }
 
@@ -5420,9 +8753,9 @@ type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigInput interface
 }
 
 type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs struct {
-	Component pulumi.StringInput `pulumi:"component"`
-	Content pulumi.StringInput `pulumi:"content"`
-	Pass pulumi.StringInput `pulumi:"pass"`
+	Component   pulumi.StringInput `pulumi:"component"`
+	Content     pulumi.StringInput `pulumi:"content"`
+	Pass        pulumi.StringInput `pulumi:"pass"`
 	SettingName pulumi.StringInput `pulumi:"settingName"`
 }
 
@@ -5459,7 +8792,7 @@ func (i VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArray) ToVir
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
 }
 
-type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput struct { *pulumi.OutputState }
+type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig)(nil)).Elem()
@@ -5474,22 +8807,22 @@ func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput) ToVi
 }
 
 func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput) Component() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Component }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Component }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Content }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Content }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput) Pass() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Pass }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Pass }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput) SettingName() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.SettingName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.SettingName }).(pulumi.StringOutput)
 }
 
-type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput struct { *pulumi.OutputState}
+type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig)(nil)).Elem()
@@ -5504,14 +8837,14 @@ func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
 }
 
 func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput) Index(i pulumi.IntInput) VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig {
 		return vs[0].([]VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig)[vs[1].(int)]
 	}).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput)
 }
 
 type VirtualMachineOsProfileWindowsConfigWinrm struct {
 	CertificateUrl *string `pulumi:"certificateUrl"`
-	Protocol string `pulumi:"protocol"`
+	Protocol       string  `pulumi:"protocol"`
 }
 
 type VirtualMachineOsProfileWindowsConfigWinrmInput interface {
@@ -5523,7 +8856,7 @@ type VirtualMachineOsProfileWindowsConfigWinrmInput interface {
 
 type VirtualMachineOsProfileWindowsConfigWinrmArgs struct {
 	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
-	Protocol pulumi.StringInput `pulumi:"protocol"`
+	Protocol       pulumi.StringInput    `pulumi:"protocol"`
 }
 
 func (VirtualMachineOsProfileWindowsConfigWinrmArgs) ElementType() reflect.Type {
@@ -5559,7 +8892,7 @@ func (i VirtualMachineOsProfileWindowsConfigWinrmArray) ToVirtualMachineOsProfil
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOsProfileWindowsConfigWinrmArrayOutput)
 }
 
-type VirtualMachineOsProfileWindowsConfigWinrmOutput struct { *pulumi.OutputState }
+type VirtualMachineOsProfileWindowsConfigWinrmOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileWindowsConfigWinrmOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineOsProfileWindowsConfigWinrm)(nil)).Elem()
@@ -5574,14 +8907,14 @@ func (o VirtualMachineOsProfileWindowsConfigWinrmOutput) ToVirtualMachineOsProfi
 }
 
 func (o VirtualMachineOsProfileWindowsConfigWinrmOutput) CertificateUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfigWinrm) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfigWinrm) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineOsProfileWindowsConfigWinrmOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfigWinrm) string { return v.Protocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfigWinrm) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-type VirtualMachineOsProfileWindowsConfigWinrmArrayOutput struct { *pulumi.OutputState}
+type VirtualMachineOsProfileWindowsConfigWinrmArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileWindowsConfigWinrmArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]VirtualMachineOsProfileWindowsConfigWinrm)(nil)).Elem()
@@ -5596,15 +8929,15 @@ func (o VirtualMachineOsProfileWindowsConfigWinrmArrayOutput) ToVirtualMachineOs
 }
 
 func (o VirtualMachineOsProfileWindowsConfigWinrmArrayOutput) Index(i pulumi.IntInput) VirtualMachineOsProfileWindowsConfigWinrmOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) VirtualMachineOsProfileWindowsConfigWinrm {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineOsProfileWindowsConfigWinrm {
 		return vs[0].([]VirtualMachineOsProfileWindowsConfigWinrm)[vs[1].(int)]
 	}).(VirtualMachineOsProfileWindowsConfigWinrmOutput)
 }
 
 type VirtualMachinePlan struct {
 	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	Product string `pulumi:"product"`
+	Name      string `pulumi:"name"`
+	Product   string `pulumi:"product"`
 	Publisher string `pulumi:"publisher"`
 }
 
@@ -5617,8 +8950,8 @@ type VirtualMachinePlanInput interface {
 
 type VirtualMachinePlanArgs struct {
 	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	Product pulumi.StringInput `pulumi:"product"`
+	Name      pulumi.StringInput `pulumi:"name"`
+	Product   pulumi.StringInput `pulumi:"product"`
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 }
 
@@ -5651,7 +8984,8 @@ type VirtualMachinePlanPtrInput interface {
 
 type virtualMachinePlanPtrType VirtualMachinePlanArgs
 
-func VirtualMachinePlanPtr(v *VirtualMachinePlanArgs) VirtualMachinePlanPtrInput {	return (*virtualMachinePlanPtrType)(v)
+func VirtualMachinePlanPtr(v *VirtualMachinePlanArgs) VirtualMachinePlanPtrInput {
+	return (*virtualMachinePlanPtrType)(v)
 }
 
 func (*virtualMachinePlanPtrType) ElementType() reflect.Type {
@@ -5666,7 +9000,7 @@ func (i *virtualMachinePlanPtrType) ToVirtualMachinePlanPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachinePlanPtrOutput)
 }
 
-type VirtualMachinePlanOutput struct { *pulumi.OutputState }
+type VirtualMachinePlanOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachinePlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachinePlan)(nil)).Elem()
@@ -5689,20 +9023,21 @@ func (o VirtualMachinePlanOutput) ToVirtualMachinePlanPtrOutputWithContext(ctx c
 		return &v
 	}).(VirtualMachinePlanPtrOutput)
 }
+
 // Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
 func (o VirtualMachinePlanOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachinePlanOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachinePlanOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-type VirtualMachinePlanPtrOutput struct { *pulumi.OutputState}
+type VirtualMachinePlanPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachinePlanPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachinePlan)(nil)).Elem()
@@ -5717,33 +9052,33 @@ func (o VirtualMachinePlanPtrOutput) ToVirtualMachinePlanPtrOutputWithContext(ct
 }
 
 func (o VirtualMachinePlanPtrOutput) Elem() VirtualMachinePlanOutput {
-	return o.ApplyT(func (v *VirtualMachinePlan) VirtualMachinePlan { return *v }).(VirtualMachinePlanOutput)
+	return o.ApplyT(func(v *VirtualMachinePlan) VirtualMachinePlan { return *v }).(VirtualMachinePlanOutput)
 }
 
 // Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
 func (o VirtualMachinePlanPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachinePlanPtrOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachinePlanPtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 type VirtualMachineStorageDataDisk struct {
-	Caching *string `pulumi:"caching"`
-	CreateOption string `pulumi:"createOption"`
-	DiskSizeGb *int `pulumi:"diskSizeGb"`
-	Lun int `pulumi:"lun"`
-	ManagedDiskId *string `pulumi:"managedDiskId"`
+	Caching         *string `pulumi:"caching"`
+	CreateOption    string  `pulumi:"createOption"`
+	DiskSizeGb      *int    `pulumi:"diskSizeGb"`
+	Lun             int     `pulumi:"lun"`
+	ManagedDiskId   *string `pulumi:"managedDiskId"`
 	ManagedDiskType *string `pulumi:"managedDiskType"`
 	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	VhdUri *string `pulumi:"vhdUri"`
-	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
+	Name                    string  `pulumi:"name"`
+	VhdUri                  *string `pulumi:"vhdUri"`
+	WriteAcceleratorEnabled *bool   `pulumi:"writeAcceleratorEnabled"`
 }
 
 type VirtualMachineStorageDataDiskInput interface {
@@ -5754,16 +9089,16 @@ type VirtualMachineStorageDataDiskInput interface {
 }
 
 type VirtualMachineStorageDataDiskArgs struct {
-	Caching pulumi.StringPtrInput `pulumi:"caching"`
-	CreateOption pulumi.StringInput `pulumi:"createOption"`
-	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
-	Lun pulumi.IntInput `pulumi:"lun"`
-	ManagedDiskId pulumi.StringPtrInput `pulumi:"managedDiskId"`
+	Caching         pulumi.StringPtrInput `pulumi:"caching"`
+	CreateOption    pulumi.StringInput    `pulumi:"createOption"`
+	DiskSizeGb      pulumi.IntPtrInput    `pulumi:"diskSizeGb"`
+	Lun             pulumi.IntInput       `pulumi:"lun"`
+	ManagedDiskId   pulumi.StringPtrInput `pulumi:"managedDiskId"`
 	ManagedDiskType pulumi.StringPtrInput `pulumi:"managedDiskType"`
 	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	VhdUri pulumi.StringPtrInput `pulumi:"vhdUri"`
-	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
+	Name                    pulumi.StringInput    `pulumi:"name"`
+	VhdUri                  pulumi.StringPtrInput `pulumi:"vhdUri"`
+	WriteAcceleratorEnabled pulumi.BoolPtrInput   `pulumi:"writeAcceleratorEnabled"`
 }
 
 func (VirtualMachineStorageDataDiskArgs) ElementType() reflect.Type {
@@ -5799,7 +9134,7 @@ func (i VirtualMachineStorageDataDiskArray) ToVirtualMachineStorageDataDiskArray
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageDataDiskArrayOutput)
 }
 
-type VirtualMachineStorageDataDiskOutput struct { *pulumi.OutputState }
+type VirtualMachineStorageDataDiskOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineStorageDataDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineStorageDataDisk)(nil)).Elem()
@@ -5814,43 +9149,43 @@ func (o VirtualMachineStorageDataDiskOutput) ToVirtualMachineStorageDataDiskOutp
 }
 
 func (o VirtualMachineStorageDataDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageDataDiskOutput) CreateOption() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachineStorageDataDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
 func (o VirtualMachineStorageDataDiskOutput) Lun() pulumi.IntOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) int { return v.Lun }).(pulumi.IntOutput)
 }
 
 func (o VirtualMachineStorageDataDiskOutput) ManagedDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageDataDiskOutput) ManagedDiskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageDataDiskOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachineStorageDataDiskOutput) VhdUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) *string { return v.VhdUri }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) *string { return v.VhdUri }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageDataDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type VirtualMachineStorageDataDiskArrayOutput struct { *pulumi.OutputState}
+type VirtualMachineStorageDataDiskArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineStorageDataDiskArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]VirtualMachineStorageDataDisk)(nil)).Elem()
@@ -5865,18 +9200,18 @@ func (o VirtualMachineStorageDataDiskArrayOutput) ToVirtualMachineStorageDataDis
 }
 
 func (o VirtualMachineStorageDataDiskArrayOutput) Index(i pulumi.IntInput) VirtualMachineStorageDataDiskOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) VirtualMachineStorageDataDisk {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineStorageDataDisk {
 		return vs[0].([]VirtualMachineStorageDataDisk)[vs[1].(int)]
 	}).(VirtualMachineStorageDataDiskOutput)
 }
 
 type VirtualMachineStorageImageReference struct {
 	// The ID of the Virtual Machine.
-	Id *string `pulumi:"id"`
-	Offer *string `pulumi:"offer"`
+	Id        *string `pulumi:"id"`
+	Offer     *string `pulumi:"offer"`
 	Publisher *string `pulumi:"publisher"`
-	Sku *string `pulumi:"sku"`
-	Version *string `pulumi:"version"`
+	Sku       *string `pulumi:"sku"`
+	Version   *string `pulumi:"version"`
 }
 
 type VirtualMachineStorageImageReferenceInput interface {
@@ -5888,11 +9223,11 @@ type VirtualMachineStorageImageReferenceInput interface {
 
 type VirtualMachineStorageImageReferenceArgs struct {
 	// The ID of the Virtual Machine.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	Offer pulumi.StringPtrInput `pulumi:"offer"`
+	Id        pulumi.StringPtrInput `pulumi:"id"`
+	Offer     pulumi.StringPtrInput `pulumi:"offer"`
 	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Sku       pulumi.StringPtrInput `pulumi:"sku"`
+	Version   pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (VirtualMachineStorageImageReferenceArgs) ElementType() reflect.Type {
@@ -5924,7 +9259,8 @@ type VirtualMachineStorageImageReferencePtrInput interface {
 
 type virtualMachineStorageImageReferencePtrType VirtualMachineStorageImageReferenceArgs
 
-func VirtualMachineStorageImageReferencePtr(v *VirtualMachineStorageImageReferenceArgs) VirtualMachineStorageImageReferencePtrInput {	return (*virtualMachineStorageImageReferencePtrType)(v)
+func VirtualMachineStorageImageReferencePtr(v *VirtualMachineStorageImageReferenceArgs) VirtualMachineStorageImageReferencePtrInput {
+	return (*virtualMachineStorageImageReferencePtrType)(v)
 }
 
 func (*virtualMachineStorageImageReferencePtrType) ElementType() reflect.Type {
@@ -5939,7 +9275,7 @@ func (i *virtualMachineStorageImageReferencePtrType) ToVirtualMachineStorageImag
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageImageReferencePtrOutput)
 }
 
-type VirtualMachineStorageImageReferenceOutput struct { *pulumi.OutputState }
+type VirtualMachineStorageImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineStorageImageReferenceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineStorageImageReference)(nil)).Elem()
@@ -5962,28 +9298,29 @@ func (o VirtualMachineStorageImageReferenceOutput) ToVirtualMachineStorageImageR
 		return &v
 	}).(VirtualMachineStorageImageReferencePtrOutput)
 }
+
 // The ID of the Virtual Machine.
 func (o VirtualMachineStorageImageReferenceOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageImageReferenceOutput) Offer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageImageReferenceOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageImageReferenceOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageImageReferenceOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-type VirtualMachineStorageImageReferencePtrOutput struct { *pulumi.OutputState}
+type VirtualMachineStorageImageReferencePtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineStorageImageReferencePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachineStorageImageReference)(nil)).Elem()
@@ -5998,42 +9335,42 @@ func (o VirtualMachineStorageImageReferencePtrOutput) ToVirtualMachineStorageIma
 }
 
 func (o VirtualMachineStorageImageReferencePtrOutput) Elem() VirtualMachineStorageImageReferenceOutput {
-	return o.ApplyT(func (v *VirtualMachineStorageImageReference) VirtualMachineStorageImageReference { return *v }).(VirtualMachineStorageImageReferenceOutput)
+	return o.ApplyT(func(v *VirtualMachineStorageImageReference) VirtualMachineStorageImageReference { return *v }).(VirtualMachineStorageImageReferenceOutput)
 }
 
 // The ID of the Virtual Machine.
 func (o VirtualMachineStorageImageReferencePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type VirtualMachineStorageOsDisk struct {
-	Caching *string `pulumi:"caching"`
-	CreateOption string `pulumi:"createOption"`
-	DiskSizeGb *int `pulumi:"diskSizeGb"`
-	ImageUri *string `pulumi:"imageUri"`
-	ManagedDiskId *string `pulumi:"managedDiskId"`
+	Caching         *string `pulumi:"caching"`
+	CreateOption    string  `pulumi:"createOption"`
+	DiskSizeGb      *int    `pulumi:"diskSizeGb"`
+	ImageUri        *string `pulumi:"imageUri"`
+	ManagedDiskId   *string `pulumi:"managedDiskId"`
 	ManagedDiskType *string `pulumi:"managedDiskType"`
 	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	OsType *string `pulumi:"osType"`
-	VhdUri *string `pulumi:"vhdUri"`
-	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
+	Name                    string  `pulumi:"name"`
+	OsType                  *string `pulumi:"osType"`
+	VhdUri                  *string `pulumi:"vhdUri"`
+	WriteAcceleratorEnabled *bool   `pulumi:"writeAcceleratorEnabled"`
 }
 
 type VirtualMachineStorageOsDiskInput interface {
@@ -6044,17 +9381,17 @@ type VirtualMachineStorageOsDiskInput interface {
 }
 
 type VirtualMachineStorageOsDiskArgs struct {
-	Caching pulumi.StringPtrInput `pulumi:"caching"`
-	CreateOption pulumi.StringInput `pulumi:"createOption"`
-	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
-	ImageUri pulumi.StringPtrInput `pulumi:"imageUri"`
-	ManagedDiskId pulumi.StringPtrInput `pulumi:"managedDiskId"`
+	Caching         pulumi.StringPtrInput `pulumi:"caching"`
+	CreateOption    pulumi.StringInput    `pulumi:"createOption"`
+	DiskSizeGb      pulumi.IntPtrInput    `pulumi:"diskSizeGb"`
+	ImageUri        pulumi.StringPtrInput `pulumi:"imageUri"`
+	ManagedDiskId   pulumi.StringPtrInput `pulumi:"managedDiskId"`
 	ManagedDiskType pulumi.StringPtrInput `pulumi:"managedDiskType"`
 	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	VhdUri pulumi.StringPtrInput `pulumi:"vhdUri"`
-	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
+	Name                    pulumi.StringInput    `pulumi:"name"`
+	OsType                  pulumi.StringPtrInput `pulumi:"osType"`
+	VhdUri                  pulumi.StringPtrInput `pulumi:"vhdUri"`
+	WriteAcceleratorEnabled pulumi.BoolPtrInput   `pulumi:"writeAcceleratorEnabled"`
 }
 
 func (VirtualMachineStorageOsDiskArgs) ElementType() reflect.Type {
@@ -6086,7 +9423,8 @@ type VirtualMachineStorageOsDiskPtrInput interface {
 
 type virtualMachineStorageOsDiskPtrType VirtualMachineStorageOsDiskArgs
 
-func VirtualMachineStorageOsDiskPtr(v *VirtualMachineStorageOsDiskArgs) VirtualMachineStorageOsDiskPtrInput {	return (*virtualMachineStorageOsDiskPtrType)(v)
+func VirtualMachineStorageOsDiskPtr(v *VirtualMachineStorageOsDiskArgs) VirtualMachineStorageOsDiskPtrInput {
+	return (*virtualMachineStorageOsDiskPtrType)(v)
 }
 
 func (*virtualMachineStorageOsDiskPtrType) ElementType() reflect.Type {
@@ -6101,7 +9439,7 @@ func (i *virtualMachineStorageOsDiskPtrType) ToVirtualMachineStorageOsDiskPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageOsDiskPtrOutput)
 }
 
-type VirtualMachineStorageOsDiskOutput struct { *pulumi.OutputState }
+type VirtualMachineStorageOsDiskOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineStorageOsDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineStorageOsDisk)(nil)).Elem()
@@ -6125,47 +9463,47 @@ func (o VirtualMachineStorageOsDiskOutput) ToVirtualMachineStorageOsDiskPtrOutpu
 	}).(VirtualMachineStorageOsDiskPtrOutput)
 }
 func (o VirtualMachineStorageOsDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageOsDiskOutput) CreateOption() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachineStorageOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
 func (o VirtualMachineStorageOsDiskOutput) ImageUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageOsDiskOutput) ManagedDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageOsDiskOutput) ManagedDiskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageOsDiskOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachineStorageOsDiskOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageOsDiskOutput) VhdUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.VhdUri }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.VhdUri }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type VirtualMachineStorageOsDiskPtrOutput struct { *pulumi.OutputState}
+type VirtualMachineStorageOsDiskPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineStorageOsDiskPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachineStorageOsDisk)(nil)).Elem()
@@ -6180,48 +9518,3485 @@ func (o VirtualMachineStorageOsDiskPtrOutput) ToVirtualMachineStorageOsDiskPtrOu
 }
 
 func (o VirtualMachineStorageOsDiskPtrOutput) Elem() VirtualMachineStorageOsDiskOutput {
-	return o.ApplyT(func (v *VirtualMachineStorageOsDisk) VirtualMachineStorageOsDisk { return *v }).(VirtualMachineStorageOsDiskOutput)
+	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) VirtualMachineStorageOsDisk { return *v }).(VirtualMachineStorageOsDiskOutput)
 }
 
 func (o VirtualMachineStorageOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageOsDiskPtrOutput) CreateOption() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachineStorageOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
 func (o VirtualMachineStorageOsDiskPtrOutput) ImageUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageOsDiskPtrOutput) ManagedDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageOsDiskPtrOutput) ManagedDiskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageOsDiskPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o VirtualMachineStorageOsDiskPtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageOsDiskPtrOutput) VhdUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.VhdUri }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.VhdUri }).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualMachineStorageOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type WindowsVirtualMachineAdditionalCapabilities struct {
+	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
+}
+
+type WindowsVirtualMachineAdditionalCapabilitiesInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineAdditionalCapabilitiesOutput() WindowsVirtualMachineAdditionalCapabilitiesOutput
+	ToWindowsVirtualMachineAdditionalCapabilitiesOutputWithContext(context.Context) WindowsVirtualMachineAdditionalCapabilitiesOutput
+}
+
+type WindowsVirtualMachineAdditionalCapabilitiesArgs struct {
+	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
+}
+
+func (WindowsVirtualMachineAdditionalCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineAdditionalCapabilities)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineAdditionalCapabilitiesArgs) ToWindowsVirtualMachineAdditionalCapabilitiesOutput() WindowsVirtualMachineAdditionalCapabilitiesOutput {
+	return i.ToWindowsVirtualMachineAdditionalCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineAdditionalCapabilitiesArgs) ToWindowsVirtualMachineAdditionalCapabilitiesOutputWithContext(ctx context.Context) WindowsVirtualMachineAdditionalCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineAdditionalCapabilitiesOutput)
+}
+
+func (i WindowsVirtualMachineAdditionalCapabilitiesArgs) ToWindowsVirtualMachineAdditionalCapabilitiesPtrOutput() WindowsVirtualMachineAdditionalCapabilitiesPtrOutput {
+	return i.ToWindowsVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineAdditionalCapabilitiesArgs) ToWindowsVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineAdditionalCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineAdditionalCapabilitiesOutput).ToWindowsVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx)
+}
+
+type WindowsVirtualMachineAdditionalCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineAdditionalCapabilitiesPtrOutput() WindowsVirtualMachineAdditionalCapabilitiesPtrOutput
+	ToWindowsVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(context.Context) WindowsVirtualMachineAdditionalCapabilitiesPtrOutput
+}
+
+type windowsVirtualMachineAdditionalCapabilitiesPtrType WindowsVirtualMachineAdditionalCapabilitiesArgs
+
+func WindowsVirtualMachineAdditionalCapabilitiesPtr(v *WindowsVirtualMachineAdditionalCapabilitiesArgs) WindowsVirtualMachineAdditionalCapabilitiesPtrInput {
+	return (*windowsVirtualMachineAdditionalCapabilitiesPtrType)(v)
+}
+
+func (*windowsVirtualMachineAdditionalCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineAdditionalCapabilities)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineAdditionalCapabilitiesPtrType) ToWindowsVirtualMachineAdditionalCapabilitiesPtrOutput() WindowsVirtualMachineAdditionalCapabilitiesPtrOutput {
+	return i.ToWindowsVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineAdditionalCapabilitiesPtrType) ToWindowsVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineAdditionalCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineAdditionalCapabilitiesPtrOutput)
+}
+
+type WindowsVirtualMachineAdditionalCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineAdditionalCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineAdditionalCapabilities)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineAdditionalCapabilitiesOutput) ToWindowsVirtualMachineAdditionalCapabilitiesOutput() WindowsVirtualMachineAdditionalCapabilitiesOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineAdditionalCapabilitiesOutput) ToWindowsVirtualMachineAdditionalCapabilitiesOutputWithContext(ctx context.Context) WindowsVirtualMachineAdditionalCapabilitiesOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineAdditionalCapabilitiesOutput) ToWindowsVirtualMachineAdditionalCapabilitiesPtrOutput() WindowsVirtualMachineAdditionalCapabilitiesPtrOutput {
+	return o.ToWindowsVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineAdditionalCapabilitiesOutput) ToWindowsVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineAdditionalCapabilitiesPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineAdditionalCapabilities) *WindowsVirtualMachineAdditionalCapabilities {
+		return &v
+	}).(WindowsVirtualMachineAdditionalCapabilitiesPtrOutput)
+}
+func (o WindowsVirtualMachineAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type WindowsVirtualMachineAdditionalCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineAdditionalCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineAdditionalCapabilities)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineAdditionalCapabilitiesPtrOutput) ToWindowsVirtualMachineAdditionalCapabilitiesPtrOutput() WindowsVirtualMachineAdditionalCapabilitiesPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineAdditionalCapabilitiesPtrOutput) ToWindowsVirtualMachineAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineAdditionalCapabilitiesPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineAdditionalCapabilitiesPtrOutput) Elem() WindowsVirtualMachineAdditionalCapabilitiesOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineAdditionalCapabilities) WindowsVirtualMachineAdditionalCapabilities {
+		return *v
+	}).(WindowsVirtualMachineAdditionalCapabilitiesOutput)
+}
+
+func (o WindowsVirtualMachineAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type WindowsVirtualMachineAdditionalUnattendContent struct {
+	Content string `pulumi:"content"`
+	Setting string `pulumi:"setting"`
+}
+
+type WindowsVirtualMachineAdditionalUnattendContentInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineAdditionalUnattendContentOutput() WindowsVirtualMachineAdditionalUnattendContentOutput
+	ToWindowsVirtualMachineAdditionalUnattendContentOutputWithContext(context.Context) WindowsVirtualMachineAdditionalUnattendContentOutput
+}
+
+type WindowsVirtualMachineAdditionalUnattendContentArgs struct {
+	Content pulumi.StringInput `pulumi:"content"`
+	Setting pulumi.StringInput `pulumi:"setting"`
+}
+
+func (WindowsVirtualMachineAdditionalUnattendContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineAdditionalUnattendContent)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineAdditionalUnattendContentArgs) ToWindowsVirtualMachineAdditionalUnattendContentOutput() WindowsVirtualMachineAdditionalUnattendContentOutput {
+	return i.ToWindowsVirtualMachineAdditionalUnattendContentOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineAdditionalUnattendContentArgs) ToWindowsVirtualMachineAdditionalUnattendContentOutputWithContext(ctx context.Context) WindowsVirtualMachineAdditionalUnattendContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineAdditionalUnattendContentOutput)
+}
+
+type WindowsVirtualMachineAdditionalUnattendContentArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineAdditionalUnattendContentArrayOutput() WindowsVirtualMachineAdditionalUnattendContentArrayOutput
+	ToWindowsVirtualMachineAdditionalUnattendContentArrayOutputWithContext(context.Context) WindowsVirtualMachineAdditionalUnattendContentArrayOutput
+}
+
+type WindowsVirtualMachineAdditionalUnattendContentArray []WindowsVirtualMachineAdditionalUnattendContentInput
+
+func (WindowsVirtualMachineAdditionalUnattendContentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineAdditionalUnattendContent)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineAdditionalUnattendContentArray) ToWindowsVirtualMachineAdditionalUnattendContentArrayOutput() WindowsVirtualMachineAdditionalUnattendContentArrayOutput {
+	return i.ToWindowsVirtualMachineAdditionalUnattendContentArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineAdditionalUnattendContentArray) ToWindowsVirtualMachineAdditionalUnattendContentArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineAdditionalUnattendContentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineAdditionalUnattendContentArrayOutput)
+}
+
+type WindowsVirtualMachineAdditionalUnattendContentOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineAdditionalUnattendContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineAdditionalUnattendContent)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineAdditionalUnattendContentOutput) ToWindowsVirtualMachineAdditionalUnattendContentOutput() WindowsVirtualMachineAdditionalUnattendContentOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineAdditionalUnattendContentOutput) ToWindowsVirtualMachineAdditionalUnattendContentOutputWithContext(ctx context.Context) WindowsVirtualMachineAdditionalUnattendContentOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineAdditionalUnattendContentOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineAdditionalUnattendContent) string { return v.Content }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineAdditionalUnattendContentOutput) Setting() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineAdditionalUnattendContent) string { return v.Setting }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineAdditionalUnattendContentArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineAdditionalUnattendContentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineAdditionalUnattendContent)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineAdditionalUnattendContentArrayOutput) ToWindowsVirtualMachineAdditionalUnattendContentArrayOutput() WindowsVirtualMachineAdditionalUnattendContentArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineAdditionalUnattendContentArrayOutput) ToWindowsVirtualMachineAdditionalUnattendContentArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineAdditionalUnattendContentArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineAdditionalUnattendContentArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineAdditionalUnattendContentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineAdditionalUnattendContent {
+		return vs[0].([]WindowsVirtualMachineAdditionalUnattendContent)[vs[1].(int)]
+	}).(WindowsVirtualMachineAdditionalUnattendContentOutput)
+}
+
+type WindowsVirtualMachineBootDiagnostics struct {
+	StorageAccountUri string `pulumi:"storageAccountUri"`
+}
+
+type WindowsVirtualMachineBootDiagnosticsInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineBootDiagnosticsOutput() WindowsVirtualMachineBootDiagnosticsOutput
+	ToWindowsVirtualMachineBootDiagnosticsOutputWithContext(context.Context) WindowsVirtualMachineBootDiagnosticsOutput
+}
+
+type WindowsVirtualMachineBootDiagnosticsArgs struct {
+	StorageAccountUri pulumi.StringInput `pulumi:"storageAccountUri"`
+}
+
+func (WindowsVirtualMachineBootDiagnosticsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineBootDiagnostics)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineBootDiagnosticsArgs) ToWindowsVirtualMachineBootDiagnosticsOutput() WindowsVirtualMachineBootDiagnosticsOutput {
+	return i.ToWindowsVirtualMachineBootDiagnosticsOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineBootDiagnosticsArgs) ToWindowsVirtualMachineBootDiagnosticsOutputWithContext(ctx context.Context) WindowsVirtualMachineBootDiagnosticsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineBootDiagnosticsOutput)
+}
+
+func (i WindowsVirtualMachineBootDiagnosticsArgs) ToWindowsVirtualMachineBootDiagnosticsPtrOutput() WindowsVirtualMachineBootDiagnosticsPtrOutput {
+	return i.ToWindowsVirtualMachineBootDiagnosticsPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineBootDiagnosticsArgs) ToWindowsVirtualMachineBootDiagnosticsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineBootDiagnosticsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineBootDiagnosticsOutput).ToWindowsVirtualMachineBootDiagnosticsPtrOutputWithContext(ctx)
+}
+
+type WindowsVirtualMachineBootDiagnosticsPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineBootDiagnosticsPtrOutput() WindowsVirtualMachineBootDiagnosticsPtrOutput
+	ToWindowsVirtualMachineBootDiagnosticsPtrOutputWithContext(context.Context) WindowsVirtualMachineBootDiagnosticsPtrOutput
+}
+
+type windowsVirtualMachineBootDiagnosticsPtrType WindowsVirtualMachineBootDiagnosticsArgs
+
+func WindowsVirtualMachineBootDiagnosticsPtr(v *WindowsVirtualMachineBootDiagnosticsArgs) WindowsVirtualMachineBootDiagnosticsPtrInput {
+	return (*windowsVirtualMachineBootDiagnosticsPtrType)(v)
+}
+
+func (*windowsVirtualMachineBootDiagnosticsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineBootDiagnostics)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineBootDiagnosticsPtrType) ToWindowsVirtualMachineBootDiagnosticsPtrOutput() WindowsVirtualMachineBootDiagnosticsPtrOutput {
+	return i.ToWindowsVirtualMachineBootDiagnosticsPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineBootDiagnosticsPtrType) ToWindowsVirtualMachineBootDiagnosticsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineBootDiagnosticsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineBootDiagnosticsPtrOutput)
+}
+
+type WindowsVirtualMachineBootDiagnosticsOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineBootDiagnosticsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineBootDiagnostics)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineBootDiagnosticsOutput) ToWindowsVirtualMachineBootDiagnosticsOutput() WindowsVirtualMachineBootDiagnosticsOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineBootDiagnosticsOutput) ToWindowsVirtualMachineBootDiagnosticsOutputWithContext(ctx context.Context) WindowsVirtualMachineBootDiagnosticsOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineBootDiagnosticsOutput) ToWindowsVirtualMachineBootDiagnosticsPtrOutput() WindowsVirtualMachineBootDiagnosticsPtrOutput {
+	return o.ToWindowsVirtualMachineBootDiagnosticsPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineBootDiagnosticsOutput) ToWindowsVirtualMachineBootDiagnosticsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineBootDiagnosticsPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineBootDiagnostics) *WindowsVirtualMachineBootDiagnostics {
+		return &v
+	}).(WindowsVirtualMachineBootDiagnosticsPtrOutput)
+}
+func (o WindowsVirtualMachineBootDiagnosticsOutput) StorageAccountUri() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineBootDiagnosticsPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineBootDiagnosticsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineBootDiagnostics)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineBootDiagnosticsPtrOutput) ToWindowsVirtualMachineBootDiagnosticsPtrOutput() WindowsVirtualMachineBootDiagnosticsPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineBootDiagnosticsPtrOutput) ToWindowsVirtualMachineBootDiagnosticsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineBootDiagnosticsPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineBootDiagnosticsPtrOutput) Elem() WindowsVirtualMachineBootDiagnosticsOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineBootDiagnostics) WindowsVirtualMachineBootDiagnostics { return *v }).(WindowsVirtualMachineBootDiagnosticsOutput)
+}
+
+func (o WindowsVirtualMachineBootDiagnosticsPtrOutput) StorageAccountUri() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
+	// The ID of the System Managed Service Principal.
+	PrincipalId *string `pulumi:"principalId"`
+	Type        string  `pulumi:"type"`
+}
+
+type WindowsVirtualMachineIdentityInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineIdentityOutput() WindowsVirtualMachineIdentityOutput
+	ToWindowsVirtualMachineIdentityOutputWithContext(context.Context) WindowsVirtualMachineIdentityOutput
+}
+
+type WindowsVirtualMachineIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The ID of the System Managed Service Principal.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	Type        pulumi.StringInput    `pulumi:"type"`
+}
+
+func (WindowsVirtualMachineIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineIdentity)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineIdentityArgs) ToWindowsVirtualMachineIdentityOutput() WindowsVirtualMachineIdentityOutput {
+	return i.ToWindowsVirtualMachineIdentityOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineIdentityArgs) ToWindowsVirtualMachineIdentityOutputWithContext(ctx context.Context) WindowsVirtualMachineIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineIdentityOutput)
+}
+
+func (i WindowsVirtualMachineIdentityArgs) ToWindowsVirtualMachineIdentityPtrOutput() WindowsVirtualMachineIdentityPtrOutput {
+	return i.ToWindowsVirtualMachineIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineIdentityArgs) ToWindowsVirtualMachineIdentityPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineIdentityOutput).ToWindowsVirtualMachineIdentityPtrOutputWithContext(ctx)
+}
+
+type WindowsVirtualMachineIdentityPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineIdentityPtrOutput() WindowsVirtualMachineIdentityPtrOutput
+	ToWindowsVirtualMachineIdentityPtrOutputWithContext(context.Context) WindowsVirtualMachineIdentityPtrOutput
+}
+
+type windowsVirtualMachineIdentityPtrType WindowsVirtualMachineIdentityArgs
+
+func WindowsVirtualMachineIdentityPtr(v *WindowsVirtualMachineIdentityArgs) WindowsVirtualMachineIdentityPtrInput {
+	return (*windowsVirtualMachineIdentityPtrType)(v)
+}
+
+func (*windowsVirtualMachineIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineIdentity)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineIdentityPtrType) ToWindowsVirtualMachineIdentityPtrOutput() WindowsVirtualMachineIdentityPtrOutput {
+	return i.ToWindowsVirtualMachineIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineIdentityPtrType) ToWindowsVirtualMachineIdentityPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineIdentityPtrOutput)
+}
+
+type WindowsVirtualMachineIdentityOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineIdentity)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineIdentityOutput) ToWindowsVirtualMachineIdentityOutput() WindowsVirtualMachineIdentityOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineIdentityOutput) ToWindowsVirtualMachineIdentityOutputWithContext(ctx context.Context) WindowsVirtualMachineIdentityOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineIdentityOutput) ToWindowsVirtualMachineIdentityPtrOutput() WindowsVirtualMachineIdentityPtrOutput {
+	return o.ToWindowsVirtualMachineIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineIdentityOutput) ToWindowsVirtualMachineIdentityPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineIdentityPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineIdentity) *WindowsVirtualMachineIdentity {
+		return &v
+	}).(WindowsVirtualMachineIdentityPtrOutput)
+}
+func (o WindowsVirtualMachineIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the System Managed Service Principal.
+func (o WindowsVirtualMachineIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o WindowsVirtualMachineIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineIdentity)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineIdentityPtrOutput) ToWindowsVirtualMachineIdentityPtrOutput() WindowsVirtualMachineIdentityPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineIdentityPtrOutput) ToWindowsVirtualMachineIdentityPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineIdentityPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineIdentityPtrOutput) Elem() WindowsVirtualMachineIdentityOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineIdentity) WindowsVirtualMachineIdentity { return *v }).(WindowsVirtualMachineIdentityOutput)
+}
+
+func (o WindowsVirtualMachineIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the System Managed Service Principal.
+func (o WindowsVirtualMachineIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o WindowsVirtualMachineIdentityPtrOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineOsDisk struct {
+	Caching             string                                       `pulumi:"caching"`
+	DiffDiskSettings    *WindowsVirtualMachineOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
+	DiskEncryptionSetId *string                                      `pulumi:"diskEncryptionSetId"`
+	DiskSizeGb          *int                                         `pulumi:"diskSizeGb"`
+	// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+	Name                    *string `pulumi:"name"`
+	StorageAccountType      string  `pulumi:"storageAccountType"`
+	WriteAcceleratorEnabled *bool   `pulumi:"writeAcceleratorEnabled"`
+}
+
+type WindowsVirtualMachineOsDiskInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineOsDiskOutput() WindowsVirtualMachineOsDiskOutput
+	ToWindowsVirtualMachineOsDiskOutputWithContext(context.Context) WindowsVirtualMachineOsDiskOutput
+}
+
+type WindowsVirtualMachineOsDiskArgs struct {
+	Caching             pulumi.StringInput                                  `pulumi:"caching"`
+	DiffDiskSettings    WindowsVirtualMachineOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
+	DiskEncryptionSetId pulumi.StringPtrInput                               `pulumi:"diskEncryptionSetId"`
+	DiskSizeGb          pulumi.IntPtrInput                                  `pulumi:"diskSizeGb"`
+	// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+	Name                    pulumi.StringPtrInput `pulumi:"name"`
+	StorageAccountType      pulumi.StringInput    `pulumi:"storageAccountType"`
+	WriteAcceleratorEnabled pulumi.BoolPtrInput   `pulumi:"writeAcceleratorEnabled"`
+}
+
+func (WindowsVirtualMachineOsDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineOsDisk)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineOsDiskArgs) ToWindowsVirtualMachineOsDiskOutput() WindowsVirtualMachineOsDiskOutput {
+	return i.ToWindowsVirtualMachineOsDiskOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineOsDiskArgs) ToWindowsVirtualMachineOsDiskOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOsDiskOutput)
+}
+
+func (i WindowsVirtualMachineOsDiskArgs) ToWindowsVirtualMachineOsDiskPtrOutput() WindowsVirtualMachineOsDiskPtrOutput {
+	return i.ToWindowsVirtualMachineOsDiskPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineOsDiskArgs) ToWindowsVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOsDiskOutput).ToWindowsVirtualMachineOsDiskPtrOutputWithContext(ctx)
+}
+
+type WindowsVirtualMachineOsDiskPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineOsDiskPtrOutput() WindowsVirtualMachineOsDiskPtrOutput
+	ToWindowsVirtualMachineOsDiskPtrOutputWithContext(context.Context) WindowsVirtualMachineOsDiskPtrOutput
+}
+
+type windowsVirtualMachineOsDiskPtrType WindowsVirtualMachineOsDiskArgs
+
+func WindowsVirtualMachineOsDiskPtr(v *WindowsVirtualMachineOsDiskArgs) WindowsVirtualMachineOsDiskPtrInput {
+	return (*windowsVirtualMachineOsDiskPtrType)(v)
+}
+
+func (*windowsVirtualMachineOsDiskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineOsDisk)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineOsDiskPtrType) ToWindowsVirtualMachineOsDiskPtrOutput() WindowsVirtualMachineOsDiskPtrOutput {
+	return i.ToWindowsVirtualMachineOsDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineOsDiskPtrType) ToWindowsVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOsDiskPtrOutput)
+}
+
+type WindowsVirtualMachineOsDiskOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineOsDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineOsDisk)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineOsDiskOutput) ToWindowsVirtualMachineOsDiskOutput() WindowsVirtualMachineOsDiskOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineOsDiskOutput) ToWindowsVirtualMachineOsDiskOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineOsDiskOutput) ToWindowsVirtualMachineOsDiskPtrOutput() WindowsVirtualMachineOsDiskPtrOutput {
+	return o.ToWindowsVirtualMachineOsDiskPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineOsDiskOutput) ToWindowsVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *WindowsVirtualMachineOsDisk {
+		return &v
+	}).(WindowsVirtualMachineOsDiskPtrOutput)
+}
+func (o WindowsVirtualMachineOsDiskOutput) Caching() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineOsDiskOutput) DiffDiskSettings() WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *WindowsVirtualMachineOsDiskDiffDiskSettings {
+		return v.DiffDiskSettings
+	}).(WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
+}
+
+func (o WindowsVirtualMachineOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+func (o WindowsVirtualMachineOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+}
+
+// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineOsDiskOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o WindowsVirtualMachineOsDiskOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type WindowsVirtualMachineOsDiskPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineOsDiskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineOsDisk)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineOsDiskPtrOutput) ToWindowsVirtualMachineOsDiskPtrOutput() WindowsVirtualMachineOsDiskPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineOsDiskPtrOutput) ToWindowsVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineOsDiskPtrOutput) Elem() WindowsVirtualMachineOsDiskOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) WindowsVirtualMachineOsDisk { return *v }).(WindowsVirtualMachineOsDiskOutput)
+}
+
+func (o WindowsVirtualMachineOsDiskPtrOutput) Caching() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineOsDiskPtrOutput) DiffDiskSettings() WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *WindowsVirtualMachineOsDiskDiffDiskSettings {
+		return v.DiffDiskSettings
+	}).(WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
+}
+
+func (o WindowsVirtualMachineOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+func (o WindowsVirtualMachineOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+}
+
+// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o WindowsVirtualMachineOsDiskPtrOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type WindowsVirtualMachineOsDiskDiffDiskSettings struct {
+	Option string `pulumi:"option"`
+}
+
+type WindowsVirtualMachineOsDiskDiffDiskSettingsInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineOsDiskDiffDiskSettingsOutput() WindowsVirtualMachineOsDiskDiffDiskSettingsOutput
+	ToWindowsVirtualMachineOsDiskDiffDiskSettingsOutputWithContext(context.Context) WindowsVirtualMachineOsDiskDiffDiskSettingsOutput
+}
+
+type WindowsVirtualMachineOsDiskDiffDiskSettingsArgs struct {
+	Option pulumi.StringInput `pulumi:"option"`
+}
+
+func (WindowsVirtualMachineOsDiskDiffDiskSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineOsDiskDiffDiskSettingsArgs) ToWindowsVirtualMachineOsDiskDiffDiskSettingsOutput() WindowsVirtualMachineOsDiskDiffDiskSettingsOutput {
+	return i.ToWindowsVirtualMachineOsDiskDiffDiskSettingsOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineOsDiskDiffDiskSettingsArgs) ToWindowsVirtualMachineOsDiskDiffDiskSettingsOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskDiffDiskSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOsDiskDiffDiskSettingsOutput)
+}
+
+func (i WindowsVirtualMachineOsDiskDiffDiskSettingsArgs) ToWindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput() WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return i.ToWindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineOsDiskDiffDiskSettingsArgs) ToWindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOsDiskDiffDiskSettingsOutput).ToWindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(ctx)
+}
+
+type WindowsVirtualMachineOsDiskDiffDiskSettingsPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput() WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput
+	ToWindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(context.Context) WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput
+}
+
+type windowsVirtualMachineOsDiskDiffDiskSettingsPtrType WindowsVirtualMachineOsDiskDiffDiskSettingsArgs
+
+func WindowsVirtualMachineOsDiskDiffDiskSettingsPtr(v *WindowsVirtualMachineOsDiskDiffDiskSettingsArgs) WindowsVirtualMachineOsDiskDiffDiskSettingsPtrInput {
+	return (*windowsVirtualMachineOsDiskDiffDiskSettingsPtrType)(v)
+}
+
+func (*windowsVirtualMachineOsDiskDiffDiskSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineOsDiskDiffDiskSettingsPtrType) ToWindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput() WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return i.ToWindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineOsDiskDiffDiskSettingsPtrType) ToWindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
+}
+
+type WindowsVirtualMachineOsDiskDiffDiskSettingsOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) ToWindowsVirtualMachineOsDiskDiffDiskSettingsOutput() WindowsVirtualMachineOsDiskDiffDiskSettingsOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) ToWindowsVirtualMachineOsDiskDiffDiskSettingsOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskDiffDiskSettingsOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) ToWindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput() WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return o.ToWindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) ToWindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDiskDiffDiskSettings) *WindowsVirtualMachineOsDiskDiffDiskSettings {
+		return &v
+	}).(WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
+}
+func (o WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) Option() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) ToWindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput() WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) ToWindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Elem() WindowsVirtualMachineOsDiskDiffDiskSettingsOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineOsDiskDiffDiskSettings) WindowsVirtualMachineOsDiskDiffDiskSettings {
+		return *v
+	}).(WindowsVirtualMachineOsDiskDiffDiskSettingsOutput)
+}
+
+func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachinePlan struct {
+	// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+	Name      string `pulumi:"name"`
+	Product   string `pulumi:"product"`
+	Publisher string `pulumi:"publisher"`
+}
+
+type WindowsVirtualMachinePlanInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachinePlanOutput() WindowsVirtualMachinePlanOutput
+	ToWindowsVirtualMachinePlanOutputWithContext(context.Context) WindowsVirtualMachinePlanOutput
+}
+
+type WindowsVirtualMachinePlanArgs struct {
+	// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+	Name      pulumi.StringInput `pulumi:"name"`
+	Product   pulumi.StringInput `pulumi:"product"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+}
+
+func (WindowsVirtualMachinePlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachinePlan)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachinePlanArgs) ToWindowsVirtualMachinePlanOutput() WindowsVirtualMachinePlanOutput {
+	return i.ToWindowsVirtualMachinePlanOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachinePlanArgs) ToWindowsVirtualMachinePlanOutputWithContext(ctx context.Context) WindowsVirtualMachinePlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachinePlanOutput)
+}
+
+func (i WindowsVirtualMachinePlanArgs) ToWindowsVirtualMachinePlanPtrOutput() WindowsVirtualMachinePlanPtrOutput {
+	return i.ToWindowsVirtualMachinePlanPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachinePlanArgs) ToWindowsVirtualMachinePlanPtrOutputWithContext(ctx context.Context) WindowsVirtualMachinePlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachinePlanOutput).ToWindowsVirtualMachinePlanPtrOutputWithContext(ctx)
+}
+
+type WindowsVirtualMachinePlanPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachinePlanPtrOutput() WindowsVirtualMachinePlanPtrOutput
+	ToWindowsVirtualMachinePlanPtrOutputWithContext(context.Context) WindowsVirtualMachinePlanPtrOutput
+}
+
+type windowsVirtualMachinePlanPtrType WindowsVirtualMachinePlanArgs
+
+func WindowsVirtualMachinePlanPtr(v *WindowsVirtualMachinePlanArgs) WindowsVirtualMachinePlanPtrInput {
+	return (*windowsVirtualMachinePlanPtrType)(v)
+}
+
+func (*windowsVirtualMachinePlanPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachinePlan)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachinePlanPtrType) ToWindowsVirtualMachinePlanPtrOutput() WindowsVirtualMachinePlanPtrOutput {
+	return i.ToWindowsVirtualMachinePlanPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachinePlanPtrType) ToWindowsVirtualMachinePlanPtrOutputWithContext(ctx context.Context) WindowsVirtualMachinePlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachinePlanPtrOutput)
+}
+
+type WindowsVirtualMachinePlanOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachinePlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachinePlan)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachinePlanOutput) ToWindowsVirtualMachinePlanOutput() WindowsVirtualMachinePlanOutput {
+	return o
+}
+
+func (o WindowsVirtualMachinePlanOutput) ToWindowsVirtualMachinePlanOutputWithContext(ctx context.Context) WindowsVirtualMachinePlanOutput {
+	return o
+}
+
+func (o WindowsVirtualMachinePlanOutput) ToWindowsVirtualMachinePlanPtrOutput() WindowsVirtualMachinePlanPtrOutput {
+	return o.ToWindowsVirtualMachinePlanPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachinePlanOutput) ToWindowsVirtualMachinePlanPtrOutputWithContext(ctx context.Context) WindowsVirtualMachinePlanPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachinePlan) *WindowsVirtualMachinePlan {
+		return &v
+	}).(WindowsVirtualMachinePlanPtrOutput)
+}
+
+// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachinePlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachinePlanOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachinePlanOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachinePlanPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachinePlanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachinePlan)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachinePlanPtrOutput) ToWindowsVirtualMachinePlanPtrOutput() WindowsVirtualMachinePlanPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachinePlanPtrOutput) ToWindowsVirtualMachinePlanPtrOutputWithContext(ctx context.Context) WindowsVirtualMachinePlanPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachinePlanPtrOutput) Elem() WindowsVirtualMachinePlanOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachinePlan) WindowsVirtualMachinePlan { return *v }).(WindowsVirtualMachinePlanOutput)
+}
+
+// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachinePlanPtrOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachinePlanPtrOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachinePlanPtrOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetAdditionalCapabilities struct {
+	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
+}
+
+type WindowsVirtualMachineScaleSetAdditionalCapabilitiesInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput() WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput
+	ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesOutputWithContext(context.Context) WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput
+}
+
+type WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs struct {
+	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
+}
+
+func (WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetAdditionalCapabilities)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs) ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput() WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput {
+	return i.ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs) ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput)
+}
+
+func (i WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs) ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput() WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs) ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput).ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(ctx)
+}
+
+type WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput() WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput
+	ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(context.Context) WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput
+}
+
+type windowsVirtualMachineScaleSetAdditionalCapabilitiesPtrType WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs
+
+func WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtr(v *WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs) WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrInput {
+	return (*windowsVirtualMachineScaleSetAdditionalCapabilitiesPtrType)(v)
+}
+
+func (*windowsVirtualMachineScaleSetAdditionalCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetAdditionalCapabilities)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineScaleSetAdditionalCapabilitiesPtrType) ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput() WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineScaleSetAdditionalCapabilitiesPtrType) ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetAdditionalCapabilities)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput() WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput() WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return o.ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAdditionalCapabilities) *WindowsVirtualMachineScaleSetAdditionalCapabilities {
+		return &v
+	}).(WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput)
+}
+func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetAdditionalCapabilities)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput() WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) ToWindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) Elem() WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetAdditionalCapabilities) WindowsVirtualMachineScaleSetAdditionalCapabilities {
+		return *v
+	}).(WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetAdditionalUnattendContent struct {
+	Content string `pulumi:"content"`
+	Setting string `pulumi:"setting"`
+}
+
+type WindowsVirtualMachineScaleSetAdditionalUnattendContentInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetAdditionalUnattendContentOutput() WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput
+	ToWindowsVirtualMachineScaleSetAdditionalUnattendContentOutputWithContext(context.Context) WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput
+}
+
+type WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs struct {
+	Content pulumi.StringInput `pulumi:"content"`
+	Setting pulumi.StringInput `pulumi:"setting"`
+}
+
+func (WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetAdditionalUnattendContent)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs) ToWindowsVirtualMachineScaleSetAdditionalUnattendContentOutput() WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput {
+	return i.ToWindowsVirtualMachineScaleSetAdditionalUnattendContentOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs) ToWindowsVirtualMachineScaleSetAdditionalUnattendContentOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput)
+}
+
+type WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput() WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput
+	ToWindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutputWithContext(context.Context) WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput
+}
+
+type WindowsVirtualMachineScaleSetAdditionalUnattendContentArray []WindowsVirtualMachineScaleSetAdditionalUnattendContentInput
+
+func (WindowsVirtualMachineScaleSetAdditionalUnattendContentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetAdditionalUnattendContent)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetAdditionalUnattendContentArray) ToWindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput() WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput {
+	return i.ToWindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetAdditionalUnattendContentArray) ToWindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput)
+}
+
+type WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetAdditionalUnattendContent)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput) ToWindowsVirtualMachineScaleSetAdditionalUnattendContentOutput() WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput) ToWindowsVirtualMachineScaleSetAdditionalUnattendContentOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAdditionalUnattendContent) string { return v.Content }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput) Setting() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAdditionalUnattendContent) string { return v.Setting }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetAdditionalUnattendContent)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput) ToWindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput() WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput) ToWindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetAdditionalUnattendContent {
+		return vs[0].([]WindowsVirtualMachineScaleSetAdditionalUnattendContent)[vs[1].(int)]
+	}).(WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput)
+}
+
+type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy struct {
+	DisableAutomaticRollback bool `pulumi:"disableAutomaticRollback"`
+	EnableAutomaticOsUpgrade bool `pulumi:"enableAutomaticOsUpgrade"`
+}
+
+type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput() WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput
+	ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutputWithContext(context.Context) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput
+}
+
+type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs struct {
+	DisableAutomaticRollback pulumi.BoolInput `pulumi:"disableAutomaticRollback"`
+	EnableAutomaticOsUpgrade pulumi.BoolInput `pulumi:"enableAutomaticOsUpgrade"`
+}
+
+func (WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput() WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput {
+	return i.ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput)
+}
+
+func (i WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput() WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput).ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(ctx)
+}
+
+type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput() WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput
+	ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(context.Context) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput
+}
+
+type windowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs
+
+func WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtr(v *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput {
+	return (*windowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType)(v)
+}
+
+func (*windowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType) ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput() WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType) ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput() WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput() WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
+	return o.ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+		return &v
+	}).(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput)
+}
+func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) DisableAutomaticRollback() pulumi.BoolOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.DisableAutomaticRollback }).(pulumi.BoolOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) EnableAutomaticOsUpgrade() pulumi.BoolOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.EnableAutomaticOsUpgrade }).(pulumi.BoolOutput)
+}
+
+type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput() WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) ToWindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) Elem() WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+		return *v
+	}).(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) DisableAutomaticRollback() pulumi.BoolOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.DisableAutomaticRollback }).(pulumi.BoolOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) EnableAutomaticOsUpgrade() pulumi.BoolOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.EnableAutomaticOsUpgrade }).(pulumi.BoolOutput)
+}
+
+type WindowsVirtualMachineScaleSetBootDiagnostics struct {
+	StorageAccountUri string `pulumi:"storageAccountUri"`
+}
+
+type WindowsVirtualMachineScaleSetBootDiagnosticsInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetBootDiagnosticsOutput() WindowsVirtualMachineScaleSetBootDiagnosticsOutput
+	ToWindowsVirtualMachineScaleSetBootDiagnosticsOutputWithContext(context.Context) WindowsVirtualMachineScaleSetBootDiagnosticsOutput
+}
+
+type WindowsVirtualMachineScaleSetBootDiagnosticsArgs struct {
+	StorageAccountUri pulumi.StringInput `pulumi:"storageAccountUri"`
+}
+
+func (WindowsVirtualMachineScaleSetBootDiagnosticsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetBootDiagnostics)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetBootDiagnosticsArgs) ToWindowsVirtualMachineScaleSetBootDiagnosticsOutput() WindowsVirtualMachineScaleSetBootDiagnosticsOutput {
+	return i.ToWindowsVirtualMachineScaleSetBootDiagnosticsOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetBootDiagnosticsArgs) ToWindowsVirtualMachineScaleSetBootDiagnosticsOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetBootDiagnosticsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetBootDiagnosticsOutput)
+}
+
+func (i WindowsVirtualMachineScaleSetBootDiagnosticsArgs) ToWindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput() WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetBootDiagnosticsArgs) ToWindowsVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetBootDiagnosticsOutput).ToWindowsVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(ctx)
+}
+
+type WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput() WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput
+	ToWindowsVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(context.Context) WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput
+}
+
+type windowsVirtualMachineScaleSetBootDiagnosticsPtrType WindowsVirtualMachineScaleSetBootDiagnosticsArgs
+
+func WindowsVirtualMachineScaleSetBootDiagnosticsPtr(v *WindowsVirtualMachineScaleSetBootDiagnosticsArgs) WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput {
+	return (*windowsVirtualMachineScaleSetBootDiagnosticsPtrType)(v)
+}
+
+func (*windowsVirtualMachineScaleSetBootDiagnosticsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetBootDiagnostics)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineScaleSetBootDiagnosticsPtrType) ToWindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput() WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineScaleSetBootDiagnosticsPtrType) ToWindowsVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetBootDiagnosticsOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetBootDiagnosticsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetBootDiagnostics)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetBootDiagnosticsOutput) ToWindowsVirtualMachineScaleSetBootDiagnosticsOutput() WindowsVirtualMachineScaleSetBootDiagnosticsOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetBootDiagnosticsOutput) ToWindowsVirtualMachineScaleSetBootDiagnosticsOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetBootDiagnosticsOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetBootDiagnosticsOutput) ToWindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput() WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return o.ToWindowsVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineScaleSetBootDiagnosticsOutput) ToWindowsVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetBootDiagnostics) *WindowsVirtualMachineScaleSetBootDiagnostics {
+		return &v
+	}).(WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput)
+}
+func (o WindowsVirtualMachineScaleSetBootDiagnosticsOutput) StorageAccountUri() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetBootDiagnostics)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput) ToWindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput() WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput) ToWindowsVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput) Elem() WindowsVirtualMachineScaleSetBootDiagnosticsOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetBootDiagnostics) WindowsVirtualMachineScaleSetBootDiagnostics {
+		return *v
+	}).(WindowsVirtualMachineScaleSetBootDiagnosticsOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput) StorageAccountUri() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetDataDisk struct {
+	Caching                 string  `pulumi:"caching"`
+	DiskEncryptionSetId     *string `pulumi:"diskEncryptionSetId"`
+	DiskSizeGb              int     `pulumi:"diskSizeGb"`
+	Lun                     int     `pulumi:"lun"`
+	StorageAccountType      string  `pulumi:"storageAccountType"`
+	WriteAcceleratorEnabled *bool   `pulumi:"writeAcceleratorEnabled"`
+}
+
+type WindowsVirtualMachineScaleSetDataDiskInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetDataDiskOutput() WindowsVirtualMachineScaleSetDataDiskOutput
+	ToWindowsVirtualMachineScaleSetDataDiskOutputWithContext(context.Context) WindowsVirtualMachineScaleSetDataDiskOutput
+}
+
+type WindowsVirtualMachineScaleSetDataDiskArgs struct {
+	Caching                 pulumi.StringInput    `pulumi:"caching"`
+	DiskEncryptionSetId     pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	DiskSizeGb              pulumi.IntInput       `pulumi:"diskSizeGb"`
+	Lun                     pulumi.IntInput       `pulumi:"lun"`
+	StorageAccountType      pulumi.StringInput    `pulumi:"storageAccountType"`
+	WriteAcceleratorEnabled pulumi.BoolPtrInput   `pulumi:"writeAcceleratorEnabled"`
+}
+
+func (WindowsVirtualMachineScaleSetDataDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetDataDisk)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetDataDiskArgs) ToWindowsVirtualMachineScaleSetDataDiskOutput() WindowsVirtualMachineScaleSetDataDiskOutput {
+	return i.ToWindowsVirtualMachineScaleSetDataDiskOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetDataDiskArgs) ToWindowsVirtualMachineScaleSetDataDiskOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetDataDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetDataDiskOutput)
+}
+
+type WindowsVirtualMachineScaleSetDataDiskArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetDataDiskArrayOutput() WindowsVirtualMachineScaleSetDataDiskArrayOutput
+	ToWindowsVirtualMachineScaleSetDataDiskArrayOutputWithContext(context.Context) WindowsVirtualMachineScaleSetDataDiskArrayOutput
+}
+
+type WindowsVirtualMachineScaleSetDataDiskArray []WindowsVirtualMachineScaleSetDataDiskInput
+
+func (WindowsVirtualMachineScaleSetDataDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetDataDisk)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetDataDiskArray) ToWindowsVirtualMachineScaleSetDataDiskArrayOutput() WindowsVirtualMachineScaleSetDataDiskArrayOutput {
+	return i.ToWindowsVirtualMachineScaleSetDataDiskArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetDataDiskArray) ToWindowsVirtualMachineScaleSetDataDiskArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetDataDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetDataDiskArrayOutput)
+}
+
+type WindowsVirtualMachineScaleSetDataDiskOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetDataDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetDataDisk)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetDataDiskOutput) ToWindowsVirtualMachineScaleSetDataDiskOutput() WindowsVirtualMachineScaleSetDataDiskOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetDataDiskOutput) ToWindowsVirtualMachineScaleSetDataDiskOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetDataDiskOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetDataDiskOutput) Caching() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskSizeGb() pulumi.IntOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) int { return v.DiskSizeGb }).(pulumi.IntOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetDataDiskOutput) Lun() pulumi.IntOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetDataDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetDataDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetDataDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetDataDisk)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetDataDiskArrayOutput) ToWindowsVirtualMachineScaleSetDataDiskArrayOutput() WindowsVirtualMachineScaleSetDataDiskArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetDataDiskArrayOutput) ToWindowsVirtualMachineScaleSetDataDiskArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetDataDiskArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetDataDiskArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetDataDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetDataDisk {
+		return vs[0].([]WindowsVirtualMachineScaleSetDataDisk)[vs[1].(int)]
+	}).(WindowsVirtualMachineScaleSetDataDiskOutput)
+}
+
+type WindowsVirtualMachineScaleSetIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
+	// The ID of the System Managed Service Principal.
+	PrincipalId *string `pulumi:"principalId"`
+	Type        string  `pulumi:"type"`
+}
+
+type WindowsVirtualMachineScaleSetIdentityInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetIdentityOutput() WindowsVirtualMachineScaleSetIdentityOutput
+	ToWindowsVirtualMachineScaleSetIdentityOutputWithContext(context.Context) WindowsVirtualMachineScaleSetIdentityOutput
+}
+
+type WindowsVirtualMachineScaleSetIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The ID of the System Managed Service Principal.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	Type        pulumi.StringInput    `pulumi:"type"`
+}
+
+func (WindowsVirtualMachineScaleSetIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetIdentityArgs) ToWindowsVirtualMachineScaleSetIdentityOutput() WindowsVirtualMachineScaleSetIdentityOutput {
+	return i.ToWindowsVirtualMachineScaleSetIdentityOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetIdentityArgs) ToWindowsVirtualMachineScaleSetIdentityOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetIdentityOutput)
+}
+
+func (i WindowsVirtualMachineScaleSetIdentityArgs) ToWindowsVirtualMachineScaleSetIdentityPtrOutput() WindowsVirtualMachineScaleSetIdentityPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetIdentityArgs) ToWindowsVirtualMachineScaleSetIdentityPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetIdentityOutput).ToWindowsVirtualMachineScaleSetIdentityPtrOutputWithContext(ctx)
+}
+
+type WindowsVirtualMachineScaleSetIdentityPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetIdentityPtrOutput() WindowsVirtualMachineScaleSetIdentityPtrOutput
+	ToWindowsVirtualMachineScaleSetIdentityPtrOutputWithContext(context.Context) WindowsVirtualMachineScaleSetIdentityPtrOutput
+}
+
+type windowsVirtualMachineScaleSetIdentityPtrType WindowsVirtualMachineScaleSetIdentityArgs
+
+func WindowsVirtualMachineScaleSetIdentityPtr(v *WindowsVirtualMachineScaleSetIdentityArgs) WindowsVirtualMachineScaleSetIdentityPtrInput {
+	return (*windowsVirtualMachineScaleSetIdentityPtrType)(v)
+}
+
+func (*windowsVirtualMachineScaleSetIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineScaleSetIdentityPtrType) ToWindowsVirtualMachineScaleSetIdentityPtrOutput() WindowsVirtualMachineScaleSetIdentityPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineScaleSetIdentityPtrType) ToWindowsVirtualMachineScaleSetIdentityPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetIdentityPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetIdentityOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetIdentityOutput) ToWindowsVirtualMachineScaleSetIdentityOutput() WindowsVirtualMachineScaleSetIdentityOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetIdentityOutput) ToWindowsVirtualMachineScaleSetIdentityOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetIdentityOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetIdentityOutput) ToWindowsVirtualMachineScaleSetIdentityPtrOutput() WindowsVirtualMachineScaleSetIdentityPtrOutput {
+	return o.ToWindowsVirtualMachineScaleSetIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineScaleSetIdentityOutput) ToWindowsVirtualMachineScaleSetIdentityPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetIdentityPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) *WindowsVirtualMachineScaleSetIdentity {
+		return &v
+	}).(WindowsVirtualMachineScaleSetIdentityPtrOutput)
+}
+func (o WindowsVirtualMachineScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the System Managed Service Principal.
+func (o WindowsVirtualMachineScaleSetIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) ToWindowsVirtualMachineScaleSetIdentityPtrOutput() WindowsVirtualMachineScaleSetIdentityPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) ToWindowsVirtualMachineScaleSetIdentityPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetIdentityPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) Elem() WindowsVirtualMachineScaleSetIdentityOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetIdentity) WindowsVirtualMachineScaleSetIdentity { return *v }).(WindowsVirtualMachineScaleSetIdentityOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the System Managed Service Principal.
+func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterface struct {
+	DnsServers                  []string                                                       `pulumi:"dnsServers"`
+	EnableAcceleratedNetworking *bool                                                          `pulumi:"enableAcceleratedNetworking"`
+	EnableIpForwarding          *bool                                                          `pulumi:"enableIpForwarding"`
+	IpConfigurations            []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
+	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name                   string  `pulumi:"name"`
+	NetworkSecurityGroupId *string `pulumi:"networkSecurityGroupId"`
+	Primary                *bool   `pulumi:"primary"`
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetNetworkInterfaceOutput() WindowsVirtualMachineScaleSetNetworkInterfaceOutput
+	ToWindowsVirtualMachineScaleSetNetworkInterfaceOutputWithContext(context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceOutput
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceArgs struct {
+	DnsServers                  pulumi.StringArrayInput                                                `pulumi:"dnsServers"`
+	EnableAcceleratedNetworking pulumi.BoolPtrInput                                                    `pulumi:"enableAcceleratedNetworking"`
+	EnableIpForwarding          pulumi.BoolPtrInput                                                    `pulumi:"enableIpForwarding"`
+	IpConfigurations            WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput `pulumi:"ipConfigurations"`
+	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name                   pulumi.StringInput    `pulumi:"name"`
+	NetworkSecurityGroupId pulumi.StringPtrInput `pulumi:"networkSecurityGroupId"`
+	Primary                pulumi.BoolPtrInput   `pulumi:"primary"`
+}
+
+func (WindowsVirtualMachineScaleSetNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetNetworkInterfaceArgs) ToWindowsVirtualMachineScaleSetNetworkInterfaceOutput() WindowsVirtualMachineScaleSetNetworkInterfaceOutput {
+	return i.ToWindowsVirtualMachineScaleSetNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetNetworkInterfaceArgs) ToWindowsVirtualMachineScaleSetNetworkInterfaceOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetNetworkInterfaceOutput)
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput() WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput
+	ToWindowsVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceArray []WindowsVirtualMachineScaleSetNetworkInterfaceInput
+
+func (WindowsVirtualMachineScaleSetNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetNetworkInterfaceArray) ToWindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput() WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return i.ToWindowsVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetNetworkInterfaceArray) ToWindowsVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput)
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) ToWindowsVirtualMachineScaleSetNetworkInterfaceOutput() WindowsVirtualMachineScaleSetNetworkInterfaceOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) ToWindowsVirtualMachineScaleSetNetworkInterfaceOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) EnableIpForwarding() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableIpForwarding }).(pulumi.BoolPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) IpConfigurations() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+		return v.IpConfigurations
+	}).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
+}
+
+// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) NetworkSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) *string { return v.NetworkSecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput) ToWindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput() WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput) ToWindowsVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetNetworkInterface {
+		return vs[0].([]WindowsVirtualMachineScaleSetNetworkInterface)[vs[1].(int)]
+	}).(WindowsVirtualMachineScaleSetNetworkInterfaceOutput)
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
+	ApplicationGatewayBackendAddressPoolIds []string `pulumi:"applicationGatewayBackendAddressPoolIds"`
+	ApplicationSecurityGroupIds             []string `pulumi:"applicationSecurityGroupIds"`
+	LoadBalancerBackendAddressPoolIds       []string `pulumi:"loadBalancerBackendAddressPoolIds"`
+	LoadBalancerInboundNatRulesIds          []string `pulumi:"loadBalancerInboundNatRulesIds"`
+	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name              string                                                                        `pulumi:"name"`
+	Primary           *bool                                                                         `pulumi:"primary"`
+	PublicIpAddresses []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress `pulumi:"publicIpAddresses"`
+	SubnetId          *string                                                                       `pulumi:"subnetId"`
+	Version           *string                                                                       `pulumi:"version"`
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput
+	ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struct {
+	ApplicationGatewayBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"applicationGatewayBackendAddressPoolIds"`
+	ApplicationSecurityGroupIds             pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
+	LoadBalancerBackendAddressPoolIds       pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolIds"`
+	LoadBalancerInboundNatRulesIds          pulumi.StringArrayInput `pulumi:"loadBalancerInboundNatRulesIds"`
+	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name              pulumi.StringInput                                                                    `pulumi:"name"`
+	Primary           pulumi.BoolPtrInput                                                                   `pulumi:"primary"`
+	PublicIpAddresses WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput `pulumi:"publicIpAddresses"`
+	SubnetId          pulumi.StringPtrInput                                                                 `pulumi:"subnetId"`
+	Version           pulumi.StringPtrInput                                                                 `pulumi:"version"`
+}
+
+func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return i.ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput)
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput
+	ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput
+
+func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return i.ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ApplicationGatewayBackendAddressPoolIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.ApplicationGatewayBackendAddressPoolIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.ApplicationSecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) LoadBalancerBackendAddressPoolIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.LoadBalancerBackendAddressPoolIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) LoadBalancerInboundNatRulesIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.LoadBalancerInboundNatRulesIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) PublicIpAddresses() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+		return v.PublicIpAddresses
+	}).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+		return vs[0].([]WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration)[vs[1].(int)]
+	}).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput)
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress struct {
+	DomainNameLabel      *string                                                                            `pulumi:"domainNameLabel"`
+	IdleTimeoutInMinutes *int                                                                               `pulumi:"idleTimeoutInMinutes"`
+	IpTags               []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag `pulumi:"ipTags"`
+	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name             string  `pulumi:"name"`
+	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput
+	ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs struct {
+	DomainNameLabel      pulumi.StringPtrInput                                                                      `pulumi:"domainNameLabel"`
+	IdleTimeoutInMinutes pulumi.IntPtrInput                                                                         `pulumi:"idleTimeoutInMinutes"`
+	IpTags               WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput `pulumi:"ipTags"`
+	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name             pulumi.StringInput    `pulumi:"name"`
+	PublicIpPrefixId pulumi.StringPtrInput `pulumi:"publicIpPrefixId"`
+}
+
+func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return i.ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput)
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput
+	ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput
+
+func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return i.ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) DomainNameLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
+		return v.DomainNameLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *int {
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) IpTags() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+		return v.IpTags
+	}).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput)
+}
+
+// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) PublicIpPrefixId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
+		return v.PublicIpPrefixId
+	}).(pulumi.StringPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+		return vs[0].([]WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)[vs[1].(int)]
+	}).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput)
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag struct {
+	Tag  string `pulumi:"tag"`
+	Type string `pulumi:"type"`
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput
+	ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs struct {
+	Tag  pulumi.StringInput `pulumi:"tag"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return i.ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput)
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput
+	ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput
+
+func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return i.ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput)
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) Tag() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string {
+		return v.Tag
+	}).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) ToWindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+		return vs[0].([]WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)[vs[1].(int)]
+	}).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput)
+}
+
+type WindowsVirtualMachineScaleSetOsDisk struct {
+	Caching                 string                                               `pulumi:"caching"`
+	DiffDiskSettings        *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
+	DiskEncryptionSetId     *string                                              `pulumi:"diskEncryptionSetId"`
+	DiskSizeGb              *int                                                 `pulumi:"diskSizeGb"`
+	StorageAccountType      string                                               `pulumi:"storageAccountType"`
+	WriteAcceleratorEnabled *bool                                                `pulumi:"writeAcceleratorEnabled"`
+}
+
+type WindowsVirtualMachineScaleSetOsDiskInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetOsDiskOutput() WindowsVirtualMachineScaleSetOsDiskOutput
+	ToWindowsVirtualMachineScaleSetOsDiskOutputWithContext(context.Context) WindowsVirtualMachineScaleSetOsDiskOutput
+}
+
+type WindowsVirtualMachineScaleSetOsDiskArgs struct {
+	Caching                 pulumi.StringInput                                          `pulumi:"caching"`
+	DiffDiskSettings        WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
+	DiskEncryptionSetId     pulumi.StringPtrInput                                       `pulumi:"diskEncryptionSetId"`
+	DiskSizeGb              pulumi.IntPtrInput                                          `pulumi:"diskSizeGb"`
+	StorageAccountType      pulumi.StringInput                                          `pulumi:"storageAccountType"`
+	WriteAcceleratorEnabled pulumi.BoolPtrInput                                         `pulumi:"writeAcceleratorEnabled"`
+}
+
+func (WindowsVirtualMachineScaleSetOsDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetOsDisk)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetOsDiskArgs) ToWindowsVirtualMachineScaleSetOsDiskOutput() WindowsVirtualMachineScaleSetOsDiskOutput {
+	return i.ToWindowsVirtualMachineScaleSetOsDiskOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetOsDiskArgs) ToWindowsVirtualMachineScaleSetOsDiskOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetOsDiskOutput)
+}
+
+func (i WindowsVirtualMachineScaleSetOsDiskArgs) ToWindowsVirtualMachineScaleSetOsDiskPtrOutput() WindowsVirtualMachineScaleSetOsDiskPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetOsDiskArgs) ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetOsDiskOutput).ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx)
+}
+
+type WindowsVirtualMachineScaleSetOsDiskPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetOsDiskPtrOutput() WindowsVirtualMachineScaleSetOsDiskPtrOutput
+	ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Context) WindowsVirtualMachineScaleSetOsDiskPtrOutput
+}
+
+type windowsVirtualMachineScaleSetOsDiskPtrType WindowsVirtualMachineScaleSetOsDiskArgs
+
+func WindowsVirtualMachineScaleSetOsDiskPtr(v *WindowsVirtualMachineScaleSetOsDiskArgs) WindowsVirtualMachineScaleSetOsDiskPtrInput {
+	return (*windowsVirtualMachineScaleSetOsDiskPtrType)(v)
+}
+
+func (*windowsVirtualMachineScaleSetOsDiskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetOsDisk)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineScaleSetOsDiskPtrType) ToWindowsVirtualMachineScaleSetOsDiskPtrOutput() WindowsVirtualMachineScaleSetOsDiskPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineScaleSetOsDiskPtrType) ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetOsDiskPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetOsDiskOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetOsDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetOsDisk)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskOutput) ToWindowsVirtualMachineScaleSetOsDiskOutput() WindowsVirtualMachineScaleSetOsDiskOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskOutput) ToWindowsVirtualMachineScaleSetOsDiskOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskOutput) ToWindowsVirtualMachineScaleSetOsDiskPtrOutput() WindowsVirtualMachineScaleSetOsDiskPtrOutput {
+	return o.ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskOutput) ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *WindowsVirtualMachineScaleSetOsDisk {
+		return &v
+	}).(WindowsVirtualMachineScaleSetOsDiskPtrOutput)
+}
+func (o WindowsVirtualMachineScaleSetOsDiskOutput) Caching() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskOutput) DiffDiskSettings() WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		return v.DiffDiskSettings
+	}).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetOsDiskPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetOsDiskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetOsDisk)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) ToWindowsVirtualMachineScaleSetOsDiskPtrOutput() WindowsVirtualMachineScaleSetOsDiskPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) Elem() WindowsVirtualMachineScaleSetOsDiskOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) WindowsVirtualMachineScaleSetOsDisk { return *v }).(WindowsVirtualMachineScaleSetOsDiskOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) Caching() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) DiffDiskSettings() WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		return v.DiffDiskSettings
+	}).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
+	Option string `pulumi:"option"`
+}
+
+type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput() WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput
+	ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutputWithContext(context.Context) WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput
+}
+
+type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs struct {
+	Option pulumi.StringInput `pulumi:"option"`
+}
+
+func (WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput() WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
+	return i.ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput)
+}
+
+func (i WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput() WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput).ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(ctx)
+}
+
+type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput() WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput
+	ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(context.Context) WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput
+}
+
+type windowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs
+
+func WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtr(v *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput {
+	return (*windowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType)(v)
+}
+
+func (*windowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType) ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput() WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType) ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput() WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput() WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o.ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		return &v
+	}).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
+}
+func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Option() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput() WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) ToWindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Elem() WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		return *v
+	}).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetPlan struct {
+	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name      string `pulumi:"name"`
+	Product   string `pulumi:"product"`
+	Publisher string `pulumi:"publisher"`
+}
+
+type WindowsVirtualMachineScaleSetPlanInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetPlanOutput() WindowsVirtualMachineScaleSetPlanOutput
+	ToWindowsVirtualMachineScaleSetPlanOutputWithContext(context.Context) WindowsVirtualMachineScaleSetPlanOutput
+}
+
+type WindowsVirtualMachineScaleSetPlanArgs struct {
+	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name      pulumi.StringInput `pulumi:"name"`
+	Product   pulumi.StringInput `pulumi:"product"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+}
+
+func (WindowsVirtualMachineScaleSetPlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetPlan)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetPlanArgs) ToWindowsVirtualMachineScaleSetPlanOutput() WindowsVirtualMachineScaleSetPlanOutput {
+	return i.ToWindowsVirtualMachineScaleSetPlanOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetPlanArgs) ToWindowsVirtualMachineScaleSetPlanOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetPlanOutput)
+}
+
+func (i WindowsVirtualMachineScaleSetPlanArgs) ToWindowsVirtualMachineScaleSetPlanPtrOutput() WindowsVirtualMachineScaleSetPlanPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetPlanPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetPlanArgs) ToWindowsVirtualMachineScaleSetPlanPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetPlanOutput).ToWindowsVirtualMachineScaleSetPlanPtrOutputWithContext(ctx)
+}
+
+type WindowsVirtualMachineScaleSetPlanPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetPlanPtrOutput() WindowsVirtualMachineScaleSetPlanPtrOutput
+	ToWindowsVirtualMachineScaleSetPlanPtrOutputWithContext(context.Context) WindowsVirtualMachineScaleSetPlanPtrOutput
+}
+
+type windowsVirtualMachineScaleSetPlanPtrType WindowsVirtualMachineScaleSetPlanArgs
+
+func WindowsVirtualMachineScaleSetPlanPtr(v *WindowsVirtualMachineScaleSetPlanArgs) WindowsVirtualMachineScaleSetPlanPtrInput {
+	return (*windowsVirtualMachineScaleSetPlanPtrType)(v)
+}
+
+func (*windowsVirtualMachineScaleSetPlanPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetPlan)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineScaleSetPlanPtrType) ToWindowsVirtualMachineScaleSetPlanPtrOutput() WindowsVirtualMachineScaleSetPlanPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetPlanPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineScaleSetPlanPtrType) ToWindowsVirtualMachineScaleSetPlanPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetPlanPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetPlanOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetPlan)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetPlanOutput) ToWindowsVirtualMachineScaleSetPlanOutput() WindowsVirtualMachineScaleSetPlanOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetPlanOutput) ToWindowsVirtualMachineScaleSetPlanOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetPlanOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetPlanOutput) ToWindowsVirtualMachineScaleSetPlanPtrOutput() WindowsVirtualMachineScaleSetPlanPtrOutput {
+	return o.ToWindowsVirtualMachineScaleSetPlanPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineScaleSetPlanOutput) ToWindowsVirtualMachineScaleSetPlanPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetPlanPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) *WindowsVirtualMachineScaleSetPlan {
+		return &v
+	}).(WindowsVirtualMachineScaleSetPlanPtrOutput)
+}
+
+// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetPlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetPlanOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetPlanOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetPlanPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetPlanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetPlan)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetPlanPtrOutput) ToWindowsVirtualMachineScaleSetPlanPtrOutput() WindowsVirtualMachineScaleSetPlanPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetPlanPtrOutput) ToWindowsVirtualMachineScaleSetPlanPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetPlanPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Elem() WindowsVirtualMachineScaleSetPlanOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetPlan) WindowsVirtualMachineScaleSetPlan { return *v }).(WindowsVirtualMachineScaleSetPlanOutput)
+}
+
+// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetRollingUpgradePolicy struct {
+	MaxBatchInstancePercent             int    `pulumi:"maxBatchInstancePercent"`
+	MaxUnhealthyInstancePercent         int    `pulumi:"maxUnhealthyInstancePercent"`
+	MaxUnhealthyUpgradedInstancePercent int    `pulumi:"maxUnhealthyUpgradedInstancePercent"`
+	PauseTimeBetweenBatches             string `pulumi:"pauseTimeBetweenBatches"`
+}
+
+type WindowsVirtualMachineScaleSetRollingUpgradePolicyInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetRollingUpgradePolicyOutput() WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput
+	ToWindowsVirtualMachineScaleSetRollingUpgradePolicyOutputWithContext(context.Context) WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput
+}
+
+type WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
+	MaxBatchInstancePercent             pulumi.IntInput    `pulumi:"maxBatchInstancePercent"`
+	MaxUnhealthyInstancePercent         pulumi.IntInput    `pulumi:"maxUnhealthyInstancePercent"`
+	MaxUnhealthyUpgradedInstancePercent pulumi.IntInput    `pulumi:"maxUnhealthyUpgradedInstancePercent"`
+	PauseTimeBetweenBatches             pulumi.StringInput `pulumi:"pauseTimeBetweenBatches"`
+}
+
+func (WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetRollingUpgradePolicy)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs) ToWindowsVirtualMachineScaleSetRollingUpgradePolicyOutput() WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput {
+	return i.ToWindowsVirtualMachineScaleSetRollingUpgradePolicyOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs) ToWindowsVirtualMachineScaleSetRollingUpgradePolicyOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput)
+}
+
+func (i WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs) ToWindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput() WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs) ToWindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput).ToWindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx)
+}
+
+type WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput() WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput
+	ToWindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(context.Context) WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput
+}
+
+type windowsVirtualMachineScaleSetRollingUpgradePolicyPtrType WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs
+
+func WindowsVirtualMachineScaleSetRollingUpgradePolicyPtr(v *WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs) WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrInput {
+	return (*windowsVirtualMachineScaleSetRollingUpgradePolicyPtrType)(v)
+}
+
+func (*windowsVirtualMachineScaleSetRollingUpgradePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetRollingUpgradePolicy)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineScaleSetRollingUpgradePolicyPtrType) ToWindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput() WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineScaleSetRollingUpgradePolicyPtrType) ToWindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetRollingUpgradePolicy)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) ToWindowsVirtualMachineScaleSetRollingUpgradePolicyOutput() WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) ToWindowsVirtualMachineScaleSetRollingUpgradePolicyOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) ToWindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput() WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return o.ToWindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) ToWindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) *WindowsVirtualMachineScaleSetRollingUpgradePolicy {
+		return &v
+	}).(WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
+}
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxBatchInstancePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxBatchInstancePercent }).(pulumi.IntOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyInstancePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int {
+		return v.MaxUnhealthyUpgradedInstancePercent
+	}).(pulumi.IntOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) PauseTimeBetweenBatches() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetRollingUpgradePolicy)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) ToWindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput() WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) ToWindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) Elem() WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetRollingUpgradePolicy) WindowsVirtualMachineScaleSetRollingUpgradePolicy {
+		return *v
+	}).(WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxBatchInstancePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxBatchInstancePercent }).(pulumi.IntOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyInstancePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int {
+		return v.MaxUnhealthyUpgradedInstancePercent
+	}).(pulumi.IntOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PauseTimeBetweenBatches() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetSecret struct {
+	Certificates []WindowsVirtualMachineScaleSetSecretCertificate `pulumi:"certificates"`
+	KeyVaultId   string                                           `pulumi:"keyVaultId"`
+}
+
+type WindowsVirtualMachineScaleSetSecretInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetSecretOutput() WindowsVirtualMachineScaleSetSecretOutput
+	ToWindowsVirtualMachineScaleSetSecretOutputWithContext(context.Context) WindowsVirtualMachineScaleSetSecretOutput
+}
+
+type WindowsVirtualMachineScaleSetSecretArgs struct {
+	Certificates WindowsVirtualMachineScaleSetSecretCertificateArrayInput `pulumi:"certificates"`
+	KeyVaultId   pulumi.StringInput                                       `pulumi:"keyVaultId"`
+}
+
+func (WindowsVirtualMachineScaleSetSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetSecret)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetSecretArgs) ToWindowsVirtualMachineScaleSetSecretOutput() WindowsVirtualMachineScaleSetSecretOutput {
+	return i.ToWindowsVirtualMachineScaleSetSecretOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetSecretArgs) ToWindowsVirtualMachineScaleSetSecretOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetSecretOutput)
+}
+
+type WindowsVirtualMachineScaleSetSecretArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetSecretArrayOutput() WindowsVirtualMachineScaleSetSecretArrayOutput
+	ToWindowsVirtualMachineScaleSetSecretArrayOutputWithContext(context.Context) WindowsVirtualMachineScaleSetSecretArrayOutput
+}
+
+type WindowsVirtualMachineScaleSetSecretArray []WindowsVirtualMachineScaleSetSecretInput
+
+func (WindowsVirtualMachineScaleSetSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetSecret)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetSecretArray) ToWindowsVirtualMachineScaleSetSecretArrayOutput() WindowsVirtualMachineScaleSetSecretArrayOutput {
+	return i.ToWindowsVirtualMachineScaleSetSecretArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetSecretArray) ToWindowsVirtualMachineScaleSetSecretArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetSecretArrayOutput)
+}
+
+type WindowsVirtualMachineScaleSetSecretOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetSecret)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetSecretOutput) ToWindowsVirtualMachineScaleSetSecretOutput() WindowsVirtualMachineScaleSetSecretOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetSecretOutput) ToWindowsVirtualMachineScaleSetSecretOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSecretOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetSecretOutput) Certificates() WindowsVirtualMachineScaleSetSecretCertificateArrayOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSecret) []WindowsVirtualMachineScaleSetSecretCertificate {
+		return v.Certificates
+	}).(WindowsVirtualMachineScaleSetSecretCertificateArrayOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetSecretOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSecret) string { return v.KeyVaultId }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetSecret)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetSecretArrayOutput) ToWindowsVirtualMachineScaleSetSecretArrayOutput() WindowsVirtualMachineScaleSetSecretArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetSecretArrayOutput) ToWindowsVirtualMachineScaleSetSecretArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSecretArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetSecretArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetSecret {
+		return vs[0].([]WindowsVirtualMachineScaleSetSecret)[vs[1].(int)]
+	}).(WindowsVirtualMachineScaleSetSecretOutput)
+}
+
+type WindowsVirtualMachineScaleSetSecretCertificate struct {
+	Store string `pulumi:"store"`
+	Url   string `pulumi:"url"`
+}
+
+type WindowsVirtualMachineScaleSetSecretCertificateInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetSecretCertificateOutput() WindowsVirtualMachineScaleSetSecretCertificateOutput
+	ToWindowsVirtualMachineScaleSetSecretCertificateOutputWithContext(context.Context) WindowsVirtualMachineScaleSetSecretCertificateOutput
+}
+
+type WindowsVirtualMachineScaleSetSecretCertificateArgs struct {
+	Store pulumi.StringInput `pulumi:"store"`
+	Url   pulumi.StringInput `pulumi:"url"`
+}
+
+func (WindowsVirtualMachineScaleSetSecretCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetSecretCertificate)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetSecretCertificateArgs) ToWindowsVirtualMachineScaleSetSecretCertificateOutput() WindowsVirtualMachineScaleSetSecretCertificateOutput {
+	return i.ToWindowsVirtualMachineScaleSetSecretCertificateOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetSecretCertificateArgs) ToWindowsVirtualMachineScaleSetSecretCertificateOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSecretCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetSecretCertificateOutput)
+}
+
+type WindowsVirtualMachineScaleSetSecretCertificateArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetSecretCertificateArrayOutput() WindowsVirtualMachineScaleSetSecretCertificateArrayOutput
+	ToWindowsVirtualMachineScaleSetSecretCertificateArrayOutputWithContext(context.Context) WindowsVirtualMachineScaleSetSecretCertificateArrayOutput
+}
+
+type WindowsVirtualMachineScaleSetSecretCertificateArray []WindowsVirtualMachineScaleSetSecretCertificateInput
+
+func (WindowsVirtualMachineScaleSetSecretCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetSecretCertificate)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetSecretCertificateArray) ToWindowsVirtualMachineScaleSetSecretCertificateArrayOutput() WindowsVirtualMachineScaleSetSecretCertificateArrayOutput {
+	return i.ToWindowsVirtualMachineScaleSetSecretCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetSecretCertificateArray) ToWindowsVirtualMachineScaleSetSecretCertificateArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSecretCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetSecretCertificateArrayOutput)
+}
+
+type WindowsVirtualMachineScaleSetSecretCertificateOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetSecretCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetSecretCertificate)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetSecretCertificateOutput) ToWindowsVirtualMachineScaleSetSecretCertificateOutput() WindowsVirtualMachineScaleSetSecretCertificateOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetSecretCertificateOutput) ToWindowsVirtualMachineScaleSetSecretCertificateOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSecretCertificateOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetSecretCertificateOutput) Store() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSecretCertificate) string { return v.Store }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetSecretCertificateOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSecretCertificate) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetSecretCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetSecretCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetSecretCertificate)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetSecretCertificateArrayOutput) ToWindowsVirtualMachineScaleSetSecretCertificateArrayOutput() WindowsVirtualMachineScaleSetSecretCertificateArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetSecretCertificateArrayOutput) ToWindowsVirtualMachineScaleSetSecretCertificateArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSecretCertificateArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetSecretCertificateArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetSecretCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetSecretCertificate {
+		return vs[0].([]WindowsVirtualMachineScaleSetSecretCertificate)[vs[1].(int)]
+	}).(WindowsVirtualMachineScaleSetSecretCertificateOutput)
+}
+
+type WindowsVirtualMachineScaleSetSourceImageReference struct {
+	Offer     string `pulumi:"offer"`
+	Publisher string `pulumi:"publisher"`
+	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+	Sku     string `pulumi:"sku"`
+	Version string `pulumi:"version"`
+}
+
+type WindowsVirtualMachineScaleSetSourceImageReferenceInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetSourceImageReferenceOutput() WindowsVirtualMachineScaleSetSourceImageReferenceOutput
+	ToWindowsVirtualMachineScaleSetSourceImageReferenceOutputWithContext(context.Context) WindowsVirtualMachineScaleSetSourceImageReferenceOutput
+}
+
+type WindowsVirtualMachineScaleSetSourceImageReferenceArgs struct {
+	Offer     pulumi.StringInput `pulumi:"offer"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+	Sku     pulumi.StringInput `pulumi:"sku"`
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (WindowsVirtualMachineScaleSetSourceImageReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetSourceImageReference)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetSourceImageReferenceArgs) ToWindowsVirtualMachineScaleSetSourceImageReferenceOutput() WindowsVirtualMachineScaleSetSourceImageReferenceOutput {
+	return i.ToWindowsVirtualMachineScaleSetSourceImageReferenceOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetSourceImageReferenceArgs) ToWindowsVirtualMachineScaleSetSourceImageReferenceOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSourceImageReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetSourceImageReferenceOutput)
+}
+
+func (i WindowsVirtualMachineScaleSetSourceImageReferenceArgs) ToWindowsVirtualMachineScaleSetSourceImageReferencePtrOutput() WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetSourceImageReferenceArgs) ToWindowsVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetSourceImageReferenceOutput).ToWindowsVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(ctx)
+}
+
+type WindowsVirtualMachineScaleSetSourceImageReferencePtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetSourceImageReferencePtrOutput() WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput
+	ToWindowsVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(context.Context) WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput
+}
+
+type windowsVirtualMachineScaleSetSourceImageReferencePtrType WindowsVirtualMachineScaleSetSourceImageReferenceArgs
+
+func WindowsVirtualMachineScaleSetSourceImageReferencePtr(v *WindowsVirtualMachineScaleSetSourceImageReferenceArgs) WindowsVirtualMachineScaleSetSourceImageReferencePtrInput {
+	return (*windowsVirtualMachineScaleSetSourceImageReferencePtrType)(v)
+}
+
+func (*windowsVirtualMachineScaleSetSourceImageReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetSourceImageReference)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineScaleSetSourceImageReferencePtrType) ToWindowsVirtualMachineScaleSetSourceImageReferencePtrOutput() WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineScaleSetSourceImageReferencePtrType) ToWindowsVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetSourceImageReferenceOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetSourceImageReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetSourceImageReference)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) ToWindowsVirtualMachineScaleSetSourceImageReferenceOutput() WindowsVirtualMachineScaleSetSourceImageReferenceOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) ToWindowsVirtualMachineScaleSetSourceImageReferenceOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSourceImageReferenceOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) ToWindowsVirtualMachineScaleSetSourceImageReferencePtrOutput() WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return o.ToWindowsVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) ToWindowsVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) *WindowsVirtualMachineScaleSetSourceImageReference {
+		return &v
+	}).(WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput)
+}
+func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) Offer() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetSourceImageReference)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) ToWindowsVirtualMachineScaleSetSourceImageReferencePtrOutput() WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) ToWindowsVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Elem() WindowsVirtualMachineScaleSetSourceImageReferenceOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetSourceImageReference) WindowsVirtualMachineScaleSetSourceImageReference {
+		return *v
+	}).(WindowsVirtualMachineScaleSetSourceImageReferenceOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Offer() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetWinrmListener struct {
+	CertificateUrl *string `pulumi:"certificateUrl"`
+	Protocol       string  `pulumi:"protocol"`
+}
+
+type WindowsVirtualMachineScaleSetWinrmListenerInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetWinrmListenerOutput() WindowsVirtualMachineScaleSetWinrmListenerOutput
+	ToWindowsVirtualMachineScaleSetWinrmListenerOutputWithContext(context.Context) WindowsVirtualMachineScaleSetWinrmListenerOutput
+}
+
+type WindowsVirtualMachineScaleSetWinrmListenerArgs struct {
+	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
+	Protocol       pulumi.StringInput    `pulumi:"protocol"`
+}
+
+func (WindowsVirtualMachineScaleSetWinrmListenerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetWinrmListener)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetWinrmListenerArgs) ToWindowsVirtualMachineScaleSetWinrmListenerOutput() WindowsVirtualMachineScaleSetWinrmListenerOutput {
+	return i.ToWindowsVirtualMachineScaleSetWinrmListenerOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetWinrmListenerArgs) ToWindowsVirtualMachineScaleSetWinrmListenerOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetWinrmListenerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetWinrmListenerOutput)
+}
+
+type WindowsVirtualMachineScaleSetWinrmListenerArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetWinrmListenerArrayOutput() WindowsVirtualMachineScaleSetWinrmListenerArrayOutput
+	ToWindowsVirtualMachineScaleSetWinrmListenerArrayOutputWithContext(context.Context) WindowsVirtualMachineScaleSetWinrmListenerArrayOutput
+}
+
+type WindowsVirtualMachineScaleSetWinrmListenerArray []WindowsVirtualMachineScaleSetWinrmListenerInput
+
+func (WindowsVirtualMachineScaleSetWinrmListenerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetWinrmListener)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetWinrmListenerArray) ToWindowsVirtualMachineScaleSetWinrmListenerArrayOutput() WindowsVirtualMachineScaleSetWinrmListenerArrayOutput {
+	return i.ToWindowsVirtualMachineScaleSetWinrmListenerArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetWinrmListenerArray) ToWindowsVirtualMachineScaleSetWinrmListenerArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetWinrmListenerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetWinrmListenerArrayOutput)
+}
+
+type WindowsVirtualMachineScaleSetWinrmListenerOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetWinrmListenerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetWinrmListener)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetWinrmListenerOutput) ToWindowsVirtualMachineScaleSetWinrmListenerOutput() WindowsVirtualMachineScaleSetWinrmListenerOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetWinrmListenerOutput) ToWindowsVirtualMachineScaleSetWinrmListenerOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetWinrmListenerOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetWinrmListenerOutput) CertificateUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetWinrmListener) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetWinrmListenerOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetWinrmListener) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetWinrmListenerArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetWinrmListenerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetWinrmListener)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetWinrmListenerArrayOutput) ToWindowsVirtualMachineScaleSetWinrmListenerArrayOutput() WindowsVirtualMachineScaleSetWinrmListenerArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetWinrmListenerArrayOutput) ToWindowsVirtualMachineScaleSetWinrmListenerArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetWinrmListenerArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetWinrmListenerArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetWinrmListenerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetWinrmListener {
+		return vs[0].([]WindowsVirtualMachineScaleSetWinrmListener)[vs[1].(int)]
+	}).(WindowsVirtualMachineScaleSetWinrmListenerOutput)
+}
+
+type WindowsVirtualMachineSecret struct {
+	Certificates []WindowsVirtualMachineSecretCertificate `pulumi:"certificates"`
+	KeyVaultId   string                                   `pulumi:"keyVaultId"`
+}
+
+type WindowsVirtualMachineSecretInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineSecretOutput() WindowsVirtualMachineSecretOutput
+	ToWindowsVirtualMachineSecretOutputWithContext(context.Context) WindowsVirtualMachineSecretOutput
+}
+
+type WindowsVirtualMachineSecretArgs struct {
+	Certificates WindowsVirtualMachineSecretCertificateArrayInput `pulumi:"certificates"`
+	KeyVaultId   pulumi.StringInput                               `pulumi:"keyVaultId"`
+}
+
+func (WindowsVirtualMachineSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineSecret)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineSecretArgs) ToWindowsVirtualMachineSecretOutput() WindowsVirtualMachineSecretOutput {
+	return i.ToWindowsVirtualMachineSecretOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineSecretArgs) ToWindowsVirtualMachineSecretOutputWithContext(ctx context.Context) WindowsVirtualMachineSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineSecretOutput)
+}
+
+type WindowsVirtualMachineSecretArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineSecretArrayOutput() WindowsVirtualMachineSecretArrayOutput
+	ToWindowsVirtualMachineSecretArrayOutputWithContext(context.Context) WindowsVirtualMachineSecretArrayOutput
+}
+
+type WindowsVirtualMachineSecretArray []WindowsVirtualMachineSecretInput
+
+func (WindowsVirtualMachineSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineSecret)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineSecretArray) ToWindowsVirtualMachineSecretArrayOutput() WindowsVirtualMachineSecretArrayOutput {
+	return i.ToWindowsVirtualMachineSecretArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineSecretArray) ToWindowsVirtualMachineSecretArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineSecretArrayOutput)
+}
+
+type WindowsVirtualMachineSecretOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineSecret)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineSecretOutput) ToWindowsVirtualMachineSecretOutput() WindowsVirtualMachineSecretOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineSecretOutput) ToWindowsVirtualMachineSecretOutputWithContext(ctx context.Context) WindowsVirtualMachineSecretOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineSecretOutput) Certificates() WindowsVirtualMachineSecretCertificateArrayOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineSecret) []WindowsVirtualMachineSecretCertificate { return v.Certificates }).(WindowsVirtualMachineSecretCertificateArrayOutput)
+}
+
+func (o WindowsVirtualMachineSecretOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineSecret) string { return v.KeyVaultId }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineSecret)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineSecretArrayOutput) ToWindowsVirtualMachineSecretArrayOutput() WindowsVirtualMachineSecretArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineSecretArrayOutput) ToWindowsVirtualMachineSecretArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineSecretArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineSecretArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineSecret {
+		return vs[0].([]WindowsVirtualMachineSecret)[vs[1].(int)]
+	}).(WindowsVirtualMachineSecretOutput)
+}
+
+type WindowsVirtualMachineSecretCertificate struct {
+	Store string `pulumi:"store"`
+	Url   string `pulumi:"url"`
+}
+
+type WindowsVirtualMachineSecretCertificateInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineSecretCertificateOutput() WindowsVirtualMachineSecretCertificateOutput
+	ToWindowsVirtualMachineSecretCertificateOutputWithContext(context.Context) WindowsVirtualMachineSecretCertificateOutput
+}
+
+type WindowsVirtualMachineSecretCertificateArgs struct {
+	Store pulumi.StringInput `pulumi:"store"`
+	Url   pulumi.StringInput `pulumi:"url"`
+}
+
+func (WindowsVirtualMachineSecretCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineSecretCertificate)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineSecretCertificateArgs) ToWindowsVirtualMachineSecretCertificateOutput() WindowsVirtualMachineSecretCertificateOutput {
+	return i.ToWindowsVirtualMachineSecretCertificateOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineSecretCertificateArgs) ToWindowsVirtualMachineSecretCertificateOutputWithContext(ctx context.Context) WindowsVirtualMachineSecretCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineSecretCertificateOutput)
+}
+
+type WindowsVirtualMachineSecretCertificateArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineSecretCertificateArrayOutput() WindowsVirtualMachineSecretCertificateArrayOutput
+	ToWindowsVirtualMachineSecretCertificateArrayOutputWithContext(context.Context) WindowsVirtualMachineSecretCertificateArrayOutput
+}
+
+type WindowsVirtualMachineSecretCertificateArray []WindowsVirtualMachineSecretCertificateInput
+
+func (WindowsVirtualMachineSecretCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineSecretCertificate)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineSecretCertificateArray) ToWindowsVirtualMachineSecretCertificateArrayOutput() WindowsVirtualMachineSecretCertificateArrayOutput {
+	return i.ToWindowsVirtualMachineSecretCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineSecretCertificateArray) ToWindowsVirtualMachineSecretCertificateArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineSecretCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineSecretCertificateArrayOutput)
+}
+
+type WindowsVirtualMachineSecretCertificateOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineSecretCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineSecretCertificate)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineSecretCertificateOutput) ToWindowsVirtualMachineSecretCertificateOutput() WindowsVirtualMachineSecretCertificateOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineSecretCertificateOutput) ToWindowsVirtualMachineSecretCertificateOutputWithContext(ctx context.Context) WindowsVirtualMachineSecretCertificateOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineSecretCertificateOutput) Store() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineSecretCertificate) string { return v.Store }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineSecretCertificateOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineSecretCertificate) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineSecretCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineSecretCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineSecretCertificate)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineSecretCertificateArrayOutput) ToWindowsVirtualMachineSecretCertificateArrayOutput() WindowsVirtualMachineSecretCertificateArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineSecretCertificateArrayOutput) ToWindowsVirtualMachineSecretCertificateArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineSecretCertificateArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineSecretCertificateArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineSecretCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineSecretCertificate {
+		return vs[0].([]WindowsVirtualMachineSecretCertificate)[vs[1].(int)]
+	}).(WindowsVirtualMachineSecretCertificateOutput)
+}
+
+type WindowsVirtualMachineSourceImageReference struct {
+	Offer     string `pulumi:"offer"`
+	Publisher string `pulumi:"publisher"`
+	Sku       string `pulumi:"sku"`
+	Version   string `pulumi:"version"`
+}
+
+type WindowsVirtualMachineSourceImageReferenceInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineSourceImageReferenceOutput() WindowsVirtualMachineSourceImageReferenceOutput
+	ToWindowsVirtualMachineSourceImageReferenceOutputWithContext(context.Context) WindowsVirtualMachineSourceImageReferenceOutput
+}
+
+type WindowsVirtualMachineSourceImageReferenceArgs struct {
+	Offer     pulumi.StringInput `pulumi:"offer"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	Sku       pulumi.StringInput `pulumi:"sku"`
+	Version   pulumi.StringInput `pulumi:"version"`
+}
+
+func (WindowsVirtualMachineSourceImageReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineSourceImageReference)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineSourceImageReferenceArgs) ToWindowsVirtualMachineSourceImageReferenceOutput() WindowsVirtualMachineSourceImageReferenceOutput {
+	return i.ToWindowsVirtualMachineSourceImageReferenceOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineSourceImageReferenceArgs) ToWindowsVirtualMachineSourceImageReferenceOutputWithContext(ctx context.Context) WindowsVirtualMachineSourceImageReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineSourceImageReferenceOutput)
+}
+
+func (i WindowsVirtualMachineSourceImageReferenceArgs) ToWindowsVirtualMachineSourceImageReferencePtrOutput() WindowsVirtualMachineSourceImageReferencePtrOutput {
+	return i.ToWindowsVirtualMachineSourceImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineSourceImageReferenceArgs) ToWindowsVirtualMachineSourceImageReferencePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineSourceImageReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineSourceImageReferenceOutput).ToWindowsVirtualMachineSourceImageReferencePtrOutputWithContext(ctx)
+}
+
+type WindowsVirtualMachineSourceImageReferencePtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineSourceImageReferencePtrOutput() WindowsVirtualMachineSourceImageReferencePtrOutput
+	ToWindowsVirtualMachineSourceImageReferencePtrOutputWithContext(context.Context) WindowsVirtualMachineSourceImageReferencePtrOutput
+}
+
+type windowsVirtualMachineSourceImageReferencePtrType WindowsVirtualMachineSourceImageReferenceArgs
+
+func WindowsVirtualMachineSourceImageReferencePtr(v *WindowsVirtualMachineSourceImageReferenceArgs) WindowsVirtualMachineSourceImageReferencePtrInput {
+	return (*windowsVirtualMachineSourceImageReferencePtrType)(v)
+}
+
+func (*windowsVirtualMachineSourceImageReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineSourceImageReference)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineSourceImageReferencePtrType) ToWindowsVirtualMachineSourceImageReferencePtrOutput() WindowsVirtualMachineSourceImageReferencePtrOutput {
+	return i.ToWindowsVirtualMachineSourceImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineSourceImageReferencePtrType) ToWindowsVirtualMachineSourceImageReferencePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineSourceImageReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineSourceImageReferencePtrOutput)
+}
+
+type WindowsVirtualMachineSourceImageReferenceOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineSourceImageReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineSourceImageReference)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineSourceImageReferenceOutput) ToWindowsVirtualMachineSourceImageReferenceOutput() WindowsVirtualMachineSourceImageReferenceOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineSourceImageReferenceOutput) ToWindowsVirtualMachineSourceImageReferenceOutputWithContext(ctx context.Context) WindowsVirtualMachineSourceImageReferenceOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineSourceImageReferenceOutput) ToWindowsVirtualMachineSourceImageReferencePtrOutput() WindowsVirtualMachineSourceImageReferencePtrOutput {
+	return o.ToWindowsVirtualMachineSourceImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineSourceImageReferenceOutput) ToWindowsVirtualMachineSourceImageReferencePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineSourceImageReferencePtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) *WindowsVirtualMachineSourceImageReference {
+		return &v
+	}).(WindowsVirtualMachineSourceImageReferencePtrOutput)
+}
+func (o WindowsVirtualMachineSourceImageReferenceOutput) Offer() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineSourceImageReferenceOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineSourceImageReferenceOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineSourceImageReferenceOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineSourceImageReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineSourceImageReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineSourceImageReference)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineSourceImageReferencePtrOutput) ToWindowsVirtualMachineSourceImageReferencePtrOutput() WindowsVirtualMachineSourceImageReferencePtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineSourceImageReferencePtrOutput) ToWindowsVirtualMachineSourceImageReferencePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineSourceImageReferencePtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Elem() WindowsVirtualMachineSourceImageReferenceOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineSourceImageReference) WindowsVirtualMachineSourceImageReference {
+		return *v
+	}).(WindowsVirtualMachineSourceImageReferenceOutput)
+}
+
+func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Offer() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineWinrmListener struct {
+	CertificateUrl *string `pulumi:"certificateUrl"`
+	Protocol       string  `pulumi:"protocol"`
+}
+
+type WindowsVirtualMachineWinrmListenerInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineWinrmListenerOutput() WindowsVirtualMachineWinrmListenerOutput
+	ToWindowsVirtualMachineWinrmListenerOutputWithContext(context.Context) WindowsVirtualMachineWinrmListenerOutput
+}
+
+type WindowsVirtualMachineWinrmListenerArgs struct {
+	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
+	Protocol       pulumi.StringInput    `pulumi:"protocol"`
+}
+
+func (WindowsVirtualMachineWinrmListenerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineWinrmListener)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineWinrmListenerArgs) ToWindowsVirtualMachineWinrmListenerOutput() WindowsVirtualMachineWinrmListenerOutput {
+	return i.ToWindowsVirtualMachineWinrmListenerOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineWinrmListenerArgs) ToWindowsVirtualMachineWinrmListenerOutputWithContext(ctx context.Context) WindowsVirtualMachineWinrmListenerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineWinrmListenerOutput)
+}
+
+type WindowsVirtualMachineWinrmListenerArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineWinrmListenerArrayOutput() WindowsVirtualMachineWinrmListenerArrayOutput
+	ToWindowsVirtualMachineWinrmListenerArrayOutputWithContext(context.Context) WindowsVirtualMachineWinrmListenerArrayOutput
+}
+
+type WindowsVirtualMachineWinrmListenerArray []WindowsVirtualMachineWinrmListenerInput
+
+func (WindowsVirtualMachineWinrmListenerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineWinrmListener)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineWinrmListenerArray) ToWindowsVirtualMachineWinrmListenerArrayOutput() WindowsVirtualMachineWinrmListenerArrayOutput {
+	return i.ToWindowsVirtualMachineWinrmListenerArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineWinrmListenerArray) ToWindowsVirtualMachineWinrmListenerArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineWinrmListenerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineWinrmListenerArrayOutput)
+}
+
+type WindowsVirtualMachineWinrmListenerOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineWinrmListenerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineWinrmListener)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineWinrmListenerOutput) ToWindowsVirtualMachineWinrmListenerOutput() WindowsVirtualMachineWinrmListenerOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineWinrmListenerOutput) ToWindowsVirtualMachineWinrmListenerOutputWithContext(ctx context.Context) WindowsVirtualMachineWinrmListenerOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineWinrmListenerOutput) CertificateUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineWinrmListener) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o WindowsVirtualMachineWinrmListenerOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineWinrmListener) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineWinrmListenerArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineWinrmListenerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineWinrmListener)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineWinrmListenerArrayOutput) ToWindowsVirtualMachineWinrmListenerArrayOutput() WindowsVirtualMachineWinrmListenerArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineWinrmListenerArrayOutput) ToWindowsVirtualMachineWinrmListenerArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineWinrmListenerArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineWinrmListenerArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineWinrmListenerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineWinrmListener {
+		return vs[0].([]WindowsVirtualMachineWinrmListener)[vs[1].(int)]
+	}).(WindowsVirtualMachineWinrmListenerOutput)
 }
 
 type GetImageDataDisk struct {
@@ -6290,7 +13065,7 @@ func (i GetImageDataDiskArray) ToGetImageDataDiskArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageDataDiskArrayOutput)
 }
 
-type GetImageDataDiskOutput struct { *pulumi.OutputState }
+type GetImageDataDiskOutput struct{ *pulumi.OutputState }
 
 func (GetImageDataDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetImageDataDisk)(nil)).Elem()
@@ -6306,30 +13081,30 @@ func (o GetImageDataDiskOutput) ToGetImageDataDiskOutputWithContext(ctx context.
 
 // the URI in Azure storage of the blob used to create the image.
 func (o GetImageDataDiskOutput) BlobUri() pulumi.StringOutput {
-	return o.ApplyT(func (v GetImageDataDisk) string { return v.BlobUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetImageDataDisk) string { return v.BlobUri }).(pulumi.StringOutput)
 }
 
 // the caching mode for the Data Disk, such as `ReadWrite`, `ReadOnly`, or `None`.
 func (o GetImageDataDiskOutput) Caching() pulumi.StringOutput {
-	return o.ApplyT(func (v GetImageDataDisk) string { return v.Caching }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetImageDataDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
 // the logical unit number of the data disk.
 func (o GetImageDataDiskOutput) Lun() pulumi.IntOutput {
-	return o.ApplyT(func (v GetImageDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetImageDataDisk) int { return v.Lun }).(pulumi.IntOutput)
 }
 
 // the ID of the Managed Disk used as the Data Disk Image.
 func (o GetImageDataDiskOutput) ManagedDiskId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetImageDataDisk) string { return v.ManagedDiskId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetImageDataDisk) string { return v.ManagedDiskId }).(pulumi.StringOutput)
 }
 
 // the size of this Data Disk in GB.
 func (o GetImageDataDiskOutput) SizeGb() pulumi.IntOutput {
-	return o.ApplyT(func (v GetImageDataDisk) int { return v.SizeGb }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetImageDataDisk) int { return v.SizeGb }).(pulumi.IntOutput)
 }
 
-type GetImageDataDiskArrayOutput struct { *pulumi.OutputState}
+type GetImageDataDiskArrayOutput struct{ *pulumi.OutputState }
 
 func (GetImageDataDiskArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetImageDataDisk)(nil)).Elem()
@@ -6344,7 +13119,7 @@ func (o GetImageDataDiskArrayOutput) ToGetImageDataDiskArrayOutputWithContext(ct
 }
 
 func (o GetImageDataDiskArrayOutput) Index(i pulumi.IntInput) GetImageDataDiskOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetImageDataDisk {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageDataDisk {
 		return vs[0].([]GetImageDataDisk)[vs[1].(int)]
 	}).(GetImageDataDiskOutput)
 }
@@ -6419,7 +13194,7 @@ func (i GetImageOsDiskArray) ToGetImageOsDiskArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageOsDiskArrayOutput)
 }
 
-type GetImageOsDiskOutput struct { *pulumi.OutputState }
+type GetImageOsDiskOutput struct{ *pulumi.OutputState }
 
 func (GetImageOsDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetImageOsDisk)(nil)).Elem()
@@ -6435,35 +13210,35 @@ func (o GetImageOsDiskOutput) ToGetImageOsDiskOutputWithContext(ctx context.Cont
 
 // the URI in Azure storage of the blob used to create the image.
 func (o GetImageOsDiskOutput) BlobUri() pulumi.StringOutput {
-	return o.ApplyT(func (v GetImageOsDisk) string { return v.BlobUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetImageOsDisk) string { return v.BlobUri }).(pulumi.StringOutput)
 }
 
 // the caching mode for the Data Disk, such as `ReadWrite`, `ReadOnly`, or `None`.
 func (o GetImageOsDiskOutput) Caching() pulumi.StringOutput {
-	return o.ApplyT(func (v GetImageOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetImageOsDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
 // the ID of the Managed Disk used as the Data Disk Image.
 func (o GetImageOsDiskOutput) ManagedDiskId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetImageOsDisk) string { return v.ManagedDiskId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetImageOsDisk) string { return v.ManagedDiskId }).(pulumi.StringOutput)
 }
 
 // the State of the OS used in the Image, such as `Generalized`.
 func (o GetImageOsDiskOutput) OsState() pulumi.StringOutput {
-	return o.ApplyT(func (v GetImageOsDisk) string { return v.OsState }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetImageOsDisk) string { return v.OsState }).(pulumi.StringOutput)
 }
 
 // the type of Operating System used on the OS Disk. such as `Linux` or `Windows`.
 func (o GetImageOsDiskOutput) OsType() pulumi.StringOutput {
-	return o.ApplyT(func (v GetImageOsDisk) string { return v.OsType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetImageOsDisk) string { return v.OsType }).(pulumi.StringOutput)
 }
 
 // the size of this Data Disk in GB.
 func (o GetImageOsDiskOutput) SizeGb() pulumi.IntOutput {
-	return o.ApplyT(func (v GetImageOsDisk) int { return v.SizeGb }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetImageOsDisk) int { return v.SizeGb }).(pulumi.IntOutput)
 }
 
-type GetImageOsDiskArrayOutput struct { *pulumi.OutputState}
+type GetImageOsDiskArrayOutput struct{ *pulumi.OutputState }
 
 func (GetImageOsDiskArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetImageOsDisk)(nil)).Elem()
@@ -6478,7 +13253,7 @@ func (o GetImageOsDiskArrayOutput) ToGetImageOsDiskArrayOutputWithContext(ctx co
 }
 
 func (o GetImageOsDiskArrayOutput) Index(i pulumi.IntInput) GetImageOsDiskOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetImageOsDisk {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageOsDisk {
 		return vs[0].([]GetImageOsDisk)[vs[1].(int)]
 	}).(GetImageOsDiskOutput)
 }
@@ -6541,7 +13316,7 @@ func (i GetSharedImageIdentifierArray) ToGetSharedImageIdentifierArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetSharedImageIdentifierArrayOutput)
 }
 
-type GetSharedImageIdentifierOutput struct { *pulumi.OutputState }
+type GetSharedImageIdentifierOutput struct{ *pulumi.OutputState }
 
 func (GetSharedImageIdentifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetSharedImageIdentifier)(nil)).Elem()
@@ -6557,20 +13332,20 @@ func (o GetSharedImageIdentifierOutput) ToGetSharedImageIdentifierOutputWithCont
 
 // The Offer Name for this Shared Image.
 func (o GetSharedImageIdentifierOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSharedImageIdentifier) string { return v.Offer }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSharedImageIdentifier) string { return v.Offer }).(pulumi.StringOutput)
 }
 
 // The Publisher Name for this Gallery Image.
 func (o GetSharedImageIdentifierOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSharedImageIdentifier) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSharedImageIdentifier) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 // The Name of the SKU for this Gallery Image.
 func (o GetSharedImageIdentifierOutput) Sku() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSharedImageIdentifier) string { return v.Sku }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSharedImageIdentifier) string { return v.Sku }).(pulumi.StringOutput)
 }
 
-type GetSharedImageIdentifierArrayOutput struct { *pulumi.OutputState}
+type GetSharedImageIdentifierArrayOutput struct{ *pulumi.OutputState }
 
 func (GetSharedImageIdentifierArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetSharedImageIdentifier)(nil)).Elem()
@@ -6585,7 +13360,7 @@ func (o GetSharedImageIdentifierArrayOutput) ToGetSharedImageIdentifierArrayOutp
 }
 
 func (o GetSharedImageIdentifierArrayOutput) Index(i pulumi.IntInput) GetSharedImageIdentifierOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetSharedImageIdentifier {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSharedImageIdentifier {
 		return vs[0].([]GetSharedImageIdentifier)[vs[1].(int)]
 	}).(GetSharedImageIdentifierOutput)
 }
@@ -6648,7 +13423,7 @@ func (i GetSharedImageVersionTargetRegionArray) ToGetSharedImageVersionTargetReg
 	return pulumi.ToOutputWithContext(ctx, i).(GetSharedImageVersionTargetRegionArrayOutput)
 }
 
-type GetSharedImageVersionTargetRegionOutput struct { *pulumi.OutputState }
+type GetSharedImageVersionTargetRegionOutput struct{ *pulumi.OutputState }
 
 func (GetSharedImageVersionTargetRegionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetSharedImageVersionTargetRegion)(nil)).Elem()
@@ -6664,20 +13439,20 @@ func (o GetSharedImageVersionTargetRegionOutput) ToGetSharedImageVersionTargetRe
 
 // The name of the Image Version.
 func (o GetSharedImageVersionTargetRegionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSharedImageVersionTargetRegion) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSharedImageVersionTargetRegion) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The number of replicas of the Image Version to be created per region.
 func (o GetSharedImageVersionTargetRegionOutput) RegionalReplicaCount() pulumi.IntOutput {
-	return o.ApplyT(func (v GetSharedImageVersionTargetRegion) int { return v.RegionalReplicaCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetSharedImageVersionTargetRegion) int { return v.RegionalReplicaCount }).(pulumi.IntOutput)
 }
 
 // The storage account type for the image version.
 func (o GetSharedImageVersionTargetRegionOutput) StorageAccountType() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSharedImageVersionTargetRegion) string { return v.StorageAccountType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSharedImageVersionTargetRegion) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
-type GetSharedImageVersionTargetRegionArrayOutput struct { *pulumi.OutputState}
+type GetSharedImageVersionTargetRegionArrayOutput struct{ *pulumi.OutputState }
 
 func (GetSharedImageVersionTargetRegionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetSharedImageVersionTargetRegion)(nil)).Elem()
@@ -6692,15 +13467,15 @@ func (o GetSharedImageVersionTargetRegionArrayOutput) ToGetSharedImageVersionTar
 }
 
 func (o GetSharedImageVersionTargetRegionArrayOutput) Index(i pulumi.IntInput) GetSharedImageVersionTargetRegionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetSharedImageVersionTargetRegion {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSharedImageVersionTargetRegion {
 		return vs[0].([]GetSharedImageVersionTargetRegion)[vs[1].(int)]
 	}).(GetSharedImageVersionTargetRegionOutput)
 }
 
 type GetSnapshotEncryptionSetting struct {
 	DiskEncryptionKeys []GetSnapshotEncryptionSettingDiskEncryptionKey `pulumi:"diskEncryptionKeys"`
-	Enabled bool `pulumi:"enabled"`
-	KeyEncryptionKeys []GetSnapshotEncryptionSettingKeyEncryptionKey `pulumi:"keyEncryptionKeys"`
+	Enabled            bool                                            `pulumi:"enabled"`
+	KeyEncryptionKeys  []GetSnapshotEncryptionSettingKeyEncryptionKey  `pulumi:"keyEncryptionKeys"`
 }
 
 type GetSnapshotEncryptionSettingInput interface {
@@ -6712,8 +13487,8 @@ type GetSnapshotEncryptionSettingInput interface {
 
 type GetSnapshotEncryptionSettingArgs struct {
 	DiskEncryptionKeys GetSnapshotEncryptionSettingDiskEncryptionKeyArrayInput `pulumi:"diskEncryptionKeys"`
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	KeyEncryptionKeys GetSnapshotEncryptionSettingKeyEncryptionKeyArrayInput `pulumi:"keyEncryptionKeys"`
+	Enabled            pulumi.BoolInput                                        `pulumi:"enabled"`
+	KeyEncryptionKeys  GetSnapshotEncryptionSettingKeyEncryptionKeyArrayInput  `pulumi:"keyEncryptionKeys"`
 }
 
 func (GetSnapshotEncryptionSettingArgs) ElementType() reflect.Type {
@@ -6749,7 +13524,7 @@ func (i GetSnapshotEncryptionSettingArray) ToGetSnapshotEncryptionSettingArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotEncryptionSettingArrayOutput)
 }
 
-type GetSnapshotEncryptionSettingOutput struct { *pulumi.OutputState }
+type GetSnapshotEncryptionSettingOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotEncryptionSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetSnapshotEncryptionSetting)(nil)).Elem()
@@ -6764,18 +13539,22 @@ func (o GetSnapshotEncryptionSettingOutput) ToGetSnapshotEncryptionSettingOutput
 }
 
 func (o GetSnapshotEncryptionSettingOutput) DiskEncryptionKeys() GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput {
-	return o.ApplyT(func (v GetSnapshotEncryptionSetting) []GetSnapshotEncryptionSettingDiskEncryptionKey { return v.DiskEncryptionKeys }).(GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput)
+	return o.ApplyT(func(v GetSnapshotEncryptionSetting) []GetSnapshotEncryptionSettingDiskEncryptionKey {
+		return v.DiskEncryptionKeys
+	}).(GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput)
 }
 
 func (o GetSnapshotEncryptionSettingOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetSnapshotEncryptionSetting) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetSnapshotEncryptionSetting) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o GetSnapshotEncryptionSettingOutput) KeyEncryptionKeys() GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput {
-	return o.ApplyT(func (v GetSnapshotEncryptionSetting) []GetSnapshotEncryptionSettingKeyEncryptionKey { return v.KeyEncryptionKeys }).(GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput)
+	return o.ApplyT(func(v GetSnapshotEncryptionSetting) []GetSnapshotEncryptionSettingKeyEncryptionKey {
+		return v.KeyEncryptionKeys
+	}).(GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput)
 }
 
-type GetSnapshotEncryptionSettingArrayOutput struct { *pulumi.OutputState}
+type GetSnapshotEncryptionSettingArrayOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotEncryptionSettingArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetSnapshotEncryptionSetting)(nil)).Elem()
@@ -6790,13 +13569,13 @@ func (o GetSnapshotEncryptionSettingArrayOutput) ToGetSnapshotEncryptionSettingA
 }
 
 func (o GetSnapshotEncryptionSettingArrayOutput) Index(i pulumi.IntInput) GetSnapshotEncryptionSettingOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetSnapshotEncryptionSetting {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSnapshotEncryptionSetting {
 		return vs[0].([]GetSnapshotEncryptionSetting)[vs[1].(int)]
 	}).(GetSnapshotEncryptionSettingOutput)
 }
 
 type GetSnapshotEncryptionSettingDiskEncryptionKey struct {
-	SecretUrl string `pulumi:"secretUrl"`
+	SecretUrl     string `pulumi:"secretUrl"`
 	SourceVaultId string `pulumi:"sourceVaultId"`
 }
 
@@ -6808,7 +13587,7 @@ type GetSnapshotEncryptionSettingDiskEncryptionKeyInput interface {
 }
 
 type GetSnapshotEncryptionSettingDiskEncryptionKeyArgs struct {
-	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	SecretUrl     pulumi.StringInput `pulumi:"secretUrl"`
 	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
 }
 
@@ -6845,7 +13624,7 @@ func (i GetSnapshotEncryptionSettingDiskEncryptionKeyArray) ToGetSnapshotEncrypt
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput)
 }
 
-type GetSnapshotEncryptionSettingDiskEncryptionKeyOutput struct { *pulumi.OutputState }
+type GetSnapshotEncryptionSettingDiskEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotEncryptionSettingDiskEncryptionKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetSnapshotEncryptionSettingDiskEncryptionKey)(nil)).Elem()
@@ -6860,14 +13639,14 @@ func (o GetSnapshotEncryptionSettingDiskEncryptionKeyOutput) ToGetSnapshotEncryp
 }
 
 func (o GetSnapshotEncryptionSettingDiskEncryptionKeyOutput) SecretUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSnapshotEncryptionSettingDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSnapshotEncryptionSettingDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
 }
 
 func (o GetSnapshotEncryptionSettingDiskEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSnapshotEncryptionSettingDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSnapshotEncryptionSettingDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
-type GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput struct { *pulumi.OutputState}
+type GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetSnapshotEncryptionSettingDiskEncryptionKey)(nil)).Elem()
@@ -6882,13 +13661,13 @@ func (o GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput) ToGetSnapshotE
 }
 
 func (o GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput) Index(i pulumi.IntInput) GetSnapshotEncryptionSettingDiskEncryptionKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetSnapshotEncryptionSettingDiskEncryptionKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSnapshotEncryptionSettingDiskEncryptionKey {
 		return vs[0].([]GetSnapshotEncryptionSettingDiskEncryptionKey)[vs[1].(int)]
 	}).(GetSnapshotEncryptionSettingDiskEncryptionKeyOutput)
 }
 
 type GetSnapshotEncryptionSettingKeyEncryptionKey struct {
-	KeyUrl string `pulumi:"keyUrl"`
+	KeyUrl        string `pulumi:"keyUrl"`
 	SourceVaultId string `pulumi:"sourceVaultId"`
 }
 
@@ -6900,7 +13679,7 @@ type GetSnapshotEncryptionSettingKeyEncryptionKeyInput interface {
 }
 
 type GetSnapshotEncryptionSettingKeyEncryptionKeyArgs struct {
-	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	KeyUrl        pulumi.StringInput `pulumi:"keyUrl"`
 	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
 }
 
@@ -6937,7 +13716,7 @@ func (i GetSnapshotEncryptionSettingKeyEncryptionKeyArray) ToGetSnapshotEncrypti
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput)
 }
 
-type GetSnapshotEncryptionSettingKeyEncryptionKeyOutput struct { *pulumi.OutputState }
+type GetSnapshotEncryptionSettingKeyEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotEncryptionSettingKeyEncryptionKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetSnapshotEncryptionSettingKeyEncryptionKey)(nil)).Elem()
@@ -6952,14 +13731,14 @@ func (o GetSnapshotEncryptionSettingKeyEncryptionKeyOutput) ToGetSnapshotEncrypt
 }
 
 func (o GetSnapshotEncryptionSettingKeyEncryptionKeyOutput) KeyUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSnapshotEncryptionSettingKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSnapshotEncryptionSettingKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
 func (o GetSnapshotEncryptionSettingKeyEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSnapshotEncryptionSettingKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSnapshotEncryptionSettingKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
-type GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput struct { *pulumi.OutputState}
+type GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetSnapshotEncryptionSettingKeyEncryptionKey)(nil)).Elem()
@@ -6974,7 +13753,7 @@ func (o GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput) ToGetSnapshotEn
 }
 
 func (o GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput) Index(i pulumi.IntInput) GetSnapshotEncryptionSettingKeyEncryptionKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetSnapshotEncryptionSettingKeyEncryptionKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSnapshotEncryptionSettingKeyEncryptionKey {
 		return vs[0].([]GetSnapshotEncryptionSettingKeyEncryptionKey)[vs[1].(int)]
 	}).(GetSnapshotEncryptionSettingKeyEncryptionKeyOutput)
 }
@@ -6988,6 +13767,60 @@ func init() {
 	pulumi.RegisterOutputType(ImageDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(ImageOsDiskOutput{})
 	pulumi.RegisterOutputType(ImageOsDiskPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineAdditionalCapabilitiesOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineAdditionalCapabilitiesPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineAdminSshKeyOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineAdminSshKeyArrayOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineBootDiagnosticsOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineBootDiagnosticsPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineIdentityOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineIdentityPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineOsDiskOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineOsDiskPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineOsDiskDiffDiskSettingsOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachinePlanOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachinePlanPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetAdminSshKeyOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetBootDiagnosticsOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetDataDiskOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetDataDiskArrayOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetIdentityOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetIdentityPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetOsDiskOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetOsDiskPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetPlanOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetPlanPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSecretOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSecretArrayOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSecretCertificateOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSecretCertificateArrayOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSourceImageReferenceOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineSecretOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineSecretArrayOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineSecretCertificateOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineSecretCertificateArrayOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineSourceImageReferenceOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineSourceImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(ManagedDiskEncryptionSettingsOutput{})
 	pulumi.RegisterOutputType(ManagedDiskEncryptionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput{})
@@ -7076,6 +13909,64 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineStorageImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineStorageOsDiskOutput{})
 	pulumi.RegisterOutputType(VirtualMachineStorageOsDiskPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineAdditionalCapabilitiesOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineAdditionalCapabilitiesPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineAdditionalUnattendContentOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineAdditionalUnattendContentArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineBootDiagnosticsOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineBootDiagnosticsPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineIdentityOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineIdentityPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineOsDiskOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineOsDiskPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineOsDiskDiffDiskSettingsOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachinePlanOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachinePlanPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetBootDiagnosticsOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetDataDiskOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetDataDiskArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetIdentityOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetIdentityPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetOsDiskOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetOsDiskPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetPlanOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetPlanPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSecretOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSecretArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSecretCertificateOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSecretCertificateArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSourceImageReferenceOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetWinrmListenerOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetWinrmListenerArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineSecretOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineSecretArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineSecretCertificateOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineSecretCertificateArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineSourceImageReferenceOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineSourceImageReferencePtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineWinrmListenerOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineWinrmListenerArrayOutput{})
 	pulumi.RegisterOutputType(GetImageDataDiskOutput{})
 	pulumi.RegisterOutputType(GetImageDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(GetImageOsDiskOutput{})

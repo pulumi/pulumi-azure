@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/policy_definition.html.markdown.
 func GetPolicyDefintion(ctx *pulumi.Context, args *GetPolicyDefintionArgs, opts ...pulumi.InvokeOption) (*GetPolicyDefintionResult, error) {
 	var rv GetPolicyDefintionResult
@@ -28,14 +28,13 @@ type GetPolicyDefintionArgs struct {
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 }
 
-
 // A collection of values returned by getPolicyDefintion.
 type GetPolicyDefintionResult struct {
 	// The Description of the Policy.
 	Description string `pulumi:"description"`
 	DisplayName string `pulumi:"displayName"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id                string  `pulumi:"id"`
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// Any Metadata defined in the Policy.
 	Metadata string `pulumi:"metadata"`
@@ -50,4 +49,3 @@ type GetPolicyDefintionResult struct {
 	// The Type of Policy.
 	Type string `pulumi:"type"`
 }
-

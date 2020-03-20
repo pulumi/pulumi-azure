@@ -13,18 +13,12 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, custom_domain=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, is_hns_enabled=None, location=None, name=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, tags=None, id=None):
+    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, custom_domains=None, enable_https_traffic_only=None, id=None, is_hns_enabled=None, location=None, name=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, tags=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         __self__.access_tier = access_tier
         """
         The access tier for `BlobStorage` accounts.
-        """
-        if account_encryption_source and not isinstance(account_encryption_source, str):
-            raise TypeError("Expected argument 'account_encryption_source' to be a str")
-        __self__.account_encryption_source = account_encryption_source
-        """
-        The Encryption Source for this Storage Account.
         """
         if account_kind and not isinstance(account_kind, str):
             raise TypeError("Expected argument 'account_kind' to be a str")
@@ -44,25 +38,11 @@ class GetAccountResult:
         """
         The Tier of this storage account.
         """
-        if custom_domain and not isinstance(custom_domain, dict):
-            raise TypeError("Expected argument 'custom_domain' to be a dict")
-        __self__.custom_domain = custom_domain
+        if custom_domains and not isinstance(custom_domains, list):
+            raise TypeError("Expected argument 'custom_domains' to be a list")
+        __self__.custom_domains = custom_domains
         """
         A `custom_domain` block as documented below.
-        """
-        if enable_blob_encryption and not isinstance(enable_blob_encryption, bool):
-            raise TypeError("Expected argument 'enable_blob_encryption' to be a bool")
-        __self__.enable_blob_encryption = enable_blob_encryption
-        """
-        Are Encryption Services are enabled for Blob storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-        for more information.
-        """
-        if enable_file_encryption and not isinstance(enable_file_encryption, bool):
-            raise TypeError("Expected argument 'enable_file_encryption' to be a bool")
-        __self__.enable_file_encryption = enable_file_encryption
-        """
-        Are Encryption Services are enabled for File storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-        for more information.
         """
         if enable_https_traffic_only and not isinstance(enable_https_traffic_only, bool):
             raise TypeError("Expected argument 'enable_https_traffic_only' to be a bool")
@@ -70,6 +50,12 @@ class GetAccountResult:
         """
         Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
         for more information.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if is_hns_enabled and not isinstance(is_hns_enabled, bool):
             raise TypeError("Expected argument 'is_hns_enabled' to be a bool")
@@ -290,12 +276,6 @@ class GetAccountResult:
         """
         A mapping of tags to assigned to the resource.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAccountResult(GetAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -303,14 +283,12 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             access_tier=self.access_tier,
-            account_encryption_source=self.account_encryption_source,
             account_kind=self.account_kind,
             account_replication_type=self.account_replication_type,
             account_tier=self.account_tier,
-            custom_domain=self.custom_domain,
-            enable_blob_encryption=self.enable_blob_encryption,
-            enable_file_encryption=self.enable_file_encryption,
+            custom_domains=self.custom_domains,
             enable_https_traffic_only=self.enable_https_traffic_only,
+            id=self.id,
             is_hns_enabled=self.is_hns_enabled,
             location=self.location,
             name=self.name,
@@ -347,19 +325,20 @@ class AwaitableGetAccountResult(GetAccountResult):
             secondary_table_host=self.secondary_table_host,
             secondary_web_endpoint=self.secondary_web_endpoint,
             secondary_web_host=self.secondary_web_host,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_account(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Storage Account.
-    
-    :param str name: Specifies the name of the Storage Account
-    :param str resource_group_name: Specifies the name of the resource group the Storage Account is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account.html.markdown.
+
+
+    :param str name: Specifies the name of the Storage Account
+    :param str resource_group_name: Specifies the name of the resource group the Storage Account is located in.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -371,14 +350,12 @@ def get_account(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetAccountResult(
         access_tier=__ret__.get('accessTier'),
-        account_encryption_source=__ret__.get('accountEncryptionSource'),
         account_kind=__ret__.get('accountKind'),
         account_replication_type=__ret__.get('accountReplicationType'),
         account_tier=__ret__.get('accountTier'),
-        custom_domain=__ret__.get('customDomain'),
-        enable_blob_encryption=__ret__.get('enableBlobEncryption'),
-        enable_file_encryption=__ret__.get('enableFileEncryption'),
+        custom_domains=__ret__.get('customDomains'),
         enable_https_traffic_only=__ret__.get('enableHttpsTrafficOnly'),
+        id=__ret__.get('id'),
         is_hns_enabled=__ret__.get('isHnsEnabled'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
@@ -415,5 +392,4 @@ def get_account(name=None,resource_group_name=None,opts=None):
         secondary_table_host=__ret__.get('secondaryTableHost'),
         secondary_web_endpoint=__ret__.get('secondaryWebEndpoint'),
         secondary_web_host=__ret__.get('secondaryWebHost'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

@@ -10,7 +10,6 @@ from typing import Union
 from .. import utilities, tables
 
 class Credential(pulumi.CustomResource):
-    account_name: pulumi.Output[str]
     automation_account_name: pulumi.Output[str]
     """
     The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
@@ -35,10 +34,12 @@ class Credential(pulumi.CustomResource):
     """
     The username associated with this Automation Credential.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, automation_account_name=None, description=None, name=None, password=None, resource_group_name=None, username=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, description=None, name=None, password=None, resource_group_name=None, username=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Automation Credential.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_credential.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
@@ -47,8 +48,6 @@ class Credential(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password associated with this Automation Credential.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Credential is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] username: The username associated with this Automation Credential.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_credential.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,7 +66,8 @@ class Credential(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['account_name'] = account_name
+            if automation_account_name is None:
+                raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
             __props__['description'] = description
             __props__['name'] = name
@@ -87,11 +87,11 @@ class Credential(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_name=None, automation_account_name=None, description=None, name=None, password=None, resource_group_name=None, username=None):
+    def get(resource_name, id, opts=None, automation_account_name=None, description=None, name=None, password=None, resource_group_name=None, username=None):
         """
         Get an existing Credential resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -101,13 +101,11 @@ class Credential(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password associated with this Automation Credential.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Credential is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] username: The username associated with this Automation Credential.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_credential.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
-        __props__["account_name"] = account_name
+
         __props__["automation_account_name"] = automation_account_name
         __props__["description"] = description
         __props__["name"] = name

@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing HDInsight Cluster.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/hdinsight_cluster.html.markdown.
 func GetCluster(ctx *pulumi.Context, args *GetClusterArgs, opts ...pulumi.InvokeOption) (*GetClusterResult, error) {
 	var rv GetClusterResult
@@ -28,7 +28,6 @@ type GetClusterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getCluster.
 type GetClusterResult struct {
 	// The version of HDInsights which is used on this HDInsight Cluster.
@@ -46,8 +45,8 @@ type GetClusterResult struct {
 	// The kind of HDInsight Cluster this is, such as a Spark or Storm cluster.
 	Kind string `pulumi:"kind"`
 	// The Azure Region in which this HDInsight Cluster exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SSH Endpoint for this HDInsight Cluster.
 	SshEndpoint string `pulumi:"sshEndpoint"`
@@ -56,4 +55,3 @@ type GetClusterResult struct {
 	// The SKU / Tier of this HDInsight Cluster.
 	Tier string `pulumi:"tier"`
 }
-

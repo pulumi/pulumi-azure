@@ -13,21 +13,19 @@ class EventHub(pulumi.CustomResource):
     capture_description: pulumi.Output[dict]
     """
     A `capture_description` block as defined below.
-    
+
       * `destination` (`dict`)
-    
         * `archiveNameFormat` (`str`)
         * `blobContainerName` (`str`)
         * `name` (`str`) - Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         * `storage_account_id` (`str`)
-    
+
       * `enabled` (`bool`)
       * `encoding` (`str`)
-      * `intervalInSeconds` (`float`)
+      * `interval_in_seconds` (`float`)
       * `sizeLimitInBytes` (`float`)
       * `skipEmptyArchives` (`bool`)
     """
-    location: pulumi.Output[str]
     message_retention: pulumi.Output[float]
     """
     Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
@@ -52,10 +50,12 @@ class EventHub(pulumi.CustomResource):
     """
     The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, capture_description=None, location=None, message_retention=None, name=None, namespace_name=None, partition_count=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, capture_description=None, message_retention=None, name=None, namespace_name=None, partition_count=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Event Hubs as a nested resource within a Event Hubs namespace.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] capture_description: A `capture_description` block as defined below.
@@ -64,23 +64,20 @@ class EventHub(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[float] partition_count: Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
-        
+
         The **capture_description** object supports the following:
-        
+
           * `destination` (`pulumi.Input[dict]`)
-        
             * `archiveNameFormat` (`pulumi.Input[str]`)
             * `blobContainerName` (`pulumi.Input[str]`)
             * `name` (`pulumi.Input[str]`) - Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
             * `storage_account_id` (`pulumi.Input[str]`)
-        
+
           * `enabled` (`pulumi.Input[bool]`)
           * `encoding` (`pulumi.Input[str]`)
-          * `intervalInSeconds` (`pulumi.Input[float]`)
+          * `interval_in_seconds` (`pulumi.Input[float]`)
           * `sizeLimitInBytes` (`pulumi.Input[float]`)
           * `skipEmptyArchives` (`pulumi.Input[bool]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -100,7 +97,6 @@ class EventHub(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['capture_description'] = capture_description
-            __props__['location'] = location
             if message_retention is None:
                 raise TypeError("Missing required property 'message_retention'")
             __props__['message_retention'] = message_retention
@@ -122,11 +118,11 @@ class EventHub(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, capture_description=None, location=None, message_retention=None, name=None, namespace_name=None, partition_count=None, partition_ids=None, resource_group_name=None):
+    def get(resource_name, id, opts=None, capture_description=None, message_retention=None, name=None, namespace_name=None, partition_count=None, partition_ids=None, resource_group_name=None):
         """
         Get an existing EventHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,29 +133,26 @@ class EventHub(pulumi.CustomResource):
         :param pulumi.Input[float] partition_count: Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[list] partition_ids: The identifiers for partitions created for Event Hubs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
-        
+
         The **capture_description** object supports the following:
-        
+
           * `destination` (`pulumi.Input[dict]`)
-        
             * `archiveNameFormat` (`pulumi.Input[str]`)
             * `blobContainerName` (`pulumi.Input[str]`)
             * `name` (`pulumi.Input[str]`) - Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
             * `storage_account_id` (`pulumi.Input[str]`)
-        
+
           * `enabled` (`pulumi.Input[bool]`)
           * `encoding` (`pulumi.Input[str]`)
-          * `intervalInSeconds` (`pulumi.Input[float]`)
+          * `interval_in_seconds` (`pulumi.Input[float]`)
           * `sizeLimitInBytes` (`pulumi.Input[float]`)
           * `skipEmptyArchives` (`pulumi.Input[bool]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["capture_description"] = capture_description
-        __props__["location"] = location
         __props__["message_retention"] = message_retention
         __props__["name"] = name
         __props__["namespace_name"] = namespace_name

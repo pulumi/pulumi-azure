@@ -7,7 +7,13 @@ from .account import *
 from .account_network_rules import *
 from .blob import *
 from .container import *
+from .customer_managed_key import *
 from .data_lake_gen2_filesystem import *
+from .get_account import *
+from .get_account_blob_container_sas import *
+from .get_account_sas import *
+from .get_policy import *
+from .get_storage_container import *
 from .management_policy import *
 from .queue import *
 from .share import *
@@ -15,8 +21,3 @@ from .share_directory import *
 from .table import *
 from .table_entity import *
 from .zip_blob import *
-from .get_account import *
-from .get_account_blob_container_sas import *
-from .get_account_sas import *
-from .get_storage_container import *
-from .get_policy import *

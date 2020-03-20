@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Notification Hub Namespace.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub_namespace.html.markdown.
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	var rv LookupNamespaceResult
@@ -28,7 +28,6 @@ type LookupNamespaceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getNamespace.
 type LookupNamespaceResult struct {
 	// Is this Notification Hub Namespace enabled?
@@ -37,13 +36,12 @@ type LookupNamespaceResult struct {
 	Id string `pulumi:"id"`
 	// The Azure Region in which this Notification Hub Namespace exists.
 	Location string `pulumi:"location"`
-	// (Required) The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard.`
+	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard.`
 	Name string `pulumi:"name"`
 	// The Type of Namespace, such as `Messaging` or `NotificationHub`.
-	NamespaceType string `pulumi:"namespaceType"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	NamespaceType      string `pulumi:"namespaceType"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	ServicebusEndpoint string `pulumi:"servicebusEndpoint"`
 	// A `sku` block as defined below.
 	Sku GetNamespaceSku `pulumi:"sku"`
 }
-

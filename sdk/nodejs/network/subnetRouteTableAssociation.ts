@@ -8,44 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Associates a Route Table with a Subnet within a Virtual Network.
- * 
- * > **NOTE:** Subnet `<->` Route Table associations currently need to be configured on both this resource and using the `routeTableId` field on the `azure.network.Subnet` resource. The next major version of the AzureRM Provider (2.0) will remove the `routeTableId` field from the `azure.network.Subnet` resource such that this resource is used to link resources in future.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleRouteTable = new azure.network.RouteTable("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     routes: [{
- *         addressPrefix: "10.100.0.0/14",
- *         name: "example",
- *         nextHopInIpAddress: "10.10.1.1",
- *         nextHopType: "VirtualAppliance",
- *     }],
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     addressPrefix: "10.0.2.0/24",
- *     resourceGroupName: exampleResourceGroup.name,
- *     routeTableId: exampleRouteTable.id,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * const exampleSubnetRouteTableAssociation = new azure.network.SubnetRouteTableAssociation("example", {
- *     routeTableId: exampleRouteTable.id,
- *     subnetId: exampleSubnet.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_route_table_association.html.markdown.
  */

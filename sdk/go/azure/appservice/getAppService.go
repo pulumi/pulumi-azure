@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing App Service.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service.html.markdown.
 func LookupAppService(ctx *pulumi.Context, args *LookupAppServiceArgs, opts ...pulumi.InvokeOption) (*LookupAppServiceResult, error) {
 	var rv LookupAppServiceResult
@@ -27,7 +27,6 @@ type LookupAppServiceArgs struct {
 	// The Name of the Resource Group where the App Service exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
-
 
 // A collection of values returned by getAppService.
 type LookupAppServiceResult struct {
@@ -57,12 +56,11 @@ type LookupAppServiceResult struct {
 	OutboundIpAddresses string `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses string `pulumi:"possibleOutboundIpAddresses"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName           string `pulumi:"resourceGroupName"`
 	// A `siteConfig` block as defined below.
-	SiteConfigs []GetAppServiceSiteConfig `pulumi:"siteConfigs"`
+	SiteConfigs     []GetAppServiceSiteConfig     `pulumi:"siteConfigs"`
 	SiteCredentials []GetAppServiceSiteCredential `pulumi:"siteCredentials"`
-	SourceControls []GetAppServiceSourceControl `pulumi:"sourceControls"`
+	SourceControls  []GetAppServiceSourceControl  `pulumi:"sourceControls"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
-

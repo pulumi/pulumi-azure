@@ -8,45 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a CosmosDB (formally DocumentDB) Account.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
- * 
- * const rg = new azure.core.ResourceGroup("rg", {
- *     location: var_resource_group_location,
- * });
- * const ri = new random.RandomInteger("ri", {
- *     max: 99999,
- *     min: 10000,
- * });
- * const db = new azure.cosmosdb.Account("db", {
- *     consistencyPolicy: {
- *         consistencyLevel: "BoundedStaleness",
- *         maxIntervalInSeconds: 10,
- *         maxStalenessPrefix: 200,
- *     },
- *     enableAutomaticFailover: true,
- *     geoLocations: [
- *         {
- *             failoverPriority: 1,
- *             location: var_failover_location,
- *         },
- *         {
- *             failoverPriority: 0,
- *             location: rg.location,
- *             prefix: pulumi.interpolate`tfex-cosmos-db-${ri.result}-customid`,
- *         },
- *     ],
- *     kind: "GlobalDocumentDB",
- *     location: rg.location,
- *     offerType: "Standard",
- *     resourceGroupName: rg.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_account.html.markdown.
  */
@@ -101,7 +62,6 @@ export class Account extends pulumi.CustomResource {
      * The endpoint used to connect to the CosmosDB account.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
-    public readonly failoverPolicies!: pulumi.Output<outputs.cosmosdb.AccountFailoverPolicy[] | undefined>;
     /**
      * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
      */
@@ -157,7 +117,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
      */
@@ -185,7 +145,6 @@ export class Account extends pulumi.CustomResource {
             inputs["enableAutomaticFailover"] = state ? state.enableAutomaticFailover : undefined;
             inputs["enableMultipleWriteLocations"] = state ? state.enableMultipleWriteLocations : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["failoverPolicies"] = state ? state.failoverPolicies : undefined;
             inputs["geoLocations"] = state ? state.geoLocations : undefined;
             inputs["ipRangeFilter"] = state ? state.ipRangeFilter : undefined;
             inputs["isVirtualNetworkFilterEnabled"] = state ? state.isVirtualNetworkFilterEnabled : undefined;
@@ -207,6 +166,9 @@ export class Account extends pulumi.CustomResource {
             if (!args || args.consistencyPolicy === undefined) {
                 throw new Error("Missing required property 'consistencyPolicy'");
             }
+            if (!args || args.geoLocations === undefined) {
+                throw new Error("Missing required property 'geoLocations'");
+            }
             if (!args || args.offerType === undefined) {
                 throw new Error("Missing required property 'offerType'");
             }
@@ -217,7 +179,6 @@ export class Account extends pulumi.CustomResource {
             inputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
             inputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
             inputs["enableMultipleWriteLocations"] = args ? args.enableMultipleWriteLocations : undefined;
-            inputs["failoverPolicies"] = args ? args.failoverPolicies : undefined;
             inputs["geoLocations"] = args ? args.geoLocations : undefined;
             inputs["ipRangeFilter"] = args ? args.ipRangeFilter : undefined;
             inputs["isVirtualNetworkFilterEnabled"] = args ? args.isVirtualNetworkFilterEnabled : undefined;
@@ -276,7 +237,6 @@ export interface AccountState {
      * The endpoint used to connect to the CosmosDB account.
      */
     readonly endpoint?: pulumi.Input<string>;
-    readonly failoverPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountFailoverPolicy>[]>;
     /**
      * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
      */
@@ -363,11 +323,10 @@ export interface AccountArgs {
      * Enable multi-master support for this Cosmos DB account.
      */
     readonly enableMultipleWriteLocations?: pulumi.Input<boolean>;
-    readonly failoverPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountFailoverPolicy>[]>;
     /**
      * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
      */
-    readonly geoLocations?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountGeoLocation>[]>;
+    readonly geoLocations: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountGeoLocation>[]>;
     /**
      * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */

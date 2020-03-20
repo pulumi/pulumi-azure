@@ -57,7 +57,7 @@ export interface GetResourcesResult {
      * The name of this Resource.
      */
     readonly name: string;
-    readonly requiredTags: {[key: string]: string};
+    readonly requiredTags?: {[key: string]: string};
     readonly resourceGroupName: string;
     /**
      * One or more `resource` blocks as defined below.

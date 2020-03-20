@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Gremlin Database within a Cosmos DB Account.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_gremlin_database.html.markdown.
 type GremlinDatabase struct {
 	pulumi.CustomResourceState
@@ -23,7 +23,7 @@ type GremlinDatabase struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	Throughput pulumi.IntOutput `pulumi:"throughput"`
+	Throughput        pulumi.IntOutput    `pulumi:"throughput"`
 }
 
 // NewGremlinDatabase registers a new resource with the given unique name, arguments, and options.
@@ -66,7 +66,7 @@ type gremlinDatabaseState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int    `pulumi:"throughput"`
 }
 
 type GremlinDatabaseState struct {
@@ -76,7 +76,7 @@ type GremlinDatabaseState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	Throughput pulumi.IntPtrInput
+	Throughput        pulumi.IntPtrInput
 }
 
 func (GremlinDatabaseState) ElementType() reflect.Type {
@@ -90,7 +90,7 @@ type gremlinDatabaseArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int   `pulumi:"throughput"`
 }
 
 // The set of arguments for constructing a GremlinDatabase resource.
@@ -101,10 +101,9 @@ type GremlinDatabaseArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Throughput pulumi.IntPtrInput
+	Throughput        pulumi.IntPtrInput
 }
 
 func (GremlinDatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gremlinDatabaseArgs)(nil)).Elem()
 }
-

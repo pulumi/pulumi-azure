@@ -13,7 +13,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, capabilities=None, consistency_policies=None, enable_automatic_failover=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, resource_group_name=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, virtual_network_rules=None, write_endpoints=None, id=None):
+    def __init__(__self__, capabilities=None, consistency_policies=None, enable_automatic_failover=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, id=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, resource_group_name=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, virtual_network_rules=None, write_endpoints=None):
         if capabilities and not isinstance(capabilities, list):
             raise TypeError("Expected argument 'capabilities' to be a list")
         __self__.capabilities = capabilities
@@ -44,6 +44,12 @@ class GetAccountResult:
         if geo_locations and not isinstance(geo_locations, list):
             raise TypeError("Expected argument 'geo_locations' to be a list")
         __self__.geo_locations = geo_locations
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if ip_range_filter and not isinstance(ip_range_filter, str):
             raise TypeError("Expected argument 'ip_range_filter' to be a str")
         __self__.ip_range_filter = ip_range_filter
@@ -128,12 +134,6 @@ class GetAccountResult:
         """
         A list of write endpoints available for this CosmosDB account.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAccountResult(GetAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -146,6 +146,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             enable_multiple_write_locations=self.enable_multiple_write_locations,
             endpoint=self.endpoint,
             geo_locations=self.geo_locations,
+            id=self.id,
             ip_range_filter=self.ip_range_filter,
             is_virtual_network_filter_enabled=self.is_virtual_network_filter_enabled,
             kind=self.kind,
@@ -160,19 +161,20 @@ class AwaitableGetAccountResult(GetAccountResult):
             secondary_readonly_master_key=self.secondary_readonly_master_key,
             tags=self.tags,
             virtual_network_rules=self.virtual_network_rules,
-            write_endpoints=self.write_endpoints,
-            id=self.id)
+            write_endpoints=self.write_endpoints)
 
 def get_account(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
-    
-    :param str name: Specifies the name of the CosmosDB Account.
-    :param str resource_group_name: Specifies the name of the resource group in which the CosmosDB Account resides.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cosmosdb_account.html.markdown.
+
+
+    :param str name: Specifies the name of the CosmosDB Account.
+    :param str resource_group_name: Specifies the name of the resource group in which the CosmosDB Account resides.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -189,6 +191,7 @@ def get_account(name=None,resource_group_name=None,opts=None):
         enable_multiple_write_locations=__ret__.get('enableMultipleWriteLocations'),
         endpoint=__ret__.get('endpoint'),
         geo_locations=__ret__.get('geoLocations'),
+        id=__ret__.get('id'),
         ip_range_filter=__ret__.get('ipRangeFilter'),
         is_virtual_network_filter_enabled=__ret__.get('isVirtualNetworkFilterEnabled'),
         kind=__ret__.get('kind'),
@@ -203,5 +206,4 @@ def get_account(name=None,resource_group_name=None,opts=None):
         secondary_readonly_master_key=__ret__.get('secondaryReadonlyMasterKey'),
         tags=__ret__.get('tags'),
         virtual_network_rules=__ret__.get('virtualNetworkRules'),
-        write_endpoints=__ret__.get('writeEndpoints'),
-        id=__ret__.get('id'))
+        write_endpoints=__ret__.get('writeEndpoints'))

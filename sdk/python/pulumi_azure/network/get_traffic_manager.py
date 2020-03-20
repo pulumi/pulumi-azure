@@ -13,34 +13,36 @@ class GetTrafficManagerResult:
     """
     A collection of values returned by getTrafficManager.
     """
-    def __init__(__self__, name=None, id=None):
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+    def __init__(__self__, id=None, name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        __self__.name = name
 class AwaitableGetTrafficManagerResult(GetTrafficManagerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetTrafficManagerResult(
-            name=self.name,
-            id=self.id)
+            id=self.id,
+            name=self.name)
 
 def get_traffic_manager(name=None,opts=None):
     """
     Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
-    
-    :param str name: Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/traffic_manager_geographical_location.html.markdown.
+
+
+    :param str name: Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -50,5 +52,5 @@ def get_traffic_manager(name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('azure:network/getTrafficManager:getTrafficManager', __args__, opts=opts).value
 
     return AwaitableGetTrafficManagerResult(
-        name=__ret__.get('name'),
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        name=__ret__.get('name'))

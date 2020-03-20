@@ -12,7 +12,7 @@ import (
 )
 
 // Allows you to manage an Azure SQL Firewall Rule
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_firewall_rule.html.markdown.
 type FirewallRule struct {
 	pulumi.CustomResourceState
@@ -133,4 +133,3 @@ type FirewallRuleArgs struct {
 func (FirewallRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallRuleArgs)(nil)).Elem()
 }
-

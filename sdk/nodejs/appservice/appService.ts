@@ -7,6 +7,10 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Manages an App Service (within an App Service Plan).
+ * 
+ * > **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service.html.markdown.
  */
 export class AppService extends pulumi.CustomResource {
@@ -48,6 +52,9 @@ export class AppService extends pulumi.CustomResource {
      * A `authSettings` block as defined below.
      */
     public readonly authSettings!: pulumi.Output<outputs.appservice.AppServiceAuthSettings>;
+    /**
+     * A `backup` block as defined below.
+     */
     public readonly backup!: pulumi.Output<outputs.appservice.AppServiceBackup | undefined>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
@@ -108,11 +115,11 @@ export class AppService extends pulumi.CustomResource {
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    public /*out*/ readonly siteCredential!: pulumi.Output<outputs.appservice.AppServiceSiteCredential>;
+    public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.appservice.AppServiceSiteCredential[]>;
     /**
      * A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
      */
-    public /*out*/ readonly sourceControl!: pulumi.Output<outputs.appservice.AppServiceSourceControl>;
+    public /*out*/ readonly sourceControls!: pulumi.Output<outputs.appservice.AppServiceSourceControl[]>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */
@@ -120,7 +127,7 @@ export class AppService extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a AppService resource with the given unique name, arguments, and options.
@@ -152,8 +159,8 @@ export class AppService extends pulumi.CustomResource {
             inputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["siteConfig"] = state ? state.siteConfig : undefined;
-            inputs["siteCredential"] = state ? state.siteCredential : undefined;
-            inputs["sourceControl"] = state ? state.sourceControl : undefined;
+            inputs["siteCredentials"] = state ? state.siteCredentials : undefined;
+            inputs["sourceControls"] = state ? state.sourceControls : undefined;
             inputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -184,8 +191,8 @@ export class AppService extends pulumi.CustomResource {
             inputs["defaultSiteHostname"] = undefined /*out*/;
             inputs["outboundIpAddresses"] = undefined /*out*/;
             inputs["possibleOutboundIpAddresses"] = undefined /*out*/;
-            inputs["siteCredential"] = undefined /*out*/;
-            inputs["sourceControl"] = undefined /*out*/;
+            inputs["siteCredentials"] = undefined /*out*/;
+            inputs["sourceControls"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -214,6 +221,9 @@ export interface AppServiceState {
      * A `authSettings` block as defined below.
      */
     readonly authSettings?: pulumi.Input<inputs.appservice.AppServiceAuthSettings>;
+    /**
+     * A `backup` block as defined below.
+     */
     readonly backup?: pulumi.Input<inputs.appservice.AppServiceBackup>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
@@ -274,11 +284,11 @@ export interface AppServiceState {
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    readonly siteCredential?: pulumi.Input<inputs.appservice.AppServiceSiteCredential>;
+    readonly siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceSiteCredential>[]>;
     /**
      * A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
      */
-    readonly sourceControl?: pulumi.Input<inputs.appservice.AppServiceSourceControl>;
+    readonly sourceControls?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceSourceControl>[]>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */
@@ -305,6 +315,9 @@ export interface AppServiceArgs {
      * A `authSettings` block as defined below.
      */
     readonly authSettings?: pulumi.Input<inputs.appservice.AppServiceAuthSettings>;
+    /**
+     * A `backup` block as defined below.
+     */
     readonly backup?: pulumi.Input<inputs.appservice.AppServiceBackup>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?

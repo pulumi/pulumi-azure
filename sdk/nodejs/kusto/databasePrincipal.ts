@@ -43,7 +43,7 @@ export class DatabasePrincipal extends pulumi.CustomResource {
      */
     public /*out*/ readonly appId!: pulumi.Output<string>;
     /**
-     * The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created. 
+     * The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created.
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
@@ -67,7 +67,7 @@ export class DatabasePrincipal extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * An Object ID of a User, Group, or App. Changing this forces a new resource to be created. 
+     * An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
      */
     public readonly objectId!: pulumi.Output<string>;
     /**
@@ -161,7 +161,7 @@ export interface DatabasePrincipalState {
      */
     readonly appId?: pulumi.Input<string>;
     /**
-     * The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created. 
+     * The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created.
      */
     readonly clientId?: pulumi.Input<string>;
     /**
@@ -185,7 +185,7 @@ export interface DatabasePrincipalState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * An Object ID of a User, Group, or App. Changing this forces a new resource to be created. 
+     * An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
      */
     readonly objectId?: pulumi.Input<string>;
     /**
@@ -207,7 +207,7 @@ export interface DatabasePrincipalState {
  */
 export interface DatabasePrincipalArgs {
     /**
-     * The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created. 
+     * The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created.
      */
     readonly clientId: pulumi.Input<string>;
     /**
@@ -219,7 +219,7 @@ export interface DatabasePrincipalArgs {
      */
     readonly databaseName: pulumi.Input<string>;
     /**
-     * An Object ID of a User, Group, or App. Changing this forces a new resource to be created. 
+     * An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
      */
     readonly objectId: pulumi.Input<string>;
     /**

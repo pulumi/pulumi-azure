@@ -12,18 +12,18 @@ import (
 )
 
 // Manages an IotHub ServiceBus Topic Endpoint
-// 
+//
 // > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_endpoint_servicebus_topic.html.markdown.
 type EndpointServicebusTopic struct {
 	pulumi.CustomResourceState
 
 	// The connection string for the endpoint.
 	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
-	IothubName pulumi.StringOutput `pulumi:"iothubName"`
+	IothubName       pulumi.StringOutput `pulumi:"iothubName"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name              pulumi.StringOutput `pulumi:"name"`
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
@@ -66,18 +66,18 @@ func GetEndpointServicebusTopic(ctx *pulumi.Context,
 type endpointServicebusTopicState struct {
 	// The connection string for the endpoint.
 	ConnectionString *string `pulumi:"connectionString"`
-	IothubName *string `pulumi:"iothubName"`
+	IothubName       *string `pulumi:"iothubName"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-	Name *string `pulumi:"name"`
+	Name              *string `pulumi:"name"`
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 type EndpointServicebusTopicState struct {
 	// The connection string for the endpoint.
 	ConnectionString pulumi.StringPtrInput
-	IothubName pulumi.StringPtrInput
+	IothubName       pulumi.StringPtrInput
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-	Name pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringPtrInput
 }
 
@@ -88,23 +88,22 @@ func (EndpointServicebusTopicState) ElementType() reflect.Type {
 type endpointServicebusTopicArgs struct {
 	// The connection string for the endpoint.
 	ConnectionString string `pulumi:"connectionString"`
-	IothubName string `pulumi:"iothubName"`
+	IothubName       string `pulumi:"iothubName"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-	Name *string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Name              *string `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a EndpointServicebusTopic resource.
 type EndpointServicebusTopicArgs struct {
 	// The connection string for the endpoint.
 	ConnectionString pulumi.StringInput
-	IothubName pulumi.StringInput
+	IothubName       pulumi.StringInput
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-	Name pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 
 func (EndpointServicebusTopicArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointServicebusTopicArgs)(nil)).Elem()
 }
-

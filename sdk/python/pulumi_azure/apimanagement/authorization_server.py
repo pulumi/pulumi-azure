@@ -86,7 +86,9 @@ class AuthorizationServer(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, api_management_name=None, authorization_endpoint=None, authorization_methods=None, bearer_token_sending_methods=None, client_authentication_methods=None, client_id=None, client_registration_endpoint=None, client_secret=None, default_scope=None, description=None, display_name=None, grant_types=None, name=None, resource_group_name=None, resource_owner_password=None, resource_owner_username=None, support_state=None, token_body_parameters=None, token_endpoint=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Authorization Server within an API Management Service.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_authorization_server.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
@@ -107,13 +109,11 @@ class AuthorizationServer(pulumi.CustomResource):
         :param pulumi.Input[str] resource_owner_username: The username associated with the Resource Owner.
         :param pulumi.Input[bool] support_state: Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
         :param pulumi.Input[str] token_endpoint: The OAUTH Token Endpoint.
-        
+
         The **token_body_parameters** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of this Authorization Server. Changing this forces a new resource to be created.
           * `value` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_authorization_server.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -178,7 +178,7 @@ class AuthorizationServer(pulumi.CustomResource):
         """
         Get an existing AuthorizationServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,17 +200,16 @@ class AuthorizationServer(pulumi.CustomResource):
         :param pulumi.Input[str] resource_owner_username: The username associated with the Resource Owner.
         :param pulumi.Input[bool] support_state: Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
         :param pulumi.Input[str] token_endpoint: The OAUTH Token Endpoint.
-        
+
         The **token_body_parameters** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of this Authorization Server. Changing this forces a new resource to be created.
           * `value` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_authorization_server.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["api_management_name"] = api_management_name
         __props__["authorization_endpoint"] = authorization_endpoint
         __props__["authorization_methods"] = authorization_methods

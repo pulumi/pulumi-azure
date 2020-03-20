@@ -12,9 +12,9 @@ import (
 )
 
 // Manages a ServiceBus Topic.
-// 
+//
 // **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic.html.markdown.
 type Topic struct {
 	pulumi.CustomResourceState
@@ -35,14 +35,10 @@ type Topic struct {
 	// are enabled. An express topic holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to false.
 	EnableExpress pulumi.BoolPtrOutput `pulumi:"enableExpress"`
-	EnableFilteringMessagesBeforePublishing pulumi.BoolPtrOutput `pulumi:"enableFilteringMessagesBeforePublishing"`
 	// Boolean flag which controls whether to enable
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning pulumi.BoolPtrOutput `pulumi:"enablePartitioning"`
-	// Specifies the supported Azure location where the resource exists.
-	// Changing this forces a new resource to be created.
-	Location pulumi.StringOutput `pulumi:"location"`
 	// Integer value which controls the size of
 	// memory allocated for the topic. For supported values see the "Queue/topic size"
 	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -117,14 +113,10 @@ type topicState struct {
 	// are enabled. An express topic holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to false.
 	EnableExpress *bool `pulumi:"enableExpress"`
-	EnableFilteringMessagesBeforePublishing *bool `pulumi:"enableFilteringMessagesBeforePublishing"`
 	// Boolean flag which controls whether to enable
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
-	// Specifies the supported Azure location where the resource exists.
-	// Changing this forces a new resource to be created.
-	Location *string `pulumi:"location"`
 	// Integer value which controls the size of
 	// memory allocated for the topic. For supported values see the "Queue/topic size"
 	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -166,14 +158,10 @@ type TopicState struct {
 	// are enabled. An express topic holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to false.
 	EnableExpress pulumi.BoolPtrInput
-	EnableFilteringMessagesBeforePublishing pulumi.BoolPtrInput
 	// Boolean flag which controls whether to enable
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning pulumi.BoolPtrInput
-	// Specifies the supported Azure location where the resource exists.
-	// Changing this forces a new resource to be created.
-	Location pulumi.StringPtrInput
 	// Integer value which controls the size of
 	// memory allocated for the topic. For supported values see the "Queue/topic size"
 	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -219,14 +207,10 @@ type topicArgs struct {
 	// are enabled. An express topic holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to false.
 	EnableExpress *bool `pulumi:"enableExpress"`
-	EnableFilteringMessagesBeforePublishing *bool `pulumi:"enableFilteringMessagesBeforePublishing"`
 	// Boolean flag which controls whether to enable
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
-	// Specifies the supported Azure location where the resource exists.
-	// Changing this forces a new resource to be created.
-	Location *string `pulumi:"location"`
 	// Integer value which controls the size of
 	// memory allocated for the topic. For supported values see the "Queue/topic size"
 	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -269,14 +253,10 @@ type TopicArgs struct {
 	// are enabled. An express topic holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to false.
 	EnableExpress pulumi.BoolPtrInput
-	EnableFilteringMessagesBeforePublishing pulumi.BoolPtrInput
 	// Boolean flag which controls whether to enable
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning pulumi.BoolPtrInput
-	// Specifies the supported Azure location where the resource exists.
-	// Changing this forces a new resource to be created.
-	Location pulumi.StringPtrInput
 	// Integer value which controls the size of
 	// memory allocated for the topic. For supported values see the "Queue/topic size"
 	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -304,4 +284,3 @@ type TopicArgs struct {
 func (TopicArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicArgs)(nil)).Elem()
 }
-

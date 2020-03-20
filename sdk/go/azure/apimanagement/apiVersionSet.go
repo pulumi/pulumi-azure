@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an API Version Set within an API Management Service.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_version_set.html.markdown.
 type ApiVersionSet struct {
 	pulumi.CustomResourceState
@@ -158,4 +158,3 @@ type ApiVersionSetArgs struct {
 func (ApiVersionSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiVersionSetArgs)(nil)).Elem()
 }
-

@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Shared Image within a Shared Image Gallery.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image.html.markdown.
 type SharedImage struct {
 	pulumi.CustomResourceState
@@ -188,4 +188,3 @@ type SharedImageArgs struct {
 func (SharedImageArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sharedImageArgs)(nil)).Elem()
 }
-

@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Dedicated Host.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dedicated_host.html.markdown.
 func LookupDedicatedHost(ctx *pulumi.Context, args *LookupDedicatedHostArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHostResult, error) {
 	var rv LookupDedicatedHostResult
@@ -30,17 +30,15 @@ type LookupDedicatedHostArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getDedicatedHost.
 type LookupDedicatedHostResult struct {
 	DedicatedHostGroupName string `pulumi:"dedicatedHostGroupName"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The location where the Dedicated Host exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the Dedicated Host.
 	Tags map[string]string `pulumi:"tags"`
 }
-

@@ -8,33 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Operation within an API Management Service.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleApi = azure.apimanagement.getApi({
- *     apiManagementName: "search-api-management",
- *     name: "search-api",
- *     resourceGroupName: "search-service",
- *     revision: "2",
- * });
- * const exampleApiOperation = new azure.apimanagement.ApiOperation("example", {
- *     apiManagementName: exampleApi.apiManagementName,
- *     apiName: exampleApi.name,
- *     description: "This can only be done by the logged in user.",
- *     displayName: "Delete User Operation",
- *     method: "DELETE",
- *     operationId: "user-delete",
- *     resourceGroupName: exampleApi.resourceGroupName,
- *     responses: [{
- *         statusCode: 200,
- *     }],
- *     urlTemplate: "/users/{id}/delete",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_operation.html.markdown.
  */

@@ -12,10 +12,10 @@ import (
 )
 
 // Manages a SQL Azure Database Server.
-// 
+//
 // > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_server.html.markdown.
 type SqlServer struct {
 	pulumi.CustomResourceState
@@ -24,6 +24,8 @@ type SqlServer struct {
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringOutput `pulumi:"administratorLoginPassword"`
+	// A `extendedAuditingPolicy` block as defined below.
+	ExtendedAuditingPolicy SqlServerExtendedAuditingPolicyPtrOutput `pulumi:"extendedAuditingPolicy"`
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
 	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
 	// An `identity` block as defined below.
@@ -84,6 +86,8 @@ type sqlServerState struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// A `extendedAuditingPolicy` block as defined below.
+	ExtendedAuditingPolicy *SqlServerExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
 	// An `identity` block as defined below.
@@ -105,6 +109,8 @@ type SqlServerState struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringPtrInput
+	// A `extendedAuditingPolicy` block as defined below.
+	ExtendedAuditingPolicy SqlServerExtendedAuditingPolicyPtrInput
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
 	FullyQualifiedDomainName pulumi.StringPtrInput
 	// An `identity` block as defined below.
@@ -130,6 +136,8 @@ type sqlServerArgs struct {
 	AdministratorLogin string `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
+	// A `extendedAuditingPolicy` block as defined below.
+	ExtendedAuditingPolicy *SqlServerExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
 	// An `identity` block as defined below.
 	Identity *SqlServerIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -150,6 +158,8 @@ type SqlServerArgs struct {
 	AdministratorLogin pulumi.StringInput
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringInput
+	// A `extendedAuditingPolicy` block as defined below.
+	ExtendedAuditingPolicy SqlServerExtendedAuditingPolicyPtrInput
 	// An `identity` block as defined below.
 	Identity SqlServerIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -167,4 +177,3 @@ type SqlServerArgs struct {
 func (SqlServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlServerArgs)(nil)).Elem()
 }
-

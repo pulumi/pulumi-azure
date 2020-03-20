@@ -12,12 +12,12 @@ import (
 )
 
 type AccountActiveDirectory struct {
-	DnsServers []string `pulumi:"dnsServers"`
-	Domain string `pulumi:"domain"`
-	OrganizationalUnit *string `pulumi:"organizationalUnit"`
-	Password string `pulumi:"password"`
-	SmbServerName string `pulumi:"smbServerName"`
-	Username string `pulumi:"username"`
+	DnsServers         []string `pulumi:"dnsServers"`
+	Domain             string   `pulumi:"domain"`
+	OrganizationalUnit *string  `pulumi:"organizationalUnit"`
+	Password           string   `pulumi:"password"`
+	SmbServerName      string   `pulumi:"smbServerName"`
+	Username           string   `pulumi:"username"`
 }
 
 type AccountActiveDirectoryInput interface {
@@ -28,12 +28,12 @@ type AccountActiveDirectoryInput interface {
 }
 
 type AccountActiveDirectoryArgs struct {
-	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	Domain pulumi.StringInput `pulumi:"domain"`
-	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
-	Password pulumi.StringInput `pulumi:"password"`
-	SmbServerName pulumi.StringInput `pulumi:"smbServerName"`
-	Username pulumi.StringInput `pulumi:"username"`
+	DnsServers         pulumi.StringArrayInput `pulumi:"dnsServers"`
+	Domain             pulumi.StringInput      `pulumi:"domain"`
+	OrganizationalUnit pulumi.StringPtrInput   `pulumi:"organizationalUnit"`
+	Password           pulumi.StringInput      `pulumi:"password"`
+	SmbServerName      pulumi.StringInput      `pulumi:"smbServerName"`
+	Username           pulumi.StringInput      `pulumi:"username"`
 }
 
 func (AccountActiveDirectoryArgs) ElementType() reflect.Type {
@@ -65,7 +65,8 @@ type AccountActiveDirectoryPtrInput interface {
 
 type accountActiveDirectoryPtrType AccountActiveDirectoryArgs
 
-func AccountActiveDirectoryPtr(v *AccountActiveDirectoryArgs) AccountActiveDirectoryPtrInput {	return (*accountActiveDirectoryPtrType)(v)
+func AccountActiveDirectoryPtr(v *AccountActiveDirectoryArgs) AccountActiveDirectoryPtrInput {
+	return (*accountActiveDirectoryPtrType)(v)
 }
 
 func (*accountActiveDirectoryPtrType) ElementType() reflect.Type {
@@ -80,7 +81,7 @@ func (i *accountActiveDirectoryPtrType) ToAccountActiveDirectoryPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AccountActiveDirectoryPtrOutput)
 }
 
-type AccountActiveDirectoryOutput struct { *pulumi.OutputState }
+type AccountActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (AccountActiveDirectoryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountActiveDirectory)(nil)).Elem()
@@ -104,30 +105,30 @@ func (o AccountActiveDirectoryOutput) ToAccountActiveDirectoryPtrOutputWithConte
 	}).(AccountActiveDirectoryPtrOutput)
 }
 func (o AccountActiveDirectoryOutput) DnsServers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
 func (o AccountActiveDirectoryOutput) Domain() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) string { return v.Domain }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Domain }).(pulumi.StringOutput)
 }
 
 func (o AccountActiveDirectoryOutput) OrganizationalUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
 }
 
 func (o AccountActiveDirectoryOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o AccountActiveDirectoryOutput) SmbServerName() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) string { return v.SmbServerName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) string { return v.SmbServerName }).(pulumi.StringOutput)
 }
 
 func (o AccountActiveDirectoryOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type AccountActiveDirectoryPtrOutput struct { *pulumi.OutputState}
+type AccountActiveDirectoryPtrOutput struct{ *pulumi.OutputState }
 
 func (AccountActiveDirectoryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountActiveDirectory)(nil)).Elem()
@@ -142,41 +143,42 @@ func (o AccountActiveDirectoryPtrOutput) ToAccountActiveDirectoryPtrOutputWithCo
 }
 
 func (o AccountActiveDirectoryPtrOutput) Elem() AccountActiveDirectoryOutput {
-	return o.ApplyT(func (v *AccountActiveDirectory) AccountActiveDirectory { return *v }).(AccountActiveDirectoryOutput)
+	return o.ApplyT(func(v *AccountActiveDirectory) AccountActiveDirectory { return *v }).(AccountActiveDirectoryOutput)
 }
 
 func (o AccountActiveDirectoryPtrOutput) DnsServers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
 func (o AccountActiveDirectoryPtrOutput) Domain() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) string { return v.Domain }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Domain }).(pulumi.StringOutput)
 }
 
 func (o AccountActiveDirectoryPtrOutput) OrganizationalUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
 }
 
 func (o AccountActiveDirectoryPtrOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o AccountActiveDirectoryPtrOutput) SmbServerName() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) string { return v.SmbServerName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) string { return v.SmbServerName }).(pulumi.StringOutput)
 }
 
 func (o AccountActiveDirectoryPtrOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Username }).(pulumi.StringOutput)
 }
 
 type VolumeExportPolicyRule struct {
-	AllowedClients []string `pulumi:"allowedClients"`
-	CifsEnabled bool `pulumi:"cifsEnabled"`
-	Nfsv3Enabled bool `pulumi:"nfsv3Enabled"`
-	Nfsv4Enabled bool `pulumi:"nfsv4Enabled"`
-	RuleIndex int `pulumi:"ruleIndex"`
-	UnixReadOnly *bool `pulumi:"unixReadOnly"`
-	UnixReadWrite *bool `pulumi:"unixReadWrite"`
+	AllowedClients   []string `pulumi:"allowedClients"`
+	CifsEnabled      *bool    `pulumi:"cifsEnabled"`
+	Nfsv3Enabled     *bool    `pulumi:"nfsv3Enabled"`
+	Nfsv4Enabled     *bool    `pulumi:"nfsv4Enabled"`
+	ProtocolsEnabled *string  `pulumi:"protocolsEnabled"`
+	RuleIndex        int      `pulumi:"ruleIndex"`
+	UnixReadOnly     *bool    `pulumi:"unixReadOnly"`
+	UnixReadWrite    *bool    `pulumi:"unixReadWrite"`
 }
 
 type VolumeExportPolicyRuleInput interface {
@@ -187,13 +189,14 @@ type VolumeExportPolicyRuleInput interface {
 }
 
 type VolumeExportPolicyRuleArgs struct {
-	AllowedClients pulumi.StringArrayInput `pulumi:"allowedClients"`
-	CifsEnabled pulumi.BoolInput `pulumi:"cifsEnabled"`
-	Nfsv3Enabled pulumi.BoolInput `pulumi:"nfsv3Enabled"`
-	Nfsv4Enabled pulumi.BoolInput `pulumi:"nfsv4Enabled"`
-	RuleIndex pulumi.IntInput `pulumi:"ruleIndex"`
-	UnixReadOnly pulumi.BoolPtrInput `pulumi:"unixReadOnly"`
-	UnixReadWrite pulumi.BoolPtrInput `pulumi:"unixReadWrite"`
+	AllowedClients   pulumi.StringArrayInput `pulumi:"allowedClients"`
+	CifsEnabled      pulumi.BoolPtrInput     `pulumi:"cifsEnabled"`
+	Nfsv3Enabled     pulumi.BoolPtrInput     `pulumi:"nfsv3Enabled"`
+	Nfsv4Enabled     pulumi.BoolPtrInput     `pulumi:"nfsv4Enabled"`
+	ProtocolsEnabled pulumi.StringPtrInput   `pulumi:"protocolsEnabled"`
+	RuleIndex        pulumi.IntInput         `pulumi:"ruleIndex"`
+	UnixReadOnly     pulumi.BoolPtrInput     `pulumi:"unixReadOnly"`
+	UnixReadWrite    pulumi.BoolPtrInput     `pulumi:"unixReadWrite"`
 }
 
 func (VolumeExportPolicyRuleArgs) ElementType() reflect.Type {
@@ -229,7 +232,7 @@ func (i VolumeExportPolicyRuleArray) ToVolumeExportPolicyRuleArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeExportPolicyRuleArrayOutput)
 }
 
-type VolumeExportPolicyRuleOutput struct { *pulumi.OutputState }
+type VolumeExportPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (VolumeExportPolicyRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VolumeExportPolicyRule)(nil)).Elem()
@@ -244,34 +247,38 @@ func (o VolumeExportPolicyRuleOutput) ToVolumeExportPolicyRuleOutputWithContext(
 }
 
 func (o VolumeExportPolicyRuleOutput) AllowedClients() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v VolumeExportPolicyRule) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
 }
 
-func (o VolumeExportPolicyRuleOutput) CifsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) bool { return v.CifsEnabled }).(pulumi.BoolOutput)
+func (o VolumeExportPolicyRuleOutput) CifsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.CifsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o VolumeExportPolicyRuleOutput) Nfsv3Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) bool { return v.Nfsv3Enabled }).(pulumi.BoolOutput)
+func (o VolumeExportPolicyRuleOutput) Nfsv3Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.Nfsv3Enabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o VolumeExportPolicyRuleOutput) Nfsv4Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) bool { return v.Nfsv4Enabled }).(pulumi.BoolOutput)
+func (o VolumeExportPolicyRuleOutput) Nfsv4Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.Nfsv4Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o VolumeExportPolicyRuleOutput) ProtocolsEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeExportPolicyRule) *string { return v.ProtocolsEnabled }).(pulumi.StringPtrOutput)
 }
 
 func (o VolumeExportPolicyRuleOutput) RuleIndex() pulumi.IntOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) int { return v.RuleIndex }).(pulumi.IntOutput)
+	return o.ApplyT(func(v VolumeExportPolicyRule) int { return v.RuleIndex }).(pulumi.IntOutput)
 }
 
 func (o VolumeExportPolicyRuleOutput) UnixReadOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) *bool { return v.UnixReadOnly }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.UnixReadOnly }).(pulumi.BoolPtrOutput)
 }
 
 func (o VolumeExportPolicyRuleOutput) UnixReadWrite() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) *bool { return v.UnixReadWrite }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.UnixReadWrite }).(pulumi.BoolPtrOutput)
 }
 
-type VolumeExportPolicyRuleArrayOutput struct { *pulumi.OutputState}
+type VolumeExportPolicyRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (VolumeExportPolicyRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]VolumeExportPolicyRule)(nil)).Elem()
@@ -286,7 +293,7 @@ func (o VolumeExportPolicyRuleArrayOutput) ToVolumeExportPolicyRuleArrayOutputWi
 }
 
 func (o VolumeExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) VolumeExportPolicyRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) VolumeExportPolicyRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeExportPolicyRule {
 		return vs[0].([]VolumeExportPolicyRule)[vs[1].(int)]
 	}).(VolumeExportPolicyRuleOutput)
 }

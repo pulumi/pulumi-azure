@@ -12,12 +12,12 @@ import (
 )
 
 // Manages a shared dashboard in the Azure Portal.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dashboard.html.markdown.
 type Dashboard struct {
 	pulumi.CustomResourceState
 
-	// JSON data representing dashboard body. See above for details on how to obtain this from the Portal. 
+	// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
 	DashboardProperties pulumi.StringOutput `pulumi:"dashboardProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -61,7 +61,7 @@ func GetDashboard(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Dashboard resources.
 type dashboardState struct {
-	// JSON data representing dashboard body. See above for details on how to obtain this from the Portal. 
+	// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
 	DashboardProperties *string `pulumi:"dashboardProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -75,7 +75,7 @@ type dashboardState struct {
 }
 
 type DashboardState struct {
-	// JSON data representing dashboard body. See above for details on how to obtain this from the Portal. 
+	// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
 	DashboardProperties pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -93,7 +93,7 @@ func (DashboardState) ElementType() reflect.Type {
 }
 
 type dashboardArgs struct {
-	// JSON data representing dashboard body. See above for details on how to obtain this from the Portal. 
+	// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
 	DashboardProperties *string `pulumi:"dashboardProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -108,7 +108,7 @@ type dashboardArgs struct {
 
 // The set of arguments for constructing a Dashboard resource.
 type DashboardArgs struct {
-	// JSON data representing dashboard body. See above for details on how to obtain this from the Portal. 
+	// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
 	DashboardProperties pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -124,4 +124,3 @@ type DashboardArgs struct {
 func (DashboardArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dashboardArgs)(nil)).Elem()
 }
-

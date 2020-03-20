@@ -8,43 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a custom virtual machine image that can be used to create virtual machines.
- * 
- * ## Example Usage Creating from VHD
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleImage = new azure.compute.Image("example", {
- *     location: "West US",
- *     osDisk: {
- *         blobUri: "{blob_uri}",
- *         osState: "Generalized",
- *         osType: "Linux",
- *         sizeGb: 30,
- *     },
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
- * 
- * ## Example Usage Creating from Virtual Machine (VM must be generalized beforehand)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleImage = new azure.compute.Image("example", {
- *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sourceVirtualMachineId: "{vm_id}",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/image.html.markdown.
  */
@@ -109,7 +72,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
      */

@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an API Management API Policy
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_policy.html.markdown.
 type ApiPolicy struct {
 	pulumi.CustomResourceState
@@ -23,7 +23,7 @@ type ApiPolicy struct {
 	ApiName pulumi.StringOutput `pulumi:"apiName"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	XmlContent pulumi.StringOutput `pulumi:"xmlContent"`
+	XmlContent        pulumi.StringOutput `pulumi:"xmlContent"`
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink pulumi.StringPtrOutput `pulumi:"xmlLink"`
 }
@@ -71,7 +71,7 @@ type apiPolicyState struct {
 	ApiName *string `pulumi:"apiName"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	XmlContent *string `pulumi:"xmlContent"`
+	XmlContent        *string `pulumi:"xmlContent"`
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink *string `pulumi:"xmlLink"`
 }
@@ -83,7 +83,7 @@ type ApiPolicyState struct {
 	ApiName pulumi.StringPtrInput
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	XmlContent pulumi.StringPtrInput
+	XmlContent        pulumi.StringPtrInput
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink pulumi.StringPtrInput
 }
@@ -98,8 +98,8 @@ type apiPolicyArgs struct {
 	// The ID of the API Management API within the API Management Service. Changing this forces a new resource to be created.
 	ApiName string `pulumi:"apiName"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	XmlContent *string `pulumi:"xmlContent"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	XmlContent        *string `pulumi:"xmlContent"`
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink *string `pulumi:"xmlLink"`
 }
@@ -112,7 +112,7 @@ type ApiPolicyArgs struct {
 	ApiName pulumi.StringInput
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	XmlContent pulumi.StringPtrInput
+	XmlContent        pulumi.StringPtrInput
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink pulumi.StringPtrInput
 }
@@ -120,4 +120,3 @@ type ApiPolicyArgs struct {
 func (ApiPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiPolicyArgs)(nil)).Elem()
 }
-

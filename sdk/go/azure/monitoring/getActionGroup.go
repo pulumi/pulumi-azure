@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access the properties of an Action Group.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_action_group.html.markdown.
 func LookupActionGroup(ctx *pulumi.Context, args *LookupActionGroupArgs, opts ...pulumi.InvokeOption) (*LookupActionGroupResult, error) {
 	var rv LookupActionGroupResult
@@ -27,7 +27,6 @@ type LookupActionGroupArgs struct {
 	// Specifies the name of the resource group the Action Group is located in.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
-
 
 // A collection of values returned by getActionGroup.
 type LookupActionGroupResult struct {
@@ -50,7 +49,7 @@ type LookupActionGroupResult struct {
 	// One or more `logicAppReceiver` blocks as defined below.
 	LogicAppReceivers []GetActionGroupLogicAppReceiver `pulumi:"logicAppReceivers"`
 	// The name of the webhook receiver.
-	Name string `pulumi:"name"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The short name of the action group.
 	ShortName string `pulumi:"shortName"`
@@ -61,4 +60,3 @@ type LookupActionGroupResult struct {
 	// One or more `webhookReceiver` blocks as defined below.
 	WebhookReceivers []GetActionGroupWebhookReceiver `pulumi:"webhookReceivers"`
 }
-

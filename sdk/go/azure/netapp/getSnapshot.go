@@ -9,7 +9,7 @@ import (
 )
 
 // Uses this data source to access information about an existing NetApp Snapshot.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_snapshot.html.markdown.
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	var rv LookupSnapshotResult
@@ -34,17 +34,15 @@ type LookupSnapshotArgs struct {
 	VolumeName string `pulumi:"volumeName"`
 }
 
-
 // A collection of values returned by getSnapshot.
 type LookupSnapshotResult struct {
 	AccountName string `pulumi:"accountName"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region where the NetApp Snapshot exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
-	PoolName string `pulumi:"poolName"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
+	PoolName          string `pulumi:"poolName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	VolumeName string `pulumi:"volumeName"`
+	VolumeName        string `pulumi:"volumeName"`
 }
-

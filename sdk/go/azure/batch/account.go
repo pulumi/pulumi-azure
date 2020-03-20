@@ -12,14 +12,14 @@ import (
 )
 
 // Manages an Azure Batch account.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_account.html.markdown.
 type Account struct {
 	pulumi.CustomResourceState
 
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint pulumi.StringOutput `pulumi:"accountEndpoint"`
-	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 	KeyVaultReference AccountKeyVaultReferencePtrOutput `pulumi:"keyVaultReference"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -72,7 +72,7 @@ func GetAccount(ctx *pulumi.Context,
 type accountState struct {
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint *string `pulumi:"accountEndpoint"`
-	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 	KeyVaultReference *AccountKeyVaultReference `pulumi:"keyVaultReference"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -95,7 +95,7 @@ type accountState struct {
 type AccountState struct {
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint pulumi.StringPtrInput
-	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 	KeyVaultReference AccountKeyVaultReferencePtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -120,7 +120,7 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 	KeyVaultReference *AccountKeyVaultReference `pulumi:"keyVaultReference"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -138,7 +138,7 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 	KeyVaultReference AccountKeyVaultReferencePtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -157,4 +157,3 @@ type AccountArgs struct {
 func (AccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountArgs)(nil)).Elem()
 }
-

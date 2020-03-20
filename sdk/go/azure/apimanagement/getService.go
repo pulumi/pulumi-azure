@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing API Management Service.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management.html.markdown.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
@@ -27,7 +27,6 @@ type LookupServiceArgs struct {
 	// The Name of the Resource Group in which the API Management Service exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
-
 
 // A collection of values returned by getService.
 type LookupServiceResult struct {
@@ -56,14 +55,11 @@ type LookupServiceResult struct {
 	// The email of Publisher/Company of the API Management Service.
 	PublisherEmail string `pulumi:"publisherEmail"`
 	// The name of the Publisher/Company of the API Management Service.
-	PublisherName string `pulumi:"publisherName"`
+	PublisherName     string `pulumi:"publisherName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SCM (Source Code Management) endpoint.
-	ScmUrl string `pulumi:"scmUrl"`
-	// A `sku` block as documented below.
-	Sku GetServiceSku `pulumi:"sku"`
+	ScmUrl  string `pulumi:"scmUrl"`
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
-

@@ -12,7 +12,7 @@ import (
 )
 
 // Manages the association between a Network Interface and a Load Balancer's Backend Address Pool.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_backend_address_pool_association.html.markdown.
 type NetworkInterfaceBackendAddressPoolAssociation struct {
 	pulumi.CustomResourceState
@@ -105,4 +105,3 @@ type NetworkInterfaceBackendAddressPoolAssociationArgs struct {
 func (NetworkInterfaceBackendAddressPoolAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceBackendAddressPoolAssociationArgs)(nil)).Elem()
 }
-

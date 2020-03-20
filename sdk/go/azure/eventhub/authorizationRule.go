@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Event Hubs authorization Rule within an Event Hub.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_authorization_rule.html.markdown.
 type AuthorizationRule struct {
 	pulumi.CustomResourceState
@@ -21,7 +21,6 @@ type AuthorizationRule struct {
 	EventhubName pulumi.StringOutput `pulumi:"eventhubName"`
 	// Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
 	Listen pulumi.BoolPtrOutput `pulumi:"listen"`
-	Location pulumi.StringOutput `pulumi:"location"`
 	// Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage pulumi.BoolPtrOutput `pulumi:"manage"`
 	// Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
@@ -34,9 +33,9 @@ type AuthorizationRule struct {
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
 	// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The Secondary Connection String for the Event Hubs authorization Rule.
+	// The Secondary Connection String for the Event Hubs Authorization Rule.
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
-	// The Secondary Key for the Event Hubs authorization Rule.
+	// The Secondary Key for the Event Hubs Authorization Rule.
 	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
 	// Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
 	Send pulumi.BoolPtrOutput `pulumi:"send"`
@@ -83,7 +82,6 @@ type authorizationRuleState struct {
 	EventhubName *string `pulumi:"eventhubName"`
 	// Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
 	Listen *bool `pulumi:"listen"`
-	Location *string `pulumi:"location"`
 	// Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage *bool `pulumi:"manage"`
 	// Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
@@ -96,9 +94,9 @@ type authorizationRuleState struct {
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The Secondary Connection String for the Event Hubs authorization Rule.
+	// The Secondary Connection String for the Event Hubs Authorization Rule.
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
-	// The Secondary Key for the Event Hubs authorization Rule.
+	// The Secondary Key for the Event Hubs Authorization Rule.
 	SecondaryKey *string `pulumi:"secondaryKey"`
 	// Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
 	Send *bool `pulumi:"send"`
@@ -109,7 +107,6 @@ type AuthorizationRuleState struct {
 	EventhubName pulumi.StringPtrInput
 	// Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
 	Listen pulumi.BoolPtrInput
-	Location pulumi.StringPtrInput
 	// Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage pulumi.BoolPtrInput
 	// Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
@@ -122,9 +119,9 @@ type AuthorizationRuleState struct {
 	PrimaryKey pulumi.StringPtrInput
 	// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The Secondary Connection String for the Event Hubs authorization Rule.
+	// The Secondary Connection String for the Event Hubs Authorization Rule.
 	SecondaryConnectionString pulumi.StringPtrInput
-	// The Secondary Key for the Event Hubs authorization Rule.
+	// The Secondary Key for the Event Hubs Authorization Rule.
 	SecondaryKey pulumi.StringPtrInput
 	// Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
 	Send pulumi.BoolPtrInput
@@ -139,7 +136,6 @@ type authorizationRuleArgs struct {
 	EventhubName string `pulumi:"eventhubName"`
 	// Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
 	Listen *bool `pulumi:"listen"`
-	Location *string `pulumi:"location"`
 	// Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage *bool `pulumi:"manage"`
 	// Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
@@ -158,7 +154,6 @@ type AuthorizationRuleArgs struct {
 	EventhubName pulumi.StringInput
 	// Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
 	Listen pulumi.BoolPtrInput
-	Location pulumi.StringPtrInput
 	// Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage pulumi.BoolPtrInput
 	// Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
@@ -174,4 +169,3 @@ type AuthorizationRuleArgs struct {
 func (AuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*authorizationRuleArgs)(nil)).Elem()
 }
-

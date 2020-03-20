@@ -12,9 +12,9 @@ import (
 )
 
 // Manages a Load Balancer Rule.
-// 
+//
 // > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_rule.html.markdown.
 type Rule struct {
 	pulumi.CustomResourceState
@@ -28,8 +28,8 @@ type Rule struct {
 	// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp pulumi.BoolPtrOutput `pulumi:"enableFloatingIp"`
 	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
-	EnableTcpReset pulumi.BoolPtrOutput `pulumi:"enableTcpReset"`
-	FrontendIpConfigurationId pulumi.StringOutput `pulumi:"frontendIpConfigurationId"`
+	EnableTcpReset            pulumi.BoolPtrOutput `pulumi:"enableTcpReset"`
+	FrontendIpConfigurationId pulumi.StringOutput  `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration to which the rule is associated.
 	FrontendIpConfigurationName pulumi.StringOutput `pulumi:"frontendIpConfigurationName"`
 	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
@@ -40,7 +40,6 @@ type Rule struct {
 	LoadDistribution pulumi.StringOutput `pulumi:"loadDistribution"`
 	// The ID of the Load Balancer in which to create the Rule.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
-	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the LB Rule.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A reference to a Probe used by this Load Balancing Rule.
@@ -106,7 +105,7 @@ type ruleState struct {
 	// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp *bool `pulumi:"enableFloatingIp"`
 	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
-	EnableTcpReset *bool `pulumi:"enableTcpReset"`
+	EnableTcpReset            *bool   `pulumi:"enableTcpReset"`
 	FrontendIpConfigurationId *string `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration to which the rule is associated.
 	FrontendIpConfigurationName *string `pulumi:"frontendIpConfigurationName"`
@@ -118,7 +117,6 @@ type ruleState struct {
 	LoadDistribution *string `pulumi:"loadDistribution"`
 	// The ID of the Load Balancer in which to create the Rule.
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
-	Location *string `pulumi:"location"`
 	// Specifies the name of the LB Rule.
 	Name *string `pulumi:"name"`
 	// A reference to a Probe used by this Load Balancing Rule.
@@ -139,7 +137,7 @@ type RuleState struct {
 	// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp pulumi.BoolPtrInput
 	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
-	EnableTcpReset pulumi.BoolPtrInput
+	EnableTcpReset            pulumi.BoolPtrInput
 	FrontendIpConfigurationId pulumi.StringPtrInput
 	// The name of the frontend IP configuration to which the rule is associated.
 	FrontendIpConfigurationName pulumi.StringPtrInput
@@ -151,7 +149,6 @@ type RuleState struct {
 	LoadDistribution pulumi.StringPtrInput
 	// The ID of the Load Balancer in which to create the Rule.
 	LoadbalancerId pulumi.StringPtrInput
-	Location pulumi.StringPtrInput
 	// Specifies the name of the LB Rule.
 	Name pulumi.StringPtrInput
 	// A reference to a Probe used by this Load Balancing Rule.
@@ -187,7 +184,6 @@ type ruleArgs struct {
 	LoadDistribution *string `pulumi:"loadDistribution"`
 	// The ID of the Load Balancer in which to create the Rule.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
-	Location *string `pulumi:"location"`
 	// Specifies the name of the LB Rule.
 	Name *string `pulumi:"name"`
 	// A reference to a Probe used by this Load Balancing Rule.
@@ -220,7 +216,6 @@ type RuleArgs struct {
 	LoadDistribution pulumi.StringPtrInput
 	// The ID of the Load Balancer in which to create the Rule.
 	LoadbalancerId pulumi.StringInput
-	Location pulumi.StringPtrInput
 	// Specifies the name of the LB Rule.
 	Name pulumi.StringPtrInput
 	// A reference to a Probe used by this Load Balancing Rule.
@@ -234,4 +229,3 @@ type RuleArgs struct {
 func (RuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleArgs)(nil)).Elem()
 }
-

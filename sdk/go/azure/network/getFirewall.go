@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Azure Firewall.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/firewall.html.markdown.
 func LookupFirewall(ctx *pulumi.Context, args *LookupFirewallArgs, opts ...pulumi.InvokeOption) (*LookupFirewallResult, error) {
 	var rv LookupFirewallResult
@@ -28,16 +28,14 @@ type LookupFirewallArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getFirewall.
 type LookupFirewallResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A `ipConfiguration` block as defined below.
-	IpConfigurations []GetFirewallIpConfiguration `pulumi:"ipConfigurations"`
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Tags map[string]string `pulumi:"tags"`
+	IpConfigurations  []GetFirewallIpConfiguration `pulumi:"ipConfigurations"`
+	Location          string                       `pulumi:"location"`
+	Name              string                       `pulumi:"name"`
+	ResourceGroupName string                       `pulumi:"resourceGroupName"`
+	Tags              map[string]string            `pulumi:"tags"`
 }
-

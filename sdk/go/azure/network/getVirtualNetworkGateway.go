@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Virtual Network Gateway.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network_gateway.html.markdown.
 func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *LookupVirtualNetworkGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkGatewayResult, error) {
 	var rv LookupVirtualNetworkGatewayResult
@@ -28,12 +28,11 @@ type LookupVirtualNetworkGatewayArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getVirtualNetworkGateway.
 type LookupVirtualNetworkGatewayResult struct {
-	// (Optional) Is this an Active-Active Gateway?
-	ActiveActive bool `pulumi:"activeActive"`
-	BgpSettings []GetVirtualNetworkGatewayBgpSetting `pulumi:"bgpSettings"`
+	// Is this an Active-Active Gateway?
+	ActiveActive bool                                 `pulumi:"activeActive"`
+	BgpSettings  []GetVirtualNetworkGatewayBgpSetting `pulumi:"bgpSettings"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunneling*). Refer to the
@@ -51,7 +50,7 @@ type LookupVirtualNetworkGatewayResult struct {
 	// The location/region where the Virtual Network Gateway is located.
 	Location string `pulumi:"location"`
 	// The user-defined name of the revoked certificate.
-	Name string `pulumi:"name"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Configuration of the size and capacity of the Virtual Network Gateway.
 	Sku string `pulumi:"sku"`
@@ -64,4 +63,3 @@ type LookupVirtualNetworkGatewayResult struct {
 	// The routing type of the Virtual Network Gateway.
 	VpnType string `pulumi:"vpnType"`
 }
-

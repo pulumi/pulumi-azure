@@ -29,17 +29,17 @@ class Contact(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, alert_notifications=None, alerts_to_admins=None, email=None, phone=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages the subscription's Security Center Contact.
-        
-        > **NOTE:** Owner access permission is required. 
-        
+
+        > **NOTE:** Owner access permission is required.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_contact.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] alert_notifications: Whether to send security alerts notifications to the security contact.
         :param pulumi.Input[bool] alerts_to_admins: Whether to send security alerts notifications to subscription admins.
         :param pulumi.Input[str] email: The email of the Security Center Contact.
         :param pulumi.Input[str] phone: The phone number of the Security Center Contact.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_contact.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,7 +79,7 @@ class Contact(pulumi.CustomResource):
         """
         Get an existing Contact resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -87,12 +87,11 @@ class Contact(pulumi.CustomResource):
         :param pulumi.Input[bool] alerts_to_admins: Whether to send security alerts notifications to subscription admins.
         :param pulumi.Input[str] email: The email of the Security Center Contact.
         :param pulumi.Input[str] phone: The phone number of the Security Center Contact.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_contact.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["alert_notifications"] = alert_notifications
         __props__["alerts_to_admins"] = alerts_to_admins
         __props__["email"] = email

@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Storage Account.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account.html.markdown.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
@@ -25,16 +25,13 @@ type LookupAccountArgs struct {
 	// Specifies the name of the Storage Account
 	Name string `pulumi:"name"`
 	// Specifies the name of the resource group the Storage Account is located in.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
-
 
 // A collection of values returned by getAccount.
 type LookupAccountResult struct {
 	// The access tier for `BlobStorage` accounts.
 	AccessTier string `pulumi:"accessTier"`
-	// The Encryption Source for this Storage Account.
-	AccountEncryptionSource string `pulumi:"accountEncryptionSource"`
 	// The Kind of account.
 	AccountKind string `pulumi:"accountKind"`
 	// The type of replication used for this storage account.
@@ -42,13 +39,7 @@ type LookupAccountResult struct {
 	// The Tier of this storage account.
 	AccountTier string `pulumi:"accountTier"`
 	// A `customDomain` block as documented below.
-	CustomDomain GetAccountCustomDomain `pulumi:"customDomain"`
-	// Are Encryption Services are enabled for Blob storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-	// for more information.
-	EnableBlobEncryption bool `pulumi:"enableBlobEncryption"`
-	// Are Encryption Services are enabled for File storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-	// for more information.
-	EnableFileEncryption bool `pulumi:"enableFileEncryption"`
+	CustomDomains []GetAccountCustomDomain `pulumi:"customDomains"`
 	// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information.
 	EnableHttpsTrafficOnly bool `pulumi:"enableHttpsTrafficOnly"`
@@ -91,7 +82,7 @@ type LookupAccountResult struct {
 	// The endpoint URL for web storage in the primary location.
 	PrimaryWebEndpoint string `pulumi:"primaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the primary location.
-	PrimaryWebHost string `pulumi:"primaryWebHost"`
+	PrimaryWebHost    string `pulumi:"primaryWebHost"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The secondary access key for the Storage Account.
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
@@ -128,4 +119,3 @@ type LookupAccountResult struct {
 	// A mapping of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
-

@@ -8,35 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Policy within a Dev Test Policy Set.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleLab = new azure.devtest.Lab("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tags: {
- *         Sydney: "Australia",
- *     },
- * });
- * const examplePolicy = new azure.devtest.Policy("example", {
- *     evaluatorType: "MaxValuePolicy",
- *     factData: "",
- *     labName: exampleLab.name,
- *     policySetName: "default",
- *     resourceGroupName: exampleResourceGroup.name,
- *     tags: {
- *         Acceptance: "Test",
- *     },
- *     threshold: "999",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_policy.html.markdown.
  */
@@ -98,7 +69,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Threshold for this Policy.
      */

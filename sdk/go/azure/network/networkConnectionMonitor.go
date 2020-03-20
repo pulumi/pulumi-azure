@@ -12,7 +12,7 @@ import (
 )
 
 // Configures a Network Connection Monitor to monitor communication between a Virtual Machine and an endpoint using a Network Watcher.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_connection_monitor.html.markdown.
 type NetworkConnectionMonitor struct {
 	pulumi.CustomResourceState
@@ -168,4 +168,3 @@ type NetworkConnectionMonitorArgs struct {
 func (NetworkConnectionMonitorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkConnectionMonitorArgs)(nil)).Elem()
 }
-

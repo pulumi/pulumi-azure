@@ -8,47 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Stream Analytics Output to Blob Storage.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = azure.core.getResourceGroup({
- *     name: "example-resources",
- * });
- * const exampleJob = azurerm_resource_group_example.name.apply(name => azure.streamanalytics.getJob({
- *     name: "example-job",
- *     resourceGroupName: name,
- * }));
- * const exampleAccount = new azure.storage.Account("example", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleContainer = new azure.storage.Container("example", {
- *     containerAccessType: "private",
- *     resourceGroupName: exampleResourceGroup.name,
- *     storageAccountName: exampleAccount.name,
- * });
- * const exampleOutputBlob = new azure.streamanalytics.OutputBlob("example", {
- *     dateFormat: "yyyy-MM-dd",
- *     pathPattern: "some-pattern",
- *     resourceGroupName: exampleJob.resourceGroupName,
- *     serialization: {
- *         encoding: "UTF8",
- *         fieldDelimiter: ",",
- *         type: "Csv",
- *     },
- *     storageAccountKey: exampleAccount.primaryAccessKey,
- *     storageAccountName: exampleAccount.name,
- *     storageContainerName: exampleContainer.name,
- *     streamAnalyticsJobName: exampleJob.name,
- *     timeFormat: "HH",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_blob.html.markdown.
  */

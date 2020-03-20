@@ -13,7 +13,7 @@ import (
 
 type PolicyFileShareBackup struct {
 	Frequency string `pulumi:"frequency"`
-	Time string `pulumi:"time"`
+	Time      string `pulumi:"time"`
 }
 
 type PolicyFileShareBackupInput interface {
@@ -25,7 +25,7 @@ type PolicyFileShareBackupInput interface {
 
 type PolicyFileShareBackupArgs struct {
 	Frequency pulumi.StringInput `pulumi:"frequency"`
-	Time pulumi.StringInput `pulumi:"time"`
+	Time      pulumi.StringInput `pulumi:"time"`
 }
 
 func (PolicyFileShareBackupArgs) ElementType() reflect.Type {
@@ -57,7 +57,8 @@ type PolicyFileShareBackupPtrInput interface {
 
 type policyFileShareBackupPtrType PolicyFileShareBackupArgs
 
-func PolicyFileShareBackupPtr(v *PolicyFileShareBackupArgs) PolicyFileShareBackupPtrInput {	return (*policyFileShareBackupPtrType)(v)
+func PolicyFileShareBackupPtr(v *PolicyFileShareBackupArgs) PolicyFileShareBackupPtrInput {
+	return (*policyFileShareBackupPtrType)(v)
 }
 
 func (*policyFileShareBackupPtrType) ElementType() reflect.Type {
@@ -72,7 +73,7 @@ func (i *policyFileShareBackupPtrType) ToPolicyFileShareBackupPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareBackupPtrOutput)
 }
 
-type PolicyFileShareBackupOutput struct { *pulumi.OutputState }
+type PolicyFileShareBackupOutput struct{ *pulumi.OutputState }
 
 func (PolicyFileShareBackupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyFileShareBackup)(nil)).Elem()
@@ -96,14 +97,14 @@ func (o PolicyFileShareBackupOutput) ToPolicyFileShareBackupPtrOutputWithContext
 	}).(PolicyFileShareBackupPtrOutput)
 }
 func (o PolicyFileShareBackupOutput) Frequency() pulumi.StringOutput {
-	return o.ApplyT(func (v PolicyFileShareBackup) string { return v.Frequency }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PolicyFileShareBackup) string { return v.Frequency }).(pulumi.StringOutput)
 }
 
 func (o PolicyFileShareBackupOutput) Time() pulumi.StringOutput {
-	return o.ApplyT(func (v PolicyFileShareBackup) string { return v.Time }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PolicyFileShareBackup) string { return v.Time }).(pulumi.StringOutput)
 }
 
-type PolicyFileShareBackupPtrOutput struct { *pulumi.OutputState}
+type PolicyFileShareBackupPtrOutput struct{ *pulumi.OutputState }
 
 func (PolicyFileShareBackupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PolicyFileShareBackup)(nil)).Elem()
@@ -118,15 +119,15 @@ func (o PolicyFileShareBackupPtrOutput) ToPolicyFileShareBackupPtrOutputWithCont
 }
 
 func (o PolicyFileShareBackupPtrOutput) Elem() PolicyFileShareBackupOutput {
-	return o.ApplyT(func (v *PolicyFileShareBackup) PolicyFileShareBackup { return *v }).(PolicyFileShareBackupOutput)
+	return o.ApplyT(func(v *PolicyFileShareBackup) PolicyFileShareBackup { return *v }).(PolicyFileShareBackupOutput)
 }
 
 func (o PolicyFileShareBackupPtrOutput) Frequency() pulumi.StringOutput {
-	return o.ApplyT(func (v PolicyFileShareBackup) string { return v.Frequency }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PolicyFileShareBackup) string { return v.Frequency }).(pulumi.StringOutput)
 }
 
 func (o PolicyFileShareBackupPtrOutput) Time() pulumi.StringOutput {
-	return o.ApplyT(func (v PolicyFileShareBackup) string { return v.Time }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PolicyFileShareBackup) string { return v.Time }).(pulumi.StringOutput)
 }
 
 type PolicyFileShareRetentionDaily struct {
@@ -173,7 +174,8 @@ type PolicyFileShareRetentionDailyPtrInput interface {
 
 type policyFileShareRetentionDailyPtrType PolicyFileShareRetentionDailyArgs
 
-func PolicyFileShareRetentionDailyPtr(v *PolicyFileShareRetentionDailyArgs) PolicyFileShareRetentionDailyPtrInput {	return (*policyFileShareRetentionDailyPtrType)(v)
+func PolicyFileShareRetentionDailyPtr(v *PolicyFileShareRetentionDailyArgs) PolicyFileShareRetentionDailyPtrInput {
+	return (*policyFileShareRetentionDailyPtrType)(v)
 }
 
 func (*policyFileShareRetentionDailyPtrType) ElementType() reflect.Type {
@@ -188,7 +190,7 @@ func (i *policyFileShareRetentionDailyPtrType) ToPolicyFileShareRetentionDailyPt
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareRetentionDailyPtrOutput)
 }
 
-type PolicyFileShareRetentionDailyOutput struct { *pulumi.OutputState }
+type PolicyFileShareRetentionDailyOutput struct{ *pulumi.OutputState }
 
 func (PolicyFileShareRetentionDailyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyFileShareRetentionDaily)(nil)).Elem()
@@ -212,10 +214,10 @@ func (o PolicyFileShareRetentionDailyOutput) ToPolicyFileShareRetentionDailyPtrO
 	}).(PolicyFileShareRetentionDailyPtrOutput)
 }
 func (o PolicyFileShareRetentionDailyOutput) Count() pulumi.IntOutput {
-	return o.ApplyT(func (v PolicyFileShareRetentionDaily) int { return v.Count }).(pulumi.IntOutput)
+	return o.ApplyT(func(v PolicyFileShareRetentionDaily) int { return v.Count }).(pulumi.IntOutput)
 }
 
-type PolicyFileShareRetentionDailyPtrOutput struct { *pulumi.OutputState}
+type PolicyFileShareRetentionDailyPtrOutput struct{ *pulumi.OutputState }
 
 func (PolicyFileShareRetentionDailyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PolicyFileShareRetentionDaily)(nil)).Elem()
@@ -230,17 +232,17 @@ func (o PolicyFileShareRetentionDailyPtrOutput) ToPolicyFileShareRetentionDailyP
 }
 
 func (o PolicyFileShareRetentionDailyPtrOutput) Elem() PolicyFileShareRetentionDailyOutput {
-	return o.ApplyT(func (v *PolicyFileShareRetentionDaily) PolicyFileShareRetentionDaily { return *v }).(PolicyFileShareRetentionDailyOutput)
+	return o.ApplyT(func(v *PolicyFileShareRetentionDaily) PolicyFileShareRetentionDaily { return *v }).(PolicyFileShareRetentionDailyOutput)
 }
 
 func (o PolicyFileShareRetentionDailyPtrOutput) Count() pulumi.IntOutput {
-	return o.ApplyT(func (v PolicyFileShareRetentionDaily) int { return v.Count }).(pulumi.IntOutput)
+	return o.ApplyT(func(v PolicyFileShareRetentionDaily) int { return v.Count }).(pulumi.IntOutput)
 }
 
 type PolicyVMBackup struct {
-	Frequency string `pulumi:"frequency"`
-	Time string `pulumi:"time"`
-	Weekdays []string `pulumi:"weekdays"`
+	Frequency string   `pulumi:"frequency"`
+	Time      string   `pulumi:"time"`
+	Weekdays  []string `pulumi:"weekdays"`
 }
 
 type PolicyVMBackupInput interface {
@@ -251,9 +253,9 @@ type PolicyVMBackupInput interface {
 }
 
 type PolicyVMBackupArgs struct {
-	Frequency pulumi.StringInput `pulumi:"frequency"`
-	Time pulumi.StringInput `pulumi:"time"`
-	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
+	Frequency pulumi.StringInput      `pulumi:"frequency"`
+	Time      pulumi.StringInput      `pulumi:"time"`
+	Weekdays  pulumi.StringArrayInput `pulumi:"weekdays"`
 }
 
 func (PolicyVMBackupArgs) ElementType() reflect.Type {
@@ -285,7 +287,8 @@ type PolicyVMBackupPtrInput interface {
 
 type policyVMBackupPtrType PolicyVMBackupArgs
 
-func PolicyVMBackupPtr(v *PolicyVMBackupArgs) PolicyVMBackupPtrInput {	return (*policyVMBackupPtrType)(v)
+func PolicyVMBackupPtr(v *PolicyVMBackupArgs) PolicyVMBackupPtrInput {
+	return (*policyVMBackupPtrType)(v)
 }
 
 func (*policyVMBackupPtrType) ElementType() reflect.Type {
@@ -300,7 +303,7 @@ func (i *policyVMBackupPtrType) ToPolicyVMBackupPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMBackupPtrOutput)
 }
 
-type PolicyVMBackupOutput struct { *pulumi.OutputState }
+type PolicyVMBackupOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMBackupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyVMBackup)(nil)).Elem()
@@ -324,18 +327,18 @@ func (o PolicyVMBackupOutput) ToPolicyVMBackupPtrOutputWithContext(ctx context.C
 	}).(PolicyVMBackupPtrOutput)
 }
 func (o PolicyVMBackupOutput) Frequency() pulumi.StringOutput {
-	return o.ApplyT(func (v PolicyVMBackup) string { return v.Frequency }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PolicyVMBackup) string { return v.Frequency }).(pulumi.StringOutput)
 }
 
 func (o PolicyVMBackupOutput) Time() pulumi.StringOutput {
-	return o.ApplyT(func (v PolicyVMBackup) string { return v.Time }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PolicyVMBackup) string { return v.Time }).(pulumi.StringOutput)
 }
 
 func (o PolicyVMBackupOutput) Weekdays() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PolicyVMBackup) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PolicyVMBackup) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
 }
 
-type PolicyVMBackupPtrOutput struct { *pulumi.OutputState}
+type PolicyVMBackupPtrOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMBackupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PolicyVMBackup)(nil)).Elem()
@@ -350,19 +353,19 @@ func (o PolicyVMBackupPtrOutput) ToPolicyVMBackupPtrOutputWithContext(ctx contex
 }
 
 func (o PolicyVMBackupPtrOutput) Elem() PolicyVMBackupOutput {
-	return o.ApplyT(func (v *PolicyVMBackup) PolicyVMBackup { return *v }).(PolicyVMBackupOutput)
+	return o.ApplyT(func(v *PolicyVMBackup) PolicyVMBackup { return *v }).(PolicyVMBackupOutput)
 }
 
 func (o PolicyVMBackupPtrOutput) Frequency() pulumi.StringOutput {
-	return o.ApplyT(func (v PolicyVMBackup) string { return v.Frequency }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PolicyVMBackup) string { return v.Frequency }).(pulumi.StringOutput)
 }
 
 func (o PolicyVMBackupPtrOutput) Time() pulumi.StringOutput {
-	return o.ApplyT(func (v PolicyVMBackup) string { return v.Time }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PolicyVMBackup) string { return v.Time }).(pulumi.StringOutput)
 }
 
 func (o PolicyVMBackupPtrOutput) Weekdays() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PolicyVMBackup) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PolicyVMBackup) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
 }
 
 type PolicyVMRetentionDaily struct {
@@ -409,7 +412,8 @@ type PolicyVMRetentionDailyPtrInput interface {
 
 type policyVMRetentionDailyPtrType PolicyVMRetentionDailyArgs
 
-func PolicyVMRetentionDailyPtr(v *PolicyVMRetentionDailyArgs) PolicyVMRetentionDailyPtrInput {	return (*policyVMRetentionDailyPtrType)(v)
+func PolicyVMRetentionDailyPtr(v *PolicyVMRetentionDailyArgs) PolicyVMRetentionDailyPtrInput {
+	return (*policyVMRetentionDailyPtrType)(v)
 }
 
 func (*policyVMRetentionDailyPtrType) ElementType() reflect.Type {
@@ -424,7 +428,7 @@ func (i *policyVMRetentionDailyPtrType) ToPolicyVMRetentionDailyPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMRetentionDailyPtrOutput)
 }
 
-type PolicyVMRetentionDailyOutput struct { *pulumi.OutputState }
+type PolicyVMRetentionDailyOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMRetentionDailyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyVMRetentionDaily)(nil)).Elem()
@@ -448,10 +452,10 @@ func (o PolicyVMRetentionDailyOutput) ToPolicyVMRetentionDailyPtrOutputWithConte
 	}).(PolicyVMRetentionDailyPtrOutput)
 }
 func (o PolicyVMRetentionDailyOutput) Count() pulumi.IntOutput {
-	return o.ApplyT(func (v PolicyVMRetentionDaily) int { return v.Count }).(pulumi.IntOutput)
+	return o.ApplyT(func(v PolicyVMRetentionDaily) int { return v.Count }).(pulumi.IntOutput)
 }
 
-type PolicyVMRetentionDailyPtrOutput struct { *pulumi.OutputState}
+type PolicyVMRetentionDailyPtrOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMRetentionDailyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PolicyVMRetentionDaily)(nil)).Elem()
@@ -466,17 +470,17 @@ func (o PolicyVMRetentionDailyPtrOutput) ToPolicyVMRetentionDailyPtrOutputWithCo
 }
 
 func (o PolicyVMRetentionDailyPtrOutput) Elem() PolicyVMRetentionDailyOutput {
-	return o.ApplyT(func (v *PolicyVMRetentionDaily) PolicyVMRetentionDaily { return *v }).(PolicyVMRetentionDailyOutput)
+	return o.ApplyT(func(v *PolicyVMRetentionDaily) PolicyVMRetentionDaily { return *v }).(PolicyVMRetentionDailyOutput)
 }
 
 func (o PolicyVMRetentionDailyPtrOutput) Count() pulumi.IntOutput {
-	return o.ApplyT(func (v PolicyVMRetentionDaily) int { return v.Count }).(pulumi.IntOutput)
+	return o.ApplyT(func(v PolicyVMRetentionDaily) int { return v.Count }).(pulumi.IntOutput)
 }
 
 type PolicyVMRetentionMonthly struct {
-	Count int `pulumi:"count"`
+	Count    int      `pulumi:"count"`
 	Weekdays []string `pulumi:"weekdays"`
-	Weeks []string `pulumi:"weeks"`
+	Weeks    []string `pulumi:"weeks"`
 }
 
 type PolicyVMRetentionMonthlyInput interface {
@@ -487,9 +491,9 @@ type PolicyVMRetentionMonthlyInput interface {
 }
 
 type PolicyVMRetentionMonthlyArgs struct {
-	Count pulumi.IntInput `pulumi:"count"`
+	Count    pulumi.IntInput         `pulumi:"count"`
 	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
-	Weeks pulumi.StringArrayInput `pulumi:"weeks"`
+	Weeks    pulumi.StringArrayInput `pulumi:"weeks"`
 }
 
 func (PolicyVMRetentionMonthlyArgs) ElementType() reflect.Type {
@@ -521,7 +525,8 @@ type PolicyVMRetentionMonthlyPtrInput interface {
 
 type policyVMRetentionMonthlyPtrType PolicyVMRetentionMonthlyArgs
 
-func PolicyVMRetentionMonthlyPtr(v *PolicyVMRetentionMonthlyArgs) PolicyVMRetentionMonthlyPtrInput {	return (*policyVMRetentionMonthlyPtrType)(v)
+func PolicyVMRetentionMonthlyPtr(v *PolicyVMRetentionMonthlyArgs) PolicyVMRetentionMonthlyPtrInput {
+	return (*policyVMRetentionMonthlyPtrType)(v)
 }
 
 func (*policyVMRetentionMonthlyPtrType) ElementType() reflect.Type {
@@ -536,7 +541,7 @@ func (i *policyVMRetentionMonthlyPtrType) ToPolicyVMRetentionMonthlyPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMRetentionMonthlyPtrOutput)
 }
 
-type PolicyVMRetentionMonthlyOutput struct { *pulumi.OutputState }
+type PolicyVMRetentionMonthlyOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMRetentionMonthlyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyVMRetentionMonthly)(nil)).Elem()
@@ -560,18 +565,18 @@ func (o PolicyVMRetentionMonthlyOutput) ToPolicyVMRetentionMonthlyPtrOutputWithC
 	}).(PolicyVMRetentionMonthlyPtrOutput)
 }
 func (o PolicyVMRetentionMonthlyOutput) Count() pulumi.IntOutput {
-	return o.ApplyT(func (v PolicyVMRetentionMonthly) int { return v.Count }).(pulumi.IntOutput)
+	return o.ApplyT(func(v PolicyVMRetentionMonthly) int { return v.Count }).(pulumi.IntOutput)
 }
 
 func (o PolicyVMRetentionMonthlyOutput) Weekdays() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PolicyVMRetentionMonthly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PolicyVMRetentionMonthly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
 }
 
 func (o PolicyVMRetentionMonthlyOutput) Weeks() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PolicyVMRetentionMonthly) []string { return v.Weeks }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PolicyVMRetentionMonthly) []string { return v.Weeks }).(pulumi.StringArrayOutput)
 }
 
-type PolicyVMRetentionMonthlyPtrOutput struct { *pulumi.OutputState}
+type PolicyVMRetentionMonthlyPtrOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMRetentionMonthlyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PolicyVMRetentionMonthly)(nil)).Elem()
@@ -586,23 +591,23 @@ func (o PolicyVMRetentionMonthlyPtrOutput) ToPolicyVMRetentionMonthlyPtrOutputWi
 }
 
 func (o PolicyVMRetentionMonthlyPtrOutput) Elem() PolicyVMRetentionMonthlyOutput {
-	return o.ApplyT(func (v *PolicyVMRetentionMonthly) PolicyVMRetentionMonthly { return *v }).(PolicyVMRetentionMonthlyOutput)
+	return o.ApplyT(func(v *PolicyVMRetentionMonthly) PolicyVMRetentionMonthly { return *v }).(PolicyVMRetentionMonthlyOutput)
 }
 
 func (o PolicyVMRetentionMonthlyPtrOutput) Count() pulumi.IntOutput {
-	return o.ApplyT(func (v PolicyVMRetentionMonthly) int { return v.Count }).(pulumi.IntOutput)
+	return o.ApplyT(func(v PolicyVMRetentionMonthly) int { return v.Count }).(pulumi.IntOutput)
 }
 
 func (o PolicyVMRetentionMonthlyPtrOutput) Weekdays() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PolicyVMRetentionMonthly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PolicyVMRetentionMonthly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
 }
 
 func (o PolicyVMRetentionMonthlyPtrOutput) Weeks() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PolicyVMRetentionMonthly) []string { return v.Weeks }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PolicyVMRetentionMonthly) []string { return v.Weeks }).(pulumi.StringArrayOutput)
 }
 
 type PolicyVMRetentionWeekly struct {
-	Count int `pulumi:"count"`
+	Count    int      `pulumi:"count"`
 	Weekdays []string `pulumi:"weekdays"`
 }
 
@@ -614,7 +619,7 @@ type PolicyVMRetentionWeeklyInput interface {
 }
 
 type PolicyVMRetentionWeeklyArgs struct {
-	Count pulumi.IntInput `pulumi:"count"`
+	Count    pulumi.IntInput         `pulumi:"count"`
 	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
 }
 
@@ -647,7 +652,8 @@ type PolicyVMRetentionWeeklyPtrInput interface {
 
 type policyVMRetentionWeeklyPtrType PolicyVMRetentionWeeklyArgs
 
-func PolicyVMRetentionWeeklyPtr(v *PolicyVMRetentionWeeklyArgs) PolicyVMRetentionWeeklyPtrInput {	return (*policyVMRetentionWeeklyPtrType)(v)
+func PolicyVMRetentionWeeklyPtr(v *PolicyVMRetentionWeeklyArgs) PolicyVMRetentionWeeklyPtrInput {
+	return (*policyVMRetentionWeeklyPtrType)(v)
 }
 
 func (*policyVMRetentionWeeklyPtrType) ElementType() reflect.Type {
@@ -662,7 +668,7 @@ func (i *policyVMRetentionWeeklyPtrType) ToPolicyVMRetentionWeeklyPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMRetentionWeeklyPtrOutput)
 }
 
-type PolicyVMRetentionWeeklyOutput struct { *pulumi.OutputState }
+type PolicyVMRetentionWeeklyOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMRetentionWeeklyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyVMRetentionWeekly)(nil)).Elem()
@@ -686,14 +692,14 @@ func (o PolicyVMRetentionWeeklyOutput) ToPolicyVMRetentionWeeklyPtrOutputWithCon
 	}).(PolicyVMRetentionWeeklyPtrOutput)
 }
 func (o PolicyVMRetentionWeeklyOutput) Count() pulumi.IntOutput {
-	return o.ApplyT(func (v PolicyVMRetentionWeekly) int { return v.Count }).(pulumi.IntOutput)
+	return o.ApplyT(func(v PolicyVMRetentionWeekly) int { return v.Count }).(pulumi.IntOutput)
 }
 
 func (o PolicyVMRetentionWeeklyOutput) Weekdays() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PolicyVMRetentionWeekly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PolicyVMRetentionWeekly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
 }
 
-type PolicyVMRetentionWeeklyPtrOutput struct { *pulumi.OutputState}
+type PolicyVMRetentionWeeklyPtrOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMRetentionWeeklyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PolicyVMRetentionWeekly)(nil)).Elem()
@@ -708,22 +714,22 @@ func (o PolicyVMRetentionWeeklyPtrOutput) ToPolicyVMRetentionWeeklyPtrOutputWith
 }
 
 func (o PolicyVMRetentionWeeklyPtrOutput) Elem() PolicyVMRetentionWeeklyOutput {
-	return o.ApplyT(func (v *PolicyVMRetentionWeekly) PolicyVMRetentionWeekly { return *v }).(PolicyVMRetentionWeeklyOutput)
+	return o.ApplyT(func(v *PolicyVMRetentionWeekly) PolicyVMRetentionWeekly { return *v }).(PolicyVMRetentionWeeklyOutput)
 }
 
 func (o PolicyVMRetentionWeeklyPtrOutput) Count() pulumi.IntOutput {
-	return o.ApplyT(func (v PolicyVMRetentionWeekly) int { return v.Count }).(pulumi.IntOutput)
+	return o.ApplyT(func(v PolicyVMRetentionWeekly) int { return v.Count }).(pulumi.IntOutput)
 }
 
 func (o PolicyVMRetentionWeeklyPtrOutput) Weekdays() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PolicyVMRetentionWeekly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PolicyVMRetentionWeekly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
 }
 
 type PolicyVMRetentionYearly struct {
-	Count int `pulumi:"count"`
-	Months []string `pulumi:"months"`
+	Count    int      `pulumi:"count"`
+	Months   []string `pulumi:"months"`
 	Weekdays []string `pulumi:"weekdays"`
-	Weeks []string `pulumi:"weeks"`
+	Weeks    []string `pulumi:"weeks"`
 }
 
 type PolicyVMRetentionYearlyInput interface {
@@ -734,10 +740,10 @@ type PolicyVMRetentionYearlyInput interface {
 }
 
 type PolicyVMRetentionYearlyArgs struct {
-	Count pulumi.IntInput `pulumi:"count"`
-	Months pulumi.StringArrayInput `pulumi:"months"`
+	Count    pulumi.IntInput         `pulumi:"count"`
+	Months   pulumi.StringArrayInput `pulumi:"months"`
 	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
-	Weeks pulumi.StringArrayInput `pulumi:"weeks"`
+	Weeks    pulumi.StringArrayInput `pulumi:"weeks"`
 }
 
 func (PolicyVMRetentionYearlyArgs) ElementType() reflect.Type {
@@ -769,7 +775,8 @@ type PolicyVMRetentionYearlyPtrInput interface {
 
 type policyVMRetentionYearlyPtrType PolicyVMRetentionYearlyArgs
 
-func PolicyVMRetentionYearlyPtr(v *PolicyVMRetentionYearlyArgs) PolicyVMRetentionYearlyPtrInput {	return (*policyVMRetentionYearlyPtrType)(v)
+func PolicyVMRetentionYearlyPtr(v *PolicyVMRetentionYearlyArgs) PolicyVMRetentionYearlyPtrInput {
+	return (*policyVMRetentionYearlyPtrType)(v)
 }
 
 func (*policyVMRetentionYearlyPtrType) ElementType() reflect.Type {
@@ -784,7 +791,7 @@ func (i *policyVMRetentionYearlyPtrType) ToPolicyVMRetentionYearlyPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMRetentionYearlyPtrOutput)
 }
 
-type PolicyVMRetentionYearlyOutput struct { *pulumi.OutputState }
+type PolicyVMRetentionYearlyOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMRetentionYearlyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyVMRetentionYearly)(nil)).Elem()
@@ -808,22 +815,22 @@ func (o PolicyVMRetentionYearlyOutput) ToPolicyVMRetentionYearlyPtrOutputWithCon
 	}).(PolicyVMRetentionYearlyPtrOutput)
 }
 func (o PolicyVMRetentionYearlyOutput) Count() pulumi.IntOutput {
-	return o.ApplyT(func (v PolicyVMRetentionYearly) int { return v.Count }).(pulumi.IntOutput)
+	return o.ApplyT(func(v PolicyVMRetentionYearly) int { return v.Count }).(pulumi.IntOutput)
 }
 
 func (o PolicyVMRetentionYearlyOutput) Months() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PolicyVMRetentionYearly) []string { return v.Months }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PolicyVMRetentionYearly) []string { return v.Months }).(pulumi.StringArrayOutput)
 }
 
 func (o PolicyVMRetentionYearlyOutput) Weekdays() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PolicyVMRetentionYearly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PolicyVMRetentionYearly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
 }
 
 func (o PolicyVMRetentionYearlyOutput) Weeks() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PolicyVMRetentionYearly) []string { return v.Weeks }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PolicyVMRetentionYearly) []string { return v.Weeks }).(pulumi.StringArrayOutput)
 }
 
-type PolicyVMRetentionYearlyPtrOutput struct { *pulumi.OutputState}
+type PolicyVMRetentionYearlyPtrOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMRetentionYearlyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PolicyVMRetentionYearly)(nil)).Elem()
@@ -838,23 +845,23 @@ func (o PolicyVMRetentionYearlyPtrOutput) ToPolicyVMRetentionYearlyPtrOutputWith
 }
 
 func (o PolicyVMRetentionYearlyPtrOutput) Elem() PolicyVMRetentionYearlyOutput {
-	return o.ApplyT(func (v *PolicyVMRetentionYearly) PolicyVMRetentionYearly { return *v }).(PolicyVMRetentionYearlyOutput)
+	return o.ApplyT(func(v *PolicyVMRetentionYearly) PolicyVMRetentionYearly { return *v }).(PolicyVMRetentionYearlyOutput)
 }
 
 func (o PolicyVMRetentionYearlyPtrOutput) Count() pulumi.IntOutput {
-	return o.ApplyT(func (v PolicyVMRetentionYearly) int { return v.Count }).(pulumi.IntOutput)
+	return o.ApplyT(func(v PolicyVMRetentionYearly) int { return v.Count }).(pulumi.IntOutput)
 }
 
 func (o PolicyVMRetentionYearlyPtrOutput) Months() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PolicyVMRetentionYearly) []string { return v.Months }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PolicyVMRetentionYearly) []string { return v.Months }).(pulumi.StringArrayOutput)
 }
 
 func (o PolicyVMRetentionYearlyPtrOutput) Weekdays() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PolicyVMRetentionYearly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PolicyVMRetentionYearly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
 }
 
 func (o PolicyVMRetentionYearlyPtrOutput) Weeks() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PolicyVMRetentionYearly) []string { return v.Weeks }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PolicyVMRetentionYearly) []string { return v.Weeks }).(pulumi.StringArrayOutput)
 }
 
 func init() {

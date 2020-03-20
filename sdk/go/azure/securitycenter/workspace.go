@@ -12,12 +12,12 @@ import (
 )
 
 // Manages the subscription's Security Center Workspace.
-// 
+//
 // > **NOTE:** Owner access permission is required.
-// 
+//
 // > **NOTE:** The subscription's pricing model can not be `Free` for this to have any affect.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_workspace.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_workspace.markdown.
 type Workspace struct {
 	pulumi.CustomResourceState
 
@@ -96,4 +96,3 @@ type WorkspaceArgs struct {
 func (WorkspaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceArgs)(nil)).Elem()
 }
-

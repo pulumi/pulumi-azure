@@ -53,7 +53,7 @@ export class LinkService extends pulumi.CustomResource {
      */
     public readonly enableProxyProtocol!: pulumi.Output<boolean | undefined>;
     /**
-     * A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
+     * A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
      */
     public readonly loadBalancerFrontendIpConfigurationIds!: pulumi.Output<string[]>;
     /**
@@ -68,7 +68,6 @@ export class LinkService extends pulumi.CustomResource {
      * One or more (up to 8) `natIpConfiguration` block as defined below.
      */
     public readonly natIpConfigurations!: pulumi.Output<outputs.privatedns.LinkServiceNatIpConfiguration[]>;
-    public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
     /**
      * The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
      */
@@ -76,7 +75,7 @@ export class LinkService extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
      */
@@ -101,7 +100,6 @@ export class LinkService extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["natIpConfigurations"] = state ? state.natIpConfigurations : undefined;
-            inputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["visibilitySubscriptionIds"] = state ? state.visibilitySubscriptionIds : undefined;
@@ -126,7 +124,6 @@ export class LinkService extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["visibilitySubscriptionIds"] = args ? args.visibilitySubscriptionIds : undefined;
             inputs["alias"] = undefined /*out*/;
-            inputs["networkInterfaceIds"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -156,7 +153,7 @@ export interface LinkServiceState {
      */
     readonly enableProxyProtocol?: pulumi.Input<boolean>;
     /**
-     * A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
+     * A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
      */
     readonly loadBalancerFrontendIpConfigurationIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -171,7 +168,6 @@ export interface LinkServiceState {
      * One or more (up to 8) `natIpConfiguration` block as defined below.
      */
     readonly natIpConfigurations?: pulumi.Input<pulumi.Input<inputs.privatedns.LinkServiceNatIpConfiguration>[]>;
-    readonly networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
      */
@@ -199,7 +195,7 @@ export interface LinkServiceArgs {
      */
     readonly enableProxyProtocol?: pulumi.Input<boolean>;
     /**
-     * A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
+     * A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
      */
     readonly loadBalancerFrontendIpConfigurationIds: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -21,7 +21,7 @@ class OutputServicebusTopic(pulumi.CustomResource):
     serialization: pulumi.Output[dict]
     """
     A `serialization` block as defined below.
-    
+
       * `encoding` (`str`)
       * `fieldDelimiter` (`str`)
       * `format` (`str`)
@@ -50,7 +50,9 @@ class OutputServicebusTopic(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, serialization=None, servicebus_namespace=None, shared_access_policy_key=None, shared_access_policy_name=None, stream_analytics_job_name=None, topic_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Stream Analytics Output to a ServiceBus Topic.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_servicebus_topic.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
@@ -61,15 +63,13 @@ class OutputServicebusTopic(pulumi.CustomResource):
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] topic_name: The name of the Service Bus Topic.
-        
+
         The **serialization** object supports the following:
-        
+
           * `encoding` (`pulumi.Input[str]`)
           * `fieldDelimiter` (`pulumi.Input[str]`)
           * `format` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_servicebus_topic.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,7 +121,7 @@ class OutputServicebusTopic(pulumi.CustomResource):
         """
         Get an existing OutputServicebusTopic resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,19 +133,18 @@ class OutputServicebusTopic(pulumi.CustomResource):
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] topic_name: The name of the Service Bus Topic.
-        
+
         The **serialization** object supports the following:
-        
+
           * `encoding` (`pulumi.Input[str]`)
           * `fieldDelimiter` (`pulumi.Input[str]`)
           * `format` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_servicebus_topic.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["serialization"] = serialization

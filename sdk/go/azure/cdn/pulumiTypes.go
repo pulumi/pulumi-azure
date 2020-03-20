@@ -12,9 +12,9 @@ import (
 )
 
 type EndpointGeoFilter struct {
-	Action string `pulumi:"action"`
+	Action       string   `pulumi:"action"`
 	CountryCodes []string `pulumi:"countryCodes"`
-	RelativePath string `pulumi:"relativePath"`
+	RelativePath string   `pulumi:"relativePath"`
 }
 
 type EndpointGeoFilterInput interface {
@@ -25,9 +25,9 @@ type EndpointGeoFilterInput interface {
 }
 
 type EndpointGeoFilterArgs struct {
-	Action pulumi.StringInput `pulumi:"action"`
+	Action       pulumi.StringInput      `pulumi:"action"`
 	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
-	RelativePath pulumi.StringInput `pulumi:"relativePath"`
+	RelativePath pulumi.StringInput      `pulumi:"relativePath"`
 }
 
 func (EndpointGeoFilterArgs) ElementType() reflect.Type {
@@ -63,7 +63,7 @@ func (i EndpointGeoFilterArray) ToEndpointGeoFilterArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGeoFilterArrayOutput)
 }
 
-type EndpointGeoFilterOutput struct { *pulumi.OutputState }
+type EndpointGeoFilterOutput struct{ *pulumi.OutputState }
 
 func (EndpointGeoFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EndpointGeoFilter)(nil)).Elem()
@@ -78,18 +78,18 @@ func (o EndpointGeoFilterOutput) ToEndpointGeoFilterOutputWithContext(ctx contex
 }
 
 func (o EndpointGeoFilterOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func (v EndpointGeoFilter) string { return v.Action }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EndpointGeoFilter) string { return v.Action }).(pulumi.StringOutput)
 }
 
 func (o EndpointGeoFilterOutput) CountryCodes() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v EndpointGeoFilter) []string { return v.CountryCodes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v EndpointGeoFilter) []string { return v.CountryCodes }).(pulumi.StringArrayOutput)
 }
 
 func (o EndpointGeoFilterOutput) RelativePath() pulumi.StringOutput {
-	return o.ApplyT(func (v EndpointGeoFilter) string { return v.RelativePath }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EndpointGeoFilter) string { return v.RelativePath }).(pulumi.StringOutput)
 }
 
-type EndpointGeoFilterArrayOutput struct { *pulumi.OutputState}
+type EndpointGeoFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (EndpointGeoFilterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]EndpointGeoFilter)(nil)).Elem()
@@ -104,15 +104,15 @@ func (o EndpointGeoFilterArrayOutput) ToEndpointGeoFilterArrayOutputWithContext(
 }
 
 func (o EndpointGeoFilterArrayOutput) Index(i pulumi.IntInput) EndpointGeoFilterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) EndpointGeoFilter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointGeoFilter {
 		return vs[0].([]EndpointGeoFilter)[vs[1].(int)]
 	}).(EndpointGeoFilterOutput)
 }
 
 type EndpointOrigin struct {
-	HostName string `pulumi:"hostName"`
-	HttpPort *int `pulumi:"httpPort"`
-	HttpsPort *int `pulumi:"httpsPort"`
+	HostName  string `pulumi:"hostName"`
+	HttpPort  *int   `pulumi:"httpPort"`
+	HttpsPort *int   `pulumi:"httpsPort"`
 	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 }
@@ -125,8 +125,8 @@ type EndpointOriginInput interface {
 }
 
 type EndpointOriginArgs struct {
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
+	HostName  pulumi.StringInput `pulumi:"hostName"`
+	HttpPort  pulumi.IntPtrInput `pulumi:"httpPort"`
 	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
 	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -165,7 +165,7 @@ func (i EndpointOriginArray) ToEndpointOriginArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointOriginArrayOutput)
 }
 
-type EndpointOriginOutput struct { *pulumi.OutputState }
+type EndpointOriginOutput struct{ *pulumi.OutputState }
 
 func (EndpointOriginOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EndpointOrigin)(nil)).Elem()
@@ -180,23 +180,23 @@ func (o EndpointOriginOutput) ToEndpointOriginOutputWithContext(ctx context.Cont
 }
 
 func (o EndpointOriginOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func (v EndpointOrigin) string { return v.HostName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EndpointOrigin) string { return v.HostName }).(pulumi.StringOutput)
 }
 
 func (o EndpointOriginOutput) HttpPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v EndpointOrigin) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v EndpointOrigin) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
 }
 
 func (o EndpointOriginOutput) HttpsPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v EndpointOrigin) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v EndpointOrigin) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
 func (o EndpointOriginOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v EndpointOrigin) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EndpointOrigin) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type EndpointOriginArrayOutput struct { *pulumi.OutputState}
+type EndpointOriginArrayOutput struct{ *pulumi.OutputState }
 
 func (EndpointOriginArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]EndpointOrigin)(nil)).Elem()
@@ -211,7 +211,7 @@ func (o EndpointOriginArrayOutput) ToEndpointOriginArrayOutputWithContext(ctx co
 }
 
 func (o EndpointOriginArrayOutput) Index(i pulumi.IntInput) EndpointOriginOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) EndpointOrigin {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointOrigin {
 		return vs[0].([]EndpointOrigin)[vs[1].(int)]
 	}).(EndpointOriginOutput)
 }

@@ -12,7 +12,7 @@ import (
 )
 
 // Manages Azure Batch Application instance.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_application.html.markdown.
 type Application struct {
 	pulumi.CustomResourceState
@@ -132,4 +132,3 @@ type ApplicationArgs struct {
 func (ApplicationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationArgs)(nil)).Elem()
 }
-

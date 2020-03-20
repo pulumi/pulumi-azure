@@ -12,7 +12,7 @@ import (
 )
 
 // Manage a Dedicated Host Group.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dedicated_host_group.html.markdown.
 type DedicatedHostGroup struct {
 	pulumi.CustomResourceState
@@ -27,7 +27,7 @@ type DedicatedHostGroup struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created. 
+	// A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
 	Zones pulumi.StringPtrOutput `pulumi:"zones"`
 }
 
@@ -75,7 +75,7 @@ type dedicatedHostGroupState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created. 
+	// A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
 	Zones *string `pulumi:"zones"`
 }
 
@@ -90,7 +90,7 @@ type DedicatedHostGroupState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created. 
+	// A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
 	Zones pulumi.StringPtrInput
 }
 
@@ -109,7 +109,7 @@ type dedicatedHostGroupArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created. 
+	// A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
 	Zones *string `pulumi:"zones"`
 }
 
@@ -125,11 +125,10 @@ type DedicatedHostGroupArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created. 
+	// A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
 	Zones pulumi.StringPtrInput
 }
 
 func (DedicatedHostGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dedicatedHostGroupArgs)(nil)).Elem()
 }
-

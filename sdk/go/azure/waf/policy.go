@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Azure Web Application Firewall Policy instance.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/web_application_firewall_policy.html.markdown.
 type Policy struct {
 	pulumi.CustomResourceState
@@ -129,4 +129,3 @@ type PolicyArgs struct {
 func (PolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyArgs)(nil)).Elem()
 }
-

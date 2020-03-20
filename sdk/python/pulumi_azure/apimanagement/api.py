@@ -25,13 +25,12 @@ class Api(pulumi.CustomResource):
     import_: pulumi.Output[dict]
     """
     A `import` block as documented below.
-    
+
       * `contentFormat` (`str`)
       * `contentValue` (`str`)
       * `wsdlSelector` (`dict`)
-    
         * `endpointName` (`str`)
-        * `serviceName` (`str`)
+        * `service_name` (`str`)
     """
     is_current: pulumi.Output[bool]
     """
@@ -72,7 +71,7 @@ class Api(pulumi.CustomResource):
     subscription_key_parameter_names: pulumi.Output[dict]
     """
     A `subscription_key_parameter_names` block as documented below.
-    
+
       * `header` (`str`)
       * `query` (`str`)
     """
@@ -87,7 +86,9 @@ class Api(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, api_management_name=None, description=None, display_name=None, import_=None, name=None, path=None, protocols=None, resource_group_name=None, revision=None, service_url=None, soap_pass_through=None, subscription_key_parameter_names=None, version=None, version_set_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an API within an API Management Service.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
@@ -104,22 +105,19 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[dict] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[str] version: The Version number of this API, if this API is versioned.
         :param pulumi.Input[str] version_set_id: The ID of the Version Set which this API is associated with.
-        
+
         The **import_** object supports the following:
-        
+
           * `contentFormat` (`pulumi.Input[str]`)
           * `contentValue` (`pulumi.Input[str]`)
           * `wsdlSelector` (`pulumi.Input[dict]`)
-        
             * `endpointName` (`pulumi.Input[str]`)
-            * `serviceName` (`pulumi.Input[str]`)
-        
+            * `service_name` (`pulumi.Input[str]`)
+
         The **subscription_key_parameter_names** object supports the following:
-        
+
           * `header` (`pulumi.Input[str]`)
           * `query` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -177,7 +175,7 @@ class Api(pulumi.CustomResource):
         """
         Get an existing Api resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,26 +195,24 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[dict] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[str] version: The Version number of this API, if this API is versioned.
         :param pulumi.Input[str] version_set_id: The ID of the Version Set which this API is associated with.
-        
+
         The **import_** object supports the following:
-        
+
           * `contentFormat` (`pulumi.Input[str]`)
           * `contentValue` (`pulumi.Input[str]`)
           * `wsdlSelector` (`pulumi.Input[dict]`)
-        
             * `endpointName` (`pulumi.Input[str]`)
-            * `serviceName` (`pulumi.Input[str]`)
-        
+            * `service_name` (`pulumi.Input[str]`)
+
         The **subscription_key_parameter_names** object supports the following:
-        
+
           * `header` (`pulumi.Input[str]`)
           * `query` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["api_management_name"] = api_management_name
         __props__["description"] = description
         __props__["display_name"] = display_name

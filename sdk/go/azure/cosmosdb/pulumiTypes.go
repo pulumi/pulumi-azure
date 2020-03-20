@@ -61,7 +61,7 @@ func (i AccountCapabilityArray) ToAccountCapabilityArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCapabilityArrayOutput)
 }
 
-type AccountCapabilityOutput struct { *pulumi.OutputState }
+type AccountCapabilityOutput struct{ *pulumi.OutputState }
 
 func (AccountCapabilityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountCapability)(nil)).Elem()
@@ -77,10 +77,10 @@ func (o AccountCapabilityOutput) ToAccountCapabilityOutputWithContext(ctx contex
 
 // The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
 func (o AccountCapabilityOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountCapability) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountCapability) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type AccountCapabilityArrayOutput struct { *pulumi.OutputState}
+type AccountCapabilityArrayOutput struct{ *pulumi.OutputState }
 
 func (AccountCapabilityArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]AccountCapability)(nil)).Elem()
@@ -95,7 +95,7 @@ func (o AccountCapabilityArrayOutput) ToAccountCapabilityArrayOutputWithContext(
 }
 
 func (o AccountCapabilityArrayOutput) Index(i pulumi.IntInput) AccountCapabilityOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AccountCapability {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountCapability {
 		return vs[0].([]AccountCapability)[vs[1].(int)]
 	}).(AccountCapabilityOutput)
 }
@@ -154,7 +154,8 @@ type AccountConsistencyPolicyPtrInput interface {
 
 type accountConsistencyPolicyPtrType AccountConsistencyPolicyArgs
 
-func AccountConsistencyPolicyPtr(v *AccountConsistencyPolicyArgs) AccountConsistencyPolicyPtrInput {	return (*accountConsistencyPolicyPtrType)(v)
+func AccountConsistencyPolicyPtr(v *AccountConsistencyPolicyArgs) AccountConsistencyPolicyPtrInput {
+	return (*accountConsistencyPolicyPtrType)(v)
 }
 
 func (*accountConsistencyPolicyPtrType) ElementType() reflect.Type {
@@ -169,7 +170,7 @@ func (i *accountConsistencyPolicyPtrType) ToAccountConsistencyPolicyPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AccountConsistencyPolicyPtrOutput)
 }
 
-type AccountConsistencyPolicyOutput struct { *pulumi.OutputState }
+type AccountConsistencyPolicyOutput struct{ *pulumi.OutputState }
 
 func (AccountConsistencyPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountConsistencyPolicy)(nil)).Elem()
@@ -192,22 +193,23 @@ func (o AccountConsistencyPolicyOutput) ToAccountConsistencyPolicyPtrOutputWithC
 		return &v
 	}).(AccountConsistencyPolicyPtrOutput)
 }
+
 // The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
 func (o AccountConsistencyPolicyOutput) ConsistencyLevel() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountConsistencyPolicy) string { return v.ConsistencyLevel }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountConsistencyPolicy) string { return v.ConsistencyLevel }).(pulumi.StringOutput)
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistencyLevel` is set to `BoundedStaleness`.
 func (o AccountConsistencyPolicyOutput) MaxIntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v AccountConsistencyPolicy) *int { return v.MaxIntervalInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v AccountConsistencyPolicy) *int { return v.MaxIntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
 func (o AccountConsistencyPolicyOutput) MaxStalenessPrefix() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v AccountConsistencyPolicy) *int { return v.MaxStalenessPrefix }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v AccountConsistencyPolicy) *int { return v.MaxStalenessPrefix }).(pulumi.IntPtrOutput)
 }
 
-type AccountConsistencyPolicyPtrOutput struct { *pulumi.OutputState}
+type AccountConsistencyPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (AccountConsistencyPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountConsistencyPolicy)(nil)).Elem()
@@ -222,126 +224,22 @@ func (o AccountConsistencyPolicyPtrOutput) ToAccountConsistencyPolicyPtrOutputWi
 }
 
 func (o AccountConsistencyPolicyPtrOutput) Elem() AccountConsistencyPolicyOutput {
-	return o.ApplyT(func (v *AccountConsistencyPolicy) AccountConsistencyPolicy { return *v }).(AccountConsistencyPolicyOutput)
+	return o.ApplyT(func(v *AccountConsistencyPolicy) AccountConsistencyPolicy { return *v }).(AccountConsistencyPolicyOutput)
 }
 
 // The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
 func (o AccountConsistencyPolicyPtrOutput) ConsistencyLevel() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountConsistencyPolicy) string { return v.ConsistencyLevel }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountConsistencyPolicy) string { return v.ConsistencyLevel }).(pulumi.StringOutput)
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistencyLevel` is set to `BoundedStaleness`.
 func (o AccountConsistencyPolicyPtrOutput) MaxIntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v AccountConsistencyPolicy) *int { return v.MaxIntervalInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v AccountConsistencyPolicy) *int { return v.MaxIntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
 func (o AccountConsistencyPolicyPtrOutput) MaxStalenessPrefix() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v AccountConsistencyPolicy) *int { return v.MaxStalenessPrefix }).(pulumi.IntPtrOutput)
-}
-
-type AccountFailoverPolicy struct {
-	// The ID of the virtual network subnet.
-	Id *string `pulumi:"id"`
-	// The name of the Azure region to host replicated data.
-	Location string `pulumi:"location"`
-	Priority int `pulumi:"priority"`
-}
-
-type AccountFailoverPolicyInput interface {
-	pulumi.Input
-
-	ToAccountFailoverPolicyOutput() AccountFailoverPolicyOutput
-	ToAccountFailoverPolicyOutputWithContext(context.Context) AccountFailoverPolicyOutput
-}
-
-type AccountFailoverPolicyArgs struct {
-	// The ID of the virtual network subnet.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the Azure region to host replicated data.
-	Location pulumi.StringInput `pulumi:"location"`
-	Priority pulumi.IntInput `pulumi:"priority"`
-}
-
-func (AccountFailoverPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountFailoverPolicy)(nil)).Elem()
-}
-
-func (i AccountFailoverPolicyArgs) ToAccountFailoverPolicyOutput() AccountFailoverPolicyOutput {
-	return i.ToAccountFailoverPolicyOutputWithContext(context.Background())
-}
-
-func (i AccountFailoverPolicyArgs) ToAccountFailoverPolicyOutputWithContext(ctx context.Context) AccountFailoverPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountFailoverPolicyOutput)
-}
-
-type AccountFailoverPolicyArrayInput interface {
-	pulumi.Input
-
-	ToAccountFailoverPolicyArrayOutput() AccountFailoverPolicyArrayOutput
-	ToAccountFailoverPolicyArrayOutputWithContext(context.Context) AccountFailoverPolicyArrayOutput
-}
-
-type AccountFailoverPolicyArray []AccountFailoverPolicyInput
-
-func (AccountFailoverPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccountFailoverPolicy)(nil)).Elem()
-}
-
-func (i AccountFailoverPolicyArray) ToAccountFailoverPolicyArrayOutput() AccountFailoverPolicyArrayOutput {
-	return i.ToAccountFailoverPolicyArrayOutputWithContext(context.Background())
-}
-
-func (i AccountFailoverPolicyArray) ToAccountFailoverPolicyArrayOutputWithContext(ctx context.Context) AccountFailoverPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountFailoverPolicyArrayOutput)
-}
-
-type AccountFailoverPolicyOutput struct { *pulumi.OutputState }
-
-func (AccountFailoverPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountFailoverPolicy)(nil)).Elem()
-}
-
-func (o AccountFailoverPolicyOutput) ToAccountFailoverPolicyOutput() AccountFailoverPolicyOutput {
-	return o
-}
-
-func (o AccountFailoverPolicyOutput) ToAccountFailoverPolicyOutputWithContext(ctx context.Context) AccountFailoverPolicyOutput {
-	return o
-}
-
-// The ID of the virtual network subnet.
-func (o AccountFailoverPolicyOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AccountFailoverPolicy) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// The name of the Azure region to host replicated data.
-func (o AccountFailoverPolicyOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountFailoverPolicy) string { return v.Location }).(pulumi.StringOutput)
-}
-
-func (o AccountFailoverPolicyOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func (v AccountFailoverPolicy) int { return v.Priority }).(pulumi.IntOutput)
-}
-
-type AccountFailoverPolicyArrayOutput struct { *pulumi.OutputState}
-
-func (AccountFailoverPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccountFailoverPolicy)(nil)).Elem()
-}
-
-func (o AccountFailoverPolicyArrayOutput) ToAccountFailoverPolicyArrayOutput() AccountFailoverPolicyArrayOutput {
-	return o
-}
-
-func (o AccountFailoverPolicyArrayOutput) ToAccountFailoverPolicyArrayOutputWithContext(ctx context.Context) AccountFailoverPolicyArrayOutput {
-	return o
-}
-
-func (o AccountFailoverPolicyArrayOutput) Index(i pulumi.IntInput) AccountFailoverPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AccountFailoverPolicy {
-		return vs[0].([]AccountFailoverPolicy)[vs[1].(int)]
-	}).(AccountFailoverPolicyOutput)
+	return o.ApplyT(func(v AccountConsistencyPolicy) *int { return v.MaxStalenessPrefix }).(pulumi.IntPtrOutput)
 }
 
 type AccountGeoLocation struct {
@@ -406,7 +304,7 @@ func (i AccountGeoLocationArray) ToAccountGeoLocationArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountGeoLocationArrayOutput)
 }
 
-type AccountGeoLocationOutput struct { *pulumi.OutputState }
+type AccountGeoLocationOutput struct{ *pulumi.OutputState }
 
 func (AccountGeoLocationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountGeoLocation)(nil)).Elem()
@@ -422,25 +320,25 @@ func (o AccountGeoLocationOutput) ToAccountGeoLocationOutputWithContext(ctx cont
 
 // The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
 func (o AccountGeoLocationOutput) FailoverPriority() pulumi.IntOutput {
-	return o.ApplyT(func (v AccountGeoLocation) int { return v.FailoverPriority }).(pulumi.IntOutput)
+	return o.ApplyT(func(v AccountGeoLocation) int { return v.FailoverPriority }).(pulumi.IntOutput)
 }
 
 // The ID of the virtual network subnet.
 func (o AccountGeoLocationOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AccountGeoLocation) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AccountGeoLocation) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Azure region to host replicated data.
 func (o AccountGeoLocationOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountGeoLocation) string { return v.Location }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountGeoLocation) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
 func (o AccountGeoLocationOutput) Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AccountGeoLocation) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AccountGeoLocation) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-type AccountGeoLocationArrayOutput struct { *pulumi.OutputState}
+type AccountGeoLocationArrayOutput struct{ *pulumi.OutputState }
 
 func (AccountGeoLocationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]AccountGeoLocation)(nil)).Elem()
@@ -455,7 +353,7 @@ func (o AccountGeoLocationArrayOutput) ToAccountGeoLocationArrayOutputWithContex
 }
 
 func (o AccountGeoLocationArrayOutput) Index(i pulumi.IntInput) AccountGeoLocationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AccountGeoLocation {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountGeoLocation {
 		return vs[0].([]AccountGeoLocation)[vs[1].(int)]
 	}).(AccountGeoLocationOutput)
 }
@@ -510,7 +408,7 @@ func (i AccountVirtualNetworkRuleArray) ToAccountVirtualNetworkRuleArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AccountVirtualNetworkRuleArrayOutput)
 }
 
-type AccountVirtualNetworkRuleOutput struct { *pulumi.OutputState }
+type AccountVirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (AccountVirtualNetworkRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountVirtualNetworkRule)(nil)).Elem()
@@ -526,10 +424,10 @@ func (o AccountVirtualNetworkRuleOutput) ToAccountVirtualNetworkRuleOutputWithCo
 
 // The ID of the virtual network subnet.
 func (o AccountVirtualNetworkRuleOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountVirtualNetworkRule) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountVirtualNetworkRule) string { return v.Id }).(pulumi.StringOutput)
 }
 
-type AccountVirtualNetworkRuleArrayOutput struct { *pulumi.OutputState}
+type AccountVirtualNetworkRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (AccountVirtualNetworkRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]AccountVirtualNetworkRule)(nil)).Elem()
@@ -544,15 +442,15 @@ func (o AccountVirtualNetworkRuleArrayOutput) ToAccountVirtualNetworkRuleArrayOu
 }
 
 func (o AccountVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) AccountVirtualNetworkRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AccountVirtualNetworkRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountVirtualNetworkRule {
 		return vs[0].([]AccountVirtualNetworkRule)[vs[1].(int)]
 	}).(AccountVirtualNetworkRuleOutput)
 }
 
 type GremlinGraphConflictResolutionPolicy struct {
-	ConflictResolutionPath *string `pulumi:"conflictResolutionPath"`
+	ConflictResolutionPath      *string `pulumi:"conflictResolutionPath"`
 	ConflictResolutionProcedure *string `pulumi:"conflictResolutionProcedure"`
-	Mode string `pulumi:"mode"`
+	Mode                        string  `pulumi:"mode"`
 }
 
 type GremlinGraphConflictResolutionPolicyInput interface {
@@ -563,9 +461,9 @@ type GremlinGraphConflictResolutionPolicyInput interface {
 }
 
 type GremlinGraphConflictResolutionPolicyArgs struct {
-	ConflictResolutionPath pulumi.StringPtrInput `pulumi:"conflictResolutionPath"`
+	ConflictResolutionPath      pulumi.StringPtrInput `pulumi:"conflictResolutionPath"`
 	ConflictResolutionProcedure pulumi.StringPtrInput `pulumi:"conflictResolutionProcedure"`
-	Mode pulumi.StringInput `pulumi:"mode"`
+	Mode                        pulumi.StringInput    `pulumi:"mode"`
 }
 
 func (GremlinGraphConflictResolutionPolicyArgs) ElementType() reflect.Type {
@@ -601,7 +499,7 @@ func (i GremlinGraphConflictResolutionPolicyArray) ToGremlinGraphConflictResolut
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphConflictResolutionPolicyArrayOutput)
 }
 
-type GremlinGraphConflictResolutionPolicyOutput struct { *pulumi.OutputState }
+type GremlinGraphConflictResolutionPolicyOutput struct{ *pulumi.OutputState }
 
 func (GremlinGraphConflictResolutionPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GremlinGraphConflictResolutionPolicy)(nil)).Elem()
@@ -616,18 +514,18 @@ func (o GremlinGraphConflictResolutionPolicyOutput) ToGremlinGraphConflictResolu
 }
 
 func (o GremlinGraphConflictResolutionPolicyOutput) ConflictResolutionPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GremlinGraphConflictResolutionPolicy) *string { return v.ConflictResolutionPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GremlinGraphConflictResolutionPolicy) *string { return v.ConflictResolutionPath }).(pulumi.StringPtrOutput)
 }
 
 func (o GremlinGraphConflictResolutionPolicyOutput) ConflictResolutionProcedure() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GremlinGraphConflictResolutionPolicy) *string { return v.ConflictResolutionProcedure }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GremlinGraphConflictResolutionPolicy) *string { return v.ConflictResolutionProcedure }).(pulumi.StringPtrOutput)
 }
 
 func (o GremlinGraphConflictResolutionPolicyOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func (v GremlinGraphConflictResolutionPolicy) string { return v.Mode }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GremlinGraphConflictResolutionPolicy) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-type GremlinGraphConflictResolutionPolicyArrayOutput struct { *pulumi.OutputState}
+type GremlinGraphConflictResolutionPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (GremlinGraphConflictResolutionPolicyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GremlinGraphConflictResolutionPolicy)(nil)).Elem()
@@ -642,16 +540,16 @@ func (o GremlinGraphConflictResolutionPolicyArrayOutput) ToGremlinGraphConflictR
 }
 
 func (o GremlinGraphConflictResolutionPolicyArrayOutput) Index(i pulumi.IntInput) GremlinGraphConflictResolutionPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GremlinGraphConflictResolutionPolicy {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GremlinGraphConflictResolutionPolicy {
 		return vs[0].([]GremlinGraphConflictResolutionPolicy)[vs[1].(int)]
 	}).(GremlinGraphConflictResolutionPolicyOutput)
 }
 
 type GremlinGraphIndexPolicy struct {
-	Automatic *bool `pulumi:"automatic"`
+	Automatic     *bool    `pulumi:"automatic"`
 	ExcludedPaths []string `pulumi:"excludedPaths"`
 	IncludedPaths []string `pulumi:"includedPaths"`
-	IndexingMode string `pulumi:"indexingMode"`
+	IndexingMode  string   `pulumi:"indexingMode"`
 }
 
 type GremlinGraphIndexPolicyInput interface {
@@ -662,10 +560,10 @@ type GremlinGraphIndexPolicyInput interface {
 }
 
 type GremlinGraphIndexPolicyArgs struct {
-	Automatic pulumi.BoolPtrInput `pulumi:"automatic"`
+	Automatic     pulumi.BoolPtrInput     `pulumi:"automatic"`
 	ExcludedPaths pulumi.StringArrayInput `pulumi:"excludedPaths"`
 	IncludedPaths pulumi.StringArrayInput `pulumi:"includedPaths"`
-	IndexingMode pulumi.StringInput `pulumi:"indexingMode"`
+	IndexingMode  pulumi.StringInput      `pulumi:"indexingMode"`
 }
 
 func (GremlinGraphIndexPolicyArgs) ElementType() reflect.Type {
@@ -701,7 +599,7 @@ func (i GremlinGraphIndexPolicyArray) ToGremlinGraphIndexPolicyArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphIndexPolicyArrayOutput)
 }
 
-type GremlinGraphIndexPolicyOutput struct { *pulumi.OutputState }
+type GremlinGraphIndexPolicyOutput struct{ *pulumi.OutputState }
 
 func (GremlinGraphIndexPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GremlinGraphIndexPolicy)(nil)).Elem()
@@ -716,22 +614,22 @@ func (o GremlinGraphIndexPolicyOutput) ToGremlinGraphIndexPolicyOutputWithContex
 }
 
 func (o GremlinGraphIndexPolicyOutput) Automatic() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v GremlinGraphIndexPolicy) *bool { return v.Automatic }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v GremlinGraphIndexPolicy) *bool { return v.Automatic }).(pulumi.BoolPtrOutput)
 }
 
 func (o GremlinGraphIndexPolicyOutput) ExcludedPaths() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GremlinGraphIndexPolicy) []string { return v.ExcludedPaths }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GremlinGraphIndexPolicy) []string { return v.ExcludedPaths }).(pulumi.StringArrayOutput)
 }
 
 func (o GremlinGraphIndexPolicyOutput) IncludedPaths() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GremlinGraphIndexPolicy) []string { return v.IncludedPaths }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GremlinGraphIndexPolicy) []string { return v.IncludedPaths }).(pulumi.StringArrayOutput)
 }
 
 func (o GremlinGraphIndexPolicyOutput) IndexingMode() pulumi.StringOutput {
-	return o.ApplyT(func (v GremlinGraphIndexPolicy) string { return v.IndexingMode }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GremlinGraphIndexPolicy) string { return v.IndexingMode }).(pulumi.StringOutput)
 }
 
-type GremlinGraphIndexPolicyArrayOutput struct { *pulumi.OutputState}
+type GremlinGraphIndexPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (GremlinGraphIndexPolicyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GremlinGraphIndexPolicy)(nil)).Elem()
@@ -746,7 +644,7 @@ func (o GremlinGraphIndexPolicyArrayOutput) ToGremlinGraphIndexPolicyArrayOutput
 }
 
 func (o GremlinGraphIndexPolicyArrayOutput) Index(i pulumi.IntInput) GremlinGraphIndexPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GremlinGraphIndexPolicy {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GremlinGraphIndexPolicy {
 		return vs[0].([]GremlinGraphIndexPolicy)[vs[1].(int)]
 	}).(GremlinGraphIndexPolicyOutput)
 }
@@ -799,7 +697,7 @@ func (i GremlinGraphUniqueKeyArray) ToGremlinGraphUniqueKeyArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphUniqueKeyArrayOutput)
 }
 
-type GremlinGraphUniqueKeyOutput struct { *pulumi.OutputState }
+type GremlinGraphUniqueKeyOutput struct{ *pulumi.OutputState }
 
 func (GremlinGraphUniqueKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GremlinGraphUniqueKey)(nil)).Elem()
@@ -814,10 +712,10 @@ func (o GremlinGraphUniqueKeyOutput) ToGremlinGraphUniqueKeyOutputWithContext(ct
 }
 
 func (o GremlinGraphUniqueKeyOutput) Paths() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GremlinGraphUniqueKey) []string { return v.Paths }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GremlinGraphUniqueKey) []string { return v.Paths }).(pulumi.StringArrayOutput)
 }
 
-type GremlinGraphUniqueKeyArrayOutput struct { *pulumi.OutputState}
+type GremlinGraphUniqueKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (GremlinGraphUniqueKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GremlinGraphUniqueKey)(nil)).Elem()
@@ -832,101 +730,9 @@ func (o GremlinGraphUniqueKeyArrayOutput) ToGremlinGraphUniqueKeyArrayOutputWith
 }
 
 func (o GremlinGraphUniqueKeyArrayOutput) Index(i pulumi.IntInput) GremlinGraphUniqueKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GremlinGraphUniqueKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GremlinGraphUniqueKey {
 		return vs[0].([]GremlinGraphUniqueKey)[vs[1].(int)]
 	}).(GremlinGraphUniqueKeyOutput)
-}
-
-type MongoCollectionIndex struct {
-	Key string `pulumi:"key"`
-	Unique *bool `pulumi:"unique"`
-}
-
-type MongoCollectionIndexInput interface {
-	pulumi.Input
-
-	ToMongoCollectionIndexOutput() MongoCollectionIndexOutput
-	ToMongoCollectionIndexOutputWithContext(context.Context) MongoCollectionIndexOutput
-}
-
-type MongoCollectionIndexArgs struct {
-	Key pulumi.StringInput `pulumi:"key"`
-	Unique pulumi.BoolPtrInput `pulumi:"unique"`
-}
-
-func (MongoCollectionIndexArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoCollectionIndex)(nil)).Elem()
-}
-
-func (i MongoCollectionIndexArgs) ToMongoCollectionIndexOutput() MongoCollectionIndexOutput {
-	return i.ToMongoCollectionIndexOutputWithContext(context.Background())
-}
-
-func (i MongoCollectionIndexArgs) ToMongoCollectionIndexOutputWithContext(ctx context.Context) MongoCollectionIndexOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionIndexOutput)
-}
-
-type MongoCollectionIndexArrayInput interface {
-	pulumi.Input
-
-	ToMongoCollectionIndexArrayOutput() MongoCollectionIndexArrayOutput
-	ToMongoCollectionIndexArrayOutputWithContext(context.Context) MongoCollectionIndexArrayOutput
-}
-
-type MongoCollectionIndexArray []MongoCollectionIndexInput
-
-func (MongoCollectionIndexArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MongoCollectionIndex)(nil)).Elem()
-}
-
-func (i MongoCollectionIndexArray) ToMongoCollectionIndexArrayOutput() MongoCollectionIndexArrayOutput {
-	return i.ToMongoCollectionIndexArrayOutputWithContext(context.Background())
-}
-
-func (i MongoCollectionIndexArray) ToMongoCollectionIndexArrayOutputWithContext(ctx context.Context) MongoCollectionIndexArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionIndexArrayOutput)
-}
-
-type MongoCollectionIndexOutput struct { *pulumi.OutputState }
-
-func (MongoCollectionIndexOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoCollectionIndex)(nil)).Elem()
-}
-
-func (o MongoCollectionIndexOutput) ToMongoCollectionIndexOutput() MongoCollectionIndexOutput {
-	return o
-}
-
-func (o MongoCollectionIndexOutput) ToMongoCollectionIndexOutputWithContext(ctx context.Context) MongoCollectionIndexOutput {
-	return o
-}
-
-func (o MongoCollectionIndexOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func (v MongoCollectionIndex) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o MongoCollectionIndexOutput) Unique() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v MongoCollectionIndex) *bool { return v.Unique }).(pulumi.BoolPtrOutput)
-}
-
-type MongoCollectionIndexArrayOutput struct { *pulumi.OutputState}
-
-func (MongoCollectionIndexArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MongoCollectionIndex)(nil)).Elem()
-}
-
-func (o MongoCollectionIndexArrayOutput) ToMongoCollectionIndexArrayOutput() MongoCollectionIndexArrayOutput {
-	return o
-}
-
-func (o MongoCollectionIndexArrayOutput) ToMongoCollectionIndexArrayOutputWithContext(ctx context.Context) MongoCollectionIndexArrayOutput {
-	return o
-}
-
-func (o MongoCollectionIndexArrayOutput) Index(i pulumi.IntInput) MongoCollectionIndexOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) MongoCollectionIndex {
-		return vs[0].([]MongoCollectionIndex)[vs[1].(int)]
-	}).(MongoCollectionIndexOutput)
 }
 
 type SqlContainerUniqueKey struct {
@@ -977,7 +783,7 @@ func (i SqlContainerUniqueKeyArray) ToSqlContainerUniqueKeyArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerUniqueKeyArrayOutput)
 }
 
-type SqlContainerUniqueKeyOutput struct { *pulumi.OutputState }
+type SqlContainerUniqueKeyOutput struct{ *pulumi.OutputState }
 
 func (SqlContainerUniqueKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlContainerUniqueKey)(nil)).Elem()
@@ -992,10 +798,10 @@ func (o SqlContainerUniqueKeyOutput) ToSqlContainerUniqueKeyOutputWithContext(ct
 }
 
 func (o SqlContainerUniqueKeyOutput) Paths() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v SqlContainerUniqueKey) []string { return v.Paths }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v SqlContainerUniqueKey) []string { return v.Paths }).(pulumi.StringArrayOutput)
 }
 
-type SqlContainerUniqueKeyArrayOutput struct { *pulumi.OutputState}
+type SqlContainerUniqueKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (SqlContainerUniqueKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SqlContainerUniqueKey)(nil)).Elem()
@@ -1010,7 +816,7 @@ func (o SqlContainerUniqueKeyArrayOutput) ToSqlContainerUniqueKeyArrayOutputWith
 }
 
 func (o SqlContainerUniqueKeyArrayOutput) Index(i pulumi.IntInput) SqlContainerUniqueKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SqlContainerUniqueKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlContainerUniqueKey {
 		return vs[0].([]SqlContainerUniqueKey)[vs[1].(int)]
 	}).(SqlContainerUniqueKeyOutput)
 }
@@ -1065,7 +871,7 @@ func (i GetAccountCapabilityArray) ToGetAccountCapabilityArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountCapabilityArrayOutput)
 }
 
-type GetAccountCapabilityOutput struct { *pulumi.OutputState }
+type GetAccountCapabilityOutput struct{ *pulumi.OutputState }
 
 func (GetAccountCapabilityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetAccountCapability)(nil)).Elem()
@@ -1081,10 +887,10 @@ func (o GetAccountCapabilityOutput) ToGetAccountCapabilityOutputWithContext(ctx 
 
 // Specifies the name of the CosmosDB Account.
 func (o GetAccountCapabilityOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetAccountCapability) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetAccountCapability) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type GetAccountCapabilityArrayOutput struct { *pulumi.OutputState}
+type GetAccountCapabilityArrayOutput struct{ *pulumi.OutputState }
 
 func (GetAccountCapabilityArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetAccountCapability)(nil)).Elem()
@@ -1099,7 +905,7 @@ func (o GetAccountCapabilityArrayOutput) ToGetAccountCapabilityArrayOutputWithCo
 }
 
 func (o GetAccountCapabilityArrayOutput) Index(i pulumi.IntInput) GetAccountCapabilityOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetAccountCapability {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountCapability {
 		return vs[0].([]GetAccountCapability)[vs[1].(int)]
 	}).(GetAccountCapabilityOutput)
 }
@@ -1162,7 +968,7 @@ func (i GetAccountConsistencyPolicyArray) ToGetAccountConsistencyPolicyArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountConsistencyPolicyArrayOutput)
 }
 
-type GetAccountConsistencyPolicyOutput struct { *pulumi.OutputState }
+type GetAccountConsistencyPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetAccountConsistencyPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetAccountConsistencyPolicy)(nil)).Elem()
@@ -1178,20 +984,20 @@ func (o GetAccountConsistencyPolicyOutput) ToGetAccountConsistencyPolicyOutputWi
 
 // The Consistency Level used by this CosmosDB Account.
 func (o GetAccountConsistencyPolicyOutput) ConsistencyLevel() pulumi.StringOutput {
-	return o.ApplyT(func (v GetAccountConsistencyPolicy) string { return v.ConsistencyLevel }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetAccountConsistencyPolicy) string { return v.ConsistencyLevel }).(pulumi.StringOutput)
 }
 
 // The amount of staleness (in seconds) tolerated when the consistency level is Bounded Staleness.
 func (o GetAccountConsistencyPolicyOutput) MaxIntervalInSeconds() pulumi.IntOutput {
-	return o.ApplyT(func (v GetAccountConsistencyPolicy) int { return v.MaxIntervalInSeconds }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetAccountConsistencyPolicy) int { return v.MaxIntervalInSeconds }).(pulumi.IntOutput)
 }
 
 // The number of stale requests tolerated when the consistency level is Bounded Staleness.
 func (o GetAccountConsistencyPolicyOutput) MaxStalenessPrefix() pulumi.IntOutput {
-	return o.ApplyT(func (v GetAccountConsistencyPolicy) int { return v.MaxStalenessPrefix }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetAccountConsistencyPolicy) int { return v.MaxStalenessPrefix }).(pulumi.IntOutput)
 }
 
-type GetAccountConsistencyPolicyArrayOutput struct { *pulumi.OutputState}
+type GetAccountConsistencyPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (GetAccountConsistencyPolicyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetAccountConsistencyPolicy)(nil)).Elem()
@@ -1206,7 +1012,7 @@ func (o GetAccountConsistencyPolicyArrayOutput) ToGetAccountConsistencyPolicyArr
 }
 
 func (o GetAccountConsistencyPolicyArrayOutput) Index(i pulumi.IntInput) GetAccountConsistencyPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetAccountConsistencyPolicy {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountConsistencyPolicy {
 		return vs[0].([]GetAccountConsistencyPolicy)[vs[1].(int)]
 	}).(GetAccountConsistencyPolicyOutput)
 }
@@ -1267,7 +1073,7 @@ func (i GetAccountGeoLocationArray) ToGetAccountGeoLocationArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountGeoLocationArrayOutput)
 }
 
-type GetAccountGeoLocationOutput struct { *pulumi.OutputState }
+type GetAccountGeoLocationOutput struct{ *pulumi.OutputState }
 
 func (GetAccountGeoLocationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetAccountGeoLocation)(nil)).Elem()
@@ -1282,20 +1088,20 @@ func (o GetAccountGeoLocationOutput) ToGetAccountGeoLocationOutputWithContext(ct
 }
 
 func (o GetAccountGeoLocationOutput) FailoverPriority() pulumi.IntOutput {
-	return o.ApplyT(func (v GetAccountGeoLocation) int { return v.FailoverPriority }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetAccountGeoLocation) int { return v.FailoverPriority }).(pulumi.IntOutput)
 }
 
 // The ID of the virtual network subnet.
 func (o GetAccountGeoLocationOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetAccountGeoLocation) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetAccountGeoLocation) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The name of the Azure region hosting replicated data.
 func (o GetAccountGeoLocationOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func (v GetAccountGeoLocation) string { return v.Location }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetAccountGeoLocation) string { return v.Location }).(pulumi.StringOutput)
 }
 
-type GetAccountGeoLocationArrayOutput struct { *pulumi.OutputState}
+type GetAccountGeoLocationArrayOutput struct{ *pulumi.OutputState }
 
 func (GetAccountGeoLocationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetAccountGeoLocation)(nil)).Elem()
@@ -1310,7 +1116,7 @@ func (o GetAccountGeoLocationArrayOutput) ToGetAccountGeoLocationArrayOutputWith
 }
 
 func (o GetAccountGeoLocationArrayOutput) Index(i pulumi.IntInput) GetAccountGeoLocationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetAccountGeoLocation {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountGeoLocation {
 		return vs[0].([]GetAccountGeoLocation)[vs[1].(int)]
 	}).(GetAccountGeoLocationOutput)
 }
@@ -1365,7 +1171,7 @@ func (i GetAccountVirtualNetworkRuleArray) ToGetAccountVirtualNetworkRuleArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountVirtualNetworkRuleArrayOutput)
 }
 
-type GetAccountVirtualNetworkRuleOutput struct { *pulumi.OutputState }
+type GetAccountVirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (GetAccountVirtualNetworkRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetAccountVirtualNetworkRule)(nil)).Elem()
@@ -1381,10 +1187,10 @@ func (o GetAccountVirtualNetworkRuleOutput) ToGetAccountVirtualNetworkRuleOutput
 
 // The ID of the virtual network subnet.
 func (o GetAccountVirtualNetworkRuleOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetAccountVirtualNetworkRule) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetAccountVirtualNetworkRule) string { return v.Id }).(pulumi.StringOutput)
 }
 
-type GetAccountVirtualNetworkRuleArrayOutput struct { *pulumi.OutputState}
+type GetAccountVirtualNetworkRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (GetAccountVirtualNetworkRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetAccountVirtualNetworkRule)(nil)).Elem()
@@ -1399,7 +1205,7 @@ func (o GetAccountVirtualNetworkRuleArrayOutput) ToGetAccountVirtualNetworkRuleA
 }
 
 func (o GetAccountVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) GetAccountVirtualNetworkRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetAccountVirtualNetworkRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountVirtualNetworkRule {
 		return vs[0].([]GetAccountVirtualNetworkRule)[vs[1].(int)]
 	}).(GetAccountVirtualNetworkRuleOutput)
 }
@@ -1409,8 +1215,6 @@ func init() {
 	pulumi.RegisterOutputType(AccountCapabilityArrayOutput{})
 	pulumi.RegisterOutputType(AccountConsistencyPolicyOutput{})
 	pulumi.RegisterOutputType(AccountConsistencyPolicyPtrOutput{})
-	pulumi.RegisterOutputType(AccountFailoverPolicyOutput{})
-	pulumi.RegisterOutputType(AccountFailoverPolicyArrayOutput{})
 	pulumi.RegisterOutputType(AccountGeoLocationOutput{})
 	pulumi.RegisterOutputType(AccountGeoLocationArrayOutput{})
 	pulumi.RegisterOutputType(AccountVirtualNetworkRuleOutput{})
@@ -1421,8 +1225,6 @@ func init() {
 	pulumi.RegisterOutputType(GremlinGraphIndexPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GremlinGraphUniqueKeyOutput{})
 	pulumi.RegisterOutputType(GremlinGraphUniqueKeyArrayOutput{})
-	pulumi.RegisterOutputType(MongoCollectionIndexOutput{})
-	pulumi.RegisterOutputType(MongoCollectionIndexArrayOutput{})
 	pulumi.RegisterOutputType(SqlContainerUniqueKeyOutput{})
 	pulumi.RegisterOutputType(SqlContainerUniqueKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountCapabilityOutput{})

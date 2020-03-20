@@ -13,7 +13,7 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
     inputs: pulumi.Output[list]
     """
     One or more `input` blocks as defined below.
-    
+
       * `type` (`str`)
     """
     name: pulumi.Output[str]
@@ -23,7 +23,7 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
     output: pulumi.Output[dict]
     """
     An `output` blocks as defined below.
-    
+
       * `type` (`str`)
     """
     resource_group_name: pulumi.Output[str]
@@ -41,7 +41,9 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, inputs=None, name=None, output=None, resource_group_name=None, script=None, stream_analytics_job_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a JavaScript UDF Function within Stream Analytics Streaming Job.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_function_javascript_udf.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] inputs: One or more `input` blocks as defined below.
@@ -50,16 +52,14 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The JavaScript of this UDF Function.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
-        
+
         The **inputs** object supports the following:
-        
-          * `type` (`pulumi.Input[str]`)
-        
-        The **output** object supports the following:
-        
+
           * `type` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_function_javascript_udf.html.markdown.
+        The **output** object supports the following:
+
+          * `type` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -105,7 +105,7 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
         """
         Get an existing FunctionJavaScriptUDF resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,20 +115,19 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The JavaScript of this UDF Function.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
-        
+
         The **inputs** object supports the following:
-        
-          * `type` (`pulumi.Input[str]`)
-        
-        The **output** object supports the following:
-        
+
           * `type` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_function_javascript_udf.html.markdown.
+        The **output** object supports the following:
+
+          * `type` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["inputs"] = inputs
         __props__["name"] = name
         __props__["output"] = output

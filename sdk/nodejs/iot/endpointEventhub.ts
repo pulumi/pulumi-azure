@@ -10,53 +10,6 @@ import * as utilities from "../utilities";
  * Manages an IotHub EventHub Endpoint
  * 
  * > **NOTE:** Endpoints can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `azure.iot.IoTHub` resource is not supported.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "East US",
- * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Basic",
- * });
- * const exampleEventHub = new azure.eventhub.EventHub("example", {
- *     messageRetention: 1,
- *     namespaceName: exampleEventHubNamespace.name,
- *     partitionCount: 2,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("example", {
- *     eventhubName: exampleEventHub.name,
- *     listen: false,
- *     manage: false,
- *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     send: true,
- * });
- * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         capacity: 1,
- *         name: "B1",
- *         tier: "Basic",
- *     },
- *     tags: {
- *         purpose: "example",
- *     },
- * });
- * const exampleEndpointEventhub = new azure.iot.EndpointEventhub("example", {
- *     connectionString: exampleAuthorizationRule.primaryConnectionString,
- *     iothubName: exampleIoTHub.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_endpoint_eventhub.html.markdown.
  */

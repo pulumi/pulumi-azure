@@ -18,7 +18,6 @@ class AuthorizationRule(pulumi.CustomResource):
     """
     Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
     """
-    location: pulumi.Output[str]
     manage: pulumi.Output[bool]
     """
     Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
@@ -45,20 +44,22 @@ class AuthorizationRule(pulumi.CustomResource):
     """
     secondary_connection_string: pulumi.Output[str]
     """
-    The Secondary Connection String for the Event Hubs authorization Rule.
+    The Secondary Connection String for the Event Hubs Authorization Rule.
     """
     secondary_key: pulumi.Output[str]
     """
-    The Secondary Key for the Event Hubs authorization Rule.
+    The Secondary Key for the Event Hubs Authorization Rule.
     """
     send: pulumi.Output[bool]
     """
     Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
     """
-    def __init__(__self__, resource_name, opts=None, eventhub_name=None, listen=None, location=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, eventhub_name=None, listen=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Event Hubs authorization Rule within an Event Hub.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_authorization_rule.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the EventHub. Changing this forces a new resource to be created.
@@ -68,8 +69,6 @@ class AuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send: Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_authorization_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -92,7 +91,6 @@ class AuthorizationRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'eventhub_name'")
             __props__['eventhub_name'] = eventhub_name
             __props__['listen'] = listen
-            __props__['location'] = location
             __props__['manage'] = manage
             __props__['name'] = name
             if namespace_name is None:
@@ -115,11 +113,11 @@ class AuthorizationRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, eventhub_name=None, listen=None, location=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, send=None):
+    def get(resource_name, id, opts=None, eventhub_name=None, listen=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, send=None):
         """
         Get an existing AuthorizationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,18 +129,16 @@ class AuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] primary_connection_string: The Primary Connection String for the Event Hubs authorization Rule.
         :param pulumi.Input[str] primary_key: The Primary Key for the Event Hubs authorization Rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] secondary_connection_string: The Secondary Connection String for the Event Hubs authorization Rule.
-        :param pulumi.Input[str] secondary_key: The Secondary Key for the Event Hubs authorization Rule.
+        :param pulumi.Input[str] secondary_connection_string: The Secondary Connection String for the Event Hubs Authorization Rule.
+        :param pulumi.Input[str] secondary_key: The Secondary Key for the Event Hubs Authorization Rule.
         :param pulumi.Input[bool] send: Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_authorization_rule.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["eventhub_name"] = eventhub_name
         __props__["listen"] = listen
-        __props__["location"] = location
         __props__["manage"] = manage
         __props__["name"] = name
         __props__["namespace_name"] = namespace_name

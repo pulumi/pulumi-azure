@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_protection_container_mapping.html.markdown.
 type ProtectionContainerMapping struct {
 	pulumi.CustomResourceState
@@ -154,4 +154,3 @@ type ProtectionContainerMappingArgs struct {
 func (ProtectionContainerMappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectionContainerMappingArgs)(nil)).Elem()
 }
-

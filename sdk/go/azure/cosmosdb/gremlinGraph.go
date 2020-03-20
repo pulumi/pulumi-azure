@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Gremlin Graph within a Cosmos DB Account.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_gremlin_graph.html.markdown.
 type GremlinGraph struct {
 	pulumi.CustomResourceState
@@ -31,7 +31,7 @@ type GremlinGraph struct {
 	PartitionKeyPath pulumi.StringPtrOutput `pulumi:"partitionKeyPath"`
 	// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	Throughput pulumi.IntOutput `pulumi:"throughput"`
+	Throughput        pulumi.IntOutput    `pulumi:"throughput"`
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys GremlinGraphUniqueKeyArrayOutput `pulumi:"uniqueKeys"`
 }
@@ -93,7 +93,7 @@ type gremlinGraphState struct {
 	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
 	// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int    `pulumi:"throughput"`
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys []GremlinGraphUniqueKey `pulumi:"uniqueKeys"`
 }
@@ -113,7 +113,7 @@ type GremlinGraphState struct {
 	PartitionKeyPath pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	Throughput pulumi.IntPtrInput
+	Throughput        pulumi.IntPtrInput
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys GremlinGraphUniqueKeyArrayInput
 }
@@ -137,7 +137,7 @@ type gremlinGraphArgs struct {
 	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
 	// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int   `pulumi:"throughput"`
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys []GremlinGraphUniqueKey `pulumi:"uniqueKeys"`
 }
@@ -158,7 +158,7 @@ type GremlinGraphArgs struct {
 	PartitionKeyPath pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Throughput pulumi.IntPtrInput
+	Throughput        pulumi.IntPtrInput
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys GremlinGraphUniqueKeyArrayInput
 }
@@ -166,4 +166,3 @@ type GremlinGraphArgs struct {
 func (GremlinGraphArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gremlinGraphArgs)(nil)).Elem()
 }
-

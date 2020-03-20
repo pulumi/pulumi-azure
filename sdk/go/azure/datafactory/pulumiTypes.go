@@ -15,7 +15,7 @@ type DatasetMysqlSchemaColumn struct {
 	// The description for the Data Factory Dataset MySQL.
 	Description *string `pulumi:"description"`
 	// Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-	Name string `pulumi:"name"`
+	Name string  `pulumi:"name"`
 	Type *string `pulumi:"type"`
 }
 
@@ -30,7 +30,7 @@ type DatasetMysqlSchemaColumnArgs struct {
 	// The description for the Data Factory Dataset MySQL.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringInput    `pulumi:"name"`
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -67,7 +67,7 @@ func (i DatasetMysqlSchemaColumnArray) ToDatasetMysqlSchemaColumnArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetMysqlSchemaColumnArrayOutput)
 }
 
-type DatasetMysqlSchemaColumnOutput struct { *pulumi.OutputState }
+type DatasetMysqlSchemaColumnOutput struct{ *pulumi.OutputState }
 
 func (DatasetMysqlSchemaColumnOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatasetMysqlSchemaColumn)(nil)).Elem()
@@ -83,19 +83,19 @@ func (o DatasetMysqlSchemaColumnOutput) ToDatasetMysqlSchemaColumnOutputWithCont
 
 // The description for the Data Factory Dataset MySQL.
 func (o DatasetMysqlSchemaColumnOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatasetMysqlSchemaColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatasetMysqlSchemaColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 func (o DatasetMysqlSchemaColumnOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v DatasetMysqlSchemaColumn) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DatasetMysqlSchemaColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o DatasetMysqlSchemaColumnOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatasetMysqlSchemaColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatasetMysqlSchemaColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type DatasetMysqlSchemaColumnArrayOutput struct { *pulumi.OutputState}
+type DatasetMysqlSchemaColumnArrayOutput struct{ *pulumi.OutputState }
 
 func (DatasetMysqlSchemaColumnArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DatasetMysqlSchemaColumn)(nil)).Elem()
@@ -110,7 +110,7 @@ func (o DatasetMysqlSchemaColumnArrayOutput) ToDatasetMysqlSchemaColumnArrayOutp
 }
 
 func (o DatasetMysqlSchemaColumnArrayOutput) Index(i pulumi.IntInput) DatasetMysqlSchemaColumnOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DatasetMysqlSchemaColumn {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetMysqlSchemaColumn {
 		return vs[0].([]DatasetMysqlSchemaColumn)[vs[1].(int)]
 	}).(DatasetMysqlSchemaColumnOutput)
 }
@@ -119,7 +119,7 @@ type DatasetPostgresqlSchemaColumn struct {
 	// The description for the Data Factory Dataset PostgreSQL.
 	Description *string `pulumi:"description"`
 	// Specifies the name of the Data Factory Dataset PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-	Name string `pulumi:"name"`
+	Name string  `pulumi:"name"`
 	Type *string `pulumi:"type"`
 }
 
@@ -134,7 +134,7 @@ type DatasetPostgresqlSchemaColumnArgs struct {
 	// The description for the Data Factory Dataset PostgreSQL.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Specifies the name of the Data Factory Dataset PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringInput    `pulumi:"name"`
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -171,7 +171,7 @@ func (i DatasetPostgresqlSchemaColumnArray) ToDatasetPostgresqlSchemaColumnArray
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetPostgresqlSchemaColumnArrayOutput)
 }
 
-type DatasetPostgresqlSchemaColumnOutput struct { *pulumi.OutputState }
+type DatasetPostgresqlSchemaColumnOutput struct{ *pulumi.OutputState }
 
 func (DatasetPostgresqlSchemaColumnOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatasetPostgresqlSchemaColumn)(nil)).Elem()
@@ -187,19 +187,19 @@ func (o DatasetPostgresqlSchemaColumnOutput) ToDatasetPostgresqlSchemaColumnOutp
 
 // The description for the Data Factory Dataset PostgreSQL.
 func (o DatasetPostgresqlSchemaColumnOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatasetPostgresqlSchemaColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatasetPostgresqlSchemaColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Data Factory Dataset PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 func (o DatasetPostgresqlSchemaColumnOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v DatasetPostgresqlSchemaColumn) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DatasetPostgresqlSchemaColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o DatasetPostgresqlSchemaColumnOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatasetPostgresqlSchemaColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatasetPostgresqlSchemaColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type DatasetPostgresqlSchemaColumnArrayOutput struct { *pulumi.OutputState}
+type DatasetPostgresqlSchemaColumnArrayOutput struct{ *pulumi.OutputState }
 
 func (DatasetPostgresqlSchemaColumnArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DatasetPostgresqlSchemaColumn)(nil)).Elem()
@@ -214,7 +214,7 @@ func (o DatasetPostgresqlSchemaColumnArrayOutput) ToDatasetPostgresqlSchemaColum
 }
 
 func (o DatasetPostgresqlSchemaColumnArrayOutput) Index(i pulumi.IntInput) DatasetPostgresqlSchemaColumnOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DatasetPostgresqlSchemaColumn {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetPostgresqlSchemaColumn {
 		return vs[0].([]DatasetPostgresqlSchemaColumn)[vs[1].(int)]
 	}).(DatasetPostgresqlSchemaColumnOutput)
 }
@@ -223,7 +223,7 @@ type DatasetSqlServerTableSchemaColumn struct {
 	// The description for the Data Factory Dataset SQL Server Table.
 	Description *string `pulumi:"description"`
 	// Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-	Name string `pulumi:"name"`
+	Name string  `pulumi:"name"`
 	Type *string `pulumi:"type"`
 }
 
@@ -238,7 +238,7 @@ type DatasetSqlServerTableSchemaColumnArgs struct {
 	// The description for the Data Factory Dataset SQL Server Table.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringInput    `pulumi:"name"`
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -275,7 +275,7 @@ func (i DatasetSqlServerTableSchemaColumnArray) ToDatasetSqlServerTableSchemaCol
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetSqlServerTableSchemaColumnArrayOutput)
 }
 
-type DatasetSqlServerTableSchemaColumnOutput struct { *pulumi.OutputState }
+type DatasetSqlServerTableSchemaColumnOutput struct{ *pulumi.OutputState }
 
 func (DatasetSqlServerTableSchemaColumnOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatasetSqlServerTableSchemaColumn)(nil)).Elem()
@@ -291,19 +291,19 @@ func (o DatasetSqlServerTableSchemaColumnOutput) ToDatasetSqlServerTableSchemaCo
 
 // The description for the Data Factory Dataset SQL Server Table.
 func (o DatasetSqlServerTableSchemaColumnOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatasetSqlServerTableSchemaColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatasetSqlServerTableSchemaColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 func (o DatasetSqlServerTableSchemaColumnOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v DatasetSqlServerTableSchemaColumn) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DatasetSqlServerTableSchemaColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o DatasetSqlServerTableSchemaColumnOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatasetSqlServerTableSchemaColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatasetSqlServerTableSchemaColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type DatasetSqlServerTableSchemaColumnArrayOutput struct { *pulumi.OutputState}
+type DatasetSqlServerTableSchemaColumnArrayOutput struct{ *pulumi.OutputState }
 
 func (DatasetSqlServerTableSchemaColumnArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DatasetSqlServerTableSchemaColumn)(nil)).Elem()
@@ -318,17 +318,17 @@ func (o DatasetSqlServerTableSchemaColumnArrayOutput) ToDatasetSqlServerTableSch
 }
 
 func (o DatasetSqlServerTableSchemaColumnArrayOutput) Index(i pulumi.IntInput) DatasetSqlServerTableSchemaColumnOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DatasetSqlServerTableSchemaColumn {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetSqlServerTableSchemaColumn {
 		return vs[0].([]DatasetSqlServerTableSchemaColumn)[vs[1].(int)]
 	}).(DatasetSqlServerTableSchemaColumnOutput)
 }
 
 type FactoryGithubConfiguration struct {
-	AccountName string `pulumi:"accountName"`
-	BranchName string `pulumi:"branchName"`
-	GitUrl string `pulumi:"gitUrl"`
+	AccountName    string `pulumi:"accountName"`
+	BranchName     string `pulumi:"branchName"`
+	GitUrl         string `pulumi:"gitUrl"`
 	RepositoryName string `pulumi:"repositoryName"`
-	RootFolder string `pulumi:"rootFolder"`
+	RootFolder     string `pulumi:"rootFolder"`
 }
 
 type FactoryGithubConfigurationInput interface {
@@ -339,11 +339,11 @@ type FactoryGithubConfigurationInput interface {
 }
 
 type FactoryGithubConfigurationArgs struct {
-	AccountName pulumi.StringInput `pulumi:"accountName"`
-	BranchName pulumi.StringInput `pulumi:"branchName"`
-	GitUrl pulumi.StringInput `pulumi:"gitUrl"`
+	AccountName    pulumi.StringInput `pulumi:"accountName"`
+	BranchName     pulumi.StringInput `pulumi:"branchName"`
+	GitUrl         pulumi.StringInput `pulumi:"gitUrl"`
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
-	RootFolder pulumi.StringInput `pulumi:"rootFolder"`
+	RootFolder     pulumi.StringInput `pulumi:"rootFolder"`
 }
 
 func (FactoryGithubConfigurationArgs) ElementType() reflect.Type {
@@ -375,7 +375,8 @@ type FactoryGithubConfigurationPtrInput interface {
 
 type factoryGithubConfigurationPtrType FactoryGithubConfigurationArgs
 
-func FactoryGithubConfigurationPtr(v *FactoryGithubConfigurationArgs) FactoryGithubConfigurationPtrInput {	return (*factoryGithubConfigurationPtrType)(v)
+func FactoryGithubConfigurationPtr(v *FactoryGithubConfigurationArgs) FactoryGithubConfigurationPtrInput {
+	return (*factoryGithubConfigurationPtrType)(v)
 }
 
 func (*factoryGithubConfigurationPtrType) ElementType() reflect.Type {
@@ -390,7 +391,7 @@ func (i *factoryGithubConfigurationPtrType) ToFactoryGithubConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(FactoryGithubConfigurationPtrOutput)
 }
 
-type FactoryGithubConfigurationOutput struct { *pulumi.OutputState }
+type FactoryGithubConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FactoryGithubConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FactoryGithubConfiguration)(nil)).Elem()
@@ -414,26 +415,26 @@ func (o FactoryGithubConfigurationOutput) ToFactoryGithubConfigurationPtrOutputW
 	}).(FactoryGithubConfigurationPtrOutput)
 }
 func (o FactoryGithubConfigurationOutput) AccountName() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryGithubConfiguration) string { return v.AccountName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
 func (o FactoryGithubConfigurationOutput) BranchName() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryGithubConfiguration) string { return v.BranchName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.BranchName }).(pulumi.StringOutput)
 }
 
 func (o FactoryGithubConfigurationOutput) GitUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryGithubConfiguration) string { return v.GitUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.GitUrl }).(pulumi.StringOutput)
 }
 
 func (o FactoryGithubConfigurationOutput) RepositoryName() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryGithubConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
 }
 
 func (o FactoryGithubConfigurationOutput) RootFolder() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryGithubConfiguration) string { return v.RootFolder }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.RootFolder }).(pulumi.StringOutput)
 }
 
-type FactoryGithubConfigurationPtrOutput struct { *pulumi.OutputState}
+type FactoryGithubConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (FactoryGithubConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FactoryGithubConfiguration)(nil)).Elem()
@@ -448,27 +449,27 @@ func (o FactoryGithubConfigurationPtrOutput) ToFactoryGithubConfigurationPtrOutp
 }
 
 func (o FactoryGithubConfigurationPtrOutput) Elem() FactoryGithubConfigurationOutput {
-	return o.ApplyT(func (v *FactoryGithubConfiguration) FactoryGithubConfiguration { return *v }).(FactoryGithubConfigurationOutput)
+	return o.ApplyT(func(v *FactoryGithubConfiguration) FactoryGithubConfiguration { return *v }).(FactoryGithubConfigurationOutput)
 }
 
 func (o FactoryGithubConfigurationPtrOutput) AccountName() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryGithubConfiguration) string { return v.AccountName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
 func (o FactoryGithubConfigurationPtrOutput) BranchName() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryGithubConfiguration) string { return v.BranchName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.BranchName }).(pulumi.StringOutput)
 }
 
 func (o FactoryGithubConfigurationPtrOutput) GitUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryGithubConfiguration) string { return v.GitUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.GitUrl }).(pulumi.StringOutput)
 }
 
 func (o FactoryGithubConfigurationPtrOutput) RepositoryName() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryGithubConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
 }
 
 func (o FactoryGithubConfigurationPtrOutput) RootFolder() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryGithubConfiguration) string { return v.RootFolder }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.RootFolder }).(pulumi.StringOutput)
 }
 
 type FactoryIdentity struct {
@@ -476,7 +477,7 @@ type FactoryIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The ID of the Azure Active Directory Tenant.
 	TenantId *string `pulumi:"tenantId"`
-	Type string `pulumi:"type"`
+	Type     string  `pulumi:"type"`
 }
 
 type FactoryIdentityInput interface {
@@ -491,7 +492,7 @@ type FactoryIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The ID of the Azure Active Directory Tenant.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Type     pulumi.StringInput    `pulumi:"type"`
 }
 
 func (FactoryIdentityArgs) ElementType() reflect.Type {
@@ -523,7 +524,8 @@ type FactoryIdentityPtrInput interface {
 
 type factoryIdentityPtrType FactoryIdentityArgs
 
-func FactoryIdentityPtr(v *FactoryIdentityArgs) FactoryIdentityPtrInput {	return (*factoryIdentityPtrType)(v)
+func FactoryIdentityPtr(v *FactoryIdentityArgs) FactoryIdentityPtrInput {
+	return (*factoryIdentityPtrType)(v)
 }
 
 func (*factoryIdentityPtrType) ElementType() reflect.Type {
@@ -538,7 +540,7 @@ func (i *factoryIdentityPtrType) ToFactoryIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(FactoryIdentityPtrOutput)
 }
 
-type FactoryIdentityOutput struct { *pulumi.OutputState }
+type FactoryIdentityOutput struct{ *pulumi.OutputState }
 
 func (FactoryIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FactoryIdentity)(nil)).Elem()
@@ -561,21 +563,22 @@ func (o FactoryIdentityOutput) ToFactoryIdentityPtrOutputWithContext(ctx context
 		return &v
 	}).(FactoryIdentityPtrOutput)
 }
+
 // The ID of the Principal (Client) in Azure Active Directory
 func (o FactoryIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FactoryIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FactoryIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Azure Active Directory Tenant.
 func (o FactoryIdentityOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FactoryIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FactoryIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 func (o FactoryIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type FactoryIdentityPtrOutput struct { *pulumi.OutputState}
+type FactoryIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (FactoryIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FactoryIdentity)(nil)).Elem()
@@ -590,29 +593,29 @@ func (o FactoryIdentityPtrOutput) ToFactoryIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o FactoryIdentityPtrOutput) Elem() FactoryIdentityOutput {
-	return o.ApplyT(func (v *FactoryIdentity) FactoryIdentity { return *v }).(FactoryIdentityOutput)
+	return o.ApplyT(func(v *FactoryIdentity) FactoryIdentity { return *v }).(FactoryIdentityOutput)
 }
 
 // The ID of the Principal (Client) in Azure Active Directory
 func (o FactoryIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FactoryIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FactoryIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Azure Active Directory Tenant.
 func (o FactoryIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FactoryIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FactoryIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 func (o FactoryIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type FactoryVstsConfiguration struct {
-	AccountName string `pulumi:"accountName"`
-	BranchName string `pulumi:"branchName"`
-	ProjectName string `pulumi:"projectName"`
+	AccountName    string `pulumi:"accountName"`
+	BranchName     string `pulumi:"branchName"`
+	ProjectName    string `pulumi:"projectName"`
 	RepositoryName string `pulumi:"repositoryName"`
-	RootFolder string `pulumi:"rootFolder"`
+	RootFolder     string `pulumi:"rootFolder"`
 	// The ID of the Azure Active Directory Tenant.
 	TenantId string `pulumi:"tenantId"`
 }
@@ -625,11 +628,11 @@ type FactoryVstsConfigurationInput interface {
 }
 
 type FactoryVstsConfigurationArgs struct {
-	AccountName pulumi.StringInput `pulumi:"accountName"`
-	BranchName pulumi.StringInput `pulumi:"branchName"`
-	ProjectName pulumi.StringInput `pulumi:"projectName"`
+	AccountName    pulumi.StringInput `pulumi:"accountName"`
+	BranchName     pulumi.StringInput `pulumi:"branchName"`
+	ProjectName    pulumi.StringInput `pulumi:"projectName"`
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
-	RootFolder pulumi.StringInput `pulumi:"rootFolder"`
+	RootFolder     pulumi.StringInput `pulumi:"rootFolder"`
 	// The ID of the Azure Active Directory Tenant.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 }
@@ -663,7 +666,8 @@ type FactoryVstsConfigurationPtrInput interface {
 
 type factoryVstsConfigurationPtrType FactoryVstsConfigurationArgs
 
-func FactoryVstsConfigurationPtr(v *FactoryVstsConfigurationArgs) FactoryVstsConfigurationPtrInput {	return (*factoryVstsConfigurationPtrType)(v)
+func FactoryVstsConfigurationPtr(v *FactoryVstsConfigurationArgs) FactoryVstsConfigurationPtrInput {
+	return (*factoryVstsConfigurationPtrType)(v)
 }
 
 func (*factoryVstsConfigurationPtrType) ElementType() reflect.Type {
@@ -678,7 +682,7 @@ func (i *factoryVstsConfigurationPtrType) ToFactoryVstsConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(FactoryVstsConfigurationPtrOutput)
 }
 
-type FactoryVstsConfigurationOutput struct { *pulumi.OutputState }
+type FactoryVstsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FactoryVstsConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FactoryVstsConfiguration)(nil)).Elem()
@@ -702,31 +706,31 @@ func (o FactoryVstsConfigurationOutput) ToFactoryVstsConfigurationPtrOutputWithC
 	}).(FactoryVstsConfigurationPtrOutput)
 }
 func (o FactoryVstsConfigurationOutput) AccountName() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryVstsConfiguration) string { return v.AccountName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
 func (o FactoryVstsConfigurationOutput) BranchName() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryVstsConfiguration) string { return v.BranchName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.BranchName }).(pulumi.StringOutput)
 }
 
 func (o FactoryVstsConfigurationOutput) ProjectName() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryVstsConfiguration) string { return v.ProjectName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.ProjectName }).(pulumi.StringOutput)
 }
 
 func (o FactoryVstsConfigurationOutput) RepositoryName() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryVstsConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
 }
 
 func (o FactoryVstsConfigurationOutput) RootFolder() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryVstsConfiguration) string { return v.RootFolder }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.RootFolder }).(pulumi.StringOutput)
 }
 
 // The ID of the Azure Active Directory Tenant.
 func (o FactoryVstsConfigurationOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryVstsConfiguration) string { return v.TenantId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-type FactoryVstsConfigurationPtrOutput struct { *pulumi.OutputState}
+type FactoryVstsConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (FactoryVstsConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FactoryVstsConfiguration)(nil)).Elem()
@@ -741,39 +745,39 @@ func (o FactoryVstsConfigurationPtrOutput) ToFactoryVstsConfigurationPtrOutputWi
 }
 
 func (o FactoryVstsConfigurationPtrOutput) Elem() FactoryVstsConfigurationOutput {
-	return o.ApplyT(func (v *FactoryVstsConfiguration) FactoryVstsConfiguration { return *v }).(FactoryVstsConfigurationOutput)
+	return o.ApplyT(func(v *FactoryVstsConfiguration) FactoryVstsConfiguration { return *v }).(FactoryVstsConfigurationOutput)
 }
 
 func (o FactoryVstsConfigurationPtrOutput) AccountName() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryVstsConfiguration) string { return v.AccountName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
 func (o FactoryVstsConfigurationPtrOutput) BranchName() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryVstsConfiguration) string { return v.BranchName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.BranchName }).(pulumi.StringOutput)
 }
 
 func (o FactoryVstsConfigurationPtrOutput) ProjectName() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryVstsConfiguration) string { return v.ProjectName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.ProjectName }).(pulumi.StringOutput)
 }
 
 func (o FactoryVstsConfigurationPtrOutput) RepositoryName() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryVstsConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
 }
 
 func (o FactoryVstsConfigurationPtrOutput) RootFolder() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryVstsConfiguration) string { return v.RootFolder }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.RootFolder }).(pulumi.StringOutput)
 }
 
 // The ID of the Azure Active Directory Tenant.
 func (o FactoryVstsConfigurationPtrOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func (v FactoryVstsConfiguration) string { return v.TenantId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 type IntegrationRuntimeManagedCatalogInfo struct {
-	AdministratorLogin string `pulumi:"administratorLogin"`
-	AdministratorPassword string `pulumi:"administratorPassword"`
-	PricingTier *string `pulumi:"pricingTier"`
-	ServerEndpoint string `pulumi:"serverEndpoint"`
+	AdministratorLogin    string  `pulumi:"administratorLogin"`
+	AdministratorPassword string  `pulumi:"administratorPassword"`
+	PricingTier           *string `pulumi:"pricingTier"`
+	ServerEndpoint        string  `pulumi:"serverEndpoint"`
 }
 
 type IntegrationRuntimeManagedCatalogInfoInput interface {
@@ -784,10 +788,10 @@ type IntegrationRuntimeManagedCatalogInfoInput interface {
 }
 
 type IntegrationRuntimeManagedCatalogInfoArgs struct {
-	AdministratorLogin pulumi.StringInput `pulumi:"administratorLogin"`
-	AdministratorPassword pulumi.StringInput `pulumi:"administratorPassword"`
-	PricingTier pulumi.StringPtrInput `pulumi:"pricingTier"`
-	ServerEndpoint pulumi.StringInput `pulumi:"serverEndpoint"`
+	AdministratorLogin    pulumi.StringInput    `pulumi:"administratorLogin"`
+	AdministratorPassword pulumi.StringInput    `pulumi:"administratorPassword"`
+	PricingTier           pulumi.StringPtrInput `pulumi:"pricingTier"`
+	ServerEndpoint        pulumi.StringInput    `pulumi:"serverEndpoint"`
 }
 
 func (IntegrationRuntimeManagedCatalogInfoArgs) ElementType() reflect.Type {
@@ -819,7 +823,8 @@ type IntegrationRuntimeManagedCatalogInfoPtrInput interface {
 
 type integrationRuntimeManagedCatalogInfoPtrType IntegrationRuntimeManagedCatalogInfoArgs
 
-func IntegrationRuntimeManagedCatalogInfoPtr(v *IntegrationRuntimeManagedCatalogInfoArgs) IntegrationRuntimeManagedCatalogInfoPtrInput {	return (*integrationRuntimeManagedCatalogInfoPtrType)(v)
+func IntegrationRuntimeManagedCatalogInfoPtr(v *IntegrationRuntimeManagedCatalogInfoArgs) IntegrationRuntimeManagedCatalogInfoPtrInput {
+	return (*integrationRuntimeManagedCatalogInfoPtrType)(v)
 }
 
 func (*integrationRuntimeManagedCatalogInfoPtrType) ElementType() reflect.Type {
@@ -834,7 +839,7 @@ func (i *integrationRuntimeManagedCatalogInfoPtrType) ToIntegrationRuntimeManage
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeManagedCatalogInfoPtrOutput)
 }
 
-type IntegrationRuntimeManagedCatalogInfoOutput struct { *pulumi.OutputState }
+type IntegrationRuntimeManagedCatalogInfoOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeManagedCatalogInfoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationRuntimeManagedCatalogInfo)(nil)).Elem()
@@ -858,22 +863,22 @@ func (o IntegrationRuntimeManagedCatalogInfoOutput) ToIntegrationRuntimeManagedC
 	}).(IntegrationRuntimeManagedCatalogInfoPtrOutput)
 }
 func (o IntegrationRuntimeManagedCatalogInfoOutput) AdministratorLogin() pulumi.StringOutput {
-	return o.ApplyT(func (v IntegrationRuntimeManagedCatalogInfo) string { return v.AdministratorLogin }).(pulumi.StringOutput)
+	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) string { return v.AdministratorLogin }).(pulumi.StringOutput)
 }
 
 func (o IntegrationRuntimeManagedCatalogInfoOutput) AdministratorPassword() pulumi.StringOutput {
-	return o.ApplyT(func (v IntegrationRuntimeManagedCatalogInfo) string { return v.AdministratorPassword }).(pulumi.StringOutput)
+	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) string { return v.AdministratorPassword }).(pulumi.StringOutput)
 }
 
 func (o IntegrationRuntimeManagedCatalogInfoOutput) PricingTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v IntegrationRuntimeManagedCatalogInfo) *string { return v.PricingTier }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) *string { return v.PricingTier }).(pulumi.StringPtrOutput)
 }
 
 func (o IntegrationRuntimeManagedCatalogInfoOutput) ServerEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func (v IntegrationRuntimeManagedCatalogInfo) string { return v.ServerEndpoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) string { return v.ServerEndpoint }).(pulumi.StringOutput)
 }
 
-type IntegrationRuntimeManagedCatalogInfoPtrOutput struct { *pulumi.OutputState}
+type IntegrationRuntimeManagedCatalogInfoPtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeManagedCatalogInfoPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IntegrationRuntimeManagedCatalogInfo)(nil)).Elem()
@@ -888,28 +893,28 @@ func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) ToIntegrationRuntimeManag
 }
 
 func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) Elem() IntegrationRuntimeManagedCatalogInfoOutput {
-	return o.ApplyT(func (v *IntegrationRuntimeManagedCatalogInfo) IntegrationRuntimeManagedCatalogInfo { return *v }).(IntegrationRuntimeManagedCatalogInfoOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeManagedCatalogInfo) IntegrationRuntimeManagedCatalogInfo { return *v }).(IntegrationRuntimeManagedCatalogInfoOutput)
 }
 
 func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) AdministratorLogin() pulumi.StringOutput {
-	return o.ApplyT(func (v IntegrationRuntimeManagedCatalogInfo) string { return v.AdministratorLogin }).(pulumi.StringOutput)
+	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) string { return v.AdministratorLogin }).(pulumi.StringOutput)
 }
 
 func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) AdministratorPassword() pulumi.StringOutput {
-	return o.ApplyT(func (v IntegrationRuntimeManagedCatalogInfo) string { return v.AdministratorPassword }).(pulumi.StringOutput)
+	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) string { return v.AdministratorPassword }).(pulumi.StringOutput)
 }
 
 func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) PricingTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v IntegrationRuntimeManagedCatalogInfo) *string { return v.PricingTier }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) *string { return v.PricingTier }).(pulumi.StringPtrOutput)
 }
 
 func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) ServerEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func (v IntegrationRuntimeManagedCatalogInfo) string { return v.ServerEndpoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) string { return v.ServerEndpoint }).(pulumi.StringOutput)
 }
 
 type IntegrationRuntimeManagedCustomSetupScript struct {
 	BlobContainerUri string `pulumi:"blobContainerUri"`
-	SasToken string `pulumi:"sasToken"`
+	SasToken         string `pulumi:"sasToken"`
 }
 
 type IntegrationRuntimeManagedCustomSetupScriptInput interface {
@@ -921,7 +926,7 @@ type IntegrationRuntimeManagedCustomSetupScriptInput interface {
 
 type IntegrationRuntimeManagedCustomSetupScriptArgs struct {
 	BlobContainerUri pulumi.StringInput `pulumi:"blobContainerUri"`
-	SasToken pulumi.StringInput `pulumi:"sasToken"`
+	SasToken         pulumi.StringInput `pulumi:"sasToken"`
 }
 
 func (IntegrationRuntimeManagedCustomSetupScriptArgs) ElementType() reflect.Type {
@@ -953,7 +958,8 @@ type IntegrationRuntimeManagedCustomSetupScriptPtrInput interface {
 
 type integrationRuntimeManagedCustomSetupScriptPtrType IntegrationRuntimeManagedCustomSetupScriptArgs
 
-func IntegrationRuntimeManagedCustomSetupScriptPtr(v *IntegrationRuntimeManagedCustomSetupScriptArgs) IntegrationRuntimeManagedCustomSetupScriptPtrInput {	return (*integrationRuntimeManagedCustomSetupScriptPtrType)(v)
+func IntegrationRuntimeManagedCustomSetupScriptPtr(v *IntegrationRuntimeManagedCustomSetupScriptArgs) IntegrationRuntimeManagedCustomSetupScriptPtrInput {
+	return (*integrationRuntimeManagedCustomSetupScriptPtrType)(v)
 }
 
 func (*integrationRuntimeManagedCustomSetupScriptPtrType) ElementType() reflect.Type {
@@ -968,7 +974,7 @@ func (i *integrationRuntimeManagedCustomSetupScriptPtrType) ToIntegrationRuntime
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeManagedCustomSetupScriptPtrOutput)
 }
 
-type IntegrationRuntimeManagedCustomSetupScriptOutput struct { *pulumi.OutputState }
+type IntegrationRuntimeManagedCustomSetupScriptOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeManagedCustomSetupScriptOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationRuntimeManagedCustomSetupScript)(nil)).Elem()
@@ -992,14 +998,14 @@ func (o IntegrationRuntimeManagedCustomSetupScriptOutput) ToIntegrationRuntimeMa
 	}).(IntegrationRuntimeManagedCustomSetupScriptPtrOutput)
 }
 func (o IntegrationRuntimeManagedCustomSetupScriptOutput) BlobContainerUri() pulumi.StringOutput {
-	return o.ApplyT(func (v IntegrationRuntimeManagedCustomSetupScript) string { return v.BlobContainerUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v IntegrationRuntimeManagedCustomSetupScript) string { return v.BlobContainerUri }).(pulumi.StringOutput)
 }
 
 func (o IntegrationRuntimeManagedCustomSetupScriptOutput) SasToken() pulumi.StringOutput {
-	return o.ApplyT(func (v IntegrationRuntimeManagedCustomSetupScript) string { return v.SasToken }).(pulumi.StringOutput)
+	return o.ApplyT(func(v IntegrationRuntimeManagedCustomSetupScript) string { return v.SasToken }).(pulumi.StringOutput)
 }
 
-type IntegrationRuntimeManagedCustomSetupScriptPtrOutput struct { *pulumi.OutputState}
+type IntegrationRuntimeManagedCustomSetupScriptPtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeManagedCustomSetupScriptPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IntegrationRuntimeManagedCustomSetupScript)(nil)).Elem()
@@ -1014,20 +1020,22 @@ func (o IntegrationRuntimeManagedCustomSetupScriptPtrOutput) ToIntegrationRuntim
 }
 
 func (o IntegrationRuntimeManagedCustomSetupScriptPtrOutput) Elem() IntegrationRuntimeManagedCustomSetupScriptOutput {
-	return o.ApplyT(func (v *IntegrationRuntimeManagedCustomSetupScript) IntegrationRuntimeManagedCustomSetupScript { return *v }).(IntegrationRuntimeManagedCustomSetupScriptOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeManagedCustomSetupScript) IntegrationRuntimeManagedCustomSetupScript {
+		return *v
+	}).(IntegrationRuntimeManagedCustomSetupScriptOutput)
 }
 
 func (o IntegrationRuntimeManagedCustomSetupScriptPtrOutput) BlobContainerUri() pulumi.StringOutput {
-	return o.ApplyT(func (v IntegrationRuntimeManagedCustomSetupScript) string { return v.BlobContainerUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v IntegrationRuntimeManagedCustomSetupScript) string { return v.BlobContainerUri }).(pulumi.StringOutput)
 }
 
 func (o IntegrationRuntimeManagedCustomSetupScriptPtrOutput) SasToken() pulumi.StringOutput {
-	return o.ApplyT(func (v IntegrationRuntimeManagedCustomSetupScript) string { return v.SasToken }).(pulumi.StringOutput)
+	return o.ApplyT(func(v IntegrationRuntimeManagedCustomSetupScript) string { return v.SasToken }).(pulumi.StringOutput)
 }
 
 type IntegrationRuntimeManagedVnetIntegration struct {
 	SubnetName string `pulumi:"subnetName"`
-	VnetId string `pulumi:"vnetId"`
+	VnetId     string `pulumi:"vnetId"`
 }
 
 type IntegrationRuntimeManagedVnetIntegrationInput interface {
@@ -1039,7 +1047,7 @@ type IntegrationRuntimeManagedVnetIntegrationInput interface {
 
 type IntegrationRuntimeManagedVnetIntegrationArgs struct {
 	SubnetName pulumi.StringInput `pulumi:"subnetName"`
-	VnetId pulumi.StringInput `pulumi:"vnetId"`
+	VnetId     pulumi.StringInput `pulumi:"vnetId"`
 }
 
 func (IntegrationRuntimeManagedVnetIntegrationArgs) ElementType() reflect.Type {
@@ -1071,7 +1079,8 @@ type IntegrationRuntimeManagedVnetIntegrationPtrInput interface {
 
 type integrationRuntimeManagedVnetIntegrationPtrType IntegrationRuntimeManagedVnetIntegrationArgs
 
-func IntegrationRuntimeManagedVnetIntegrationPtr(v *IntegrationRuntimeManagedVnetIntegrationArgs) IntegrationRuntimeManagedVnetIntegrationPtrInput {	return (*integrationRuntimeManagedVnetIntegrationPtrType)(v)
+func IntegrationRuntimeManagedVnetIntegrationPtr(v *IntegrationRuntimeManagedVnetIntegrationArgs) IntegrationRuntimeManagedVnetIntegrationPtrInput {
+	return (*integrationRuntimeManagedVnetIntegrationPtrType)(v)
 }
 
 func (*integrationRuntimeManagedVnetIntegrationPtrType) ElementType() reflect.Type {
@@ -1086,7 +1095,7 @@ func (i *integrationRuntimeManagedVnetIntegrationPtrType) ToIntegrationRuntimeMa
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeManagedVnetIntegrationPtrOutput)
 }
 
-type IntegrationRuntimeManagedVnetIntegrationOutput struct { *pulumi.OutputState }
+type IntegrationRuntimeManagedVnetIntegrationOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeManagedVnetIntegrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationRuntimeManagedVnetIntegration)(nil)).Elem()
@@ -1110,14 +1119,14 @@ func (o IntegrationRuntimeManagedVnetIntegrationOutput) ToIntegrationRuntimeMana
 	}).(IntegrationRuntimeManagedVnetIntegrationPtrOutput)
 }
 func (o IntegrationRuntimeManagedVnetIntegrationOutput) SubnetName() pulumi.StringOutput {
-	return o.ApplyT(func (v IntegrationRuntimeManagedVnetIntegration) string { return v.SubnetName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v IntegrationRuntimeManagedVnetIntegration) string { return v.SubnetName }).(pulumi.StringOutput)
 }
 
 func (o IntegrationRuntimeManagedVnetIntegrationOutput) VnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v IntegrationRuntimeManagedVnetIntegration) string { return v.VnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v IntegrationRuntimeManagedVnetIntegration) string { return v.VnetId }).(pulumi.StringOutput)
 }
 
-type IntegrationRuntimeManagedVnetIntegrationPtrOutput struct { *pulumi.OutputState}
+type IntegrationRuntimeManagedVnetIntegrationPtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeManagedVnetIntegrationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IntegrationRuntimeManagedVnetIntegration)(nil)).Elem()
@@ -1132,15 +1141,15 @@ func (o IntegrationRuntimeManagedVnetIntegrationPtrOutput) ToIntegrationRuntimeM
 }
 
 func (o IntegrationRuntimeManagedVnetIntegrationPtrOutput) Elem() IntegrationRuntimeManagedVnetIntegrationOutput {
-	return o.ApplyT(func (v *IntegrationRuntimeManagedVnetIntegration) IntegrationRuntimeManagedVnetIntegration { return *v }).(IntegrationRuntimeManagedVnetIntegrationOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeManagedVnetIntegration) IntegrationRuntimeManagedVnetIntegration { return *v }).(IntegrationRuntimeManagedVnetIntegrationOutput)
 }
 
 func (o IntegrationRuntimeManagedVnetIntegrationPtrOutput) SubnetName() pulumi.StringOutput {
-	return o.ApplyT(func (v IntegrationRuntimeManagedVnetIntegration) string { return v.SubnetName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v IntegrationRuntimeManagedVnetIntegration) string { return v.SubnetName }).(pulumi.StringOutput)
 }
 
 func (o IntegrationRuntimeManagedVnetIntegrationPtrOutput) VnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v IntegrationRuntimeManagedVnetIntegration) string { return v.VnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v IntegrationRuntimeManagedVnetIntegration) string { return v.VnetId }).(pulumi.StringOutput)
 }
 
 type GetFactoryGithubConfiguration struct {
@@ -1148,7 +1157,7 @@ type GetFactoryGithubConfiguration struct {
 	AccountName string `pulumi:"accountName"`
 	// The branch of the repository to get code from.
 	BranchName string `pulumi:"branchName"`
-	// The GitHub Enterprise host name. 
+	// The GitHub Enterprise host name.
 	GitUrl string `pulumi:"gitUrl"`
 	// The name of the git repository.
 	RepositoryName string `pulumi:"repositoryName"`
@@ -1168,7 +1177,7 @@ type GetFactoryGithubConfigurationArgs struct {
 	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The branch of the repository to get code from.
 	BranchName pulumi.StringInput `pulumi:"branchName"`
-	// The GitHub Enterprise host name. 
+	// The GitHub Enterprise host name.
 	GitUrl pulumi.StringInput `pulumi:"gitUrl"`
 	// The name of the git repository.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
@@ -1209,7 +1218,7 @@ func (i GetFactoryGithubConfigurationArray) ToGetFactoryGithubConfigurationArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetFactoryGithubConfigurationArrayOutput)
 }
 
-type GetFactoryGithubConfigurationOutput struct { *pulumi.OutputState }
+type GetFactoryGithubConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetFactoryGithubConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetFactoryGithubConfiguration)(nil)).Elem()
@@ -1225,30 +1234,30 @@ func (o GetFactoryGithubConfigurationOutput) ToGetFactoryGithubConfigurationOutp
 
 // The VSTS account name.
 func (o GetFactoryGithubConfigurationOutput) AccountName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetFactoryGithubConfiguration) string { return v.AccountName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetFactoryGithubConfiguration) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
 // The branch of the repository to get code from.
 func (o GetFactoryGithubConfigurationOutput) BranchName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetFactoryGithubConfiguration) string { return v.BranchName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetFactoryGithubConfiguration) string { return v.BranchName }).(pulumi.StringOutput)
 }
 
-// The GitHub Enterprise host name. 
+// The GitHub Enterprise host name.
 func (o GetFactoryGithubConfigurationOutput) GitUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v GetFactoryGithubConfiguration) string { return v.GitUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetFactoryGithubConfiguration) string { return v.GitUrl }).(pulumi.StringOutput)
 }
 
 // The name of the git repository.
 func (o GetFactoryGithubConfigurationOutput) RepositoryName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetFactoryGithubConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetFactoryGithubConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
 }
 
 // The root folder within the repository.
 func (o GetFactoryGithubConfigurationOutput) RootFolder() pulumi.StringOutput {
-	return o.ApplyT(func (v GetFactoryGithubConfiguration) string { return v.RootFolder }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetFactoryGithubConfiguration) string { return v.RootFolder }).(pulumi.StringOutput)
 }
 
-type GetFactoryGithubConfigurationArrayOutput struct { *pulumi.OutputState}
+type GetFactoryGithubConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (GetFactoryGithubConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetFactoryGithubConfiguration)(nil)).Elem()
@@ -1263,7 +1272,7 @@ func (o GetFactoryGithubConfigurationArrayOutput) ToGetFactoryGithubConfiguratio
 }
 
 func (o GetFactoryGithubConfigurationArrayOutput) Index(i pulumi.IntInput) GetFactoryGithubConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetFactoryGithubConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFactoryGithubConfiguration {
 		return vs[0].([]GetFactoryGithubConfiguration)[vs[1].(int)]
 	}).(GetFactoryGithubConfigurationOutput)
 }
@@ -1326,7 +1335,7 @@ func (i GetFactoryIdentityArray) ToGetFactoryIdentityArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetFactoryIdentityArrayOutput)
 }
 
-type GetFactoryIdentityOutput struct { *pulumi.OutputState }
+type GetFactoryIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetFactoryIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetFactoryIdentity)(nil)).Elem()
@@ -1342,20 +1351,20 @@ func (o GetFactoryIdentityOutput) ToGetFactoryIdentityOutputWithContext(ctx cont
 
 // The ID of the Principal (Client) in Azure Active Directory.
 func (o GetFactoryIdentityOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetFactoryIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetFactoryIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
 // The Tenant ID associated with the VSTS account.
 func (o GetFactoryIdentityOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetFactoryIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetFactoryIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 // The identity type of the Data Factory.
 func (o GetFactoryIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v GetFactoryIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetFactoryIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type GetFactoryIdentityArrayOutput struct { *pulumi.OutputState}
+type GetFactoryIdentityArrayOutput struct{ *pulumi.OutputState }
 
 func (GetFactoryIdentityArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetFactoryIdentity)(nil)).Elem()
@@ -1370,7 +1379,7 @@ func (o GetFactoryIdentityArrayOutput) ToGetFactoryIdentityArrayOutputWithContex
 }
 
 func (o GetFactoryIdentityArrayOutput) Index(i pulumi.IntInput) GetFactoryIdentityOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetFactoryIdentity {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFactoryIdentity {
 		return vs[0].([]GetFactoryIdentity)[vs[1].(int)]
 	}).(GetFactoryIdentityOutput)
 }
@@ -1445,7 +1454,7 @@ func (i GetFactoryVstsConfigurationArray) ToGetFactoryVstsConfigurationArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetFactoryVstsConfigurationArrayOutput)
 }
 
-type GetFactoryVstsConfigurationOutput struct { *pulumi.OutputState }
+type GetFactoryVstsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetFactoryVstsConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetFactoryVstsConfiguration)(nil)).Elem()
@@ -1461,35 +1470,35 @@ func (o GetFactoryVstsConfigurationOutput) ToGetFactoryVstsConfigurationOutputWi
 
 // The VSTS account name.
 func (o GetFactoryVstsConfigurationOutput) AccountName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetFactoryVstsConfiguration) string { return v.AccountName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetFactoryVstsConfiguration) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
 // The branch of the repository to get code from.
 func (o GetFactoryVstsConfigurationOutput) BranchName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetFactoryVstsConfiguration) string { return v.BranchName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetFactoryVstsConfiguration) string { return v.BranchName }).(pulumi.StringOutput)
 }
 
 // The name of the VSTS project.
 func (o GetFactoryVstsConfigurationOutput) ProjectName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetFactoryVstsConfiguration) string { return v.ProjectName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetFactoryVstsConfiguration) string { return v.ProjectName }).(pulumi.StringOutput)
 }
 
 // The name of the git repository.
 func (o GetFactoryVstsConfigurationOutput) RepositoryName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetFactoryVstsConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetFactoryVstsConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
 }
 
 // The root folder within the repository.
 func (o GetFactoryVstsConfigurationOutput) RootFolder() pulumi.StringOutput {
-	return o.ApplyT(func (v GetFactoryVstsConfiguration) string { return v.RootFolder }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetFactoryVstsConfiguration) string { return v.RootFolder }).(pulumi.StringOutput)
 }
 
 // The Tenant ID associated with the VSTS account.
 func (o GetFactoryVstsConfigurationOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetFactoryVstsConfiguration) string { return v.TenantId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetFactoryVstsConfiguration) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-type GetFactoryVstsConfigurationArrayOutput struct { *pulumi.OutputState}
+type GetFactoryVstsConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (GetFactoryVstsConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetFactoryVstsConfiguration)(nil)).Elem()
@@ -1504,7 +1513,7 @@ func (o GetFactoryVstsConfigurationArrayOutput) ToGetFactoryVstsConfigurationArr
 }
 
 func (o GetFactoryVstsConfigurationArrayOutput) Index(i pulumi.IntInput) GetFactoryVstsConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetFactoryVstsConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFactoryVstsConfiguration {
 		return vs[0].([]GetFactoryVstsConfiguration)[vs[1].(int)]
 	}).(GetFactoryVstsConfigurationOutput)
 }

@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing API Management Group.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_group.html.markdown.
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	var rv LookupGroupResult
@@ -30,7 +30,6 @@ type LookupGroupArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getGroup.
 type LookupGroupResult struct {
 	ApiManagementName string `pulumi:"apiManagementName"`
@@ -41,10 +40,9 @@ type LookupGroupResult struct {
 	// The identifier of the external Group.
 	ExternalId string `pulumi:"externalId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id                string `pulumi:"id"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The type of this API Management Group, such as `custom` or `external`.
 	Type string `pulumi:"type"`
 }
-

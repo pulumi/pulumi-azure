@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing API Management User.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.apimanagement.getUser({
- *     apiManagementName: "example-apim",
- *     resourceGroupName: "search-service",
- *     userId: "my-user",
- * });
- * 
- * export const notes = example.notes;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_user.html.markdown.
  */

@@ -8,50 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS CAA Records within Azure DNS.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleZone = new azure.dns.Zone("example", {
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleCaaRecord = new azure.dns.CaaRecord("example", {
- *     records: [
- *         {
- *             flags: 0,
- *             tag: "issue",
- *             value: "example.com",
- *         },
- *         {
- *             flags: 0,
- *             tag: "issue",
- *             value: "example.net",
- *         },
- *         {
- *             flags: 0,
- *             tag: "issuewild",
- *             value: ";",
- *         },
- *         {
- *             flags: 0,
- *             tag: "iodef",
- *             value: "mailto:user@nonexisting.tld",
- *         },
- *     ],
- *     resourceGroupName: exampleResourceGroup.name,
- *     tags: {
- *         Environment: "Production",
- *     },
- *     ttl: 300,
- *     zoneName: exampleZone.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_caa_record.html.markdown.
  */
@@ -87,7 +43,7 @@ export class CaaRecord extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
-     * The name of the DNS CAA Record.
+     * The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -101,7 +57,7 @@ export class CaaRecord extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */
@@ -172,7 +128,7 @@ export interface CaaRecordState {
      */
     readonly fqdn?: pulumi.Input<string>;
     /**
-     * The name of the DNS CAA Record.
+     * The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -202,7 +158,7 @@ export interface CaaRecordState {
  */
 export interface CaaRecordArgs {
     /**
-     * The name of the DNS CAA Record.
+     * The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
      */
     readonly name?: pulumi.Input<string>;
     /**

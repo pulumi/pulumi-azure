@@ -12,14 +12,14 @@ import (
 )
 
 // Associates a NAT Gateway with a Subnet within a Virtual Network.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_nat_gateway_association.html.markdown.
 type SubnetNatGatewayAssociation struct {
 	pulumi.CustomResourceState
 
-	// The Azure resource ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
+	// The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
 	NatGatewayId pulumi.StringOutput `pulumi:"natGatewayId"`
-	// The Azure resource ID of the Subnet. Changing this forces a new resource to be created.
+	// The ID of the Subnet. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 }
 
@@ -57,16 +57,16 @@ func GetSubnetNatGatewayAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubnetNatGatewayAssociation resources.
 type subnetNatGatewayAssociationState struct {
-	// The Azure resource ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
+	// The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
 	NatGatewayId *string `pulumi:"natGatewayId"`
-	// The Azure resource ID of the Subnet. Changing this forces a new resource to be created.
+	// The ID of the Subnet. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
 }
 
 type SubnetNatGatewayAssociationState struct {
-	// The Azure resource ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
+	// The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
 	NatGatewayId pulumi.StringPtrInput
-	// The Azure resource ID of the Subnet. Changing this forces a new resource to be created.
+	// The ID of the Subnet. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
 }
 
@@ -75,21 +75,20 @@ func (SubnetNatGatewayAssociationState) ElementType() reflect.Type {
 }
 
 type subnetNatGatewayAssociationArgs struct {
-	// The Azure resource ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
+	// The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
 	NatGatewayId string `pulumi:"natGatewayId"`
-	// The Azure resource ID of the Subnet. Changing this forces a new resource to be created.
+	// The ID of the Subnet. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a SubnetNatGatewayAssociation resource.
 type SubnetNatGatewayAssociationArgs struct {
-	// The Azure resource ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
+	// The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
 	NatGatewayId pulumi.StringInput
-	// The Azure resource ID of the Subnet. Changing this forces a new resource to be created.
+	// The ID of the Subnet. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput
 }
 
 func (SubnetNatGatewayAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetNatGatewayAssociationArgs)(nil)).Elem()
 }
-

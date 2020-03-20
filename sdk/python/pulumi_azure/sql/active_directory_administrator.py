@@ -33,7 +33,9 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, login=None, object_id=None, resource_group_name=None, server_name=None, tenant_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Allows you to set a user or group as the AD administrator for an Azure SQL server
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_active_directory_administrator.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] login: The login name of the principal to set as the server administrator
@@ -41,8 +43,6 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group for the SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server on which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The Azure Tenant ID
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_active_directory_administrator.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,7 +87,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         """
         Get an existing ActiveDirectoryAdministrator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -96,12 +96,11 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group for the SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server on which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The Azure Tenant ID
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_active_directory_administrator.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["login"] = login
         __props__["object_id"] = object_id
         __props__["resource_group_name"] = resource_group_name

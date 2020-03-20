@@ -25,7 +25,7 @@ class IotHubDps(pulumi.CustomResource):
     linked_hubs: pulumi.Output[list]
     """
     A `linked_hub` block as defined below.
-    
+
       * `allocationWeight` (`float`)
       * `applyAllocationPolicy` (`bool`)
       * `connection_string` (`str`)
@@ -51,10 +51,9 @@ class IotHubDps(pulumi.CustomResource):
     sku: pulumi.Output[dict]
     """
     A `sku` block as defined below.
-    
+
       * `capacity` (`float`)
       * `name` (`str`) - Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
-      * `tier` (`str`)
     """
     tags: pulumi.Output[dict]
     """
@@ -63,7 +62,9 @@ class IotHubDps(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, linked_hubs=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an IotHub Device Provisioning Service.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] linked_hubs: A `linked_hub` block as defined below.
@@ -72,22 +73,19 @@ class IotHubDps(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] sku: A `sku` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **linked_hubs** object supports the following:
-        
+
           * `allocationWeight` (`pulumi.Input[float]`)
           * `applyAllocationPolicy` (`pulumi.Input[bool]`)
           * `connection_string` (`pulumi.Input[str]`)
           * `hostname` (`pulumi.Input[str]`)
           * `location` (`pulumi.Input[str]`) - Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
-        
+
         The **sku** object supports the following:
-        
+
           * `capacity` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
-          * `tier` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -131,7 +129,7 @@ class IotHubDps(pulumi.CustomResource):
         """
         Get an existing IotHubDps resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,26 +143,24 @@ class IotHubDps(pulumi.CustomResource):
         :param pulumi.Input[str] service_operations_host_name: The service endpoint of the IoT Device Provisioning Service.
         :param pulumi.Input[dict] sku: A `sku` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **linked_hubs** object supports the following:
-        
+
           * `allocationWeight` (`pulumi.Input[float]`)
           * `applyAllocationPolicy` (`pulumi.Input[bool]`)
           * `connection_string` (`pulumi.Input[str]`)
           * `hostname` (`pulumi.Input[str]`)
           * `location` (`pulumi.Input[str]`) - Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
-        
+
         The **sku** object supports the following:
-        
+
           * `capacity` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
-          * `tier` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allocation_policy"] = allocation_policy
         __props__["device_provisioning_host_name"] = device_provisioning_host_name
         __props__["id_scope"] = id_scope

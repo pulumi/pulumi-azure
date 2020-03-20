@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Azure Front Door Web Application Firewall Policy instance.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/frontdoor_firewall_policy.html.markdown.
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
@@ -181,4 +181,3 @@ type FirewallPolicyArgs struct {
 func (FirewallPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallPolicyArgs)(nil)).Elem()
 }
-

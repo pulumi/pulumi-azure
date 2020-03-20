@@ -14,88 +14,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** Routes can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
  * 
  * > **NOTE:** Fallback route can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "Canada Central",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleContainer = new azure.storage.Container("example", {
- *     containerAccessType: "private",
- *     storageAccountName: exampleAccount.name,
- * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Basic",
- * });
- * const exampleEventHub = new azure.eventhub.EventHub("example", {
- *     messageRetention: 1,
- *     namespaceName: exampleEventHubNamespace.name,
- *     partitionCount: 2,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("example", {
- *     eventhubName: exampleEventHub.name,
- *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     send: true,
- * });
- * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     endpoints: [
- *         {
- *             batchFrequencyInSeconds: 60,
- *             connectionString: exampleAccount.primaryBlobConnectionString,
- *             containerName: exampleContainer.name,
- *             encoding: "Avro",
- *             fileNameFormat: "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
- *             maxChunkSizeInBytes: 10485760,
- *             name: "export",
- *             type: "AzureIotHub.StorageContainer",
- *         },
- *         {
- *             connectionString: exampleAuthorizationRule.primaryConnectionString,
- *             name: "export2",
- *             type: "AzureIotHub.EventHub",
- *         },
- *     ],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     routes: [
- *         {
- *             condition: "true",
- *             enabled: true,
- *             endpointNames: ["export"],
- *             name: "export",
- *             source: "DeviceMessages",
- *         },
- *         {
- *             condition: "true",
- *             enabled: true,
- *             endpointNames: ["export2"],
- *             name: "export2",
- *             source: "DeviceMessages",
- *         },
- *     ],
- *     sku: {
- *         capacity: 1,
- *         name: "S1",
- *     },
- *     tags: {
- *         purpose: "testing",
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub.html.markdown.
  */
@@ -197,7 +115,7 @@ export class IoTHub extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**

@@ -12,9 +12,9 @@ import (
 )
 
 // Manages a Virtual Network Gateway to establish secure, cross-premises connectivity.
-// 
+//
 // > **Note:** Please be aware that provisioning a Virtual Network Gateway takes a long time (between 30 minutes and 1 hour)
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway.html.markdown.
 type VirtualNetworkGateway struct {
 	pulumi.CustomResourceState
@@ -23,8 +23,8 @@ type VirtualNetworkGateway struct {
 	// will be created. An active-active gateway requires a `HighPerformance` or an
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
-	ActiveActive pulumi.BoolOutput `pulumi:"activeActive"`
-	BgpSettings VirtualNetworkGatewayBgpSettingsOutput `pulumi:"bgpSettings"`
+	ActiveActive pulumi.BoolOutput                      `pulumi:"activeActive"`
+	BgpSettings  VirtualNetworkGatewayBgpSettingsOutput `pulumi:"bgpSettings"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunneling*). Refer to the
@@ -116,8 +116,8 @@ type virtualNetworkGatewayState struct {
 	// will be created. An active-active gateway requires a `HighPerformance` or an
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
-	ActiveActive *bool `pulumi:"activeActive"`
-	BgpSettings *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
+	ActiveActive *bool                             `pulumi:"activeActive"`
+	BgpSettings  *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunneling*). Refer to the
@@ -171,7 +171,7 @@ type VirtualNetworkGatewayState struct {
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
 	ActiveActive pulumi.BoolPtrInput
-	BgpSettings VirtualNetworkGatewayBgpSettingsPtrInput
+	BgpSettings  VirtualNetworkGatewayBgpSettingsPtrInput
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunneling*). Refer to the
@@ -228,8 +228,8 @@ type virtualNetworkGatewayArgs struct {
 	// will be created. An active-active gateway requires a `HighPerformance` or an
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
-	ActiveActive *bool `pulumi:"activeActive"`
-	BgpSettings *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
+	ActiveActive *bool                             `pulumi:"activeActive"`
+	BgpSettings  *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunneling*). Refer to the
@@ -284,7 +284,7 @@ type VirtualNetworkGatewayArgs struct {
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
 	ActiveActive pulumi.BoolPtrInput
-	BgpSettings VirtualNetworkGatewayBgpSettingsPtrInput
+	BgpSettings  VirtualNetworkGatewayBgpSettingsPtrInput
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunneling*). Refer to the
@@ -335,4 +335,3 @@ type VirtualNetworkGatewayArgs struct {
 func (VirtualNetworkGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkGatewayArgs)(nil)).Elem()
 }
-

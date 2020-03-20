@@ -25,16 +25,16 @@ class ContainerStorageAccount(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, recovery_vault_name=None, resource_group_name=None, storage_account_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages registration of a storage account with Azure Backup. Storage accounts must be registered with an Azure Recovery Vault in order to backup file shares within the storage account. Registering a storage account with a vault creates what is known as a protection container within Azure Recovery Services. Once the container is created, Azure file shares within the storage account can be backed up using the `backup.ProtectedFileShare` resource.
-        
+
         > **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_container_storage_account.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault where the storage account will be registered.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault is located.
         :param pulumi.Input[str] storage_account_id: Azure Resource ID of the storage account to be registered
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_container_storage_account.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,19 +73,18 @@ class ContainerStorageAccount(pulumi.CustomResource):
         """
         Get an existing ContainerStorageAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault where the storage account will be registered.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault is located.
         :param pulumi.Input[str] storage_account_id: Azure Resource ID of the storage account to be registered
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_container_storage_account.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["recovery_vault_name"] = recovery_vault_name
         __props__["resource_group_name"] = resource_group_name
         __props__["storage_account_id"] = storage_account_id

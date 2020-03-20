@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Policy within a Dev Test Policy Set.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_policy.html.markdown.
 type Policy struct {
 	pulumi.CustomResourceState
@@ -171,4 +171,3 @@ type PolicyArgs struct {
 func (PolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyArgs)(nil)).Elem()
 }
-

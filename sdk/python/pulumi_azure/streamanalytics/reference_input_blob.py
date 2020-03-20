@@ -29,7 +29,7 @@ class ReferenceInputBlob(pulumi.CustomResource):
     serialization: pulumi.Output[dict]
     """
     A `serialization` block as defined below.
-    
+
       * `encoding` (`str`)
       * `fieldDelimiter` (`str`)
       * `type` (`str`)
@@ -57,7 +57,9 @@ class ReferenceInputBlob(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, date_format=None, name=None, path_pattern=None, resource_group_name=None, serialization=None, storage_account_key=None, storage_account_name=None, storage_container_name=None, stream_analytics_job_name=None, time_format=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Stream Analytics Reference Input Blob. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-use-reference-data#azure-blob-storage).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_reference_input_blob.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] date_format: The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
@@ -70,14 +72,12 @@ class ReferenceInputBlob(pulumi.CustomResource):
         :param pulumi.Input[str] storage_container_name: The name of the Container within the Storage Account.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_format: The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
-        
+
         The **serialization** object supports the following:
-        
+
           * `encoding` (`pulumi.Input[str]`)
           * `fieldDelimiter` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_reference_input_blob.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -135,7 +135,7 @@ class ReferenceInputBlob(pulumi.CustomResource):
         """
         Get an existing ReferenceInputBlob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,18 +149,17 @@ class ReferenceInputBlob(pulumi.CustomResource):
         :param pulumi.Input[str] storage_container_name: The name of the Container within the Storage Account.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_format: The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
-        
+
         The **serialization** object supports the following:
-        
+
           * `encoding` (`pulumi.Input[str]`)
           * `fieldDelimiter` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_reference_input_blob.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["date_format"] = date_format
         __props__["name"] = name
         __props__["path_pattern"] = path_pattern

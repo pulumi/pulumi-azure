@@ -12,9 +12,9 @@ import (
 )
 
 // Manages a Redis Cache.
-// 
+//
 // ## Default Redis Configuration Values
-// 
+//
 // | Redis Value                     | Basic        | Standard     | Premium      |
 // | ------------------------------- | ------------ | ------------ | ------------ |
 // | enableAuthentication           | true         | true         | true         |
@@ -22,24 +22,24 @@ import (
 // | maxfragmentationmemoryReserved | 2            | 50           | 200          |
 // | maxmemoryDelta                 | 2            | 50           | 200          |
 // | maxmemoryPolicy                | volatile-lru | volatile-lru | volatile-lru |
-// 
+//
 // > **NOTE:** The `maxmemoryReserved`, `maxmemoryDelta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
-// 
+//
 // ---
-// 
+//
 // A `patchSchedule` block supports the following:
-// 
+//
 // * `dayOfWeek` (Required) the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
-// 
+//
 // * `startHourUtc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
-// 
+//
 // > **Note:** The Patch Window lasts for `5` hours from the `startHourUtc`.
-// 
+//
 // ## Relevant Links
-// 
+//
 //  - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)
 //  - [Redis: Available Configuration Settings](http://redis.io/topics/config)
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_cache.html.markdown.
 type Cache struct {
 	pulumi.CustomResourceState
@@ -65,6 +65,8 @@ type Cache struct {
 	Port pulumi.IntOutput `pulumi:"port"`
 	// The Primary Access Key for the Redis Instance
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
+	// The primary connection string of the Redis Instance.
+	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
 	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
 	PrivateStaticIpAddress pulumi.StringOutput `pulumi:"privateStaticIpAddress"`
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
@@ -74,6 +76,8 @@ type Cache struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Secondary Access Key for the Redis Instance
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
+	// The secondary connection string of the Redis Instance.
+	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
 	// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
 	ShardCount pulumi.IntPtrOutput `pulumi:"shardCount"`
 	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
@@ -149,6 +153,8 @@ type cacheState struct {
 	Port *int `pulumi:"port"`
 	// The Primary Access Key for the Redis Instance
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
+	// The primary connection string of the Redis Instance.
+	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
 	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
 	PrivateStaticIpAddress *string `pulumi:"privateStaticIpAddress"`
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
@@ -158,6 +164,8 @@ type cacheState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Secondary Access Key for the Redis Instance
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
+	// The secondary connection string of the Redis Instance.
+	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 	// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
 	ShardCount *int `pulumi:"shardCount"`
 	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
@@ -194,6 +202,8 @@ type CacheState struct {
 	Port pulumi.IntPtrInput
 	// The Primary Access Key for the Redis Instance
 	PrimaryAccessKey pulumi.StringPtrInput
+	// The primary connection string of the Redis Instance.
+	PrimaryConnectionString pulumi.StringPtrInput
 	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
 	PrivateStaticIpAddress pulumi.StringPtrInput
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
@@ -203,6 +213,8 @@ type CacheState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The Secondary Access Key for the Redis Instance
 	SecondaryAccessKey pulumi.StringPtrInput
+	// The secondary connection string of the Redis Instance.
+	SecondaryConnectionString pulumi.StringPtrInput
 	// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
 	ShardCount pulumi.IntPtrInput
 	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
@@ -295,4 +307,3 @@ type CacheArgs struct {
 func (CacheArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cacheArgs)(nil)).Elem()
 }
-

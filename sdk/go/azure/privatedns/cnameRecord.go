@@ -12,11 +12,13 @@ import (
 )
 
 // Enables you to manage DNS CNAME Records within Azure Private DNS.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_cname_record.html.markdown.
 type CnameRecord struct {
 	pulumi.CustomResourceState
 
+	// The FQDN of the DNS CNAME Record.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS CNAME Record.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The target of the CNAME.
@@ -25,7 +27,7 @@ type CnameRecord struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	Ttl pulumi.IntOutput `pulumi:"ttl"`
+	Ttl  pulumi.IntOutput       `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
@@ -70,6 +72,8 @@ func GetCnameRecord(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CnameRecord resources.
 type cnameRecordState struct {
+	// The FQDN of the DNS CNAME Record.
+	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS CNAME Record.
 	Name *string `pulumi:"name"`
 	// The target of the CNAME.
@@ -78,12 +82,14 @@ type cnameRecordState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	Ttl *int `pulumi:"ttl"`
+	Ttl  *int              `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName *string `pulumi:"zoneName"`
 }
 
 type CnameRecordState struct {
+	// The FQDN of the DNS CNAME Record.
+	Fqdn pulumi.StringPtrInput
 	// The name of the DNS CNAME Record.
 	Name pulumi.StringPtrInput
 	// The target of the CNAME.
@@ -92,7 +98,7 @@ type CnameRecordState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	Ttl pulumi.IntPtrInput
+	Ttl  pulumi.IntPtrInput
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringPtrInput
 }
@@ -110,7 +116,7 @@ type cnameRecordArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	Ttl int `pulumi:"ttl"`
+	Ttl  int               `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName string `pulumi:"zoneName"`
 }
@@ -125,7 +131,7 @@ type CnameRecordArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	Ttl pulumi.IntInput
+	Ttl  pulumi.IntInput
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringInput
 }
@@ -133,4 +139,3 @@ type CnameRecordArgs struct {
 func (CnameRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cnameRecordArgs)(nil)).Elem()
 }
-

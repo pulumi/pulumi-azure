@@ -65,7 +65,8 @@ type DomainInputMappingDefaultValuesPtrInput interface {
 
 type domainInputMappingDefaultValuesPtrType DomainInputMappingDefaultValuesArgs
 
-func DomainInputMappingDefaultValuesPtr(v *DomainInputMappingDefaultValuesArgs) DomainInputMappingDefaultValuesPtrInput {	return (*domainInputMappingDefaultValuesPtrType)(v)
+func DomainInputMappingDefaultValuesPtr(v *DomainInputMappingDefaultValuesArgs) DomainInputMappingDefaultValuesPtrInput {
+	return (*domainInputMappingDefaultValuesPtrType)(v)
 }
 
 func (*domainInputMappingDefaultValuesPtrType) ElementType() reflect.Type {
@@ -80,7 +81,7 @@ func (i *domainInputMappingDefaultValuesPtrType) ToDomainInputMappingDefaultValu
 	return pulumi.ToOutputWithContext(ctx, i).(DomainInputMappingDefaultValuesPtrOutput)
 }
 
-type DomainInputMappingDefaultValuesOutput struct { *pulumi.OutputState }
+type DomainInputMappingDefaultValuesOutput struct{ *pulumi.OutputState }
 
 func (DomainInputMappingDefaultValuesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainInputMappingDefaultValues)(nil)).Elem()
@@ -103,22 +104,23 @@ func (o DomainInputMappingDefaultValuesOutput) ToDomainInputMappingDefaultValues
 		return &v
 	}).(DomainInputMappingDefaultValuesPtrOutput)
 }
+
 // Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingDefaultValuesOutput) DataVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingDefaultValues) *string { return v.DataVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingDefaultValues) *string { return v.DataVersion }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingDefaultValuesOutput) EventType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingDefaultValues) *string { return v.EventType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingDefaultValues) *string { return v.EventType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingDefaultValuesOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingDefaultValues) *string { return v.Subject }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingDefaultValues) *string { return v.Subject }).(pulumi.StringPtrOutput)
 }
 
-type DomainInputMappingDefaultValuesPtrOutput struct { *pulumi.OutputState}
+type DomainInputMappingDefaultValuesPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainInputMappingDefaultValuesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DomainInputMappingDefaultValues)(nil)).Elem()
@@ -133,22 +135,22 @@ func (o DomainInputMappingDefaultValuesPtrOutput) ToDomainInputMappingDefaultVal
 }
 
 func (o DomainInputMappingDefaultValuesPtrOutput) Elem() DomainInputMappingDefaultValuesOutput {
-	return o.ApplyT(func (v *DomainInputMappingDefaultValues) DomainInputMappingDefaultValues { return *v }).(DomainInputMappingDefaultValuesOutput)
+	return o.ApplyT(func(v *DomainInputMappingDefaultValues) DomainInputMappingDefaultValues { return *v }).(DomainInputMappingDefaultValuesOutput)
 }
 
 // Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingDefaultValuesPtrOutput) DataVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingDefaultValues) *string { return v.DataVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingDefaultValues) *string { return v.DataVersion }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingDefaultValuesPtrOutput) EventType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingDefaultValues) *string { return v.EventType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingDefaultValues) *string { return v.EventType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingDefaultValuesPtrOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingDefaultValues) *string { return v.Subject }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingDefaultValues) *string { return v.Subject }).(pulumi.StringPtrOutput)
 }
 
 type DomainInputMappingFields struct {
@@ -217,7 +219,8 @@ type DomainInputMappingFieldsPtrInput interface {
 
 type domainInputMappingFieldsPtrType DomainInputMappingFieldsArgs
 
-func DomainInputMappingFieldsPtr(v *DomainInputMappingFieldsArgs) DomainInputMappingFieldsPtrInput {	return (*domainInputMappingFieldsPtrType)(v)
+func DomainInputMappingFieldsPtr(v *DomainInputMappingFieldsArgs) DomainInputMappingFieldsPtrInput {
+	return (*domainInputMappingFieldsPtrType)(v)
 }
 
 func (*domainInputMappingFieldsPtrType) ElementType() reflect.Type {
@@ -232,7 +235,7 @@ func (i *domainInputMappingFieldsPtrType) ToDomainInputMappingFieldsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DomainInputMappingFieldsPtrOutput)
 }
 
-type DomainInputMappingFieldsOutput struct { *pulumi.OutputState }
+type DomainInputMappingFieldsOutput struct{ *pulumi.OutputState }
 
 func (DomainInputMappingFieldsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainInputMappingFields)(nil)).Elem()
@@ -255,37 +258,38 @@ func (o DomainInputMappingFieldsOutput) ToDomainInputMappingFieldsPtrOutputWithC
 		return &v
 	}).(DomainInputMappingFieldsPtrOutput)
 }
+
 // Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsOutput) DataVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingFields) *string { return v.DataVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.DataVersion }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsOutput) EventTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingFields) *string { return v.EventTime }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.EventTime }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsOutput) EventType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingFields) *string { return v.EventType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.EventType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingFields) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingFields) *string { return v.Subject }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.Subject }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsOutput) Topic() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingFields) *string { return v.Topic }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.Topic }).(pulumi.StringPtrOutput)
 }
 
-type DomainInputMappingFieldsPtrOutput struct { *pulumi.OutputState}
+type DomainInputMappingFieldsPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainInputMappingFieldsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DomainInputMappingFields)(nil)).Elem()
@@ -300,46 +304,46 @@ func (o DomainInputMappingFieldsPtrOutput) ToDomainInputMappingFieldsPtrOutputWi
 }
 
 func (o DomainInputMappingFieldsPtrOutput) Elem() DomainInputMappingFieldsOutput {
-	return o.ApplyT(func (v *DomainInputMappingFields) DomainInputMappingFields { return *v }).(DomainInputMappingFieldsOutput)
+	return o.ApplyT(func(v *DomainInputMappingFields) DomainInputMappingFields { return *v }).(DomainInputMappingFieldsOutput)
 }
 
 // Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) DataVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingFields) *string { return v.DataVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.DataVersion }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) EventTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingFields) *string { return v.EventTime }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.EventTime }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) EventType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingFields) *string { return v.EventType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.EventType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingFields) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingFields) *string { return v.Subject }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.Subject }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) Topic() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainInputMappingFields) *string { return v.Topic }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.Topic }).(pulumi.StringPtrOutput)
 }
 
 type EventHubCaptureDescription struct {
-	Destination EventHubCaptureDescriptionDestination `pulumi:"destination"`
-	Enabled bool `pulumi:"enabled"`
-	Encoding string `pulumi:"encoding"`
-	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	SizeLimitInBytes *int `pulumi:"sizeLimitInBytes"`
-	SkipEmptyArchives *bool `pulumi:"skipEmptyArchives"`
+	Destination       EventHubCaptureDescriptionDestination `pulumi:"destination"`
+	Enabled           bool                                  `pulumi:"enabled"`
+	Encoding          string                                `pulumi:"encoding"`
+	IntervalInSeconds *int                                  `pulumi:"intervalInSeconds"`
+	SizeLimitInBytes  *int                                  `pulumi:"sizeLimitInBytes"`
+	SkipEmptyArchives *bool                                 `pulumi:"skipEmptyArchives"`
 }
 
 type EventHubCaptureDescriptionInput interface {
@@ -350,12 +354,12 @@ type EventHubCaptureDescriptionInput interface {
 }
 
 type EventHubCaptureDescriptionArgs struct {
-	Destination EventHubCaptureDescriptionDestinationInput `pulumi:"destination"`
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	Encoding pulumi.StringInput `pulumi:"encoding"`
-	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
-	SizeLimitInBytes pulumi.IntPtrInput `pulumi:"sizeLimitInBytes"`
-	SkipEmptyArchives pulumi.BoolPtrInput `pulumi:"skipEmptyArchives"`
+	Destination       EventHubCaptureDescriptionDestinationInput `pulumi:"destination"`
+	Enabled           pulumi.BoolInput                           `pulumi:"enabled"`
+	Encoding          pulumi.StringInput                         `pulumi:"encoding"`
+	IntervalInSeconds pulumi.IntPtrInput                         `pulumi:"intervalInSeconds"`
+	SizeLimitInBytes  pulumi.IntPtrInput                         `pulumi:"sizeLimitInBytes"`
+	SkipEmptyArchives pulumi.BoolPtrInput                        `pulumi:"skipEmptyArchives"`
 }
 
 func (EventHubCaptureDescriptionArgs) ElementType() reflect.Type {
@@ -387,7 +391,8 @@ type EventHubCaptureDescriptionPtrInput interface {
 
 type eventHubCaptureDescriptionPtrType EventHubCaptureDescriptionArgs
 
-func EventHubCaptureDescriptionPtr(v *EventHubCaptureDescriptionArgs) EventHubCaptureDescriptionPtrInput {	return (*eventHubCaptureDescriptionPtrType)(v)
+func EventHubCaptureDescriptionPtr(v *EventHubCaptureDescriptionArgs) EventHubCaptureDescriptionPtrInput {
+	return (*eventHubCaptureDescriptionPtrType)(v)
 }
 
 func (*eventHubCaptureDescriptionPtrType) ElementType() reflect.Type {
@@ -402,7 +407,7 @@ func (i *eventHubCaptureDescriptionPtrType) ToEventHubCaptureDescriptionPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubCaptureDescriptionPtrOutput)
 }
 
-type EventHubCaptureDescriptionOutput struct { *pulumi.OutputState }
+type EventHubCaptureDescriptionOutput struct{ *pulumi.OutputState }
 
 func (EventHubCaptureDescriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHubCaptureDescription)(nil)).Elem()
@@ -426,30 +431,30 @@ func (o EventHubCaptureDescriptionOutput) ToEventHubCaptureDescriptionPtrOutputW
 	}).(EventHubCaptureDescriptionPtrOutput)
 }
 func (o EventHubCaptureDescriptionOutput) Destination() EventHubCaptureDescriptionDestinationOutput {
-	return o.ApplyT(func (v EventHubCaptureDescription) EventHubCaptureDescriptionDestination { return v.Destination }).(EventHubCaptureDescriptionDestinationOutput)
+	return o.ApplyT(func(v EventHubCaptureDescription) EventHubCaptureDescriptionDestination { return v.Destination }).(EventHubCaptureDescriptionDestinationOutput)
 }
 
 func (o EventHubCaptureDescriptionOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v EventHubCaptureDescription) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v EventHubCaptureDescription) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o EventHubCaptureDescriptionOutput) Encoding() pulumi.StringOutput {
-	return o.ApplyT(func (v EventHubCaptureDescription) string { return v.Encoding }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventHubCaptureDescription) string { return v.Encoding }).(pulumi.StringOutput)
 }
 
 func (o EventHubCaptureDescriptionOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v EventHubCaptureDescription) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v EventHubCaptureDescription) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
 func (o EventHubCaptureDescriptionOutput) SizeLimitInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v EventHubCaptureDescription) *int { return v.SizeLimitInBytes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v EventHubCaptureDescription) *int { return v.SizeLimitInBytes }).(pulumi.IntPtrOutput)
 }
 
 func (o EventHubCaptureDescriptionOutput) SkipEmptyArchives() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v EventHubCaptureDescription) *bool { return v.SkipEmptyArchives }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v EventHubCaptureDescription) *bool { return v.SkipEmptyArchives }).(pulumi.BoolPtrOutput)
 }
 
-type EventHubCaptureDescriptionPtrOutput struct { *pulumi.OutputState}
+type EventHubCaptureDescriptionPtrOutput struct{ *pulumi.OutputState }
 
 func (EventHubCaptureDescriptionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventHubCaptureDescription)(nil)).Elem()
@@ -464,38 +469,38 @@ func (o EventHubCaptureDescriptionPtrOutput) ToEventHubCaptureDescriptionPtrOutp
 }
 
 func (o EventHubCaptureDescriptionPtrOutput) Elem() EventHubCaptureDescriptionOutput {
-	return o.ApplyT(func (v *EventHubCaptureDescription) EventHubCaptureDescription { return *v }).(EventHubCaptureDescriptionOutput)
+	return o.ApplyT(func(v *EventHubCaptureDescription) EventHubCaptureDescription { return *v }).(EventHubCaptureDescriptionOutput)
 }
 
 func (o EventHubCaptureDescriptionPtrOutput) Destination() EventHubCaptureDescriptionDestinationOutput {
-	return o.ApplyT(func (v EventHubCaptureDescription) EventHubCaptureDescriptionDestination { return v.Destination }).(EventHubCaptureDescriptionDestinationOutput)
+	return o.ApplyT(func(v EventHubCaptureDescription) EventHubCaptureDescriptionDestination { return v.Destination }).(EventHubCaptureDescriptionDestinationOutput)
 }
 
 func (o EventHubCaptureDescriptionPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v EventHubCaptureDescription) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v EventHubCaptureDescription) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o EventHubCaptureDescriptionPtrOutput) Encoding() pulumi.StringOutput {
-	return o.ApplyT(func (v EventHubCaptureDescription) string { return v.Encoding }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventHubCaptureDescription) string { return v.Encoding }).(pulumi.StringOutput)
 }
 
 func (o EventHubCaptureDescriptionPtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v EventHubCaptureDescription) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v EventHubCaptureDescription) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
 func (o EventHubCaptureDescriptionPtrOutput) SizeLimitInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v EventHubCaptureDescription) *int { return v.SizeLimitInBytes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v EventHubCaptureDescription) *int { return v.SizeLimitInBytes }).(pulumi.IntPtrOutput)
 }
 
 func (o EventHubCaptureDescriptionPtrOutput) SkipEmptyArchives() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v EventHubCaptureDescription) *bool { return v.SkipEmptyArchives }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v EventHubCaptureDescription) *bool { return v.SkipEmptyArchives }).(pulumi.BoolPtrOutput)
 }
 
 type EventHubCaptureDescriptionDestination struct {
 	ArchiveNameFormat string `pulumi:"archiveNameFormat"`
 	BlobContainerName string `pulumi:"blobContainerName"`
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
+	Name             string `pulumi:"name"`
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
@@ -510,7 +515,7 @@ type EventHubCaptureDescriptionDestinationArgs struct {
 	ArchiveNameFormat pulumi.StringInput `pulumi:"archiveNameFormat"`
 	BlobContainerName pulumi.StringInput `pulumi:"blobContainerName"`
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name             pulumi.StringInput `pulumi:"name"`
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
@@ -526,7 +531,7 @@ func (i EventHubCaptureDescriptionDestinationArgs) ToEventHubCaptureDescriptionD
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubCaptureDescriptionDestinationOutput)
 }
 
-type EventHubCaptureDescriptionDestinationOutput struct { *pulumi.OutputState }
+type EventHubCaptureDescriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventHubCaptureDescriptionDestinationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHubCaptureDescriptionDestination)(nil)).Elem()
@@ -541,25 +546,25 @@ func (o EventHubCaptureDescriptionDestinationOutput) ToEventHubCaptureDescriptio
 }
 
 func (o EventHubCaptureDescriptionDestinationOutput) ArchiveNameFormat() pulumi.StringOutput {
-	return o.ApplyT(func (v EventHubCaptureDescriptionDestination) string { return v.ArchiveNameFormat }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventHubCaptureDescriptionDestination) string { return v.ArchiveNameFormat }).(pulumi.StringOutput)
 }
 
 func (o EventHubCaptureDescriptionDestinationOutput) BlobContainerName() pulumi.StringOutput {
-	return o.ApplyT(func (v EventHubCaptureDescriptionDestination) string { return v.BlobContainerName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventHubCaptureDescriptionDestination) string { return v.BlobContainerName }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 func (o EventHubCaptureDescriptionDestinationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v EventHubCaptureDescriptionDestination) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventHubCaptureDescriptionDestination) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o EventHubCaptureDescriptionDestinationOutput) StorageAccountId() pulumi.StringOutput {
-	return o.ApplyT(func (v EventHubCaptureDescriptionDestination) string { return v.StorageAccountId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventHubCaptureDescriptionDestination) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
 type EventHubNamespaceNetworkRulesets struct {
-	DefaultAction string `pulumi:"defaultAction"`
-	IpRule *EventHubNamespaceNetworkRulesetsIpRule `pulumi:"ipRule"`
+	DefaultAction       string                                               `pulumi:"defaultAction"`
+	IpRules             []EventHubNamespaceNetworkRulesetsIpRule             `pulumi:"ipRules"`
 	VirtualNetworkRules []EventHubNamespaceNetworkRulesetsVirtualNetworkRule `pulumi:"virtualNetworkRules"`
 }
 
@@ -571,8 +576,8 @@ type EventHubNamespaceNetworkRulesetsInput interface {
 }
 
 type EventHubNamespaceNetworkRulesetsArgs struct {
-	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
-	IpRule EventHubNamespaceNetworkRulesetsIpRulePtrInput `pulumi:"ipRule"`
+	DefaultAction       pulumi.StringInput                                           `pulumi:"defaultAction"`
+	IpRules             EventHubNamespaceNetworkRulesetsIpRuleArrayInput             `pulumi:"ipRules"`
 	VirtualNetworkRules EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
 }
 
@@ -605,7 +610,8 @@ type EventHubNamespaceNetworkRulesetsPtrInput interface {
 
 type eventHubNamespaceNetworkRulesetsPtrType EventHubNamespaceNetworkRulesetsArgs
 
-func EventHubNamespaceNetworkRulesetsPtr(v *EventHubNamespaceNetworkRulesetsArgs) EventHubNamespaceNetworkRulesetsPtrInput {	return (*eventHubNamespaceNetworkRulesetsPtrType)(v)
+func EventHubNamespaceNetworkRulesetsPtr(v *EventHubNamespaceNetworkRulesetsArgs) EventHubNamespaceNetworkRulesetsPtrInput {
+	return (*eventHubNamespaceNetworkRulesetsPtrType)(v)
 }
 
 func (*eventHubNamespaceNetworkRulesetsPtrType) ElementType() reflect.Type {
@@ -620,7 +626,7 @@ func (i *eventHubNamespaceNetworkRulesetsPtrType) ToEventHubNamespaceNetworkRule
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceNetworkRulesetsPtrOutput)
 }
 
-type EventHubNamespaceNetworkRulesetsOutput struct { *pulumi.OutputState }
+type EventHubNamespaceNetworkRulesetsOutput struct{ *pulumi.OutputState }
 
 func (EventHubNamespaceNetworkRulesetsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHubNamespaceNetworkRulesets)(nil)).Elem()
@@ -644,18 +650,20 @@ func (o EventHubNamespaceNetworkRulesetsOutput) ToEventHubNamespaceNetworkRulese
 	}).(EventHubNamespaceNetworkRulesetsPtrOutput)
 }
 func (o EventHubNamespaceNetworkRulesetsOutput) DefaultAction() pulumi.StringOutput {
-	return o.ApplyT(func (v EventHubNamespaceNetworkRulesets) string { return v.DefaultAction }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventHubNamespaceNetworkRulesets) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
 
-func (o EventHubNamespaceNetworkRulesetsOutput) IpRule() EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
-	return o.ApplyT(func (v EventHubNamespaceNetworkRulesets) *EventHubNamespaceNetworkRulesetsIpRule { return v.IpRule }).(EventHubNamespaceNetworkRulesetsIpRulePtrOutput)
+func (o EventHubNamespaceNetworkRulesetsOutput) IpRules() EventHubNamespaceNetworkRulesetsIpRuleArrayOutput {
+	return o.ApplyT(func(v EventHubNamespaceNetworkRulesets) []EventHubNamespaceNetworkRulesetsIpRule { return v.IpRules }).(EventHubNamespaceNetworkRulesetsIpRuleArrayOutput)
 }
 
 func (o EventHubNamespaceNetworkRulesetsOutput) VirtualNetworkRules() EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput {
-	return o.ApplyT(func (v EventHubNamespaceNetworkRulesets) []EventHubNamespaceNetworkRulesetsVirtualNetworkRule { return v.VirtualNetworkRules }).(EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput)
+	return o.ApplyT(func(v EventHubNamespaceNetworkRulesets) []EventHubNamespaceNetworkRulesetsVirtualNetworkRule {
+		return v.VirtualNetworkRules
+	}).(EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput)
 }
 
-type EventHubNamespaceNetworkRulesetsPtrOutput struct { *pulumi.OutputState}
+type EventHubNamespaceNetworkRulesetsPtrOutput struct{ *pulumi.OutputState }
 
 func (EventHubNamespaceNetworkRulesetsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventHubNamespaceNetworkRulesets)(nil)).Elem()
@@ -670,24 +678,26 @@ func (o EventHubNamespaceNetworkRulesetsPtrOutput) ToEventHubNamespaceNetworkRul
 }
 
 func (o EventHubNamespaceNetworkRulesetsPtrOutput) Elem() EventHubNamespaceNetworkRulesetsOutput {
-	return o.ApplyT(func (v *EventHubNamespaceNetworkRulesets) EventHubNamespaceNetworkRulesets { return *v }).(EventHubNamespaceNetworkRulesetsOutput)
+	return o.ApplyT(func(v *EventHubNamespaceNetworkRulesets) EventHubNamespaceNetworkRulesets { return *v }).(EventHubNamespaceNetworkRulesetsOutput)
 }
 
 func (o EventHubNamespaceNetworkRulesetsPtrOutput) DefaultAction() pulumi.StringOutput {
-	return o.ApplyT(func (v EventHubNamespaceNetworkRulesets) string { return v.DefaultAction }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventHubNamespaceNetworkRulesets) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
 
-func (o EventHubNamespaceNetworkRulesetsPtrOutput) IpRule() EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
-	return o.ApplyT(func (v EventHubNamespaceNetworkRulesets) *EventHubNamespaceNetworkRulesetsIpRule { return v.IpRule }).(EventHubNamespaceNetworkRulesetsIpRulePtrOutput)
+func (o EventHubNamespaceNetworkRulesetsPtrOutput) IpRules() EventHubNamespaceNetworkRulesetsIpRuleArrayOutput {
+	return o.ApplyT(func(v EventHubNamespaceNetworkRulesets) []EventHubNamespaceNetworkRulesetsIpRule { return v.IpRules }).(EventHubNamespaceNetworkRulesetsIpRuleArrayOutput)
 }
 
 func (o EventHubNamespaceNetworkRulesetsPtrOutput) VirtualNetworkRules() EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput {
-	return o.ApplyT(func (v EventHubNamespaceNetworkRulesets) []EventHubNamespaceNetworkRulesetsVirtualNetworkRule { return v.VirtualNetworkRules }).(EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput)
+	return o.ApplyT(func(v EventHubNamespaceNetworkRulesets) []EventHubNamespaceNetworkRulesetsVirtualNetworkRule {
+		return v.VirtualNetworkRules
+	}).(EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput)
 }
 
 type EventHubNamespaceNetworkRulesetsIpRule struct {
 	Action *string `pulumi:"action"`
-	IpMask string `pulumi:"ipMask"`
+	IpMask string  `pulumi:"ipMask"`
 }
 
 type EventHubNamespaceNetworkRulesetsIpRuleInput interface {
@@ -699,7 +709,7 @@ type EventHubNamespaceNetworkRulesetsIpRuleInput interface {
 
 type EventHubNamespaceNetworkRulesetsIpRuleArgs struct {
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	IpMask pulumi.StringInput `pulumi:"ipMask"`
+	IpMask pulumi.StringInput    `pulumi:"ipMask"`
 }
 
 func (EventHubNamespaceNetworkRulesetsIpRuleArgs) ElementType() reflect.Type {
@@ -714,39 +724,28 @@ func (i EventHubNamespaceNetworkRulesetsIpRuleArgs) ToEventHubNamespaceNetworkRu
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceNetworkRulesetsIpRuleOutput)
 }
 
-func (i EventHubNamespaceNetworkRulesetsIpRuleArgs) ToEventHubNamespaceNetworkRulesetsIpRulePtrOutput() EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
-	return i.ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(context.Background())
-}
-
-func (i EventHubNamespaceNetworkRulesetsIpRuleArgs) ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceNetworkRulesetsIpRuleOutput).ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(ctx)
-}
-
-type EventHubNamespaceNetworkRulesetsIpRulePtrInput interface {
+type EventHubNamespaceNetworkRulesetsIpRuleArrayInput interface {
 	pulumi.Input
 
-	ToEventHubNamespaceNetworkRulesetsIpRulePtrOutput() EventHubNamespaceNetworkRulesetsIpRulePtrOutput
-	ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(context.Context) EventHubNamespaceNetworkRulesetsIpRulePtrOutput
+	ToEventHubNamespaceNetworkRulesetsIpRuleArrayOutput() EventHubNamespaceNetworkRulesetsIpRuleArrayOutput
+	ToEventHubNamespaceNetworkRulesetsIpRuleArrayOutputWithContext(context.Context) EventHubNamespaceNetworkRulesetsIpRuleArrayOutput
 }
 
-type eventHubNamespaceNetworkRulesetsIpRulePtrType EventHubNamespaceNetworkRulesetsIpRuleArgs
+type EventHubNamespaceNetworkRulesetsIpRuleArray []EventHubNamespaceNetworkRulesetsIpRuleInput
 
-func EventHubNamespaceNetworkRulesetsIpRulePtr(v *EventHubNamespaceNetworkRulesetsIpRuleArgs) EventHubNamespaceNetworkRulesetsIpRulePtrInput {	return (*eventHubNamespaceNetworkRulesetsIpRulePtrType)(v)
+func (EventHubNamespaceNetworkRulesetsIpRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventHubNamespaceNetworkRulesetsIpRule)(nil)).Elem()
 }
 
-func (*eventHubNamespaceNetworkRulesetsIpRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventHubNamespaceNetworkRulesetsIpRule)(nil)).Elem()
+func (i EventHubNamespaceNetworkRulesetsIpRuleArray) ToEventHubNamespaceNetworkRulesetsIpRuleArrayOutput() EventHubNamespaceNetworkRulesetsIpRuleArrayOutput {
+	return i.ToEventHubNamespaceNetworkRulesetsIpRuleArrayOutputWithContext(context.Background())
 }
 
-func (i *eventHubNamespaceNetworkRulesetsIpRulePtrType) ToEventHubNamespaceNetworkRulesetsIpRulePtrOutput() EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
-	return i.ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(context.Background())
+func (i EventHubNamespaceNetworkRulesetsIpRuleArray) ToEventHubNamespaceNetworkRulesetsIpRuleArrayOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsIpRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceNetworkRulesetsIpRuleArrayOutput)
 }
 
-func (i *eventHubNamespaceNetworkRulesetsIpRulePtrType) ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceNetworkRulesetsIpRulePtrOutput)
-}
-
-type EventHubNamespaceNetworkRulesetsIpRuleOutput struct { *pulumi.OutputState }
+type EventHubNamespaceNetworkRulesetsIpRuleOutput struct{ *pulumi.OutputState }
 
 func (EventHubNamespaceNetworkRulesetsIpRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHubNamespaceNetworkRulesetsIpRule)(nil)).Elem()
@@ -760,52 +759,37 @@ func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) ToEventHubNamespaceNetwork
 	return o
 }
 
-func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) ToEventHubNamespaceNetworkRulesetsIpRulePtrOutput() EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
-	return o.ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(context.Background())
-}
-
-func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
-	return o.ApplyT(func(v EventHubNamespaceNetworkRulesetsIpRule) *EventHubNamespaceNetworkRulesetsIpRule {
-		return &v
-	}).(EventHubNamespaceNetworkRulesetsIpRulePtrOutput)
-}
 func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v EventHubNamespaceNetworkRulesetsIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v EventHubNamespaceNetworkRulesetsIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
 func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) IpMask() pulumi.StringOutput {
-	return o.ApplyT(func (v EventHubNamespaceNetworkRulesetsIpRule) string { return v.IpMask }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventHubNamespaceNetworkRulesetsIpRule) string { return v.IpMask }).(pulumi.StringOutput)
 }
 
-type EventHubNamespaceNetworkRulesetsIpRulePtrOutput struct { *pulumi.OutputState}
+type EventHubNamespaceNetworkRulesetsIpRuleArrayOutput struct{ *pulumi.OutputState }
 
-func (EventHubNamespaceNetworkRulesetsIpRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventHubNamespaceNetworkRulesetsIpRule)(nil)).Elem()
+func (EventHubNamespaceNetworkRulesetsIpRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventHubNamespaceNetworkRulesetsIpRule)(nil)).Elem()
 }
 
-func (o EventHubNamespaceNetworkRulesetsIpRulePtrOutput) ToEventHubNamespaceNetworkRulesetsIpRulePtrOutput() EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
+func (o EventHubNamespaceNetworkRulesetsIpRuleArrayOutput) ToEventHubNamespaceNetworkRulesetsIpRuleArrayOutput() EventHubNamespaceNetworkRulesetsIpRuleArrayOutput {
 	return o
 }
 
-func (o EventHubNamespaceNetworkRulesetsIpRulePtrOutput) ToEventHubNamespaceNetworkRulesetsIpRulePtrOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsIpRulePtrOutput {
+func (o EventHubNamespaceNetworkRulesetsIpRuleArrayOutput) ToEventHubNamespaceNetworkRulesetsIpRuleArrayOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsIpRuleArrayOutput {
 	return o
 }
 
-func (o EventHubNamespaceNetworkRulesetsIpRulePtrOutput) Elem() EventHubNamespaceNetworkRulesetsIpRuleOutput {
-	return o.ApplyT(func (v *EventHubNamespaceNetworkRulesetsIpRule) EventHubNamespaceNetworkRulesetsIpRule { return *v }).(EventHubNamespaceNetworkRulesetsIpRuleOutput)
-}
-
-func (o EventHubNamespaceNetworkRulesetsIpRulePtrOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v EventHubNamespaceNetworkRulesetsIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
-}
-
-func (o EventHubNamespaceNetworkRulesetsIpRulePtrOutput) IpMask() pulumi.StringOutput {
-	return o.ApplyT(func (v EventHubNamespaceNetworkRulesetsIpRule) string { return v.IpMask }).(pulumi.StringOutput)
+func (o EventHubNamespaceNetworkRulesetsIpRuleArrayOutput) Index(i pulumi.IntInput) EventHubNamespaceNetworkRulesetsIpRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventHubNamespaceNetworkRulesetsIpRule {
+		return vs[0].([]EventHubNamespaceNetworkRulesetsIpRule)[vs[1].(int)]
+	}).(EventHubNamespaceNetworkRulesetsIpRuleOutput)
 }
 
 type EventHubNamespaceNetworkRulesetsVirtualNetworkRule struct {
-	IgnoreMissingVirtualNetworkServiceEndpoint *bool `pulumi:"ignoreMissingVirtualNetworkServiceEndpoint"`
-	SubnetId string `pulumi:"subnetId"`
+	IgnoreMissingVirtualNetworkServiceEndpoint *bool  `pulumi:"ignoreMissingVirtualNetworkServiceEndpoint"`
+	SubnetId                                   string `pulumi:"subnetId"`
 }
 
 type EventHubNamespaceNetworkRulesetsVirtualNetworkRuleInput interface {
@@ -817,7 +801,7 @@ type EventHubNamespaceNetworkRulesetsVirtualNetworkRuleInput interface {
 
 type EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs struct {
 	IgnoreMissingVirtualNetworkServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVirtualNetworkServiceEndpoint"`
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	SubnetId                                   pulumi.StringInput  `pulumi:"subnetId"`
 }
 
 func (EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs) ElementType() reflect.Type {
@@ -853,7 +837,7 @@ func (i EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArray) ToEventHubNames
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput)
 }
 
-type EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput struct { *pulumi.OutputState }
+type EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHubNamespaceNetworkRulesetsVirtualNetworkRule)(nil)).Elem()
@@ -868,14 +852,16 @@ func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput) ToEventHubName
 }
 
 func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput) IgnoreMissingVirtualNetworkServiceEndpoint() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v EventHubNamespaceNetworkRulesetsVirtualNetworkRule) *bool { return v.IgnoreMissingVirtualNetworkServiceEndpoint }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v EventHubNamespaceNetworkRulesetsVirtualNetworkRule) *bool {
+		return v.IgnoreMissingVirtualNetworkServiceEndpoint
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v EventHubNamespaceNetworkRulesetsVirtualNetworkRule) string { return v.SubnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventHubNamespaceNetworkRulesetsVirtualNetworkRule) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-type EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput struct { *pulumi.OutputState}
+type EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]EventHubNamespaceNetworkRulesetsVirtualNetworkRule)(nil)).Elem()
@@ -890,7 +876,7 @@ func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput) ToEventHu
 }
 
 func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) EventHubNamespaceNetworkRulesetsVirtualNetworkRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventHubNamespaceNetworkRulesetsVirtualNetworkRule {
 		return vs[0].([]EventHubNamespaceNetworkRulesetsVirtualNetworkRule)[vs[1].(int)]
 	}).(EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput)
 }
@@ -941,7 +927,8 @@ type EventSubscriptionEventhubEndpointPtrInput interface {
 
 type eventSubscriptionEventhubEndpointPtrType EventSubscriptionEventhubEndpointArgs
 
-func EventSubscriptionEventhubEndpointPtr(v *EventSubscriptionEventhubEndpointArgs) EventSubscriptionEventhubEndpointPtrInput {	return (*eventSubscriptionEventhubEndpointPtrType)(v)
+func EventSubscriptionEventhubEndpointPtr(v *EventSubscriptionEventhubEndpointArgs) EventSubscriptionEventhubEndpointPtrInput {
+	return (*eventSubscriptionEventhubEndpointPtrType)(v)
 }
 
 func (*eventSubscriptionEventhubEndpointPtrType) ElementType() reflect.Type {
@@ -956,7 +943,7 @@ func (i *eventSubscriptionEventhubEndpointPtrType) ToEventSubscriptionEventhubEn
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionEventhubEndpointPtrOutput)
 }
 
-type EventSubscriptionEventhubEndpointOutput struct { *pulumi.OutputState }
+type EventSubscriptionEventhubEndpointOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionEventhubEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventSubscriptionEventhubEndpoint)(nil)).Elem()
@@ -979,12 +966,13 @@ func (o EventSubscriptionEventhubEndpointOutput) ToEventSubscriptionEventhubEndp
 		return &v
 	}).(EventSubscriptionEventhubEndpointPtrOutput)
 }
+
 // Specifies the id of the eventhub where the Event Subscription will receive events.
 func (o EventSubscriptionEventhubEndpointOutput) EventhubId() pulumi.StringOutput {
-	return o.ApplyT(func (v EventSubscriptionEventhubEndpoint) string { return v.EventhubId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventSubscriptionEventhubEndpoint) string { return v.EventhubId }).(pulumi.StringOutput)
 }
 
-type EventSubscriptionEventhubEndpointPtrOutput struct { *pulumi.OutputState}
+type EventSubscriptionEventhubEndpointPtrOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionEventhubEndpointPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventSubscriptionEventhubEndpoint)(nil)).Elem()
@@ -999,12 +987,12 @@ func (o EventSubscriptionEventhubEndpointPtrOutput) ToEventSubscriptionEventhubE
 }
 
 func (o EventSubscriptionEventhubEndpointPtrOutput) Elem() EventSubscriptionEventhubEndpointOutput {
-	return o.ApplyT(func (v *EventSubscriptionEventhubEndpoint) EventSubscriptionEventhubEndpoint { return *v }).(EventSubscriptionEventhubEndpointOutput)
+	return o.ApplyT(func(v *EventSubscriptionEventhubEndpoint) EventSubscriptionEventhubEndpoint { return *v }).(EventSubscriptionEventhubEndpointOutput)
 }
 
 // Specifies the id of the eventhub where the Event Subscription will receive events.
 func (o EventSubscriptionEventhubEndpointPtrOutput) EventhubId() pulumi.StringOutput {
-	return o.ApplyT(func (v EventSubscriptionEventhubEndpoint) string { return v.EventhubId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventSubscriptionEventhubEndpoint) string { return v.EventhubId }).(pulumi.StringOutput)
 }
 
 type EventSubscriptionHybridConnectionEndpoint struct {
@@ -1053,7 +1041,8 @@ type EventSubscriptionHybridConnectionEndpointPtrInput interface {
 
 type eventSubscriptionHybridConnectionEndpointPtrType EventSubscriptionHybridConnectionEndpointArgs
 
-func EventSubscriptionHybridConnectionEndpointPtr(v *EventSubscriptionHybridConnectionEndpointArgs) EventSubscriptionHybridConnectionEndpointPtrInput {	return (*eventSubscriptionHybridConnectionEndpointPtrType)(v)
+func EventSubscriptionHybridConnectionEndpointPtr(v *EventSubscriptionHybridConnectionEndpointArgs) EventSubscriptionHybridConnectionEndpointPtrInput {
+	return (*eventSubscriptionHybridConnectionEndpointPtrType)(v)
 }
 
 func (*eventSubscriptionHybridConnectionEndpointPtrType) ElementType() reflect.Type {
@@ -1068,7 +1057,7 @@ func (i *eventSubscriptionHybridConnectionEndpointPtrType) ToEventSubscriptionHy
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionHybridConnectionEndpointPtrOutput)
 }
 
-type EventSubscriptionHybridConnectionEndpointOutput struct { *pulumi.OutputState }
+type EventSubscriptionHybridConnectionEndpointOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionHybridConnectionEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventSubscriptionHybridConnectionEndpoint)(nil)).Elem()
@@ -1091,12 +1080,13 @@ func (o EventSubscriptionHybridConnectionEndpointOutput) ToEventSubscriptionHybr
 		return &v
 	}).(EventSubscriptionHybridConnectionEndpointPtrOutput)
 }
+
 // Specifies the id of the hybrid connection where the Event Subscription will receive events.
 func (o EventSubscriptionHybridConnectionEndpointOutput) HybridConnectionId() pulumi.StringOutput {
-	return o.ApplyT(func (v EventSubscriptionHybridConnectionEndpoint) string { return v.HybridConnectionId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventSubscriptionHybridConnectionEndpoint) string { return v.HybridConnectionId }).(pulumi.StringOutput)
 }
 
-type EventSubscriptionHybridConnectionEndpointPtrOutput struct { *pulumi.OutputState}
+type EventSubscriptionHybridConnectionEndpointPtrOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionHybridConnectionEndpointPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventSubscriptionHybridConnectionEndpoint)(nil)).Elem()
@@ -1111,12 +1101,14 @@ func (o EventSubscriptionHybridConnectionEndpointPtrOutput) ToEventSubscriptionH
 }
 
 func (o EventSubscriptionHybridConnectionEndpointPtrOutput) Elem() EventSubscriptionHybridConnectionEndpointOutput {
-	return o.ApplyT(func (v *EventSubscriptionHybridConnectionEndpoint) EventSubscriptionHybridConnectionEndpoint { return *v }).(EventSubscriptionHybridConnectionEndpointOutput)
+	return o.ApplyT(func(v *EventSubscriptionHybridConnectionEndpoint) EventSubscriptionHybridConnectionEndpoint {
+		return *v
+	}).(EventSubscriptionHybridConnectionEndpointOutput)
 }
 
 // Specifies the id of the hybrid connection where the Event Subscription will receive events.
 func (o EventSubscriptionHybridConnectionEndpointPtrOutput) HybridConnectionId() pulumi.StringOutput {
-	return o.ApplyT(func (v EventSubscriptionHybridConnectionEndpoint) string { return v.HybridConnectionId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventSubscriptionHybridConnectionEndpoint) string { return v.HybridConnectionId }).(pulumi.StringOutput)
 }
 
 type EventSubscriptionRetryPolicy struct {
@@ -1169,7 +1161,8 @@ type EventSubscriptionRetryPolicyPtrInput interface {
 
 type eventSubscriptionRetryPolicyPtrType EventSubscriptionRetryPolicyArgs
 
-func EventSubscriptionRetryPolicyPtr(v *EventSubscriptionRetryPolicyArgs) EventSubscriptionRetryPolicyPtrInput {	return (*eventSubscriptionRetryPolicyPtrType)(v)
+func EventSubscriptionRetryPolicyPtr(v *EventSubscriptionRetryPolicyArgs) EventSubscriptionRetryPolicyPtrInput {
+	return (*eventSubscriptionRetryPolicyPtrType)(v)
 }
 
 func (*eventSubscriptionRetryPolicyPtrType) ElementType() reflect.Type {
@@ -1184,7 +1177,7 @@ func (i *eventSubscriptionRetryPolicyPtrType) ToEventSubscriptionRetryPolicyPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionRetryPolicyPtrOutput)
 }
 
-type EventSubscriptionRetryPolicyOutput struct { *pulumi.OutputState }
+type EventSubscriptionRetryPolicyOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionRetryPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventSubscriptionRetryPolicy)(nil)).Elem()
@@ -1207,17 +1200,18 @@ func (o EventSubscriptionRetryPolicyOutput) ToEventSubscriptionRetryPolicyPtrOut
 		return &v
 	}).(EventSubscriptionRetryPolicyPtrOutput)
 }
+
 // Specifies the time to live (in minutes) for events.
 func (o EventSubscriptionRetryPolicyOutput) EventTimeToLive() pulumi.IntOutput {
-	return o.ApplyT(func (v EventSubscriptionRetryPolicy) int { return v.EventTimeToLive }).(pulumi.IntOutput)
+	return o.ApplyT(func(v EventSubscriptionRetryPolicy) int { return v.EventTimeToLive }).(pulumi.IntOutput)
 }
 
 // Specifies the maximum number of delivery retry attempts for events.
 func (o EventSubscriptionRetryPolicyOutput) MaxDeliveryAttempts() pulumi.IntOutput {
-	return o.ApplyT(func (v EventSubscriptionRetryPolicy) int { return v.MaxDeliveryAttempts }).(pulumi.IntOutput)
+	return o.ApplyT(func(v EventSubscriptionRetryPolicy) int { return v.MaxDeliveryAttempts }).(pulumi.IntOutput)
 }
 
-type EventSubscriptionRetryPolicyPtrOutput struct { *pulumi.OutputState}
+type EventSubscriptionRetryPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionRetryPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventSubscriptionRetryPolicy)(nil)).Elem()
@@ -1232,21 +1226,21 @@ func (o EventSubscriptionRetryPolicyPtrOutput) ToEventSubscriptionRetryPolicyPtr
 }
 
 func (o EventSubscriptionRetryPolicyPtrOutput) Elem() EventSubscriptionRetryPolicyOutput {
-	return o.ApplyT(func (v *EventSubscriptionRetryPolicy) EventSubscriptionRetryPolicy { return *v }).(EventSubscriptionRetryPolicyOutput)
+	return o.ApplyT(func(v *EventSubscriptionRetryPolicy) EventSubscriptionRetryPolicy { return *v }).(EventSubscriptionRetryPolicyOutput)
 }
 
 // Specifies the time to live (in minutes) for events.
 func (o EventSubscriptionRetryPolicyPtrOutput) EventTimeToLive() pulumi.IntOutput {
-	return o.ApplyT(func (v EventSubscriptionRetryPolicy) int { return v.EventTimeToLive }).(pulumi.IntOutput)
+	return o.ApplyT(func(v EventSubscriptionRetryPolicy) int { return v.EventTimeToLive }).(pulumi.IntOutput)
 }
 
 // Specifies the maximum number of delivery retry attempts for events.
 func (o EventSubscriptionRetryPolicyPtrOutput) MaxDeliveryAttempts() pulumi.IntOutput {
-	return o.ApplyT(func (v EventSubscriptionRetryPolicy) int { return v.MaxDeliveryAttempts }).(pulumi.IntOutput)
+	return o.ApplyT(func(v EventSubscriptionRetryPolicy) int { return v.MaxDeliveryAttempts }).(pulumi.IntOutput)
 }
 
 type EventSubscriptionStorageBlobDeadLetterDestination struct {
-	// Specifies the id of the storage account id where the storage blob is located. 
+	// Specifies the id of the storage account id where the storage blob is located.
 	StorageAccountId string `pulumi:"storageAccountId"`
 	// Specifies the name of the Storage blob container that is the destination of the deadletter events
 	StorageBlobContainerName string `pulumi:"storageBlobContainerName"`
@@ -1260,7 +1254,7 @@ type EventSubscriptionStorageBlobDeadLetterDestinationInput interface {
 }
 
 type EventSubscriptionStorageBlobDeadLetterDestinationArgs struct {
-	// Specifies the id of the storage account id where the storage blob is located. 
+	// Specifies the id of the storage account id where the storage blob is located.
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 	// Specifies the name of the Storage blob container that is the destination of the deadletter events
 	StorageBlobContainerName pulumi.StringInput `pulumi:"storageBlobContainerName"`
@@ -1295,7 +1289,8 @@ type EventSubscriptionStorageBlobDeadLetterDestinationPtrInput interface {
 
 type eventSubscriptionStorageBlobDeadLetterDestinationPtrType EventSubscriptionStorageBlobDeadLetterDestinationArgs
 
-func EventSubscriptionStorageBlobDeadLetterDestinationPtr(v *EventSubscriptionStorageBlobDeadLetterDestinationArgs) EventSubscriptionStorageBlobDeadLetterDestinationPtrInput {	return (*eventSubscriptionStorageBlobDeadLetterDestinationPtrType)(v)
+func EventSubscriptionStorageBlobDeadLetterDestinationPtr(v *EventSubscriptionStorageBlobDeadLetterDestinationArgs) EventSubscriptionStorageBlobDeadLetterDestinationPtrInput {
+	return (*eventSubscriptionStorageBlobDeadLetterDestinationPtrType)(v)
 }
 
 func (*eventSubscriptionStorageBlobDeadLetterDestinationPtrType) ElementType() reflect.Type {
@@ -1310,7 +1305,7 @@ func (i *eventSubscriptionStorageBlobDeadLetterDestinationPtrType) ToEventSubscr
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput)
 }
 
-type EventSubscriptionStorageBlobDeadLetterDestinationOutput struct { *pulumi.OutputState }
+type EventSubscriptionStorageBlobDeadLetterDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionStorageBlobDeadLetterDestinationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventSubscriptionStorageBlobDeadLetterDestination)(nil)).Elem()
@@ -1333,17 +1328,18 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) ToEventSubscrip
 		return &v
 	}).(EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput)
 }
-// Specifies the id of the storage account id where the storage blob is located. 
+
+// Specifies the id of the storage account id where the storage blob is located.
 func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) StorageAccountId() pulumi.StringOutput {
-	return o.ApplyT(func (v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageAccountId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Storage blob container that is the destination of the deadletter events
 func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) StorageBlobContainerName() pulumi.StringOutput {
-	return o.ApplyT(func (v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageBlobContainerName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageBlobContainerName }).(pulumi.StringOutput)
 }
 
-type EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput struct { *pulumi.OutputState}
+type EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventSubscriptionStorageBlobDeadLetterDestination)(nil)).Elem()
@@ -1358,23 +1354,25 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) ToEventSubsc
 }
 
 func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) Elem() EventSubscriptionStorageBlobDeadLetterDestinationOutput {
-	return o.ApplyT(func (v *EventSubscriptionStorageBlobDeadLetterDestination) EventSubscriptionStorageBlobDeadLetterDestination { return *v }).(EventSubscriptionStorageBlobDeadLetterDestinationOutput)
+	return o.ApplyT(func(v *EventSubscriptionStorageBlobDeadLetterDestination) EventSubscriptionStorageBlobDeadLetterDestination {
+		return *v
+	}).(EventSubscriptionStorageBlobDeadLetterDestinationOutput)
 }
 
-// Specifies the id of the storage account id where the storage blob is located. 
+// Specifies the id of the storage account id where the storage blob is located.
 func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageAccountId() pulumi.StringOutput {
-	return o.ApplyT(func (v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageAccountId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Storage blob container that is the destination of the deadletter events
 func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageBlobContainerName() pulumi.StringOutput {
-	return o.ApplyT(func (v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageBlobContainerName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageBlobContainerName }).(pulumi.StringOutput)
 }
 
 type EventSubscriptionStorageQueueEndpoint struct {
 	// Specifies the name of the storage queue where the Event Subscriptio will receive events.
 	QueueName string `pulumi:"queueName"`
-	// Specifies the id of the storage account id where the storage blob is located. 
+	// Specifies the id of the storage account id where the storage blob is located.
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
@@ -1388,7 +1386,7 @@ type EventSubscriptionStorageQueueEndpointInput interface {
 type EventSubscriptionStorageQueueEndpointArgs struct {
 	// Specifies the name of the storage queue where the Event Subscriptio will receive events.
 	QueueName pulumi.StringInput `pulumi:"queueName"`
-	// Specifies the id of the storage account id where the storage blob is located. 
+	// Specifies the id of the storage account id where the storage blob is located.
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
@@ -1421,7 +1419,8 @@ type EventSubscriptionStorageQueueEndpointPtrInput interface {
 
 type eventSubscriptionStorageQueueEndpointPtrType EventSubscriptionStorageQueueEndpointArgs
 
-func EventSubscriptionStorageQueueEndpointPtr(v *EventSubscriptionStorageQueueEndpointArgs) EventSubscriptionStorageQueueEndpointPtrInput {	return (*eventSubscriptionStorageQueueEndpointPtrType)(v)
+func EventSubscriptionStorageQueueEndpointPtr(v *EventSubscriptionStorageQueueEndpointArgs) EventSubscriptionStorageQueueEndpointPtrInput {
+	return (*eventSubscriptionStorageQueueEndpointPtrType)(v)
 }
 
 func (*eventSubscriptionStorageQueueEndpointPtrType) ElementType() reflect.Type {
@@ -1436,7 +1435,7 @@ func (i *eventSubscriptionStorageQueueEndpointPtrType) ToEventSubscriptionStorag
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionStorageQueueEndpointPtrOutput)
 }
 
-type EventSubscriptionStorageQueueEndpointOutput struct { *pulumi.OutputState }
+type EventSubscriptionStorageQueueEndpointOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionStorageQueueEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventSubscriptionStorageQueueEndpoint)(nil)).Elem()
@@ -1459,17 +1458,18 @@ func (o EventSubscriptionStorageQueueEndpointOutput) ToEventSubscriptionStorageQ
 		return &v
 	}).(EventSubscriptionStorageQueueEndpointPtrOutput)
 }
+
 // Specifies the name of the storage queue where the Event Subscriptio will receive events.
 func (o EventSubscriptionStorageQueueEndpointOutput) QueueName() pulumi.StringOutput {
-	return o.ApplyT(func (v EventSubscriptionStorageQueueEndpoint) string { return v.QueueName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventSubscriptionStorageQueueEndpoint) string { return v.QueueName }).(pulumi.StringOutput)
 }
 
-// Specifies the id of the storage account id where the storage blob is located. 
+// Specifies the id of the storage account id where the storage blob is located.
 func (o EventSubscriptionStorageQueueEndpointOutput) StorageAccountId() pulumi.StringOutput {
-	return o.ApplyT(func (v EventSubscriptionStorageQueueEndpoint) string { return v.StorageAccountId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventSubscriptionStorageQueueEndpoint) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
-type EventSubscriptionStorageQueueEndpointPtrOutput struct { *pulumi.OutputState}
+type EventSubscriptionStorageQueueEndpointPtrOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionStorageQueueEndpointPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventSubscriptionStorageQueueEndpoint)(nil)).Elem()
@@ -1484,17 +1484,17 @@ func (o EventSubscriptionStorageQueueEndpointPtrOutput) ToEventSubscriptionStora
 }
 
 func (o EventSubscriptionStorageQueueEndpointPtrOutput) Elem() EventSubscriptionStorageQueueEndpointOutput {
-	return o.ApplyT(func (v *EventSubscriptionStorageQueueEndpoint) EventSubscriptionStorageQueueEndpoint { return *v }).(EventSubscriptionStorageQueueEndpointOutput)
+	return o.ApplyT(func(v *EventSubscriptionStorageQueueEndpoint) EventSubscriptionStorageQueueEndpoint { return *v }).(EventSubscriptionStorageQueueEndpointOutput)
 }
 
 // Specifies the name of the storage queue where the Event Subscriptio will receive events.
 func (o EventSubscriptionStorageQueueEndpointPtrOutput) QueueName() pulumi.StringOutput {
-	return o.ApplyT(func (v EventSubscriptionStorageQueueEndpoint) string { return v.QueueName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventSubscriptionStorageQueueEndpoint) string { return v.QueueName }).(pulumi.StringOutput)
 }
 
-// Specifies the id of the storage account id where the storage blob is located. 
+// Specifies the id of the storage account id where the storage blob is located.
 func (o EventSubscriptionStorageQueueEndpointPtrOutput) StorageAccountId() pulumi.StringOutput {
-	return o.ApplyT(func (v EventSubscriptionStorageQueueEndpoint) string { return v.StorageAccountId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventSubscriptionStorageQueueEndpoint) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
 type EventSubscriptionSubjectFilter struct {
@@ -1551,7 +1551,8 @@ type EventSubscriptionSubjectFilterPtrInput interface {
 
 type eventSubscriptionSubjectFilterPtrType EventSubscriptionSubjectFilterArgs
 
-func EventSubscriptionSubjectFilterPtr(v *EventSubscriptionSubjectFilterArgs) EventSubscriptionSubjectFilterPtrInput {	return (*eventSubscriptionSubjectFilterPtrType)(v)
+func EventSubscriptionSubjectFilterPtr(v *EventSubscriptionSubjectFilterArgs) EventSubscriptionSubjectFilterPtrInput {
+	return (*eventSubscriptionSubjectFilterPtrType)(v)
 }
 
 func (*eventSubscriptionSubjectFilterPtrType) ElementType() reflect.Type {
@@ -1566,7 +1567,7 @@ func (i *eventSubscriptionSubjectFilterPtrType) ToEventSubscriptionSubjectFilter
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionSubjectFilterPtrOutput)
 }
 
-type EventSubscriptionSubjectFilterOutput struct { *pulumi.OutputState }
+type EventSubscriptionSubjectFilterOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionSubjectFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventSubscriptionSubjectFilter)(nil)).Elem()
@@ -1589,22 +1590,23 @@ func (o EventSubscriptionSubjectFilterOutput) ToEventSubscriptionSubjectFilterPt
 		return &v
 	}).(EventSubscriptionSubjectFilterPtrOutput)
 }
+
 // Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
 func (o EventSubscriptionSubjectFilterOutput) CaseSensitive() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v EventSubscriptionSubjectFilter) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v EventSubscriptionSubjectFilter) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
 }
 
 // A string to filter events for an event subscription based on a resource path prefix.
 func (o EventSubscriptionSubjectFilterOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v EventSubscriptionSubjectFilter) *string { return v.SubjectBeginsWith }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v EventSubscriptionSubjectFilter) *string { return v.SubjectBeginsWith }).(pulumi.StringPtrOutput)
 }
 
 // A string to filter events for an event subscription based on a resource path suffix.
 func (o EventSubscriptionSubjectFilterOutput) SubjectEndsWith() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v EventSubscriptionSubjectFilter) *string { return v.SubjectEndsWith }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v EventSubscriptionSubjectFilter) *string { return v.SubjectEndsWith }).(pulumi.StringPtrOutput)
 }
 
-type EventSubscriptionSubjectFilterPtrOutput struct { *pulumi.OutputState}
+type EventSubscriptionSubjectFilterPtrOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionSubjectFilterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventSubscriptionSubjectFilter)(nil)).Elem()
@@ -1619,26 +1621,26 @@ func (o EventSubscriptionSubjectFilterPtrOutput) ToEventSubscriptionSubjectFilte
 }
 
 func (o EventSubscriptionSubjectFilterPtrOutput) Elem() EventSubscriptionSubjectFilterOutput {
-	return o.ApplyT(func (v *EventSubscriptionSubjectFilter) EventSubscriptionSubjectFilter { return *v }).(EventSubscriptionSubjectFilterOutput)
+	return o.ApplyT(func(v *EventSubscriptionSubjectFilter) EventSubscriptionSubjectFilter { return *v }).(EventSubscriptionSubjectFilterOutput)
 }
 
 // Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
 func (o EventSubscriptionSubjectFilterPtrOutput) CaseSensitive() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v EventSubscriptionSubjectFilter) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v EventSubscriptionSubjectFilter) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
 }
 
 // A string to filter events for an event subscription based on a resource path prefix.
 func (o EventSubscriptionSubjectFilterPtrOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v EventSubscriptionSubjectFilter) *string { return v.SubjectBeginsWith }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v EventSubscriptionSubjectFilter) *string { return v.SubjectBeginsWith }).(pulumi.StringPtrOutput)
 }
 
 // A string to filter events for an event subscription based on a resource path suffix.
 func (o EventSubscriptionSubjectFilterPtrOutput) SubjectEndsWith() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v EventSubscriptionSubjectFilter) *string { return v.SubjectEndsWith }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v EventSubscriptionSubjectFilter) *string { return v.SubjectEndsWith }).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionWebhookEndpoint struct {
-	// Specifies the url of the webhook where the Event Subscription will receive events. 
+	// Specifies the url of the webhook where the Event Subscription will receive events.
 	Url string `pulumi:"url"`
 }
 
@@ -1650,7 +1652,7 @@ type EventSubscriptionWebhookEndpointInput interface {
 }
 
 type EventSubscriptionWebhookEndpointArgs struct {
-	// Specifies the url of the webhook where the Event Subscription will receive events. 
+	// Specifies the url of the webhook where the Event Subscription will receive events.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -1683,7 +1685,8 @@ type EventSubscriptionWebhookEndpointPtrInput interface {
 
 type eventSubscriptionWebhookEndpointPtrType EventSubscriptionWebhookEndpointArgs
 
-func EventSubscriptionWebhookEndpointPtr(v *EventSubscriptionWebhookEndpointArgs) EventSubscriptionWebhookEndpointPtrInput {	return (*eventSubscriptionWebhookEndpointPtrType)(v)
+func EventSubscriptionWebhookEndpointPtr(v *EventSubscriptionWebhookEndpointArgs) EventSubscriptionWebhookEndpointPtrInput {
+	return (*eventSubscriptionWebhookEndpointPtrType)(v)
 }
 
 func (*eventSubscriptionWebhookEndpointPtrType) ElementType() reflect.Type {
@@ -1698,7 +1701,7 @@ func (i *eventSubscriptionWebhookEndpointPtrType) ToEventSubscriptionWebhookEndp
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionWebhookEndpointPtrOutput)
 }
 
-type EventSubscriptionWebhookEndpointOutput struct { *pulumi.OutputState }
+type EventSubscriptionWebhookEndpointOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionWebhookEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventSubscriptionWebhookEndpoint)(nil)).Elem()
@@ -1721,12 +1724,13 @@ func (o EventSubscriptionWebhookEndpointOutput) ToEventSubscriptionWebhookEndpoi
 		return &v
 	}).(EventSubscriptionWebhookEndpointPtrOutput)
 }
-// Specifies the url of the webhook where the Event Subscription will receive events. 
+
+// Specifies the url of the webhook where the Event Subscription will receive events.
 func (o EventSubscriptionWebhookEndpointOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func (v EventSubscriptionWebhookEndpoint) string { return v.Url }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventSubscriptionWebhookEndpoint) string { return v.Url }).(pulumi.StringOutput)
 }
 
-type EventSubscriptionWebhookEndpointPtrOutput struct { *pulumi.OutputState}
+type EventSubscriptionWebhookEndpointPtrOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionWebhookEndpointPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventSubscriptionWebhookEndpoint)(nil)).Elem()
@@ -1741,12 +1745,12 @@ func (o EventSubscriptionWebhookEndpointPtrOutput) ToEventSubscriptionWebhookEnd
 }
 
 func (o EventSubscriptionWebhookEndpointPtrOutput) Elem() EventSubscriptionWebhookEndpointOutput {
-	return o.ApplyT(func (v *EventSubscriptionWebhookEndpoint) EventSubscriptionWebhookEndpoint { return *v }).(EventSubscriptionWebhookEndpointOutput)
+	return o.ApplyT(func(v *EventSubscriptionWebhookEndpoint) EventSubscriptionWebhookEndpoint { return *v }).(EventSubscriptionWebhookEndpointOutput)
 }
 
-// Specifies the url of the webhook where the Event Subscription will receive events. 
+// Specifies the url of the webhook where the Event Subscription will receive events.
 func (o EventSubscriptionWebhookEndpointPtrOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func (v EventSubscriptionWebhookEndpoint) string { return v.Url }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventSubscriptionWebhookEndpoint) string { return v.Url }).(pulumi.StringOutput)
 }
 
 type SubscriptionRuleCorrelationFilter struct {
@@ -1823,7 +1827,8 @@ type SubscriptionRuleCorrelationFilterPtrInput interface {
 
 type subscriptionRuleCorrelationFilterPtrType SubscriptionRuleCorrelationFilterArgs
 
-func SubscriptionRuleCorrelationFilterPtr(v *SubscriptionRuleCorrelationFilterArgs) SubscriptionRuleCorrelationFilterPtrInput {	return (*subscriptionRuleCorrelationFilterPtrType)(v)
+func SubscriptionRuleCorrelationFilterPtr(v *SubscriptionRuleCorrelationFilterArgs) SubscriptionRuleCorrelationFilterPtrInput {
+	return (*subscriptionRuleCorrelationFilterPtrType)(v)
 }
 
 func (*subscriptionRuleCorrelationFilterPtrType) ElementType() reflect.Type {
@@ -1838,7 +1843,7 @@ func (i *subscriptionRuleCorrelationFilterPtrType) ToSubscriptionRuleCorrelation
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionRuleCorrelationFilterPtrOutput)
 }
 
-type SubscriptionRuleCorrelationFilterOutput struct { *pulumi.OutputState }
+type SubscriptionRuleCorrelationFilterOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionRuleCorrelationFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubscriptionRuleCorrelationFilter)(nil)).Elem()
@@ -1861,47 +1866,48 @@ func (o SubscriptionRuleCorrelationFilterOutput) ToSubscriptionRuleCorrelationFi
 		return &v
 	}).(SubscriptionRuleCorrelationFilterPtrOutput)
 }
+
 // Content type of the message.
 func (o SubscriptionRuleCorrelationFilterOutput) ContentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the correlation.
 func (o SubscriptionRuleCorrelationFilterOutput) CorrelationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
 }
 
 // Application specific label.
 func (o SubscriptionRuleCorrelationFilterOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.Label }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the message.
 func (o SubscriptionRuleCorrelationFilterOutput) MessageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.MessageId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.MessageId }).(pulumi.StringPtrOutput)
 }
 
 // Address of the queue to reply to.
 func (o SubscriptionRuleCorrelationFilterOutput) ReplyTo() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
 }
 
 // Session identifier to reply to.
 func (o SubscriptionRuleCorrelationFilterOutput) ReplyToSessionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.ReplyToSessionId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ReplyToSessionId }).(pulumi.StringPtrOutput)
 }
 
 // Session identifier.
 func (o SubscriptionRuleCorrelationFilterOutput) SessionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.SessionId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.SessionId }).(pulumi.StringPtrOutput)
 }
 
 // Address to send to.
 func (o SubscriptionRuleCorrelationFilterOutput) To() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.To }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.To }).(pulumi.StringPtrOutput)
 }
 
-type SubscriptionRuleCorrelationFilterPtrOutput struct { *pulumi.OutputState}
+type SubscriptionRuleCorrelationFilterPtrOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionRuleCorrelationFilterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SubscriptionRuleCorrelationFilter)(nil)).Elem()
@@ -1916,47 +1922,47 @@ func (o SubscriptionRuleCorrelationFilterPtrOutput) ToSubscriptionRuleCorrelatio
 }
 
 func (o SubscriptionRuleCorrelationFilterPtrOutput) Elem() SubscriptionRuleCorrelationFilterOutput {
-	return o.ApplyT(func (v *SubscriptionRuleCorrelationFilter) SubscriptionRuleCorrelationFilter { return *v }).(SubscriptionRuleCorrelationFilterOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) SubscriptionRuleCorrelationFilter { return *v }).(SubscriptionRuleCorrelationFilterOutput)
 }
 
 // Content type of the message.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) ContentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the correlation.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) CorrelationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
 }
 
 // Application specific label.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.Label }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the message.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) MessageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.MessageId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.MessageId }).(pulumi.StringPtrOutput)
 }
 
 // Address of the queue to reply to.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) ReplyTo() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
 }
 
 // Session identifier to reply to.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) ReplyToSessionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.ReplyToSessionId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ReplyToSessionId }).(pulumi.StringPtrOutput)
 }
 
 // Session identifier.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) SessionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.SessionId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.SessionId }).(pulumi.StringPtrOutput)
 }
 
 // Address to send to.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) To() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.To }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.To }).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -1970,7 +1976,7 @@ func init() {
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsOutput{})
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsPtrOutput{})
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsIpRuleOutput{})
-	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsIpRulePtrOutput{})
+	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsIpRuleArrayOutput{})
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput{})
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionEventhubEndpointOutput{})

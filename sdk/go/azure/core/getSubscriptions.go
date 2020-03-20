@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about all the Subscriptions currently available.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscriptions.html.markdown.
 func GetSubscriptions(ctx *pulumi.Context, args *GetSubscriptionsArgs, opts ...pulumi.InvokeOption) (*GetSubscriptionsResult, error) {
 	var rv GetSubscriptionsResult
@@ -28,14 +28,12 @@ type GetSubscriptionsArgs struct {
 	DisplayNamePrefix *string `pulumi:"displayNamePrefix"`
 }
 
-
 // A collection of values returned by getSubscriptions.
 type GetSubscriptionsResult struct {
 	DisplayNameContains *string `pulumi:"displayNameContains"`
-	DisplayNamePrefix *string `pulumi:"displayNamePrefix"`
+	DisplayNamePrefix   *string `pulumi:"displayNamePrefix"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// One or more `subscription` blocks as defined below.
 	Subscriptions []GetSubscriptionsSubscription `pulumi:"subscriptions"`
 }
-

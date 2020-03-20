@@ -14,13 +14,9 @@ class Account(pulumi.CustomResource):
     """
     Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
     """
-    account_encryption_source: pulumi.Output[str]
-    """
-    The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
-    """
     account_kind: pulumi.Output[str]
     """
-    Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
+    Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
     """
     account_replication_type: pulumi.Output[str]
     """
@@ -30,43 +26,36 @@ class Account(pulumi.CustomResource):
     """
     Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
     """
-    account_type: pulumi.Output[str]
     blob_properties: pulumi.Output[dict]
     """
     A `blob_properties` block as defined below.
-    
+
+      * `corsRules` (`list`)
+        * `allowedHeaders` (`list`)
+        * `allowedMethods` (`list`)
+        * `allowedOrigins` (`list`)
+        * `exposedHeaders` (`list`)
+        * `maxAgeInSeconds` (`float`)
+
       * `deleteRetentionPolicy` (`dict`)
-    
         * `days` (`float`)
     """
     custom_domain: pulumi.Output[dict]
     """
     A `custom_domain` block as documented below.
-    
+
       * `name` (`str`) - Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
       * `useSubdomain` (`bool`)
-    """
-    enable_advanced_threat_protection: pulumi.Output[bool]
-    """
-    Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
-    """
-    enable_blob_encryption: pulumi.Output[bool]
-    """
-    Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-    """
-    enable_file_encryption: pulumi.Output[bool]
-    """
-    Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
     """
     enable_https_traffic_only: pulumi.Output[bool]
     """
     Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
-    for more information.
+    for more information. Defaults to `true`.
     """
     identity: pulumi.Output[dict]
     """
     A `identity` block as defined below.
-    
+
       * `principal_id` (`str`) - The Principal ID for the Service Principal associated with the Identity of this Storage Account.
       * `tenant_id` (`str`) - The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
       * `type` (`str`)
@@ -86,7 +75,7 @@ class Account(pulumi.CustomResource):
     network_rules: pulumi.Output[dict]
     """
     A `network_rules` block as documented below.
-    
+
       * `bypasses` (`list`)
       * `default_action` (`str`)
       * `ip_rules` (`list`)
@@ -159,32 +148,28 @@ class Account(pulumi.CustomResource):
     queue_properties: pulumi.Output[dict]
     """
     A `queue_properties` block as defined below.
-    
+
       * `corsRules` (`list`)
-    
         * `allowedHeaders` (`list`)
         * `allowedMethods` (`list`)
         * `allowedOrigins` (`list`)
         * `exposedHeaders` (`list`)
         * `maxAgeInSeconds` (`float`)
-    
+
       * `hourMetrics` (`dict`)
-    
         * `enabled` (`bool`)
         * `includeApis` (`bool`)
         * `retentionPolicyDays` (`float`)
         * `version` (`str`)
-    
+
       * `logging` (`dict`)
-    
         * `delete` (`bool`)
         * `read` (`bool`)
         * `retentionPolicyDays` (`float`)
         * `version` (`str`)
         * `write` (`bool`)
-    
+
       * `minuteMetrics` (`dict`)
-    
         * `enabled` (`bool`)
         * `includeApis` (`bool`)
         * `retentionPolicyDays` (`float`)
@@ -258,28 +243,33 @@ class Account(pulumi.CustomResource):
     """
     The hostname with port if applicable for web storage in the secondary location.
     """
+    static_website: pulumi.Output[dict]
+    """
+    A `static_website` block as defined below.
+
+      * `error404Document` (`str`)
+      * `indexDocument` (`str`)
+    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, account_type=None, blob_properties=None, custom_domain=None, enable_advanced_threat_protection=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, queue_properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, blob_properties=None, custom_domain=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, queue_properties=None, resource_group_name=None, static_website=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Storage Account.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
-        :param pulumi.Input[str] account_encryption_source: The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
-        :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
+        :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
         :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
         :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[dict] custom_domain: A `custom_domain` block as documented below.
-        :param pulumi.Input[bool] enable_advanced_threat_protection: Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
-        :param pulumi.Input[bool] enable_blob_encryption: Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-        :param pulumi.Input[bool] enable_file_encryption: Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
-               for more information.
+               for more information. Defaults to `true`.
         :param pulumi.Input[dict] identity: A `identity` block as defined below.
         :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -287,65 +277,71 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[dict] network_rules: A `network_rules` block as documented below.
         :param pulumi.Input[dict] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] static_website: A `static_website` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **blob_properties** object supports the following:
-        
-          * `deleteRetentionPolicy` (`pulumi.Input[dict]`)
-        
-            * `days` (`pulumi.Input[float]`)
-        
-        The **custom_domain** object supports the following:
-        
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-          * `useSubdomain` (`pulumi.Input[bool]`)
-        
-        The **identity** object supports the following:
-        
-          * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this Storage Account.
-          * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
-          * `type` (`pulumi.Input[str]`)
-        
-        The **network_rules** object supports the following:
-        
-          * `bypasses` (`pulumi.Input[list]`)
-          * `default_action` (`pulumi.Input[str]`)
-          * `ip_rules` (`pulumi.Input[list]`)
-          * `virtual_network_subnet_ids` (`pulumi.Input[list]`)
-        
-        The **queue_properties** object supports the following:
-        
+
           * `corsRules` (`pulumi.Input[list]`)
-        
             * `allowedHeaders` (`pulumi.Input[list]`)
             * `allowedMethods` (`pulumi.Input[list]`)
             * `allowedOrigins` (`pulumi.Input[list]`)
             * `exposedHeaders` (`pulumi.Input[list]`)
             * `maxAgeInSeconds` (`pulumi.Input[float]`)
-        
+
+          * `deleteRetentionPolicy` (`pulumi.Input[dict]`)
+            * `days` (`pulumi.Input[float]`)
+
+        The **custom_domain** object supports the following:
+
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+          * `useSubdomain` (`pulumi.Input[bool]`)
+
+        The **identity** object supports the following:
+
+          * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this Storage Account.
+          * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
+          * `type` (`pulumi.Input[str]`)
+
+        The **network_rules** object supports the following:
+
+          * `bypasses` (`pulumi.Input[list]`)
+          * `default_action` (`pulumi.Input[str]`)
+          * `ip_rules` (`pulumi.Input[list]`)
+          * `virtual_network_subnet_ids` (`pulumi.Input[list]`)
+
+        The **queue_properties** object supports the following:
+
+          * `corsRules` (`pulumi.Input[list]`)
+            * `allowedHeaders` (`pulumi.Input[list]`)
+            * `allowedMethods` (`pulumi.Input[list]`)
+            * `allowedOrigins` (`pulumi.Input[list]`)
+            * `exposedHeaders` (`pulumi.Input[list]`)
+            * `maxAgeInSeconds` (`pulumi.Input[float]`)
+
           * `hourMetrics` (`pulumi.Input[dict]`)
-        
-            * `enabled` (`pulumi.Input[bool]`)
-            * `includeApis` (`pulumi.Input[bool]`)
-            * `retentionPolicyDays` (`pulumi.Input[float]`)
-            * `version` (`pulumi.Input[str]`)
-        
-          * `logging` (`pulumi.Input[dict]`)
-        
-            * `delete` (`pulumi.Input[bool]`)
-            * `read` (`pulumi.Input[bool]`)
-            * `retentionPolicyDays` (`pulumi.Input[float]`)
-            * `version` (`pulumi.Input[str]`)
-            * `write` (`pulumi.Input[bool]`)
-        
-          * `minuteMetrics` (`pulumi.Input[dict]`)
-        
             * `enabled` (`pulumi.Input[bool]`)
             * `includeApis` (`pulumi.Input[bool]`)
             * `retentionPolicyDays` (`pulumi.Input[float]`)
             * `version` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account.html.markdown.
+          * `logging` (`pulumi.Input[dict]`)
+            * `delete` (`pulumi.Input[bool]`)
+            * `read` (`pulumi.Input[bool]`)
+            * `retentionPolicyDays` (`pulumi.Input[float]`)
+            * `version` (`pulumi.Input[str]`)
+            * `write` (`pulumi.Input[bool]`)
+
+          * `minuteMetrics` (`pulumi.Input[dict]`)
+            * `enabled` (`pulumi.Input[bool]`)
+            * `includeApis` (`pulumi.Input[bool]`)
+            * `retentionPolicyDays` (`pulumi.Input[float]`)
+            * `version` (`pulumi.Input[str]`)
+
+        The **static_website** object supports the following:
+
+          * `error404Document` (`pulumi.Input[str]`)
+          * `indexDocument` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -365,7 +361,6 @@ class Account(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['access_tier'] = access_tier
-            __props__['account_encryption_source'] = account_encryption_source
             __props__['account_kind'] = account_kind
             if account_replication_type is None:
                 raise TypeError("Missing required property 'account_replication_type'")
@@ -373,12 +368,8 @@ class Account(pulumi.CustomResource):
             if account_tier is None:
                 raise TypeError("Missing required property 'account_tier'")
             __props__['account_tier'] = account_tier
-            __props__['account_type'] = account_type
             __props__['blob_properties'] = blob_properties
             __props__['custom_domain'] = custom_domain
-            __props__['enable_advanced_threat_protection'] = enable_advanced_threat_protection
-            __props__['enable_blob_encryption'] = enable_blob_encryption
-            __props__['enable_file_encryption'] = enable_file_encryption
             __props__['enable_https_traffic_only'] = enable_https_traffic_only
             __props__['identity'] = identity
             __props__['is_hns_enabled'] = is_hns_enabled
@@ -389,6 +380,7 @@ class Account(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['static_website'] = static_website
             __props__['tags'] = tags
             __props__['primary_access_key'] = None
             __props__['primary_blob_connection_string'] = None
@@ -429,26 +421,22 @@ class Account(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, account_type=None, blob_properties=None, custom_domain=None, enable_advanced_threat_protection=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, queue_properties=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, tags=None):
+    def get(resource_name, id, opts=None, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, blob_properties=None, custom_domain=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, queue_properties=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, static_website=None, tags=None):
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
-        :param pulumi.Input[str] account_encryption_source: The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
-        :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
+        :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
         :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
         :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[dict] custom_domain: A `custom_domain` block as documented below.
-        :param pulumi.Input[bool] enable_advanced_threat_protection: Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
-        :param pulumi.Input[bool] enable_blob_encryption: Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-        :param pulumi.Input[bool] enable_file_encryption: Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
-               for more information.
+               for more information. Defaults to `true`.
         :param pulumi.Input[dict] identity: A `identity` block as defined below.
         :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -488,80 +476,82 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_table_host: The hostname with port if applicable for table storage in the secondary location.
         :param pulumi.Input[str] secondary_web_endpoint: The endpoint URL for web storage in the secondary location.
         :param pulumi.Input[str] secondary_web_host: The hostname with port if applicable for web storage in the secondary location.
+        :param pulumi.Input[dict] static_website: A `static_website` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **blob_properties** object supports the following:
-        
-          * `deleteRetentionPolicy` (`pulumi.Input[dict]`)
-        
-            * `days` (`pulumi.Input[float]`)
-        
-        The **custom_domain** object supports the following:
-        
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-          * `useSubdomain` (`pulumi.Input[bool]`)
-        
-        The **identity** object supports the following:
-        
-          * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this Storage Account.
-          * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
-          * `type` (`pulumi.Input[str]`)
-        
-        The **network_rules** object supports the following:
-        
-          * `bypasses` (`pulumi.Input[list]`)
-          * `default_action` (`pulumi.Input[str]`)
-          * `ip_rules` (`pulumi.Input[list]`)
-          * `virtual_network_subnet_ids` (`pulumi.Input[list]`)
-        
-        The **queue_properties** object supports the following:
-        
+
           * `corsRules` (`pulumi.Input[list]`)
-        
             * `allowedHeaders` (`pulumi.Input[list]`)
             * `allowedMethods` (`pulumi.Input[list]`)
             * `allowedOrigins` (`pulumi.Input[list]`)
             * `exposedHeaders` (`pulumi.Input[list]`)
             * `maxAgeInSeconds` (`pulumi.Input[float]`)
-        
+
+          * `deleteRetentionPolicy` (`pulumi.Input[dict]`)
+            * `days` (`pulumi.Input[float]`)
+
+        The **custom_domain** object supports the following:
+
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+          * `useSubdomain` (`pulumi.Input[bool]`)
+
+        The **identity** object supports the following:
+
+          * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this Storage Account.
+          * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
+          * `type` (`pulumi.Input[str]`)
+
+        The **network_rules** object supports the following:
+
+          * `bypasses` (`pulumi.Input[list]`)
+          * `default_action` (`pulumi.Input[str]`)
+          * `ip_rules` (`pulumi.Input[list]`)
+          * `virtual_network_subnet_ids` (`pulumi.Input[list]`)
+
+        The **queue_properties** object supports the following:
+
+          * `corsRules` (`pulumi.Input[list]`)
+            * `allowedHeaders` (`pulumi.Input[list]`)
+            * `allowedMethods` (`pulumi.Input[list]`)
+            * `allowedOrigins` (`pulumi.Input[list]`)
+            * `exposedHeaders` (`pulumi.Input[list]`)
+            * `maxAgeInSeconds` (`pulumi.Input[float]`)
+
           * `hourMetrics` (`pulumi.Input[dict]`)
-        
             * `enabled` (`pulumi.Input[bool]`)
             * `includeApis` (`pulumi.Input[bool]`)
             * `retentionPolicyDays` (`pulumi.Input[float]`)
             * `version` (`pulumi.Input[str]`)
-        
+
           * `logging` (`pulumi.Input[dict]`)
-        
             * `delete` (`pulumi.Input[bool]`)
             * `read` (`pulumi.Input[bool]`)
             * `retentionPolicyDays` (`pulumi.Input[float]`)
             * `version` (`pulumi.Input[str]`)
             * `write` (`pulumi.Input[bool]`)
-        
+
           * `minuteMetrics` (`pulumi.Input[dict]`)
-        
             * `enabled` (`pulumi.Input[bool]`)
             * `includeApis` (`pulumi.Input[bool]`)
             * `retentionPolicyDays` (`pulumi.Input[float]`)
             * `version` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account.html.markdown.
+        The **static_website** object supports the following:
+
+          * `error404Document` (`pulumi.Input[str]`)
+          * `indexDocument` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["access_tier"] = access_tier
-        __props__["account_encryption_source"] = account_encryption_source
         __props__["account_kind"] = account_kind
         __props__["account_replication_type"] = account_replication_type
         __props__["account_tier"] = account_tier
-        __props__["account_type"] = account_type
         __props__["blob_properties"] = blob_properties
         __props__["custom_domain"] = custom_domain
-        __props__["enable_advanced_threat_protection"] = enable_advanced_threat_protection
-        __props__["enable_blob_encryption"] = enable_blob_encryption
-        __props__["enable_file_encryption"] = enable_file_encryption
         __props__["enable_https_traffic_only"] = enable_https_traffic_only
         __props__["identity"] = identity
         __props__["is_hns_enabled"] = is_hns_enabled
@@ -602,6 +592,7 @@ class Account(pulumi.CustomResource):
         __props__["secondary_table_host"] = secondary_table_host
         __props__["secondary_web_endpoint"] = secondary_web_endpoint
         __props__["secondary_web_host"] = secondary_web_host
+        __props__["static_website"] = static_website
         __props__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

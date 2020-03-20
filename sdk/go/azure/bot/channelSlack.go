@@ -12,10 +12,10 @@ import (
 )
 
 // Manages a Slack integration for a Bot Channel
-// 
+//
 // > **Note** A bot can only have a single Slack Channel associated with it.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_slack.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_slack.markdown.
 type ChannelSlack struct {
 	pulumi.CustomResourceState
 
@@ -153,4 +153,3 @@ type ChannelSlackArgs struct {
 func (ChannelSlackArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelSlackArgs)(nil)).Elem()
 }
-

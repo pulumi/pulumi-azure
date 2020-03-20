@@ -9,8 +9,8 @@ import (
 )
 
 // Use this data source to access information about an existing ServiceBus Namespace.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace_legacy.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace.html.markdown.
 func GetServiceBusNamespace(ctx *pulumi.Context, args *GetServiceBusNamespaceArgs, opts ...pulumi.InvokeOption) (*GetServiceBusNamespaceResult, error) {
 	var rv GetServiceBusNamespaceResult
 	err := ctx.Invoke("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", args, &rv, opts...)
@@ -27,7 +27,6 @@ type GetServiceBusNamespaceArgs struct {
 	// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
-
 
 // A collection of values returned by getServiceBusNamespace.
 type GetServiceBusNamespaceResult struct {
@@ -46,8 +45,8 @@ type GetServiceBusNamespaceResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The location of the Resource Group in which the ServiceBus Namespace exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Tier used for the ServiceBus Namespace.
 	Sku string `pulumi:"sku"`
@@ -56,4 +55,3 @@ type GetServiceBusNamespaceResult struct {
 	// Whether or not this ServiceBus Namespace is zone redundant.
 	ZoneRedundant bool `pulumi:"zoneRedundant"`
 }
-

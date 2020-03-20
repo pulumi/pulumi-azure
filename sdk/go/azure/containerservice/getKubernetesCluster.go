@@ -9,10 +9,10 @@ import (
 )
 
 // Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
-// 
+//
 // > **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_cluster.html.markdown.
 func LookupKubernetesCluster(ctx *pulumi.Context, args *LookupKubernetesClusterArgs, opts ...pulumi.InvokeOption) (*LookupKubernetesClusterResult, error) {
 	var rv LookupKubernetesClusterResult
@@ -30,7 +30,6 @@ type LookupKubernetesClusterArgs struct {
 	// The name of the Resource Group in which the managed Kubernetes Cluster exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
-
 
 // A collection of values returned by getKubernetesCluster.
 type LookupKubernetesClusterResult struct {
@@ -66,18 +65,17 @@ type LookupKubernetesClusterResult struct {
 	NetworkProfiles []GetKubernetesClusterNetworkProfile `pulumi:"networkProfiles"`
 	// Auto-generated Resource Group containing AKS Cluster resources.
 	NodeResourceGroup string `pulumi:"nodeResourceGroup"`
-	// The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located                   
+	// The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located
 	PrivateFqdn string `pulumi:"privateFqdn"`
-	// Does this Kubernetes Cluster have the Kubernetes API exposed via Private Link?                           
-	PrivateLinkEnabled bool `pulumi:"privateLinkEnabled"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Does this Kubernetes Cluster have the Kubernetes API exposed via Private Link?
+	PrivateLinkEnabled bool   `pulumi:"privateLinkEnabled"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	// A `roleBasedAccessControl` block as documented below.
 	RoleBasedAccessControls []GetKubernetesClusterRoleBasedAccessControl `pulumi:"roleBasedAccessControls"`
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipals []GetKubernetesClusterServicePrincipal `pulumi:"servicePrincipals"`
-	// A mapping of tags assigned to this resource.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `windowsProfile` block as documented below.
 	WindowsProfiles []GetKubernetesClusterWindowsProfile `pulumi:"windowsProfiles"`
 }
-

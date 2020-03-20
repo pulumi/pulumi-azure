@@ -24,7 +24,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
     """
     Controls if the VMs in the remote
     virtual network can access VMs in the local virtual network. Defaults to
-    false.
+    true.
     """
     name: pulumi.Output[str]
     """
@@ -60,11 +60,13 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         """
         Manages a virtual network peering which allows resources to access other
         resources in the linked virtual network.
-        
+
         ## Note
-        
+
         Virtual Network peerings cannot be created, updated or deleted concurrently.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_peering.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_forwarded_traffic: Controls if forwarded traffic from  VMs
@@ -73,7 +75,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                remote virtual network’s link to the local virtual network.
         :param pulumi.Input[bool] allow_virtual_network_access: Controls if the VMs in the remote
                virtual network can access VMs in the local virtual network. Defaults to
-               false.
+               true.
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this
                forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The full Azure resource ID of the
@@ -89,8 +91,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                already has a gateway. Defaults to `false`.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network. Changing
                this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_peering.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -134,7 +134,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         """
         Get an existing VirtualNetworkPeering resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +144,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                remote virtual network’s link to the local virtual network.
         :param pulumi.Input[bool] allow_virtual_network_access: Controls if the VMs in the remote
                virtual network can access VMs in the local virtual network. Defaults to
-               false.
+               true.
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this
                forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The full Azure resource ID of the
@@ -160,12 +160,11 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                already has a gateway. Defaults to `false`.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network. Changing
                this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_peering.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allow_forwarded_traffic"] = allow_forwarded_traffic
         __props__["allow_gateway_transit"] = allow_gateway_transit
         __props__["allow_virtual_network_access"] = allow_virtual_network_access

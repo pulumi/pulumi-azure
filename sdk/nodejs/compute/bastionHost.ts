@@ -7,47 +7,9 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Bastion Host Instance.
+ * Manages a Bastion Host.
  * 
- * > **Note:** Bastion Host Instances are a preview feature in Azure, and therefore are only supported in a select number of regions. [Read more](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq).
- * 
- * ## Example Usage
- * 
- * This example deploys an Azure Bastion Host Instance to a target virtual network.
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     addressSpaces: ["192.168.1.0/24"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     addressPrefix: "192.168.1.224/27",
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
- *     allocationMethod: "Static",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- * });
- * const exampleBastionHost = new azure.compute.BastionHost("example", {
- *     ipConfiguration: {
- *         name: "configuration",
- *         publicIpAddressId: examplePublicIp.id,
- *         subnetId: exampleSubnet.id,
- *     },
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
+ * > **Note:** Bastion Hosts are a preview feature in Azure, and therefore are only supported in a select number of regions. [Read more](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq).
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bastion_host.html.markdown.
  */
@@ -79,7 +41,7 @@ export class BastionHost extends pulumi.CustomResource {
     }
 
     /**
-     * The FQDN for the Azure Bastion Host.
+     * The FQDN for the Bastion Host.
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
@@ -101,7 +63,7 @@ export class BastionHost extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a BastionHost resource with the given unique name, arguments, and options.
@@ -149,7 +111,7 @@ export class BastionHost extends pulumi.CustomResource {
  */
 export interface BastionHostState {
     /**
-     * The FQDN for the Azure Bastion Host.
+     * The FQDN for the Bastion Host.
      */
     readonly dnsName?: pulumi.Input<string>;
     /**

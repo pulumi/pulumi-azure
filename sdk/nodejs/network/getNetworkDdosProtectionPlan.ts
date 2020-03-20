@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Azure Network DDoS Protection Plan.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = pulumi.all([azurerm_network_ddos_protection_plan_example.name, azurerm_network_ddos_protection_plan_example.resourceGroupName]).apply(([name, resourceGroupName]) => azure.network.getNetworkDdosProtectionPlan({
- *     name: name,
- *     resourceGroupName: resourceGroupName,
- * }));
- * 
- * export const ddosProtectionPlanId = example.id;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_ddos_protection_plan.html.markdown.
  */
@@ -68,7 +54,7 @@ export interface GetNetworkDdosProtectionPlanResult {
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
      */

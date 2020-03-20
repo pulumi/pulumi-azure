@@ -25,7 +25,7 @@ class SharedImage(pulumi.CustomResource):
     identifier: pulumi.Output[dict]
     """
     An `identifier` block as defined below.
-    
+
       * `offer` (`str`)
       * `publisher` (`str`)
       * `sku` (`str`)
@@ -61,7 +61,9 @@ class SharedImage(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, eula=None, gallery_name=None, identifier=None, location=None, name=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Shared Image within a Shared Image Gallery.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of this Shared Image.
@@ -75,14 +77,12 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Shared Image.
-        
+
         The **identifier** object supports the following:
-        
+
           * `offer` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
           * `sku` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -131,7 +131,7 @@ class SharedImage(pulumi.CustomResource):
         """
         Get an existing SharedImage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,18 +146,17 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Shared Image.
-        
+
         The **identifier** object supports the following:
-        
+
           * `offer` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
           * `sku` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["description"] = description
         __props__["eula"] = eula
         __props__["gallery_name"] = gallery_name

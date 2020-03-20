@@ -10,36 +10,6 @@ import * as utilities from "../utilities";
  * Allows you to manage an Azure SQL Elastic Pool.
  * 
  * > **NOTE:** -  This version of the `Elasticpool` resource is being **deprecated** and should no longer be used. Please use the azure.mssql.ElasticPool version instead.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleSqlServer = new azure.sql.SqlServer("example", {
- *     administratorLogin: "4dm1n157r470r",
- *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     version: "12.0",
- * });
- * const exampleElasticPool = new azure.sql.ElasticPool("example", {
- *     dbDtuMax: 5,
- *     dbDtuMin: 0,
- *     dtu: 50,
- *     edition: "Basic",
- *     location: exampleResourceGroup.location,
- *     poolSize: 5000,
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleSqlServer.name,
- * });
- * ```
- * 
- * > **NOTE on `azure.sql.ElasticPool`:** -  The values of `edition`, `dtu`, and `poolSize` must be consistent with the [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). Any inconsistent argument configuration will be rejected.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_elasticpool.html.markdown.
  */
@@ -113,7 +83,7 @@ export class ElasticPool extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ElasticPool resource with the given unique name, arguments, and options.

@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing IotHub Shared Access Policy
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = pulumi.all([azurerm_iothub_example.name, azurerm_resource_group_example.name]).apply(([azurerm_iothub_exampleName, azurerm_resource_group_exampleName]) => azure.iot.getSharedAccessPolicy({
- *     iothubName: azurerm_iothub_exampleName,
- *     name: "example",
- *     resourceGroupName: azurerm_resource_group_exampleName,
- * }));
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_shared_access_policy.html.markdown.
  */

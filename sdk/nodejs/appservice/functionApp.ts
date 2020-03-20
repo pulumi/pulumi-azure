@@ -8,68 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Function App.
- * 
- * ## Example Usage (with App Service Plan)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "westus2",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const examplePlan = new azure.appservice.Plan("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         size: "S1",
- *         tier: "Standard",
- *     },
- * });
- * const exampleFunctionApp = new azure.appservice.FunctionApp("example", {
- *     appServicePlanId: examplePlan.id,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     storageConnectionString: exampleAccount.primaryConnectionString,
- * });
- * ```
- * ## Example Usage (in a Consumption Plan)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "westus2",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const examplePlan = new azure.appservice.Plan("example", {
- *     kind: "FunctionApp",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         size: "Y1",
- *         tier: "Dynamic",
- *     },
- * });
- * const exampleFunctionApp = new azure.appservice.FunctionApp("example", {
- *     appServicePlanId: examplePlan.id,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     storageConnectionString: exampleAccount.primaryConnectionString,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/function_app.html.markdown.
  */
@@ -153,6 +91,10 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A string indicating the Operating System type for this function app. 
+     */
+    public readonly osType!: pulumi.Output<string | undefined>;
+    /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      */
     public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string>;
@@ -171,7 +113,7 @@ export class FunctionApp extends pulumi.CustomResource {
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    public /*out*/ readonly siteCredential!: pulumi.Output<outputs.appservice.FunctionAppSiteCredential>;
+    public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.appservice.FunctionAppSiteCredential[]>;
     /**
      * The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
      */
@@ -179,7 +121,7 @@ export class FunctionApp extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The runtime version associated with the Function App. Defaults to `~1`.
      */
@@ -210,11 +152,12 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["kind"] = state ? state.kind : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["osType"] = state ? state.osType : undefined;
             inputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
             inputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["siteConfig"] = state ? state.siteConfig : undefined;
-            inputs["siteCredential"] = state ? state.siteCredential : undefined;
+            inputs["siteCredentials"] = state ? state.siteCredentials : undefined;
             inputs["storageConnectionString"] = state ? state.storageConnectionString : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["version"] = state ? state.version : undefined;
@@ -240,6 +183,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["osType"] = args ? args.osType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["siteConfig"] = args ? args.siteConfig : undefined;
             inputs["storageConnectionString"] = args ? args.storageConnectionString : undefined;
@@ -249,7 +193,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["kind"] = undefined /*out*/;
             inputs["outboundIpAddresses"] = undefined /*out*/;
             inputs["possibleOutboundIpAddresses"] = undefined /*out*/;
-            inputs["siteCredential"] = undefined /*out*/;
+            inputs["siteCredentials"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -319,6 +263,10 @@ export interface FunctionAppState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * A string indicating the Operating System type for this function app. 
+     */
+    readonly osType?: pulumi.Input<string>;
+    /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      */
     readonly outboundIpAddresses?: pulumi.Input<string>;
@@ -337,7 +285,7 @@ export interface FunctionAppState {
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    readonly siteCredential?: pulumi.Input<inputs.appservice.FunctionAppSiteCredential>;
+    readonly siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSiteCredential>[]>;
     /**
      * The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
      */
@@ -400,6 +348,10 @@ export interface FunctionAppArgs {
      * The name of the Connection String.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A string indicating the Operating System type for this function app. 
+     */
+    readonly osType?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Function App.
      */

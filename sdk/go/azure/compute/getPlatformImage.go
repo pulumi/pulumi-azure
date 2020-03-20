@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about a Platform Image.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/platform_image.html.markdown.
 func GetPlatformImage(ctx *pulumi.Context, args *GetPlatformImageArgs, opts ...pulumi.InvokeOption) (*GetPlatformImageResult, error) {
 	var rv GetPlatformImageResult
@@ -32,16 +32,14 @@ type GetPlatformImageArgs struct {
 	Sku string `pulumi:"sku"`
 }
 
-
 // A collection of values returned by getPlatformImage.
 type GetPlatformImageResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Location string `pulumi:"location"`
-	Offer string `pulumi:"offer"`
+	Id        string `pulumi:"id"`
+	Location  string `pulumi:"location"`
+	Offer     string `pulumi:"offer"`
 	Publisher string `pulumi:"publisher"`
-	Sku string `pulumi:"sku"`
+	Sku       string `pulumi:"sku"`
 	// The latest version of the Platform Image.
 	Version string `pulumi:"version"`
 }
-

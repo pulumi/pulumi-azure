@@ -2,44 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Links a Log Analytics (formally Operational Insights) Workspace to another resource. The (currently) only linkable service is an Azure Automation Account.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.automation.Account("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         name: "Basic",
- *     },
- *     tags: {
- *         environment: "development",
- *     },
- * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     retentionInDays: 30,
- *     sku: "PerGB2018",
- * });
- * const exampleLinkedService = new azure.loganalytics.LinkedService("example", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     resourceId: exampleAccount.id,
- *     workspaceName: exampleAnalyticsWorkspace.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_linked_service.html.markdown.
  */
@@ -75,10 +41,6 @@ export class LinkedService extends pulumi.CustomResource {
      */
     public readonly linkedServiceName!: pulumi.Output<string | undefined>;
     /**
-     * A `linkedServiceProperties` block as defined below.
-     */
-    public readonly linkedServiceProperties!: pulumi.Output<outputs.loganalytics.LinkedServiceLinkedServiceProperties>;
-    /**
      * The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -87,13 +49,13 @@ export class LinkedService extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
+     * The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
      */
     public readonly resourceId!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
      */
@@ -112,7 +74,6 @@ export class LinkedService extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as LinkedServiceState | undefined;
             inputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
-            inputs["linkedServiceProperties"] = state ? state.linkedServiceProperties : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
@@ -123,11 +84,13 @@ export class LinkedService extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.resourceId === undefined) {
+                throw new Error("Missing required property 'resourceId'");
+            }
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
-            inputs["linkedServiceProperties"] = args ? args.linkedServiceProperties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -154,10 +117,6 @@ export interface LinkedServiceState {
      */
     readonly linkedServiceName?: pulumi.Input<string>;
     /**
-     * A `linkedServiceProperties` block as defined below.
-     */
-    readonly linkedServiceProperties?: pulumi.Input<inputs.loganalytics.LinkedServiceLinkedServiceProperties>;
-    /**
      * The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
      */
     readonly name?: pulumi.Input<string>;
@@ -166,7 +125,7 @@ export interface LinkedServiceState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
+     * The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
      */
     readonly resourceId?: pulumi.Input<string>;
     /**
@@ -188,17 +147,13 @@ export interface LinkedServiceArgs {
      */
     readonly linkedServiceName?: pulumi.Input<string>;
     /**
-     * A `linkedServiceProperties` block as defined below.
-     */
-    readonly linkedServiceProperties?: pulumi.Input<inputs.loganalytics.LinkedServiceLinkedServiceProperties>;
-    /**
      * The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
+     * The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
      */
-    readonly resourceId?: pulumi.Input<string>;
+    readonly resourceId: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

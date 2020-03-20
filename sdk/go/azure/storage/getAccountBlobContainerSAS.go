@@ -9,9 +9,9 @@ import (
 )
 
 // Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account Blob Container.
-// 
+//
 // Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_blob_container_sas.html.markdown.
 func GetAccountBlobContainerSAS(ctx *pulumi.Context, args *GetAccountBlobContainerSASArgs, opts ...pulumi.InvokeOption) (*GetAccountBlobContainerSASResult, error) {
 	var rv GetAccountBlobContainerSASResult
@@ -25,8 +25,8 @@ func GetAccountBlobContainerSAS(ctx *pulumi.Context, args *GetAccountBlobContain
 // A collection of arguments for invoking getAccountBlobContainerSAS.
 type GetAccountBlobContainerSASArgs struct {
 	// The `Cache-Control` response header that is sent when this SAS token is used.
-	CacheControl *string `pulumi:"cacheControl"`
-	ConnectionString string `pulumi:"connectionString"`
+	CacheControl     *string `pulumi:"cacheControl"`
+	ConnectionString string  `pulumi:"connectionString"`
 	// Name of the container.
 	ContainerName string `pulumi:"containerName"`
 	// The `Content-Disposition` response header that is sent when this SAS token is used.
@@ -49,24 +49,22 @@ type GetAccountBlobContainerSASArgs struct {
 	Start string `pulumi:"start"`
 }
 
-
 // A collection of values returned by getAccountBlobContainerSAS.
 type GetAccountBlobContainerSASResult struct {
-	CacheControl *string `pulumi:"cacheControl"`
-	ConnectionString string `pulumi:"connectionString"`
-	ContainerName string `pulumi:"containerName"`
+	CacheControl       *string `pulumi:"cacheControl"`
+	ConnectionString   string  `pulumi:"connectionString"`
+	ContainerName      string  `pulumi:"containerName"`
 	ContentDisposition *string `pulumi:"contentDisposition"`
-	ContentEncoding *string `pulumi:"contentEncoding"`
-	ContentLanguage *string `pulumi:"contentLanguage"`
-	ContentType *string `pulumi:"contentType"`
-	Expiry string `pulumi:"expiry"`
-	HttpsOnly *bool `pulumi:"httpsOnly"`
+	ContentEncoding    *string `pulumi:"contentEncoding"`
+	ContentLanguage    *string `pulumi:"contentLanguage"`
+	ContentType        *string `pulumi:"contentType"`
+	Expiry             string  `pulumi:"expiry"`
+	HttpsOnly          *bool   `pulumi:"httpsOnly"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	IpAddress *string `pulumi:"ipAddress"`
+	Id          string                                `pulumi:"id"`
+	IpAddress   *string                               `pulumi:"ipAddress"`
 	Permissions GetAccountBlobContainerSASPermissions `pulumi:"permissions"`
 	// The computed Blob Container Shared Access Signature (SAS).
-	Sas string `pulumi:"sas"`
+	Sas   string `pulumi:"sas"`
 	Start string `pulumi:"start"`
 }
-

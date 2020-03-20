@@ -10,46 +10,6 @@ import * as utilities from "../utilities";
  * Manages an IotHub Storage Container Endpoint
  * 
  * > **NOTE:** Endpoints can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `azure.iot.IoTHub` resource is not supported.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleContainer = new azure.storage.Container("example", {
- *     containerAccessType: "private",
- *     resourceGroupName: exampleResourceGroup.name,
- *     storageAccountName: exampleAccount.name,
- * });
- * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         capacity: 1,
- *         name: "S1",
- *     },
- * });
- * const exampleEndpointStorageContainer = new azure.iot.EndpointStorageContainer("example", {
- *     batchFrequencyInSeconds: 60,
- *     connectionString: exampleAccount.primaryBlobConnectionString,
- *     containerName: "acctestcont",
- *     encoding: "JSON",
- *     fileNameFormat: "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
- *     iothubName: exampleIoTHub.name,
- *     maxChunkSizeInBytes: 10485760,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_endpoint_storage_container.html.markdown.
  */
@@ -81,7 +41,7 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
     }
 
     /**
-     * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+     * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
      */
     public readonly batchFrequencyInSeconds!: pulumi.Output<number | undefined>;
     /**
@@ -179,7 +139,7 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
  */
 export interface EndpointStorageContainerState {
     /**
-     * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+     * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
      */
     readonly batchFrequencyInSeconds?: pulumi.Input<number>;
     /**
@@ -222,7 +182,7 @@ export interface EndpointStorageContainerState {
  */
 export interface EndpointStorageContainerArgs {
     /**
-     * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+     * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
      */
     readonly batchFrequencyInSeconds?: pulumi.Input<number>;
     /**

@@ -12,8 +12,8 @@ import (
 )
 
 // Manages a Bot Connection.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_connection.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_connection.markdown.
 type Connection struct {
 	pulumi.CustomResourceState
 
@@ -181,4 +181,3 @@ type ConnectionArgs struct {
 func (ConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionArgs)(nil)).Elem()
 }
-

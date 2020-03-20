@@ -13,7 +13,7 @@ class VirtualMachine(pulumi.CustomResource):
     additional_capabilities: pulumi.Output[dict]
     """
     A `additional_capabilities` block.
-    
+
       * `ultraSsdEnabled` (`bool`)
     """
     availability_set_id: pulumi.Output[str]
@@ -23,7 +23,7 @@ class VirtualMachine(pulumi.CustomResource):
     boot_diagnostics: pulumi.Output[dict]
     """
     A `boot_diagnostics` block.
-    
+
       * `enabled` (`bool`)
       * `storageUri` (`str`)
     """
@@ -38,7 +38,7 @@ class VirtualMachine(pulumi.CustomResource):
     identity: pulumi.Output[dict]
     """
     A `identity` block.
-    
+
       * `identityIds` (`list`)
       * `principal_id` (`str`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
       * `type` (`str`)
@@ -62,55 +62,51 @@ class VirtualMachine(pulumi.CustomResource):
     os_profile: pulumi.Output[dict]
     """
     An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
-    
-      * `adminPassword` (`str`)
-      * `adminUsername` (`str`)
-      * `computerName` (`str`)
-      * `customData` (`str`)
+
+      * `admin_password` (`str`)
+      * `admin_username` (`str`)
+      * `computer_name` (`str`)
+      * `custom_data` (`str`)
     """
     os_profile_linux_config: pulumi.Output[dict]
     """
     A `os_profile_linux_config` block.
-    
-      * `disablePasswordAuthentication` (`bool`)
+
+      * `disable_password_authentication` (`bool`)
       * `sshKeys` (`list`)
-    
         * `keyData` (`str`)
         * `path` (`str`)
     """
     os_profile_secrets: pulumi.Output[list]
     """
     One or more `os_profile_secrets` blocks.
-    
+
       * `sourceVaultId` (`str`)
       * `vaultCertificates` (`list`)
-    
         * `certificateStore` (`str`)
         * `certificateUrl` (`str`)
     """
     os_profile_windows_config: pulumi.Output[dict]
     """
     A `os_profile_windows_config` block.
-    
+
       * `additionalUnattendConfigs` (`list`)
-    
         * `component` (`str`)
         * `content` (`str`)
         * `pass` (`str`)
         * `settingName` (`str`)
-    
+
       * `enableAutomaticUpgrades` (`bool`)
-      * `provisionVmAgent` (`bool`)
+      * `provision_vm_agent` (`bool`)
       * `timezone` (`str`)
       * `winrms` (`list`)
-    
         * `certificateUrl` (`str`)
         * `protocol` (`str`)
     """
     plan: pulumi.Output[dict]
     """
     A `plan` block.
-    
+
       * `name` (`str`) - Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
       * `product` (`str`)
       * `publisher` (`str`)
@@ -130,7 +126,7 @@ class VirtualMachine(pulumi.CustomResource):
     storage_data_disks: pulumi.Output[list]
     """
     One or more `storage_data_disk` blocks.
-    
+
       * `caching` (`str`)
       * `create_option` (`str`)
       * `disk_size_gb` (`float`)
@@ -144,7 +140,7 @@ class VirtualMachine(pulumi.CustomResource):
     storage_image_reference: pulumi.Output[dict]
     """
     A `storage_image_reference` block.
-    
+
       * `id` (`str`) - The ID of the Virtual Machine.
       * `offer` (`str`)
       * `publisher` (`str`)
@@ -154,7 +150,7 @@ class VirtualMachine(pulumi.CustomResource):
     storage_os_disk: pulumi.Output[dict]
     """
     A `storage_os_disk` block.
-    
+
       * `caching` (`str`)
       * `create_option` (`str`)
       * `disk_size_gb` (`float`)
@@ -180,8 +176,16 @@ class VirtualMachine(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, additional_capabilities=None, availability_set_id=None, boot_diagnostics=None, delete_data_disks_on_termination=None, delete_os_disk_on_termination=None, identity=None, license_type=None, location=None, name=None, network_interface_ids=None, os_profile=None, os_profile_linux_config=None, os_profile_secrets=None, os_profile_windows_config=None, plan=None, primary_network_interface_id=None, proximity_placement_group_id=None, resource_group_name=None, storage_data_disks=None, storage_image_reference=None, storage_os_disk=None, tags=None, vm_size=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a VirtualMachine resource with the given unique name, props, and options.
-        
+        Manages a Virtual Machine.
+
+        ## Disclaimers
+
+        > **Note:** The `compute.VirtualMachine` resource has been superseded by the `compute.LinuxVirtualMachine` and `compute.WindowsVirtualMachine` resources. The existing `compute.VirtualMachine` resource will continue to be available throughout the 2.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `compute.LinuxVirtualMachine` and `compute.WindowsVirtualMachine` resources.
+
+        > **Note:** Data Disks can be attached either directly on the `compute.VirtualMachine` resource, or using the `compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] additional_capabilities: A `additional_capabilities` block.
@@ -208,70 +212,66 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Virtual Machine.
         :param pulumi.Input[str] vm_size: Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
-        
+
         The **additional_capabilities** object supports the following:
-        
+
           * `ultraSsdEnabled` (`pulumi.Input[bool]`)
-        
+
         The **boot_diagnostics** object supports the following:
-        
+
           * `enabled` (`pulumi.Input[bool]`)
           * `storageUri` (`pulumi.Input[str]`)
-        
+
         The **identity** object supports the following:
-        
+
           * `identityIds` (`pulumi.Input[list]`)
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
           * `type` (`pulumi.Input[str]`)
-        
+
         The **os_profile** object supports the following:
-        
-          * `adminPassword` (`pulumi.Input[str]`)
-          * `adminUsername` (`pulumi.Input[str]`)
-          * `computerName` (`pulumi.Input[str]`)
-          * `customData` (`pulumi.Input[str]`)
-        
+
+          * `admin_password` (`pulumi.Input[str]`)
+          * `admin_username` (`pulumi.Input[str]`)
+          * `computer_name` (`pulumi.Input[str]`)
+          * `custom_data` (`pulumi.Input[str]`)
+
         The **os_profile_linux_config** object supports the following:
-        
-          * `disablePasswordAuthentication` (`pulumi.Input[bool]`)
+
+          * `disable_password_authentication` (`pulumi.Input[bool]`)
           * `sshKeys` (`pulumi.Input[list]`)
-        
             * `keyData` (`pulumi.Input[str]`)
             * `path` (`pulumi.Input[str]`)
-        
+
         The **os_profile_secrets** object supports the following:
-        
+
           * `sourceVaultId` (`pulumi.Input[str]`)
           * `vaultCertificates` (`pulumi.Input[list]`)
-        
             * `certificateStore` (`pulumi.Input[str]`)
             * `certificateUrl` (`pulumi.Input[str]`)
-        
+
         The **os_profile_windows_config** object supports the following:
-        
+
           * `additionalUnattendConfigs` (`pulumi.Input[list]`)
-        
             * `component` (`pulumi.Input[str]`)
             * `content` (`pulumi.Input[str]`)
             * `pass` (`pulumi.Input[str]`)
             * `settingName` (`pulumi.Input[str]`)
-        
+
           * `enableAutomaticUpgrades` (`pulumi.Input[bool]`)
-          * `provisionVmAgent` (`pulumi.Input[bool]`)
+          * `provision_vm_agent` (`pulumi.Input[bool]`)
           * `timezone` (`pulumi.Input[str]`)
           * `winrms` (`pulumi.Input[list]`)
-        
             * `certificateUrl` (`pulumi.Input[str]`)
             * `protocol` (`pulumi.Input[str]`)
-        
+
         The **plan** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
           * `product` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
-        
+
         The **storage_data_disks** object supports the following:
-        
+
           * `caching` (`pulumi.Input[str]`)
           * `create_option` (`pulumi.Input[str]`)
           * `disk_size_gb` (`pulumi.Input[float]`)
@@ -281,17 +281,17 @@ class VirtualMachine(pulumi.CustomResource):
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
           * `vhdUri` (`pulumi.Input[str]`)
           * `write_accelerator_enabled` (`pulumi.Input[bool]`)
-        
+
         The **storage_image_reference** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`) - The ID of the Virtual Machine.
           * `offer` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
           * `sku` (`pulumi.Input[str]`)
           * `version` (`pulumi.Input[str]`)
-        
+
         The **storage_os_disk** object supports the following:
-        
+
           * `caching` (`pulumi.Input[str]`)
           * `create_option` (`pulumi.Input[str]`)
           * `disk_size_gb` (`pulumi.Input[float]`)
@@ -302,8 +302,6 @@ class VirtualMachine(pulumi.CustomResource):
           * `os_type` (`pulumi.Input[str]`)
           * `vhdUri` (`pulumi.Input[str]`)
           * `write_accelerator_enabled` (`pulumi.Input[bool]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -365,7 +363,7 @@ class VirtualMachine(pulumi.CustomResource):
         """
         Get an existing VirtualMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -393,70 +391,66 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Virtual Machine.
         :param pulumi.Input[str] vm_size: Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
-        
+
         The **additional_capabilities** object supports the following:
-        
+
           * `ultraSsdEnabled` (`pulumi.Input[bool]`)
-        
+
         The **boot_diagnostics** object supports the following:
-        
+
           * `enabled` (`pulumi.Input[bool]`)
           * `storageUri` (`pulumi.Input[str]`)
-        
+
         The **identity** object supports the following:
-        
+
           * `identityIds` (`pulumi.Input[list]`)
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
           * `type` (`pulumi.Input[str]`)
-        
+
         The **os_profile** object supports the following:
-        
-          * `adminPassword` (`pulumi.Input[str]`)
-          * `adminUsername` (`pulumi.Input[str]`)
-          * `computerName` (`pulumi.Input[str]`)
-          * `customData` (`pulumi.Input[str]`)
-        
+
+          * `admin_password` (`pulumi.Input[str]`)
+          * `admin_username` (`pulumi.Input[str]`)
+          * `computer_name` (`pulumi.Input[str]`)
+          * `custom_data` (`pulumi.Input[str]`)
+
         The **os_profile_linux_config** object supports the following:
-        
-          * `disablePasswordAuthentication` (`pulumi.Input[bool]`)
+
+          * `disable_password_authentication` (`pulumi.Input[bool]`)
           * `sshKeys` (`pulumi.Input[list]`)
-        
             * `keyData` (`pulumi.Input[str]`)
             * `path` (`pulumi.Input[str]`)
-        
+
         The **os_profile_secrets** object supports the following:
-        
+
           * `sourceVaultId` (`pulumi.Input[str]`)
           * `vaultCertificates` (`pulumi.Input[list]`)
-        
             * `certificateStore` (`pulumi.Input[str]`)
             * `certificateUrl` (`pulumi.Input[str]`)
-        
+
         The **os_profile_windows_config** object supports the following:
-        
+
           * `additionalUnattendConfigs` (`pulumi.Input[list]`)
-        
             * `component` (`pulumi.Input[str]`)
             * `content` (`pulumi.Input[str]`)
             * `pass` (`pulumi.Input[str]`)
             * `settingName` (`pulumi.Input[str]`)
-        
+
           * `enableAutomaticUpgrades` (`pulumi.Input[bool]`)
-          * `provisionVmAgent` (`pulumi.Input[bool]`)
+          * `provision_vm_agent` (`pulumi.Input[bool]`)
           * `timezone` (`pulumi.Input[str]`)
           * `winrms` (`pulumi.Input[list]`)
-        
             * `certificateUrl` (`pulumi.Input[str]`)
             * `protocol` (`pulumi.Input[str]`)
-        
+
         The **plan** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
           * `product` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
-        
+
         The **storage_data_disks** object supports the following:
-        
+
           * `caching` (`pulumi.Input[str]`)
           * `create_option` (`pulumi.Input[str]`)
           * `disk_size_gb` (`pulumi.Input[float]`)
@@ -466,17 +460,17 @@ class VirtualMachine(pulumi.CustomResource):
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
           * `vhdUri` (`pulumi.Input[str]`)
           * `write_accelerator_enabled` (`pulumi.Input[bool]`)
-        
+
         The **storage_image_reference** object supports the following:
-        
+
           * `id` (`pulumi.Input[str]`) - The ID of the Virtual Machine.
           * `offer` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
           * `sku` (`pulumi.Input[str]`)
           * `version` (`pulumi.Input[str]`)
-        
+
         The **storage_os_disk** object supports the following:
-        
+
           * `caching` (`pulumi.Input[str]`)
           * `create_option` (`pulumi.Input[str]`)
           * `disk_size_gb` (`pulumi.Input[float]`)
@@ -487,12 +481,11 @@ class VirtualMachine(pulumi.CustomResource):
           * `os_type` (`pulumi.Input[str]`)
           * `vhdUri` (`pulumi.Input[str]`)
           * `write_accelerator_enabled` (`pulumi.Input[bool]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["additional_capabilities"] = additional_capabilities
         __props__["availability_set_id"] = availability_set_id
         __props__["boot_diagnostics"] = boot_diagnostics

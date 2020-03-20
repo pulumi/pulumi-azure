@@ -13,7 +13,7 @@ class KeyVault(pulumi.CustomResource):
     access_policies: pulumi.Output[list]
     """
     [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
-    
+
       * `application_id` (`str`)
       * `certificate_permissions` (`list`)
       * `key_permissions` (`list`)
@@ -45,25 +45,27 @@ class KeyVault(pulumi.CustomResource):
     network_acls: pulumi.Output[dict]
     """
     A `network_acls` block as defined below.
-    
+
       * `bypass` (`str`)
-      * `defaultAction` (`str`)
-      * `ipRules` (`list`)
-      * `virtualNetworkSubnetIds` (`list`)
+      * `default_action` (`str`)
+      * `ip_rules` (`list`)
+      * `virtual_network_subnet_ids` (`list`)
+    """
+    purge_protection_enabled: pulumi.Output[bool]
+    """
+    Is Purge Protection enabled for this Key Vault? Defaults to `false`.
     """
     resource_group_name: pulumi.Output[str]
     """
     The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
     """
-    sku: pulumi.Output[dict]
-    """
-    ) A `sku` block as described below.
-    
-      * `name` (`str`) - Specifies the name of the Key Vault. Changing this forces a new resource to be created.
-    """
     sku_name: pulumi.Output[str]
     """
     The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
+    """
+    soft_delete_enabled: pulumi.Output[bool]
+    """
+    Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
     """
     tags: pulumi.Output[dict]
     """
@@ -77,12 +79,9 @@ class KeyVault(pulumi.CustomResource):
     """
     The URI of the Key Vault, used for performing operations on keys and secrets.
     """
-    def __init__(__self__, resource_name, opts=None, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, name=None, network_acls=None, resource_group_name=None, sku=None, sku_name=None, tags=None, tenant_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, name=None, network_acls=None, purge_protection_enabled=None, resource_group_name=None, sku_name=None, soft_delete_enabled=None, tags=None, tenant_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a Key Vault.
-        
-        > **NOTE:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `access_policy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
-        
+        Create a KeyVault resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] access_policies: [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
@@ -92,14 +91,15 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] sku: ) A `sku` block as described below.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
+        :param pulumi.Input[bool] soft_delete_enabled: Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-        
+
         The **access_policies** object supports the following:
-        
+
           * `application_id` (`pulumi.Input[str]`)
           * `certificate_permissions` (`pulumi.Input[list]`)
           * `key_permissions` (`pulumi.Input[list]`)
@@ -107,19 +107,13 @@ class KeyVault(pulumi.CustomResource):
           * `secret_permissions` (`pulumi.Input[list]`)
           * `storage_permissions` (`pulumi.Input[list]`)
           * `tenant_id` (`pulumi.Input[str]`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-        
-        The **network_acls** object supports the following:
-        
-          * `bypass` (`pulumi.Input[str]`)
-          * `defaultAction` (`pulumi.Input[str]`)
-          * `ipRules` (`pulumi.Input[list]`)
-          * `virtualNetworkSubnetIds` (`pulumi.Input[list]`)
-        
-        The **sku** object supports the following:
-        
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Key Vault. Changing this forces a new resource to be created.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
+        The **network_acls** object supports the following:
+
+          * `bypass` (`pulumi.Input[str]`)
+          * `default_action` (`pulumi.Input[str]`)
+          * `ip_rules` (`pulumi.Input[list]`)
+          * `virtual_network_subnet_ids` (`pulumi.Input[list]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -145,11 +139,14 @@ class KeyVault(pulumi.CustomResource):
             __props__['location'] = location
             __props__['name'] = name
             __props__['network_acls'] = network_acls
+            __props__['purge_protection_enabled'] = purge_protection_enabled
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
+            if sku_name is None:
+                raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
+            __props__['soft_delete_enabled'] = soft_delete_enabled
             __props__['tags'] = tags
             if tenant_id is None:
                 raise TypeError("Missing required property 'tenant_id'")
@@ -162,11 +159,11 @@ class KeyVault(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, name=None, network_acls=None, resource_group_name=None, sku=None, sku_name=None, tags=None, tenant_id=None, vault_uri=None):
+    def get(resource_name, id, opts=None, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, name=None, network_acls=None, purge_protection_enabled=None, resource_group_name=None, sku_name=None, soft_delete_enabled=None, tags=None, tenant_id=None, vault_uri=None):
         """
         Get an existing KeyVault resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,15 +174,16 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] sku: ) A `sku` block as described below.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
+        :param pulumi.Input[bool] soft_delete_enabled: Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param pulumi.Input[str] vault_uri: The URI of the Key Vault, used for performing operations on keys and secrets.
-        
+
         The **access_policies** object supports the following:
-        
+
           * `application_id` (`pulumi.Input[str]`)
           * `certificate_permissions` (`pulumi.Input[list]`)
           * `key_permissions` (`pulumi.Input[list]`)
@@ -193,23 +191,18 @@ class KeyVault(pulumi.CustomResource):
           * `secret_permissions` (`pulumi.Input[list]`)
           * `storage_permissions` (`pulumi.Input[list]`)
           * `tenant_id` (`pulumi.Input[str]`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-        
-        The **network_acls** object supports the following:
-        
-          * `bypass` (`pulumi.Input[str]`)
-          * `defaultAction` (`pulumi.Input[str]`)
-          * `ipRules` (`pulumi.Input[list]`)
-          * `virtualNetworkSubnetIds` (`pulumi.Input[list]`)
-        
-        The **sku** object supports the following:
-        
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Key Vault. Changing this forces a new resource to be created.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
+        The **network_acls** object supports the following:
+
+          * `bypass` (`pulumi.Input[str]`)
+          * `default_action` (`pulumi.Input[str]`)
+          * `ip_rules` (`pulumi.Input[list]`)
+          * `virtual_network_subnet_ids` (`pulumi.Input[list]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["access_policies"] = access_policies
         __props__["enabled_for_deployment"] = enabled_for_deployment
         __props__["enabled_for_disk_encryption"] = enabled_for_disk_encryption
@@ -217,9 +210,10 @@ class KeyVault(pulumi.CustomResource):
         __props__["location"] = location
         __props__["name"] = name
         __props__["network_acls"] = network_acls
+        __props__["purge_protection_enabled"] = purge_protection_enabled
         __props__["resource_group_name"] = resource_group_name
-        __props__["sku"] = sku
         __props__["sku_name"] = sku_name
+        __props__["soft_delete_enabled"] = soft_delete_enabled
         __props__["tags"] = tags
         __props__["tenant_id"] = tenant_id
         __props__["vault_uri"] = vault_uri

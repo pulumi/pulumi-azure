@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing API Management Service.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.apimanagement.getService({
- *     name: "search-api",
- *     resourceGroupName: "search-service",
- * });
- * 
- * export const apiManagementId = example.id;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management.html.markdown.
  */
@@ -110,10 +96,6 @@ export interface GetServiceResult {
      * The SCM (Source Code Management) endpoint.
      */
     readonly scmUrl: string;
-    /**
-     * A `sku` block as documented below.
-     */
-    readonly sku: outputs.apimanagement.GetServiceSku;
     readonly skuName: string;
     /**
      * A mapping of tags assigned to the resource.

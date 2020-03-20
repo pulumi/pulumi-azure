@@ -13,7 +13,7 @@ class GetPublicIPResult:
     """
     A collection of values returned by getPublicIP.
     """
-    def __init__(__self__, allocation_method=None, domain_name_label=None, fqdn=None, idle_timeout_in_minutes=None, ip_address=None, ip_version=None, location=None, name=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None, id=None):
+    def __init__(__self__, allocation_method=None, domain_name_label=None, fqdn=None, id=None, idle_timeout_in_minutes=None, ip_address=None, ip_version=None, location=None, name=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None):
         if allocation_method and not isinstance(allocation_method, str):
             raise TypeError("Expected argument 'allocation_method' to be a str")
         __self__.allocation_method = allocation_method
@@ -28,6 +28,12 @@ class GetPublicIPResult:
         __self__.fqdn = fqdn
         """
         Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, float):
             raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a float")
@@ -71,12 +77,6 @@ class GetPublicIPResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         __self__.zones = zones
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetPublicIPResult(GetPublicIPResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -86,6 +86,7 @@ class AwaitableGetPublicIPResult(GetPublicIPResult):
             allocation_method=self.allocation_method,
             domain_name_label=self.domain_name_label,
             fqdn=self.fqdn,
+            id=self.id,
             idle_timeout_in_minutes=self.idle_timeout_in_minutes,
             ip_address=self.ip_address,
             ip_version=self.ip_version,
@@ -95,19 +96,20 @@ class AwaitableGetPublicIPResult(GetPublicIPResult):
             reverse_fqdn=self.reverse_fqdn,
             sku=self.sku,
             tags=self.tags,
-            zones=self.zones,
-            id=self.id)
+            zones=self.zones)
 
 def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,opts=None):
     """
     Use this data source to access information about an existing Public IP Address.
-    
-    :param str name: Specifies the name of the public IP address.
-    :param str resource_group_name: Specifies the name of the resource group.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip.html.markdown.
+
+
+    :param str name: Specifies the name of the public IP address.
+    :param str resource_group_name: Specifies the name of the resource group.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -123,6 +125,7 @@ def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,opts=N
         allocation_method=__ret__.get('allocationMethod'),
         domain_name_label=__ret__.get('domainNameLabel'),
         fqdn=__ret__.get('fqdn'),
+        id=__ret__.get('id'),
         idle_timeout_in_minutes=__ret__.get('idleTimeoutInMinutes'),
         ip_address=__ret__.get('ipAddress'),
         ip_version=__ret__.get('ipVersion'),
@@ -132,5 +135,4 @@ def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,opts=N
         reverse_fqdn=__ret__.get('reverseFqdn'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
-        zones=__ret__.get('zones'),
-        id=__ret__.get('id'))
+        zones=__ret__.get('zones'))

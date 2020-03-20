@@ -12,19 +12,19 @@ import (
 )
 
 // Manages automated startup and shutdown schedules for Azure Dev Test Lab.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_schedule.html.markdown.
 type Schedule struct {
 	pulumi.CustomResourceState
 
-	DailyRecurrence ScheduleDailyRecurrencePtrOutput `pulumi:"dailyRecurrence"`
+	DailyRecurrence  ScheduleDailyRecurrencePtrOutput  `pulumi:"dailyRecurrence"`
 	HourlyRecurrence ScheduleHourlyRecurrencePtrOutput `pulumi:"hourlyRecurrence"`
 	// The name of the dev test lab. Changing this forces a new resource to be created.
 	LabName pulumi.StringOutput `pulumi:"labName"`
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name                 pulumi.StringOutput                `pulumi:"name"`
 	NotificationSettings ScheduleNotificationSettingsOutput `pulumi:"notificationSettings"`
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -35,7 +35,7 @@ type Schedule struct {
 	// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
 	TaskType pulumi.StringOutput `pulumi:"taskType"`
 	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId pulumi.StringOutput `pulumi:"timeZoneId"`
+	TimeZoneId       pulumi.StringOutput               `pulumi:"timeZoneId"`
 	WeeklyRecurrence ScheduleWeeklyRecurrencePtrOutput `pulumi:"weeklyRecurrence"`
 }
 
@@ -82,14 +82,14 @@ func GetSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Schedule resources.
 type scheduleState struct {
-	DailyRecurrence *ScheduleDailyRecurrence `pulumi:"dailyRecurrence"`
+	DailyRecurrence  *ScheduleDailyRecurrence  `pulumi:"dailyRecurrence"`
 	HourlyRecurrence *ScheduleHourlyRecurrence `pulumi:"hourlyRecurrence"`
 	// The name of the dev test lab. Changing this forces a new resource to be created.
 	LabName *string `pulumi:"labName"`
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
-	Name *string `pulumi:"name"`
+	Name                 *string                       `pulumi:"name"`
 	NotificationSettings *ScheduleNotificationSettings `pulumi:"notificationSettings"`
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -100,19 +100,19 @@ type scheduleState struct {
 	// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
 	TaskType *string `pulumi:"taskType"`
 	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId *string `pulumi:"timeZoneId"`
+	TimeZoneId       *string                   `pulumi:"timeZoneId"`
 	WeeklyRecurrence *ScheduleWeeklyRecurrence `pulumi:"weeklyRecurrence"`
 }
 
 type ScheduleState struct {
-	DailyRecurrence ScheduleDailyRecurrencePtrInput
+	DailyRecurrence  ScheduleDailyRecurrencePtrInput
 	HourlyRecurrence ScheduleHourlyRecurrencePtrInput
 	// The name of the dev test lab. Changing this forces a new resource to be created.
 	LabName pulumi.StringPtrInput
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
-	Name pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
 	NotificationSettings ScheduleNotificationSettingsPtrInput
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -123,7 +123,7 @@ type ScheduleState struct {
 	// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
 	TaskType pulumi.StringPtrInput
 	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId pulumi.StringPtrInput
+	TimeZoneId       pulumi.StringPtrInput
 	WeeklyRecurrence ScheduleWeeklyRecurrencePtrInput
 }
 
@@ -132,14 +132,14 @@ func (ScheduleState) ElementType() reflect.Type {
 }
 
 type scheduleArgs struct {
-	DailyRecurrence *ScheduleDailyRecurrence `pulumi:"dailyRecurrence"`
+	DailyRecurrence  *ScheduleDailyRecurrence  `pulumi:"dailyRecurrence"`
 	HourlyRecurrence *ScheduleHourlyRecurrence `pulumi:"hourlyRecurrence"`
 	// The name of the dev test lab. Changing this forces a new resource to be created.
 	LabName string `pulumi:"labName"`
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
-	Name *string `pulumi:"name"`
+	Name                 *string                      `pulumi:"name"`
 	NotificationSettings ScheduleNotificationSettings `pulumi:"notificationSettings"`
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -150,20 +150,20 @@ type scheduleArgs struct {
 	// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
 	TaskType string `pulumi:"taskType"`
 	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId string `pulumi:"timeZoneId"`
+	TimeZoneId       string                    `pulumi:"timeZoneId"`
 	WeeklyRecurrence *ScheduleWeeklyRecurrence `pulumi:"weeklyRecurrence"`
 }
 
 // The set of arguments for constructing a Schedule resource.
 type ScheduleArgs struct {
-	DailyRecurrence ScheduleDailyRecurrencePtrInput
+	DailyRecurrence  ScheduleDailyRecurrencePtrInput
 	HourlyRecurrence ScheduleHourlyRecurrencePtrInput
 	// The name of the dev test lab. Changing this forces a new resource to be created.
 	LabName pulumi.StringInput
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
-	Name pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
 	NotificationSettings ScheduleNotificationSettingsInput
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -174,11 +174,10 @@ type ScheduleArgs struct {
 	// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
 	TaskType pulumi.StringInput
 	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId pulumi.StringInput
+	TimeZoneId       pulumi.StringInput
 	WeeklyRecurrence ScheduleWeeklyRecurrencePtrInput
 }
 
 func (ScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduleArgs)(nil)).Elem()
 }
-

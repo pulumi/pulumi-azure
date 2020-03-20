@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Azure Data Factory Managed Integration Runtime.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_integration_runtime_managed.html.markdown.
 type IntegrationRuntimeManaged struct {
 	pulumi.CustomResourceState
@@ -22,8 +22,8 @@ type IntegrationRuntimeManaged struct {
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript IntegrationRuntimeManagedCustomSetupScriptPtrOutput `pulumi:"customSetupScript"`
 	// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	DataFactoryName pulumi.StringOutput    `pulumi:"dataFactoryName"`
+	Description     pulumi.StringPtrOutput `pulumi:"description"`
 	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
 	Edition pulumi.StringPtrOutput `pulumi:"edition"`
 	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
@@ -87,7 +87,7 @@ type integrationRuntimeManagedState struct {
 	CustomSetupScript *IntegrationRuntimeManagedCustomSetupScript `pulumi:"customSetupScript"`
 	// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
 	DataFactoryName *string `pulumi:"dataFactoryName"`
-	Description *string `pulumi:"description"`
+	Description     *string `pulumi:"description"`
 	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
 	Edition *string `pulumi:"edition"`
 	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
@@ -115,7 +115,7 @@ type IntegrationRuntimeManagedState struct {
 	CustomSetupScript IntegrationRuntimeManagedCustomSetupScriptPtrInput
 	// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
 	DataFactoryName pulumi.StringPtrInput
-	Description pulumi.StringPtrInput
+	Description     pulumi.StringPtrInput
 	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
 	Edition pulumi.StringPtrInput
 	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
@@ -146,8 +146,8 @@ type integrationRuntimeManagedArgs struct {
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript *IntegrationRuntimeManagedCustomSetupScript `pulumi:"customSetupScript"`
 	// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
-	DataFactoryName string `pulumi:"dataFactoryName"`
-	Description *string `pulumi:"description"`
+	DataFactoryName string  `pulumi:"dataFactoryName"`
+	Description     *string `pulumi:"description"`
 	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
 	Edition *string `pulumi:"edition"`
 	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
@@ -176,7 +176,7 @@ type IntegrationRuntimeManagedArgs struct {
 	CustomSetupScript IntegrationRuntimeManagedCustomSetupScriptPtrInput
 	// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
 	DataFactoryName pulumi.StringInput
-	Description pulumi.StringPtrInput
+	Description     pulumi.StringPtrInput
 	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
 	Edition pulumi.StringPtrInput
 	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
@@ -200,4 +200,3 @@ type IntegrationRuntimeManagedArgs struct {
 func (IntegrationRuntimeManagedArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationRuntimeManagedArgs)(nil)).Elem()
 }
-

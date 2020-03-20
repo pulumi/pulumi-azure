@@ -37,7 +37,7 @@ export class Dashboard extends pulumi.CustomResource {
     }
 
     /**
-     * JSON data representing dashboard body. See above for details on how to obtain this from the Portal. 
+     * JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
      */
     public readonly dashboardProperties!: pulumi.Output<string>;
     /**
@@ -56,7 +56,7 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.
@@ -102,7 +102,7 @@ export class Dashboard extends pulumi.CustomResource {
  */
 export interface DashboardState {
     /**
-     * JSON data representing dashboard body. See above for details on how to obtain this from the Portal. 
+     * JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
      */
     readonly dashboardProperties?: pulumi.Input<string>;
     /**
@@ -129,7 +129,7 @@ export interface DashboardState {
  */
 export interface DashboardArgs {
     /**
-     * JSON data representing dashboard body. See above for details on how to obtain this from the Portal. 
+     * JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
      */
     readonly dashboardProperties?: pulumi.Input<string>;
     /**

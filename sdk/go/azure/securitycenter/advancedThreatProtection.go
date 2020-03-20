@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a resources Advanced Threat Protection setting.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/advanced_threat_protection.html.markdown.
 type AdvancedThreatProtection struct {
 	pulumi.CustomResourceState
@@ -92,4 +92,3 @@ type AdvancedThreatProtectionArgs struct {
 func (AdvancedThreatProtectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*advancedThreatProtectionArgs)(nil)).Elem()
 }
-

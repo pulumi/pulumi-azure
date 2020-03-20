@@ -8,33 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Service Fabric Cluster.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleCluster = new azure.servicefabric.Cluster("example", {
- *     clusterCodeVersion: "6.5.639.9590",
- *     location: exampleResourceGroup.location,
- *     managementEndpoint: "https://example:80",
- *     nodeTypes: [{
- *         clientEndpointPort: 2020,
- *         httpEndpointPort: 80,
- *         instanceCount: 3,
- *         isPrimary: true,
- *         name: "first",
- *     }],
- *     reliabilityLevel: "Bronze",
- *     resourceGroupName: exampleResourceGroup.name,
- *     upgradeMode: "Manual",
- *     vmImage: "Windows",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/service_fabric_cluster.html.markdown.
  */
@@ -132,7 +105,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
      */

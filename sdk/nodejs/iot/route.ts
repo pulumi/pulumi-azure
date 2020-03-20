@@ -10,57 +10,6 @@ import * as utilities from "../utilities";
  * Manages an IotHub Route
  * 
  * > **NOTE:** Routes can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Route` resourcs - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleContainer = new azure.storage.Container("example", {
- *     containerAccessType: "private",
- *     resourceGroupName: exampleResourceGroup.name,
- *     storageAccountName: exampleAccount.name,
- * });
- * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         capacity: 1,
- *         name: "S1",
- *     },
- *     tags: {
- *         purpose: "testing",
- *     },
- * });
- * const exampleEndpointStorageContainer = new azure.iot.EndpointStorageContainer("example", {
- *     batchFrequencyInSeconds: 60,
- *     connectionString: exampleAccount.primaryBlobConnectionString,
- *     containerName: exampleContainer.name,
- *     encoding: "Avro",
- *     fileNameFormat: "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
- *     iothubName: exampleIoTHub.name,
- *     maxChunkSizeInBytes: 10485760,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleRoute = new azure.iot.Route("example", {
- *     condition: "true",
- *     enabled: true,
- *     endpointNames: exampleEndpointStorageContainer.name,
- *     iothubName: exampleIoTHub.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     source: "DeviceMessages",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_route.html.markdown.
  */

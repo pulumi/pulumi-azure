@@ -12,19 +12,18 @@ import (
 )
 
 // Allows you to manage an Azure SQL Elastic Pool via the `2017-10-01-preview` API which allows for `vCore` and `DTU` based configurations.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_elasticpool.html.markdown.
 type ElasticPool struct {
 	pulumi.CustomResourceState
 
-	ElasticPoolProperties ElasticPoolElasticPoolPropertiesOutput `pulumi:"elasticPoolProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
 	MaxSizeBytes pulumi.IntOutput `pulumi:"maxSizeBytes"`
-	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
+	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
 	MaxSizeGb pulumi.Float64Output `pulumi:"maxSizeGb"`
-	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `perDatabaseSettings` block as defined below.
 	PerDatabaseSettings ElasticPoolPerDatabaseSettingsOutput `pulumi:"perDatabaseSettings"`
@@ -80,14 +79,13 @@ func GetElasticPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ElasticPool resources.
 type elasticPoolState struct {
-	ElasticPoolProperties *ElasticPoolElasticPoolProperties `pulumi:"elasticPoolProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
 	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
-	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
+	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
 	MaxSizeGb *float64 `pulumi:"maxSizeGb"`
-	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
 	Name *string `pulumi:"name"`
 	// A `perDatabaseSettings` block as defined below.
 	PerDatabaseSettings *ElasticPoolPerDatabaseSettings `pulumi:"perDatabaseSettings"`
@@ -104,14 +102,13 @@ type elasticPoolState struct {
 }
 
 type ElasticPoolState struct {
-	ElasticPoolProperties ElasticPoolElasticPoolPropertiesPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
 	MaxSizeBytes pulumi.IntPtrInput
-	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
+	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
 	MaxSizeGb pulumi.Float64PtrInput
-	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
 	Name pulumi.StringPtrInput
 	// A `perDatabaseSettings` block as defined below.
 	PerDatabaseSettings ElasticPoolPerDatabaseSettingsPtrInput
@@ -136,9 +133,9 @@ type elasticPoolArgs struct {
 	Location *string `pulumi:"location"`
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
 	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
-	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
+	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
 	MaxSizeGb *float64 `pulumi:"maxSizeGb"`
-	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
 	Name *string `pulumi:"name"`
 	// A `perDatabaseSettings` block as defined below.
 	PerDatabaseSettings ElasticPoolPerDatabaseSettings `pulumi:"perDatabaseSettings"`
@@ -160,9 +157,9 @@ type ElasticPoolArgs struct {
 	Location pulumi.StringPtrInput
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
 	MaxSizeBytes pulumi.IntPtrInput
-	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
+	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
 	MaxSizeGb pulumi.Float64PtrInput
-	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
 	Name pulumi.StringPtrInput
 	// A `perDatabaseSettings` block as defined below.
 	PerDatabaseSettings ElasticPoolPerDatabaseSettingsInput
@@ -181,4 +178,3 @@ type ElasticPoolArgs struct {
 func (ElasticPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*elasticPoolArgs)(nil)).Elem()
 }
-

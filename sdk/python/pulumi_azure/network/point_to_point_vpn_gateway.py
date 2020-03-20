@@ -13,10 +13,9 @@ class PointToPointVpnGateway(pulumi.CustomResource):
     connection_configuration: pulumi.Output[dict]
     """
     A `connection_configuration` block as defined below.
-    
+
       * `name` (`str`) - Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
       * `vpnClientAddressPool` (`dict`)
-    
         * `addressPrefixes` (`list`)
     """
     location: pulumi.Output[str]
@@ -45,12 +44,14 @@ class PointToPointVpnGateway(pulumi.CustomResource):
     """
     vpn_server_configuration_id: pulumi.Output[str]
     """
-    The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created. 
+    The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
     """
     def __init__(__self__, resource_name, opts=None, connection_configuration=None, location=None, name=None, resource_group_name=None, scale_unit=None, tags=None, virtual_hub_id=None, vpn_server_configuration_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Point-to-Site VPN Gateway.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/point_to_site_vpn_gateway.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] connection_configuration: A `connection_configuration` block as defined below.
@@ -60,16 +61,13 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         :param pulumi.Input[float] scale_unit: The Scale Unit for this Point-to-Site VPN Gateway.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Point-to-Site VPN Gateway.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] vpn_server_configuration_id: The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created. 
-        
+        :param pulumi.Input[str] vpn_server_configuration_id: The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
+
         The **connection_configuration** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
           * `vpnClientAddressPool` (`pulumi.Input[dict]`)
-        
             * `addressPrefixes` (`pulumi.Input[list]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/point_to_site_vpn_gateway.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -117,7 +115,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         """
         Get an existing PointToPointVpnGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,20 +126,18 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         :param pulumi.Input[float] scale_unit: The Scale Unit for this Point-to-Site VPN Gateway.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Point-to-Site VPN Gateway.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] vpn_server_configuration_id: The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created. 
-        
+        :param pulumi.Input[str] vpn_server_configuration_id: The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
+
         The **connection_configuration** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
           * `vpnClientAddressPool` (`pulumi.Input[dict]`)
-        
             * `addressPrefixes` (`pulumi.Input[list]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/point_to_site_vpn_gateway.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["connection_configuration"] = connection_configuration
         __props__["location"] = location
         __props__["name"] = name

@@ -13,7 +13,7 @@ class GetManagedDiskResult:
     """
     A collection of values returned by getManagedDisk.
     """
-    def __init__(__self__, create_option=None, disk_encryption_set_id=None, disk_iops_read_write=None, disk_mbps_read_write=None, disk_size_gb=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_id=None, storage_account_type=None, tags=None, zones=None, id=None):
+    def __init__(__self__, create_option=None, disk_encryption_set_id=None, disk_iops_read_write=None, disk_mbps_read_write=None, disk_size_gb=None, id=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_id=None, storage_account_type=None, tags=None, zones=None):
         if create_option and not isinstance(create_option, str):
             raise TypeError("Expected argument 'create_option' to be a str")
         __self__.create_option = create_option
@@ -40,6 +40,12 @@ class GetManagedDiskResult:
         __self__.disk_size_gb = disk_size_gb
         """
         The size of the Managed Disk in gigabytes.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -89,12 +95,6 @@ class GetManagedDiskResult:
         """
         A list of Availability Zones where the Managed Disk exists.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetManagedDiskResult(GetManagedDiskResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -106,6 +106,7 @@ class AwaitableGetManagedDiskResult(GetManagedDiskResult):
             disk_iops_read_write=self.disk_iops_read_write,
             disk_mbps_read_write=self.disk_mbps_read_write,
             disk_size_gb=self.disk_size_gb,
+            id=self.id,
             name=self.name,
             os_type=self.os_type,
             resource_group_name=self.resource_group_name,
@@ -114,19 +115,20 @@ class AwaitableGetManagedDiskResult(GetManagedDiskResult):
             storage_account_id=self.storage_account_id,
             storage_account_type=self.storage_account_type,
             tags=self.tags,
-            zones=self.zones,
-            id=self.id)
+            zones=self.zones)
 
 def get_managed_disk(name=None,resource_group_name=None,tags=None,zones=None,opts=None):
     """
     Use this data source to access information about an existing Managed Disk.
-    
-    :param str name: Specifies the name of the Managed Disk.
-    :param str resource_group_name: Specifies the name of the Resource Group where this Managed Disk exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_disk.html.markdown.
+
+
+    :param str name: Specifies the name of the Managed Disk.
+    :param str resource_group_name: Specifies the name of the Resource Group where this Managed Disk exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -144,6 +146,7 @@ def get_managed_disk(name=None,resource_group_name=None,tags=None,zones=None,opt
         disk_iops_read_write=__ret__.get('diskIopsReadWrite'),
         disk_mbps_read_write=__ret__.get('diskMbpsReadWrite'),
         disk_size_gb=__ret__.get('diskSizeGb'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         os_type=__ret__.get('osType'),
         resource_group_name=__ret__.get('resourceGroupName'),
@@ -152,5 +155,4 @@ def get_managed_disk(name=None,resource_group_name=None,tags=None,zones=None,opt
         storage_account_id=__ret__.get('storageAccountId'),
         storage_account_type=__ret__.get('storageAccountType'),
         tags=__ret__.get('tags'),
-        zones=__ret__.get('zones'),
-        id=__ret__.get('id'))
+        zones=__ret__.get('zones'))

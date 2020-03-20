@@ -4,6 +4,5 @@
 // Export members:
 export * from "./endpoint";
 export * from "./getEndpointConnection";
-export * from "./getPrivateLinkEndpointConnection";
 export * from "./getService";
 export * from "./getServiceEndpointConnections";

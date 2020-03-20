@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing DNS Zone.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.dns.getZone({
- *     name: "search-eventhubns",
- *     resourceGroupName: "search-service",
- * });
- * 
- * export const dnsZoneId = example.id;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dns_zone.html.markdown.
  */
@@ -72,23 +58,11 @@ export interface GetZoneResult {
      * The number of records already in the zone.
      */
     readonly numberOfRecordSets: number;
-    /**
-     * A list of Virtual Network ID's that register hostnames in this DNS zone.
-     */
-    readonly registrationVirtualNetworkIds: string[];
-    /**
-     * A list of Virtual Network ID's that resolve records in this DNS zone.
-     */
-    readonly resolutionVirtualNetworkIds: string[];
     readonly resourceGroupName: string;
     /**
      * A mapping of tags to assign to the EventHub Namespace.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * (**Deprecated**) The type of this DNS zone, such as `Public` or `Private`.
-     */
-    readonly zoneType: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

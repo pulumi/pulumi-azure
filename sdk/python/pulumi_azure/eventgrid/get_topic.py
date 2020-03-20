@@ -13,12 +13,18 @@ class GetTopicResult:
     """
     A collection of values returned by getTopic.
     """
-    def __init__(__self__, endpoint=None, location=None, name=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, tags=None, id=None):
+    def __init__(__self__, endpoint=None, id=None, location=None, name=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, tags=None):
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         __self__.endpoint = endpoint
         """
         The Endpoint associated with the EventGrid Topic.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -44,12 +50,6 @@ class GetTopicResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetTopicResult(GetTopicResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -57,24 +57,26 @@ class AwaitableGetTopicResult(GetTopicResult):
             yield self
         return GetTopicResult(
             endpoint=self.endpoint,
+            id=self.id,
             location=self.location,
             name=self.name,
             primary_access_key=self.primary_access_key,
             resource_group_name=self.resource_group_name,
             secondary_access_key=self.secondary_access_key,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_topic(name=None,resource_group_name=None,tags=None,opts=None):
     """
     Use this data source to access information about an existing EventGrid Topic
-    
-    :param str name: The name of the EventGrid Topic resource.
-    :param str resource_group_name: The name of the resource group in which the EventGrid Topic exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventgrid_topic.html.markdown.
+
+
+    :param str name: The name of the EventGrid Topic resource.
+    :param str resource_group_name: The name of the resource group in which the EventGrid Topic exists.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -87,10 +89,10 @@ def get_topic(name=None,resource_group_name=None,tags=None,opts=None):
 
     return AwaitableGetTopicResult(
         endpoint=__ret__.get('endpoint'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         primary_access_key=__ret__.get('primaryAccessKey'),
         resource_group_name=__ret__.get('resourceGroupName'),
         secondary_access_key=__ret__.get('secondaryAccessKey'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

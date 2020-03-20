@@ -12,7 +12,7 @@ import (
 )
 
 // Allows you to add, update, or remove an Azure SQL server to a subnet of a virtual network.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_virtual_network_rule.html.markdown.
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
@@ -125,4 +125,3 @@ type VirtualNetworkRuleArgs struct {
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkRuleArgs)(nil)).Elem()
 }
-

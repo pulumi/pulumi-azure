@@ -12,9 +12,9 @@ import (
 )
 
 // Manages an App Service Slot (within an App Service).
-// 
+//
 // > **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_slot.html.markdown.
 type Slot struct {
 	pulumi.CustomResourceState
@@ -41,7 +41,7 @@ type Slot struct {
 	Identity SlotIdentityOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	Logs SlotLogsOutput `pulumi:"logs"`
+	Logs     SlotLogsOutput      `pulumi:"logs"`
 	// The name of the Connection String.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the App Service Slot component.
@@ -49,7 +49,7 @@ type Slot struct {
 	// A `siteConfig` object as defined below.
 	SiteConfig SlotSiteConfigOutput `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential SlotSiteCredentialOutput `pulumi:"siteCredential"`
+	SiteCredentials SlotSiteCredentialArrayOutput `pulumi:"siteCredentials"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -112,8 +112,8 @@ type slotState struct {
 	// A Managed Service Identity block as defined below.
 	Identity *SlotIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location *string `pulumi:"location"`
-	Logs *SlotLogs `pulumi:"logs"`
+	Location *string   `pulumi:"location"`
+	Logs     *SlotLogs `pulumi:"logs"`
 	// The name of the Connection String.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the App Service Slot component.
@@ -121,7 +121,7 @@ type slotState struct {
 	// A `siteConfig` object as defined below.
 	SiteConfig *SlotSiteConfig `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential *SlotSiteCredential `pulumi:"siteCredential"`
+	SiteCredentials []SlotSiteCredential `pulumi:"siteCredentials"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -149,7 +149,7 @@ type SlotState struct {
 	Identity SlotIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	Logs SlotLogsPtrInput
+	Logs     SlotLogsPtrInput
 	// The name of the Connection String.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the App Service Slot component.
@@ -157,7 +157,7 @@ type SlotState struct {
 	// A `siteConfig` object as defined below.
 	SiteConfig SlotSiteConfigPtrInput
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential SlotSiteCredentialPtrInput
+	SiteCredentials SlotSiteCredentialArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -186,8 +186,8 @@ type slotArgs struct {
 	// A Managed Service Identity block as defined below.
 	Identity *SlotIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location *string `pulumi:"location"`
-	Logs *SlotLogs `pulumi:"logs"`
+	Location *string   `pulumi:"location"`
+	Logs     *SlotLogs `pulumi:"logs"`
 	// The name of the Connection String.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the App Service Slot component.
@@ -220,7 +220,7 @@ type SlotArgs struct {
 	Identity SlotIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	Logs SlotLogsPtrInput
+	Logs     SlotLogsPtrInput
 	// The name of the Connection String.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the App Service Slot component.
@@ -234,4 +234,3 @@ type SlotArgs struct {
 func (SlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*slotArgs)(nil)).Elem()
 }
-

@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub.html.markdown.
 func LookupHub(ctx *pulumi.Context, args *LookupHubArgs, opts ...pulumi.InvokeOption) (*LookupHubResult, error) {
 	var rv LookupHubResult
@@ -30,7 +30,6 @@ type LookupHubArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getHub.
 type LookupHubResult struct {
 	// A `apnsCredential` block as defined below.
@@ -40,9 +39,8 @@ type LookupHubResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region in which this Notification Hub exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
-	NamespaceName string `pulumi:"namespaceName"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
+	NamespaceName     string `pulumi:"namespaceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
-

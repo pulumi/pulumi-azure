@@ -6,26 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Recurrence Trigger within a Logic App Workflow
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "East US",
- * });
- * const exampleWorkflow = new azure.logicapps.Workflow("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleTriggerRecurrence = new azure.logicapps.TriggerRecurrence("example", {
- *     frequency: "Day",
- *     interval: 1,
- *     logicAppId: exampleWorkflow.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_recurrence.html.markdown.
  */

@@ -12,37 +12,35 @@ import (
 )
 
 // Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
-// 
+//
 // > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster.html.markdown.
 type KubernetesCluster struct {
 	pulumi.CustomResourceState
 
 	// A `addonProfile` block as defined below.
 	AddonProfile KubernetesClusterAddonProfileOutput `pulumi:"addonProfile"`
-	// One or more `agentPoolProfile` blocks as defined below.
-	AgentPoolProfiles KubernetesClusterAgentPoolProfileArrayOutput `pulumi:"agentPoolProfiles"`
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayOutput `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `defaultNodePool` block as defined below.
-	DefaultNodePool KubernetesClusterDefaultNodePoolPtrOutput `pulumi:"defaultNodePool"`
+	DefaultNodePool KubernetesClusterDefaultNodePoolOutput `pulumi:"defaultNodePool"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringOutput `pulumi:"dnsPrefix"`
 	// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
-	EnablePodSecurityPolicy pulumi.BoolOutput `pulumi:"enablePodSecurityPolicy"`
+	EnablePodSecurityPolicy pulumi.BoolPtrOutput `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// A `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity KubernetesClusterIdentityPtrOutput `pulumi:"identity"`
-	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-	KubeAdminConfig KubernetesClusterKubeAdminConfigOutput `pulumi:"kubeAdminConfig"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigRaw pulumi.StringOutput `pulumi:"kubeAdminConfigRaw"`
-	// A `kubeConfig` block as defined below.
-	KubeConfig KubernetesClusterKubeConfigOutput `pulumi:"kubeConfig"`
+	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	KubeAdminConfigs KubernetesClusterKubeAdminConfigArrayOutput `pulumi:"kubeAdminConfigs"`
 	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
 	KubeConfigRaw pulumi.StringOutput `pulumi:"kubeConfigRaw"`
+	// A `kubeConfig` block as defined below.
+	KubeConfigs KubernetesClusterKubeConfigArrayOutput `pulumi:"kubeConfigs"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
@@ -55,8 +53,8 @@ type KubernetesCluster struct {
 	NetworkProfile KubernetesClusterNetworkProfileOutput `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringOutput `pulumi:"nodeResourceGroup"`
-	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-	PrivateFqdn pulumi.StringOutput `pulumi:"privateFqdn"`
+	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+	PrivateFqdn        pulumi.StringOutput  `pulumi:"privateFqdn"`
 	PrivateLinkEnabled pulumi.BoolPtrOutput `pulumi:"privateLinkEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -73,6 +71,9 @@ type KubernetesCluster struct {
 // NewKubernetesCluster registers a new resource with the given unique name, arguments, and options.
 func NewKubernetesCluster(ctx *pulumi.Context,
 	name string, args *KubernetesClusterArgs, opts ...pulumi.ResourceOption) (*KubernetesCluster, error) {
+	if args == nil || args.DefaultNodePool == nil {
+		return nil, errors.New("missing required argument 'DefaultNodePool'")
+	}
 	if args == nil || args.DnsPrefix == nil {
 		return nil, errors.New("missing required argument 'DnsPrefix'")
 	}
@@ -109,8 +110,6 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 type kubernetesClusterState struct {
 	// A `addonProfile` block as defined below.
 	AddonProfile *KubernetesClusterAddonProfile `pulumi:"addonProfile"`
-	// One or more `agentPoolProfile` blocks as defined below.
-	AgentPoolProfiles []KubernetesClusterAgentPoolProfile `pulumi:"agentPoolProfiles"`
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `defaultNodePool` block as defined below.
@@ -123,14 +122,14 @@ type kubernetesClusterState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// A `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
-	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-	KubeAdminConfig *KubernetesClusterKubeAdminConfig `pulumi:"kubeAdminConfig"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigRaw *string `pulumi:"kubeAdminConfigRaw"`
-	// A `kubeConfig` block as defined below.
-	KubeConfig *KubernetesClusterKubeConfig `pulumi:"kubeConfig"`
+	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	KubeAdminConfigs []KubernetesClusterKubeAdminConfig `pulumi:"kubeAdminConfigs"`
 	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
 	KubeConfigRaw *string `pulumi:"kubeConfigRaw"`
+	// A `kubeConfig` block as defined below.
+	KubeConfigs []KubernetesClusterKubeConfig `pulumi:"kubeConfigs"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
@@ -143,9 +142,9 @@ type kubernetesClusterState struct {
 	NetworkProfile *KubernetesClusterNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
-	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-	PrivateFqdn *string `pulumi:"privateFqdn"`
-	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
+	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+	PrivateFqdn        *string `pulumi:"privateFqdn"`
+	PrivateLinkEnabled *bool   `pulumi:"privateLinkEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roleBasedAccessControl` block.
@@ -161,8 +160,6 @@ type kubernetesClusterState struct {
 type KubernetesClusterState struct {
 	// A `addonProfile` block as defined below.
 	AddonProfile KubernetesClusterAddonProfilePtrInput
-	// One or more `agentPoolProfile` blocks as defined below.
-	AgentPoolProfiles KubernetesClusterAgentPoolProfileArrayInput
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `defaultNodePool` block as defined below.
@@ -175,14 +172,14 @@ type KubernetesClusterState struct {
 	Fqdn pulumi.StringPtrInput
 	// A `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity KubernetesClusterIdentityPtrInput
-	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-	KubeAdminConfig KubernetesClusterKubeAdminConfigPtrInput
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigRaw pulumi.StringPtrInput
-	// A `kubeConfig` block as defined below.
-	KubeConfig KubernetesClusterKubeConfigPtrInput
+	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	KubeAdminConfigs KubernetesClusterKubeAdminConfigArrayInput
 	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
 	KubeConfigRaw pulumi.StringPtrInput
+	// A `kubeConfig` block as defined below.
+	KubeConfigs KubernetesClusterKubeConfigArrayInput
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.
@@ -195,8 +192,8 @@ type KubernetesClusterState struct {
 	NetworkProfile KubernetesClusterNetworkProfilePtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringPtrInput
-	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-	PrivateFqdn pulumi.StringPtrInput
+	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+	PrivateFqdn        pulumi.StringPtrInput
 	PrivateLinkEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -217,12 +214,10 @@ func (KubernetesClusterState) ElementType() reflect.Type {
 type kubernetesClusterArgs struct {
 	// A `addonProfile` block as defined below.
 	AddonProfile *KubernetesClusterAddonProfile `pulumi:"addonProfile"`
-	// One or more `agentPoolProfile` blocks as defined below.
-	AgentPoolProfiles []KubernetesClusterAgentPoolProfile `pulumi:"agentPoolProfiles"`
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `defaultNodePool` block as defined below.
-	DefaultNodePool *KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
+	DefaultNodePool KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix string `pulumi:"dnsPrefix"`
 	// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
@@ -240,8 +235,8 @@ type kubernetesClusterArgs struct {
 	// A `networkProfile` block as defined below.
 	NetworkProfile *KubernetesClusterNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
-	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
-	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
+	NodeResourceGroup  *string `pulumi:"nodeResourceGroup"`
+	PrivateLinkEnabled *bool   `pulumi:"privateLinkEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roleBasedAccessControl` block.
@@ -258,12 +253,10 @@ type kubernetesClusterArgs struct {
 type KubernetesClusterArgs struct {
 	// A `addonProfile` block as defined below.
 	AddonProfile KubernetesClusterAddonProfilePtrInput
-	// One or more `agentPoolProfile` blocks as defined below.
-	AgentPoolProfiles KubernetesClusterAgentPoolProfileArrayInput
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `defaultNodePool` block as defined below.
-	DefaultNodePool KubernetesClusterDefaultNodePoolPtrInput
+	DefaultNodePool KubernetesClusterDefaultNodePoolInput
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringInput
 	// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
@@ -281,7 +274,7 @@ type KubernetesClusterArgs struct {
 	// A `networkProfile` block as defined below.
 	NetworkProfile KubernetesClusterNetworkProfilePtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
-	NodeResourceGroup pulumi.StringPtrInput
+	NodeResourceGroup  pulumi.StringPtrInput
 	PrivateLinkEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -298,4 +291,3 @@ type KubernetesClusterArgs struct {
 func (KubernetesClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*kubernetesClusterArgs)(nil)).Elem()
 }
-

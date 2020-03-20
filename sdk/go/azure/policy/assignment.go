@@ -12,7 +12,7 @@ import (
 )
 
 // Configures the specified Policy Definition at the specified Scope. Also, Policy Set Definitions are supported.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_assignment.html.markdown.
 type Assignment struct {
 	pulumi.CustomResourceState
@@ -27,13 +27,13 @@ type Assignment struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Policy Assignment. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
+	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).
 	NotScopes pulumi.StringArrayOutput `pulumi:"notScopes"`
 	// Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
 	Parameters pulumi.StringPtrOutput `pulumi:"parameters"`
 	// The ID of the Policy Definition to be applied at the specified Scope.
 	PolicyDefinitionId pulumi.StringOutput `pulumi:"policyDefinitionId"`
-	Scope pulumi.StringOutput `pulumi:"scope"`
+	Scope              pulumi.StringOutput `pulumi:"scope"`
 }
 
 // NewAssignment registers a new resource with the given unique name, arguments, and options.
@@ -80,13 +80,13 @@ type assignmentState struct {
 	Location *string `pulumi:"location"`
 	// The name of the Policy Assignment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
+	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).
 	NotScopes []string `pulumi:"notScopes"`
 	// Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
 	Parameters *string `pulumi:"parameters"`
 	// The ID of the Policy Definition to be applied at the specified Scope.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
-	Scope *string `pulumi:"scope"`
+	Scope              *string `pulumi:"scope"`
 }
 
 type AssignmentState struct {
@@ -100,13 +100,13 @@ type AssignmentState struct {
 	Location pulumi.StringPtrInput
 	// The name of the Policy Assignment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
+	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).
 	NotScopes pulumi.StringArrayInput
 	// Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
 	Parameters pulumi.StringPtrInput
 	// The ID of the Policy Definition to be applied at the specified Scope.
 	PolicyDefinitionId pulumi.StringPtrInput
-	Scope pulumi.StringPtrInput
+	Scope              pulumi.StringPtrInput
 }
 
 func (AssignmentState) ElementType() reflect.Type {
@@ -124,13 +124,13 @@ type assignmentArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the Policy Assignment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
+	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).
 	NotScopes []string `pulumi:"notScopes"`
 	// Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
 	Parameters *string `pulumi:"parameters"`
 	// The ID of the Policy Definition to be applied at the specified Scope.
 	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
-	Scope string `pulumi:"scope"`
+	Scope              string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a Assignment resource.
@@ -145,16 +145,15 @@ type AssignmentArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the Policy Assignment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
+	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).
 	NotScopes pulumi.StringArrayInput
 	// Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
 	Parameters pulumi.StringPtrInput
 	// The ID of the Policy Definition to be applied at the specified Scope.
 	PolicyDefinitionId pulumi.StringInput
-	Scope pulumi.StringInput
+	Scope              pulumi.StringInput
 }
 
 func (AssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*assignmentArgs)(nil)).Elem()
 }
-

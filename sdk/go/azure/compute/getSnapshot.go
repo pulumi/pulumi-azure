@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Snapshot.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/snapshot.html.markdown.
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	var rv LookupSnapshotResult
@@ -28,17 +28,16 @@ type LookupSnapshotArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getSnapshot.
 type LookupSnapshotResult struct {
 	CreationOption string `pulumi:"creationOption"`
 	// The size of the Snapshotted Disk in GB.
-	DiskSizeGb int `pulumi:"diskSizeGb"`
+	DiskSizeGb         int                            `pulumi:"diskSizeGb"`
 	EncryptionSettings []GetSnapshotEncryptionSetting `pulumi:"encryptionSettings"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Name string `pulumi:"name"`
-	OsType string `pulumi:"osType"`
+	Id                string `pulumi:"id"`
+	Name              string `pulumi:"name"`
+	OsType            string `pulumi:"osType"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The reference to an existing snapshot.
 	SourceResourceId string `pulumi:"sourceResourceId"`
@@ -46,6 +45,5 @@ type LookupSnapshotResult struct {
 	SourceUri string `pulumi:"sourceUri"`
 	// The ID of an storage account.
 	StorageAccountId string `pulumi:"storageAccountId"`
-	TimeCreated string `pulumi:"timeCreated"`
+	TimeCreated      string `pulumi:"timeCreated"`
 }
-

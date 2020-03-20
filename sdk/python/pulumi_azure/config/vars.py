@@ -51,6 +51,10 @@ The Cloud Environment which should be used. Possible values are public, usgovern
 public.
 """
 
+features = __config__.get('features')
+
+location = __config__.get('location') or utilities.get_env('ARM_LOCATION')
+
 msi_endpoint = __config__.get('msiEndpoint') or (utilities.get_env('ARM_MSI_ENDPOINT') or '')
 """
 The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
@@ -73,6 +77,11 @@ Should the AzureRM Provider skip registering all of the Resource Providers that 
 registered?
 """
 
+storage_use_azuread = __config__.get('storageUseAzuread')
+"""
+Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+"""
+
 subscription_id = __config__.get('subscriptionId') or (utilities.get_env('ARM_SUBSCRIPTION_ID') or '')
 """
 The Subscription ID which should be used.
@@ -87,6 +96,4 @@ use_msi = __config__.get('useMsi') or (utilities.get_env_bool('ARM_USE_MSI') or 
 """
 Allowed Managed Service Identity be used for Authentication.
 """
-
-location = __config__.get('location') or utilities.get_env('ARM_LOCATION')
 

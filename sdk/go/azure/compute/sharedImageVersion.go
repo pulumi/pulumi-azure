@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Version of a Shared Image within a Shared Image Gallery.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image_version.html.markdown.
 type SharedImageVersion struct {
 	pulumi.CustomResourceState
@@ -171,4 +171,3 @@ type SharedImageVersionArgs struct {
 func (SharedImageVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sharedImageVersionArgs)(nil)).Elem()
 }
-

@@ -9,9 +9,9 @@ import (
 )
 
 // Use this data source to access endpoint connection information about an existing Private Link Service.
-// 
+//
 // > **NOTE** Private Link is currently in Public Preview.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service_endpoint_connections.html.markdown.
 func GetServiceEndpointConnections(ctx *pulumi.Context, args *GetServiceEndpointConnectionsArgs, opts ...pulumi.InvokeOption) (*GetServiceEndpointConnectionsResult, error) {
 	var rv GetServiceEndpointConnectionsResult
@@ -30,16 +30,14 @@ type GetServiceEndpointConnectionsArgs struct {
 	ServiceId string `pulumi:"serviceId"`
 }
 
-
 // A collection of values returned by getServiceEndpointConnections.
 type GetServiceEndpointConnectionsResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Location string `pulumi:"location"`
+	Id                         string                                                   `pulumi:"id"`
+	Location                   string                                                   `pulumi:"location"`
 	PrivateEndpointConnections []GetServiceEndpointConnectionsPrivateEndpointConnection `pulumi:"privateEndpointConnections"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	ServiceId string `pulumi:"serviceId"`
+	ResourceGroupName          string                                                   `pulumi:"resourceGroupName"`
+	ServiceId                  string                                                   `pulumi:"serviceId"`
 	// The name of the private link service.
 	ServiceName string `pulumi:"serviceName"`
 }
-

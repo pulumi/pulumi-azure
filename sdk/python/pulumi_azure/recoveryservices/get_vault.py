@@ -13,7 +13,13 @@ class GetVaultResult:
     """
     A collection of values returned by getVault.
     """
-    def __init__(__self__, location=None, name=None, resource_group_name=None, sku=None, tags=None, id=None):
+    def __init__(__self__, id=None, location=None, name=None, resource_group_name=None, sku=None, tags=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -38,35 +44,31 @@ class GetVaultResult:
         """
         A mapping of tags assigned to the resource.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetVaultResult(GetVaultResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetVaultResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_vault(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Recovery Services Vault.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/recovery_services_vault.markdown.
+
+
     :param str name: Specifies the name of the Recovery Services Vault.
     :param str resource_group_name: The name of the resource group in which the Recovery Services Vault resides.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/recovery_services_vault.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -77,9 +79,9 @@ def get_vault(name=None,resource_group_name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('azure:recoveryservices/getVault:getVault', __args__, opts=opts).value
 
     return AwaitableGetVaultResult(
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
         sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

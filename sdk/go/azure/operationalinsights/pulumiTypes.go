@@ -12,10 +12,10 @@ import (
 )
 
 type AnalyticsSolutionPlan struct {
-	Name *string `pulumi:"name"`
-	Product string `pulumi:"product"`
+	Name          *string `pulumi:"name"`
+	Product       string  `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	Publisher string `pulumi:"publisher"`
+	Publisher     string  `pulumi:"publisher"`
 }
 
 type AnalyticsSolutionPlanInput interface {
@@ -26,10 +26,10 @@ type AnalyticsSolutionPlanInput interface {
 }
 
 type AnalyticsSolutionPlanArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	Product pulumi.StringInput `pulumi:"product"`
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Product       pulumi.StringInput    `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	Publisher pulumi.StringInput `pulumi:"publisher"`
+	Publisher     pulumi.StringInput    `pulumi:"publisher"`
 }
 
 func (AnalyticsSolutionPlanArgs) ElementType() reflect.Type {
@@ -61,7 +61,8 @@ type AnalyticsSolutionPlanPtrInput interface {
 
 type analyticsSolutionPlanPtrType AnalyticsSolutionPlanArgs
 
-func AnalyticsSolutionPlanPtr(v *AnalyticsSolutionPlanArgs) AnalyticsSolutionPlanPtrInput {	return (*analyticsSolutionPlanPtrType)(v)
+func AnalyticsSolutionPlanPtr(v *AnalyticsSolutionPlanArgs) AnalyticsSolutionPlanPtrInput {
+	return (*analyticsSolutionPlanPtrType)(v)
 }
 
 func (*analyticsSolutionPlanPtrType) ElementType() reflect.Type {
@@ -76,7 +77,7 @@ func (i *analyticsSolutionPlanPtrType) ToAnalyticsSolutionPlanPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionPlanPtrOutput)
 }
 
-type AnalyticsSolutionPlanOutput struct { *pulumi.OutputState }
+type AnalyticsSolutionPlanOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsSolutionPlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AnalyticsSolutionPlan)(nil)).Elem()
@@ -100,22 +101,22 @@ func (o AnalyticsSolutionPlanOutput) ToAnalyticsSolutionPlanPtrOutputWithContext
 	}).(AnalyticsSolutionPlanPtrOutput)
 }
 func (o AnalyticsSolutionPlanOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AnalyticsSolutionPlan) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AnalyticsSolutionPlan) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o AnalyticsSolutionPlanOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v AnalyticsSolutionPlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AnalyticsSolutionPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
 func (o AnalyticsSolutionPlanOutput) PromotionCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AnalyticsSolutionPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AnalyticsSolutionPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
 func (o AnalyticsSolutionPlanOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v AnalyticsSolutionPlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AnalyticsSolutionPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-type AnalyticsSolutionPlanPtrOutput struct { *pulumi.OutputState}
+type AnalyticsSolutionPlanPtrOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsSolutionPlanPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AnalyticsSolutionPlan)(nil)).Elem()
@@ -130,140 +131,26 @@ func (o AnalyticsSolutionPlanPtrOutput) ToAnalyticsSolutionPlanPtrOutputWithCont
 }
 
 func (o AnalyticsSolutionPlanPtrOutput) Elem() AnalyticsSolutionPlanOutput {
-	return o.ApplyT(func (v *AnalyticsSolutionPlan) AnalyticsSolutionPlan { return *v }).(AnalyticsSolutionPlanOutput)
+	return o.ApplyT(func(v *AnalyticsSolutionPlan) AnalyticsSolutionPlan { return *v }).(AnalyticsSolutionPlanOutput)
 }
 
 func (o AnalyticsSolutionPlanPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AnalyticsSolutionPlan) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AnalyticsSolutionPlan) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o AnalyticsSolutionPlanPtrOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v AnalyticsSolutionPlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AnalyticsSolutionPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
 func (o AnalyticsSolutionPlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AnalyticsSolutionPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AnalyticsSolutionPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
 func (o AnalyticsSolutionPlanPtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v AnalyticsSolutionPlan) string { return v.Publisher }).(pulumi.StringOutput)
-}
-
-type AnalyticsWorkspaceLinkedServiceLinkedServiceProperties struct {
-	// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
-	ResourceId string `pulumi:"resourceId"`
-}
-
-type AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesInput interface {
-	pulumi.Input
-
-	ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput() AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput
-	ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutputWithContext(context.Context) AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput
-}
-
-type AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesArgs struct {
-	// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-}
-
-func (AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsWorkspaceLinkedServiceLinkedServiceProperties)(nil)).Elem()
-}
-
-func (i AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesArgs) ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput() AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput {
-	return i.ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutputWithContext(context.Background())
-}
-
-func (i AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesArgs) ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutputWithContext(ctx context.Context) AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput)
-}
-
-func (i AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesArgs) ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput() AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput {
-	return i.ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesArgs) ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutputWithContext(ctx context.Context) AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput).ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutputWithContext(ctx)
-}
-
-type AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput() AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput
-	ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutputWithContext(context.Context) AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput
-}
-
-type analyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrType AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesArgs
-
-func AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtr(v *AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesArgs) AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrInput {	return (*analyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrType)(v)
-}
-
-func (*analyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalyticsWorkspaceLinkedServiceLinkedServiceProperties)(nil)).Elem()
-}
-
-func (i *analyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrType) ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput() AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput {
-	return i.ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *analyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrType) ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutputWithContext(ctx context.Context) AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput)
-}
-
-type AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput struct { *pulumi.OutputState }
-
-func (AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsWorkspaceLinkedServiceLinkedServiceProperties)(nil)).Elem()
-}
-
-func (o AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput) ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput() AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput {
-	return o
-}
-
-func (o AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput) ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutputWithContext(ctx context.Context) AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput {
-	return o
-}
-
-func (o AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput) ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput() AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput {
-	return o.ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput) ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutputWithContext(ctx context.Context) AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput {
-	return o.ApplyT(func(v AnalyticsWorkspaceLinkedServiceLinkedServiceProperties) *AnalyticsWorkspaceLinkedServiceLinkedServiceProperties {
-		return &v
-	}).(AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput)
-}
-// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
-func (o AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput) ResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v AnalyticsWorkspaceLinkedServiceLinkedServiceProperties) string { return v.ResourceId }).(pulumi.StringOutput)
-}
-
-type AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput struct { *pulumi.OutputState}
-
-func (AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalyticsWorkspaceLinkedServiceLinkedServiceProperties)(nil)).Elem()
-}
-
-func (o AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput) ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput() AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput {
-	return o
-}
-
-func (o AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput) ToAnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutputWithContext(ctx context.Context) AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput {
-	return o
-}
-
-func (o AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput) Elem() AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput {
-	return o.ApplyT(func (v *AnalyticsWorkspaceLinkedServiceLinkedServiceProperties) AnalyticsWorkspaceLinkedServiceLinkedServiceProperties { return *v }).(AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput)
-}
-
-// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
-func (o AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput) ResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v AnalyticsWorkspaceLinkedServiceLinkedServiceProperties) string { return v.ResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AnalyticsSolutionPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 func init() {
 	pulumi.RegisterOutputType(AnalyticsSolutionPlanOutput{})
 	pulumi.RegisterOutputType(AnalyticsSolutionPlanPtrOutput{})
-	pulumi.RegisterOutputType(AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesOutput{})
-	pulumi.RegisterOutputType(AnalyticsWorkspaceLinkedServiceLinkedServicePropertiesPtrOutput{})
 }

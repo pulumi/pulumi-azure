@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a NetApp Snapshot.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_snapshot.html.markdown.
 type Snapshot struct {
 	pulumi.CustomResourceState
@@ -27,6 +27,8 @@ type Snapshot struct {
 	PoolName pulumi.StringOutput `pulumi:"poolName"`
 	// The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	VolumeName pulumi.StringOutput `pulumi:"volumeName"`
 }
@@ -81,6 +83,8 @@ type snapshotState struct {
 	PoolName *string `pulumi:"poolName"`
 	// The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	VolumeName *string `pulumi:"volumeName"`
 }
@@ -96,6 +100,8 @@ type SnapshotState struct {
 	PoolName pulumi.StringPtrInput
 	// The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	VolumeName pulumi.StringPtrInput
 }
@@ -115,6 +121,8 @@ type snapshotArgs struct {
 	PoolName string `pulumi:"poolName"`
 	// The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	VolumeName string `pulumi:"volumeName"`
 }
@@ -131,6 +139,8 @@ type SnapshotArgs struct {
 	PoolName pulumi.StringInput
 	// The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
 	VolumeName pulumi.StringInput
 }
@@ -138,4 +148,3 @@ type SnapshotArgs struct {
 func (SnapshotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotArgs)(nil)).Elem()
 }
-

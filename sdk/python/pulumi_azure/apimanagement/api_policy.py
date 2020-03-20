@@ -30,15 +30,15 @@ class ApiPolicy(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, api_management_name=None, api_name=None, resource_group_name=None, xml_content=None, xml_link=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an API Management API Policy
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_policy.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_name: The ID of the API Management API within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,7 +79,7 @@ class ApiPolicy(pulumi.CustomResource):
         """
         Get an existing ApiPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -87,12 +87,11 @@ class ApiPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] api_name: The ID of the API Management API within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_policy.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["api_management_name"] = api_management_name
         __props__["api_name"] = api_name
         __props__["resource_group_name"] = resource_group_name

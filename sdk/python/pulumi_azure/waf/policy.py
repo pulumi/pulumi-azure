@@ -13,19 +13,17 @@ class Policy(pulumi.CustomResource):
     custom_rules: pulumi.Output[list]
     """
     One or more `custom_rule` blocks as defined below.
-    
+
       * `action` (`str`)
       * `matchConditions` (`list`)
-    
         * `matchValues` (`list`)
         * `matchVariables` (`list`)
-    
           * `selector` (`str`)
           * `variableName` (`str`)
-    
+
         * `negationCondition` (`bool`)
         * `operator` (`str`)
-    
+
       * `name` (`str`) - The name of the policy. Changing this forces a new resource to be created.
       * `priority` (`float`)
       * `ruleType` (`str`)
@@ -41,7 +39,7 @@ class Policy(pulumi.CustomResource):
     policy_settings: pulumi.Output[dict]
     """
     A `policy_setting` block as defined below.
-    
+
       * `enabled` (`bool`)
       * `mode` (`str`)
     """
@@ -56,7 +54,9 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, custom_rules=None, location=None, name=None, policy_settings=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Azure Web Application Firewall Policy instance.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/web_application_firewall_policy.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] custom_rules: One or more `custom_rule` blocks as defined below.
@@ -65,31 +65,27 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[dict] policy_settings: A `policy_setting` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Web Application Firewall Policy.
-        
+
         The **custom_rules** object supports the following:
-        
+
           * `action` (`pulumi.Input[str]`)
           * `matchConditions` (`pulumi.Input[list]`)
-        
             * `matchValues` (`pulumi.Input[list]`)
             * `matchVariables` (`pulumi.Input[list]`)
-        
               * `selector` (`pulumi.Input[str]`)
               * `variableName` (`pulumi.Input[str]`)
-        
+
             * `negationCondition` (`pulumi.Input[bool]`)
             * `operator` (`pulumi.Input[str]`)
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the policy. Changing this forces a new resource to be created.
           * `priority` (`pulumi.Input[float]`)
           * `ruleType` (`pulumi.Input[str]`)
-        
+
         The **policy_settings** object supports the following:
-        
+
           * `enabled` (`pulumi.Input[bool]`)
           * `mode` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/web_application_firewall_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -127,7 +123,7 @@ class Policy(pulumi.CustomResource):
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,35 +133,32 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[dict] policy_settings: A `policy_setting` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Web Application Firewall Policy.
-        
+
         The **custom_rules** object supports the following:
-        
+
           * `action` (`pulumi.Input[str]`)
           * `matchConditions` (`pulumi.Input[list]`)
-        
             * `matchValues` (`pulumi.Input[list]`)
             * `matchVariables` (`pulumi.Input[list]`)
-        
               * `selector` (`pulumi.Input[str]`)
               * `variableName` (`pulumi.Input[str]`)
-        
+
             * `negationCondition` (`pulumi.Input[bool]`)
             * `operator` (`pulumi.Input[str]`)
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the policy. Changing this forces a new resource to be created.
           * `priority` (`pulumi.Input[float]`)
           * `ruleType` (`pulumi.Input[str]`)
-        
+
         The **policy_settings** object supports the following:
-        
+
           * `enabled` (`pulumi.Input[bool]`)
           * `mode` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/web_application_firewall_policy.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["custom_rules"] = custom_rules
         __props__["location"] = location
         __props__["name"] = name

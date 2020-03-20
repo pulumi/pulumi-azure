@@ -8,50 +8,8 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Traffic Manager Profile to which multiple endpoints can be attached.
- * 
- * ## Example Usage
- * 
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
- * 
- * const server = new random.RandomId("server", {
- *     byteLength: 8,
- *     keepers: {
- *         azi_id: 1,
- *     },
- * });
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleTrafficManagerProfile = new azure.network.TrafficManagerProfile("example", {
- *     dnsConfig: {
- *         relativeName: server.hex,
- *         ttl: 100,
- *     },
- *     monitorConfig: {
- *         intervalInSeconds: 30,
- *         path: "/",
- *         port: 80,
- *         protocol: "http",
- *         timeoutInSeconds: 9,
- *         toleratedNumberOfFailures: 3,
- *     },
- *     resourceGroupName: exampleResourceGroup.name,
- *     tags: {
- *         environment: "Production",
- *     },
- *     trafficRoutingMethod: "Weighted",
- * });
- * ```
- * 
- * ## Notes
- * 
- * The Traffic Manager is created with the location `global`.
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile.html.markdown.
  */
 export class Profile extends pulumi.CustomResource {
     /**
@@ -81,8 +39,7 @@ export class Profile extends pulumi.CustomResource {
     }
 
     /**
-     * This block specifies the DNS configuration of the
-     * Profile, it supports the fields documented below.
+     * This block specifies the DNS configuration of the Profile, it supports the fields documented below.
      */
     public readonly dnsConfig!: pulumi.Output<outputs.trafficmanager.ProfileDnsConfig>;
     /**
@@ -90,37 +47,27 @@ export class Profile extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
-     * This block specifies the Endpoint monitoring
-     * configuration for the Profile, it supports the fields documented below.
+     * This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
      */
     public readonly monitorConfig!: pulumi.Output<outputs.trafficmanager.ProfileMonitorConfig>;
     /**
-     * The name of the virtual network. Changing this forces a
-     * new resource to be created.
+     * The name of the Traffic Manager profile. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The status of the profile, can be set to either
-     * `Enabled` or `Disabled`. Defaults to `Enabled`.
+     * The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
      */
     public readonly profileStatus!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to
-     * create the virtual network.
+     * The name of the resource group in which to create the Traffic Manager profile.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the algorithm used to route traffic, possible values are:
-     * - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
-     * - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
-     * - `Performance` - Traffic is routed via the User's closest Endpoint
-     * - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
-     * - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
-     * - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
      */
     public readonly trafficRoutingMethod!: pulumi.Output<string>;
 
@@ -183,8 +130,7 @@ export class Profile extends pulumi.CustomResource {
  */
 export interface ProfileState {
     /**
-     * This block specifies the DNS configuration of the
-     * Profile, it supports the fields documented below.
+     * This block specifies the DNS configuration of the Profile, it supports the fields documented below.
      */
     readonly dnsConfig?: pulumi.Input<inputs.trafficmanager.ProfileDnsConfig>;
     /**
@@ -192,23 +138,19 @@ export interface ProfileState {
      */
     readonly fqdn?: pulumi.Input<string>;
     /**
-     * This block specifies the Endpoint monitoring
-     * configuration for the Profile, it supports the fields documented below.
+     * This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
      */
     readonly monitorConfig?: pulumi.Input<inputs.trafficmanager.ProfileMonitorConfig>;
     /**
-     * The name of the virtual network. Changing this forces a
-     * new resource to be created.
+     * The name of the Traffic Manager profile. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The status of the profile, can be set to either
-     * `Enabled` or `Disabled`. Defaults to `Enabled`.
+     * The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
      */
     readonly profileStatus?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the virtual network.
+     * The name of the resource group in which to create the Traffic Manager profile.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -217,12 +159,6 @@ export interface ProfileState {
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the algorithm used to route traffic, possible values are:
-     * - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
-     * - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
-     * - `Performance` - Traffic is routed via the User's closest Endpoint
-     * - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
-     * - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
-     * - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
      */
     readonly trafficRoutingMethod?: pulumi.Input<string>;
 }
@@ -232,28 +168,23 @@ export interface ProfileState {
  */
 export interface ProfileArgs {
     /**
-     * This block specifies the DNS configuration of the
-     * Profile, it supports the fields documented below.
+     * This block specifies the DNS configuration of the Profile, it supports the fields documented below.
      */
     readonly dnsConfig: pulumi.Input<inputs.trafficmanager.ProfileDnsConfig>;
     /**
-     * This block specifies the Endpoint monitoring
-     * configuration for the Profile, it supports the fields documented below.
+     * This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
      */
     readonly monitorConfig: pulumi.Input<inputs.trafficmanager.ProfileMonitorConfig>;
     /**
-     * The name of the virtual network. Changing this forces a
-     * new resource to be created.
+     * The name of the Traffic Manager profile. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The status of the profile, can be set to either
-     * `Enabled` or `Disabled`. Defaults to `Enabled`.
+     * The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
      */
     readonly profileStatus?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the virtual network.
+     * The name of the resource group in which to create the Traffic Manager profile.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
@@ -262,12 +193,6 @@ export interface ProfileArgs {
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the algorithm used to route traffic, possible values are:
-     * - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
-     * - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
-     * - `Performance` - Traffic is routed via the User's closest Endpoint
-     * - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
-     * - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
-     * - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
      */
     readonly trafficRoutingMethod: pulumi.Input<string>;
 }

@@ -8,32 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Trigger Schedule inside a Azure Data Factory.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "northeurope",
- * });
- * const exampleFactory = new azure.datafactory.Factory("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const testPipeline = new azure.datafactory.Pipeline("test", {
- *     dataFactoryName: azurerm_data_factory_test.name,
- *     resourceGroupName: azurerm_resource_group_test.name,
- * });
- * const testTriggerSchedule = new azure.datafactory.TriggerSchedule("test", {
- *     dataFactoryName: azurerm_data_factory_test.name,
- *     frequency: "Day",
- *     interval: 5,
- *     pipelineName: testPipeline.name,
- *     resourceGroupName: azurerm_resource_group_test.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_trigger_schedule.html.markdown.
  */
@@ -73,7 +47,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
     /**
-     * The time the Schedule Trigger should end. The time will be represented in UTC. 
+     * The time the Schedule Trigger should end. The time will be represented in UTC.
      */
     public readonly endTime!: pulumi.Output<string | undefined>;
     /**
@@ -101,7 +75,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
+     * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      */
     public readonly startTime!: pulumi.Output<string>;
 
@@ -173,7 +147,7 @@ export interface TriggerScheduleState {
      */
     readonly dataFactoryName?: pulumi.Input<string>;
     /**
-     * The time the Schedule Trigger should end. The time will be represented in UTC. 
+     * The time the Schedule Trigger should end. The time will be represented in UTC.
      */
     readonly endTime?: pulumi.Input<string>;
     /**
@@ -201,7 +175,7 @@ export interface TriggerScheduleState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
+     * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      */
     readonly startTime?: pulumi.Input<string>;
 }
@@ -219,7 +193,7 @@ export interface TriggerScheduleArgs {
      */
     readonly dataFactoryName: pulumi.Input<string>;
     /**
-     * The time the Schedule Trigger should end. The time will be represented in UTC. 
+     * The time the Schedule Trigger should end. The time will be represented in UTC.
      */
     readonly endTime?: pulumi.Input<string>;
     /**
@@ -247,7 +221,7 @@ export interface TriggerScheduleArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
+     * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      */
     readonly startTime?: pulumi.Input<string>;
 }

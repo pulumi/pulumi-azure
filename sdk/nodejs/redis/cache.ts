@@ -7,6 +7,35 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a Redis Cache.
+ * 
+ * ## Default Redis Configuration Values
+ * 
+ * | Redis Value                     | Basic        | Standard     | Premium      |
+ * | ------------------------------- | ------------ | ------------ | ------------ |
+ * | enableAuthentication           | true         | true         | true         |
+ * | maxmemoryReserved              | 2            | 50           | 200          |
+ * | maxfragmentationmemoryReserved | 2            | 50           | 200          |
+ * | maxmemoryDelta                 | 2            | 50           | 200          |
+ * | maxmemoryPolicy                | volatile-lru | volatile-lru | volatile-lru |
+ * 
+ * > **NOTE:** The `maxmemoryReserved`, `maxmemoryDelta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
+ * 
+ * ---
+ * 
+ * A `patchSchedule` block supports the following:
+ * 
+ * * `dayOfWeek` (Required) the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+ * 
+ * * `startHourUtc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+ * 
+ * > **Note:** The Patch Window lasts for `5` hours from the `startHourUtc`.
+ * 
+ * ## Relevant Links
+ * 
+ *  - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)
+ *  - [Redis: Available Configuration Settings](http://redis.io/topics/config)
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_cache.html.markdown.
  */
 export class Cache extends pulumi.CustomResource {
@@ -78,6 +107,10 @@ export class Cache extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
     /**
+     * The primary connection string of the Redis Instance.
+     */
+    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
+    /**
      * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
      */
     public readonly privateStaticIpAddress!: pulumi.Output<string>;
@@ -94,6 +127,10 @@ export class Cache extends pulumi.CustomResource {
      * The Secondary Access Key for the Redis Instance
      */
     public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
+    /**
+     * The secondary connection string of the Redis Instance.
+     */
+    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
     /**
      * *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
      */
@@ -113,7 +150,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
      */
@@ -141,10 +178,12 @@ export class Cache extends pulumi.CustomResource {
             inputs["patchSchedules"] = state ? state.patchSchedules : undefined;
             inputs["port"] = state ? state.port : undefined;
             inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
+            inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
             inputs["privateStaticIpAddress"] = state ? state.privateStaticIpAddress : undefined;
             inputs["redisConfiguration"] = state ? state.redisConfiguration : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
+            inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
             inputs["shardCount"] = state ? state.shardCount : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["sslPort"] = state ? state.sslPort : undefined;
@@ -183,7 +222,9 @@ export class Cache extends pulumi.CustomResource {
             inputs["hostname"] = undefined /*out*/;
             inputs["port"] = undefined /*out*/;
             inputs["primaryAccessKey"] = undefined /*out*/;
+            inputs["primaryConnectionString"] = undefined /*out*/;
             inputs["secondaryAccessKey"] = undefined /*out*/;
+            inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["sslPort"] = undefined /*out*/;
         }
         if (!opts) {
@@ -243,6 +284,10 @@ export interface CacheState {
      */
     readonly primaryAccessKey?: pulumi.Input<string>;
     /**
+     * The primary connection string of the Redis Instance.
+     */
+    readonly primaryConnectionString?: pulumi.Input<string>;
+    /**
      * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
      */
     readonly privateStaticIpAddress?: pulumi.Input<string>;
@@ -259,6 +304,10 @@ export interface CacheState {
      * The Secondary Access Key for the Redis Instance
      */
     readonly secondaryAccessKey?: pulumi.Input<string>;
+    /**
+     * The secondary connection string of the Redis Instance.
+     */
+    readonly secondaryConnectionString?: pulumi.Input<string>;
     /**
      * *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
      */

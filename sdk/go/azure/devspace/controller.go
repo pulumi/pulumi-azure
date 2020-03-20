@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a DevSpace Controller.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/devspace_controller.html.markdown.
 type Controller struct {
 	pulumi.CustomResourceState
@@ -27,7 +27,6 @@ type Controller struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	Sku ControllerSkuOutput `pulumi:"sku"`
 	// Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
@@ -43,6 +42,9 @@ func NewController(ctx *pulumi.Context,
 	name string, args *ControllerArgs, opts ...pulumi.ResourceOption) (*Controller, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SkuName == nil {
+		return nil, errors.New("missing required argument 'SkuName'")
 	}
 	if args == nil || args.TargetContainerHostCredentialsBase64 == nil {
 		return nil, errors.New("missing required argument 'TargetContainerHostCredentialsBase64'")
@@ -85,7 +87,6 @@ type controllerState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	Sku *ControllerSku `pulumi:"sku"`
 	// Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
@@ -107,7 +108,6 @@ type ControllerState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	Sku ControllerSkuPtrInput
 	// Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -129,9 +129,8 @@ type controllerArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Sku *ControllerSku `pulumi:"sku"`
 	// Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
-	SkuName *string `pulumi:"skuName"`
+	SkuName string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Base64 encoding of `kubeConfigRaw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
@@ -148,9 +147,8 @@ type ControllerArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Sku ControllerSkuPtrInput
 	// Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
-	SkuName pulumi.StringPtrInput
+	SkuName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Base64 encoding of `kubeConfigRaw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
@@ -162,4 +160,3 @@ type ControllerArgs struct {
 func (ControllerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*controllerArgs)(nil)).Elem()
 }
-

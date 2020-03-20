@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an API Management Service.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management.html.markdown.
 type Service struct {
 	pulumi.CustomResourceState
@@ -41,6 +41,8 @@ type Service struct {
 	Policy ServicePolicyOutput `pulumi:"policy"`
 	// The URL for the Publisher Portal associated with this API Management service.
 	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
+	// A `protocols` block as defined below.
+	Protocols ServiceProtocolsOutput `pulumi:"protocols"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses pulumi.StringArrayOutput `pulumi:"publicIpAddresses"`
 	// The email of publisher/company.
@@ -57,8 +59,6 @@ type Service struct {
 	SignIn ServiceSignInOutput `pulumi:"signIn"`
 	// A `signUp` block as defined below.
 	SignUp ServiceSignUpOutput `pulumi:"signUp"`
-	// A `sku` block as documented below
-	Sku ServiceSkuOutput `pulumi:"sku"`
 	// `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
@@ -76,6 +76,9 @@ func NewService(ctx *pulumi.Context,
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SkuName == nil {
+		return nil, errors.New("missing required argument 'SkuName'")
 	}
 	if args == nil {
 		args = &ServiceArgs{}
@@ -126,6 +129,8 @@ type serviceState struct {
 	Policy *ServicePolicy `pulumi:"policy"`
 	// The URL for the Publisher Portal associated with this API Management service.
 	PortalUrl *string `pulumi:"portalUrl"`
+	// A `protocols` block as defined below.
+	Protocols *ServiceProtocols `pulumi:"protocols"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
 	// The email of publisher/company.
@@ -142,8 +147,6 @@ type serviceState struct {
 	SignIn *ServiceSignIn `pulumi:"signIn"`
 	// A `signUp` block as defined below.
 	SignUp *ServiceSignUp `pulumi:"signUp"`
-	// A `sku` block as documented below
-	Sku *ServiceSku `pulumi:"sku"`
 	// `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
@@ -175,6 +178,8 @@ type ServiceState struct {
 	Policy ServicePolicyPtrInput
 	// The URL for the Publisher Portal associated with this API Management service.
 	PortalUrl pulumi.StringPtrInput
+	// A `protocols` block as defined below.
+	Protocols ServiceProtocolsPtrInput
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses pulumi.StringArrayInput
 	// The email of publisher/company.
@@ -191,8 +196,6 @@ type ServiceState struct {
 	SignIn ServiceSignInPtrInput
 	// A `signUp` block as defined below.
 	SignUp ServiceSignUpPtrInput
-	// A `sku` block as documented below
-	Sku ServiceSkuPtrInput
 	// `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags assigned to the resource.
@@ -220,6 +223,8 @@ type serviceArgs struct {
 	NotificationSenderEmail *string `pulumi:"notificationSenderEmail"`
 	// A `policy` block as defined below.
 	Policy *ServicePolicy `pulumi:"policy"`
+	// A `protocols` block as defined below.
+	Protocols *ServiceProtocols `pulumi:"protocols"`
 	// The email of publisher/company.
 	PublisherEmail string `pulumi:"publisherEmail"`
 	// The name of publisher/company.
@@ -232,10 +237,8 @@ type serviceArgs struct {
 	SignIn *ServiceSignIn `pulumi:"signIn"`
 	// A `signUp` block as defined below.
 	SignUp *ServiceSignUp `pulumi:"signUp"`
-	// A `sku` block as documented below
-	Sku *ServiceSku `pulumi:"sku"`
 	// `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
-	SkuName *string `pulumi:"skuName"`
+	SkuName string `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -258,6 +261,8 @@ type ServiceArgs struct {
 	NotificationSenderEmail pulumi.StringPtrInput
 	// A `policy` block as defined below.
 	Policy ServicePolicyPtrInput
+	// A `protocols` block as defined below.
+	Protocols ServiceProtocolsPtrInput
 	// The email of publisher/company.
 	PublisherEmail pulumi.StringInput
 	// The name of publisher/company.
@@ -270,10 +275,8 @@ type ServiceArgs struct {
 	SignIn ServiceSignInPtrInput
 	// A `signUp` block as defined below.
 	SignUp ServiceSignUpPtrInput
-	// A `sku` block as documented below
-	Sku ServiceSkuPtrInput
 	// `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
-	SkuName pulumi.StringPtrInput
+	SkuName pulumi.StringInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -281,4 +284,3 @@ type ServiceArgs struct {
 func (ServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceArgs)(nil)).Elem()
 }
-

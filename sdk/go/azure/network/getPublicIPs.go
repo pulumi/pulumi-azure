@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about a set of existing Public IP Addresses.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ips.html.markdown.
 func GetPublicIPs(ctx *pulumi.Context, args *GetPublicIPsArgs, opts ...pulumi.InvokeOption) (*GetPublicIPsResult, error) {
 	var rv GetPublicIPsResult
@@ -32,16 +32,14 @@ type GetPublicIPsArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getPublicIPs.
 type GetPublicIPsResult struct {
 	AllocationType *string `pulumi:"allocationType"`
-	Attached *bool `pulumi:"attached"`
+	Attached       *bool   `pulumi:"attached"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id         string  `pulumi:"id"`
 	NamePrefix *string `pulumi:"namePrefix"`
 	// A List of `publicIps` blocks as defined below filtered by the criteria above.
-	PublicIps []GetPublicIPsPublicIp `pulumi:"publicIps"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PublicIps         []GetPublicIPsPublicIp `pulumi:"publicIps"`
+	ResourceGroupName string                 `pulumi:"resourceGroupName"`
 }
-

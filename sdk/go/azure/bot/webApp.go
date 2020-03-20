@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a Web App Bot.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_web_app.html.markdown.
+// Manages a Bot Web App.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_web_app.markdown.
 type WebApp struct {
 	pulumi.CustomResourceState
 
@@ -23,7 +23,7 @@ type WebApp struct {
 	DeveloperAppInsightsApplicationId pulumi.StringOutput `pulumi:"developerAppInsightsApplicationId"`
 	// The Application Insights Key to associate with the Web App Bot.
 	DeveloperAppInsightsKey pulumi.StringOutput `pulumi:"developerAppInsightsKey"`
-	// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. 
+	// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The Web App Bot endpoint.
 	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
@@ -88,7 +88,7 @@ type webAppState struct {
 	DeveloperAppInsightsApplicationId *string `pulumi:"developerAppInsightsApplicationId"`
 	// The Application Insights Key to associate with the Web App Bot.
 	DeveloperAppInsightsKey *string `pulumi:"developerAppInsightsKey"`
-	// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. 
+	// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
 	DisplayName *string `pulumi:"displayName"`
 	// The Web App Bot endpoint.
 	Endpoint *string `pulumi:"endpoint"`
@@ -117,7 +117,7 @@ type WebAppState struct {
 	DeveloperAppInsightsApplicationId pulumi.StringPtrInput
 	// The Application Insights Key to associate with the Web App Bot.
 	DeveloperAppInsightsKey pulumi.StringPtrInput
-	// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. 
+	// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
 	DisplayName pulumi.StringPtrInput
 	// The Web App Bot endpoint.
 	Endpoint pulumi.StringPtrInput
@@ -150,7 +150,7 @@ type webAppArgs struct {
 	DeveloperAppInsightsApplicationId *string `pulumi:"developerAppInsightsApplicationId"`
 	// The Application Insights Key to associate with the Web App Bot.
 	DeveloperAppInsightsKey *string `pulumi:"developerAppInsightsKey"`
-	// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. 
+	// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
 	DisplayName *string `pulumi:"displayName"`
 	// The Web App Bot endpoint.
 	Endpoint *string `pulumi:"endpoint"`
@@ -180,7 +180,7 @@ type WebAppArgs struct {
 	DeveloperAppInsightsApplicationId pulumi.StringPtrInput
 	// The Application Insights Key to associate with the Web App Bot.
 	DeveloperAppInsightsKey pulumi.StringPtrInput
-	// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. 
+	// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
 	DisplayName pulumi.StringPtrInput
 	// The Web App Bot endpoint.
 	Endpoint pulumi.StringPtrInput
@@ -205,4 +205,3 @@ type WebAppArgs struct {
 func (WebAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppArgs)(nil)).Elem()
 }
-

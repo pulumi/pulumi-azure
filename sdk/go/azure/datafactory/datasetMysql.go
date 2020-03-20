@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a MySQL Dataset inside a Azure Data Factory.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_dataset_mysql.html.markdown.
 type DatasetMysql struct {
 	pulumi.CustomResourceState
@@ -185,4 +185,3 @@ type DatasetMysqlArgs struct {
 func (DatasetMysqlArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetMysqlArgs)(nil)).Elem()
 }
-

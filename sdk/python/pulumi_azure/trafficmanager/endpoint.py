@@ -13,7 +13,7 @@ class Endpoint(pulumi.CustomResource):
     custom_headers: pulumi.Output[list]
     """
     One or more `custom_header` blocks as defined below
-    
+
       * `name` (`str`) - The name of the Traffic Manager endpoint. Changing this forces a
         new resource to be created.
       * `value` (`str`)
@@ -69,7 +69,7 @@ class Endpoint(pulumi.CustomResource):
     subnets: pulumi.Output[list]
     """
     One or more `subnet` blocks as defined below
-    
+
       * `first` (`str`)
       * `last` (`str`)
       * `scope` (`float`)
@@ -102,7 +102,9 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, custom_headers=None, endpoint_location=None, endpoint_status=None, geo_mappings=None, min_child_endpoints=None, name=None, priority=None, profile_name=None, resource_group_name=None, subnets=None, target=None, target_resource_id=None, type=None, weight=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Traffic Manager Endpoint.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_endpoint.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] custom_headers: One or more `custom_header` blocks as defined below
@@ -143,20 +145,18 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[float] weight: Specifies how much traffic should be distributed to this
                endpoint, this must be specified for Profiles using the  `Weighted` traffic
                routing method. Supports values between 1 and 1000.
-        
+
         The **custom_headers** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the Traffic Manager endpoint. Changing this forces a
             new resource to be created.
           * `value` (`pulumi.Input[str]`)
-        
+
         The **subnets** object supports the following:
-        
+
           * `first` (`pulumi.Input[str]`)
           * `last` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_endpoint_legacy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -207,7 +207,7 @@ class Endpoint(pulumi.CustomResource):
         """
         Get an existing Endpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -249,24 +249,23 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[float] weight: Specifies how much traffic should be distributed to this
                endpoint, this must be specified for Profiles using the  `Weighted` traffic
                routing method. Supports values between 1 and 1000.
-        
+
         The **custom_headers** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the Traffic Manager endpoint. Changing this forces a
             new resource to be created.
           * `value` (`pulumi.Input[str]`)
-        
+
         The **subnets** object supports the following:
-        
+
           * `first` (`pulumi.Input[str]`)
           * `last` (`pulumi.Input[str]`)
           * `scope` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_endpoint_legacy.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["custom_headers"] = custom_headers
         __props__["endpoint_location"] = endpoint_location
         __props__["endpoint_monitor_status"] = endpoint_monitor_status

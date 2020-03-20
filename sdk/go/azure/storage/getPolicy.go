@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Storage Management Policy.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_management_policy.html.markdown.
 func GetPolicy(ctx *pulumi.Context, args *GetPolicyArgs, opts ...pulumi.InvokeOption) (*GetPolicyResult, error) {
 	var rv GetPolicyResult
@@ -26,13 +26,11 @@ type GetPolicyArgs struct {
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
-
 // A collection of values returned by getPolicy.
 type GetPolicyResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A `rule` block as documented below.
-	Rules []GetPolicyRule `pulumi:"rules"`
-	StorageAccountId string `pulumi:"storageAccountId"`
+	Rules            []GetPolicyRule `pulumi:"rules"`
+	StorageAccountId string          `pulumi:"storageAccountId"`
 }
-

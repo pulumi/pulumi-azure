@@ -8,58 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a NetApp Volume.
- * 
- * ## NetApp Volume Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     addressPrefix: "10.0.2.0/24",
- *     delegations: [{
- *         name: "netapp",
- *         serviceDelegation: {
- *             actions: [
- *                 "Microsoft.Network/networkinterfaces/*",
- *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
- *             ],
- *             name: "Microsoft.Netapp/volumes",
- *         },
- *     }],
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * const exampleAccount = new azure.netapp.Account("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const examplePool = new azure.netapp.Pool("example", {
- *     accountName: exampleAccount.name,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     serviceLevel: "Premium",
- *     sizeInTb: 4,
- * });
- * const exampleVolume = new azure.netapp.Volume("example", {
- *     accountName: exampleAccount.name,
- *     location: exampleResourceGroup.location,
- *     poolName: examplePool.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     serviceLevel: "Premium",
- *     storageQuotaInGb: 100,
- *     subnetId: exampleSubnet.id,
- *     volumePath: "my-unique-file-path",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_volume.html.markdown.
  */
@@ -111,6 +59,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly poolName!: pulumi.Output<string>;
     /**
+     * The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+     */
+    public readonly protocols!: pulumi.Output<string[]>;
+    /**
      * The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -126,6 +78,10 @@ export class Volume extends pulumi.CustomResource {
      * The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
      */
     public readonly subnetId!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      */
@@ -148,10 +104,12 @@ export class Volume extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["poolName"] = state ? state.poolName : undefined;
+            inputs["protocols"] = state ? state.protocols : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["serviceLevel"] = state ? state.serviceLevel : undefined;
             inputs["storageQuotaInGb"] = state ? state.storageQuotaInGb : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["volumePath"] = state ? state.volumePath : undefined;
         } else {
             const args = argsOrState as VolumeArgs | undefined;
@@ -181,10 +139,12 @@ export class Volume extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["poolName"] = args ? args.poolName : undefined;
+            inputs["protocols"] = args ? args.protocols : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceLevel"] = args ? args.serviceLevel : undefined;
             inputs["storageQuotaInGb"] = args ? args.storageQuotaInGb : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["volumePath"] = args ? args.volumePath : undefined;
         }
         if (!opts) {
@@ -223,6 +183,10 @@ export interface VolumeState {
      */
     readonly poolName?: pulumi.Input<string>;
     /**
+     * The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+     */
+    readonly protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
@@ -238,6 +202,10 @@ export interface VolumeState {
      * The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
      */
     readonly subnetId?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      */
@@ -269,6 +237,10 @@ export interface VolumeArgs {
      */
     readonly poolName: pulumi.Input<string>;
     /**
+     * The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+     */
+    readonly protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -284,6 +256,10 @@ export interface VolumeArgs {
      * The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
      */
     readonly subnetId: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      */

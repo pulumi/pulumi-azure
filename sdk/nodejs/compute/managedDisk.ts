@@ -8,59 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a managed disk.
- * 
- * ## Example Usage with Create Empty
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US 2",
- * });
- * const exampleManagedDisk = new azure.compute.ManagedDisk("example", {
- *     createOption: "Empty",
- *     diskSizeGb: 1,
- *     location: "West US 2",
- *     resourceGroupName: exampleResourceGroup.name,
- *     storageAccountType: "Standard_LRS",
- *     tags: {
- *         environment: "staging",
- *     },
- * });
- * ```
- * 
- * ## Example Usage with Create Copy
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = new azure.core.ResourceGroup("example", {
- *     location: "West US 2",
- * });
- * const source = new azure.compute.ManagedDisk("source", {
- *     createOption: "Empty",
- *     diskSizeGb: 1,
- *     location: "West US 2",
- *     resourceGroupName: example.name,
- *     storageAccountType: "Standard_LRS",
- *     tags: {
- *         environment: "staging",
- *     },
- * });
- * const copy = new azure.compute.ManagedDisk("copy", {
- *     createOption: "Copy",
- *     diskSizeGb: 1,
- *     location: "West US 2",
- *     resourceGroupName: example.name,
- *     sourceResourceId: source.id,
- *     storageAccountType: "Standard_LRS",
- *     tags: {
- *         environment: "staging",
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_disk.html.markdown.
  */
@@ -92,7 +39,7 @@ export class ManagedDisk extends pulumi.CustomResource {
     }
 
     /**
-     * The method to use when creating the managed disk. Possible values include:
+     * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
      */
     public readonly createOption!: pulumi.Output<string>;
     /**
@@ -144,7 +91,7 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly sourceUri!: pulumi.Output<string>;
     /**
-     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.
+     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
      */
     public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
@@ -154,7 +101,7 @@ export class ManagedDisk extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A collection containing the availability zone to allocate the Managed Disk in.
      */
@@ -234,7 +181,7 @@ export class ManagedDisk extends pulumi.CustomResource {
  */
 export interface ManagedDiskState {
     /**
-     * The method to use when creating the managed disk. Possible values include:
+     * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
      */
     readonly createOption?: pulumi.Input<string>;
     /**
@@ -286,7 +233,7 @@ export interface ManagedDiskState {
      */
     readonly sourceUri?: pulumi.Input<string>;
     /**
-     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.
+     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
      */
     readonly storageAccountId?: pulumi.Input<string>;
     /**
@@ -308,7 +255,7 @@ export interface ManagedDiskState {
  */
 export interface ManagedDiskArgs {
     /**
-     * The method to use when creating the managed disk. Possible values include:
+     * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
      */
     readonly createOption: pulumi.Input<string>;
     /**
@@ -360,7 +307,7 @@ export interface ManagedDiskArgs {
      */
     readonly sourceUri?: pulumi.Input<string>;
     /**
-     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.
+     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
      */
     readonly storageAccountId?: pulumi.Input<string>;
     /**

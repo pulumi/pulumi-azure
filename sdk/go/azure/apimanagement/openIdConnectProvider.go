@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an OpenID Connect Provider within a API Management Service.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_openid_connect_provider.html.markdown.
 type OpenIdConnectProvider struct {
 	pulumi.CustomResourceState
@@ -164,4 +164,3 @@ type OpenIdConnectProviderArgs struct {
 func (OpenIdConnectProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*openIdConnectProviderArgs)(nil)).Elem()
 }
-

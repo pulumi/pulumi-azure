@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Public IP Prefix.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip_prefix.html.markdown.
 func LookupPublicIpPrefix(ctx *pulumi.Context, args *LookupPublicIpPrefixArgs, opts ...pulumi.InvokeOption) (*LookupPublicIpPrefixResult, error) {
 	var rv LookupPublicIpPrefixResult
@@ -25,15 +25,14 @@ type LookupPublicIpPrefixArgs struct {
 	// Specifies the name of the public IP prefix.
 	Name string `pulumi:"name"`
 	// Specifies the name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Zones []string `pulumi:"zones"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
+	Zones             []string `pulumi:"zones"`
 }
-
 
 // A collection of values returned by getPublicIpPrefix.
 type LookupPublicIpPrefixResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id       string `pulumi:"id"`
 	IpPrefix string `pulumi:"ipPrefix"`
 	// The supported Azure location where the resource exists.
 	Location string `pulumi:"location"`
@@ -46,7 +45,6 @@ type LookupPublicIpPrefixResult struct {
 	// The SKU of the Public IP Prefix.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
-	Zones []string `pulumi:"zones"`
+	Tags  map[string]string `pulumi:"tags"`
+	Zones []string          `pulumi:"zones"`
 }
-

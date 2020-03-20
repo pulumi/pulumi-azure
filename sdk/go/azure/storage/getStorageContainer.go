@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Storage Container.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_container.html.markdown.
 func GetStorageContainer(ctx *pulumi.Context, args *GetStorageContainerArgs, opts ...pulumi.InvokeOption) (*GetStorageContainerResult, error) {
 	var rv GetStorageContainerResult
@@ -29,7 +29,6 @@ type GetStorageContainerArgs struct {
 	StorageAccountName string `pulumi:"storageAccountName"`
 }
 
-
 // A collection of values returned by getStorageContainer.
 type GetStorageContainerResult struct {
 	// The Access Level configured for this Container.
@@ -41,8 +40,7 @@ type GetStorageContainerResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A mapping of MetaData for this Container.
-	Metadata map[string]string `pulumi:"metadata"`
-	Name string `pulumi:"name"`
-	StorageAccountName string `pulumi:"storageAccountName"`
+	Metadata           map[string]string `pulumi:"metadata"`
+	Name               string            `pulumi:"name"`
+	StorageAccountName string            `pulumi:"storageAccountName"`
 }
-

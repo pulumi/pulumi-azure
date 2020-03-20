@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Recurrence Trigger within a Logic App Workflow
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_recurrence.html.markdown.
 type TriggerRecurrence struct {
 	pulumi.CustomResourceState
@@ -125,4 +125,3 @@ type TriggerRecurrenceArgs struct {
 func (TriggerRecurrenceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerRecurrenceArgs)(nil)).Elem()
 }
-

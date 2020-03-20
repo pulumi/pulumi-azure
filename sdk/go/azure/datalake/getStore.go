@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Data Lake Store.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_lake_store.html.markdown.
 func LookupStore(ctx *pulumi.Context, args *LookupStoreArgs, opts ...pulumi.InvokeOption) (*LookupStoreResult, error) {
 	var rv LookupStoreResult
@@ -28,7 +28,6 @@ type LookupStoreArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getStore.
 type LookupStoreResult struct {
 	// the Encryption State of this Data Lake Store Account, such as `Enabled` or `Disabled`.
@@ -40,13 +39,12 @@ type LookupStoreResult struct {
 	// the state of the firewall, such as `Enabled` or `Disabled`.
 	FirewallState string `pulumi:"firewallState"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Id                string `pulumi:"id"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the Data Lake Store.
 	Tags map[string]string `pulumi:"tags"`
 	// Current monthly commitment tier for the account.
 	Tier string `pulumi:"tier"`
 }
-

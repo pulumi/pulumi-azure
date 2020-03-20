@@ -13,7 +13,7 @@ class GetRegistryResult:
     """
     A collection of values returned by getRegistry.
     """
-    def __init__(__self__, admin_enabled=None, admin_password=None, admin_username=None, location=None, login_server=None, name=None, resource_group_name=None, sku=None, storage_account_id=None, tags=None, id=None):
+    def __init__(__self__, admin_enabled=None, admin_password=None, admin_username=None, id=None, location=None, login_server=None, name=None, resource_group_name=None, sku=None, storage_account_id=None, tags=None):
         if admin_enabled and not isinstance(admin_enabled, bool):
             raise TypeError("Expected argument 'admin_enabled' to be a bool")
         __self__.admin_enabled = admin_enabled
@@ -31,6 +31,12 @@ class GetRegistryResult:
         __self__.admin_username = admin_username
         """
         The Username associated with the Container Registry Admin account - if the admin account is enabled.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -68,12 +74,6 @@ class GetRegistryResult:
         """
         A map of tags assigned to the Container Registry.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetRegistryResult(GetRegistryResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -83,25 +83,27 @@ class AwaitableGetRegistryResult(GetRegistryResult):
             admin_enabled=self.admin_enabled,
             admin_password=self.admin_password,
             admin_username=self.admin_username,
+            id=self.id,
             location=self.location,
             login_server=self.login_server,
             name=self.name,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
             storage_account_id=self.storage_account_id,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_registry(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Container Registry.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/container_registry.markdown.
+
+
     :param str name: The name of the Container Registry.
     :param str resource_group_name: The Name of the Resource Group where this Container Registry exists.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/container_registry.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -115,11 +117,11 @@ def get_registry(name=None,resource_group_name=None,opts=None):
         admin_enabled=__ret__.get('adminEnabled'),
         admin_password=__ret__.get('adminPassword'),
         admin_username=__ret__.get('adminUsername'),
+        id=__ret__.get('id'),
         location=__ret__.get('location'),
         login_server=__ret__.get('loginServer'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
         sku=__ret__.get('sku'),
         storage_account_id=__ret__.get('storageAccountId'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

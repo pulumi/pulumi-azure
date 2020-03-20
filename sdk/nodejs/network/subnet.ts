@@ -12,37 +12,6 @@ import * as utilities from "../utilities";
  * > **NOTE on Virtual Networks and Subnet's:** This provider currently
  * provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
  * At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     addressPrefix: "10.0.1.0/24",
- *     delegations: [{
- *         name: "acctestdelegation",
- *         serviceDelegation: {
- *             actions: [
- *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
- *                 "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
- *             ],
- *             name: "Microsoft.ContainerInstance/containerGroups",
- *         },
- *     }],
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet.html.markdown.
  */
@@ -82,33 +51,21 @@ export class Subnet extends pulumi.CustomResource {
      */
     public readonly delegations!: pulumi.Output<outputs.network.SubnetDelegation[] | undefined>;
     /**
-     * Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+     * Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
      */
     public readonly enforcePrivateLinkEndpointNetworkPolicies!: pulumi.Output<boolean | undefined>;
     /**
-     * Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
+     * Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
      */
     public readonly enforcePrivateLinkServiceNetworkPolicies!: pulumi.Output<boolean | undefined>;
-    /**
-     * The collection of IP Configurations with IPs within this subnet.
-     */
-    public readonly ipConfigurations!: pulumi.Output<string[]>;
     /**
      * The name of the subnet. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the Network Security Group to associate with the subnet.
-     */
-    public readonly networkSecurityGroupId!: pulumi.Output<string | undefined>;
-    /**
      * The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
-     * The ID of the Route Table to associate with the subnet.
-     */
-    public readonly routeTableId!: pulumi.Output<string | undefined>;
     /**
      * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
      */
@@ -134,11 +91,8 @@ export class Subnet extends pulumi.CustomResource {
             inputs["delegations"] = state ? state.delegations : undefined;
             inputs["enforcePrivateLinkEndpointNetworkPolicies"] = state ? state.enforcePrivateLinkEndpointNetworkPolicies : undefined;
             inputs["enforcePrivateLinkServiceNetworkPolicies"] = state ? state.enforcePrivateLinkServiceNetworkPolicies : undefined;
-            inputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
             inputs["name"] = state ? state.name : undefined;
-            inputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["routeTableId"] = state ? state.routeTableId : undefined;
             inputs["serviceEndpoints"] = state ? state.serviceEndpoints : undefined;
             inputs["virtualNetworkName"] = state ? state.virtualNetworkName : undefined;
         } else {
@@ -156,11 +110,8 @@ export class Subnet extends pulumi.CustomResource {
             inputs["delegations"] = args ? args.delegations : undefined;
             inputs["enforcePrivateLinkEndpointNetworkPolicies"] = args ? args.enforcePrivateLinkEndpointNetworkPolicies : undefined;
             inputs["enforcePrivateLinkServiceNetworkPolicies"] = args ? args.enforcePrivateLinkServiceNetworkPolicies : undefined;
-            inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeTableId"] = args ? args.routeTableId : undefined;
             inputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
         }
@@ -188,33 +139,21 @@ export interface SubnetState {
      */
     readonly delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
     /**
-     * Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+     * Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
      */
     readonly enforcePrivateLinkEndpointNetworkPolicies?: pulumi.Input<boolean>;
     /**
-     * Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
+     * Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
      */
     readonly enforcePrivateLinkServiceNetworkPolicies?: pulumi.Input<boolean>;
-    /**
-     * The collection of IP Configurations with IPs within this subnet.
-     */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the subnet. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The ID of the Network Security Group to associate with the subnet.
-     */
-    readonly networkSecurityGroupId?: pulumi.Input<string>;
-    /**
      * The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
-    /**
-     * The ID of the Route Table to associate with the subnet.
-     */
-    readonly routeTableId?: pulumi.Input<string>;
     /**
      * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
      */
@@ -238,33 +177,21 @@ export interface SubnetArgs {
      */
     readonly delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
     /**
-     * Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+     * Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
      */
     readonly enforcePrivateLinkEndpointNetworkPolicies?: pulumi.Input<boolean>;
     /**
-     * Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
+     * Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
      */
     readonly enforcePrivateLinkServiceNetworkPolicies?: pulumi.Input<boolean>;
-    /**
-     * The collection of IP Configurations with IPs within this subnet.
-     */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the subnet. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The ID of the Network Security Group to associate with the subnet.
-     */
-    readonly networkSecurityGroupId?: pulumi.Input<string>;
-    /**
      * The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The ID of the Route Table to associate with the subnet.
-     */
-    readonly routeTableId?: pulumi.Input<string>;
     /**
      * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
      */

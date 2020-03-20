@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Azure Data Factory (Version 2).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_factory.html.markdown.
 func LookupFactory(ctx *pulumi.Context, args *LookupFactoryArgs, opts ...pulumi.InvokeOption) (*LookupFactoryResult, error) {
 	var rv LookupFactoryResult
@@ -22,12 +22,11 @@ func LookupFactory(ctx *pulumi.Context, args *LookupFactoryArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getFactory.
 type LookupFactoryArgs struct {
-	// Specifies the name of the Data Factory to retrieve information about. 
+	// Specifies the name of the Data Factory to retrieve information about.
 	Name string `pulumi:"name"`
 	// The name of the resource group where the Data Factory exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
-
 
 // A collection of values returned by getFactory.
 type LookupFactoryResult struct {
@@ -38,8 +37,8 @@ type LookupFactoryResult struct {
 	// An `identity` block as defined below.
 	Identities []GetFactoryIdentity `pulumi:"identities"`
 	// The Azure location where the resource exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	// ---
@@ -47,4 +46,3 @@ type LookupFactoryResult struct {
 	// A `vstsConfiguration` block as defined below.
 	VstsConfigurations []GetFactoryVstsConfiguration `pulumi:"vstsConfigurations"`
 }
-

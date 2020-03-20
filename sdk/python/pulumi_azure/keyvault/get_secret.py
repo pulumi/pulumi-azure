@@ -13,12 +13,18 @@ class GetSecretResult:
     """
     A collection of values returned by getSecret.
     """
-    def __init__(__self__, content_type=None, key_vault_id=None, name=None, tags=None, value=None, vault_uri=None, version=None, id=None):
+    def __init__(__self__, content_type=None, id=None, key_vault_id=None, name=None, tags=None, value=None, version=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         __self__.content_type = content_type
         """
         The content type for the Key Vault Secret.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if key_vault_id and not isinstance(key_vault_id, str):
             raise TypeError("Expected argument 'key_vault_id' to be a str")
@@ -38,20 +44,11 @@ class GetSecretResult:
         """
         The value of the Key Vault Secret.
         """
-        if vault_uri and not isinstance(vault_uri, str):
-            raise TypeError("Expected argument 'vault_uri' to be a str")
-        __self__.vault_uri = vault_uri
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         __self__.version = version
         """
         The current version of the Key Vault Secret.
-        """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
         """
 class AwaitableGetSecretResult(GetSecretResult):
     # pylint: disable=using-constant-test
@@ -60,31 +57,31 @@ class AwaitableGetSecretResult(GetSecretResult):
             yield self
         return GetSecretResult(
             content_type=self.content_type,
+            id=self.id,
             key_vault_id=self.key_vault_id,
             name=self.name,
             tags=self.tags,
             value=self.value,
-            vault_uri=self.vault_uri,
-            version=self.version,
-            id=self.id)
+            version=self.version)
 
-def get_secret(key_vault_id=None,name=None,vault_uri=None,opts=None):
+def get_secret(key_vault_id=None,name=None,opts=None):
     """
     Use this data source to access information about an existing Key Vault Secret.
-    
+
     > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
     [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-    
-    :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource. 
-    :param str name: Specifies the name of the Key Vault Secret.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_secret.html.markdown.
+
+
+    :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource. 
+    :param str name: Specifies the name of the Key Vault Secret.
     """
     __args__ = dict()
 
+
     __args__['keyVaultId'] = key_vault_id
     __args__['name'] = name
-    __args__['vaultUri'] = vault_uri
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -93,10 +90,9 @@ def get_secret(key_vault_id=None,name=None,vault_uri=None,opts=None):
 
     return AwaitableGetSecretResult(
         content_type=__ret__.get('contentType'),
+        id=__ret__.get('id'),
         key_vault_id=__ret__.get('keyVaultId'),
         name=__ret__.get('name'),
         tags=__ret__.get('tags'),
         value=__ret__.get('value'),
-        vault_uri=__ret__.get('vaultUri'),
-        version=__ret__.get('version'),
-        id=__ret__.get('id'))
+        version=__ret__.get('version'))

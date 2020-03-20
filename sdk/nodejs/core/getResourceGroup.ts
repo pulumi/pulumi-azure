@@ -6,24 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Resource Group.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = azure.core.getResourceGroup({
- *     name: "dsrgTest",
- * });
- * const exampleManagedDisk = new azure.compute.ManagedDisk("example", {
- *     createOption: "Empty",
- *     diskSizeGb: 1,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     storageAccountType: "Standard_LRS",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resource_group.html.markdown.
  */
@@ -45,7 +27,7 @@ export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.Invok
  */
 export interface GetResourceGroupArgs {
     /**
-     * Specifies the name of the resource group.
+     * The Name of this Resource Group.
      */
     readonly name: string;
 }
@@ -55,12 +37,12 @@ export interface GetResourceGroupArgs {
  */
 export interface GetResourceGroupResult {
     /**
-     * The location of the resource group.
+     * The Azure Region where the Resource Group exists.
      */
     readonly location: string;
     readonly name: string;
     /**
-     * A mapping of tags assigned to the resource group.
+     * A mapping of tags assigned to the Resource Group.
      */
     readonly tags: {[key: string]: string};
     /**

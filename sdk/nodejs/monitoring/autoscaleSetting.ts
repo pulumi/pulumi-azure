@@ -9,76 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
  * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleScaleSet = new azure.compute.ScaleSet("example", {});
- * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("example", {
- *     location: exampleResourceGroup.location,
- *     notification: {
- *         email: {
- *             customEmails: ["admin@contoso.com"],
- *             sendToSubscriptionAdministrator: true,
- *             sendToSubscriptionCoAdministrator: true,
- *         },
- *     },
- *     profiles: [{
- *         capacity: {
- *             default: 1,
- *             maximum: 10,
- *             minimum: 1,
- *         },
- *         name: "defaultProfile",
- *         rules: [
- *             {
- *                 metricTrigger: {
- *                     metricName: "Percentage CPU",
- *                     metricResourceId: exampleScaleSet.id,
- *                     operator: "GreaterThan",
- *                     statistic: "Average",
- *                     threshold: 75,
- *                     timeAggregation: "Average",
- *                     timeGrain: "PT1M",
- *                     timeWindow: "PT5M",
- *                 },
- *                 scaleAction: {
- *                     cooldown: "PT1M",
- *                     direction: "Increase",
- *                     type: "ChangeCount",
- *                     value: 1,
- *                 },
- *             },
- *             {
- *                 metricTrigger: {
- *                     metricName: "Percentage CPU",
- *                     metricResourceId: exampleScaleSet.id,
- *                     operator: "LessThan",
- *                     statistic: "Average",
- *                     threshold: 25,
- *                     timeAggregation: "Average",
- *                     timeGrain: "PT1M",
- *                     timeWindow: "PT5M",
- *                 },
- *                 scaleAction: {
- *                     cooldown: "PT1M",
- *                     direction: "Decrease",
- *                     type: "ChangeCount",
- *                     value: 1,
- *                 },
- *             },
- *         ],
- *     }],
- *     resourceGroupName: exampleResourceGroup.name,
- *     targetResourceId: exampleScaleSet.id,
- * });
- * ```
- * 
  * ## Example Usage (repeating on weekends)
  * 
  * ```typescript
@@ -115,82 +45,6 @@ import * as utilities from "../utilities";
  *             minutes: 0,
  *             timezone: "Pacific Standard Time",
  *         },
- *         rules: [
- *             {
- *                 metricTrigger: {
- *                     metricName: "Percentage CPU",
- *                     metricResourceId: exampleScaleSet.id,
- *                     operator: "GreaterThan",
- *                     statistic: "Average",
- *                     threshold: 90,
- *                     timeAggregation: "Average",
- *                     timeGrain: "PT1M",
- *                     timeWindow: "PT5M",
- *                 },
- *                 scaleAction: {
- *                     cooldown: "PT1M",
- *                     direction: "Increase",
- *                     type: "ChangeCount",
- *                     value: 2,
- *                 },
- *             },
- *             {
- *                 metricTrigger: {
- *                     metricName: "Percentage CPU",
- *                     metricResourceId: exampleScaleSet.id,
- *                     operator: "LessThan",
- *                     statistic: "Average",
- *                     threshold: 10,
- *                     timeAggregation: "Average",
- *                     timeGrain: "PT1M",
- *                     timeWindow: "PT5M",
- *                 },
- *                 scaleAction: {
- *                     cooldown: "PT1M",
- *                     direction: "Decrease",
- *                     type: "ChangeCount",
- *                     value: 2,
- *                 },
- *             },
- *         ],
- *     }],
- *     resourceGroupName: exampleResourceGroup.name,
- *     targetResourceId: exampleScaleSet.id,
- * });
- * ```
- * 
- * ## Example Usage (for fixed dates)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleScaleSet = new azure.compute.ScaleSet("example", {});
- * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("example", {
- *     enabled: true,
- *     location: exampleResourceGroup.location,
- *     notification: {
- *         email: {
- *             customEmails: ["admin@contoso.com"],
- *             sendToSubscriptionAdministrator: true,
- *             sendToSubscriptionCoAdministrator: true,
- *         },
- *     },
- *     profiles: [{
- *         capacity: {
- *             default: 1,
- *             maximum: 10,
- *             minimum: 1,
- *         },
- *         fixedDate: {
- *             end: "2020-07-31T23:59:59Z",
- *             start: "2020-07-01T00:00:00Z",
- *             timezone: "Pacific Standard Time",
- *         },
- *         name: "forJuly",
  *         rules: [
  *             {
  *                 metricTrigger: {
@@ -291,7 +145,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the resource ID of the resource that the autoscale setting should be added to.
      */

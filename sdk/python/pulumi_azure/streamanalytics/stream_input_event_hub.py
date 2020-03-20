@@ -29,7 +29,7 @@ class StreamInputEventHub(pulumi.CustomResource):
     serialization: pulumi.Output[dict]
     """
     A `serialization` block as defined below.
-    
+
       * `encoding` (`str`)
       * `fieldDelimiter` (`str`)
       * `type` (`str`)
@@ -48,12 +48,14 @@ class StreamInputEventHub(pulumi.CustomResource):
     """
     stream_analytics_job_name: pulumi.Output[str]
     """
-    The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+    The name of the Stream Analytics Job. Changing this forces a new resource to be created.
     """
     def __init__(__self__, resource_name, opts=None, eventhub_consumer_group_name=None, eventhub_name=None, name=None, resource_group_name=None, serialization=None, servicebus_namespace=None, shared_access_policy_key=None, shared_access_policy_name=None, stream_analytics_job_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Stream Analytics Stream Input EventHub.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_stream_input_eventhub.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] eventhub_consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
@@ -64,15 +66,13 @@ class StreamInputEventHub(pulumi.CustomResource):
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
-        :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
-        
+        :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+
         The **serialization** object supports the following:
-        
+
           * `encoding` (`pulumi.Input[str]`)
           * `fieldDelimiter` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_stream_input_eventhub.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -127,7 +127,7 @@ class StreamInputEventHub(pulumi.CustomResource):
         """
         Get an existing StreamInputEventHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,19 +139,18 @@ class StreamInputEventHub(pulumi.CustomResource):
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
-        :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
-        
+        :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+
         The **serialization** object supports the following:
-        
+
           * `encoding` (`pulumi.Input[str]`)
           * `fieldDelimiter` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_stream_input_eventhub.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["eventhub_consumer_group_name"] = eventhub_consumer_group_name
         __props__["eventhub_name"] = eventhub_name
         __props__["name"] = name

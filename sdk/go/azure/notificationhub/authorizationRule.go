@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Authorization Rule associated with a Notification Hub within a Notification Hub Namespace.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub_authorization_rule.html.markdown.
 type AuthorizationRule struct {
 	pulumi.CustomResourceState
@@ -157,4 +157,3 @@ type AuthorizationRuleArgs struct {
 func (AuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*authorizationRuleArgs)(nil)).Elem()
 }
-

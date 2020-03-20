@@ -8,40 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Event Hubs authorization Rule within an Event Hub.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
- *     capacity: 2,
- *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Basic",
- *     tags: {
- *         environment: "Production",
- *     },
- * });
- * const exampleEventHub = new azure.eventhub.EventHub("example", {
- *     messageRetention: 2,
- *     namespaceName: exampleEventHubNamespace.name,
- *     partitionCount: 2,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("example", {
- *     eventhubName: exampleEventHub.name,
- *     listen: true,
- *     manage: false,
- *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     send: false,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_authorization_rule.html.markdown.
  */
@@ -80,7 +46,6 @@ export class AuthorizationRule extends pulumi.CustomResource {
      * Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
      */
     public readonly listen!: pulumi.Output<boolean | undefined>;
-    public readonly location!: pulumi.Output<string>;
     /**
      * Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
@@ -106,11 +71,11 @@ export class AuthorizationRule extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The Secondary Connection String for the Event Hubs authorization Rule.
+     * The Secondary Connection String for the Event Hubs Authorization Rule.
      */
     public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
     /**
-     * The Secondary Key for the Event Hubs authorization Rule.
+     * The Secondary Key for the Event Hubs Authorization Rule.
      */
     public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
     /**
@@ -132,7 +97,6 @@ export class AuthorizationRule extends pulumi.CustomResource {
             const state = argsOrState as AuthorizationRuleState | undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["listen"] = state ? state.listen : undefined;
-            inputs["location"] = state ? state.location : undefined;
             inputs["manage"] = state ? state.manage : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
@@ -155,7 +119,6 @@ export class AuthorizationRule extends pulumi.CustomResource {
             }
             inputs["eventhubName"] = args ? args.eventhubName : undefined;
             inputs["listen"] = args ? args.listen : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["manage"] = args ? args.manage : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
@@ -191,7 +154,6 @@ export interface AuthorizationRuleState {
      * Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
      */
     readonly listen?: pulumi.Input<boolean>;
-    readonly location?: pulumi.Input<string>;
     /**
      * Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
@@ -217,11 +179,11 @@ export interface AuthorizationRuleState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The Secondary Connection String for the Event Hubs authorization Rule.
+     * The Secondary Connection String for the Event Hubs Authorization Rule.
      */
     readonly secondaryConnectionString?: pulumi.Input<string>;
     /**
-     * The Secondary Key for the Event Hubs authorization Rule.
+     * The Secondary Key for the Event Hubs Authorization Rule.
      */
     readonly secondaryKey?: pulumi.Input<string>;
     /**
@@ -242,7 +204,6 @@ export interface AuthorizationRuleArgs {
      * Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
      */
     readonly listen?: pulumi.Input<boolean>;
-    readonly location?: pulumi.Input<string>;
     /**
      * Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */

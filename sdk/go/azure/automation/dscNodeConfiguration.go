@@ -12,14 +12,14 @@ import (
 )
 
 // Manages a Automation DSC Node Configuration.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_dsc_nodeconfiguration.html.markdown.
 type DscNodeConfiguration struct {
 	pulumi.CustomResourceState
 
 	// The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringOutput `pulumi:"automationAccountName"`
-	ConfigurationName pulumi.StringOutput `pulumi:"configurationName"`
+	ConfigurationName     pulumi.StringOutput `pulumi:"configurationName"`
 	// The PowerShell DSC Node Configuration (mof content).
 	ContentEmbedded pulumi.StringOutput `pulumi:"contentEmbedded"`
 	// Specifies the name of the DSC Node Configuration. Changing this forces a new resource to be created.
@@ -67,7 +67,7 @@ func GetDscNodeConfiguration(ctx *pulumi.Context,
 type dscNodeConfigurationState struct {
 	// The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
 	AutomationAccountName *string `pulumi:"automationAccountName"`
-	ConfigurationName *string `pulumi:"configurationName"`
+	ConfigurationName     *string `pulumi:"configurationName"`
 	// The PowerShell DSC Node Configuration (mof content).
 	ContentEmbedded *string `pulumi:"contentEmbedded"`
 	// Specifies the name of the DSC Node Configuration. Changing this forces a new resource to be created.
@@ -79,7 +79,7 @@ type dscNodeConfigurationState struct {
 type DscNodeConfigurationState struct {
 	// The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringPtrInput
-	ConfigurationName pulumi.StringPtrInput
+	ConfigurationName     pulumi.StringPtrInput
 	// The PowerShell DSC Node Configuration (mof content).
 	ContentEmbedded pulumi.StringPtrInput
 	// Specifies the name of the DSC Node Configuration. Changing this forces a new resource to be created.
@@ -118,4 +118,3 @@ type DscNodeConfigurationArgs struct {
 func (DscNodeConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dscNodeConfigurationArgs)(nil)).Elem()
 }
-

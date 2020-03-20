@@ -13,12 +13,18 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, hostname=None, ip_address=None, location=None, name=None, primary_access_key=None, primary_connection_string=None, public_port=None, resource_group_name=None, secondary_access_key=None, secondary_connection_string=None, server_port=None, tags=None, id=None):
+    def __init__(__self__, hostname=None, id=None, ip_address=None, location=None, name=None, primary_access_key=None, primary_connection_string=None, public_port=None, resource_group_name=None, secondary_access_key=None, secondary_connection_string=None, server_port=None, tags=None):
         if hostname and not isinstance(hostname, str):
             raise TypeError("Expected argument 'hostname' to be a str")
         __self__.hostname = hostname
         """
         The FQDN of the SignalR service.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if ip_address and not isinstance(ip_address, str):
             raise TypeError("Expected argument 'ip_address' to be a str")
@@ -77,12 +83,6 @@ class GetServiceResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -90,6 +90,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             yield self
         return GetServiceResult(
             hostname=self.hostname,
+            id=self.id,
             ip_address=self.ip_address,
             location=self.location,
             name=self.name,
@@ -100,19 +101,20 @@ class AwaitableGetServiceResult(GetServiceResult):
             secondary_access_key=self.secondary_access_key,
             secondary_connection_string=self.secondary_connection_string,
             server_port=self.server_port,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_service(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Azure SignalR service.
-    
-    :param str name: Specifies the name of the SignalR service.
-    :param str resource_group_name: Specifies the name of the resource group the SignalR service is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/signalr_service.html.markdown.
+
+
+    :param str name: Specifies the name of the SignalR service.
+    :param str resource_group_name: Specifies the name of the resource group the SignalR service is located in.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -124,6 +126,7 @@ def get_service(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetServiceResult(
         hostname=__ret__.get('hostname'),
+        id=__ret__.get('id'),
         ip_address=__ret__.get('ipAddress'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
@@ -134,5 +137,4 @@ def get_service(name=None,resource_group_name=None,opts=None):
         secondary_access_key=__ret__.get('secondaryAccessKey'),
         secondary_connection_string=__ret__.get('secondaryConnectionString'),
         server_port=__ret__.get('serverPort'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

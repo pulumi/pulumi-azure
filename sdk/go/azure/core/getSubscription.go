@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Subscription.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscription.html.markdown.
 func GetSubscription(ctx *pulumi.Context, args *GetSubscriptionArgs, opts ...pulumi.InvokeOption) (*GetSubscriptionResult, error) {
 	var rv GetSubscriptionResult
@@ -25,7 +25,6 @@ type GetSubscriptionArgs struct {
 	// Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 }
-
 
 // A collection of values returned by getSubscription.
 type GetSubscriptionResult struct {
@@ -46,4 +45,3 @@ type GetSubscriptionResult struct {
 	// The subscription tenant ID.
 	TenantId string `pulumi:"tenantId"`
 }
-

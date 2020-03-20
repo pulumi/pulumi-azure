@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a NetApp Volume.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_volume.html.markdown.
 type Volume struct {
 	pulumi.CustomResourceState
@@ -27,6 +27,8 @@ type Volume struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName pulumi.StringOutput `pulumi:"poolName"`
+	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
@@ -35,6 +37,8 @@ type Volume struct {
 	StorageQuotaInGb pulumi.IntOutput `pulumi:"storageQuotaInGb"`
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath pulumi.StringOutput `pulumi:"volumePath"`
 }
@@ -98,6 +102,8 @@ type volumeState struct {
 	Name *string `pulumi:"name"`
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName *string `pulumi:"poolName"`
+	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+	Protocols []string `pulumi:"protocols"`
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
@@ -106,6 +112,8 @@ type volumeState struct {
 	StorageQuotaInGb *int `pulumi:"storageQuotaInGb"`
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath *string `pulumi:"volumePath"`
 }
@@ -121,6 +129,8 @@ type VolumeState struct {
 	Name pulumi.StringPtrInput
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName pulumi.StringPtrInput
+	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+	Protocols pulumi.StringArrayInput
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
@@ -129,6 +139,8 @@ type VolumeState struct {
 	StorageQuotaInGb pulumi.IntPtrInput
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath pulumi.StringPtrInput
 }
@@ -148,6 +160,8 @@ type volumeArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName string `pulumi:"poolName"`
+	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+	Protocols []string `pulumi:"protocols"`
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
@@ -156,6 +170,8 @@ type volumeArgs struct {
 	StorageQuotaInGb int `pulumi:"storageQuotaInGb"`
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath string `pulumi:"volumePath"`
 }
@@ -172,6 +188,8 @@ type VolumeArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName pulumi.StringInput
+	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+	Protocols pulumi.StringArrayInput
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
@@ -180,6 +198,8 @@ type VolumeArgs struct {
 	StorageQuotaInGb pulumi.IntInput
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath pulumi.StringInput
 }
@@ -187,4 +207,3 @@ type VolumeArgs struct {
 func (VolumeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*volumeArgs)(nil)).Elem()
 }
-

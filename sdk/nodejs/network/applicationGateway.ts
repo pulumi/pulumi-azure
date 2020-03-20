@@ -8,89 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Application Gateway.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     addressSpaces: ["10.254.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const frontend = new azure.network.Subnet("frontend", {
- *     addressPrefix: "10.254.0.0/24",
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * const backend = new azure.network.Subnet("backend", {
- *     addressPrefix: "10.254.2.0/24",
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
- *     allocationMethod: "Dynamic",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const backendAddressPoolName = pulumi.interpolate`${exampleVirtualNetwork.name}-beap`;
- * const frontendPortName = pulumi.interpolate`${exampleVirtualNetwork.name}-feport`;
- * const frontendIpConfigurationName = pulumi.interpolate`${exampleVirtualNetwork.name}-feip`;
- * const httpSettingName = pulumi.interpolate`${exampleVirtualNetwork.name}-be-htst`;
- * const listenerName = pulumi.interpolate`${exampleVirtualNetwork.name}-httplstn`;
- * const requestRoutingRuleName = pulumi.interpolate`${exampleVirtualNetwork.name}-rqrt`;
- * const redirectConfigurationName = pulumi.interpolate`${exampleVirtualNetwork.name}-rdrcfg`;
- * const network = new azure.network.ApplicationGateway("network", {
- *     backendAddressPools: [{
- *         name: backendAddressPoolName,
- *     }],
- *     backendHttpSettings: [{
- *         cookieBasedAffinity: "Disabled",
- *         name: httpSettingName,
- *         path: "/path1/",
- *         port: 80,
- *         protocol: "Http",
- *         requestTimeout: 1,
- *     }],
- *     frontendIpConfigurations: [{
- *         name: frontendIpConfigurationName,
- *         publicIpAddressId: examplePublicIp.id,
- *     }],
- *     frontendPorts: [{
- *         name: frontendPortName,
- *         port: 80,
- *     }],
- *     gatewayIpConfigurations: [{
- *         name: "my-gateway-ip-configuration",
- *         subnetId: frontend.id,
- *     }],
- *     httpListeners: [{
- *         frontendIpConfigurationName: frontendIpConfigurationName,
- *         frontendPortName: frontendPortName,
- *         name: listenerName,
- *         protocol: "Http",
- *     }],
- *     location: exampleResourceGroup.location,
- *     requestRoutingRules: [{
- *         backendAddressPoolName: backendAddressPoolName,
- *         backendHttpSettingsName: httpSettingName,
- *         httpListenerName: listenerName,
- *         name: requestRoutingRuleName,
- *         ruleType: "Basic",
- *     }],
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         capacity: 2,
- *         name: "Standard_Small",
- *         tier: "Standard",
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_gateway.html.markdown.
  */
@@ -141,11 +58,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * One or more `customErrorConfiguration` blocks as defined below.
      */
     public readonly customErrorConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayCustomErrorConfiguration[] | undefined>;
-    /**
-     * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-     * > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
-     */
-    public readonly disabledSslProtocols!: pulumi.Output<string[]>;
     /**
      * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
      */
@@ -213,7 +125,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * One or more `trustedRootCertificate` blocks as defined below.
      */
@@ -248,7 +160,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["backendAddressPools"] = state ? state.backendAddressPools : undefined;
             inputs["backendHttpSettings"] = state ? state.backendHttpSettings : undefined;
             inputs["customErrorConfigurations"] = state ? state.customErrorConfigurations : undefined;
-            inputs["disabledSslProtocols"] = state ? state.disabledSslProtocols : undefined;
             inputs["enableHttp2"] = state ? state.enableHttp2 : undefined;
             inputs["frontendIpConfigurations"] = state ? state.frontendIpConfigurations : undefined;
             inputs["frontendPorts"] = state ? state.frontendPorts : undefined;
@@ -304,7 +215,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
             inputs["backendHttpSettings"] = args ? args.backendHttpSettings : undefined;
             inputs["customErrorConfigurations"] = args ? args.customErrorConfigurations : undefined;
-            inputs["disabledSslProtocols"] = args ? args.disabledSslProtocols : undefined;
             inputs["enableHttp2"] = args ? args.enableHttp2 : undefined;
             inputs["frontendIpConfigurations"] = args ? args.frontendIpConfigurations : undefined;
             inputs["frontendPorts"] = args ? args.frontendPorts : undefined;
@@ -362,11 +272,6 @@ export interface ApplicationGatewayState {
      * One or more `customErrorConfiguration` blocks as defined below.
      */
     readonly customErrorConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayCustomErrorConfiguration>[]>;
-    /**
-     * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-     * > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
-     */
-    readonly disabledSslProtocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
      */
@@ -477,11 +382,6 @@ export interface ApplicationGatewayArgs {
      * One or more `customErrorConfiguration` blocks as defined below.
      */
     readonly customErrorConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayCustomErrorConfiguration>[]>;
-    /**
-     * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-     * > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
-     */
-    readonly disabledSslProtocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
      */

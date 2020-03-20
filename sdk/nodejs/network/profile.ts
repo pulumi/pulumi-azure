@@ -7,46 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Azure Network Profile.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     addressSpaces: ["10.1.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     addressPrefix: "10.1.0.0/24",
- *     delegations: [{
- *         name: "delegation",
- *         serviceDelegation: {
- *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
- *             name: "Microsoft.ContainerInstance/containerGroups",
- *         },
- *     }],
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * const exampleProfile = new azure.network.Profile("example", {
- *     containerNetworkInterface: {
- *         ipConfigurations: [{
- *             name: "exampleipconfig",
- *             subnetId: exampleSubnet.id,
- *         }],
- *         name: "examplecnic",
- *     },
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
+ * Manages a Network Profile.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_profile.html.markdown.
  */
@@ -82,7 +43,7 @@ export class Profile extends pulumi.CustomResource {
      */
     public readonly containerNetworkInterface!: pulumi.Output<outputs.network.ProfileContainerNetworkInterface>;
     /**
-     * One or more Resource IDs of Azure Container Network Interfaces.
+     * A list of Container Network Interface ID's.
      */
     public /*out*/ readonly containerNetworkInterfaceIds!: pulumi.Output<string[]>;
     /**
@@ -100,7 +61,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -155,7 +116,7 @@ export interface ProfileState {
      */
     readonly containerNetworkInterface?: pulumi.Input<inputs.network.ProfileContainerNetworkInterface>;
     /**
-     * One or more Resource IDs of Azure Container Network Interfaces.
+     * A list of Container Network Interface ID's.
      */
     readonly containerNetworkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

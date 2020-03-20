@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Dev Test Lab.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_lab.html.markdown.
 type Lab struct {
 	pulumi.CustomResourceState
@@ -155,4 +155,3 @@ type LabArgs struct {
 func (LabArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*labArgs)(nil)).Elem()
 }
-

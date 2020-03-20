@@ -12,9 +12,9 @@ import (
 )
 
 // Manages an AzureNetwork DDoS Protection Plan.
-// 
+//
 // > **NOTE** Azure only allows `one` DDoS Protection Plan per region.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_ddos_protection_plan.html.markdown.
 type DdosProtectionPlan struct {
 	pulumi.CustomResourceState
@@ -27,7 +27,7 @@ type DdosProtectionPlan struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
+	// A list of Virtual Network ID's associated with the DDoS Protection Plan.
 	VirtualNetworkIds pulumi.StringArrayOutput `pulumi:"virtualNetworkIds"`
 }
 
@@ -70,7 +70,7 @@ type ddosProtectionPlanState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
+	// A list of Virtual Network ID's associated with the DDoS Protection Plan.
 	VirtualNetworkIds []string `pulumi:"virtualNetworkIds"`
 }
 
@@ -83,7 +83,7 @@ type DdosProtectionPlanState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
+	// A list of Virtual Network ID's associated with the DDoS Protection Plan.
 	VirtualNetworkIds pulumi.StringArrayInput
 }
 
@@ -117,4 +117,3 @@ type DdosProtectionPlanArgs struct {
 func (DdosProtectionPlanArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ddosProtectionPlanArgs)(nil)).Elem()
 }
-

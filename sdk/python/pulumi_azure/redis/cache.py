@@ -42,7 +42,7 @@ class Cache(pulumi.CustomResource):
     patch_schedules: pulumi.Output[list]
     """
     A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
-    
+
       * `dayOfWeek` (`str`)
       * `startHourUtc` (`float`)
     """
@@ -54,6 +54,10 @@ class Cache(pulumi.CustomResource):
     """
     The Primary Access Key for the Redis Instance
     """
+    primary_connection_string: pulumi.Output[str]
+    """
+    The primary connection string of the Redis Instance.
+    """
     private_static_ip_address: pulumi.Output[str]
     """
     The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
@@ -61,7 +65,7 @@ class Cache(pulumi.CustomResource):
     redis_configuration: pulumi.Output[dict]
     """
     A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
-    
+
       * `aofBackupEnabled` (`bool`)
       * `aofStorageConnectionString0` (`str`)
       * `aofStorageConnectionString1` (`str`)
@@ -85,6 +89,10 @@ class Cache(pulumi.CustomResource):
     secondary_access_key: pulumi.Output[str]
     """
     The Secondary Access Key for the Redis Instance
+    """
+    secondary_connection_string: pulumi.Output[str]
+    """
+    The secondary connection string of the Redis Instance.
     """
     shard_count: pulumi.Output[float]
     """
@@ -113,9 +121,9 @@ class Cache(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, capacity=None, enable_non_ssl_port=None, family=None, location=None, minimum_tls_version=None, name=None, patch_schedules=None, private_static_ip_address=None, redis_configuration=None, resource_group_name=None, shard_count=None, sku_name=None, subnet_id=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Redis Cache.
-        
+
         ## Default Redis Configuration Values
-        
+
         | Redis Value                     | Basic        | Standard     | Premium      |
         | ------------------------------- | ------------ | ------------ | ------------ |
         | enable_authentication           | true         | true         | true         |
@@ -123,24 +131,26 @@ class Cache(pulumi.CustomResource):
         | maxfragmentationmemory_reserved | 2            | 50           | 200          |
         | maxmemory_delta                 | 2            | 50           | 200          |
         | maxmemory_policy                | volatile-lru | volatile-lru | volatile-lru |
-        
+
         > **NOTE:** The `maxmemory_reserved`, `maxmemory_delta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
-        
+
         ---
-        
+
         A `patch_schedule` block supports the following:
-        
+
         * `day_of_week` (Required) the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
-        
+
         * `start_hour_utc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
-        
+
         > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
-        
+
         ## Relevant Links
-        
+
          - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)
          - [Redis: Available Configuration Settings](http://redis.io/topics/config)
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_cache.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
@@ -160,14 +170,14 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
-        
+
         The **patch_schedules** object supports the following:
-        
+
           * `dayOfWeek` (`pulumi.Input[str]`)
           * `startHourUtc` (`pulumi.Input[float]`)
-        
+
         The **redis_configuration** object supports the following:
-        
+
           * `aofBackupEnabled` (`pulumi.Input[bool]`)
           * `aofStorageConnectionString0` (`pulumi.Input[str]`)
           * `aofStorageConnectionString1` (`pulumi.Input[str]`)
@@ -182,8 +192,6 @@ class Cache(pulumi.CustomResource):
           * `rdbBackupFrequency` (`pulumi.Input[float]`)
           * `rdbBackupMaxSnapshotCount` (`pulumi.Input[float]`)
           * `rdbStorageConnectionString` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_cache.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -228,7 +236,9 @@ class Cache(pulumi.CustomResource):
             __props__['hostname'] = None
             __props__['port'] = None
             __props__['primary_access_key'] = None
+            __props__['primary_connection_string'] = None
             __props__['secondary_access_key'] = None
+            __props__['secondary_connection_string'] = None
             __props__['ssl_port'] = None
         super(Cache, __self__).__init__(
             'azure:redis/cache:Cache',
@@ -237,11 +247,11 @@ class Cache(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, capacity=None, enable_non_ssl_port=None, family=None, hostname=None, location=None, minimum_tls_version=None, name=None, patch_schedules=None, port=None, primary_access_key=None, private_static_ip_address=None, redis_configuration=None, resource_group_name=None, secondary_access_key=None, shard_count=None, sku_name=None, ssl_port=None, subnet_id=None, tags=None, zones=None):
+    def get(resource_name, id, opts=None, capacity=None, enable_non_ssl_port=None, family=None, hostname=None, location=None, minimum_tls_version=None, name=None, patch_schedules=None, port=None, primary_access_key=None, primary_connection_string=None, private_static_ip_address=None, redis_configuration=None, resource_group_name=None, secondary_access_key=None, secondary_connection_string=None, shard_count=None, sku_name=None, ssl_port=None, subnet_id=None, tags=None, zones=None):
         """
         Get an existing Cache resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -256,25 +266,27 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[list] patch_schedules: A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
         :param pulumi.Input[float] port: The non-SSL Port of the Redis Instance
         :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Instance
+        :param pulumi.Input[str] primary_connection_string: The primary connection string of the Redis Instance.
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Redis instance.
         :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Instance
+        :param pulumi.Input[str] secondary_connection_string: The secondary connection string of the Redis Instance.
         :param pulumi.Input[float] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[float] ssl_port: The SSL Port of the Redis Instance
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
-        
+
         The **patch_schedules** object supports the following:
-        
+
           * `dayOfWeek` (`pulumi.Input[str]`)
           * `startHourUtc` (`pulumi.Input[float]`)
-        
+
         The **redis_configuration** object supports the following:
-        
+
           * `aofBackupEnabled` (`pulumi.Input[bool]`)
           * `aofStorageConnectionString0` (`pulumi.Input[str]`)
           * `aofStorageConnectionString1` (`pulumi.Input[str]`)
@@ -289,12 +301,11 @@ class Cache(pulumi.CustomResource):
           * `rdbBackupFrequency` (`pulumi.Input[float]`)
           * `rdbBackupMaxSnapshotCount` (`pulumi.Input[float]`)
           * `rdbStorageConnectionString` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_cache.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["capacity"] = capacity
         __props__["enable_non_ssl_port"] = enable_non_ssl_port
         __props__["family"] = family
@@ -305,10 +316,12 @@ class Cache(pulumi.CustomResource):
         __props__["patch_schedules"] = patch_schedules
         __props__["port"] = port
         __props__["primary_access_key"] = primary_access_key
+        __props__["primary_connection_string"] = primary_connection_string
         __props__["private_static_ip_address"] = private_static_ip_address
         __props__["redis_configuration"] = redis_configuration
         __props__["resource_group_name"] = resource_group_name
         __props__["secondary_access_key"] = secondary_access_key
+        __props__["secondary_connection_string"] = secondary_connection_string
         __props__["shard_count"] = shard_count
         __props__["sku_name"] = sku_name
         __props__["ssl_port"] = ssl_port

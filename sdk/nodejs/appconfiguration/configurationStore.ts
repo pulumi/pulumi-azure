@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure App Configuration.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const rg = new azure.core.ResourceGroup("rg", {
- *     location: "West Europe",
- * });
- * const appconf = new azure.appconfiguration.ConfigurationStore("appconf", {
- *     location: rg.location,
- *     resourceGroupName: rg.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_configuration.html.markdown.
  */
@@ -92,7 +77,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ConfigurationStore resource with the given unique name, arguments, and options.

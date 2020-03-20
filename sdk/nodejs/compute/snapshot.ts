@@ -8,30 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Disk Snapshot.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleManagedDisk = new azure.compute.ManagedDisk("example", {
- *     createOption: "Empty",
- *     diskSizeGb: 10,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     storageAccountType: "Standard_LRS",
- * });
- * const exampleSnapshot = new azure.compute.Snapshot("example", {
- *     createOption: "Copy",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sourceUri: exampleManagedDisk.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/snapshot.html.markdown.
  */
@@ -98,7 +74,7 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Snapshot resource with the given unique name, arguments, and options.

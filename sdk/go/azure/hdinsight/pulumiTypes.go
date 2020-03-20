@@ -55,7 +55,8 @@ type HBaseClusterComponentVersionPtrInput interface {
 
 type hbaseClusterComponentVersionPtrType HBaseClusterComponentVersionArgs
 
-func HBaseClusterComponentVersionPtr(v *HBaseClusterComponentVersionArgs) HBaseClusterComponentVersionPtrInput {	return (*hbaseClusterComponentVersionPtrType)(v)
+func HBaseClusterComponentVersionPtr(v *HBaseClusterComponentVersionArgs) HBaseClusterComponentVersionPtrInput {
+	return (*hbaseClusterComponentVersionPtrType)(v)
 }
 
 func (*hbaseClusterComponentVersionPtrType) ElementType() reflect.Type {
@@ -70,7 +71,7 @@ func (i *hbaseClusterComponentVersionPtrType) ToHBaseClusterComponentVersionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterComponentVersionPtrOutput)
 }
 
-type HBaseClusterComponentVersionOutput struct { *pulumi.OutputState }
+type HBaseClusterComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterComponentVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HBaseClusterComponentVersion)(nil)).Elem()
@@ -94,10 +95,10 @@ func (o HBaseClusterComponentVersionOutput) ToHBaseClusterComponentVersionPtrOut
 	}).(HBaseClusterComponentVersionPtrOutput)
 }
 func (o HBaseClusterComponentVersionOutput) Hbase() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterComponentVersion) string { return v.Hbase }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterComponentVersion) string { return v.Hbase }).(pulumi.StringOutput)
 }
 
-type HBaseClusterComponentVersionPtrOutput struct { *pulumi.OutputState}
+type HBaseClusterComponentVersionPtrOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterComponentVersionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HBaseClusterComponentVersion)(nil)).Elem()
@@ -112,15 +113,15 @@ func (o HBaseClusterComponentVersionPtrOutput) ToHBaseClusterComponentVersionPtr
 }
 
 func (o HBaseClusterComponentVersionPtrOutput) Elem() HBaseClusterComponentVersionOutput {
-	return o.ApplyT(func (v *HBaseClusterComponentVersion) HBaseClusterComponentVersion { return *v }).(HBaseClusterComponentVersionOutput)
+	return o.ApplyT(func(v *HBaseClusterComponentVersion) HBaseClusterComponentVersion { return *v }).(HBaseClusterComponentVersionOutput)
 }
 
 func (o HBaseClusterComponentVersionPtrOutput) Hbase() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterComponentVersion) string { return v.Hbase }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterComponentVersion) string { return v.Hbase }).(pulumi.StringOutput)
 }
 
 type HBaseClusterGateway struct {
-	Enabled bool `pulumi:"enabled"`
+	Enabled  bool   `pulumi:"enabled"`
 	Password string `pulumi:"password"`
 	Username string `pulumi:"username"`
 }
@@ -133,7 +134,7 @@ type HBaseClusterGatewayInput interface {
 }
 
 type HBaseClusterGatewayArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled  pulumi.BoolInput   `pulumi:"enabled"`
 	Password pulumi.StringInput `pulumi:"password"`
 	Username pulumi.StringInput `pulumi:"username"`
 }
@@ -167,7 +168,8 @@ type HBaseClusterGatewayPtrInput interface {
 
 type hbaseClusterGatewayPtrType HBaseClusterGatewayArgs
 
-func HBaseClusterGatewayPtr(v *HBaseClusterGatewayArgs) HBaseClusterGatewayPtrInput {	return (*hbaseClusterGatewayPtrType)(v)
+func HBaseClusterGatewayPtr(v *HBaseClusterGatewayArgs) HBaseClusterGatewayPtrInput {
+	return (*hbaseClusterGatewayPtrType)(v)
 }
 
 func (*hbaseClusterGatewayPtrType) ElementType() reflect.Type {
@@ -182,7 +184,7 @@ func (i *hbaseClusterGatewayPtrType) ToHBaseClusterGatewayPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterGatewayPtrOutput)
 }
 
-type HBaseClusterGatewayOutput struct { *pulumi.OutputState }
+type HBaseClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HBaseClusterGateway)(nil)).Elem()
@@ -206,18 +208,18 @@ func (o HBaseClusterGatewayOutput) ToHBaseClusterGatewayPtrOutputWithContext(ctx
 	}).(HBaseClusterGatewayPtrOutput)
 }
 func (o HBaseClusterGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v HBaseClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v HBaseClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o HBaseClusterGatewayOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterGateway) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o HBaseClusterGatewayOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterGateway) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterGateway) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type HBaseClusterGatewayPtrOutput struct { *pulumi.OutputState}
+type HBaseClusterGatewayPtrOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterGatewayPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HBaseClusterGateway)(nil)).Elem()
@@ -232,24 +234,24 @@ func (o HBaseClusterGatewayPtrOutput) ToHBaseClusterGatewayPtrOutputWithContext(
 }
 
 func (o HBaseClusterGatewayPtrOutput) Elem() HBaseClusterGatewayOutput {
-	return o.ApplyT(func (v *HBaseClusterGateway) HBaseClusterGateway { return *v }).(HBaseClusterGatewayOutput)
+	return o.ApplyT(func(v *HBaseClusterGateway) HBaseClusterGateway { return *v }).(HBaseClusterGatewayOutput)
 }
 
 func (o HBaseClusterGatewayPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v HBaseClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v HBaseClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o HBaseClusterGatewayPtrOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterGateway) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o HBaseClusterGatewayPtrOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterGateway) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterGateway) string { return v.Username }).(pulumi.StringOutput)
 }
 
 type HBaseClusterRoles struct {
-	HeadNode HBaseClusterRolesHeadNode `pulumi:"headNode"`
-	WorkerNode HBaseClusterRolesWorkerNode `pulumi:"workerNode"`
+	HeadNode      HBaseClusterRolesHeadNode      `pulumi:"headNode"`
+	WorkerNode    HBaseClusterRolesWorkerNode    `pulumi:"workerNode"`
 	ZookeeperNode HBaseClusterRolesZookeeperNode `pulumi:"zookeeperNode"`
 }
 
@@ -261,8 +263,8 @@ type HBaseClusterRolesInput interface {
 }
 
 type HBaseClusterRolesArgs struct {
-	HeadNode HBaseClusterRolesHeadNodeInput `pulumi:"headNode"`
-	WorkerNode HBaseClusterRolesWorkerNodeInput `pulumi:"workerNode"`
+	HeadNode      HBaseClusterRolesHeadNodeInput      `pulumi:"headNode"`
+	WorkerNode    HBaseClusterRolesWorkerNodeInput    `pulumi:"workerNode"`
 	ZookeeperNode HBaseClusterRolesZookeeperNodeInput `pulumi:"zookeeperNode"`
 }
 
@@ -295,7 +297,8 @@ type HBaseClusterRolesPtrInput interface {
 
 type hbaseClusterRolesPtrType HBaseClusterRolesArgs
 
-func HBaseClusterRolesPtr(v *HBaseClusterRolesArgs) HBaseClusterRolesPtrInput {	return (*hbaseClusterRolesPtrType)(v)
+func HBaseClusterRolesPtr(v *HBaseClusterRolesArgs) HBaseClusterRolesPtrInput {
+	return (*hbaseClusterRolesPtrType)(v)
 }
 
 func (*hbaseClusterRolesPtrType) ElementType() reflect.Type {
@@ -310,7 +313,7 @@ func (i *hbaseClusterRolesPtrType) ToHBaseClusterRolesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesPtrOutput)
 }
 
-type HBaseClusterRolesOutput struct { *pulumi.OutputState }
+type HBaseClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HBaseClusterRoles)(nil)).Elem()
@@ -334,18 +337,18 @@ func (o HBaseClusterRolesOutput) ToHBaseClusterRolesPtrOutputWithContext(ctx con
 	}).(HBaseClusterRolesPtrOutput)
 }
 func (o HBaseClusterRolesOutput) HeadNode() HBaseClusterRolesHeadNodeOutput {
-	return o.ApplyT(func (v HBaseClusterRoles) HBaseClusterRolesHeadNode { return v.HeadNode }).(HBaseClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v HBaseClusterRoles) HBaseClusterRolesHeadNode { return v.HeadNode }).(HBaseClusterRolesHeadNodeOutput)
 }
 
 func (o HBaseClusterRolesOutput) WorkerNode() HBaseClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func (v HBaseClusterRoles) HBaseClusterRolesWorkerNode { return v.WorkerNode }).(HBaseClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v HBaseClusterRoles) HBaseClusterRolesWorkerNode { return v.WorkerNode }).(HBaseClusterRolesWorkerNodeOutput)
 }
 
 func (o HBaseClusterRolesOutput) ZookeeperNode() HBaseClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func (v HBaseClusterRoles) HBaseClusterRolesZookeeperNode { return v.ZookeeperNode }).(HBaseClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v HBaseClusterRoles) HBaseClusterRolesZookeeperNode { return v.ZookeeperNode }).(HBaseClusterRolesZookeeperNodeOutput)
 }
 
-type HBaseClusterRolesPtrOutput struct { *pulumi.OutputState}
+type HBaseClusterRolesPtrOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HBaseClusterRoles)(nil)).Elem()
@@ -360,28 +363,28 @@ func (o HBaseClusterRolesPtrOutput) ToHBaseClusterRolesPtrOutputWithContext(ctx 
 }
 
 func (o HBaseClusterRolesPtrOutput) Elem() HBaseClusterRolesOutput {
-	return o.ApplyT(func (v *HBaseClusterRoles) HBaseClusterRoles { return *v }).(HBaseClusterRolesOutput)
+	return o.ApplyT(func(v *HBaseClusterRoles) HBaseClusterRoles { return *v }).(HBaseClusterRolesOutput)
 }
 
 func (o HBaseClusterRolesPtrOutput) HeadNode() HBaseClusterRolesHeadNodeOutput {
-	return o.ApplyT(func (v HBaseClusterRoles) HBaseClusterRolesHeadNode { return v.HeadNode }).(HBaseClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v HBaseClusterRoles) HBaseClusterRolesHeadNode { return v.HeadNode }).(HBaseClusterRolesHeadNodeOutput)
 }
 
 func (o HBaseClusterRolesPtrOutput) WorkerNode() HBaseClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func (v HBaseClusterRoles) HBaseClusterRolesWorkerNode { return v.WorkerNode }).(HBaseClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v HBaseClusterRoles) HBaseClusterRolesWorkerNode { return v.WorkerNode }).(HBaseClusterRolesWorkerNodeOutput)
 }
 
 func (o HBaseClusterRolesPtrOutput) ZookeeperNode() HBaseClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func (v HBaseClusterRoles) HBaseClusterRolesZookeeperNode { return v.ZookeeperNode }).(HBaseClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v HBaseClusterRoles) HBaseClusterRolesZookeeperNode { return v.ZookeeperNode }).(HBaseClusterRolesZookeeperNodeOutput)
 }
 
 type HBaseClusterRolesHeadNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type HBaseClusterRolesHeadNodeInput interface {
@@ -392,12 +395,12 @@ type HBaseClusterRolesHeadNodeInput interface {
 }
 
 type HBaseClusterRolesHeadNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (HBaseClusterRolesHeadNodeArgs) ElementType() reflect.Type {
@@ -412,7 +415,7 @@ func (i HBaseClusterRolesHeadNodeArgs) ToHBaseClusterRolesHeadNodeOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesHeadNodeOutput)
 }
 
-type HBaseClusterRolesHeadNodeOutput struct { *pulumi.OutputState }
+type HBaseClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesHeadNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HBaseClusterRolesHeadNode)(nil)).Elem()
@@ -427,38 +430,38 @@ func (o HBaseClusterRolesHeadNodeOutput) ToHBaseClusterRolesHeadNodeOutputWithCo
 }
 
 func (o HBaseClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HBaseClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HBaseClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o HBaseClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v HBaseClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v HBaseClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o HBaseClusterRolesHeadNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HBaseClusterRolesHeadNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HBaseClusterRolesHeadNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o HBaseClusterRolesHeadNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterRolesHeadNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterRolesHeadNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o HBaseClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HBaseClusterRolesHeadNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HBaseClusterRolesHeadNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o HBaseClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type HBaseClusterRolesWorkerNode struct {
-	MinInstanceCount *int `pulumi:"minInstanceCount"`
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	TargetInstanceCount int `pulumi:"targetInstanceCount"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	MinInstanceCount    *int     `pulumi:"minInstanceCount"`
+	Password            *string  `pulumi:"password"`
+	SshKeys             []string `pulumi:"sshKeys"`
+	SubnetId            *string  `pulumi:"subnetId"`
+	TargetInstanceCount int      `pulumi:"targetInstanceCount"`
+	Username            string   `pulumi:"username"`
+	VirtualNetworkId    *string  `pulumi:"virtualNetworkId"`
+	VmSize              string   `pulumi:"vmSize"`
 }
 
 type HBaseClusterRolesWorkerNodeInput interface {
@@ -469,14 +472,14 @@ type HBaseClusterRolesWorkerNodeInput interface {
 }
 
 type HBaseClusterRolesWorkerNodeArgs struct {
-	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	MinInstanceCount    pulumi.IntPtrInput      `pulumi:"minInstanceCount"`
+	Password            pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys             pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId            pulumi.StringPtrInput   `pulumi:"subnetId"`
+	TargetInstanceCount pulumi.IntInput         `pulumi:"targetInstanceCount"`
+	Username            pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId    pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize              pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (HBaseClusterRolesWorkerNodeArgs) ElementType() reflect.Type {
@@ -491,7 +494,7 @@ func (i HBaseClusterRolesWorkerNodeArgs) ToHBaseClusterRolesWorkerNodeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeOutput)
 }
 
-type HBaseClusterRolesWorkerNodeOutput struct { *pulumi.OutputState }
+type HBaseClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HBaseClusterRolesWorkerNode)(nil)).Elem()
@@ -506,44 +509,44 @@ func (o HBaseClusterRolesWorkerNodeOutput) ToHBaseClusterRolesWorkerNodeOutputWi
 }
 
 func (o HBaseClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v HBaseClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
 
 func (o HBaseClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HBaseClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o HBaseClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v HBaseClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o HBaseClusterRolesWorkerNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HBaseClusterRolesWorkerNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o HBaseClusterRolesWorkerNodeOutput) TargetInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func (v HBaseClusterRolesWorkerNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
 }
 
 func (o HBaseClusterRolesWorkerNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterRolesWorkerNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o HBaseClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HBaseClusterRolesWorkerNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o HBaseClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type HBaseClusterRolesZookeeperNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type HBaseClusterRolesZookeeperNodeInput interface {
@@ -554,12 +557,12 @@ type HBaseClusterRolesZookeeperNodeInput interface {
 }
 
 type HBaseClusterRolesZookeeperNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (HBaseClusterRolesZookeeperNodeArgs) ElementType() reflect.Type {
@@ -574,7 +577,7 @@ func (i HBaseClusterRolesZookeeperNodeArgs) ToHBaseClusterRolesZookeeperNodeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesZookeeperNodeOutput)
 }
 
-type HBaseClusterRolesZookeeperNodeOutput struct { *pulumi.OutputState }
+type HBaseClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HBaseClusterRolesZookeeperNode)(nil)).Elem()
@@ -589,32 +592,32 @@ func (o HBaseClusterRolesZookeeperNodeOutput) ToHBaseClusterRolesZookeeperNodeOu
 }
 
 func (o HBaseClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HBaseClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HBaseClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o HBaseClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v HBaseClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v HBaseClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o HBaseClusterRolesZookeeperNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HBaseClusterRolesZookeeperNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HBaseClusterRolesZookeeperNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o HBaseClusterRolesZookeeperNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterRolesZookeeperNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterRolesZookeeperNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o HBaseClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HBaseClusterRolesZookeeperNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HBaseClusterRolesZookeeperNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o HBaseClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type HBaseClusterStorageAccount struct {
-	IsDefault bool `pulumi:"isDefault"`
-	StorageAccountKey string `pulumi:"storageAccountKey"`
+	IsDefault          bool   `pulumi:"isDefault"`
+	StorageAccountKey  string `pulumi:"storageAccountKey"`
 	StorageContainerId string `pulumi:"storageContainerId"`
 }
 
@@ -626,8 +629,8 @@ type HBaseClusterStorageAccountInput interface {
 }
 
 type HBaseClusterStorageAccountArgs struct {
-	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
-	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
+	IsDefault          pulumi.BoolInput   `pulumi:"isDefault"`
+	StorageAccountKey  pulumi.StringInput `pulumi:"storageAccountKey"`
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
 }
 
@@ -664,7 +667,7 @@ func (i HBaseClusterStorageAccountArray) ToHBaseClusterStorageAccountArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterStorageAccountArrayOutput)
 }
 
-type HBaseClusterStorageAccountOutput struct { *pulumi.OutputState }
+type HBaseClusterStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterStorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HBaseClusterStorageAccount)(nil)).Elem()
@@ -679,18 +682,18 @@ func (o HBaseClusterStorageAccountOutput) ToHBaseClusterStorageAccountOutputWith
 }
 
 func (o HBaseClusterStorageAccountOutput) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v HBaseClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v HBaseClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o HBaseClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
 }
 
 func (o HBaseClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
 }
 
-type HBaseClusterStorageAccountArrayOutput struct { *pulumi.OutputState}
+type HBaseClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterStorageAccountArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]HBaseClusterStorageAccount)(nil)).Elem()
@@ -705,16 +708,16 @@ func (o HBaseClusterStorageAccountArrayOutput) ToHBaseClusterStorageAccountArray
 }
 
 func (o HBaseClusterStorageAccountArrayOutput) Index(i pulumi.IntInput) HBaseClusterStorageAccountOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) HBaseClusterStorageAccount {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HBaseClusterStorageAccount {
 		return vs[0].([]HBaseClusterStorageAccount)[vs[1].(int)]
 	}).(HBaseClusterStorageAccountOutput)
 }
 
 type HBaseClusterStorageAccountGen2 struct {
-	FilesystemId string `pulumi:"filesystemId"`
-	IsDefault bool `pulumi:"isDefault"`
+	FilesystemId              string `pulumi:"filesystemId"`
+	IsDefault                 bool   `pulumi:"isDefault"`
 	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
-	StorageResourceId string `pulumi:"storageResourceId"`
+	StorageResourceId         string `pulumi:"storageResourceId"`
 }
 
 type HBaseClusterStorageAccountGen2Input interface {
@@ -725,10 +728,10 @@ type HBaseClusterStorageAccountGen2Input interface {
 }
 
 type HBaseClusterStorageAccountGen2Args struct {
-	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
-	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	FilesystemId              pulumi.StringInput `pulumi:"filesystemId"`
+	IsDefault                 pulumi.BoolInput   `pulumi:"isDefault"`
 	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
-	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
+	StorageResourceId         pulumi.StringInput `pulumi:"storageResourceId"`
 }
 
 func (HBaseClusterStorageAccountGen2Args) ElementType() reflect.Type {
@@ -760,7 +763,8 @@ type HBaseClusterStorageAccountGen2PtrInput interface {
 
 type hbaseClusterStorageAccountGen2PtrType HBaseClusterStorageAccountGen2Args
 
-func HBaseClusterStorageAccountGen2Ptr(v *HBaseClusterStorageAccountGen2Args) HBaseClusterStorageAccountGen2PtrInput {	return (*hbaseClusterStorageAccountGen2PtrType)(v)
+func HBaseClusterStorageAccountGen2Ptr(v *HBaseClusterStorageAccountGen2Args) HBaseClusterStorageAccountGen2PtrInput {
+	return (*hbaseClusterStorageAccountGen2PtrType)(v)
 }
 
 func (*hbaseClusterStorageAccountGen2PtrType) ElementType() reflect.Type {
@@ -775,7 +779,7 @@ func (i *hbaseClusterStorageAccountGen2PtrType) ToHBaseClusterStorageAccountGen2
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterStorageAccountGen2PtrOutput)
 }
 
-type HBaseClusterStorageAccountGen2Output struct { *pulumi.OutputState }
+type HBaseClusterStorageAccountGen2Output struct{ *pulumi.OutputState }
 
 func (HBaseClusterStorageAccountGen2Output) ElementType() reflect.Type {
 	return reflect.TypeOf((*HBaseClusterStorageAccountGen2)(nil)).Elem()
@@ -799,22 +803,22 @@ func (o HBaseClusterStorageAccountGen2Output) ToHBaseClusterStorageAccountGen2Pt
 	}).(HBaseClusterStorageAccountGen2PtrOutput)
 }
 func (o HBaseClusterStorageAccountGen2Output) FilesystemId() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
 }
 
 func (o HBaseClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v HBaseClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v HBaseClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o HBaseClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
 }
 
 func (o HBaseClusterStorageAccountGen2Output) StorageResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
 }
 
-type HBaseClusterStorageAccountGen2PtrOutput struct { *pulumi.OutputState}
+type HBaseClusterStorageAccountGen2PtrOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterStorageAccountGen2PtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HBaseClusterStorageAccountGen2)(nil)).Elem()
@@ -829,23 +833,23 @@ func (o HBaseClusterStorageAccountGen2PtrOutput) ToHBaseClusterStorageAccountGen
 }
 
 func (o HBaseClusterStorageAccountGen2PtrOutput) Elem() HBaseClusterStorageAccountGen2Output {
-	return o.ApplyT(func (v *HBaseClusterStorageAccountGen2) HBaseClusterStorageAccountGen2 { return *v }).(HBaseClusterStorageAccountGen2Output)
+	return o.ApplyT(func(v *HBaseClusterStorageAccountGen2) HBaseClusterStorageAccountGen2 { return *v }).(HBaseClusterStorageAccountGen2Output)
 }
 
 func (o HBaseClusterStorageAccountGen2PtrOutput) FilesystemId() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
 }
 
 func (o HBaseClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v HBaseClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v HBaseClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o HBaseClusterStorageAccountGen2PtrOutput) ManagedIdentityResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
 }
 
 func (o HBaseClusterStorageAccountGen2PtrOutput) StorageResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v HBaseClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HBaseClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
 }
 
 type HadoopClusterComponentVersion struct {
@@ -892,7 +896,8 @@ type HadoopClusterComponentVersionPtrInput interface {
 
 type hadoopClusterComponentVersionPtrType HadoopClusterComponentVersionArgs
 
-func HadoopClusterComponentVersionPtr(v *HadoopClusterComponentVersionArgs) HadoopClusterComponentVersionPtrInput {	return (*hadoopClusterComponentVersionPtrType)(v)
+func HadoopClusterComponentVersionPtr(v *HadoopClusterComponentVersionArgs) HadoopClusterComponentVersionPtrInput {
+	return (*hadoopClusterComponentVersionPtrType)(v)
 }
 
 func (*hadoopClusterComponentVersionPtrType) ElementType() reflect.Type {
@@ -907,7 +912,7 @@ func (i *hadoopClusterComponentVersionPtrType) ToHadoopClusterComponentVersionPt
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterComponentVersionPtrOutput)
 }
 
-type HadoopClusterComponentVersionOutput struct { *pulumi.OutputState }
+type HadoopClusterComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterComponentVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HadoopClusterComponentVersion)(nil)).Elem()
@@ -931,10 +936,10 @@ func (o HadoopClusterComponentVersionOutput) ToHadoopClusterComponentVersionPtrO
 	}).(HadoopClusterComponentVersionPtrOutput)
 }
 func (o HadoopClusterComponentVersionOutput) Hadoop() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterComponentVersion) string { return v.Hadoop }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterComponentVersion) string { return v.Hadoop }).(pulumi.StringOutput)
 }
 
-type HadoopClusterComponentVersionPtrOutput struct { *pulumi.OutputState}
+type HadoopClusterComponentVersionPtrOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterComponentVersionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HadoopClusterComponentVersion)(nil)).Elem()
@@ -949,15 +954,15 @@ func (o HadoopClusterComponentVersionPtrOutput) ToHadoopClusterComponentVersionP
 }
 
 func (o HadoopClusterComponentVersionPtrOutput) Elem() HadoopClusterComponentVersionOutput {
-	return o.ApplyT(func (v *HadoopClusterComponentVersion) HadoopClusterComponentVersion { return *v }).(HadoopClusterComponentVersionOutput)
+	return o.ApplyT(func(v *HadoopClusterComponentVersion) HadoopClusterComponentVersion { return *v }).(HadoopClusterComponentVersionOutput)
 }
 
 func (o HadoopClusterComponentVersionPtrOutput) Hadoop() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterComponentVersion) string { return v.Hadoop }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterComponentVersion) string { return v.Hadoop }).(pulumi.StringOutput)
 }
 
 type HadoopClusterGateway struct {
-	Enabled bool `pulumi:"enabled"`
+	Enabled  bool   `pulumi:"enabled"`
 	Password string `pulumi:"password"`
 	Username string `pulumi:"username"`
 }
@@ -970,7 +975,7 @@ type HadoopClusterGatewayInput interface {
 }
 
 type HadoopClusterGatewayArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled  pulumi.BoolInput   `pulumi:"enabled"`
 	Password pulumi.StringInput `pulumi:"password"`
 	Username pulumi.StringInput `pulumi:"username"`
 }
@@ -1004,7 +1009,8 @@ type HadoopClusterGatewayPtrInput interface {
 
 type hadoopClusterGatewayPtrType HadoopClusterGatewayArgs
 
-func HadoopClusterGatewayPtr(v *HadoopClusterGatewayArgs) HadoopClusterGatewayPtrInput {	return (*hadoopClusterGatewayPtrType)(v)
+func HadoopClusterGatewayPtr(v *HadoopClusterGatewayArgs) HadoopClusterGatewayPtrInput {
+	return (*hadoopClusterGatewayPtrType)(v)
 }
 
 func (*hadoopClusterGatewayPtrType) ElementType() reflect.Type {
@@ -1019,7 +1025,7 @@ func (i *hadoopClusterGatewayPtrType) ToHadoopClusterGatewayPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterGatewayPtrOutput)
 }
 
-type HadoopClusterGatewayOutput struct { *pulumi.OutputState }
+type HadoopClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HadoopClusterGateway)(nil)).Elem()
@@ -1043,18 +1049,18 @@ func (o HadoopClusterGatewayOutput) ToHadoopClusterGatewayPtrOutputWithContext(c
 	}).(HadoopClusterGatewayPtrOutput)
 }
 func (o HadoopClusterGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v HadoopClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v HadoopClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o HadoopClusterGatewayOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterGateway) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o HadoopClusterGatewayOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterGateway) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterGateway) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type HadoopClusterGatewayPtrOutput struct { *pulumi.OutputState}
+type HadoopClusterGatewayPtrOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterGatewayPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HadoopClusterGateway)(nil)).Elem()
@@ -1069,25 +1075,25 @@ func (o HadoopClusterGatewayPtrOutput) ToHadoopClusterGatewayPtrOutputWithContex
 }
 
 func (o HadoopClusterGatewayPtrOutput) Elem() HadoopClusterGatewayOutput {
-	return o.ApplyT(func (v *HadoopClusterGateway) HadoopClusterGateway { return *v }).(HadoopClusterGatewayOutput)
+	return o.ApplyT(func(v *HadoopClusterGateway) HadoopClusterGateway { return *v }).(HadoopClusterGatewayOutput)
 }
 
 func (o HadoopClusterGatewayPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v HadoopClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v HadoopClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o HadoopClusterGatewayPtrOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterGateway) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o HadoopClusterGatewayPtrOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterGateway) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterGateway) string { return v.Username }).(pulumi.StringOutput)
 }
 
 type HadoopClusterRoles struct {
-	EdgeNode *HadoopClusterRolesEdgeNode `pulumi:"edgeNode"`
-	HeadNode HadoopClusterRolesHeadNode `pulumi:"headNode"`
-	WorkerNode HadoopClusterRolesWorkerNode `pulumi:"workerNode"`
+	EdgeNode      *HadoopClusterRolesEdgeNode     `pulumi:"edgeNode"`
+	HeadNode      HadoopClusterRolesHeadNode      `pulumi:"headNode"`
+	WorkerNode    HadoopClusterRolesWorkerNode    `pulumi:"workerNode"`
 	ZookeeperNode HadoopClusterRolesZookeeperNode `pulumi:"zookeeperNode"`
 }
 
@@ -1099,9 +1105,9 @@ type HadoopClusterRolesInput interface {
 }
 
 type HadoopClusterRolesArgs struct {
-	EdgeNode HadoopClusterRolesEdgeNodePtrInput `pulumi:"edgeNode"`
-	HeadNode HadoopClusterRolesHeadNodeInput `pulumi:"headNode"`
-	WorkerNode HadoopClusterRolesWorkerNodeInput `pulumi:"workerNode"`
+	EdgeNode      HadoopClusterRolesEdgeNodePtrInput   `pulumi:"edgeNode"`
+	HeadNode      HadoopClusterRolesHeadNodeInput      `pulumi:"headNode"`
+	WorkerNode    HadoopClusterRolesWorkerNodeInput    `pulumi:"workerNode"`
 	ZookeeperNode HadoopClusterRolesZookeeperNodeInput `pulumi:"zookeeperNode"`
 }
 
@@ -1134,7 +1140,8 @@ type HadoopClusterRolesPtrInput interface {
 
 type hadoopClusterRolesPtrType HadoopClusterRolesArgs
 
-func HadoopClusterRolesPtr(v *HadoopClusterRolesArgs) HadoopClusterRolesPtrInput {	return (*hadoopClusterRolesPtrType)(v)
+func HadoopClusterRolesPtr(v *HadoopClusterRolesArgs) HadoopClusterRolesPtrInput {
+	return (*hadoopClusterRolesPtrType)(v)
 }
 
 func (*hadoopClusterRolesPtrType) ElementType() reflect.Type {
@@ -1149,7 +1156,7 @@ func (i *hadoopClusterRolesPtrType) ToHadoopClusterRolesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesPtrOutput)
 }
 
-type HadoopClusterRolesOutput struct { *pulumi.OutputState }
+type HadoopClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HadoopClusterRoles)(nil)).Elem()
@@ -1173,22 +1180,22 @@ func (o HadoopClusterRolesOutput) ToHadoopClusterRolesPtrOutputWithContext(ctx c
 	}).(HadoopClusterRolesPtrOutput)
 }
 func (o HadoopClusterRolesOutput) EdgeNode() HadoopClusterRolesEdgeNodePtrOutput {
-	return o.ApplyT(func (v HadoopClusterRoles) *HadoopClusterRolesEdgeNode { return v.EdgeNode }).(HadoopClusterRolesEdgeNodePtrOutput)
+	return o.ApplyT(func(v HadoopClusterRoles) *HadoopClusterRolesEdgeNode { return v.EdgeNode }).(HadoopClusterRolesEdgeNodePtrOutput)
 }
 
 func (o HadoopClusterRolesOutput) HeadNode() HadoopClusterRolesHeadNodeOutput {
-	return o.ApplyT(func (v HadoopClusterRoles) HadoopClusterRolesHeadNode { return v.HeadNode }).(HadoopClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v HadoopClusterRoles) HadoopClusterRolesHeadNode { return v.HeadNode }).(HadoopClusterRolesHeadNodeOutput)
 }
 
 func (o HadoopClusterRolesOutput) WorkerNode() HadoopClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func (v HadoopClusterRoles) HadoopClusterRolesWorkerNode { return v.WorkerNode }).(HadoopClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v HadoopClusterRoles) HadoopClusterRolesWorkerNode { return v.WorkerNode }).(HadoopClusterRolesWorkerNodeOutput)
 }
 
 func (o HadoopClusterRolesOutput) ZookeeperNode() HadoopClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func (v HadoopClusterRoles) HadoopClusterRolesZookeeperNode { return v.ZookeeperNode }).(HadoopClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v HadoopClusterRoles) HadoopClusterRolesZookeeperNode { return v.ZookeeperNode }).(HadoopClusterRolesZookeeperNodeOutput)
 }
 
-type HadoopClusterRolesPtrOutput struct { *pulumi.OutputState}
+type HadoopClusterRolesPtrOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HadoopClusterRoles)(nil)).Elem()
@@ -1203,29 +1210,29 @@ func (o HadoopClusterRolesPtrOutput) ToHadoopClusterRolesPtrOutputWithContext(ct
 }
 
 func (o HadoopClusterRolesPtrOutput) Elem() HadoopClusterRolesOutput {
-	return o.ApplyT(func (v *HadoopClusterRoles) HadoopClusterRoles { return *v }).(HadoopClusterRolesOutput)
+	return o.ApplyT(func(v *HadoopClusterRoles) HadoopClusterRoles { return *v }).(HadoopClusterRolesOutput)
 }
 
 func (o HadoopClusterRolesPtrOutput) EdgeNode() HadoopClusterRolesEdgeNodePtrOutput {
-	return o.ApplyT(func (v HadoopClusterRoles) *HadoopClusterRolesEdgeNode { return v.EdgeNode }).(HadoopClusterRolesEdgeNodePtrOutput)
+	return o.ApplyT(func(v HadoopClusterRoles) *HadoopClusterRolesEdgeNode { return v.EdgeNode }).(HadoopClusterRolesEdgeNodePtrOutput)
 }
 
 func (o HadoopClusterRolesPtrOutput) HeadNode() HadoopClusterRolesHeadNodeOutput {
-	return o.ApplyT(func (v HadoopClusterRoles) HadoopClusterRolesHeadNode { return v.HeadNode }).(HadoopClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v HadoopClusterRoles) HadoopClusterRolesHeadNode { return v.HeadNode }).(HadoopClusterRolesHeadNodeOutput)
 }
 
 func (o HadoopClusterRolesPtrOutput) WorkerNode() HadoopClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func (v HadoopClusterRoles) HadoopClusterRolesWorkerNode { return v.WorkerNode }).(HadoopClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v HadoopClusterRoles) HadoopClusterRolesWorkerNode { return v.WorkerNode }).(HadoopClusterRolesWorkerNodeOutput)
 }
 
 func (o HadoopClusterRolesPtrOutput) ZookeeperNode() HadoopClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func (v HadoopClusterRoles) HadoopClusterRolesZookeeperNode { return v.ZookeeperNode }).(HadoopClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v HadoopClusterRoles) HadoopClusterRolesZookeeperNode { return v.ZookeeperNode }).(HadoopClusterRolesZookeeperNodeOutput)
 }
 
 type HadoopClusterRolesEdgeNode struct {
 	InstallScriptActions []HadoopClusterRolesEdgeNodeInstallScriptAction `pulumi:"installScriptActions"`
-	TargetInstanceCount int `pulumi:"targetInstanceCount"`
-	VmSize string `pulumi:"vmSize"`
+	TargetInstanceCount  int                                             `pulumi:"targetInstanceCount"`
+	VmSize               string                                          `pulumi:"vmSize"`
 }
 
 type HadoopClusterRolesEdgeNodeInput interface {
@@ -1237,8 +1244,8 @@ type HadoopClusterRolesEdgeNodeInput interface {
 
 type HadoopClusterRolesEdgeNodeArgs struct {
 	InstallScriptActions HadoopClusterRolesEdgeNodeInstallScriptActionArrayInput `pulumi:"installScriptActions"`
-	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	TargetInstanceCount  pulumi.IntInput                                         `pulumi:"targetInstanceCount"`
+	VmSize               pulumi.StringInput                                      `pulumi:"vmSize"`
 }
 
 func (HadoopClusterRolesEdgeNodeArgs) ElementType() reflect.Type {
@@ -1270,7 +1277,8 @@ type HadoopClusterRolesEdgeNodePtrInput interface {
 
 type hadoopClusterRolesEdgeNodePtrType HadoopClusterRolesEdgeNodeArgs
 
-func HadoopClusterRolesEdgeNodePtr(v *HadoopClusterRolesEdgeNodeArgs) HadoopClusterRolesEdgeNodePtrInput {	return (*hadoopClusterRolesEdgeNodePtrType)(v)
+func HadoopClusterRolesEdgeNodePtr(v *HadoopClusterRolesEdgeNodeArgs) HadoopClusterRolesEdgeNodePtrInput {
+	return (*hadoopClusterRolesEdgeNodePtrType)(v)
 }
 
 func (*hadoopClusterRolesEdgeNodePtrType) ElementType() reflect.Type {
@@ -1285,7 +1293,7 @@ func (i *hadoopClusterRolesEdgeNodePtrType) ToHadoopClusterRolesEdgeNodePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesEdgeNodePtrOutput)
 }
 
-type HadoopClusterRolesEdgeNodeOutput struct { *pulumi.OutputState }
+type HadoopClusterRolesEdgeNodeOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesEdgeNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HadoopClusterRolesEdgeNode)(nil)).Elem()
@@ -1309,18 +1317,20 @@ func (o HadoopClusterRolesEdgeNodeOutput) ToHadoopClusterRolesEdgeNodePtrOutputW
 	}).(HadoopClusterRolesEdgeNodePtrOutput)
 }
 func (o HadoopClusterRolesEdgeNodeOutput) InstallScriptActions() HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput {
-	return o.ApplyT(func (v HadoopClusterRolesEdgeNode) []HadoopClusterRolesEdgeNodeInstallScriptAction { return v.InstallScriptActions }).(HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput)
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNode) []HadoopClusterRolesEdgeNodeInstallScriptAction {
+		return v.InstallScriptActions
+	}).(HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput)
 }
 
 func (o HadoopClusterRolesEdgeNodeOutput) TargetInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func (v HadoopClusterRolesEdgeNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
 }
 
 func (o HadoopClusterRolesEdgeNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterRolesEdgeNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
-type HadoopClusterRolesEdgeNodePtrOutput struct { *pulumi.OutputState}
+type HadoopClusterRolesEdgeNodePtrOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesEdgeNodePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HadoopClusterRolesEdgeNode)(nil)).Elem()
@@ -1335,25 +1345,27 @@ func (o HadoopClusterRolesEdgeNodePtrOutput) ToHadoopClusterRolesEdgeNodePtrOutp
 }
 
 func (o HadoopClusterRolesEdgeNodePtrOutput) Elem() HadoopClusterRolesEdgeNodeOutput {
-	return o.ApplyT(func (v *HadoopClusterRolesEdgeNode) HadoopClusterRolesEdgeNode { return *v }).(HadoopClusterRolesEdgeNodeOutput)
+	return o.ApplyT(func(v *HadoopClusterRolesEdgeNode) HadoopClusterRolesEdgeNode { return *v }).(HadoopClusterRolesEdgeNodeOutput)
 }
 
 func (o HadoopClusterRolesEdgeNodePtrOutput) InstallScriptActions() HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput {
-	return o.ApplyT(func (v HadoopClusterRolesEdgeNode) []HadoopClusterRolesEdgeNodeInstallScriptAction { return v.InstallScriptActions }).(HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput)
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNode) []HadoopClusterRolesEdgeNodeInstallScriptAction {
+		return v.InstallScriptActions
+	}).(HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput)
 }
 
 func (o HadoopClusterRolesEdgeNodePtrOutput) TargetInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func (v HadoopClusterRolesEdgeNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
 }
 
 func (o HadoopClusterRolesEdgeNodePtrOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterRolesEdgeNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type HadoopClusterRolesEdgeNodeInstallScriptAction struct {
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
-	Uri string `pulumi:"uri"`
+	Uri  string `pulumi:"uri"`
 }
 
 type HadoopClusterRolesEdgeNodeInstallScriptActionInput interface {
@@ -1366,7 +1378,7 @@ type HadoopClusterRolesEdgeNodeInstallScriptActionInput interface {
 type HadoopClusterRolesEdgeNodeInstallScriptActionArgs struct {
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
-	Uri pulumi.StringInput `pulumi:"uri"`
+	Uri  pulumi.StringInput `pulumi:"uri"`
 }
 
 func (HadoopClusterRolesEdgeNodeInstallScriptActionArgs) ElementType() reflect.Type {
@@ -1402,7 +1414,7 @@ func (i HadoopClusterRolesEdgeNodeInstallScriptActionArray) ToHadoopClusterRoles
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput)
 }
 
-type HadoopClusterRolesEdgeNodeInstallScriptActionOutput struct { *pulumi.OutputState }
+type HadoopClusterRolesEdgeNodeInstallScriptActionOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesEdgeNodeInstallScriptActionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HadoopClusterRolesEdgeNodeInstallScriptAction)(nil)).Elem()
@@ -1418,14 +1430,14 @@ func (o HadoopClusterRolesEdgeNodeInstallScriptActionOutput) ToHadoopClusterRole
 
 // Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesEdgeNodeInstallScriptActionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterRolesEdgeNodeInstallScriptAction) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNodeInstallScriptAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o HadoopClusterRolesEdgeNodeInstallScriptActionOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterRolesEdgeNodeInstallScriptAction) string { return v.Uri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterRolesEdgeNodeInstallScriptAction) string { return v.Uri }).(pulumi.StringOutput)
 }
 
-type HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput struct { *pulumi.OutputState}
+type HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]HadoopClusterRolesEdgeNodeInstallScriptAction)(nil)).Elem()
@@ -1440,18 +1452,18 @@ func (o HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput) ToHadoopCluste
 }
 
 func (o HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput) Index(i pulumi.IntInput) HadoopClusterRolesEdgeNodeInstallScriptActionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) HadoopClusterRolesEdgeNodeInstallScriptAction {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HadoopClusterRolesEdgeNodeInstallScriptAction {
 		return vs[0].([]HadoopClusterRolesEdgeNodeInstallScriptAction)[vs[1].(int)]
 	}).(HadoopClusterRolesEdgeNodeInstallScriptActionOutput)
 }
 
 type HadoopClusterRolesHeadNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type HadoopClusterRolesHeadNodeInput interface {
@@ -1462,12 +1474,12 @@ type HadoopClusterRolesHeadNodeInput interface {
 }
 
 type HadoopClusterRolesHeadNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (HadoopClusterRolesHeadNodeArgs) ElementType() reflect.Type {
@@ -1482,7 +1494,7 @@ func (i HadoopClusterRolesHeadNodeArgs) ToHadoopClusterRolesHeadNodeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesHeadNodeOutput)
 }
 
-type HadoopClusterRolesHeadNodeOutput struct { *pulumi.OutputState }
+type HadoopClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesHeadNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HadoopClusterRolesHeadNode)(nil)).Elem()
@@ -1497,38 +1509,38 @@ func (o HadoopClusterRolesHeadNodeOutput) ToHadoopClusterRolesHeadNodeOutputWith
 }
 
 func (o HadoopClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HadoopClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HadoopClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o HadoopClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v HadoopClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v HadoopClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o HadoopClusterRolesHeadNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HadoopClusterRolesHeadNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HadoopClusterRolesHeadNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o HadoopClusterRolesHeadNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterRolesHeadNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterRolesHeadNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o HadoopClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HadoopClusterRolesHeadNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HadoopClusterRolesHeadNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o HadoopClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type HadoopClusterRolesWorkerNode struct {
-	MinInstanceCount *int `pulumi:"minInstanceCount"`
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	TargetInstanceCount int `pulumi:"targetInstanceCount"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	MinInstanceCount    *int     `pulumi:"minInstanceCount"`
+	Password            *string  `pulumi:"password"`
+	SshKeys             []string `pulumi:"sshKeys"`
+	SubnetId            *string  `pulumi:"subnetId"`
+	TargetInstanceCount int      `pulumi:"targetInstanceCount"`
+	Username            string   `pulumi:"username"`
+	VirtualNetworkId    *string  `pulumi:"virtualNetworkId"`
+	VmSize              string   `pulumi:"vmSize"`
 }
 
 type HadoopClusterRolesWorkerNodeInput interface {
@@ -1539,14 +1551,14 @@ type HadoopClusterRolesWorkerNodeInput interface {
 }
 
 type HadoopClusterRolesWorkerNodeArgs struct {
-	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	MinInstanceCount    pulumi.IntPtrInput      `pulumi:"minInstanceCount"`
+	Password            pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys             pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId            pulumi.StringPtrInput   `pulumi:"subnetId"`
+	TargetInstanceCount pulumi.IntInput         `pulumi:"targetInstanceCount"`
+	Username            pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId    pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize              pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (HadoopClusterRolesWorkerNodeArgs) ElementType() reflect.Type {
@@ -1561,7 +1573,7 @@ func (i HadoopClusterRolesWorkerNodeArgs) ToHadoopClusterRolesWorkerNodeOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeOutput)
 }
 
-type HadoopClusterRolesWorkerNodeOutput struct { *pulumi.OutputState }
+type HadoopClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HadoopClusterRolesWorkerNode)(nil)).Elem()
@@ -1576,44 +1588,44 @@ func (o HadoopClusterRolesWorkerNodeOutput) ToHadoopClusterRolesWorkerNodeOutput
 }
 
 func (o HadoopClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v HadoopClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
 
 func (o HadoopClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HadoopClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o HadoopClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v HadoopClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o HadoopClusterRolesWorkerNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HadoopClusterRolesWorkerNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o HadoopClusterRolesWorkerNodeOutput) TargetInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func (v HadoopClusterRolesWorkerNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
 }
 
 func (o HadoopClusterRolesWorkerNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterRolesWorkerNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o HadoopClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HadoopClusterRolesWorkerNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o HadoopClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type HadoopClusterRolesZookeeperNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type HadoopClusterRolesZookeeperNodeInput interface {
@@ -1624,12 +1636,12 @@ type HadoopClusterRolesZookeeperNodeInput interface {
 }
 
 type HadoopClusterRolesZookeeperNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (HadoopClusterRolesZookeeperNodeArgs) ElementType() reflect.Type {
@@ -1644,7 +1656,7 @@ func (i HadoopClusterRolesZookeeperNodeArgs) ToHadoopClusterRolesZookeeperNodeOu
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesZookeeperNodeOutput)
 }
 
-type HadoopClusterRolesZookeeperNodeOutput struct { *pulumi.OutputState }
+type HadoopClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HadoopClusterRolesZookeeperNode)(nil)).Elem()
@@ -1659,32 +1671,32 @@ func (o HadoopClusterRolesZookeeperNodeOutput) ToHadoopClusterRolesZookeeperNode
 }
 
 func (o HadoopClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HadoopClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HadoopClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o HadoopClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v HadoopClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v HadoopClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o HadoopClusterRolesZookeeperNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HadoopClusterRolesZookeeperNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HadoopClusterRolesZookeeperNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o HadoopClusterRolesZookeeperNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterRolesZookeeperNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterRolesZookeeperNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o HadoopClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HadoopClusterRolesZookeeperNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HadoopClusterRolesZookeeperNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o HadoopClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type HadoopClusterStorageAccount struct {
-	IsDefault bool `pulumi:"isDefault"`
-	StorageAccountKey string `pulumi:"storageAccountKey"`
+	IsDefault          bool   `pulumi:"isDefault"`
+	StorageAccountKey  string `pulumi:"storageAccountKey"`
 	StorageContainerId string `pulumi:"storageContainerId"`
 }
 
@@ -1696,8 +1708,8 @@ type HadoopClusterStorageAccountInput interface {
 }
 
 type HadoopClusterStorageAccountArgs struct {
-	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
-	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
+	IsDefault          pulumi.BoolInput   `pulumi:"isDefault"`
+	StorageAccountKey  pulumi.StringInput `pulumi:"storageAccountKey"`
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
 }
 
@@ -1734,7 +1746,7 @@ func (i HadoopClusterStorageAccountArray) ToHadoopClusterStorageAccountArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterStorageAccountArrayOutput)
 }
 
-type HadoopClusterStorageAccountOutput struct { *pulumi.OutputState }
+type HadoopClusterStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterStorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HadoopClusterStorageAccount)(nil)).Elem()
@@ -1749,18 +1761,18 @@ func (o HadoopClusterStorageAccountOutput) ToHadoopClusterStorageAccountOutputWi
 }
 
 func (o HadoopClusterStorageAccountOutput) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v HadoopClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v HadoopClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o HadoopClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
 }
 
 func (o HadoopClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
 }
 
-type HadoopClusterStorageAccountArrayOutput struct { *pulumi.OutputState}
+type HadoopClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterStorageAccountArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]HadoopClusterStorageAccount)(nil)).Elem()
@@ -1775,16 +1787,16 @@ func (o HadoopClusterStorageAccountArrayOutput) ToHadoopClusterStorageAccountArr
 }
 
 func (o HadoopClusterStorageAccountArrayOutput) Index(i pulumi.IntInput) HadoopClusterStorageAccountOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) HadoopClusterStorageAccount {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HadoopClusterStorageAccount {
 		return vs[0].([]HadoopClusterStorageAccount)[vs[1].(int)]
 	}).(HadoopClusterStorageAccountOutput)
 }
 
 type HadoopClusterStorageAccountGen2 struct {
-	FilesystemId string `pulumi:"filesystemId"`
-	IsDefault bool `pulumi:"isDefault"`
+	FilesystemId              string `pulumi:"filesystemId"`
+	IsDefault                 bool   `pulumi:"isDefault"`
 	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
-	StorageResourceId string `pulumi:"storageResourceId"`
+	StorageResourceId         string `pulumi:"storageResourceId"`
 }
 
 type HadoopClusterStorageAccountGen2Input interface {
@@ -1795,10 +1807,10 @@ type HadoopClusterStorageAccountGen2Input interface {
 }
 
 type HadoopClusterStorageAccountGen2Args struct {
-	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
-	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	FilesystemId              pulumi.StringInput `pulumi:"filesystemId"`
+	IsDefault                 pulumi.BoolInput   `pulumi:"isDefault"`
 	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
-	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
+	StorageResourceId         pulumi.StringInput `pulumi:"storageResourceId"`
 }
 
 func (HadoopClusterStorageAccountGen2Args) ElementType() reflect.Type {
@@ -1830,7 +1842,8 @@ type HadoopClusterStorageAccountGen2PtrInput interface {
 
 type hadoopClusterStorageAccountGen2PtrType HadoopClusterStorageAccountGen2Args
 
-func HadoopClusterStorageAccountGen2Ptr(v *HadoopClusterStorageAccountGen2Args) HadoopClusterStorageAccountGen2PtrInput {	return (*hadoopClusterStorageAccountGen2PtrType)(v)
+func HadoopClusterStorageAccountGen2Ptr(v *HadoopClusterStorageAccountGen2Args) HadoopClusterStorageAccountGen2PtrInput {
+	return (*hadoopClusterStorageAccountGen2PtrType)(v)
 }
 
 func (*hadoopClusterStorageAccountGen2PtrType) ElementType() reflect.Type {
@@ -1845,7 +1858,7 @@ func (i *hadoopClusterStorageAccountGen2PtrType) ToHadoopClusterStorageAccountGe
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterStorageAccountGen2PtrOutput)
 }
 
-type HadoopClusterStorageAccountGen2Output struct { *pulumi.OutputState }
+type HadoopClusterStorageAccountGen2Output struct{ *pulumi.OutputState }
 
 func (HadoopClusterStorageAccountGen2Output) ElementType() reflect.Type {
 	return reflect.TypeOf((*HadoopClusterStorageAccountGen2)(nil)).Elem()
@@ -1869,22 +1882,22 @@ func (o HadoopClusterStorageAccountGen2Output) ToHadoopClusterStorageAccountGen2
 	}).(HadoopClusterStorageAccountGen2PtrOutput)
 }
 func (o HadoopClusterStorageAccountGen2Output) FilesystemId() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
 }
 
 func (o HadoopClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v HadoopClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v HadoopClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o HadoopClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
 }
 
 func (o HadoopClusterStorageAccountGen2Output) StorageResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
 }
 
-type HadoopClusterStorageAccountGen2PtrOutput struct { *pulumi.OutputState}
+type HadoopClusterStorageAccountGen2PtrOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterStorageAccountGen2PtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HadoopClusterStorageAccountGen2)(nil)).Elem()
@@ -1899,23 +1912,23 @@ func (o HadoopClusterStorageAccountGen2PtrOutput) ToHadoopClusterStorageAccountG
 }
 
 func (o HadoopClusterStorageAccountGen2PtrOutput) Elem() HadoopClusterStorageAccountGen2Output {
-	return o.ApplyT(func (v *HadoopClusterStorageAccountGen2) HadoopClusterStorageAccountGen2 { return *v }).(HadoopClusterStorageAccountGen2Output)
+	return o.ApplyT(func(v *HadoopClusterStorageAccountGen2) HadoopClusterStorageAccountGen2 { return *v }).(HadoopClusterStorageAccountGen2Output)
 }
 
 func (o HadoopClusterStorageAccountGen2PtrOutput) FilesystemId() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
 }
 
 func (o HadoopClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v HadoopClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v HadoopClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o HadoopClusterStorageAccountGen2PtrOutput) ManagedIdentityResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
 }
 
 func (o HadoopClusterStorageAccountGen2PtrOutput) StorageResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v HadoopClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HadoopClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
 }
 
 type InteractiveQueryClusterComponentVersion struct {
@@ -1962,7 +1975,8 @@ type InteractiveQueryClusterComponentVersionPtrInput interface {
 
 type interactiveQueryClusterComponentVersionPtrType InteractiveQueryClusterComponentVersionArgs
 
-func InteractiveQueryClusterComponentVersionPtr(v *InteractiveQueryClusterComponentVersionArgs) InteractiveQueryClusterComponentVersionPtrInput {	return (*interactiveQueryClusterComponentVersionPtrType)(v)
+func InteractiveQueryClusterComponentVersionPtr(v *InteractiveQueryClusterComponentVersionArgs) InteractiveQueryClusterComponentVersionPtrInput {
+	return (*interactiveQueryClusterComponentVersionPtrType)(v)
 }
 
 func (*interactiveQueryClusterComponentVersionPtrType) ElementType() reflect.Type {
@@ -1977,7 +1991,7 @@ func (i *interactiveQueryClusterComponentVersionPtrType) ToInteractiveQueryClust
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterComponentVersionPtrOutput)
 }
 
-type InteractiveQueryClusterComponentVersionOutput struct { *pulumi.OutputState }
+type InteractiveQueryClusterComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterComponentVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InteractiveQueryClusterComponentVersion)(nil)).Elem()
@@ -2001,10 +2015,10 @@ func (o InteractiveQueryClusterComponentVersionOutput) ToInteractiveQueryCluster
 	}).(InteractiveQueryClusterComponentVersionPtrOutput)
 }
 func (o InteractiveQueryClusterComponentVersionOutput) InteractiveHive() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterComponentVersion) string { return v.InteractiveHive }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterComponentVersion) string { return v.InteractiveHive }).(pulumi.StringOutput)
 }
 
-type InteractiveQueryClusterComponentVersionPtrOutput struct { *pulumi.OutputState}
+type InteractiveQueryClusterComponentVersionPtrOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterComponentVersionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**InteractiveQueryClusterComponentVersion)(nil)).Elem()
@@ -2019,15 +2033,15 @@ func (o InteractiveQueryClusterComponentVersionPtrOutput) ToInteractiveQueryClus
 }
 
 func (o InteractiveQueryClusterComponentVersionPtrOutput) Elem() InteractiveQueryClusterComponentVersionOutput {
-	return o.ApplyT(func (v *InteractiveQueryClusterComponentVersion) InteractiveQueryClusterComponentVersion { return *v }).(InteractiveQueryClusterComponentVersionOutput)
+	return o.ApplyT(func(v *InteractiveQueryClusterComponentVersion) InteractiveQueryClusterComponentVersion { return *v }).(InteractiveQueryClusterComponentVersionOutput)
 }
 
 func (o InteractiveQueryClusterComponentVersionPtrOutput) InteractiveHive() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterComponentVersion) string { return v.InteractiveHive }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterComponentVersion) string { return v.InteractiveHive }).(pulumi.StringOutput)
 }
 
 type InteractiveQueryClusterGateway struct {
-	Enabled bool `pulumi:"enabled"`
+	Enabled  bool   `pulumi:"enabled"`
 	Password string `pulumi:"password"`
 	Username string `pulumi:"username"`
 }
@@ -2040,7 +2054,7 @@ type InteractiveQueryClusterGatewayInput interface {
 }
 
 type InteractiveQueryClusterGatewayArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled  pulumi.BoolInput   `pulumi:"enabled"`
 	Password pulumi.StringInput `pulumi:"password"`
 	Username pulumi.StringInput `pulumi:"username"`
 }
@@ -2074,7 +2088,8 @@ type InteractiveQueryClusterGatewayPtrInput interface {
 
 type interactiveQueryClusterGatewayPtrType InteractiveQueryClusterGatewayArgs
 
-func InteractiveQueryClusterGatewayPtr(v *InteractiveQueryClusterGatewayArgs) InteractiveQueryClusterGatewayPtrInput {	return (*interactiveQueryClusterGatewayPtrType)(v)
+func InteractiveQueryClusterGatewayPtr(v *InteractiveQueryClusterGatewayArgs) InteractiveQueryClusterGatewayPtrInput {
+	return (*interactiveQueryClusterGatewayPtrType)(v)
 }
 
 func (*interactiveQueryClusterGatewayPtrType) ElementType() reflect.Type {
@@ -2089,7 +2104,7 @@ func (i *interactiveQueryClusterGatewayPtrType) ToInteractiveQueryClusterGateway
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterGatewayPtrOutput)
 }
 
-type InteractiveQueryClusterGatewayOutput struct { *pulumi.OutputState }
+type InteractiveQueryClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InteractiveQueryClusterGateway)(nil)).Elem()
@@ -2113,18 +2128,18 @@ func (o InteractiveQueryClusterGatewayOutput) ToInteractiveQueryClusterGatewayPt
 	}).(InteractiveQueryClusterGatewayPtrOutput)
 }
 func (o InteractiveQueryClusterGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o InteractiveQueryClusterGatewayOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterGateway) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o InteractiveQueryClusterGatewayOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterGateway) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterGateway) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type InteractiveQueryClusterGatewayPtrOutput struct { *pulumi.OutputState}
+type InteractiveQueryClusterGatewayPtrOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterGatewayPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**InteractiveQueryClusterGateway)(nil)).Elem()
@@ -2139,24 +2154,24 @@ func (o InteractiveQueryClusterGatewayPtrOutput) ToInteractiveQueryClusterGatewa
 }
 
 func (o InteractiveQueryClusterGatewayPtrOutput) Elem() InteractiveQueryClusterGatewayOutput {
-	return o.ApplyT(func (v *InteractiveQueryClusterGateway) InteractiveQueryClusterGateway { return *v }).(InteractiveQueryClusterGatewayOutput)
+	return o.ApplyT(func(v *InteractiveQueryClusterGateway) InteractiveQueryClusterGateway { return *v }).(InteractiveQueryClusterGatewayOutput)
 }
 
 func (o InteractiveQueryClusterGatewayPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o InteractiveQueryClusterGatewayPtrOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterGateway) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o InteractiveQueryClusterGatewayPtrOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterGateway) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterGateway) string { return v.Username }).(pulumi.StringOutput)
 }
 
 type InteractiveQueryClusterRoles struct {
-	HeadNode InteractiveQueryClusterRolesHeadNode `pulumi:"headNode"`
-	WorkerNode InteractiveQueryClusterRolesWorkerNode `pulumi:"workerNode"`
+	HeadNode      InteractiveQueryClusterRolesHeadNode      `pulumi:"headNode"`
+	WorkerNode    InteractiveQueryClusterRolesWorkerNode    `pulumi:"workerNode"`
 	ZookeeperNode InteractiveQueryClusterRolesZookeeperNode `pulumi:"zookeeperNode"`
 }
 
@@ -2168,8 +2183,8 @@ type InteractiveQueryClusterRolesInput interface {
 }
 
 type InteractiveQueryClusterRolesArgs struct {
-	HeadNode InteractiveQueryClusterRolesHeadNodeInput `pulumi:"headNode"`
-	WorkerNode InteractiveQueryClusterRolesWorkerNodeInput `pulumi:"workerNode"`
+	HeadNode      InteractiveQueryClusterRolesHeadNodeInput      `pulumi:"headNode"`
+	WorkerNode    InteractiveQueryClusterRolesWorkerNodeInput    `pulumi:"workerNode"`
 	ZookeeperNode InteractiveQueryClusterRolesZookeeperNodeInput `pulumi:"zookeeperNode"`
 }
 
@@ -2202,7 +2217,8 @@ type InteractiveQueryClusterRolesPtrInput interface {
 
 type interactiveQueryClusterRolesPtrType InteractiveQueryClusterRolesArgs
 
-func InteractiveQueryClusterRolesPtr(v *InteractiveQueryClusterRolesArgs) InteractiveQueryClusterRolesPtrInput {	return (*interactiveQueryClusterRolesPtrType)(v)
+func InteractiveQueryClusterRolesPtr(v *InteractiveQueryClusterRolesArgs) InteractiveQueryClusterRolesPtrInput {
+	return (*interactiveQueryClusterRolesPtrType)(v)
 }
 
 func (*interactiveQueryClusterRolesPtrType) ElementType() reflect.Type {
@@ -2217,7 +2233,7 @@ func (i *interactiveQueryClusterRolesPtrType) ToInteractiveQueryClusterRolesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesPtrOutput)
 }
 
-type InteractiveQueryClusterRolesOutput struct { *pulumi.OutputState }
+type InteractiveQueryClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InteractiveQueryClusterRoles)(nil)).Elem()
@@ -2241,18 +2257,20 @@ func (o InteractiveQueryClusterRolesOutput) ToInteractiveQueryClusterRolesPtrOut
 	}).(InteractiveQueryClusterRolesPtrOutput)
 }
 func (o InteractiveQueryClusterRolesOutput) HeadNode() InteractiveQueryClusterRolesHeadNodeOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesHeadNode { return v.HeadNode }).(InteractiveQueryClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesHeadNode { return v.HeadNode }).(InteractiveQueryClusterRolesHeadNodeOutput)
 }
 
 func (o InteractiveQueryClusterRolesOutput) WorkerNode() InteractiveQueryClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesWorkerNode { return v.WorkerNode }).(InteractiveQueryClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesWorkerNode { return v.WorkerNode }).(InteractiveQueryClusterRolesWorkerNodeOutput)
 }
 
 func (o InteractiveQueryClusterRolesOutput) ZookeeperNode() InteractiveQueryClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesZookeeperNode { return v.ZookeeperNode }).(InteractiveQueryClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesZookeeperNode {
+		return v.ZookeeperNode
+	}).(InteractiveQueryClusterRolesZookeeperNodeOutput)
 }
 
-type InteractiveQueryClusterRolesPtrOutput struct { *pulumi.OutputState}
+type InteractiveQueryClusterRolesPtrOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**InteractiveQueryClusterRoles)(nil)).Elem()
@@ -2267,28 +2285,30 @@ func (o InteractiveQueryClusterRolesPtrOutput) ToInteractiveQueryClusterRolesPtr
 }
 
 func (o InteractiveQueryClusterRolesPtrOutput) Elem() InteractiveQueryClusterRolesOutput {
-	return o.ApplyT(func (v *InteractiveQueryClusterRoles) InteractiveQueryClusterRoles { return *v }).(InteractiveQueryClusterRolesOutput)
+	return o.ApplyT(func(v *InteractiveQueryClusterRoles) InteractiveQueryClusterRoles { return *v }).(InteractiveQueryClusterRolesOutput)
 }
 
 func (o InteractiveQueryClusterRolesPtrOutput) HeadNode() InteractiveQueryClusterRolesHeadNodeOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesHeadNode { return v.HeadNode }).(InteractiveQueryClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesHeadNode { return v.HeadNode }).(InteractiveQueryClusterRolesHeadNodeOutput)
 }
 
 func (o InteractiveQueryClusterRolesPtrOutput) WorkerNode() InteractiveQueryClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesWorkerNode { return v.WorkerNode }).(InteractiveQueryClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesWorkerNode { return v.WorkerNode }).(InteractiveQueryClusterRolesWorkerNodeOutput)
 }
 
 func (o InteractiveQueryClusterRolesPtrOutput) ZookeeperNode() InteractiveQueryClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesZookeeperNode { return v.ZookeeperNode }).(InteractiveQueryClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesZookeeperNode {
+		return v.ZookeeperNode
+	}).(InteractiveQueryClusterRolesZookeeperNodeOutput)
 }
 
 type InteractiveQueryClusterRolesHeadNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type InteractiveQueryClusterRolesHeadNodeInput interface {
@@ -2299,12 +2319,12 @@ type InteractiveQueryClusterRolesHeadNodeInput interface {
 }
 
 type InteractiveQueryClusterRolesHeadNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (InteractiveQueryClusterRolesHeadNodeArgs) ElementType() reflect.Type {
@@ -2319,7 +2339,7 @@ func (i InteractiveQueryClusterRolesHeadNodeArgs) ToInteractiveQueryClusterRoles
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesHeadNodeOutput)
 }
 
-type InteractiveQueryClusterRolesHeadNodeOutput struct { *pulumi.OutputState }
+type InteractiveQueryClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesHeadNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InteractiveQueryClusterRolesHeadNode)(nil)).Elem()
@@ -2334,38 +2354,38 @@ func (o InteractiveQueryClusterRolesHeadNodeOutput) ToInteractiveQueryClusterRol
 }
 
 func (o InteractiveQueryClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o InteractiveQueryClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o InteractiveQueryClusterRolesHeadNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesHeadNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o InteractiveQueryClusterRolesHeadNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesHeadNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o InteractiveQueryClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesHeadNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o InteractiveQueryClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type InteractiveQueryClusterRolesWorkerNode struct {
-	MinInstanceCount *int `pulumi:"minInstanceCount"`
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	TargetInstanceCount int `pulumi:"targetInstanceCount"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	MinInstanceCount    *int     `pulumi:"minInstanceCount"`
+	Password            *string  `pulumi:"password"`
+	SshKeys             []string `pulumi:"sshKeys"`
+	SubnetId            *string  `pulumi:"subnetId"`
+	TargetInstanceCount int      `pulumi:"targetInstanceCount"`
+	Username            string   `pulumi:"username"`
+	VirtualNetworkId    *string  `pulumi:"virtualNetworkId"`
+	VmSize              string   `pulumi:"vmSize"`
 }
 
 type InteractiveQueryClusterRolesWorkerNodeInput interface {
@@ -2376,14 +2396,14 @@ type InteractiveQueryClusterRolesWorkerNodeInput interface {
 }
 
 type InteractiveQueryClusterRolesWorkerNodeArgs struct {
-	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	MinInstanceCount    pulumi.IntPtrInput      `pulumi:"minInstanceCount"`
+	Password            pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys             pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId            pulumi.StringPtrInput   `pulumi:"subnetId"`
+	TargetInstanceCount pulumi.IntInput         `pulumi:"targetInstanceCount"`
+	Username            pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId    pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize              pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (InteractiveQueryClusterRolesWorkerNodeArgs) ElementType() reflect.Type {
@@ -2398,7 +2418,7 @@ func (i InteractiveQueryClusterRolesWorkerNodeArgs) ToInteractiveQueryClusterRol
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeOutput)
 }
 
-type InteractiveQueryClusterRolesWorkerNodeOutput struct { *pulumi.OutputState }
+type InteractiveQueryClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNode)(nil)).Elem()
@@ -2413,44 +2433,44 @@ func (o InteractiveQueryClusterRolesWorkerNodeOutput) ToInteractiveQueryClusterR
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesWorkerNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) TargetInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesWorkerNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesWorkerNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesWorkerNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type InteractiveQueryClusterRolesZookeeperNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type InteractiveQueryClusterRolesZookeeperNodeInput interface {
@@ -2461,12 +2481,12 @@ type InteractiveQueryClusterRolesZookeeperNodeInput interface {
 }
 
 type InteractiveQueryClusterRolesZookeeperNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (InteractiveQueryClusterRolesZookeeperNodeArgs) ElementType() reflect.Type {
@@ -2481,7 +2501,7 @@ func (i InteractiveQueryClusterRolesZookeeperNodeArgs) ToInteractiveQueryCluster
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesZookeeperNodeOutput)
 }
 
-type InteractiveQueryClusterRolesZookeeperNodeOutput struct { *pulumi.OutputState }
+type InteractiveQueryClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InteractiveQueryClusterRolesZookeeperNode)(nil)).Elem()
@@ -2496,32 +2516,32 @@ func (o InteractiveQueryClusterRolesZookeeperNodeOutput) ToInteractiveQueryClust
 }
 
 func (o InteractiveQueryClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o InteractiveQueryClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o InteractiveQueryClusterRolesZookeeperNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesZookeeperNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o InteractiveQueryClusterRolesZookeeperNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesZookeeperNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o InteractiveQueryClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesZookeeperNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o InteractiveQueryClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type InteractiveQueryClusterStorageAccount struct {
-	IsDefault bool `pulumi:"isDefault"`
-	StorageAccountKey string `pulumi:"storageAccountKey"`
+	IsDefault          bool   `pulumi:"isDefault"`
+	StorageAccountKey  string `pulumi:"storageAccountKey"`
 	StorageContainerId string `pulumi:"storageContainerId"`
 }
 
@@ -2533,8 +2553,8 @@ type InteractiveQueryClusterStorageAccountInput interface {
 }
 
 type InteractiveQueryClusterStorageAccountArgs struct {
-	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
-	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
+	IsDefault          pulumi.BoolInput   `pulumi:"isDefault"`
+	StorageAccountKey  pulumi.StringInput `pulumi:"storageAccountKey"`
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
 }
 
@@ -2571,7 +2591,7 @@ func (i InteractiveQueryClusterStorageAccountArray) ToInteractiveQueryClusterSto
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterStorageAccountArrayOutput)
 }
 
-type InteractiveQueryClusterStorageAccountOutput struct { *pulumi.OutputState }
+type InteractiveQueryClusterStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterStorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InteractiveQueryClusterStorageAccount)(nil)).Elem()
@@ -2586,18 +2606,18 @@ func (o InteractiveQueryClusterStorageAccountOutput) ToInteractiveQueryClusterSt
 }
 
 func (o InteractiveQueryClusterStorageAccountOutput) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o InteractiveQueryClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
 }
 
 func (o InteractiveQueryClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
 }
 
-type InteractiveQueryClusterStorageAccountArrayOutput struct { *pulumi.OutputState}
+type InteractiveQueryClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterStorageAccountArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]InteractiveQueryClusterStorageAccount)(nil)).Elem()
@@ -2612,16 +2632,16 @@ func (o InteractiveQueryClusterStorageAccountArrayOutput) ToInteractiveQueryClus
 }
 
 func (o InteractiveQueryClusterStorageAccountArrayOutput) Index(i pulumi.IntInput) InteractiveQueryClusterStorageAccountOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) InteractiveQueryClusterStorageAccount {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InteractiveQueryClusterStorageAccount {
 		return vs[0].([]InteractiveQueryClusterStorageAccount)[vs[1].(int)]
 	}).(InteractiveQueryClusterStorageAccountOutput)
 }
 
 type InteractiveQueryClusterStorageAccountGen2 struct {
-	FilesystemId string `pulumi:"filesystemId"`
-	IsDefault bool `pulumi:"isDefault"`
+	FilesystemId              string `pulumi:"filesystemId"`
+	IsDefault                 bool   `pulumi:"isDefault"`
 	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
-	StorageResourceId string `pulumi:"storageResourceId"`
+	StorageResourceId         string `pulumi:"storageResourceId"`
 }
 
 type InteractiveQueryClusterStorageAccountGen2Input interface {
@@ -2632,10 +2652,10 @@ type InteractiveQueryClusterStorageAccountGen2Input interface {
 }
 
 type InteractiveQueryClusterStorageAccountGen2Args struct {
-	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
-	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	FilesystemId              pulumi.StringInput `pulumi:"filesystemId"`
+	IsDefault                 pulumi.BoolInput   `pulumi:"isDefault"`
 	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
-	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
+	StorageResourceId         pulumi.StringInput `pulumi:"storageResourceId"`
 }
 
 func (InteractiveQueryClusterStorageAccountGen2Args) ElementType() reflect.Type {
@@ -2667,7 +2687,8 @@ type InteractiveQueryClusterStorageAccountGen2PtrInput interface {
 
 type interactiveQueryClusterStorageAccountGen2PtrType InteractiveQueryClusterStorageAccountGen2Args
 
-func InteractiveQueryClusterStorageAccountGen2Ptr(v *InteractiveQueryClusterStorageAccountGen2Args) InteractiveQueryClusterStorageAccountGen2PtrInput {	return (*interactiveQueryClusterStorageAccountGen2PtrType)(v)
+func InteractiveQueryClusterStorageAccountGen2Ptr(v *InteractiveQueryClusterStorageAccountGen2Args) InteractiveQueryClusterStorageAccountGen2PtrInput {
+	return (*interactiveQueryClusterStorageAccountGen2PtrType)(v)
 }
 
 func (*interactiveQueryClusterStorageAccountGen2PtrType) ElementType() reflect.Type {
@@ -2682,7 +2703,7 @@ func (i *interactiveQueryClusterStorageAccountGen2PtrType) ToInteractiveQueryClu
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterStorageAccountGen2PtrOutput)
 }
 
-type InteractiveQueryClusterStorageAccountGen2Output struct { *pulumi.OutputState }
+type InteractiveQueryClusterStorageAccountGen2Output struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterStorageAccountGen2Output) ElementType() reflect.Type {
 	return reflect.TypeOf((*InteractiveQueryClusterStorageAccountGen2)(nil)).Elem()
@@ -2706,22 +2727,22 @@ func (o InteractiveQueryClusterStorageAccountGen2Output) ToInteractiveQueryClust
 	}).(InteractiveQueryClusterStorageAccountGen2PtrOutput)
 }
 func (o InteractiveQueryClusterStorageAccountGen2Output) FilesystemId() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
 }
 
 func (o InteractiveQueryClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o InteractiveQueryClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
 }
 
 func (o InteractiveQueryClusterStorageAccountGen2Output) StorageResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
 }
 
-type InteractiveQueryClusterStorageAccountGen2PtrOutput struct { *pulumi.OutputState}
+type InteractiveQueryClusterStorageAccountGen2PtrOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterStorageAccountGen2PtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**InteractiveQueryClusterStorageAccountGen2)(nil)).Elem()
@@ -2736,23 +2757,25 @@ func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) ToInteractiveQueryCl
 }
 
 func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) Elem() InteractiveQueryClusterStorageAccountGen2Output {
-	return o.ApplyT(func (v *InteractiveQueryClusterStorageAccountGen2) InteractiveQueryClusterStorageAccountGen2 { return *v }).(InteractiveQueryClusterStorageAccountGen2Output)
+	return o.ApplyT(func(v *InteractiveQueryClusterStorageAccountGen2) InteractiveQueryClusterStorageAccountGen2 {
+		return *v
+	}).(InteractiveQueryClusterStorageAccountGen2Output)
 }
 
 func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) FilesystemId() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
 }
 
 func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) ManagedIdentityResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
 }
 
 func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) StorageResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v InteractiveQueryClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
 }
 
 type KafkaClusterComponentVersion struct {
@@ -2799,7 +2822,8 @@ type KafkaClusterComponentVersionPtrInput interface {
 
 type kafkaClusterComponentVersionPtrType KafkaClusterComponentVersionArgs
 
-func KafkaClusterComponentVersionPtr(v *KafkaClusterComponentVersionArgs) KafkaClusterComponentVersionPtrInput {	return (*kafkaClusterComponentVersionPtrType)(v)
+func KafkaClusterComponentVersionPtr(v *KafkaClusterComponentVersionArgs) KafkaClusterComponentVersionPtrInput {
+	return (*kafkaClusterComponentVersionPtrType)(v)
 }
 
 func (*kafkaClusterComponentVersionPtrType) ElementType() reflect.Type {
@@ -2814,7 +2838,7 @@ func (i *kafkaClusterComponentVersionPtrType) ToKafkaClusterComponentVersionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterComponentVersionPtrOutput)
 }
 
-type KafkaClusterComponentVersionOutput struct { *pulumi.OutputState }
+type KafkaClusterComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterComponentVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KafkaClusterComponentVersion)(nil)).Elem()
@@ -2838,10 +2862,10 @@ func (o KafkaClusterComponentVersionOutput) ToKafkaClusterComponentVersionPtrOut
 	}).(KafkaClusterComponentVersionPtrOutput)
 }
 func (o KafkaClusterComponentVersionOutput) Kafka() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterComponentVersion) string { return v.Kafka }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterComponentVersion) string { return v.Kafka }).(pulumi.StringOutput)
 }
 
-type KafkaClusterComponentVersionPtrOutput struct { *pulumi.OutputState}
+type KafkaClusterComponentVersionPtrOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterComponentVersionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KafkaClusterComponentVersion)(nil)).Elem()
@@ -2856,15 +2880,15 @@ func (o KafkaClusterComponentVersionPtrOutput) ToKafkaClusterComponentVersionPtr
 }
 
 func (o KafkaClusterComponentVersionPtrOutput) Elem() KafkaClusterComponentVersionOutput {
-	return o.ApplyT(func (v *KafkaClusterComponentVersion) KafkaClusterComponentVersion { return *v }).(KafkaClusterComponentVersionOutput)
+	return o.ApplyT(func(v *KafkaClusterComponentVersion) KafkaClusterComponentVersion { return *v }).(KafkaClusterComponentVersionOutput)
 }
 
 func (o KafkaClusterComponentVersionPtrOutput) Kafka() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterComponentVersion) string { return v.Kafka }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterComponentVersion) string { return v.Kafka }).(pulumi.StringOutput)
 }
 
 type KafkaClusterGateway struct {
-	Enabled bool `pulumi:"enabled"`
+	Enabled  bool   `pulumi:"enabled"`
 	Password string `pulumi:"password"`
 	Username string `pulumi:"username"`
 }
@@ -2877,7 +2901,7 @@ type KafkaClusterGatewayInput interface {
 }
 
 type KafkaClusterGatewayArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled  pulumi.BoolInput   `pulumi:"enabled"`
 	Password pulumi.StringInput `pulumi:"password"`
 	Username pulumi.StringInput `pulumi:"username"`
 }
@@ -2911,7 +2935,8 @@ type KafkaClusterGatewayPtrInput interface {
 
 type kafkaClusterGatewayPtrType KafkaClusterGatewayArgs
 
-func KafkaClusterGatewayPtr(v *KafkaClusterGatewayArgs) KafkaClusterGatewayPtrInput {	return (*kafkaClusterGatewayPtrType)(v)
+func KafkaClusterGatewayPtr(v *KafkaClusterGatewayArgs) KafkaClusterGatewayPtrInput {
+	return (*kafkaClusterGatewayPtrType)(v)
 }
 
 func (*kafkaClusterGatewayPtrType) ElementType() reflect.Type {
@@ -2926,7 +2951,7 @@ func (i *kafkaClusterGatewayPtrType) ToKafkaClusterGatewayPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterGatewayPtrOutput)
 }
 
-type KafkaClusterGatewayOutput struct { *pulumi.OutputState }
+type KafkaClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KafkaClusterGateway)(nil)).Elem()
@@ -2950,18 +2975,18 @@ func (o KafkaClusterGatewayOutput) ToKafkaClusterGatewayPtrOutputWithContext(ctx
 	}).(KafkaClusterGatewayPtrOutput)
 }
 func (o KafkaClusterGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KafkaClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KafkaClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o KafkaClusterGatewayOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterGateway) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o KafkaClusterGatewayOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterGateway) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterGateway) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type KafkaClusterGatewayPtrOutput struct { *pulumi.OutputState}
+type KafkaClusterGatewayPtrOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterGatewayPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KafkaClusterGateway)(nil)).Elem()
@@ -2976,24 +3001,24 @@ func (o KafkaClusterGatewayPtrOutput) ToKafkaClusterGatewayPtrOutputWithContext(
 }
 
 func (o KafkaClusterGatewayPtrOutput) Elem() KafkaClusterGatewayOutput {
-	return o.ApplyT(func (v *KafkaClusterGateway) KafkaClusterGateway { return *v }).(KafkaClusterGatewayOutput)
+	return o.ApplyT(func(v *KafkaClusterGateway) KafkaClusterGateway { return *v }).(KafkaClusterGatewayOutput)
 }
 
 func (o KafkaClusterGatewayPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KafkaClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KafkaClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o KafkaClusterGatewayPtrOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterGateway) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o KafkaClusterGatewayPtrOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterGateway) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterGateway) string { return v.Username }).(pulumi.StringOutput)
 }
 
 type KafkaClusterRoles struct {
-	HeadNode KafkaClusterRolesHeadNode `pulumi:"headNode"`
-	WorkerNode KafkaClusterRolesWorkerNode `pulumi:"workerNode"`
+	HeadNode      KafkaClusterRolesHeadNode      `pulumi:"headNode"`
+	WorkerNode    KafkaClusterRolesWorkerNode    `pulumi:"workerNode"`
 	ZookeeperNode KafkaClusterRolesZookeeperNode `pulumi:"zookeeperNode"`
 }
 
@@ -3005,8 +3030,8 @@ type KafkaClusterRolesInput interface {
 }
 
 type KafkaClusterRolesArgs struct {
-	HeadNode KafkaClusterRolesHeadNodeInput `pulumi:"headNode"`
-	WorkerNode KafkaClusterRolesWorkerNodeInput `pulumi:"workerNode"`
+	HeadNode      KafkaClusterRolesHeadNodeInput      `pulumi:"headNode"`
+	WorkerNode    KafkaClusterRolesWorkerNodeInput    `pulumi:"workerNode"`
 	ZookeeperNode KafkaClusterRolesZookeeperNodeInput `pulumi:"zookeeperNode"`
 }
 
@@ -3039,7 +3064,8 @@ type KafkaClusterRolesPtrInput interface {
 
 type kafkaClusterRolesPtrType KafkaClusterRolesArgs
 
-func KafkaClusterRolesPtr(v *KafkaClusterRolesArgs) KafkaClusterRolesPtrInput {	return (*kafkaClusterRolesPtrType)(v)
+func KafkaClusterRolesPtr(v *KafkaClusterRolesArgs) KafkaClusterRolesPtrInput {
+	return (*kafkaClusterRolesPtrType)(v)
 }
 
 func (*kafkaClusterRolesPtrType) ElementType() reflect.Type {
@@ -3054,7 +3080,7 @@ func (i *kafkaClusterRolesPtrType) ToKafkaClusterRolesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesPtrOutput)
 }
 
-type KafkaClusterRolesOutput struct { *pulumi.OutputState }
+type KafkaClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KafkaClusterRoles)(nil)).Elem()
@@ -3078,18 +3104,18 @@ func (o KafkaClusterRolesOutput) ToKafkaClusterRolesPtrOutputWithContext(ctx con
 	}).(KafkaClusterRolesPtrOutput)
 }
 func (o KafkaClusterRolesOutput) HeadNode() KafkaClusterRolesHeadNodeOutput {
-	return o.ApplyT(func (v KafkaClusterRoles) KafkaClusterRolesHeadNode { return v.HeadNode }).(KafkaClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v KafkaClusterRoles) KafkaClusterRolesHeadNode { return v.HeadNode }).(KafkaClusterRolesHeadNodeOutput)
 }
 
 func (o KafkaClusterRolesOutput) WorkerNode() KafkaClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func (v KafkaClusterRoles) KafkaClusterRolesWorkerNode { return v.WorkerNode }).(KafkaClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v KafkaClusterRoles) KafkaClusterRolesWorkerNode { return v.WorkerNode }).(KafkaClusterRolesWorkerNodeOutput)
 }
 
 func (o KafkaClusterRolesOutput) ZookeeperNode() KafkaClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func (v KafkaClusterRoles) KafkaClusterRolesZookeeperNode { return v.ZookeeperNode }).(KafkaClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v KafkaClusterRoles) KafkaClusterRolesZookeeperNode { return v.ZookeeperNode }).(KafkaClusterRolesZookeeperNodeOutput)
 }
 
-type KafkaClusterRolesPtrOutput struct { *pulumi.OutputState}
+type KafkaClusterRolesPtrOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KafkaClusterRoles)(nil)).Elem()
@@ -3104,28 +3130,28 @@ func (o KafkaClusterRolesPtrOutput) ToKafkaClusterRolesPtrOutputWithContext(ctx 
 }
 
 func (o KafkaClusterRolesPtrOutput) Elem() KafkaClusterRolesOutput {
-	return o.ApplyT(func (v *KafkaClusterRoles) KafkaClusterRoles { return *v }).(KafkaClusterRolesOutput)
+	return o.ApplyT(func(v *KafkaClusterRoles) KafkaClusterRoles { return *v }).(KafkaClusterRolesOutput)
 }
 
 func (o KafkaClusterRolesPtrOutput) HeadNode() KafkaClusterRolesHeadNodeOutput {
-	return o.ApplyT(func (v KafkaClusterRoles) KafkaClusterRolesHeadNode { return v.HeadNode }).(KafkaClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v KafkaClusterRoles) KafkaClusterRolesHeadNode { return v.HeadNode }).(KafkaClusterRolesHeadNodeOutput)
 }
 
 func (o KafkaClusterRolesPtrOutput) WorkerNode() KafkaClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func (v KafkaClusterRoles) KafkaClusterRolesWorkerNode { return v.WorkerNode }).(KafkaClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v KafkaClusterRoles) KafkaClusterRolesWorkerNode { return v.WorkerNode }).(KafkaClusterRolesWorkerNodeOutput)
 }
 
 func (o KafkaClusterRolesPtrOutput) ZookeeperNode() KafkaClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func (v KafkaClusterRoles) KafkaClusterRolesZookeeperNode { return v.ZookeeperNode }).(KafkaClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v KafkaClusterRoles) KafkaClusterRolesZookeeperNode { return v.ZookeeperNode }).(KafkaClusterRolesZookeeperNodeOutput)
 }
 
 type KafkaClusterRolesHeadNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type KafkaClusterRolesHeadNodeInput interface {
@@ -3136,12 +3162,12 @@ type KafkaClusterRolesHeadNodeInput interface {
 }
 
 type KafkaClusterRolesHeadNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (KafkaClusterRolesHeadNodeArgs) ElementType() reflect.Type {
@@ -3156,7 +3182,7 @@ func (i KafkaClusterRolesHeadNodeArgs) ToKafkaClusterRolesHeadNodeOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesHeadNodeOutput)
 }
 
-type KafkaClusterRolesHeadNodeOutput struct { *pulumi.OutputState }
+type KafkaClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesHeadNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KafkaClusterRolesHeadNode)(nil)).Elem()
@@ -3171,39 +3197,39 @@ func (o KafkaClusterRolesHeadNodeOutput) ToKafkaClusterRolesHeadNodeOutputWithCo
 }
 
 func (o KafkaClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KafkaClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KafkaClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o KafkaClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KafkaClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KafkaClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o KafkaClusterRolesHeadNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KafkaClusterRolesHeadNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KafkaClusterRolesHeadNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o KafkaClusterRolesHeadNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterRolesHeadNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterRolesHeadNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o KafkaClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KafkaClusterRolesHeadNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KafkaClusterRolesHeadNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o KafkaClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type KafkaClusterRolesWorkerNode struct {
-	MinInstanceCount *int `pulumi:"minInstanceCount"`
-	NumberOfDisksPerNode int `pulumi:"numberOfDisksPerNode"`
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	TargetInstanceCount int `pulumi:"targetInstanceCount"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	MinInstanceCount     *int     `pulumi:"minInstanceCount"`
+	NumberOfDisksPerNode int      `pulumi:"numberOfDisksPerNode"`
+	Password             *string  `pulumi:"password"`
+	SshKeys              []string `pulumi:"sshKeys"`
+	SubnetId             *string  `pulumi:"subnetId"`
+	TargetInstanceCount  int      `pulumi:"targetInstanceCount"`
+	Username             string   `pulumi:"username"`
+	VirtualNetworkId     *string  `pulumi:"virtualNetworkId"`
+	VmSize               string   `pulumi:"vmSize"`
 }
 
 type KafkaClusterRolesWorkerNodeInput interface {
@@ -3214,15 +3240,15 @@ type KafkaClusterRolesWorkerNodeInput interface {
 }
 
 type KafkaClusterRolesWorkerNodeArgs struct {
-	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
-	NumberOfDisksPerNode pulumi.IntInput `pulumi:"numberOfDisksPerNode"`
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	MinInstanceCount     pulumi.IntPtrInput      `pulumi:"minInstanceCount"`
+	NumberOfDisksPerNode pulumi.IntInput         `pulumi:"numberOfDisksPerNode"`
+	Password             pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys              pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId             pulumi.StringPtrInput   `pulumi:"subnetId"`
+	TargetInstanceCount  pulumi.IntInput         `pulumi:"targetInstanceCount"`
+	Username             pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId     pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize               pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (KafkaClusterRolesWorkerNodeArgs) ElementType() reflect.Type {
@@ -3237,7 +3263,7 @@ func (i KafkaClusterRolesWorkerNodeArgs) ToKafkaClusterRolesWorkerNodeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesWorkerNodeOutput)
 }
 
-type KafkaClusterRolesWorkerNodeOutput struct { *pulumi.OutputState }
+type KafkaClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KafkaClusterRolesWorkerNode)(nil)).Elem()
@@ -3252,48 +3278,48 @@ func (o KafkaClusterRolesWorkerNodeOutput) ToKafkaClusterRolesWorkerNodeOutputWi
 }
 
 func (o KafkaClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KafkaClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
 
 func (o KafkaClusterRolesWorkerNodeOutput) NumberOfDisksPerNode() pulumi.IntOutput {
-	return o.ApplyT(func (v KafkaClusterRolesWorkerNode) int { return v.NumberOfDisksPerNode }).(pulumi.IntOutput)
+	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) int { return v.NumberOfDisksPerNode }).(pulumi.IntOutput)
 }
 
 func (o KafkaClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KafkaClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o KafkaClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KafkaClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o KafkaClusterRolesWorkerNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KafkaClusterRolesWorkerNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o KafkaClusterRolesWorkerNodeOutput) TargetInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func (v KafkaClusterRolesWorkerNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
 }
 
 func (o KafkaClusterRolesWorkerNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterRolesWorkerNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o KafkaClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KafkaClusterRolesWorkerNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o KafkaClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type KafkaClusterRolesZookeeperNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type KafkaClusterRolesZookeeperNodeInput interface {
@@ -3304,12 +3330,12 @@ type KafkaClusterRolesZookeeperNodeInput interface {
 }
 
 type KafkaClusterRolesZookeeperNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (KafkaClusterRolesZookeeperNodeArgs) ElementType() reflect.Type {
@@ -3324,7 +3350,7 @@ func (i KafkaClusterRolesZookeeperNodeArgs) ToKafkaClusterRolesZookeeperNodeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesZookeeperNodeOutput)
 }
 
-type KafkaClusterRolesZookeeperNodeOutput struct { *pulumi.OutputState }
+type KafkaClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KafkaClusterRolesZookeeperNode)(nil)).Elem()
@@ -3339,32 +3365,32 @@ func (o KafkaClusterRolesZookeeperNodeOutput) ToKafkaClusterRolesZookeeperNodeOu
 }
 
 func (o KafkaClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KafkaClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KafkaClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o KafkaClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KafkaClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KafkaClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o KafkaClusterRolesZookeeperNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KafkaClusterRolesZookeeperNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KafkaClusterRolesZookeeperNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o KafkaClusterRolesZookeeperNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterRolesZookeeperNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterRolesZookeeperNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o KafkaClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KafkaClusterRolesZookeeperNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KafkaClusterRolesZookeeperNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o KafkaClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type KafkaClusterStorageAccount struct {
-	IsDefault bool `pulumi:"isDefault"`
-	StorageAccountKey string `pulumi:"storageAccountKey"`
+	IsDefault          bool   `pulumi:"isDefault"`
+	StorageAccountKey  string `pulumi:"storageAccountKey"`
 	StorageContainerId string `pulumi:"storageContainerId"`
 }
 
@@ -3376,8 +3402,8 @@ type KafkaClusterStorageAccountInput interface {
 }
 
 type KafkaClusterStorageAccountArgs struct {
-	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
-	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
+	IsDefault          pulumi.BoolInput   `pulumi:"isDefault"`
+	StorageAccountKey  pulumi.StringInput `pulumi:"storageAccountKey"`
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
 }
 
@@ -3414,7 +3440,7 @@ func (i KafkaClusterStorageAccountArray) ToKafkaClusterStorageAccountArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterStorageAccountArrayOutput)
 }
 
-type KafkaClusterStorageAccountOutput struct { *pulumi.OutputState }
+type KafkaClusterStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterStorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KafkaClusterStorageAccount)(nil)).Elem()
@@ -3429,18 +3455,18 @@ func (o KafkaClusterStorageAccountOutput) ToKafkaClusterStorageAccountOutputWith
 }
 
 func (o KafkaClusterStorageAccountOutput) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v KafkaClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KafkaClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o KafkaClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
 }
 
 func (o KafkaClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
 }
 
-type KafkaClusterStorageAccountArrayOutput struct { *pulumi.OutputState}
+type KafkaClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterStorageAccountArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]KafkaClusterStorageAccount)(nil)).Elem()
@@ -3455,16 +3481,16 @@ func (o KafkaClusterStorageAccountArrayOutput) ToKafkaClusterStorageAccountArray
 }
 
 func (o KafkaClusterStorageAccountArrayOutput) Index(i pulumi.IntInput) KafkaClusterStorageAccountOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) KafkaClusterStorageAccount {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KafkaClusterStorageAccount {
 		return vs[0].([]KafkaClusterStorageAccount)[vs[1].(int)]
 	}).(KafkaClusterStorageAccountOutput)
 }
 
 type KafkaClusterStorageAccountGen2 struct {
-	FilesystemId string `pulumi:"filesystemId"`
-	IsDefault bool `pulumi:"isDefault"`
+	FilesystemId              string `pulumi:"filesystemId"`
+	IsDefault                 bool   `pulumi:"isDefault"`
 	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
-	StorageResourceId string `pulumi:"storageResourceId"`
+	StorageResourceId         string `pulumi:"storageResourceId"`
 }
 
 type KafkaClusterStorageAccountGen2Input interface {
@@ -3475,10 +3501,10 @@ type KafkaClusterStorageAccountGen2Input interface {
 }
 
 type KafkaClusterStorageAccountGen2Args struct {
-	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
-	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	FilesystemId              pulumi.StringInput `pulumi:"filesystemId"`
+	IsDefault                 pulumi.BoolInput   `pulumi:"isDefault"`
 	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
-	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
+	StorageResourceId         pulumi.StringInput `pulumi:"storageResourceId"`
 }
 
 func (KafkaClusterStorageAccountGen2Args) ElementType() reflect.Type {
@@ -3510,7 +3536,8 @@ type KafkaClusterStorageAccountGen2PtrInput interface {
 
 type kafkaClusterStorageAccountGen2PtrType KafkaClusterStorageAccountGen2Args
 
-func KafkaClusterStorageAccountGen2Ptr(v *KafkaClusterStorageAccountGen2Args) KafkaClusterStorageAccountGen2PtrInput {	return (*kafkaClusterStorageAccountGen2PtrType)(v)
+func KafkaClusterStorageAccountGen2Ptr(v *KafkaClusterStorageAccountGen2Args) KafkaClusterStorageAccountGen2PtrInput {
+	return (*kafkaClusterStorageAccountGen2PtrType)(v)
 }
 
 func (*kafkaClusterStorageAccountGen2PtrType) ElementType() reflect.Type {
@@ -3525,7 +3552,7 @@ func (i *kafkaClusterStorageAccountGen2PtrType) ToKafkaClusterStorageAccountGen2
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterStorageAccountGen2PtrOutput)
 }
 
-type KafkaClusterStorageAccountGen2Output struct { *pulumi.OutputState }
+type KafkaClusterStorageAccountGen2Output struct{ *pulumi.OutputState }
 
 func (KafkaClusterStorageAccountGen2Output) ElementType() reflect.Type {
 	return reflect.TypeOf((*KafkaClusterStorageAccountGen2)(nil)).Elem()
@@ -3549,22 +3576,22 @@ func (o KafkaClusterStorageAccountGen2Output) ToKafkaClusterStorageAccountGen2Pt
 	}).(KafkaClusterStorageAccountGen2PtrOutput)
 }
 func (o KafkaClusterStorageAccountGen2Output) FilesystemId() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
 }
 
 func (o KafkaClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v KafkaClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KafkaClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o KafkaClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
 }
 
 func (o KafkaClusterStorageAccountGen2Output) StorageResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
 }
 
-type KafkaClusterStorageAccountGen2PtrOutput struct { *pulumi.OutputState}
+type KafkaClusterStorageAccountGen2PtrOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterStorageAccountGen2PtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KafkaClusterStorageAccountGen2)(nil)).Elem()
@@ -3579,27 +3606,27 @@ func (o KafkaClusterStorageAccountGen2PtrOutput) ToKafkaClusterStorageAccountGen
 }
 
 func (o KafkaClusterStorageAccountGen2PtrOutput) Elem() KafkaClusterStorageAccountGen2Output {
-	return o.ApplyT(func (v *KafkaClusterStorageAccountGen2) KafkaClusterStorageAccountGen2 { return *v }).(KafkaClusterStorageAccountGen2Output)
+	return o.ApplyT(func(v *KafkaClusterStorageAccountGen2) KafkaClusterStorageAccountGen2 { return *v }).(KafkaClusterStorageAccountGen2Output)
 }
 
 func (o KafkaClusterStorageAccountGen2PtrOutput) FilesystemId() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
 }
 
 func (o KafkaClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v KafkaClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KafkaClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o KafkaClusterStorageAccountGen2PtrOutput) ManagedIdentityResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
 }
 
 func (o KafkaClusterStorageAccountGen2PtrOutput) StorageResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v KafkaClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KafkaClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
 }
 
 type MLServicesClusterGateway struct {
-	Enabled bool `pulumi:"enabled"`
+	Enabled  bool   `pulumi:"enabled"`
 	Password string `pulumi:"password"`
 	Username string `pulumi:"username"`
 }
@@ -3612,7 +3639,7 @@ type MLServicesClusterGatewayInput interface {
 }
 
 type MLServicesClusterGatewayArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled  pulumi.BoolInput   `pulumi:"enabled"`
 	Password pulumi.StringInput `pulumi:"password"`
 	Username pulumi.StringInput `pulumi:"username"`
 }
@@ -3646,7 +3673,8 @@ type MLServicesClusterGatewayPtrInput interface {
 
 type mlservicesClusterGatewayPtrType MLServicesClusterGatewayArgs
 
-func MLServicesClusterGatewayPtr(v *MLServicesClusterGatewayArgs) MLServicesClusterGatewayPtrInput {	return (*mlservicesClusterGatewayPtrType)(v)
+func MLServicesClusterGatewayPtr(v *MLServicesClusterGatewayArgs) MLServicesClusterGatewayPtrInput {
+	return (*mlservicesClusterGatewayPtrType)(v)
 }
 
 func (*mlservicesClusterGatewayPtrType) ElementType() reflect.Type {
@@ -3661,7 +3689,7 @@ func (i *mlservicesClusterGatewayPtrType) ToMLServicesClusterGatewayPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterGatewayPtrOutput)
 }
 
-type MLServicesClusterGatewayOutput struct { *pulumi.OutputState }
+type MLServicesClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MLServicesClusterGateway)(nil)).Elem()
@@ -3685,18 +3713,18 @@ func (o MLServicesClusterGatewayOutput) ToMLServicesClusterGatewayPtrOutputWithC
 	}).(MLServicesClusterGatewayPtrOutput)
 }
 func (o MLServicesClusterGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v MLServicesClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v MLServicesClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o MLServicesClusterGatewayOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v MLServicesClusterGateway) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MLServicesClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o MLServicesClusterGatewayOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v MLServicesClusterGateway) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MLServicesClusterGateway) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type MLServicesClusterGatewayPtrOutput struct { *pulumi.OutputState}
+type MLServicesClusterGatewayPtrOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterGatewayPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MLServicesClusterGateway)(nil)).Elem()
@@ -3711,25 +3739,25 @@ func (o MLServicesClusterGatewayPtrOutput) ToMLServicesClusterGatewayPtrOutputWi
 }
 
 func (o MLServicesClusterGatewayPtrOutput) Elem() MLServicesClusterGatewayOutput {
-	return o.ApplyT(func (v *MLServicesClusterGateway) MLServicesClusterGateway { return *v }).(MLServicesClusterGatewayOutput)
+	return o.ApplyT(func(v *MLServicesClusterGateway) MLServicesClusterGateway { return *v }).(MLServicesClusterGatewayOutput)
 }
 
 func (o MLServicesClusterGatewayPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v MLServicesClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v MLServicesClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o MLServicesClusterGatewayPtrOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v MLServicesClusterGateway) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MLServicesClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o MLServicesClusterGatewayPtrOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v MLServicesClusterGateway) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MLServicesClusterGateway) string { return v.Username }).(pulumi.StringOutput)
 }
 
 type MLServicesClusterRoles struct {
-	EdgeNode MLServicesClusterRolesEdgeNode `pulumi:"edgeNode"`
-	HeadNode MLServicesClusterRolesHeadNode `pulumi:"headNode"`
-	WorkerNode MLServicesClusterRolesWorkerNode `pulumi:"workerNode"`
+	EdgeNode      MLServicesClusterRolesEdgeNode      `pulumi:"edgeNode"`
+	HeadNode      MLServicesClusterRolesHeadNode      `pulumi:"headNode"`
+	WorkerNode    MLServicesClusterRolesWorkerNode    `pulumi:"workerNode"`
 	ZookeeperNode MLServicesClusterRolesZookeeperNode `pulumi:"zookeeperNode"`
 }
 
@@ -3741,9 +3769,9 @@ type MLServicesClusterRolesInput interface {
 }
 
 type MLServicesClusterRolesArgs struct {
-	EdgeNode MLServicesClusterRolesEdgeNodeInput `pulumi:"edgeNode"`
-	HeadNode MLServicesClusterRolesHeadNodeInput `pulumi:"headNode"`
-	WorkerNode MLServicesClusterRolesWorkerNodeInput `pulumi:"workerNode"`
+	EdgeNode      MLServicesClusterRolesEdgeNodeInput      `pulumi:"edgeNode"`
+	HeadNode      MLServicesClusterRolesHeadNodeInput      `pulumi:"headNode"`
+	WorkerNode    MLServicesClusterRolesWorkerNodeInput    `pulumi:"workerNode"`
 	ZookeeperNode MLServicesClusterRolesZookeeperNodeInput `pulumi:"zookeeperNode"`
 }
 
@@ -3776,7 +3804,8 @@ type MLServicesClusterRolesPtrInput interface {
 
 type mlservicesClusterRolesPtrType MLServicesClusterRolesArgs
 
-func MLServicesClusterRolesPtr(v *MLServicesClusterRolesArgs) MLServicesClusterRolesPtrInput {	return (*mlservicesClusterRolesPtrType)(v)
+func MLServicesClusterRolesPtr(v *MLServicesClusterRolesArgs) MLServicesClusterRolesPtrInput {
+	return (*mlservicesClusterRolesPtrType)(v)
 }
 
 func (*mlservicesClusterRolesPtrType) ElementType() reflect.Type {
@@ -3791,7 +3820,7 @@ func (i *mlservicesClusterRolesPtrType) ToMLServicesClusterRolesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesPtrOutput)
 }
 
-type MLServicesClusterRolesOutput struct { *pulumi.OutputState }
+type MLServicesClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterRolesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MLServicesClusterRoles)(nil)).Elem()
@@ -3815,22 +3844,22 @@ func (o MLServicesClusterRolesOutput) ToMLServicesClusterRolesPtrOutputWithConte
 	}).(MLServicesClusterRolesPtrOutput)
 }
 func (o MLServicesClusterRolesOutput) EdgeNode() MLServicesClusterRolesEdgeNodeOutput {
-	return o.ApplyT(func (v MLServicesClusterRoles) MLServicesClusterRolesEdgeNode { return v.EdgeNode }).(MLServicesClusterRolesEdgeNodeOutput)
+	return o.ApplyT(func(v MLServicesClusterRoles) MLServicesClusterRolesEdgeNode { return v.EdgeNode }).(MLServicesClusterRolesEdgeNodeOutput)
 }
 
 func (o MLServicesClusterRolesOutput) HeadNode() MLServicesClusterRolesHeadNodeOutput {
-	return o.ApplyT(func (v MLServicesClusterRoles) MLServicesClusterRolesHeadNode { return v.HeadNode }).(MLServicesClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v MLServicesClusterRoles) MLServicesClusterRolesHeadNode { return v.HeadNode }).(MLServicesClusterRolesHeadNodeOutput)
 }
 
 func (o MLServicesClusterRolesOutput) WorkerNode() MLServicesClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func (v MLServicesClusterRoles) MLServicesClusterRolesWorkerNode { return v.WorkerNode }).(MLServicesClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v MLServicesClusterRoles) MLServicesClusterRolesWorkerNode { return v.WorkerNode }).(MLServicesClusterRolesWorkerNodeOutput)
 }
 
 func (o MLServicesClusterRolesOutput) ZookeeperNode() MLServicesClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func (v MLServicesClusterRoles) MLServicesClusterRolesZookeeperNode { return v.ZookeeperNode }).(MLServicesClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v MLServicesClusterRoles) MLServicesClusterRolesZookeeperNode { return v.ZookeeperNode }).(MLServicesClusterRolesZookeeperNodeOutput)
 }
 
-type MLServicesClusterRolesPtrOutput struct { *pulumi.OutputState}
+type MLServicesClusterRolesPtrOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterRolesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MLServicesClusterRoles)(nil)).Elem()
@@ -3845,32 +3874,32 @@ func (o MLServicesClusterRolesPtrOutput) ToMLServicesClusterRolesPtrOutputWithCo
 }
 
 func (o MLServicesClusterRolesPtrOutput) Elem() MLServicesClusterRolesOutput {
-	return o.ApplyT(func (v *MLServicesClusterRoles) MLServicesClusterRoles { return *v }).(MLServicesClusterRolesOutput)
+	return o.ApplyT(func(v *MLServicesClusterRoles) MLServicesClusterRoles { return *v }).(MLServicesClusterRolesOutput)
 }
 
 func (o MLServicesClusterRolesPtrOutput) EdgeNode() MLServicesClusterRolesEdgeNodeOutput {
-	return o.ApplyT(func (v MLServicesClusterRoles) MLServicesClusterRolesEdgeNode { return v.EdgeNode }).(MLServicesClusterRolesEdgeNodeOutput)
+	return o.ApplyT(func(v MLServicesClusterRoles) MLServicesClusterRolesEdgeNode { return v.EdgeNode }).(MLServicesClusterRolesEdgeNodeOutput)
 }
 
 func (o MLServicesClusterRolesPtrOutput) HeadNode() MLServicesClusterRolesHeadNodeOutput {
-	return o.ApplyT(func (v MLServicesClusterRoles) MLServicesClusterRolesHeadNode { return v.HeadNode }).(MLServicesClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v MLServicesClusterRoles) MLServicesClusterRolesHeadNode { return v.HeadNode }).(MLServicesClusterRolesHeadNodeOutput)
 }
 
 func (o MLServicesClusterRolesPtrOutput) WorkerNode() MLServicesClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func (v MLServicesClusterRoles) MLServicesClusterRolesWorkerNode { return v.WorkerNode }).(MLServicesClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v MLServicesClusterRoles) MLServicesClusterRolesWorkerNode { return v.WorkerNode }).(MLServicesClusterRolesWorkerNodeOutput)
 }
 
 func (o MLServicesClusterRolesPtrOutput) ZookeeperNode() MLServicesClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func (v MLServicesClusterRoles) MLServicesClusterRolesZookeeperNode { return v.ZookeeperNode }).(MLServicesClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v MLServicesClusterRoles) MLServicesClusterRolesZookeeperNode { return v.ZookeeperNode }).(MLServicesClusterRolesZookeeperNodeOutput)
 }
 
 type MLServicesClusterRolesEdgeNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type MLServicesClusterRolesEdgeNodeInput interface {
@@ -3881,12 +3910,12 @@ type MLServicesClusterRolesEdgeNodeInput interface {
 }
 
 type MLServicesClusterRolesEdgeNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (MLServicesClusterRolesEdgeNodeArgs) ElementType() reflect.Type {
@@ -3901,7 +3930,7 @@ func (i MLServicesClusterRolesEdgeNodeArgs) ToMLServicesClusterRolesEdgeNodeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesEdgeNodeOutput)
 }
 
-type MLServicesClusterRolesEdgeNodeOutput struct { *pulumi.OutputState }
+type MLServicesClusterRolesEdgeNodeOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterRolesEdgeNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MLServicesClusterRolesEdgeNode)(nil)).Elem()
@@ -3916,36 +3945,36 @@ func (o MLServicesClusterRolesEdgeNodeOutput) ToMLServicesClusterRolesEdgeNodeOu
 }
 
 func (o MLServicesClusterRolesEdgeNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesEdgeNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesEdgeNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o MLServicesClusterRolesEdgeNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesEdgeNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesEdgeNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o MLServicesClusterRolesEdgeNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesEdgeNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesEdgeNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o MLServicesClusterRolesEdgeNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesEdgeNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesEdgeNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o MLServicesClusterRolesEdgeNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesEdgeNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesEdgeNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o MLServicesClusterRolesEdgeNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesEdgeNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesEdgeNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type MLServicesClusterRolesHeadNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type MLServicesClusterRolesHeadNodeInput interface {
@@ -3956,12 +3985,12 @@ type MLServicesClusterRolesHeadNodeInput interface {
 }
 
 type MLServicesClusterRolesHeadNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (MLServicesClusterRolesHeadNodeArgs) ElementType() reflect.Type {
@@ -3976,7 +4005,7 @@ func (i MLServicesClusterRolesHeadNodeArgs) ToMLServicesClusterRolesHeadNodeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesHeadNodeOutput)
 }
 
-type MLServicesClusterRolesHeadNodeOutput struct { *pulumi.OutputState }
+type MLServicesClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterRolesHeadNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MLServicesClusterRolesHeadNode)(nil)).Elem()
@@ -3991,38 +4020,38 @@ func (o MLServicesClusterRolesHeadNodeOutput) ToMLServicesClusterRolesHeadNodeOu
 }
 
 func (o MLServicesClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o MLServicesClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o MLServicesClusterRolesHeadNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesHeadNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesHeadNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o MLServicesClusterRolesHeadNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesHeadNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesHeadNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o MLServicesClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesHeadNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesHeadNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o MLServicesClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type MLServicesClusterRolesWorkerNode struct {
-	MinInstanceCount *int `pulumi:"minInstanceCount"`
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	TargetInstanceCount int `pulumi:"targetInstanceCount"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	MinInstanceCount    *int     `pulumi:"minInstanceCount"`
+	Password            *string  `pulumi:"password"`
+	SshKeys             []string `pulumi:"sshKeys"`
+	SubnetId            *string  `pulumi:"subnetId"`
+	TargetInstanceCount int      `pulumi:"targetInstanceCount"`
+	Username            string   `pulumi:"username"`
+	VirtualNetworkId    *string  `pulumi:"virtualNetworkId"`
+	VmSize              string   `pulumi:"vmSize"`
 }
 
 type MLServicesClusterRolesWorkerNodeInput interface {
@@ -4033,14 +4062,14 @@ type MLServicesClusterRolesWorkerNodeInput interface {
 }
 
 type MLServicesClusterRolesWorkerNodeArgs struct {
-	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	MinInstanceCount    pulumi.IntPtrInput      `pulumi:"minInstanceCount"`
+	Password            pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys             pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId            pulumi.StringPtrInput   `pulumi:"subnetId"`
+	TargetInstanceCount pulumi.IntInput         `pulumi:"targetInstanceCount"`
+	Username            pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId    pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize              pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (MLServicesClusterRolesWorkerNodeArgs) ElementType() reflect.Type {
@@ -4055,7 +4084,7 @@ func (i MLServicesClusterRolesWorkerNodeArgs) ToMLServicesClusterRolesWorkerNode
 	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesWorkerNodeOutput)
 }
 
-type MLServicesClusterRolesWorkerNodeOutput struct { *pulumi.OutputState }
+type MLServicesClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MLServicesClusterRolesWorkerNode)(nil)).Elem()
@@ -4070,44 +4099,44 @@ func (o MLServicesClusterRolesWorkerNodeOutput) ToMLServicesClusterRolesWorkerNo
 }
 
 func (o MLServicesClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
 
 func (o MLServicesClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o MLServicesClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o MLServicesClusterRolesWorkerNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesWorkerNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesWorkerNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o MLServicesClusterRolesWorkerNodeOutput) TargetInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesWorkerNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesWorkerNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
 }
 
 func (o MLServicesClusterRolesWorkerNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesWorkerNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesWorkerNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o MLServicesClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesWorkerNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesWorkerNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o MLServicesClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type MLServicesClusterRolesZookeeperNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type MLServicesClusterRolesZookeeperNodeInput interface {
@@ -4118,12 +4147,12 @@ type MLServicesClusterRolesZookeeperNodeInput interface {
 }
 
 type MLServicesClusterRolesZookeeperNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (MLServicesClusterRolesZookeeperNodeArgs) ElementType() reflect.Type {
@@ -4138,7 +4167,7 @@ func (i MLServicesClusterRolesZookeeperNodeArgs) ToMLServicesClusterRolesZookeep
 	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesZookeeperNodeOutput)
 }
 
-type MLServicesClusterRolesZookeeperNodeOutput struct { *pulumi.OutputState }
+type MLServicesClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MLServicesClusterRolesZookeeperNode)(nil)).Elem()
@@ -4153,32 +4182,32 @@ func (o MLServicesClusterRolesZookeeperNodeOutput) ToMLServicesClusterRolesZooke
 }
 
 func (o MLServicesClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o MLServicesClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o MLServicesClusterRolesZookeeperNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesZookeeperNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesZookeeperNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o MLServicesClusterRolesZookeeperNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesZookeeperNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesZookeeperNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o MLServicesClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesZookeeperNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesZookeeperNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o MLServicesClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v MLServicesClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MLServicesClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type MLServicesClusterStorageAccount struct {
-	IsDefault bool `pulumi:"isDefault"`
-	StorageAccountKey string `pulumi:"storageAccountKey"`
+	IsDefault          bool   `pulumi:"isDefault"`
+	StorageAccountKey  string `pulumi:"storageAccountKey"`
 	StorageContainerId string `pulumi:"storageContainerId"`
 }
 
@@ -4190,8 +4219,8 @@ type MLServicesClusterStorageAccountInput interface {
 }
 
 type MLServicesClusterStorageAccountArgs struct {
-	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
-	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
+	IsDefault          pulumi.BoolInput   `pulumi:"isDefault"`
+	StorageAccountKey  pulumi.StringInput `pulumi:"storageAccountKey"`
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
 }
 
@@ -4228,7 +4257,7 @@ func (i MLServicesClusterStorageAccountArray) ToMLServicesClusterStorageAccountA
 	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterStorageAccountArrayOutput)
 }
 
-type MLServicesClusterStorageAccountOutput struct { *pulumi.OutputState }
+type MLServicesClusterStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterStorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MLServicesClusterStorageAccount)(nil)).Elem()
@@ -4243,18 +4272,18 @@ func (o MLServicesClusterStorageAccountOutput) ToMLServicesClusterStorageAccount
 }
 
 func (o MLServicesClusterStorageAccountOutput) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v MLServicesClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v MLServicesClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o MLServicesClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutput {
-	return o.ApplyT(func (v MLServicesClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MLServicesClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
 }
 
 func (o MLServicesClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
-	return o.ApplyT(func (v MLServicesClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MLServicesClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
 }
 
-type MLServicesClusterStorageAccountArrayOutput struct { *pulumi.OutputState}
+type MLServicesClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterStorageAccountArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]MLServicesClusterStorageAccount)(nil)).Elem()
@@ -4269,13 +4298,13 @@ func (o MLServicesClusterStorageAccountArrayOutput) ToMLServicesClusterStorageAc
 }
 
 func (o MLServicesClusterStorageAccountArrayOutput) Index(i pulumi.IntInput) MLServicesClusterStorageAccountOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) MLServicesClusterStorageAccount {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MLServicesClusterStorageAccount {
 		return vs[0].([]MLServicesClusterStorageAccount)[vs[1].(int)]
 	}).(MLServicesClusterStorageAccountOutput)
 }
 
 type RServerClusterGateway struct {
-	Enabled bool `pulumi:"enabled"`
+	Enabled  bool   `pulumi:"enabled"`
 	Password string `pulumi:"password"`
 	Username string `pulumi:"username"`
 }
@@ -4288,7 +4317,7 @@ type RServerClusterGatewayInput interface {
 }
 
 type RServerClusterGatewayArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled  pulumi.BoolInput   `pulumi:"enabled"`
 	Password pulumi.StringInput `pulumi:"password"`
 	Username pulumi.StringInput `pulumi:"username"`
 }
@@ -4322,7 +4351,8 @@ type RServerClusterGatewayPtrInput interface {
 
 type rserverClusterGatewayPtrType RServerClusterGatewayArgs
 
-func RServerClusterGatewayPtr(v *RServerClusterGatewayArgs) RServerClusterGatewayPtrInput {	return (*rserverClusterGatewayPtrType)(v)
+func RServerClusterGatewayPtr(v *RServerClusterGatewayArgs) RServerClusterGatewayPtrInput {
+	return (*rserverClusterGatewayPtrType)(v)
 }
 
 func (*rserverClusterGatewayPtrType) ElementType() reflect.Type {
@@ -4337,7 +4367,7 @@ func (i *rserverClusterGatewayPtrType) ToRServerClusterGatewayPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterGatewayPtrOutput)
 }
 
-type RServerClusterGatewayOutput struct { *pulumi.OutputState }
+type RServerClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RServerClusterGateway)(nil)).Elem()
@@ -4361,18 +4391,18 @@ func (o RServerClusterGatewayOutput) ToRServerClusterGatewayPtrOutputWithContext
 	}).(RServerClusterGatewayPtrOutput)
 }
 func (o RServerClusterGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v RServerClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v RServerClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o RServerClusterGatewayOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v RServerClusterGateway) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RServerClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o RServerClusterGatewayOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v RServerClusterGateway) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RServerClusterGateway) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type RServerClusterGatewayPtrOutput struct { *pulumi.OutputState}
+type RServerClusterGatewayPtrOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterGatewayPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RServerClusterGateway)(nil)).Elem()
@@ -4387,25 +4417,25 @@ func (o RServerClusterGatewayPtrOutput) ToRServerClusterGatewayPtrOutputWithCont
 }
 
 func (o RServerClusterGatewayPtrOutput) Elem() RServerClusterGatewayOutput {
-	return o.ApplyT(func (v *RServerClusterGateway) RServerClusterGateway { return *v }).(RServerClusterGatewayOutput)
+	return o.ApplyT(func(v *RServerClusterGateway) RServerClusterGateway { return *v }).(RServerClusterGatewayOutput)
 }
 
 func (o RServerClusterGatewayPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v RServerClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v RServerClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o RServerClusterGatewayPtrOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v RServerClusterGateway) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RServerClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o RServerClusterGatewayPtrOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v RServerClusterGateway) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RServerClusterGateway) string { return v.Username }).(pulumi.StringOutput)
 }
 
 type RServerClusterRoles struct {
-	EdgeNode RServerClusterRolesEdgeNode `pulumi:"edgeNode"`
-	HeadNode RServerClusterRolesHeadNode `pulumi:"headNode"`
-	WorkerNode RServerClusterRolesWorkerNode `pulumi:"workerNode"`
+	EdgeNode      RServerClusterRolesEdgeNode      `pulumi:"edgeNode"`
+	HeadNode      RServerClusterRolesHeadNode      `pulumi:"headNode"`
+	WorkerNode    RServerClusterRolesWorkerNode    `pulumi:"workerNode"`
 	ZookeeperNode RServerClusterRolesZookeeperNode `pulumi:"zookeeperNode"`
 }
 
@@ -4417,9 +4447,9 @@ type RServerClusterRolesInput interface {
 }
 
 type RServerClusterRolesArgs struct {
-	EdgeNode RServerClusterRolesEdgeNodeInput `pulumi:"edgeNode"`
-	HeadNode RServerClusterRolesHeadNodeInput `pulumi:"headNode"`
-	WorkerNode RServerClusterRolesWorkerNodeInput `pulumi:"workerNode"`
+	EdgeNode      RServerClusterRolesEdgeNodeInput      `pulumi:"edgeNode"`
+	HeadNode      RServerClusterRolesHeadNodeInput      `pulumi:"headNode"`
+	WorkerNode    RServerClusterRolesWorkerNodeInput    `pulumi:"workerNode"`
 	ZookeeperNode RServerClusterRolesZookeeperNodeInput `pulumi:"zookeeperNode"`
 }
 
@@ -4452,7 +4482,8 @@ type RServerClusterRolesPtrInput interface {
 
 type rserverClusterRolesPtrType RServerClusterRolesArgs
 
-func RServerClusterRolesPtr(v *RServerClusterRolesArgs) RServerClusterRolesPtrInput {	return (*rserverClusterRolesPtrType)(v)
+func RServerClusterRolesPtr(v *RServerClusterRolesArgs) RServerClusterRolesPtrInput {
+	return (*rserverClusterRolesPtrType)(v)
 }
 
 func (*rserverClusterRolesPtrType) ElementType() reflect.Type {
@@ -4467,7 +4498,7 @@ func (i *rserverClusterRolesPtrType) ToRServerClusterRolesPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesPtrOutput)
 }
 
-type RServerClusterRolesOutput struct { *pulumi.OutputState }
+type RServerClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterRolesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RServerClusterRoles)(nil)).Elem()
@@ -4491,22 +4522,22 @@ func (o RServerClusterRolesOutput) ToRServerClusterRolesPtrOutputWithContext(ctx
 	}).(RServerClusterRolesPtrOutput)
 }
 func (o RServerClusterRolesOutput) EdgeNode() RServerClusterRolesEdgeNodeOutput {
-	return o.ApplyT(func (v RServerClusterRoles) RServerClusterRolesEdgeNode { return v.EdgeNode }).(RServerClusterRolesEdgeNodeOutput)
+	return o.ApplyT(func(v RServerClusterRoles) RServerClusterRolesEdgeNode { return v.EdgeNode }).(RServerClusterRolesEdgeNodeOutput)
 }
 
 func (o RServerClusterRolesOutput) HeadNode() RServerClusterRolesHeadNodeOutput {
-	return o.ApplyT(func (v RServerClusterRoles) RServerClusterRolesHeadNode { return v.HeadNode }).(RServerClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v RServerClusterRoles) RServerClusterRolesHeadNode { return v.HeadNode }).(RServerClusterRolesHeadNodeOutput)
 }
 
 func (o RServerClusterRolesOutput) WorkerNode() RServerClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func (v RServerClusterRoles) RServerClusterRolesWorkerNode { return v.WorkerNode }).(RServerClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v RServerClusterRoles) RServerClusterRolesWorkerNode { return v.WorkerNode }).(RServerClusterRolesWorkerNodeOutput)
 }
 
 func (o RServerClusterRolesOutput) ZookeeperNode() RServerClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func (v RServerClusterRoles) RServerClusterRolesZookeeperNode { return v.ZookeeperNode }).(RServerClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v RServerClusterRoles) RServerClusterRolesZookeeperNode { return v.ZookeeperNode }).(RServerClusterRolesZookeeperNodeOutput)
 }
 
-type RServerClusterRolesPtrOutput struct { *pulumi.OutputState}
+type RServerClusterRolesPtrOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterRolesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RServerClusterRoles)(nil)).Elem()
@@ -4521,32 +4552,32 @@ func (o RServerClusterRolesPtrOutput) ToRServerClusterRolesPtrOutputWithContext(
 }
 
 func (o RServerClusterRolesPtrOutput) Elem() RServerClusterRolesOutput {
-	return o.ApplyT(func (v *RServerClusterRoles) RServerClusterRoles { return *v }).(RServerClusterRolesOutput)
+	return o.ApplyT(func(v *RServerClusterRoles) RServerClusterRoles { return *v }).(RServerClusterRolesOutput)
 }
 
 func (o RServerClusterRolesPtrOutput) EdgeNode() RServerClusterRolesEdgeNodeOutput {
-	return o.ApplyT(func (v RServerClusterRoles) RServerClusterRolesEdgeNode { return v.EdgeNode }).(RServerClusterRolesEdgeNodeOutput)
+	return o.ApplyT(func(v RServerClusterRoles) RServerClusterRolesEdgeNode { return v.EdgeNode }).(RServerClusterRolesEdgeNodeOutput)
 }
 
 func (o RServerClusterRolesPtrOutput) HeadNode() RServerClusterRolesHeadNodeOutput {
-	return o.ApplyT(func (v RServerClusterRoles) RServerClusterRolesHeadNode { return v.HeadNode }).(RServerClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v RServerClusterRoles) RServerClusterRolesHeadNode { return v.HeadNode }).(RServerClusterRolesHeadNodeOutput)
 }
 
 func (o RServerClusterRolesPtrOutput) WorkerNode() RServerClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func (v RServerClusterRoles) RServerClusterRolesWorkerNode { return v.WorkerNode }).(RServerClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v RServerClusterRoles) RServerClusterRolesWorkerNode { return v.WorkerNode }).(RServerClusterRolesWorkerNodeOutput)
 }
 
 func (o RServerClusterRolesPtrOutput) ZookeeperNode() RServerClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func (v RServerClusterRoles) RServerClusterRolesZookeeperNode { return v.ZookeeperNode }).(RServerClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v RServerClusterRoles) RServerClusterRolesZookeeperNode { return v.ZookeeperNode }).(RServerClusterRolesZookeeperNodeOutput)
 }
 
 type RServerClusterRolesEdgeNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type RServerClusterRolesEdgeNodeInput interface {
@@ -4557,12 +4588,12 @@ type RServerClusterRolesEdgeNodeInput interface {
 }
 
 type RServerClusterRolesEdgeNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (RServerClusterRolesEdgeNodeArgs) ElementType() reflect.Type {
@@ -4577,7 +4608,7 @@ func (i RServerClusterRolesEdgeNodeArgs) ToRServerClusterRolesEdgeNodeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesEdgeNodeOutput)
 }
 
-type RServerClusterRolesEdgeNodeOutput struct { *pulumi.OutputState }
+type RServerClusterRolesEdgeNodeOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterRolesEdgeNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RServerClusterRolesEdgeNode)(nil)).Elem()
@@ -4592,36 +4623,36 @@ func (o RServerClusterRolesEdgeNodeOutput) ToRServerClusterRolesEdgeNodeOutputWi
 }
 
 func (o RServerClusterRolesEdgeNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RServerClusterRolesEdgeNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RServerClusterRolesEdgeNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o RServerClusterRolesEdgeNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v RServerClusterRolesEdgeNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v RServerClusterRolesEdgeNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o RServerClusterRolesEdgeNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RServerClusterRolesEdgeNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RServerClusterRolesEdgeNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o RServerClusterRolesEdgeNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v RServerClusterRolesEdgeNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RServerClusterRolesEdgeNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o RServerClusterRolesEdgeNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RServerClusterRolesEdgeNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RServerClusterRolesEdgeNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o RServerClusterRolesEdgeNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v RServerClusterRolesEdgeNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RServerClusterRolesEdgeNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type RServerClusterRolesHeadNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type RServerClusterRolesHeadNodeInput interface {
@@ -4632,12 +4663,12 @@ type RServerClusterRolesHeadNodeInput interface {
 }
 
 type RServerClusterRolesHeadNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (RServerClusterRolesHeadNodeArgs) ElementType() reflect.Type {
@@ -4652,7 +4683,7 @@ func (i RServerClusterRolesHeadNodeArgs) ToRServerClusterRolesHeadNodeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesHeadNodeOutput)
 }
 
-type RServerClusterRolesHeadNodeOutput struct { *pulumi.OutputState }
+type RServerClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterRolesHeadNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RServerClusterRolesHeadNode)(nil)).Elem()
@@ -4667,38 +4698,38 @@ func (o RServerClusterRolesHeadNodeOutput) ToRServerClusterRolesHeadNodeOutputWi
 }
 
 func (o RServerClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RServerClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RServerClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o RServerClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v RServerClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v RServerClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o RServerClusterRolesHeadNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RServerClusterRolesHeadNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RServerClusterRolesHeadNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o RServerClusterRolesHeadNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v RServerClusterRolesHeadNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RServerClusterRolesHeadNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o RServerClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RServerClusterRolesHeadNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RServerClusterRolesHeadNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o RServerClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v RServerClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RServerClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type RServerClusterRolesWorkerNode struct {
-	MinInstanceCount *int `pulumi:"minInstanceCount"`
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	TargetInstanceCount int `pulumi:"targetInstanceCount"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	MinInstanceCount    *int     `pulumi:"minInstanceCount"`
+	Password            *string  `pulumi:"password"`
+	SshKeys             []string `pulumi:"sshKeys"`
+	SubnetId            *string  `pulumi:"subnetId"`
+	TargetInstanceCount int      `pulumi:"targetInstanceCount"`
+	Username            string   `pulumi:"username"`
+	VirtualNetworkId    *string  `pulumi:"virtualNetworkId"`
+	VmSize              string   `pulumi:"vmSize"`
 }
 
 type RServerClusterRolesWorkerNodeInput interface {
@@ -4709,14 +4740,14 @@ type RServerClusterRolesWorkerNodeInput interface {
 }
 
 type RServerClusterRolesWorkerNodeArgs struct {
-	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	MinInstanceCount    pulumi.IntPtrInput      `pulumi:"minInstanceCount"`
+	Password            pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys             pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId            pulumi.StringPtrInput   `pulumi:"subnetId"`
+	TargetInstanceCount pulumi.IntInput         `pulumi:"targetInstanceCount"`
+	Username            pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId    pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize              pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (RServerClusterRolesWorkerNodeArgs) ElementType() reflect.Type {
@@ -4731,7 +4762,7 @@ func (i RServerClusterRolesWorkerNodeArgs) ToRServerClusterRolesWorkerNodeOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesWorkerNodeOutput)
 }
 
-type RServerClusterRolesWorkerNodeOutput struct { *pulumi.OutputState }
+type RServerClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RServerClusterRolesWorkerNode)(nil)).Elem()
@@ -4746,44 +4777,44 @@ func (o RServerClusterRolesWorkerNodeOutput) ToRServerClusterRolesWorkerNodeOutp
 }
 
 func (o RServerClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v RServerClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v RServerClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
 
 func (o RServerClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RServerClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RServerClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o RServerClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v RServerClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v RServerClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o RServerClusterRolesWorkerNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RServerClusterRolesWorkerNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RServerClusterRolesWorkerNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o RServerClusterRolesWorkerNodeOutput) TargetInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func (v RServerClusterRolesWorkerNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v RServerClusterRolesWorkerNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
 }
 
 func (o RServerClusterRolesWorkerNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v RServerClusterRolesWorkerNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RServerClusterRolesWorkerNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o RServerClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RServerClusterRolesWorkerNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RServerClusterRolesWorkerNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o RServerClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v RServerClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RServerClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type RServerClusterRolesZookeeperNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type RServerClusterRolesZookeeperNodeInput interface {
@@ -4794,12 +4825,12 @@ type RServerClusterRolesZookeeperNodeInput interface {
 }
 
 type RServerClusterRolesZookeeperNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (RServerClusterRolesZookeeperNodeArgs) ElementType() reflect.Type {
@@ -4814,7 +4845,7 @@ func (i RServerClusterRolesZookeeperNodeArgs) ToRServerClusterRolesZookeeperNode
 	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesZookeeperNodeOutput)
 }
 
-type RServerClusterRolesZookeeperNodeOutput struct { *pulumi.OutputState }
+type RServerClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RServerClusterRolesZookeeperNode)(nil)).Elem()
@@ -4829,32 +4860,32 @@ func (o RServerClusterRolesZookeeperNodeOutput) ToRServerClusterRolesZookeeperNo
 }
 
 func (o RServerClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RServerClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RServerClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o RServerClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v RServerClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v RServerClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o RServerClusterRolesZookeeperNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RServerClusterRolesZookeeperNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RServerClusterRolesZookeeperNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o RServerClusterRolesZookeeperNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v RServerClusterRolesZookeeperNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RServerClusterRolesZookeeperNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o RServerClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RServerClusterRolesZookeeperNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RServerClusterRolesZookeeperNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o RServerClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v RServerClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RServerClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type RServerClusterStorageAccount struct {
-	IsDefault bool `pulumi:"isDefault"`
-	StorageAccountKey string `pulumi:"storageAccountKey"`
+	IsDefault          bool   `pulumi:"isDefault"`
+	StorageAccountKey  string `pulumi:"storageAccountKey"`
 	StorageContainerId string `pulumi:"storageContainerId"`
 }
 
@@ -4866,8 +4897,8 @@ type RServerClusterStorageAccountInput interface {
 }
 
 type RServerClusterStorageAccountArgs struct {
-	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
-	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
+	IsDefault          pulumi.BoolInput   `pulumi:"isDefault"`
+	StorageAccountKey  pulumi.StringInput `pulumi:"storageAccountKey"`
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
 }
 
@@ -4904,7 +4935,7 @@ func (i RServerClusterStorageAccountArray) ToRServerClusterStorageAccountArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterStorageAccountArrayOutput)
 }
 
-type RServerClusterStorageAccountOutput struct { *pulumi.OutputState }
+type RServerClusterStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterStorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RServerClusterStorageAccount)(nil)).Elem()
@@ -4919,18 +4950,18 @@ func (o RServerClusterStorageAccountOutput) ToRServerClusterStorageAccountOutput
 }
 
 func (o RServerClusterStorageAccountOutput) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v RServerClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v RServerClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o RServerClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutput {
-	return o.ApplyT(func (v RServerClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RServerClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
 }
 
 func (o RServerClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
-	return o.ApplyT(func (v RServerClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RServerClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
 }
 
-type RServerClusterStorageAccountArrayOutput struct { *pulumi.OutputState}
+type RServerClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterStorageAccountArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]RServerClusterStorageAccount)(nil)).Elem()
@@ -4945,7 +4976,7 @@ func (o RServerClusterStorageAccountArrayOutput) ToRServerClusterStorageAccountA
 }
 
 func (o RServerClusterStorageAccountArrayOutput) Index(i pulumi.IntInput) RServerClusterStorageAccountOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) RServerClusterStorageAccount {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RServerClusterStorageAccount {
 		return vs[0].([]RServerClusterStorageAccount)[vs[1].(int)]
 	}).(RServerClusterStorageAccountOutput)
 }
@@ -4994,7 +5025,8 @@ type SparkClusterComponentVersionPtrInput interface {
 
 type sparkClusterComponentVersionPtrType SparkClusterComponentVersionArgs
 
-func SparkClusterComponentVersionPtr(v *SparkClusterComponentVersionArgs) SparkClusterComponentVersionPtrInput {	return (*sparkClusterComponentVersionPtrType)(v)
+func SparkClusterComponentVersionPtr(v *SparkClusterComponentVersionArgs) SparkClusterComponentVersionPtrInput {
+	return (*sparkClusterComponentVersionPtrType)(v)
 }
 
 func (*sparkClusterComponentVersionPtrType) ElementType() reflect.Type {
@@ -5009,7 +5041,7 @@ func (i *sparkClusterComponentVersionPtrType) ToSparkClusterComponentVersionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterComponentVersionPtrOutput)
 }
 
-type SparkClusterComponentVersionOutput struct { *pulumi.OutputState }
+type SparkClusterComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterComponentVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SparkClusterComponentVersion)(nil)).Elem()
@@ -5033,10 +5065,10 @@ func (o SparkClusterComponentVersionOutput) ToSparkClusterComponentVersionPtrOut
 	}).(SparkClusterComponentVersionPtrOutput)
 }
 func (o SparkClusterComponentVersionOutput) Spark() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterComponentVersion) string { return v.Spark }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterComponentVersion) string { return v.Spark }).(pulumi.StringOutput)
 }
 
-type SparkClusterComponentVersionPtrOutput struct { *pulumi.OutputState}
+type SparkClusterComponentVersionPtrOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterComponentVersionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SparkClusterComponentVersion)(nil)).Elem()
@@ -5051,15 +5083,15 @@ func (o SparkClusterComponentVersionPtrOutput) ToSparkClusterComponentVersionPtr
 }
 
 func (o SparkClusterComponentVersionPtrOutput) Elem() SparkClusterComponentVersionOutput {
-	return o.ApplyT(func (v *SparkClusterComponentVersion) SparkClusterComponentVersion { return *v }).(SparkClusterComponentVersionOutput)
+	return o.ApplyT(func(v *SparkClusterComponentVersion) SparkClusterComponentVersion { return *v }).(SparkClusterComponentVersionOutput)
 }
 
 func (o SparkClusterComponentVersionPtrOutput) Spark() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterComponentVersion) string { return v.Spark }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterComponentVersion) string { return v.Spark }).(pulumi.StringOutput)
 }
 
 type SparkClusterGateway struct {
-	Enabled bool `pulumi:"enabled"`
+	Enabled  bool   `pulumi:"enabled"`
 	Password string `pulumi:"password"`
 	Username string `pulumi:"username"`
 }
@@ -5072,7 +5104,7 @@ type SparkClusterGatewayInput interface {
 }
 
 type SparkClusterGatewayArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled  pulumi.BoolInput   `pulumi:"enabled"`
 	Password pulumi.StringInput `pulumi:"password"`
 	Username pulumi.StringInput `pulumi:"username"`
 }
@@ -5106,7 +5138,8 @@ type SparkClusterGatewayPtrInput interface {
 
 type sparkClusterGatewayPtrType SparkClusterGatewayArgs
 
-func SparkClusterGatewayPtr(v *SparkClusterGatewayArgs) SparkClusterGatewayPtrInput {	return (*sparkClusterGatewayPtrType)(v)
+func SparkClusterGatewayPtr(v *SparkClusterGatewayArgs) SparkClusterGatewayPtrInput {
+	return (*sparkClusterGatewayPtrType)(v)
 }
 
 func (*sparkClusterGatewayPtrType) ElementType() reflect.Type {
@@ -5121,7 +5154,7 @@ func (i *sparkClusterGatewayPtrType) ToSparkClusterGatewayPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterGatewayPtrOutput)
 }
 
-type SparkClusterGatewayOutput struct { *pulumi.OutputState }
+type SparkClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SparkClusterGateway)(nil)).Elem()
@@ -5145,18 +5178,18 @@ func (o SparkClusterGatewayOutput) ToSparkClusterGatewayPtrOutputWithContext(ctx
 	}).(SparkClusterGatewayPtrOutput)
 }
 func (o SparkClusterGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v SparkClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v SparkClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o SparkClusterGatewayOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterGateway) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o SparkClusterGatewayOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterGateway) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterGateway) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type SparkClusterGatewayPtrOutput struct { *pulumi.OutputState}
+type SparkClusterGatewayPtrOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterGatewayPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SparkClusterGateway)(nil)).Elem()
@@ -5171,24 +5204,24 @@ func (o SparkClusterGatewayPtrOutput) ToSparkClusterGatewayPtrOutputWithContext(
 }
 
 func (o SparkClusterGatewayPtrOutput) Elem() SparkClusterGatewayOutput {
-	return o.ApplyT(func (v *SparkClusterGateway) SparkClusterGateway { return *v }).(SparkClusterGatewayOutput)
+	return o.ApplyT(func(v *SparkClusterGateway) SparkClusterGateway { return *v }).(SparkClusterGatewayOutput)
 }
 
 func (o SparkClusterGatewayPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v SparkClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v SparkClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o SparkClusterGatewayPtrOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterGateway) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o SparkClusterGatewayPtrOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterGateway) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterGateway) string { return v.Username }).(pulumi.StringOutput)
 }
 
 type SparkClusterRoles struct {
-	HeadNode SparkClusterRolesHeadNode `pulumi:"headNode"`
-	WorkerNode SparkClusterRolesWorkerNode `pulumi:"workerNode"`
+	HeadNode      SparkClusterRolesHeadNode      `pulumi:"headNode"`
+	WorkerNode    SparkClusterRolesWorkerNode    `pulumi:"workerNode"`
 	ZookeeperNode SparkClusterRolesZookeeperNode `pulumi:"zookeeperNode"`
 }
 
@@ -5200,8 +5233,8 @@ type SparkClusterRolesInput interface {
 }
 
 type SparkClusterRolesArgs struct {
-	HeadNode SparkClusterRolesHeadNodeInput `pulumi:"headNode"`
-	WorkerNode SparkClusterRolesWorkerNodeInput `pulumi:"workerNode"`
+	HeadNode      SparkClusterRolesHeadNodeInput      `pulumi:"headNode"`
+	WorkerNode    SparkClusterRolesWorkerNodeInput    `pulumi:"workerNode"`
 	ZookeeperNode SparkClusterRolesZookeeperNodeInput `pulumi:"zookeeperNode"`
 }
 
@@ -5234,7 +5267,8 @@ type SparkClusterRolesPtrInput interface {
 
 type sparkClusterRolesPtrType SparkClusterRolesArgs
 
-func SparkClusterRolesPtr(v *SparkClusterRolesArgs) SparkClusterRolesPtrInput {	return (*sparkClusterRolesPtrType)(v)
+func SparkClusterRolesPtr(v *SparkClusterRolesArgs) SparkClusterRolesPtrInput {
+	return (*sparkClusterRolesPtrType)(v)
 }
 
 func (*sparkClusterRolesPtrType) ElementType() reflect.Type {
@@ -5249,7 +5283,7 @@ func (i *sparkClusterRolesPtrType) ToSparkClusterRolesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesPtrOutput)
 }
 
-type SparkClusterRolesOutput struct { *pulumi.OutputState }
+type SparkClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SparkClusterRoles)(nil)).Elem()
@@ -5273,18 +5307,18 @@ func (o SparkClusterRolesOutput) ToSparkClusterRolesPtrOutputWithContext(ctx con
 	}).(SparkClusterRolesPtrOutput)
 }
 func (o SparkClusterRolesOutput) HeadNode() SparkClusterRolesHeadNodeOutput {
-	return o.ApplyT(func (v SparkClusterRoles) SparkClusterRolesHeadNode { return v.HeadNode }).(SparkClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v SparkClusterRoles) SparkClusterRolesHeadNode { return v.HeadNode }).(SparkClusterRolesHeadNodeOutput)
 }
 
 func (o SparkClusterRolesOutput) WorkerNode() SparkClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func (v SparkClusterRoles) SparkClusterRolesWorkerNode { return v.WorkerNode }).(SparkClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v SparkClusterRoles) SparkClusterRolesWorkerNode { return v.WorkerNode }).(SparkClusterRolesWorkerNodeOutput)
 }
 
 func (o SparkClusterRolesOutput) ZookeeperNode() SparkClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func (v SparkClusterRoles) SparkClusterRolesZookeeperNode { return v.ZookeeperNode }).(SparkClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v SparkClusterRoles) SparkClusterRolesZookeeperNode { return v.ZookeeperNode }).(SparkClusterRolesZookeeperNodeOutput)
 }
 
-type SparkClusterRolesPtrOutput struct { *pulumi.OutputState}
+type SparkClusterRolesPtrOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SparkClusterRoles)(nil)).Elem()
@@ -5299,28 +5333,28 @@ func (o SparkClusterRolesPtrOutput) ToSparkClusterRolesPtrOutputWithContext(ctx 
 }
 
 func (o SparkClusterRolesPtrOutput) Elem() SparkClusterRolesOutput {
-	return o.ApplyT(func (v *SparkClusterRoles) SparkClusterRoles { return *v }).(SparkClusterRolesOutput)
+	return o.ApplyT(func(v *SparkClusterRoles) SparkClusterRoles { return *v }).(SparkClusterRolesOutput)
 }
 
 func (o SparkClusterRolesPtrOutput) HeadNode() SparkClusterRolesHeadNodeOutput {
-	return o.ApplyT(func (v SparkClusterRoles) SparkClusterRolesHeadNode { return v.HeadNode }).(SparkClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v SparkClusterRoles) SparkClusterRolesHeadNode { return v.HeadNode }).(SparkClusterRolesHeadNodeOutput)
 }
 
 func (o SparkClusterRolesPtrOutput) WorkerNode() SparkClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func (v SparkClusterRoles) SparkClusterRolesWorkerNode { return v.WorkerNode }).(SparkClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v SparkClusterRoles) SparkClusterRolesWorkerNode { return v.WorkerNode }).(SparkClusterRolesWorkerNodeOutput)
 }
 
 func (o SparkClusterRolesPtrOutput) ZookeeperNode() SparkClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func (v SparkClusterRoles) SparkClusterRolesZookeeperNode { return v.ZookeeperNode }).(SparkClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v SparkClusterRoles) SparkClusterRolesZookeeperNode { return v.ZookeeperNode }).(SparkClusterRolesZookeeperNodeOutput)
 }
 
 type SparkClusterRolesHeadNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type SparkClusterRolesHeadNodeInput interface {
@@ -5331,12 +5365,12 @@ type SparkClusterRolesHeadNodeInput interface {
 }
 
 type SparkClusterRolesHeadNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (SparkClusterRolesHeadNodeArgs) ElementType() reflect.Type {
@@ -5351,7 +5385,7 @@ func (i SparkClusterRolesHeadNodeArgs) ToSparkClusterRolesHeadNodeOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesHeadNodeOutput)
 }
 
-type SparkClusterRolesHeadNodeOutput struct { *pulumi.OutputState }
+type SparkClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesHeadNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SparkClusterRolesHeadNode)(nil)).Elem()
@@ -5366,38 +5400,38 @@ func (o SparkClusterRolesHeadNodeOutput) ToSparkClusterRolesHeadNodeOutputWithCo
 }
 
 func (o SparkClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SparkClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SparkClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o SparkClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v SparkClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v SparkClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o SparkClusterRolesHeadNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SparkClusterRolesHeadNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SparkClusterRolesHeadNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o SparkClusterRolesHeadNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterRolesHeadNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterRolesHeadNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o SparkClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SparkClusterRolesHeadNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SparkClusterRolesHeadNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o SparkClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type SparkClusterRolesWorkerNode struct {
-	MinInstanceCount *int `pulumi:"minInstanceCount"`
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	TargetInstanceCount int `pulumi:"targetInstanceCount"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	MinInstanceCount    *int     `pulumi:"minInstanceCount"`
+	Password            *string  `pulumi:"password"`
+	SshKeys             []string `pulumi:"sshKeys"`
+	SubnetId            *string  `pulumi:"subnetId"`
+	TargetInstanceCount int      `pulumi:"targetInstanceCount"`
+	Username            string   `pulumi:"username"`
+	VirtualNetworkId    *string  `pulumi:"virtualNetworkId"`
+	VmSize              string   `pulumi:"vmSize"`
 }
 
 type SparkClusterRolesWorkerNodeInput interface {
@@ -5408,14 +5442,14 @@ type SparkClusterRolesWorkerNodeInput interface {
 }
 
 type SparkClusterRolesWorkerNodeArgs struct {
-	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	MinInstanceCount    pulumi.IntPtrInput      `pulumi:"minInstanceCount"`
+	Password            pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys             pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId            pulumi.StringPtrInput   `pulumi:"subnetId"`
+	TargetInstanceCount pulumi.IntInput         `pulumi:"targetInstanceCount"`
+	Username            pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId    pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize              pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (SparkClusterRolesWorkerNodeArgs) ElementType() reflect.Type {
@@ -5430,7 +5464,7 @@ func (i SparkClusterRolesWorkerNodeArgs) ToSparkClusterRolesWorkerNodeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeOutput)
 }
 
-type SparkClusterRolesWorkerNodeOutput struct { *pulumi.OutputState }
+type SparkClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SparkClusterRolesWorkerNode)(nil)).Elem()
@@ -5445,44 +5479,44 @@ func (o SparkClusterRolesWorkerNodeOutput) ToSparkClusterRolesWorkerNodeOutputWi
 }
 
 func (o SparkClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v SparkClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v SparkClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
 
 func (o SparkClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SparkClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SparkClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o SparkClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v SparkClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v SparkClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o SparkClusterRolesWorkerNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SparkClusterRolesWorkerNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SparkClusterRolesWorkerNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o SparkClusterRolesWorkerNodeOutput) TargetInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func (v SparkClusterRolesWorkerNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v SparkClusterRolesWorkerNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
 }
 
 func (o SparkClusterRolesWorkerNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterRolesWorkerNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterRolesWorkerNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o SparkClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SparkClusterRolesWorkerNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SparkClusterRolesWorkerNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o SparkClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type SparkClusterRolesZookeeperNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type SparkClusterRolesZookeeperNodeInput interface {
@@ -5493,12 +5527,12 @@ type SparkClusterRolesZookeeperNodeInput interface {
 }
 
 type SparkClusterRolesZookeeperNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (SparkClusterRolesZookeeperNodeArgs) ElementType() reflect.Type {
@@ -5513,7 +5547,7 @@ func (i SparkClusterRolesZookeeperNodeArgs) ToSparkClusterRolesZookeeperNodeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesZookeeperNodeOutput)
 }
 
-type SparkClusterRolesZookeeperNodeOutput struct { *pulumi.OutputState }
+type SparkClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SparkClusterRolesZookeeperNode)(nil)).Elem()
@@ -5528,32 +5562,32 @@ func (o SparkClusterRolesZookeeperNodeOutput) ToSparkClusterRolesZookeeperNodeOu
 }
 
 func (o SparkClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SparkClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SparkClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o SparkClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v SparkClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v SparkClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o SparkClusterRolesZookeeperNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SparkClusterRolesZookeeperNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SparkClusterRolesZookeeperNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o SparkClusterRolesZookeeperNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterRolesZookeeperNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterRolesZookeeperNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o SparkClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SparkClusterRolesZookeeperNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SparkClusterRolesZookeeperNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o SparkClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type SparkClusterStorageAccount struct {
-	IsDefault bool `pulumi:"isDefault"`
-	StorageAccountKey string `pulumi:"storageAccountKey"`
+	IsDefault          bool   `pulumi:"isDefault"`
+	StorageAccountKey  string `pulumi:"storageAccountKey"`
 	StorageContainerId string `pulumi:"storageContainerId"`
 }
 
@@ -5565,8 +5599,8 @@ type SparkClusterStorageAccountInput interface {
 }
 
 type SparkClusterStorageAccountArgs struct {
-	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
-	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
+	IsDefault          pulumi.BoolInput   `pulumi:"isDefault"`
+	StorageAccountKey  pulumi.StringInput `pulumi:"storageAccountKey"`
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
 }
 
@@ -5603,7 +5637,7 @@ func (i SparkClusterStorageAccountArray) ToSparkClusterStorageAccountArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterStorageAccountArrayOutput)
 }
 
-type SparkClusterStorageAccountOutput struct { *pulumi.OutputState }
+type SparkClusterStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterStorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SparkClusterStorageAccount)(nil)).Elem()
@@ -5618,18 +5652,18 @@ func (o SparkClusterStorageAccountOutput) ToSparkClusterStorageAccountOutputWith
 }
 
 func (o SparkClusterStorageAccountOutput) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v SparkClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v SparkClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o SparkClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
 }
 
 func (o SparkClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
 }
 
-type SparkClusterStorageAccountArrayOutput struct { *pulumi.OutputState}
+type SparkClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterStorageAccountArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SparkClusterStorageAccount)(nil)).Elem()
@@ -5644,16 +5678,16 @@ func (o SparkClusterStorageAccountArrayOutput) ToSparkClusterStorageAccountArray
 }
 
 func (o SparkClusterStorageAccountArrayOutput) Index(i pulumi.IntInput) SparkClusterStorageAccountOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SparkClusterStorageAccount {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SparkClusterStorageAccount {
 		return vs[0].([]SparkClusterStorageAccount)[vs[1].(int)]
 	}).(SparkClusterStorageAccountOutput)
 }
 
 type SparkClusterStorageAccountGen2 struct {
-	FilesystemId string `pulumi:"filesystemId"`
-	IsDefault bool `pulumi:"isDefault"`
+	FilesystemId              string `pulumi:"filesystemId"`
+	IsDefault                 bool   `pulumi:"isDefault"`
 	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
-	StorageResourceId string `pulumi:"storageResourceId"`
+	StorageResourceId         string `pulumi:"storageResourceId"`
 }
 
 type SparkClusterStorageAccountGen2Input interface {
@@ -5664,10 +5698,10 @@ type SparkClusterStorageAccountGen2Input interface {
 }
 
 type SparkClusterStorageAccountGen2Args struct {
-	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
-	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	FilesystemId              pulumi.StringInput `pulumi:"filesystemId"`
+	IsDefault                 pulumi.BoolInput   `pulumi:"isDefault"`
 	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
-	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
+	StorageResourceId         pulumi.StringInput `pulumi:"storageResourceId"`
 }
 
 func (SparkClusterStorageAccountGen2Args) ElementType() reflect.Type {
@@ -5699,7 +5733,8 @@ type SparkClusterStorageAccountGen2PtrInput interface {
 
 type sparkClusterStorageAccountGen2PtrType SparkClusterStorageAccountGen2Args
 
-func SparkClusterStorageAccountGen2Ptr(v *SparkClusterStorageAccountGen2Args) SparkClusterStorageAccountGen2PtrInput {	return (*sparkClusterStorageAccountGen2PtrType)(v)
+func SparkClusterStorageAccountGen2Ptr(v *SparkClusterStorageAccountGen2Args) SparkClusterStorageAccountGen2PtrInput {
+	return (*sparkClusterStorageAccountGen2PtrType)(v)
 }
 
 func (*sparkClusterStorageAccountGen2PtrType) ElementType() reflect.Type {
@@ -5714,7 +5749,7 @@ func (i *sparkClusterStorageAccountGen2PtrType) ToSparkClusterStorageAccountGen2
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterStorageAccountGen2PtrOutput)
 }
 
-type SparkClusterStorageAccountGen2Output struct { *pulumi.OutputState }
+type SparkClusterStorageAccountGen2Output struct{ *pulumi.OutputState }
 
 func (SparkClusterStorageAccountGen2Output) ElementType() reflect.Type {
 	return reflect.TypeOf((*SparkClusterStorageAccountGen2)(nil)).Elem()
@@ -5738,22 +5773,22 @@ func (o SparkClusterStorageAccountGen2Output) ToSparkClusterStorageAccountGen2Pt
 	}).(SparkClusterStorageAccountGen2PtrOutput)
 }
 func (o SparkClusterStorageAccountGen2Output) FilesystemId() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
 }
 
 func (o SparkClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v SparkClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v SparkClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o SparkClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
 }
 
 func (o SparkClusterStorageAccountGen2Output) StorageResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
 }
 
-type SparkClusterStorageAccountGen2PtrOutput struct { *pulumi.OutputState}
+type SparkClusterStorageAccountGen2PtrOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterStorageAccountGen2PtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SparkClusterStorageAccountGen2)(nil)).Elem()
@@ -5768,23 +5803,23 @@ func (o SparkClusterStorageAccountGen2PtrOutput) ToSparkClusterStorageAccountGen
 }
 
 func (o SparkClusterStorageAccountGen2PtrOutput) Elem() SparkClusterStorageAccountGen2Output {
-	return o.ApplyT(func (v *SparkClusterStorageAccountGen2) SparkClusterStorageAccountGen2 { return *v }).(SparkClusterStorageAccountGen2Output)
+	return o.ApplyT(func(v *SparkClusterStorageAccountGen2) SparkClusterStorageAccountGen2 { return *v }).(SparkClusterStorageAccountGen2Output)
 }
 
 func (o SparkClusterStorageAccountGen2PtrOutput) FilesystemId() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterStorageAccountGen2) string { return v.FilesystemId }).(pulumi.StringOutput)
 }
 
 func (o SparkClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v SparkClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v SparkClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o SparkClusterStorageAccountGen2PtrOutput) ManagedIdentityResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
 }
 
 func (o SparkClusterStorageAccountGen2PtrOutput) StorageResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v SparkClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SparkClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
 }
 
 type StormClusterComponentVersion struct {
@@ -5831,7 +5866,8 @@ type StormClusterComponentVersionPtrInput interface {
 
 type stormClusterComponentVersionPtrType StormClusterComponentVersionArgs
 
-func StormClusterComponentVersionPtr(v *StormClusterComponentVersionArgs) StormClusterComponentVersionPtrInput {	return (*stormClusterComponentVersionPtrType)(v)
+func StormClusterComponentVersionPtr(v *StormClusterComponentVersionArgs) StormClusterComponentVersionPtrInput {
+	return (*stormClusterComponentVersionPtrType)(v)
 }
 
 func (*stormClusterComponentVersionPtrType) ElementType() reflect.Type {
@@ -5846,7 +5882,7 @@ func (i *stormClusterComponentVersionPtrType) ToStormClusterComponentVersionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(StormClusterComponentVersionPtrOutput)
 }
 
-type StormClusterComponentVersionOutput struct { *pulumi.OutputState }
+type StormClusterComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (StormClusterComponentVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StormClusterComponentVersion)(nil)).Elem()
@@ -5870,10 +5906,10 @@ func (o StormClusterComponentVersionOutput) ToStormClusterComponentVersionPtrOut
 	}).(StormClusterComponentVersionPtrOutput)
 }
 func (o StormClusterComponentVersionOutput) Storm() pulumi.StringOutput {
-	return o.ApplyT(func (v StormClusterComponentVersion) string { return v.Storm }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StormClusterComponentVersion) string { return v.Storm }).(pulumi.StringOutput)
 }
 
-type StormClusterComponentVersionPtrOutput struct { *pulumi.OutputState}
+type StormClusterComponentVersionPtrOutput struct{ *pulumi.OutputState }
 
 func (StormClusterComponentVersionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StormClusterComponentVersion)(nil)).Elem()
@@ -5888,15 +5924,15 @@ func (o StormClusterComponentVersionPtrOutput) ToStormClusterComponentVersionPtr
 }
 
 func (o StormClusterComponentVersionPtrOutput) Elem() StormClusterComponentVersionOutput {
-	return o.ApplyT(func (v *StormClusterComponentVersion) StormClusterComponentVersion { return *v }).(StormClusterComponentVersionOutput)
+	return o.ApplyT(func(v *StormClusterComponentVersion) StormClusterComponentVersion { return *v }).(StormClusterComponentVersionOutput)
 }
 
 func (o StormClusterComponentVersionPtrOutput) Storm() pulumi.StringOutput {
-	return o.ApplyT(func (v StormClusterComponentVersion) string { return v.Storm }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StormClusterComponentVersion) string { return v.Storm }).(pulumi.StringOutput)
 }
 
 type StormClusterGateway struct {
-	Enabled bool `pulumi:"enabled"`
+	Enabled  bool   `pulumi:"enabled"`
 	Password string `pulumi:"password"`
 	Username string `pulumi:"username"`
 }
@@ -5909,7 +5945,7 @@ type StormClusterGatewayInput interface {
 }
 
 type StormClusterGatewayArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled  pulumi.BoolInput   `pulumi:"enabled"`
 	Password pulumi.StringInput `pulumi:"password"`
 	Username pulumi.StringInput `pulumi:"username"`
 }
@@ -5943,7 +5979,8 @@ type StormClusterGatewayPtrInput interface {
 
 type stormClusterGatewayPtrType StormClusterGatewayArgs
 
-func StormClusterGatewayPtr(v *StormClusterGatewayArgs) StormClusterGatewayPtrInput {	return (*stormClusterGatewayPtrType)(v)
+func StormClusterGatewayPtr(v *StormClusterGatewayArgs) StormClusterGatewayPtrInput {
+	return (*stormClusterGatewayPtrType)(v)
 }
 
 func (*stormClusterGatewayPtrType) ElementType() reflect.Type {
@@ -5958,7 +5995,7 @@ func (i *stormClusterGatewayPtrType) ToStormClusterGatewayPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(StormClusterGatewayPtrOutput)
 }
 
-type StormClusterGatewayOutput struct { *pulumi.OutputState }
+type StormClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (StormClusterGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StormClusterGateway)(nil)).Elem()
@@ -5982,18 +6019,18 @@ func (o StormClusterGatewayOutput) ToStormClusterGatewayPtrOutputWithContext(ctx
 	}).(StormClusterGatewayPtrOutput)
 }
 func (o StormClusterGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v StormClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v StormClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o StormClusterGatewayOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v StormClusterGateway) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StormClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o StormClusterGatewayOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v StormClusterGateway) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StormClusterGateway) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type StormClusterGatewayPtrOutput struct { *pulumi.OutputState}
+type StormClusterGatewayPtrOutput struct{ *pulumi.OutputState }
 
 func (StormClusterGatewayPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StormClusterGateway)(nil)).Elem()
@@ -6008,24 +6045,24 @@ func (o StormClusterGatewayPtrOutput) ToStormClusterGatewayPtrOutputWithContext(
 }
 
 func (o StormClusterGatewayPtrOutput) Elem() StormClusterGatewayOutput {
-	return o.ApplyT(func (v *StormClusterGateway) StormClusterGateway { return *v }).(StormClusterGatewayOutput)
+	return o.ApplyT(func(v *StormClusterGateway) StormClusterGateway { return *v }).(StormClusterGatewayOutput)
 }
 
 func (o StormClusterGatewayPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v StormClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v StormClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o StormClusterGatewayPtrOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v StormClusterGateway) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StormClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o StormClusterGatewayPtrOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v StormClusterGateway) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StormClusterGateway) string { return v.Username }).(pulumi.StringOutput)
 }
 
 type StormClusterRoles struct {
-	HeadNode StormClusterRolesHeadNode `pulumi:"headNode"`
-	WorkerNode StormClusterRolesWorkerNode `pulumi:"workerNode"`
+	HeadNode      StormClusterRolesHeadNode      `pulumi:"headNode"`
+	WorkerNode    StormClusterRolesWorkerNode    `pulumi:"workerNode"`
 	ZookeeperNode StormClusterRolesZookeeperNode `pulumi:"zookeeperNode"`
 }
 
@@ -6037,8 +6074,8 @@ type StormClusterRolesInput interface {
 }
 
 type StormClusterRolesArgs struct {
-	HeadNode StormClusterRolesHeadNodeInput `pulumi:"headNode"`
-	WorkerNode StormClusterRolesWorkerNodeInput `pulumi:"workerNode"`
+	HeadNode      StormClusterRolesHeadNodeInput      `pulumi:"headNode"`
+	WorkerNode    StormClusterRolesWorkerNodeInput    `pulumi:"workerNode"`
 	ZookeeperNode StormClusterRolesZookeeperNodeInput `pulumi:"zookeeperNode"`
 }
 
@@ -6071,7 +6108,8 @@ type StormClusterRolesPtrInput interface {
 
 type stormClusterRolesPtrType StormClusterRolesArgs
 
-func StormClusterRolesPtr(v *StormClusterRolesArgs) StormClusterRolesPtrInput {	return (*stormClusterRolesPtrType)(v)
+func StormClusterRolesPtr(v *StormClusterRolesArgs) StormClusterRolesPtrInput {
+	return (*stormClusterRolesPtrType)(v)
 }
 
 func (*stormClusterRolesPtrType) ElementType() reflect.Type {
@@ -6086,7 +6124,7 @@ func (i *stormClusterRolesPtrType) ToStormClusterRolesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(StormClusterRolesPtrOutput)
 }
 
-type StormClusterRolesOutput struct { *pulumi.OutputState }
+type StormClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (StormClusterRolesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StormClusterRoles)(nil)).Elem()
@@ -6110,18 +6148,18 @@ func (o StormClusterRolesOutput) ToStormClusterRolesPtrOutputWithContext(ctx con
 	}).(StormClusterRolesPtrOutput)
 }
 func (o StormClusterRolesOutput) HeadNode() StormClusterRolesHeadNodeOutput {
-	return o.ApplyT(func (v StormClusterRoles) StormClusterRolesHeadNode { return v.HeadNode }).(StormClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v StormClusterRoles) StormClusterRolesHeadNode { return v.HeadNode }).(StormClusterRolesHeadNodeOutput)
 }
 
 func (o StormClusterRolesOutput) WorkerNode() StormClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func (v StormClusterRoles) StormClusterRolesWorkerNode { return v.WorkerNode }).(StormClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v StormClusterRoles) StormClusterRolesWorkerNode { return v.WorkerNode }).(StormClusterRolesWorkerNodeOutput)
 }
 
 func (o StormClusterRolesOutput) ZookeeperNode() StormClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func (v StormClusterRoles) StormClusterRolesZookeeperNode { return v.ZookeeperNode }).(StormClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v StormClusterRoles) StormClusterRolesZookeeperNode { return v.ZookeeperNode }).(StormClusterRolesZookeeperNodeOutput)
 }
 
-type StormClusterRolesPtrOutput struct { *pulumi.OutputState}
+type StormClusterRolesPtrOutput struct{ *pulumi.OutputState }
 
 func (StormClusterRolesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StormClusterRoles)(nil)).Elem()
@@ -6136,28 +6174,28 @@ func (o StormClusterRolesPtrOutput) ToStormClusterRolesPtrOutputWithContext(ctx 
 }
 
 func (o StormClusterRolesPtrOutput) Elem() StormClusterRolesOutput {
-	return o.ApplyT(func (v *StormClusterRoles) StormClusterRoles { return *v }).(StormClusterRolesOutput)
+	return o.ApplyT(func(v *StormClusterRoles) StormClusterRoles { return *v }).(StormClusterRolesOutput)
 }
 
 func (o StormClusterRolesPtrOutput) HeadNode() StormClusterRolesHeadNodeOutput {
-	return o.ApplyT(func (v StormClusterRoles) StormClusterRolesHeadNode { return v.HeadNode }).(StormClusterRolesHeadNodeOutput)
+	return o.ApplyT(func(v StormClusterRoles) StormClusterRolesHeadNode { return v.HeadNode }).(StormClusterRolesHeadNodeOutput)
 }
 
 func (o StormClusterRolesPtrOutput) WorkerNode() StormClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func (v StormClusterRoles) StormClusterRolesWorkerNode { return v.WorkerNode }).(StormClusterRolesWorkerNodeOutput)
+	return o.ApplyT(func(v StormClusterRoles) StormClusterRolesWorkerNode { return v.WorkerNode }).(StormClusterRolesWorkerNodeOutput)
 }
 
 func (o StormClusterRolesPtrOutput) ZookeeperNode() StormClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func (v StormClusterRoles) StormClusterRolesZookeeperNode { return v.ZookeeperNode }).(StormClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v StormClusterRoles) StormClusterRolesZookeeperNode { return v.ZookeeperNode }).(StormClusterRolesZookeeperNodeOutput)
 }
 
 type StormClusterRolesHeadNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type StormClusterRolesHeadNodeInput interface {
@@ -6168,12 +6206,12 @@ type StormClusterRolesHeadNodeInput interface {
 }
 
 type StormClusterRolesHeadNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (StormClusterRolesHeadNodeArgs) ElementType() reflect.Type {
@@ -6188,7 +6226,7 @@ func (i StormClusterRolesHeadNodeArgs) ToStormClusterRolesHeadNodeOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StormClusterRolesHeadNodeOutput)
 }
 
-type StormClusterRolesHeadNodeOutput struct { *pulumi.OutputState }
+type StormClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (StormClusterRolesHeadNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StormClusterRolesHeadNode)(nil)).Elem()
@@ -6203,38 +6241,38 @@ func (o StormClusterRolesHeadNodeOutput) ToStormClusterRolesHeadNodeOutputWithCo
 }
 
 func (o StormClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StormClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StormClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o StormClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v StormClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v StormClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o StormClusterRolesHeadNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StormClusterRolesHeadNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StormClusterRolesHeadNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o StormClusterRolesHeadNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v StormClusterRolesHeadNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StormClusterRolesHeadNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o StormClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StormClusterRolesHeadNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StormClusterRolesHeadNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o StormClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v StormClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StormClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type StormClusterRolesWorkerNode struct {
-	MinInstanceCount *int `pulumi:"minInstanceCount"`
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	TargetInstanceCount int `pulumi:"targetInstanceCount"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	MinInstanceCount    *int     `pulumi:"minInstanceCount"`
+	Password            *string  `pulumi:"password"`
+	SshKeys             []string `pulumi:"sshKeys"`
+	SubnetId            *string  `pulumi:"subnetId"`
+	TargetInstanceCount int      `pulumi:"targetInstanceCount"`
+	Username            string   `pulumi:"username"`
+	VirtualNetworkId    *string  `pulumi:"virtualNetworkId"`
+	VmSize              string   `pulumi:"vmSize"`
 }
 
 type StormClusterRolesWorkerNodeInput interface {
@@ -6245,14 +6283,14 @@ type StormClusterRolesWorkerNodeInput interface {
 }
 
 type StormClusterRolesWorkerNodeArgs struct {
-	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	MinInstanceCount    pulumi.IntPtrInput      `pulumi:"minInstanceCount"`
+	Password            pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys             pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId            pulumi.StringPtrInput   `pulumi:"subnetId"`
+	TargetInstanceCount pulumi.IntInput         `pulumi:"targetInstanceCount"`
+	Username            pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId    pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize              pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (StormClusterRolesWorkerNodeArgs) ElementType() reflect.Type {
@@ -6267,7 +6305,7 @@ func (i StormClusterRolesWorkerNodeArgs) ToStormClusterRolesWorkerNodeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(StormClusterRolesWorkerNodeOutput)
 }
 
-type StormClusterRolesWorkerNodeOutput struct { *pulumi.OutputState }
+type StormClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (StormClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StormClusterRolesWorkerNode)(nil)).Elem()
@@ -6282,44 +6320,44 @@ func (o StormClusterRolesWorkerNodeOutput) ToStormClusterRolesWorkerNodeOutputWi
 }
 
 func (o StormClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v StormClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v StormClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
 
 func (o StormClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StormClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StormClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o StormClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v StormClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v StormClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o StormClusterRolesWorkerNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StormClusterRolesWorkerNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StormClusterRolesWorkerNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o StormClusterRolesWorkerNodeOutput) TargetInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func (v StormClusterRolesWorkerNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v StormClusterRolesWorkerNode) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
 }
 
 func (o StormClusterRolesWorkerNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v StormClusterRolesWorkerNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StormClusterRolesWorkerNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o StormClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StormClusterRolesWorkerNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StormClusterRolesWorkerNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o StormClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v StormClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StormClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type StormClusterRolesZookeeperNode struct {
-	Password *string `pulumi:"password"`
-	SshKeys []string `pulumi:"sshKeys"`
-	SubnetId *string `pulumi:"subnetId"`
-	Username string `pulumi:"username"`
-	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
-	VmSize string `pulumi:"vmSize"`
+	Password         *string  `pulumi:"password"`
+	SshKeys          []string `pulumi:"sshKeys"`
+	SubnetId         *string  `pulumi:"subnetId"`
+	Username         string   `pulumi:"username"`
+	VirtualNetworkId *string  `pulumi:"virtualNetworkId"`
+	VmSize           string   `pulumi:"vmSize"`
 }
 
 type StormClusterRolesZookeeperNodeInput interface {
@@ -6330,12 +6368,12 @@ type StormClusterRolesZookeeperNodeInput interface {
 }
 
 type StormClusterRolesZookeeperNodeArgs struct {
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	Username pulumi.StringInput `pulumi:"username"`
-	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Password         pulumi.StringPtrInput   `pulumi:"password"`
+	SshKeys          pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId         pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Username         pulumi.StringInput      `pulumi:"username"`
+	VirtualNetworkId pulumi.StringPtrInput   `pulumi:"virtualNetworkId"`
+	VmSize           pulumi.StringInput      `pulumi:"vmSize"`
 }
 
 func (StormClusterRolesZookeeperNodeArgs) ElementType() reflect.Type {
@@ -6350,7 +6388,7 @@ func (i StormClusterRolesZookeeperNodeArgs) ToStormClusterRolesZookeeperNodeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StormClusterRolesZookeeperNodeOutput)
 }
 
-type StormClusterRolesZookeeperNodeOutput struct { *pulumi.OutputState }
+type StormClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (StormClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StormClusterRolesZookeeperNode)(nil)).Elem()
@@ -6365,32 +6403,32 @@ func (o StormClusterRolesZookeeperNodeOutput) ToStormClusterRolesZookeeperNodeOu
 }
 
 func (o StormClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StormClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StormClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o StormClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v StormClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v StormClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
 
 func (o StormClusterRolesZookeeperNodeOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StormClusterRolesZookeeperNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StormClusterRolesZookeeperNode) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 func (o StormClusterRolesZookeeperNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v StormClusterRolesZookeeperNode) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StormClusterRolesZookeeperNode) string { return v.Username }).(pulumi.StringOutput)
 }
 
 func (o StormClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StormClusterRolesZookeeperNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StormClusterRolesZookeeperNode) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 func (o StormClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v StormClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StormClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 type StormClusterStorageAccount struct {
-	IsDefault bool `pulumi:"isDefault"`
-	StorageAccountKey string `pulumi:"storageAccountKey"`
+	IsDefault          bool   `pulumi:"isDefault"`
+	StorageAccountKey  string `pulumi:"storageAccountKey"`
 	StorageContainerId string `pulumi:"storageContainerId"`
 }
 
@@ -6402,8 +6440,8 @@ type StormClusterStorageAccountInput interface {
 }
 
 type StormClusterStorageAccountArgs struct {
-	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
-	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
+	IsDefault          pulumi.BoolInput   `pulumi:"isDefault"`
+	StorageAccountKey  pulumi.StringInput `pulumi:"storageAccountKey"`
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
 }
 
@@ -6440,7 +6478,7 @@ func (i StormClusterStorageAccountArray) ToStormClusterStorageAccountArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(StormClusterStorageAccountArrayOutput)
 }
 
-type StormClusterStorageAccountOutput struct { *pulumi.OutputState }
+type StormClusterStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (StormClusterStorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StormClusterStorageAccount)(nil)).Elem()
@@ -6455,18 +6493,18 @@ func (o StormClusterStorageAccountOutput) ToStormClusterStorageAccountOutputWith
 }
 
 func (o StormClusterStorageAccountOutput) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func (v StormClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v StormClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 func (o StormClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutput {
-	return o.ApplyT(func (v StormClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StormClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
 }
 
 func (o StormClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
-	return o.ApplyT(func (v StormClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StormClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
 }
 
-type StormClusterStorageAccountArrayOutput struct { *pulumi.OutputState}
+type StormClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (StormClusterStorageAccountArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]StormClusterStorageAccount)(nil)).Elem()
@@ -6481,7 +6519,7 @@ func (o StormClusterStorageAccountArrayOutput) ToStormClusterStorageAccountArray
 }
 
 func (o StormClusterStorageAccountArrayOutput) Index(i pulumi.IntInput) StormClusterStorageAccountOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) StormClusterStorageAccount {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StormClusterStorageAccount {
 		return vs[0].([]StormClusterStorageAccount)[vs[1].(int)]
 	}).(StormClusterStorageAccountOutput)
 }
@@ -6544,7 +6582,7 @@ func (i GetClusterGatewayArray) ToGetClusterGatewayArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterGatewayArrayOutput)
 }
 
-type GetClusterGatewayOutput struct { *pulumi.OutputState }
+type GetClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (GetClusterGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetClusterGateway)(nil)).Elem()
@@ -6560,20 +6598,20 @@ func (o GetClusterGatewayOutput) ToGetClusterGatewayOutputWithContext(ctx contex
 
 // Is the Ambari Portal enabled?
 func (o GetClusterGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // The password used for the Ambari Portal.
 func (o GetClusterGatewayOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v GetClusterGateway) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
 
 // The username used for the Ambari Portal.
 func (o GetClusterGatewayOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v GetClusterGateway) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetClusterGateway) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type GetClusterGatewayArrayOutput struct { *pulumi.OutputState}
+type GetClusterGatewayArrayOutput struct{ *pulumi.OutputState }
 
 func (GetClusterGatewayArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetClusterGateway)(nil)).Elem()
@@ -6588,7 +6626,7 @@ func (o GetClusterGatewayArrayOutput) ToGetClusterGatewayArrayOutputWithContext(
 }
 
 func (o GetClusterGatewayArrayOutput) Index(i pulumi.IntInput) GetClusterGatewayOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetClusterGateway {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterGateway {
 		return vs[0].([]GetClusterGateway)[vs[1].(int)]
 	}).(GetClusterGatewayOutput)
 }

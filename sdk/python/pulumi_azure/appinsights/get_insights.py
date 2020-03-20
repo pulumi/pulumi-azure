@@ -13,7 +13,7 @@ class GetInsightsResult:
     """
     A collection of values returned by getInsights.
     """
-    def __init__(__self__, app_id=None, application_type=None, instrumentation_key=None, location=None, name=None, resource_group_name=None, retention_in_days=None, tags=None, id=None):
+    def __init__(__self__, app_id=None, application_type=None, id=None, instrumentation_key=None, location=None, name=None, resource_group_name=None, retention_in_days=None, tags=None):
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         __self__.app_id = app_id
@@ -25,6 +25,12 @@ class GetInsightsResult:
         __self__.application_type = application_type
         """
         The type of the component.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if instrumentation_key and not isinstance(instrumentation_key, str):
             raise TypeError("Expected argument 'instrumentation_key' to be a str")
@@ -56,12 +62,6 @@ class GetInsightsResult:
         """
         Tags applied to the component.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetInsightsResult(GetInsightsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -70,24 +70,26 @@ class AwaitableGetInsightsResult(GetInsightsResult):
         return GetInsightsResult(
             app_id=self.app_id,
             application_type=self.application_type,
+            id=self.id,
             instrumentation_key=self.instrumentation_key,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
             retention_in_days=self.retention_in_days,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_insights(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Application Insights component.
-    
-    :param str name: Specifies the name of the Application Insights component.
-    :param str resource_group_name: Specifies the name of the resource group the Application Insights component is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/application_insights.html.markdown.
+
+
+    :param str name: Specifies the name of the Application Insights component.
+    :param str resource_group_name: Specifies the name of the resource group the Application Insights component is located in.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -100,10 +102,10 @@ def get_insights(name=None,resource_group_name=None,opts=None):
     return AwaitableGetInsightsResult(
         app_id=__ret__.get('appId'),
         application_type=__ret__.get('applicationType'),
+        id=__ret__.get('id'),
         instrumentation_key=__ret__.get('instrumentationKey'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
         retention_in_days=__ret__.get('retentionInDays'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

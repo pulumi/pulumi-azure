@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Route Table.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/route_table.html.markdown.
 func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupRouteTableResult, error) {
 	var rv LookupRouteTableResult
@@ -28,7 +28,6 @@ type LookupRouteTableArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getRouteTable.
 type LookupRouteTableResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
@@ -36,7 +35,7 @@ type LookupRouteTableResult struct {
 	// The Azure Region in which the Route Table exists.
 	Location string `pulumi:"location"`
 	// The name of the Route.
-	Name string `pulumi:"name"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `route` blocks as documented below.
 	Routes []GetRouteTableRoute `pulumi:"routes"`
@@ -45,4 +44,3 @@ type LookupRouteTableResult struct {
 	// A mapping of tags assigned to the Route Table.
 	Tags map[string]string `pulumi:"tags"`
 }
-

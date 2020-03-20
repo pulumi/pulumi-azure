@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.appservice.getAppServicePlan({
- *     name: "search-app-service-plan",
- *     resourceGroupName: "search-service",
- * });
- * 
- * export const appServicePlanId = example.id;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_plan.html.markdown.
  */
@@ -58,6 +44,10 @@ export interface GetAppServicePlanArgs {
  */
 export interface GetAppServicePlanResult {
     /**
+     * The ID of the App Service Environment where the App Service Plan is located.
+     */
+    readonly appServiceEnvironmentId: string;
+    /**
      * A flag that indicates if it's a xenon plan (support for Windows Container)
      */
     readonly isXenon: boolean;
@@ -74,14 +64,18 @@ export interface GetAppServicePlanResult {
      */
     readonly maximumElasticWorkerCount: number;
     /**
-     * Maximum number of instances that can be assigned to this App Service plan.
+     * The maximum number of workers supported with the App Service Plan's sku.
      */
     readonly maximumNumberOfWorkers: number;
     readonly name: string;
     /**
-     * A `properties` block as documented below.
+     * Can Apps assigned to this App Service Plan be scaled independently?
      */
-    readonly properties: outputs.appservice.GetAppServicePlanProperty[];
+    readonly perSiteScaling: boolean;
+    /**
+     * Is this App Service Plan `Reserved`?
+     */
+    readonly reserved: boolean;
     readonly resourceGroupName: string;
     /**
      * A `sku` block as documented below.

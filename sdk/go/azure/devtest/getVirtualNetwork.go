@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Dev Test Lab Virtual Network.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_virtual_network.html.markdown.
 func LookupVirtualNetwork(ctx *pulumi.Context, args *LookupVirtualNetworkArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkResult, error) {
 	var rv LookupVirtualNetworkResult
@@ -30,19 +30,17 @@ type LookupVirtualNetworkArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getVirtualNetwork.
 type LookupVirtualNetworkResult struct {
 	// The list of subnets enabled for the virtual network as defined below.
 	AllowedSubnets []GetVirtualNetworkAllowedSubnet `pulumi:"allowedSubnets"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	LabName string `pulumi:"labName"`
-	Name string `pulumi:"name"`
+	Id                string `pulumi:"id"`
+	LabName           string `pulumi:"labName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The list of permission overrides for the subnets as defined below.
-	SubnetOverrides GetVirtualNetworkSubnetOverrides `pulumi:"subnetOverrides"`
+	SubnetOverrides []GetVirtualNetworkSubnetOverride `pulumi:"subnetOverrides"`
 	// The unique immutable identifier of the virtual network.
 	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
 }
-

@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Stream Analytics Stream Input IoTHub.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_stream_input_iothub.html.markdown.
 type StreamInputIotHub struct {
 	pulumi.CustomResourceState
@@ -33,7 +33,7 @@ type StreamInputIotHub struct {
 	SharedAccessPolicyKey pulumi.StringOutput `pulumi:"sharedAccessPolicyKey"`
 	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
 	SharedAccessPolicyName pulumi.StringOutput `pulumi:"sharedAccessPolicyName"`
-	// The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringOutput `pulumi:"streamAnalyticsJobName"`
 }
 
@@ -105,7 +105,7 @@ type streamInputIotHubState struct {
 	SharedAccessPolicyKey *string `pulumi:"sharedAccessPolicyKey"`
 	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
 	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
-	// The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName *string `pulumi:"streamAnalyticsJobName"`
 }
 
@@ -126,7 +126,7 @@ type StreamInputIotHubState struct {
 	SharedAccessPolicyKey pulumi.StringPtrInput
 	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
 	SharedAccessPolicyName pulumi.StringPtrInput
-	// The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringPtrInput
 }
 
@@ -151,7 +151,7 @@ type streamInputIotHubArgs struct {
 	SharedAccessPolicyKey string `pulumi:"sharedAccessPolicyKey"`
 	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
 	SharedAccessPolicyName string `pulumi:"sharedAccessPolicyName"`
-	// The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName string `pulumi:"streamAnalyticsJobName"`
 }
 
@@ -173,11 +173,10 @@ type StreamInputIotHubArgs struct {
 	SharedAccessPolicyKey pulumi.StringInput
 	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
 	SharedAccessPolicyName pulumi.StringInput
-	// The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringInput
 }
 
 func (StreamInputIotHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamInputIotHubArgs)(nil)).Elem()
 }
-

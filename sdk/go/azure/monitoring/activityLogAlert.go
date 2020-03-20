@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Activity Log Alert within Azure Monitor.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_activity_log_alert.html.markdown.
 type ActivityLogAlert struct {
 	pulumi.CustomResourceState
@@ -155,4 +155,3 @@ type ActivityLogAlertArgs struct {
 func (ActivityLogAlertArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*activityLogAlertArgs)(nil)).Elem()
 }
-

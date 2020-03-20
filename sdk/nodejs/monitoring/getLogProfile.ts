@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access the properties of a Log Profile.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.monitoring.getLogProfile({
- *     name: "test-logprofile",
- * });
- * 
- * export const logProfileStorageAccountId = example.storageAccountId;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_log_profile.html.markdown.
  */
@@ -60,7 +47,7 @@ export interface GetLogProfileResult {
      */
     readonly locations: string[];
     readonly name: string;
-    readonly retentionPolicy: outputs.monitoring.GetLogProfileRetentionPolicy;
+    readonly retentionPolicies: outputs.monitoring.GetLogProfileRetentionPolicy[];
     /**
      * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to.
      */

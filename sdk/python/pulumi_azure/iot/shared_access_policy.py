@@ -57,7 +57,9 @@ class SharedAccessPolicy(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, device_connect=None, iothub_name=None, name=None, registry_read=None, registry_write=None, resource_group_name=None, service_connect=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an IotHub Shared Access Policy
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_shared_access_policy.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] device_connect: Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
@@ -67,8 +69,6 @@ class SharedAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] registry_write: Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_connect: Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_shared_access_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -113,7 +113,7 @@ class SharedAccessPolicy(pulumi.CustomResource):
         """
         Get an existing SharedAccessPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,12 +128,11 @@ class SharedAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string of the Shared Access Policy.
         :param pulumi.Input[str] secondary_key: The secondary key used to create the authentication token.
         :param pulumi.Input[bool] service_connect: Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_shared_access_policy.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["device_connect"] = device_connect
         __props__["iothub_name"] = iothub_name
         __props__["name"] = name

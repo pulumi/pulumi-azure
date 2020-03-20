@@ -8,10 +8,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the connection status information about an existing Private Endpoint.
-// 
+// Use this data source to access the connection status information about an existing Private Endpoint Connection.
+//
 // > **NOTE** Private Endpoint is currently in Public Preview.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_endpoint_connection.html.markdown.
 func GetEndpointConnection(ctx *pulumi.Context, args *GetEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*GetEndpointConnectionResult, error) {
 	var rv GetEndpointConnectionResult
@@ -30,7 +30,6 @@ type GetEndpointConnectionArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getEndpointConnection.
 type GetEndpointConnectionResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
@@ -38,8 +37,7 @@ type GetEndpointConnectionResult struct {
 	// The supported Azure location where the resource exists.
 	Location string `pulumi:"location"`
 	// The name of the private endpoint.
-	Name string `pulumi:"name"`
+	Name                      string                                          `pulumi:"name"`
 	PrivateServiceConnections []GetEndpointConnectionPrivateServiceConnection `pulumi:"privateServiceConnections"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName         string                                          `pulumi:"resourceGroupName"`
 }
-

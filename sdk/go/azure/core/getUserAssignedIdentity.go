@@ -9,8 +9,8 @@ import (
 )
 
 // Use this data source to access information about an existing User Assigned Identity.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity_legacy.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity.html.markdown.
 func GetUserAssignedIdentity(ctx *pulumi.Context, args *GetUserAssignedIdentityArgs, opts ...pulumi.InvokeOption) (*GetUserAssignedIdentityResult, error) {
 	var rv GetUserAssignedIdentityResult
 	err := ctx.Invoke("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args, &rv, opts...)
@@ -28,7 +28,6 @@ type GetUserAssignedIdentityArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getUserAssignedIdentity.
 type GetUserAssignedIdentityResult struct {
 	// The Client ID of the User Assigned Identity.
@@ -37,11 +36,10 @@ type GetUserAssignedIdentityResult struct {
 	Id string `pulumi:"id"`
 	// The Azure location where the User Assigned Identity exists.
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// The Service Principal ID of the User Assigned Identity.
-	PrincipalId string `pulumi:"principalId"`
+	PrincipalId       string `pulumi:"principalId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the User Assigned Identity.
 	Tags map[string]string `pulumi:"tags"`
 }
-

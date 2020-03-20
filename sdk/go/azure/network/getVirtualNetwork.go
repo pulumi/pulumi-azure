@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Virtual Network.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network.html.markdown.
 func LookupVirtualNetwork(ctx *pulumi.Context, args *LookupVirtualNetworkArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkResult, error) {
 	var rv LookupVirtualNetworkResult
@@ -28,23 +28,20 @@ type LookupVirtualNetworkArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getVirtualNetwork.
 type LookupVirtualNetworkResult struct {
 	// The list of address spaces used by the virtual network.
 	AddressSpaces []string `pulumi:"addressSpaces"`
-	AddressSpacesCollection []string `pulumi:"addressSpacesCollection"`
 	// The list of DNS servers used by the virtual network.
 	DnsServers []string `pulumi:"dnsServers"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Location of the virtual network.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The list of name of the subnets that are attached to this virtual network.
 	Subnets []string `pulumi:"subnets"`
 	// A mapping of name - virtual network id of the virtual network peerings.
 	VnetPeerings map[string]string `pulumi:"vnetPeerings"`
 }
-

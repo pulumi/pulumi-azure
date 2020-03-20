@@ -12,7 +12,7 @@ import (
 )
 
 // Enables you to manage DNS CNAME Records within Azure DNS.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_cname_record.html.markdown.
 type CNameRecord struct {
 	pulumi.CustomResourceState
@@ -29,7 +29,7 @@ type CNameRecord struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Azure resource id of the target object. Conflicts with `records`
 	TargetResourceId pulumi.StringPtrOutput `pulumi:"targetResourceId"`
-	Ttl pulumi.IntOutput `pulumi:"ttl"`
+	Ttl              pulumi.IntOutput       `pulumi:"ttl"`
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
@@ -83,7 +83,7 @@ type cnameRecordState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure resource id of the target object. Conflicts with `records`
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	Ttl *int `pulumi:"ttl"`
+	Ttl              *int    `pulumi:"ttl"`
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName *string `pulumi:"zoneName"`
 }
@@ -101,7 +101,7 @@ type CNameRecordState struct {
 	Tags pulumi.StringMapInput
 	// The Azure resource id of the target object. Conflicts with `records`
 	TargetResourceId pulumi.StringPtrInput
-	Ttl pulumi.IntPtrInput
+	Ttl              pulumi.IntPtrInput
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringPtrInput
 }
@@ -121,7 +121,7 @@ type cnameRecordArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure resource id of the target object. Conflicts with `records`
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	Ttl int `pulumi:"ttl"`
+	Ttl              int     `pulumi:"ttl"`
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName string `pulumi:"zoneName"`
 }
@@ -138,7 +138,7 @@ type CNameRecordArgs struct {
 	Tags pulumi.StringMapInput
 	// The Azure resource id of the target object. Conflicts with `records`
 	TargetResourceId pulumi.StringPtrInput
-	Ttl pulumi.IntInput
+	Ttl              pulumi.IntInput
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringInput
 }
@@ -146,4 +146,3 @@ type CNameRecordArgs struct {
 func (CNameRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cnameRecordArgs)(nil)).Elem()
 }
-

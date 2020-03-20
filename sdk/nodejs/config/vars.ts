@@ -38,6 +38,7 @@ export let disableTerraformPartnerId: boolean | undefined = __config.getObject<b
  * public.
  */
 export let environment: string | undefined = __config.get("environment") || (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");
+export let features: { keyVault?: { purgeSoftDeleteOnDestroy?: boolean, recoverSoftDeletedKeyVaults?: boolean }, virtualMachine?: { deleteOsDiskOnDeletion: boolean }, virtualMachineScaleSet?: { rollInstancesWhenRequired: boolean } } | undefined = __config.getObject<{ keyVault?: { purgeSoftDeleteOnDestroy?: boolean, recoverSoftDeletedKeyVaults?: boolean }, virtualMachine?: { deleteOsDiskOnDeletion: boolean }, virtualMachineScaleSet?: { rollInstancesWhenRequired: boolean } }>("features");
 /**
  * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
  * automatically.
@@ -56,6 +57,10 @@ export let skipCredentialsValidation: boolean | undefined = __config.getObject<b
  * registered?
  */
 export let skipProviderRegistration: boolean | undefined = __config.getObject<boolean>("skipProviderRegistration") || (utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false);
+/**
+ * Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+ */
+export let storageUseAzuread: boolean | undefined = __config.getObject<boolean>("storageUseAzuread");
 /**
  * The Subscription ID which should be used.
  */

@@ -8,65 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Azure Web Application Firewall Policy instance.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US 2",
- * });
- * const examplePolicy = new azure.waf.Policy("example", {
- *     customRules: [
- *         {
- *             action: "Block",
- *             matchConditions: [{
- *                 matchValues: [
- *                     "192.168.1.0/24",
- *                     "10.0.0.0/24",
- *                 ],
- *                 matchVariables: [{
- *                     variableName: "RemoteAddr",
- *                 }],
- *                 negationCondition: false,
- *                 operator: "IPMatch",
- *             }],
- *             name: "Rule1",
- *             priority: 1,
- *             ruleType: "MatchRule",
- *         },
- *         {
- *             action: "Block",
- *             matchConditions: [
- *                 {
- *                     matchValues: ["192.168.1.0/24"],
- *                     matchVariables: [{
- *                         variableName: "RemoteAddr",
- *                     }],
- *                     negationCondition: false,
- *                     operator: "IPMatch",
- *                 },
- *                 {
- *                     matchValues: ["Windows"],
- *                     matchVariables: [{
- *                         selector: "UserAgent",
- *                         variableName: "RequestHeaders",
- *                     }],
- *                     negationCondition: false,
- *                     operator: "Contains",
- *                 },
- *             ],
- *             name: "Rule2",
- *             priority: 2,
- *             ruleType: "MatchRule",
- *         },
- *     ],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/web_application_firewall_policy.html.markdown.
  */
@@ -120,7 +61,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the Web Application Firewall Policy.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.

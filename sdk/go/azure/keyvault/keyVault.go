@@ -11,11 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a Key Vault.
-// 
-// > **NOTE:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `accessPolicy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
 type KeyVault struct {
 	pulumi.CustomResourceState
 
@@ -33,12 +28,14 @@ type KeyVault struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkAcls` block as defined below.
 	NetworkAcls KeyVaultNetworkAclsOutput `pulumi:"networkAcls"`
+	// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+	PurgeProtectionEnabled pulumi.BoolPtrOutput `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// ) A `sku` block as described below.
-	Sku KeyVaultSkuOutput `pulumi:"sku"`
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
+	// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
+	SoftDeleteEnabled pulumi.BoolPtrOutput `pulumi:"softDeleteEnabled"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
@@ -52,6 +49,9 @@ func NewKeyVault(ctx *pulumi.Context,
 	name string, args *KeyVaultArgs, opts ...pulumi.ResourceOption) (*KeyVault, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SkuName == nil {
+		return nil, errors.New("missing required argument 'SkuName'")
 	}
 	if args == nil || args.TenantId == nil {
 		return nil, errors.New("missing required argument 'TenantId'")
@@ -95,12 +95,14 @@ type keyVaultState struct {
 	Name *string `pulumi:"name"`
 	// A `networkAcls` block as defined below.
 	NetworkAcls *KeyVaultNetworkAcls `pulumi:"networkAcls"`
+	// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// ) A `sku` block as described below.
-	Sku *KeyVaultSku `pulumi:"sku"`
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName *string `pulumi:"skuName"`
+	// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
+	SoftDeleteEnabled *bool `pulumi:"softDeleteEnabled"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
@@ -124,12 +126,14 @@ type KeyVaultState struct {
 	Name pulumi.StringPtrInput
 	// A `networkAcls` block as defined below.
 	NetworkAcls KeyVaultNetworkAclsPtrInput
+	// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+	PurgeProtectionEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// ) A `sku` block as described below.
-	Sku KeyVaultSkuPtrInput
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName pulumi.StringPtrInput
+	// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
+	SoftDeleteEnabled pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
@@ -157,12 +161,14 @@ type keyVaultArgs struct {
 	Name *string `pulumi:"name"`
 	// A `networkAcls` block as defined below.
 	NetworkAcls *KeyVaultNetworkAcls `pulumi:"networkAcls"`
+	// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// ) A `sku` block as described below.
-	Sku *KeyVaultSku `pulumi:"sku"`
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
-	SkuName *string `pulumi:"skuName"`
+	SkuName string `pulumi:"skuName"`
+	// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
+	SoftDeleteEnabled *bool `pulumi:"softDeleteEnabled"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
@@ -185,12 +191,14 @@ type KeyVaultArgs struct {
 	Name pulumi.StringPtrInput
 	// A `networkAcls` block as defined below.
 	NetworkAcls KeyVaultNetworkAclsPtrInput
+	// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+	PurgeProtectionEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// ) A `sku` block as described below.
-	Sku KeyVaultSkuPtrInput
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
-	SkuName pulumi.StringPtrInput
+	SkuName pulumi.StringInput
+	// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
+	SoftDeleteEnabled pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
@@ -200,4 +208,3 @@ type KeyVaultArgs struct {
 func (KeyVaultArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyVaultArgs)(nil)).Elem()
 }
-

@@ -7,21 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an App Service certificate.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.appservice.getCertificate({
- *     name: "example-app-service-certificate",
- *     resourceGroupName: "example-rg",
- * });
- * 
- * export const appServiceCertificateId = example.id;
- * ```
+ * Use this data source to access information about an App Service Certificate.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate.html.markdown.
  */
@@ -86,7 +72,7 @@ export interface GetCertificateResult {
      * The subject name of the certificate.
      */
     readonly subjectName: string;
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * The thumbprint for the certificate.
      */

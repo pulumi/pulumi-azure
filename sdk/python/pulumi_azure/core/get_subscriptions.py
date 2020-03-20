@@ -13,24 +13,24 @@ class GetSubscriptionsResult:
     """
     A collection of values returned by getSubscriptions.
     """
-    def __init__(__self__, display_name_contains=None, display_name_prefix=None, subscriptions=None, id=None):
+    def __init__(__self__, display_name_contains=None, display_name_prefix=None, id=None, subscriptions=None):
         if display_name_contains and not isinstance(display_name_contains, str):
             raise TypeError("Expected argument 'display_name_contains' to be a str")
         __self__.display_name_contains = display_name_contains
         if display_name_prefix and not isinstance(display_name_prefix, str):
             raise TypeError("Expected argument 'display_name_prefix' to be a str")
         __self__.display_name_prefix = display_name_prefix
-        if subscriptions and not isinstance(subscriptions, list):
-            raise TypeError("Expected argument 'subscriptions' to be a list")
-        __self__.subscriptions = subscriptions
-        """
-        One or more `subscription` blocks as defined below.
-        """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
+        """
+        if subscriptions and not isinstance(subscriptions, list):
+            raise TypeError("Expected argument 'subscriptions' to be a list")
+        __self__.subscriptions = subscriptions
+        """
+        One or more `subscription` blocks as defined below.
         """
 class AwaitableGetSubscriptionsResult(GetSubscriptionsResult):
     # pylint: disable=using-constant-test
@@ -40,19 +40,21 @@ class AwaitableGetSubscriptionsResult(GetSubscriptionsResult):
         return GetSubscriptionsResult(
             display_name_contains=self.display_name_contains,
             display_name_prefix=self.display_name_prefix,
-            subscriptions=self.subscriptions,
-            id=self.id)
+            id=self.id,
+            subscriptions=self.subscriptions)
 
 def get_subscriptions(display_name_contains=None,display_name_prefix=None,opts=None):
     """
     Use this data source to access information about all the Subscriptions currently available.
-    
-    :param str display_name_contains: A case-insensitive value which must be contained within the `display_name` field, used to filter the results
-    :param str display_name_prefix: A case-insensitive prefix which can be used to filter on the `display_name` field
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscriptions.html.markdown.
+
+
+    :param str display_name_contains: A case-insensitive value which must be contained within the `display_name` field, used to filter the results
+    :param str display_name_prefix: A case-insensitive prefix which can be used to filter on the `display_name` field
     """
     __args__ = dict()
+
 
     __args__['displayNameContains'] = display_name_contains
     __args__['displayNamePrefix'] = display_name_prefix
@@ -65,5 +67,5 @@ def get_subscriptions(display_name_contains=None,display_name_prefix=None,opts=N
     return AwaitableGetSubscriptionsResult(
         display_name_contains=__ret__.get('displayNameContains'),
         display_name_prefix=__ret__.get('displayNamePrefix'),
-        subscriptions=__ret__.get('subscriptions'),
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        subscriptions=__ret__.get('subscriptions'))

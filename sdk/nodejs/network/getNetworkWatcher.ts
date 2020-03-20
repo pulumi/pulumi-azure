@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Network Watcher.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = pulumi.all([azurerm_network_watcher_example.name, azurerm_resource_group_example.name]).apply(([azurerm_network_watcher_exampleName, azurerm_resource_group_exampleName]) => azure.network.getNetworkWatcher({
- *     name: azurerm_network_watcher_exampleName,
- *     resourceGroupName: azurerm_resource_group_exampleName,
- * }));
- * 
- * export const networkWatcherId = example.id;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_watcher.html.markdown.
  */

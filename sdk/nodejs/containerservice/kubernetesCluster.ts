@@ -45,17 +45,13 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly addonProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterAddonProfile>;
     /**
-     * One or more `agentPoolProfile` blocks as defined below.
-     */
-    public readonly agentPoolProfiles!: pulumi.Output<outputs.containerservice.KubernetesClusterAgentPoolProfile[]>;
-    /**
      * The IP ranges to whitelist for incoming traffic to the masters.
      */
     public readonly apiServerAuthorizedIpRanges!: pulumi.Output<string[] | undefined>;
     /**
      * A `defaultNodePool` block as defined below.
      */
-    public readonly defaultNodePool!: pulumi.Output<outputs.containerservice.KubernetesClusterDefaultNodePool | undefined>;
+    public readonly defaultNodePool!: pulumi.Output<outputs.containerservice.KubernetesClusterDefaultNodePool>;
     /**
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
@@ -63,7 +59,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
      */
-    public readonly enablePodSecurityPolicy!: pulumi.Output<boolean>;
+    public readonly enablePodSecurityPolicy!: pulumi.Output<boolean | undefined>;
     /**
      * The FQDN of the Azure Kubernetes Managed Cluster.
      */
@@ -75,7 +71,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
-    public /*out*/ readonly kubeAdminConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeAdminConfig>;
+    public /*out*/ readonly kubeAdminConfigs!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeAdminConfig[]>;
     /**
      * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
@@ -83,7 +79,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A `kubeConfig` block as defined below.
      */
-    public /*out*/ readonly kubeConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeConfig>;
+    public /*out*/ readonly kubeConfigs!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeConfig[]>;
     /**
      * Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
      */
@@ -113,7 +109,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly nodeResourceGroup!: pulumi.Output<string>;
     /**
-     * The FQDN for the Kubernetes Cluster when private link has been enabled, which is is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+     * The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      */
     public /*out*/ readonly privateFqdn!: pulumi.Output<string>;
     public readonly privateLinkEnabled!: pulumi.Output<boolean | undefined>;
@@ -132,7 +128,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `windowsProfile` block as defined below.
      */
@@ -151,16 +147,15 @@ export class KubernetesCluster extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as KubernetesClusterState | undefined;
             inputs["addonProfile"] = state ? state.addonProfile : undefined;
-            inputs["agentPoolProfiles"] = state ? state.agentPoolProfiles : undefined;
             inputs["apiServerAuthorizedIpRanges"] = state ? state.apiServerAuthorizedIpRanges : undefined;
             inputs["defaultNodePool"] = state ? state.defaultNodePool : undefined;
             inputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
             inputs["enablePodSecurityPolicy"] = state ? state.enablePodSecurityPolicy : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["identity"] = state ? state.identity : undefined;
-            inputs["kubeAdminConfig"] = state ? state.kubeAdminConfig : undefined;
+            inputs["kubeAdminConfigs"] = state ? state.kubeAdminConfigs : undefined;
             inputs["kubeAdminConfigRaw"] = state ? state.kubeAdminConfigRaw : undefined;
-            inputs["kubeConfig"] = state ? state.kubeConfig : undefined;
+            inputs["kubeConfigs"] = state ? state.kubeConfigs : undefined;
             inputs["kubeConfigRaw"] = state ? state.kubeConfigRaw : undefined;
             inputs["kubernetesVersion"] = state ? state.kubernetesVersion : undefined;
             inputs["linuxProfile"] = state ? state.linuxProfile : undefined;
@@ -177,6 +172,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["windowsProfile"] = state ? state.windowsProfile : undefined;
         } else {
             const args = argsOrState as KubernetesClusterArgs | undefined;
+            if (!args || args.defaultNodePool === undefined) {
+                throw new Error("Missing required property 'defaultNodePool'");
+            }
             if (!args || args.dnsPrefix === undefined) {
                 throw new Error("Missing required property 'dnsPrefix'");
             }
@@ -187,7 +185,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'servicePrincipal'");
             }
             inputs["addonProfile"] = args ? args.addonProfile : undefined;
-            inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
             inputs["apiServerAuthorizedIpRanges"] = args ? args.apiServerAuthorizedIpRanges : undefined;
             inputs["defaultNodePool"] = args ? args.defaultNodePool : undefined;
             inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
@@ -206,9 +203,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["windowsProfile"] = args ? args.windowsProfile : undefined;
             inputs["fqdn"] = undefined /*out*/;
-            inputs["kubeAdminConfig"] = undefined /*out*/;
+            inputs["kubeAdminConfigs"] = undefined /*out*/;
             inputs["kubeAdminConfigRaw"] = undefined /*out*/;
-            inputs["kubeConfig"] = undefined /*out*/;
+            inputs["kubeConfigs"] = undefined /*out*/;
             inputs["kubeConfigRaw"] = undefined /*out*/;
             inputs["privateFqdn"] = undefined /*out*/;
         }
@@ -231,10 +228,6 @@ export interface KubernetesClusterState {
      * A `addonProfile` block as defined below.
      */
     readonly addonProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfile>;
-    /**
-     * One or more `agentPoolProfile` blocks as defined below.
-     */
-    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterAgentPoolProfile>[]>;
     /**
      * The IP ranges to whitelist for incoming traffic to the masters.
      */
@@ -262,7 +255,7 @@ export interface KubernetesClusterState {
     /**
      * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
-    readonly kubeAdminConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterKubeAdminConfig>;
+    readonly kubeAdminConfigs?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKubeAdminConfig>[]>;
     /**
      * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
@@ -270,7 +263,7 @@ export interface KubernetesClusterState {
     /**
      * A `kubeConfig` block as defined below.
      */
-    readonly kubeConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterKubeConfig>;
+    readonly kubeConfigs?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKubeConfig>[]>;
     /**
      * Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
      */
@@ -300,7 +293,7 @@ export interface KubernetesClusterState {
      */
     readonly nodeResourceGroup?: pulumi.Input<string>;
     /**
-     * The FQDN for the Kubernetes Cluster when private link has been enabled, which is is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+     * The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      */
     readonly privateFqdn?: pulumi.Input<string>;
     readonly privateLinkEnabled?: pulumi.Input<boolean>;
@@ -335,17 +328,13 @@ export interface KubernetesClusterArgs {
      */
     readonly addonProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfile>;
     /**
-     * One or more `agentPoolProfile` blocks as defined below.
-     */
-    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterAgentPoolProfile>[]>;
-    /**
      * The IP ranges to whitelist for incoming traffic to the masters.
      */
     readonly apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `defaultNodePool` block as defined below.
      */
-    readonly defaultNodePool?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePool>;
+    readonly defaultNodePool: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePool>;
     /**
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */

@@ -13,7 +13,13 @@ class GetDiagnosticCategoriesResult:
     """
     A collection of values returned by getDiagnosticCategories.
     """
-    def __init__(__self__, logs=None, metrics=None, resource_id=None, id=None):
+    def __init__(__self__, id=None, logs=None, metrics=None, resource_id=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if logs and not isinstance(logs, list):
             raise TypeError("Expected argument 'logs' to be a list")
         __self__.logs = logs
@@ -29,32 +35,28 @@ class GetDiagnosticCategoriesResult:
         if resource_id and not isinstance(resource_id, str):
             raise TypeError("Expected argument 'resource_id' to be a str")
         __self__.resource_id = resource_id
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetDiagnosticCategoriesResult(GetDiagnosticCategoriesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetDiagnosticCategoriesResult(
+            id=self.id,
             logs=self.logs,
             metrics=self.metrics,
-            resource_id=self.resource_id,
-            id=self.id)
+            resource_id=self.resource_id)
 
 def get_diagnostic_categories(resource_id=None,opts=None):
     """
     Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
-    
-    :param str resource_id: The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_diagnostic_categories.html.markdown.
+
+
+    :param str resource_id: The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.
     """
     __args__ = dict()
+
 
     __args__['resourceId'] = resource_id
     if opts is None:
@@ -64,7 +66,7 @@ def get_diagnostic_categories(resource_id=None,opts=None):
     __ret__ = pulumi.runtime.invoke('azure:monitoring/getDiagnosticCategories:getDiagnosticCategories', __args__, opts=opts).value
 
     return AwaitableGetDiagnosticCategoriesResult(
+        id=__ret__.get('id'),
         logs=__ret__.get('logs'),
         metrics=__ret__.get('metrics'),
-        resource_id=__ret__.get('resourceId'),
-        id=__ret__.get('id'))
+        resource_id=__ret__.get('resourceId'))

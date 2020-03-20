@@ -6,25 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Application Insights component.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleInsights = new azure.appinsights.Insights("example", {
- *     applicationType: "web",
- *     location: "West Europe",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * 
- * export const instrumentationKey = exampleInsights.instrumentationKey;
- * export const appId = exampleInsights.appId;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights.html.markdown.
  */
@@ -64,6 +45,14 @@ export class Insights extends pulumi.CustomResource {
      */
     public readonly applicationType!: pulumi.Output<string>;
     /**
+     * Specifies the Application Insights component daily data volume cap in GB.
+     */
+    public readonly dailyDataCapInGb!: pulumi.Output<number>;
+    /**
+     * Specifies if a notification email will be send when the daily data volume cap is met.
+     */
+    public readonly dailyDataCapNotificationsDisabled!: pulumi.Output<boolean>;
+    /**
      * The Instrumentation Key for this Application Insights component.
      */
     public /*out*/ readonly instrumentationKey!: pulumi.Output<string>;
@@ -92,7 +81,7 @@ export class Insights extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Insights resource with the given unique name, arguments, and options.
@@ -108,6 +97,8 @@ export class Insights extends pulumi.CustomResource {
             const state = argsOrState as InsightsState | undefined;
             inputs["appId"] = state ? state.appId : undefined;
             inputs["applicationType"] = state ? state.applicationType : undefined;
+            inputs["dailyDataCapInGb"] = state ? state.dailyDataCapInGb : undefined;
+            inputs["dailyDataCapNotificationsDisabled"] = state ? state.dailyDataCapNotificationsDisabled : undefined;
             inputs["instrumentationKey"] = state ? state.instrumentationKey : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -124,6 +115,8 @@ export class Insights extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationType"] = args ? args.applicationType : undefined;
+            inputs["dailyDataCapInGb"] = args ? args.dailyDataCapInGb : undefined;
+            inputs["dailyDataCapNotificationsDisabled"] = args ? args.dailyDataCapNotificationsDisabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -156,6 +149,14 @@ export interface InsightsState {
      * Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
      */
     readonly applicationType?: pulumi.Input<string>;
+    /**
+     * Specifies the Application Insights component daily data volume cap in GB.
+     */
+    readonly dailyDataCapInGb?: pulumi.Input<number>;
+    /**
+     * Specifies if a notification email will be send when the daily data volume cap is met.
+     */
+    readonly dailyDataCapNotificationsDisabled?: pulumi.Input<boolean>;
     /**
      * The Instrumentation Key for this Application Insights component.
      */
@@ -196,6 +197,14 @@ export interface InsightsArgs {
      * Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
      */
     readonly applicationType: pulumi.Input<string>;
+    /**
+     * Specifies the Application Insights component daily data volume cap in GB.
+     */
+    readonly dailyDataCapInGb?: pulumi.Input<number>;
+    /**
+     * Specifies if a notification email will be send when the daily data volume cap is met.
+     */
+    readonly dailyDataCapNotificationsDisabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

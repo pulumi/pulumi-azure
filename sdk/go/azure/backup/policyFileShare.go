@@ -12,14 +12,14 @@ import (
 )
 
 // Manages an Azure File Share Backup Policy within a Recovery Services vault.
-// 
+//
 // > **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_policy_file_share.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_policy_file_share.markdown.
 type PolicyFileShare struct {
 	pulumi.CustomResourceState
 
-	// Configures the Policy backup frequency and times as documented in the `backup` block below. 
+	// Configures the Policy backup frequency and times as documented in the `backup` block below.
 	Backup PolicyFileShareBackupOutput `pulumi:"backup"`
 	// Specifies the name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -73,7 +73,7 @@ func GetPolicyFileShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyFileShare resources.
 type policyFileShareState struct {
-	// Configures the Policy backup frequency and times as documented in the `backup` block below. 
+	// Configures the Policy backup frequency and times as documented in the `backup` block below.
 	Backup *PolicyFileShareBackup `pulumi:"backup"`
 	// Specifies the name of the policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -88,7 +88,7 @@ type policyFileShareState struct {
 }
 
 type PolicyFileShareState struct {
-	// Configures the Policy backup frequency and times as documented in the `backup` block below. 
+	// Configures the Policy backup frequency and times as documented in the `backup` block below.
 	Backup PolicyFileShareBackupPtrInput
 	// Specifies the name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -107,7 +107,7 @@ func (PolicyFileShareState) ElementType() reflect.Type {
 }
 
 type policyFileShareArgs struct {
-	// Configures the Policy backup frequency and times as documented in the `backup` block below. 
+	// Configures the Policy backup frequency and times as documented in the `backup` block below.
 	Backup PolicyFileShareBackup `pulumi:"backup"`
 	// Specifies the name of the policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -123,7 +123,7 @@ type policyFileShareArgs struct {
 
 // The set of arguments for constructing a PolicyFileShare resource.
 type PolicyFileShareArgs struct {
-	// Configures the Policy backup frequency and times as documented in the `backup` block below. 
+	// Configures the Policy backup frequency and times as documented in the `backup` block below.
 	Backup PolicyFileShareBackupInput
 	// Specifies the name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -140,4 +140,3 @@ type PolicyFileShareArgs struct {
 func (PolicyFileShareArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyFileShareArgs)(nil)).Elem()
 }
-

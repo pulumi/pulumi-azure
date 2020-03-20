@@ -6,24 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Maps Account.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.maps.Account("example", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "s1",
- *     tags: {
- *         environment: "Test",
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/maps_account.html.markdown.
  */
@@ -71,13 +53,13 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
     /**
-     * The sku of the Azure Maps Account. Possible values are `s0` and `s1`.
+     * The sku of the Azure Maps Account. Possible values are `S0` and `S1`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the Azure Maps Account.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A unique identifier for the Maps Account.
      */
@@ -150,7 +132,7 @@ export interface AccountState {
      */
     readonly secondaryAccessKey?: pulumi.Input<string>;
     /**
-     * The sku of the Azure Maps Account. Possible values are `s0` and `s1`.
+     * The sku of the Azure Maps Account. Possible values are `S0` and `S1`.
      */
     readonly skuName?: pulumi.Input<string>;
     /**
@@ -176,7 +158,7 @@ export interface AccountArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The sku of the Azure Maps Account. Possible values are `s0` and `s1`.
+     * The sku of the Azure Maps Account. Possible values are `S0` and `S1`.
      */
     readonly skuName: pulumi.Input<string>;
     /**

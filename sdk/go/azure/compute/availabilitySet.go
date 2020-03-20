@@ -11,21 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages an availability set for virtual machines.
-// 
+// Manages an Availability Set for Virtual Machines.
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/availability_set.html.markdown.
 type AvailabilitySet struct {
 	pulumi.CustomResourceState
 
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
+	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
 	Managed pulumi.BoolPtrOutput `pulumi:"managed"`
 	// Specifies the name of the availability set. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the number of fault domains that are used. Defaults to 3.
+	// Specifies the number of fault domains that are used. Defaults to `3`.
 	PlatformFaultDomainCount pulumi.IntPtrOutput `pulumi:"platformFaultDomainCount"`
-	// Specifies the number of update domains that are used. Defaults to 5.
+	// Specifies the number of update domains that are used. Defaults to `5`.
 	PlatformUpdateDomainCount pulumi.IntPtrOutput `pulumi:"platformUpdateDomainCount"`
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
@@ -68,13 +68,13 @@ func GetAvailabilitySet(ctx *pulumi.Context,
 type availabilitySetState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
+	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
 	Managed *bool `pulumi:"managed"`
 	// Specifies the name of the availability set. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the number of fault domains that are used. Defaults to 3.
+	// Specifies the number of fault domains that are used. Defaults to `3`.
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
-	// Specifies the number of update domains that are used. Defaults to 5.
+	// Specifies the number of update domains that are used. Defaults to `5`.
 	PlatformUpdateDomainCount *int `pulumi:"platformUpdateDomainCount"`
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
@@ -87,13 +87,13 @@ type availabilitySetState struct {
 type AvailabilitySetState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
+	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
 	Managed pulumi.BoolPtrInput
 	// Specifies the name of the availability set. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the number of fault domains that are used. Defaults to 3.
+	// Specifies the number of fault domains that are used. Defaults to `3`.
 	PlatformFaultDomainCount pulumi.IntPtrInput
-	// Specifies the number of update domains that are used. Defaults to 5.
+	// Specifies the number of update domains that are used. Defaults to `5`.
 	PlatformUpdateDomainCount pulumi.IntPtrInput
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
 	ProximityPlacementGroupId pulumi.StringPtrInput
@@ -110,13 +110,13 @@ func (AvailabilitySetState) ElementType() reflect.Type {
 type availabilitySetArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
+	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
 	Managed *bool `pulumi:"managed"`
 	// Specifies the name of the availability set. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the number of fault domains that are used. Defaults to 3.
+	// Specifies the number of fault domains that are used. Defaults to `3`.
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
-	// Specifies the number of update domains that are used. Defaults to 5.
+	// Specifies the number of update domains that are used. Defaults to `5`.
 	PlatformUpdateDomainCount *int `pulumi:"platformUpdateDomainCount"`
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
@@ -130,13 +130,13 @@ type availabilitySetArgs struct {
 type AvailabilitySetArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
+	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
 	Managed pulumi.BoolPtrInput
 	// Specifies the name of the availability set. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the number of fault domains that are used. Defaults to 3.
+	// Specifies the number of fault domains that are used. Defaults to `3`.
 	PlatformFaultDomainCount pulumi.IntPtrInput
-	// Specifies the number of update domains that are used. Defaults to 5.
+	// Specifies the number of update domains that are used. Defaults to `5`.
 	PlatformUpdateDomainCount pulumi.IntPtrInput
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
 	ProximityPlacementGroupId pulumi.StringPtrInput
@@ -149,4 +149,3 @@ type AvailabilitySetArgs struct {
 func (AvailabilitySetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*availabilitySetArgs)(nil)).Elem()
 }
-

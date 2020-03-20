@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a VPN Gateway within a Virtual Hub, which enables Site-to-Site communication.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/vpn_gateway.html.markdown.
 type VpnGateway struct {
 	pulumi.CustomResourceState
@@ -142,4 +142,3 @@ type VpnGatewayArgs struct {
 func (VpnGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnGatewayArgs)(nil)).Elem()
 }
-

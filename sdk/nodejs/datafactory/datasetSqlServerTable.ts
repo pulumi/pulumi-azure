@@ -8,31 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a SQL Server Table Dataset inside a Azure Data Factory.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "northeurope",
- * });
- * const exampleFactory = new azure.datafactory.Factory("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLinkedServiceSqlServer = new azure.datafactory.LinkedServiceSqlServer("example", {
- *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
- *     dataFactoryName: exampleFactory.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleDatasetSqlServerTable = new azure.datafactory.DatasetSqlServerTable("example", {
- *     dataFactoryName: exampleFactory.name,
- *     linkedServiceName: exampleLinkedServiceSqlServer.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_dataset_sql_server_table.html.markdown.
  */

@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access the properties of a Log Profile.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_log_profile.html.markdown.
 func LookupLogProfile(ctx *pulumi.Context, args *LookupLogProfileArgs, opts ...pulumi.InvokeOption) (*LookupLogProfileResult, error) {
 	var rv LookupLogProfileResult
@@ -26,7 +26,6 @@ type LookupLogProfileArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getLogProfile.
 type LookupLogProfileResult struct {
 	// List of categories of the logs.
@@ -34,12 +33,11 @@ type LookupLogProfileResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of regions for which Activity Log events are stored or streamed.
-	Locations []string `pulumi:"locations"`
-	Name string `pulumi:"name"`
-	RetentionPolicy GetLogProfileRetentionPolicy `pulumi:"retentionPolicy"`
+	Locations         []string                       `pulumi:"locations"`
+	Name              string                         `pulumi:"name"`
+	RetentionPolicies []GetLogProfileRetentionPolicy `pulumi:"retentionPolicies"`
 	// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to.
 	ServicebusRuleId string `pulumi:"servicebusRuleId"`
 	// The resource id of the storage account in which the Activity Log is stored.
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
-

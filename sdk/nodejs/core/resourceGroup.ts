@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a resource group on Azure.
+ * Manages a Resource Group.
  * 
  * ## Example Usage
  * 
@@ -14,10 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const example = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- *     tags: {
- *         environment: "Production",
- *     },
+ *     location: "West Europe",
  * });
  * ```
  *
@@ -51,19 +48,17 @@ export class ResourceGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The location where the resource group should be created.
-     * For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
+     * The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the resource group. Must be unique on your
-     * Azure subscription.
+     * The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags which should be assigned to the Resource Group.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ResourceGroup resource with the given unique name, arguments, and options.
@@ -102,17 +97,15 @@ export class ResourceGroup extends pulumi.CustomResource {
  */
 export interface ResourceGroupState {
     /**
-     * The location where the resource group should be created.
-     * For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
+     * The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the resource group. Must be unique on your
-     * Azure subscription.
+     * The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags which should be assigned to the Resource Group.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -122,17 +115,15 @@ export interface ResourceGroupState {
  */
 export interface ResourceGroupArgs {
     /**
-     * The location where the resource group should be created.
-     * For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
+     * The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the resource group. Must be unique on your
-     * Azure subscription.
+     * The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags which should be assigned to the Resource Group.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

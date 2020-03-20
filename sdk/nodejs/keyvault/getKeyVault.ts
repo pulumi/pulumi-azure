@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Key Vault.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.keyvault.getKeyVault({
- *     name: "mykeyvault",
- *     resourceGroupName: "some-resource-group",
- * });
- * 
- * export const vaultUri = example.vaultUri;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault.html.markdown.
  */
@@ -77,17 +63,21 @@ export interface GetKeyVaultResult {
      * The Azure Region in which the Key Vault exists.
      */
     readonly location: string;
-    /**
-     * The name of the SKU used for this Key Vault.
-     */
     readonly name: string;
     readonly networkAcls: outputs.keyvault.GetKeyVaultNetworkAcl[];
+    /**
+     * Is purge protection enabled on this Key Vault?
+     */
+    readonly purgeProtectionEnabled: boolean;
     readonly resourceGroupName: string;
     /**
-     * A `sku` block as described below.
+     * The Name of the SKU used for this Key Vault.
      */
-    readonly sku: outputs.keyvault.GetKeyVaultSku;
     readonly skuName: string;
+    /**
+     * Is soft delete enabled on this Key Vault? 
+     */
+    readonly softDeleteEnabled: boolean;
     /**
      * A mapping of tags assigned to the Key Vault.
      */

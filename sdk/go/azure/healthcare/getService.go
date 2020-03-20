@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to access information about an existing Healthcare Service
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/healthcare_service.html.markdown.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
@@ -29,7 +29,6 @@ type LookupServiceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getService.
 type LookupServiceResult struct {
 	AccessPolicyObjectIds []string `pulumi:"accessPolicyObjectIds"`
@@ -37,16 +36,15 @@ type LookupServiceResult struct {
 	AuthenticationConfigurations []GetServiceAuthenticationConfiguration `pulumi:"authenticationConfigurations"`
 	// A `corsConfiguration` block as defined below.
 	CorsConfigurations []GetServiceCorsConfiguration `pulumi:"corsConfigurations"`
-	CosmosdbThroughput int `pulumi:"cosmosdbThroughput"`
+	CosmosdbThroughput int                           `pulumi:"cosmosdbThroughput"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The type of the service.
 	Kind string `pulumi:"kind"`
 	// The Azure Region where the Service is located.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
-

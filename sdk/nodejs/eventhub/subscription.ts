@@ -8,38 +8,8 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a ServiceBus Subscription.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleNamespace = new azure.servicebus.Namespace("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- *     tags: {
- *         source: "example",
- *     },
- * });
- * const exampleTopic = new azure.servicebus.Topic("example", {
- *     enablePartitioning: true,
- *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubscription = new azure.servicebus.Subscription("example", {
- *     maxDeliveryCount: 1,
- *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     topicName: exampleTopic.name,
- * });
- * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription.html.markdown.
  */
 export class Subscription extends pulumi.CustomResource {
     /**
@@ -74,7 +44,6 @@ export class Subscription extends pulumi.CustomResource {
      * TimeSpan format.
      */
     public readonly autoDeleteOnIdle!: pulumi.Output<string>;
-    public readonly deadLetteringOnFilterEvaluationExceptions!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls
      * whether the Subscription has dead letter support when a message expires. Defaults
@@ -100,11 +69,6 @@ export class Subscription extends pulumi.CustomResource {
      * The name of a Queue or Topic to automatically forward messages to.
      */
     public readonly forwardTo!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies the supported Azure location where the resource exists.
-     * Changing this forces a new resource to be created.
-     */
-    public readonly location!: pulumi.Output<string>;
     /**
      * The lock duration for the subscription, maximum
      * supported value is 5 minutes. Defaults to 1 minute.
@@ -154,13 +118,11 @@ export class Subscription extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as SubscriptionState | undefined;
             inputs["autoDeleteOnIdle"] = state ? state.autoDeleteOnIdle : undefined;
-            inputs["deadLetteringOnFilterEvaluationExceptions"] = state ? state.deadLetteringOnFilterEvaluationExceptions : undefined;
             inputs["deadLetteringOnMessageExpiration"] = state ? state.deadLetteringOnMessageExpiration : undefined;
             inputs["defaultMessageTtl"] = state ? state.defaultMessageTtl : undefined;
             inputs["enableBatchedOperations"] = state ? state.enableBatchedOperations : undefined;
             inputs["forwardDeadLetteredMessagesTo"] = state ? state.forwardDeadLetteredMessagesTo : undefined;
             inputs["forwardTo"] = state ? state.forwardTo : undefined;
-            inputs["location"] = state ? state.location : undefined;
             inputs["lockDuration"] = state ? state.lockDuration : undefined;
             inputs["maxDeliveryCount"] = state ? state.maxDeliveryCount : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -183,13 +145,11 @@ export class Subscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'topicName'");
             }
             inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
-            inputs["deadLetteringOnFilterEvaluationExceptions"] = args ? args.deadLetteringOnFilterEvaluationExceptions : undefined;
             inputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
             inputs["defaultMessageTtl"] = args ? args.defaultMessageTtl : undefined;
             inputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
             inputs["forwardDeadLetteredMessagesTo"] = args ? args.forwardDeadLetteredMessagesTo : undefined;
             inputs["forwardTo"] = args ? args.forwardTo : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["lockDuration"] = args ? args.lockDuration : undefined;
             inputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -219,7 +179,6 @@ export interface SubscriptionState {
      * TimeSpan format.
      */
     readonly autoDeleteOnIdle?: pulumi.Input<string>;
-    readonly deadLetteringOnFilterEvaluationExceptions?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls
      * whether the Subscription has dead letter support when a message expires. Defaults
@@ -245,11 +204,6 @@ export interface SubscriptionState {
      * The name of a Queue or Topic to automatically forward messages to.
      */
     readonly forwardTo?: pulumi.Input<string>;
-    /**
-     * Specifies the supported Azure location where the resource exists.
-     * Changing this forces a new resource to be created.
-     */
-    readonly location?: pulumi.Input<string>;
     /**
      * The lock duration for the subscription, maximum
      * supported value is 5 minutes. Defaults to 1 minute.
@@ -297,7 +251,6 @@ export interface SubscriptionArgs {
      * TimeSpan format.
      */
     readonly autoDeleteOnIdle?: pulumi.Input<string>;
-    readonly deadLetteringOnFilterEvaluationExceptions?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls
      * whether the Subscription has dead letter support when a message expires. Defaults
@@ -323,11 +276,6 @@ export interface SubscriptionArgs {
      * The name of a Queue or Topic to automatically forward messages to.
      */
     readonly forwardTo?: pulumi.Input<string>;
-    /**
-     * Specifies the supported Azure location where the resource exists.
-     * Changing this forces a new resource to be created.
-     */
-    readonly location?: pulumi.Input<string>;
     /**
      * The lock duration for the subscription, maximum
      * supported value is 5 minutes. Defaults to 1 minute.

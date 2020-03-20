@@ -12,22 +12,19 @@ import (
 )
 
 type GroupContainer struct {
-	Command *string `pulumi:"command"`
-	Commands []string `pulumi:"commands"`
-	Cpu float64 `pulumi:"cpu"`
-	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	Gpu *GroupContainerGpu `pulumi:"gpu"`
-	Image string `pulumi:"image"`
-	LivenessProbe *GroupContainerLivenessProbe `pulumi:"livenessProbe"`
-	Memory float64 `pulumi:"memory"`
+	Commands             []string                     `pulumi:"commands"`
+	Cpu                  float64                      `pulumi:"cpu"`
+	EnvironmentVariables map[string]string            `pulumi:"environmentVariables"`
+	Gpu                  *GroupContainerGpu           `pulumi:"gpu"`
+	Image                string                       `pulumi:"image"`
+	LivenessProbe        *GroupContainerLivenessProbe `pulumi:"livenessProbe"`
+	Memory               float64                      `pulumi:"memory"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	Port *int `pulumi:"port"`
-	Ports []GroupContainerPort `pulumi:"ports"`
-	Protocol *string `pulumi:"protocol"`
-	ReadinessProbe *GroupContainerReadinessProbe `pulumi:"readinessProbe"`
-	SecureEnvironmentVariables map[string]string `pulumi:"secureEnvironmentVariables"`
-	Volumes []GroupContainerVolume `pulumi:"volumes"`
+	Name                       string                        `pulumi:"name"`
+	Ports                      []GroupContainerPort          `pulumi:"ports"`
+	ReadinessProbe             *GroupContainerReadinessProbe `pulumi:"readinessProbe"`
+	SecureEnvironmentVariables map[string]string             `pulumi:"secureEnvironmentVariables"`
+	Volumes                    []GroupContainerVolume        `pulumi:"volumes"`
 }
 
 type GroupContainerInput interface {
@@ -38,22 +35,19 @@ type GroupContainerInput interface {
 }
 
 type GroupContainerArgs struct {
-	Command pulumi.StringPtrInput `pulumi:"command"`
-	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	Cpu pulumi.Float64Input `pulumi:"cpu"`
-	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
-	Gpu GroupContainerGpuPtrInput `pulumi:"gpu"`
-	Image pulumi.StringInput `pulumi:"image"`
-	LivenessProbe GroupContainerLivenessProbePtrInput `pulumi:"livenessProbe"`
-	Memory pulumi.Float64Input `pulumi:"memory"`
+	Commands             pulumi.StringArrayInput             `pulumi:"commands"`
+	Cpu                  pulumi.Float64Input                 `pulumi:"cpu"`
+	EnvironmentVariables pulumi.StringMapInput               `pulumi:"environmentVariables"`
+	Gpu                  GroupContainerGpuPtrInput           `pulumi:"gpu"`
+	Image                pulumi.StringInput                  `pulumi:"image"`
+	LivenessProbe        GroupContainerLivenessProbePtrInput `pulumi:"livenessProbe"`
+	Memory               pulumi.Float64Input                 `pulumi:"memory"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	Ports GroupContainerPortArrayInput `pulumi:"ports"`
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	ReadinessProbe GroupContainerReadinessProbePtrInput `pulumi:"readinessProbe"`
-	SecureEnvironmentVariables pulumi.StringMapInput `pulumi:"secureEnvironmentVariables"`
-	Volumes GroupContainerVolumeArrayInput `pulumi:"volumes"`
+	Name                       pulumi.StringInput                   `pulumi:"name"`
+	Ports                      GroupContainerPortArrayInput         `pulumi:"ports"`
+	ReadinessProbe             GroupContainerReadinessProbePtrInput `pulumi:"readinessProbe"`
+	SecureEnvironmentVariables pulumi.StringMapInput                `pulumi:"secureEnvironmentVariables"`
+	Volumes                    GroupContainerVolumeArrayInput       `pulumi:"volumes"`
 }
 
 func (GroupContainerArgs) ElementType() reflect.Type {
@@ -89,7 +83,7 @@ func (i GroupContainerArray) ToGroupContainerArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerArrayOutput)
 }
 
-type GroupContainerOutput struct { *pulumi.OutputState }
+type GroupContainerOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupContainer)(nil)).Elem()
@@ -103,68 +97,56 @@ func (o GroupContainerOutput) ToGroupContainerOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o GroupContainerOutput) Command() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupContainer) *string { return v.Command }).(pulumi.StringPtrOutput)
-}
-
 func (o GroupContainerOutput) Commands() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GroupContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GroupContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
 func (o GroupContainerOutput) Cpu() pulumi.Float64Output {
-	return o.ApplyT(func (v GroupContainer) float64 { return v.Cpu }).(pulumi.Float64Output)
+	return o.ApplyT(func(v GroupContainer) float64 { return v.Cpu }).(pulumi.Float64Output)
 }
 
 func (o GroupContainerOutput) EnvironmentVariables() pulumi.StringMapOutput {
-	return o.ApplyT(func (v GroupContainer) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v GroupContainer) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
 func (o GroupContainerOutput) Gpu() GroupContainerGpuPtrOutput {
-	return o.ApplyT(func (v GroupContainer) *GroupContainerGpu { return v.Gpu }).(GroupContainerGpuPtrOutput)
+	return o.ApplyT(func(v GroupContainer) *GroupContainerGpu { return v.Gpu }).(GroupContainerGpuPtrOutput)
 }
 
 func (o GroupContainerOutput) Image() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupContainer) string { return v.Image }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
 func (o GroupContainerOutput) LivenessProbe() GroupContainerLivenessProbePtrOutput {
-	return o.ApplyT(func (v GroupContainer) *GroupContainerLivenessProbe { return v.LivenessProbe }).(GroupContainerLivenessProbePtrOutput)
+	return o.ApplyT(func(v GroupContainer) *GroupContainerLivenessProbe { return v.LivenessProbe }).(GroupContainerLivenessProbePtrOutput)
 }
 
 func (o GroupContainerOutput) Memory() pulumi.Float64Output {
-	return o.ApplyT(func (v GroupContainer) float64 { return v.Memory }).(pulumi.Float64Output)
+	return o.ApplyT(func(v GroupContainer) float64 { return v.Memory }).(pulumi.Float64Output)
 }
 
 // Specifies the name of the Container Group. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupContainer) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o GroupContainerOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainer) *int { return v.Port }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainer) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o GroupContainerOutput) Ports() GroupContainerPortArrayOutput {
-	return o.ApplyT(func (v GroupContainer) []GroupContainerPort { return v.Ports }).(GroupContainerPortArrayOutput)
-}
-
-func (o GroupContainerOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupContainer) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupContainer) []GroupContainerPort { return v.Ports }).(GroupContainerPortArrayOutput)
 }
 
 func (o GroupContainerOutput) ReadinessProbe() GroupContainerReadinessProbePtrOutput {
-	return o.ApplyT(func (v GroupContainer) *GroupContainerReadinessProbe { return v.ReadinessProbe }).(GroupContainerReadinessProbePtrOutput)
+	return o.ApplyT(func(v GroupContainer) *GroupContainerReadinessProbe { return v.ReadinessProbe }).(GroupContainerReadinessProbePtrOutput)
 }
 
 func (o GroupContainerOutput) SecureEnvironmentVariables() pulumi.StringMapOutput {
-	return o.ApplyT(func (v GroupContainer) map[string]string { return v.SecureEnvironmentVariables }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v GroupContainer) map[string]string { return v.SecureEnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
 func (o GroupContainerOutput) Volumes() GroupContainerVolumeArrayOutput {
-	return o.ApplyT(func (v GroupContainer) []GroupContainerVolume { return v.Volumes }).(GroupContainerVolumeArrayOutput)
+	return o.ApplyT(func(v GroupContainer) []GroupContainerVolume { return v.Volumes }).(GroupContainerVolumeArrayOutput)
 }
 
-type GroupContainerArrayOutput struct { *pulumi.OutputState}
+type GroupContainerArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GroupContainer)(nil)).Elem()
@@ -179,14 +161,14 @@ func (o GroupContainerArrayOutput) ToGroupContainerArrayOutputWithContext(ctx co
 }
 
 func (o GroupContainerArrayOutput) Index(i pulumi.IntInput) GroupContainerOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GroupContainer {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupContainer {
 		return vs[0].([]GroupContainer)[vs[1].(int)]
 	}).(GroupContainerOutput)
 }
 
 type GroupContainerGpu struct {
-	Count *int `pulumi:"count"`
-	Sku *string `pulumi:"sku"`
+	Count *int    `pulumi:"count"`
+	Sku   *string `pulumi:"sku"`
 }
 
 type GroupContainerGpuInput interface {
@@ -197,8 +179,8 @@ type GroupContainerGpuInput interface {
 }
 
 type GroupContainerGpuArgs struct {
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
+	Count pulumi.IntPtrInput    `pulumi:"count"`
+	Sku   pulumi.StringPtrInput `pulumi:"sku"`
 }
 
 func (GroupContainerGpuArgs) ElementType() reflect.Type {
@@ -230,7 +212,8 @@ type GroupContainerGpuPtrInput interface {
 
 type groupContainerGpuPtrType GroupContainerGpuArgs
 
-func GroupContainerGpuPtr(v *GroupContainerGpuArgs) GroupContainerGpuPtrInput {	return (*groupContainerGpuPtrType)(v)
+func GroupContainerGpuPtr(v *GroupContainerGpuArgs) GroupContainerGpuPtrInput {
+	return (*groupContainerGpuPtrType)(v)
 }
 
 func (*groupContainerGpuPtrType) ElementType() reflect.Type {
@@ -245,7 +228,7 @@ func (i *groupContainerGpuPtrType) ToGroupContainerGpuPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerGpuPtrOutput)
 }
 
-type GroupContainerGpuOutput struct { *pulumi.OutputState }
+type GroupContainerGpuOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerGpuOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupContainerGpu)(nil)).Elem()
@@ -269,14 +252,14 @@ func (o GroupContainerGpuOutput) ToGroupContainerGpuPtrOutputWithContext(ctx con
 	}).(GroupContainerGpuPtrOutput)
 }
 func (o GroupContainerGpuOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerGpu) *int { return v.Count }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerGpu) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerGpuOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupContainerGpu) *string { return v.Sku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupContainerGpu) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
-type GroupContainerGpuPtrOutput struct { *pulumi.OutputState}
+type GroupContainerGpuPtrOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerGpuPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupContainerGpu)(nil)).Elem()
@@ -291,25 +274,25 @@ func (o GroupContainerGpuPtrOutput) ToGroupContainerGpuPtrOutputWithContext(ctx 
 }
 
 func (o GroupContainerGpuPtrOutput) Elem() GroupContainerGpuOutput {
-	return o.ApplyT(func (v *GroupContainerGpu) GroupContainerGpu { return *v }).(GroupContainerGpuOutput)
+	return o.ApplyT(func(v *GroupContainerGpu) GroupContainerGpu { return *v }).(GroupContainerGpuOutput)
 }
 
 func (o GroupContainerGpuPtrOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerGpu) *int { return v.Count }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerGpu) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerGpuPtrOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupContainerGpu) *string { return v.Sku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupContainerGpu) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
 type GroupContainerLivenessProbe struct {
-	Execs []string `pulumi:"execs"`
-	FailureThreshold *int `pulumi:"failureThreshold"`
-	HttpGets []GroupContainerLivenessProbeHttpGet `pulumi:"httpGets"`
-	InitialDelaySeconds *int `pulumi:"initialDelaySeconds"`
-	PeriodSeconds *int `pulumi:"periodSeconds"`
-	SuccessThreshold *int `pulumi:"successThreshold"`
-	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+	Execs               []string                             `pulumi:"execs"`
+	FailureThreshold    *int                                 `pulumi:"failureThreshold"`
+	HttpGets            []GroupContainerLivenessProbeHttpGet `pulumi:"httpGets"`
+	InitialDelaySeconds *int                                 `pulumi:"initialDelaySeconds"`
+	PeriodSeconds       *int                                 `pulumi:"periodSeconds"`
+	SuccessThreshold    *int                                 `pulumi:"successThreshold"`
+	TimeoutSeconds      *int                                 `pulumi:"timeoutSeconds"`
 }
 
 type GroupContainerLivenessProbeInput interface {
@@ -320,13 +303,13 @@ type GroupContainerLivenessProbeInput interface {
 }
 
 type GroupContainerLivenessProbeArgs struct {
-	Execs pulumi.StringArrayInput `pulumi:"execs"`
-	FailureThreshold pulumi.IntPtrInput `pulumi:"failureThreshold"`
-	HttpGets GroupContainerLivenessProbeHttpGetArrayInput `pulumi:"httpGets"`
-	InitialDelaySeconds pulumi.IntPtrInput `pulumi:"initialDelaySeconds"`
-	PeriodSeconds pulumi.IntPtrInput `pulumi:"periodSeconds"`
-	SuccessThreshold pulumi.IntPtrInput `pulumi:"successThreshold"`
-	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+	Execs               pulumi.StringArrayInput                      `pulumi:"execs"`
+	FailureThreshold    pulumi.IntPtrInput                           `pulumi:"failureThreshold"`
+	HttpGets            GroupContainerLivenessProbeHttpGetArrayInput `pulumi:"httpGets"`
+	InitialDelaySeconds pulumi.IntPtrInput                           `pulumi:"initialDelaySeconds"`
+	PeriodSeconds       pulumi.IntPtrInput                           `pulumi:"periodSeconds"`
+	SuccessThreshold    pulumi.IntPtrInput                           `pulumi:"successThreshold"`
+	TimeoutSeconds      pulumi.IntPtrInput                           `pulumi:"timeoutSeconds"`
 }
 
 func (GroupContainerLivenessProbeArgs) ElementType() reflect.Type {
@@ -358,7 +341,8 @@ type GroupContainerLivenessProbePtrInput interface {
 
 type groupContainerLivenessProbePtrType GroupContainerLivenessProbeArgs
 
-func GroupContainerLivenessProbePtr(v *GroupContainerLivenessProbeArgs) GroupContainerLivenessProbePtrInput {	return (*groupContainerLivenessProbePtrType)(v)
+func GroupContainerLivenessProbePtr(v *GroupContainerLivenessProbeArgs) GroupContainerLivenessProbePtrInput {
+	return (*groupContainerLivenessProbePtrType)(v)
 }
 
 func (*groupContainerLivenessProbePtrType) ElementType() reflect.Type {
@@ -373,7 +357,7 @@ func (i *groupContainerLivenessProbePtrType) ToGroupContainerLivenessProbePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerLivenessProbePtrOutput)
 }
 
-type GroupContainerLivenessProbeOutput struct { *pulumi.OutputState }
+type GroupContainerLivenessProbeOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerLivenessProbeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupContainerLivenessProbe)(nil)).Elem()
@@ -397,34 +381,34 @@ func (o GroupContainerLivenessProbeOutput) ToGroupContainerLivenessProbePtrOutpu
 	}).(GroupContainerLivenessProbePtrOutput)
 }
 func (o GroupContainerLivenessProbeOutput) Execs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
 }
 
 func (o GroupContainerLivenessProbeOutput) FailureThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerLivenessProbeOutput) HttpGets() GroupContainerLivenessProbeHttpGetArrayOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) []GroupContainerLivenessProbeHttpGet { return v.HttpGets }).(GroupContainerLivenessProbeHttpGetArrayOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) []GroupContainerLivenessProbeHttpGet { return v.HttpGets }).(GroupContainerLivenessProbeHttpGetArrayOutput)
 }
 
 func (o GroupContainerLivenessProbeOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerLivenessProbeOutput) PeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerLivenessProbeOutput) SuccessThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerLivenessProbeOutput) TimeoutSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
-type GroupContainerLivenessProbePtrOutput struct { *pulumi.OutputState}
+type GroupContainerLivenessProbePtrOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerLivenessProbePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupContainerLivenessProbe)(nil)).Elem()
@@ -439,40 +423,40 @@ func (o GroupContainerLivenessProbePtrOutput) ToGroupContainerLivenessProbePtrOu
 }
 
 func (o GroupContainerLivenessProbePtrOutput) Elem() GroupContainerLivenessProbeOutput {
-	return o.ApplyT(func (v *GroupContainerLivenessProbe) GroupContainerLivenessProbe { return *v }).(GroupContainerLivenessProbeOutput)
+	return o.ApplyT(func(v *GroupContainerLivenessProbe) GroupContainerLivenessProbe { return *v }).(GroupContainerLivenessProbeOutput)
 }
 
 func (o GroupContainerLivenessProbePtrOutput) Execs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
 }
 
 func (o GroupContainerLivenessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerLivenessProbePtrOutput) HttpGets() GroupContainerLivenessProbeHttpGetArrayOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) []GroupContainerLivenessProbeHttpGet { return v.HttpGets }).(GroupContainerLivenessProbeHttpGetArrayOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) []GroupContainerLivenessProbeHttpGet { return v.HttpGets }).(GroupContainerLivenessProbeHttpGetArrayOutput)
 }
 
 func (o GroupContainerLivenessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerLivenessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerLivenessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerLivenessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
 type GroupContainerLivenessProbeHttpGet struct {
-	Path *string `pulumi:"path"`
-	Port *int `pulumi:"port"`
+	Path   *string `pulumi:"path"`
+	Port   *int    `pulumi:"port"`
 	Scheme *string `pulumi:"scheme"`
 }
 
@@ -484,8 +468,8 @@ type GroupContainerLivenessProbeHttpGetInput interface {
 }
 
 type GroupContainerLivenessProbeHttpGetArgs struct {
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	Port pulumi.IntPtrInput `pulumi:"port"`
+	Path   pulumi.StringPtrInput `pulumi:"path"`
+	Port   pulumi.IntPtrInput    `pulumi:"port"`
 	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
 }
 
@@ -522,7 +506,7 @@ func (i GroupContainerLivenessProbeHttpGetArray) ToGroupContainerLivenessProbeHt
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerLivenessProbeHttpGetArrayOutput)
 }
 
-type GroupContainerLivenessProbeHttpGetOutput struct { *pulumi.OutputState }
+type GroupContainerLivenessProbeHttpGetOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerLivenessProbeHttpGetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupContainerLivenessProbeHttpGet)(nil)).Elem()
@@ -537,18 +521,18 @@ func (o GroupContainerLivenessProbeHttpGetOutput) ToGroupContainerLivenessProbeH
 }
 
 func (o GroupContainerLivenessProbeHttpGetOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbeHttpGet) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbeHttpGet) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 func (o GroupContainerLivenessProbeHttpGetOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbeHttpGet) *int { return v.Port }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbeHttpGet) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerLivenessProbeHttpGetOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbeHttpGet) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbeHttpGet) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
 
-type GroupContainerLivenessProbeHttpGetArrayOutput struct { *pulumi.OutputState}
+type GroupContainerLivenessProbeHttpGetArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerLivenessProbeHttpGetArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GroupContainerLivenessProbeHttpGet)(nil)).Elem()
@@ -563,13 +547,13 @@ func (o GroupContainerLivenessProbeHttpGetArrayOutput) ToGroupContainerLivenessP
 }
 
 func (o GroupContainerLivenessProbeHttpGetArrayOutput) Index(i pulumi.IntInput) GroupContainerLivenessProbeHttpGetOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GroupContainerLivenessProbeHttpGet {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupContainerLivenessProbeHttpGet {
 		return vs[0].([]GroupContainerLivenessProbeHttpGet)[vs[1].(int)]
 	}).(GroupContainerLivenessProbeHttpGetOutput)
 }
 
 type GroupContainerPort struct {
-	Port *int `pulumi:"port"`
+	Port     *int    `pulumi:"port"`
 	Protocol *string `pulumi:"protocol"`
 }
 
@@ -581,7 +565,7 @@ type GroupContainerPortInput interface {
 }
 
 type GroupContainerPortArgs struct {
-	Port pulumi.IntPtrInput `pulumi:"port"`
+	Port     pulumi.IntPtrInput    `pulumi:"port"`
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
@@ -618,7 +602,7 @@ func (i GroupContainerPortArray) ToGroupContainerPortArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerPortArrayOutput)
 }
 
-type GroupContainerPortOutput struct { *pulumi.OutputState }
+type GroupContainerPortOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerPortOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupContainerPort)(nil)).Elem()
@@ -633,14 +617,14 @@ func (o GroupContainerPortOutput) ToGroupContainerPortOutputWithContext(ctx cont
 }
 
 func (o GroupContainerPortOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerPort) *int { return v.Port }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerPort) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerPortOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupContainerPort) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupContainerPort) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-type GroupContainerPortArrayOutput struct { *pulumi.OutputState}
+type GroupContainerPortArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerPortArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GroupContainerPort)(nil)).Elem()
@@ -655,19 +639,19 @@ func (o GroupContainerPortArrayOutput) ToGroupContainerPortArrayOutputWithContex
 }
 
 func (o GroupContainerPortArrayOutput) Index(i pulumi.IntInput) GroupContainerPortOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GroupContainerPort {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupContainerPort {
 		return vs[0].([]GroupContainerPort)[vs[1].(int)]
 	}).(GroupContainerPortOutput)
 }
 
 type GroupContainerReadinessProbe struct {
-	Execs []string `pulumi:"execs"`
-	FailureThreshold *int `pulumi:"failureThreshold"`
-	HttpGets []GroupContainerReadinessProbeHttpGet `pulumi:"httpGets"`
-	InitialDelaySeconds *int `pulumi:"initialDelaySeconds"`
-	PeriodSeconds *int `pulumi:"periodSeconds"`
-	SuccessThreshold *int `pulumi:"successThreshold"`
-	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+	Execs               []string                              `pulumi:"execs"`
+	FailureThreshold    *int                                  `pulumi:"failureThreshold"`
+	HttpGets            []GroupContainerReadinessProbeHttpGet `pulumi:"httpGets"`
+	InitialDelaySeconds *int                                  `pulumi:"initialDelaySeconds"`
+	PeriodSeconds       *int                                  `pulumi:"periodSeconds"`
+	SuccessThreshold    *int                                  `pulumi:"successThreshold"`
+	TimeoutSeconds      *int                                  `pulumi:"timeoutSeconds"`
 }
 
 type GroupContainerReadinessProbeInput interface {
@@ -678,13 +662,13 @@ type GroupContainerReadinessProbeInput interface {
 }
 
 type GroupContainerReadinessProbeArgs struct {
-	Execs pulumi.StringArrayInput `pulumi:"execs"`
-	FailureThreshold pulumi.IntPtrInput `pulumi:"failureThreshold"`
-	HttpGets GroupContainerReadinessProbeHttpGetArrayInput `pulumi:"httpGets"`
-	InitialDelaySeconds pulumi.IntPtrInput `pulumi:"initialDelaySeconds"`
-	PeriodSeconds pulumi.IntPtrInput `pulumi:"periodSeconds"`
-	SuccessThreshold pulumi.IntPtrInput `pulumi:"successThreshold"`
-	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+	Execs               pulumi.StringArrayInput                       `pulumi:"execs"`
+	FailureThreshold    pulumi.IntPtrInput                            `pulumi:"failureThreshold"`
+	HttpGets            GroupContainerReadinessProbeHttpGetArrayInput `pulumi:"httpGets"`
+	InitialDelaySeconds pulumi.IntPtrInput                            `pulumi:"initialDelaySeconds"`
+	PeriodSeconds       pulumi.IntPtrInput                            `pulumi:"periodSeconds"`
+	SuccessThreshold    pulumi.IntPtrInput                            `pulumi:"successThreshold"`
+	TimeoutSeconds      pulumi.IntPtrInput                            `pulumi:"timeoutSeconds"`
 }
 
 func (GroupContainerReadinessProbeArgs) ElementType() reflect.Type {
@@ -716,7 +700,8 @@ type GroupContainerReadinessProbePtrInput interface {
 
 type groupContainerReadinessProbePtrType GroupContainerReadinessProbeArgs
 
-func GroupContainerReadinessProbePtr(v *GroupContainerReadinessProbeArgs) GroupContainerReadinessProbePtrInput {	return (*groupContainerReadinessProbePtrType)(v)
+func GroupContainerReadinessProbePtr(v *GroupContainerReadinessProbeArgs) GroupContainerReadinessProbePtrInput {
+	return (*groupContainerReadinessProbePtrType)(v)
 }
 
 func (*groupContainerReadinessProbePtrType) ElementType() reflect.Type {
@@ -731,7 +716,7 @@ func (i *groupContainerReadinessProbePtrType) ToGroupContainerReadinessProbePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerReadinessProbePtrOutput)
 }
 
-type GroupContainerReadinessProbeOutput struct { *pulumi.OutputState }
+type GroupContainerReadinessProbeOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerReadinessProbeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupContainerReadinessProbe)(nil)).Elem()
@@ -755,34 +740,34 @@ func (o GroupContainerReadinessProbeOutput) ToGroupContainerReadinessProbePtrOut
 	}).(GroupContainerReadinessProbePtrOutput)
 }
 func (o GroupContainerReadinessProbeOutput) Execs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
 }
 
 func (o GroupContainerReadinessProbeOutput) FailureThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerReadinessProbeOutput) HttpGets() GroupContainerReadinessProbeHttpGetArrayOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) []GroupContainerReadinessProbeHttpGet { return v.HttpGets }).(GroupContainerReadinessProbeHttpGetArrayOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) []GroupContainerReadinessProbeHttpGet { return v.HttpGets }).(GroupContainerReadinessProbeHttpGetArrayOutput)
 }
 
 func (o GroupContainerReadinessProbeOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerReadinessProbeOutput) PeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerReadinessProbeOutput) SuccessThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerReadinessProbeOutput) TimeoutSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
-type GroupContainerReadinessProbePtrOutput struct { *pulumi.OutputState}
+type GroupContainerReadinessProbePtrOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerReadinessProbePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupContainerReadinessProbe)(nil)).Elem()
@@ -797,40 +782,40 @@ func (o GroupContainerReadinessProbePtrOutput) ToGroupContainerReadinessProbePtr
 }
 
 func (o GroupContainerReadinessProbePtrOutput) Elem() GroupContainerReadinessProbeOutput {
-	return o.ApplyT(func (v *GroupContainerReadinessProbe) GroupContainerReadinessProbe { return *v }).(GroupContainerReadinessProbeOutput)
+	return o.ApplyT(func(v *GroupContainerReadinessProbe) GroupContainerReadinessProbe { return *v }).(GroupContainerReadinessProbeOutput)
 }
 
 func (o GroupContainerReadinessProbePtrOutput) Execs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
 }
 
 func (o GroupContainerReadinessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerReadinessProbePtrOutput) HttpGets() GroupContainerReadinessProbeHttpGetArrayOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) []GroupContainerReadinessProbeHttpGet { return v.HttpGets }).(GroupContainerReadinessProbeHttpGetArrayOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) []GroupContainerReadinessProbeHttpGet { return v.HttpGets }).(GroupContainerReadinessProbeHttpGetArrayOutput)
 }
 
 func (o GroupContainerReadinessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerReadinessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerReadinessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerReadinessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
 type GroupContainerReadinessProbeHttpGet struct {
-	Path *string `pulumi:"path"`
-	Port *int `pulumi:"port"`
+	Path   *string `pulumi:"path"`
+	Port   *int    `pulumi:"port"`
 	Scheme *string `pulumi:"scheme"`
 }
 
@@ -842,8 +827,8 @@ type GroupContainerReadinessProbeHttpGetInput interface {
 }
 
 type GroupContainerReadinessProbeHttpGetArgs struct {
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	Port pulumi.IntPtrInput `pulumi:"port"`
+	Path   pulumi.StringPtrInput `pulumi:"path"`
+	Port   pulumi.IntPtrInput    `pulumi:"port"`
 	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
 }
 
@@ -880,7 +865,7 @@ func (i GroupContainerReadinessProbeHttpGetArray) ToGroupContainerReadinessProbe
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerReadinessProbeHttpGetArrayOutput)
 }
 
-type GroupContainerReadinessProbeHttpGetOutput struct { *pulumi.OutputState }
+type GroupContainerReadinessProbeHttpGetOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerReadinessProbeHttpGetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupContainerReadinessProbeHttpGet)(nil)).Elem()
@@ -895,18 +880,18 @@ func (o GroupContainerReadinessProbeHttpGetOutput) ToGroupContainerReadinessProb
 }
 
 func (o GroupContainerReadinessProbeHttpGetOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbeHttpGet) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbeHttpGet) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 func (o GroupContainerReadinessProbeHttpGetOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbeHttpGet) *int { return v.Port }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbeHttpGet) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 func (o GroupContainerReadinessProbeHttpGetOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbeHttpGet) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbeHttpGet) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
 
-type GroupContainerReadinessProbeHttpGetArrayOutput struct { *pulumi.OutputState}
+type GroupContainerReadinessProbeHttpGetArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerReadinessProbeHttpGetArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GroupContainerReadinessProbeHttpGet)(nil)).Elem()
@@ -921,7 +906,7 @@ func (o GroupContainerReadinessProbeHttpGetArrayOutput) ToGroupContainerReadines
 }
 
 func (o GroupContainerReadinessProbeHttpGetArrayOutput) Index(i pulumi.IntInput) GroupContainerReadinessProbeHttpGetOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GroupContainerReadinessProbeHttpGet {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupContainerReadinessProbeHttpGet {
 		return vs[0].([]GroupContainerReadinessProbeHttpGet)[vs[1].(int)]
 	}).(GroupContainerReadinessProbeHttpGetOutput)
 }
@@ -929,10 +914,10 @@ func (o GroupContainerReadinessProbeHttpGetArrayOutput) Index(i pulumi.IntInput)
 type GroupContainerVolume struct {
 	MountPath string `pulumi:"mountPath"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	ReadOnly *bool `pulumi:"readOnly"`
-	ShareName string `pulumi:"shareName"`
-	StorageAccountKey string `pulumi:"storageAccountKey"`
+	Name               string `pulumi:"name"`
+	ReadOnly           *bool  `pulumi:"readOnly"`
+	ShareName          string `pulumi:"shareName"`
+	StorageAccountKey  string `pulumi:"storageAccountKey"`
 	StorageAccountName string `pulumi:"storageAccountName"`
 }
 
@@ -946,11 +931,11 @@ type GroupContainerVolumeInput interface {
 type GroupContainerVolumeArgs struct {
 	MountPath pulumi.StringInput `pulumi:"mountPath"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
-	ShareName pulumi.StringInput `pulumi:"shareName"`
-	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
-	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+	Name               pulumi.StringInput  `pulumi:"name"`
+	ReadOnly           pulumi.BoolPtrInput `pulumi:"readOnly"`
+	ShareName          pulumi.StringInput  `pulumi:"shareName"`
+	StorageAccountKey  pulumi.StringInput  `pulumi:"storageAccountKey"`
+	StorageAccountName pulumi.StringInput  `pulumi:"storageAccountName"`
 }
 
 func (GroupContainerVolumeArgs) ElementType() reflect.Type {
@@ -986,7 +971,7 @@ func (i GroupContainerVolumeArray) ToGroupContainerVolumeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerVolumeArrayOutput)
 }
 
-type GroupContainerVolumeOutput struct { *pulumi.OutputState }
+type GroupContainerVolumeOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerVolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupContainerVolume)(nil)).Elem()
@@ -1001,31 +986,31 @@ func (o GroupContainerVolumeOutput) ToGroupContainerVolumeOutputWithContext(ctx 
 }
 
 func (o GroupContainerVolumeOutput) MountPath() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupContainerVolume) string { return v.MountPath }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupContainerVolume) string { return v.MountPath }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Container Group. Changing this forces a new resource to be created.
 func (o GroupContainerVolumeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupContainerVolume) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupContainerVolume) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o GroupContainerVolumeOutput) ReadOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v GroupContainerVolume) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v GroupContainerVolume) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
 func (o GroupContainerVolumeOutput) ShareName() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupContainerVolume) string { return v.ShareName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupContainerVolume) string { return v.ShareName }).(pulumi.StringOutput)
 }
 
 func (o GroupContainerVolumeOutput) StorageAccountKey() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupContainerVolume) string { return v.StorageAccountKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupContainerVolume) string { return v.StorageAccountKey }).(pulumi.StringOutput)
 }
 
 func (o GroupContainerVolumeOutput) StorageAccountName() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupContainerVolume) string { return v.StorageAccountName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupContainerVolume) string { return v.StorageAccountName }).(pulumi.StringOutput)
 }
 
-type GroupContainerVolumeArrayOutput struct { *pulumi.OutputState}
+type GroupContainerVolumeArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerVolumeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GroupContainerVolume)(nil)).Elem()
@@ -1040,7 +1025,7 @@ func (o GroupContainerVolumeArrayOutput) ToGroupContainerVolumeArrayOutputWithCo
 }
 
 func (o GroupContainerVolumeArrayOutput) Index(i pulumi.IntInput) GroupContainerVolumeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GroupContainerVolume {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupContainerVolume {
 		return vs[0].([]GroupContainerVolume)[vs[1].(int)]
 	}).(GroupContainerVolumeOutput)
 }
@@ -1089,7 +1074,8 @@ type GroupDiagnosticsPtrInput interface {
 
 type groupDiagnosticsPtrType GroupDiagnosticsArgs
 
-func GroupDiagnosticsPtr(v *GroupDiagnosticsArgs) GroupDiagnosticsPtrInput {	return (*groupDiagnosticsPtrType)(v)
+func GroupDiagnosticsPtr(v *GroupDiagnosticsArgs) GroupDiagnosticsPtrInput {
+	return (*groupDiagnosticsPtrType)(v)
 }
 
 func (*groupDiagnosticsPtrType) ElementType() reflect.Type {
@@ -1104,7 +1090,7 @@ func (i *groupDiagnosticsPtrType) ToGroupDiagnosticsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(GroupDiagnosticsPtrOutput)
 }
 
-type GroupDiagnosticsOutput struct { *pulumi.OutputState }
+type GroupDiagnosticsOutput struct{ *pulumi.OutputState }
 
 func (GroupDiagnosticsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupDiagnostics)(nil)).Elem()
@@ -1128,10 +1114,10 @@ func (o GroupDiagnosticsOutput) ToGroupDiagnosticsPtrOutputWithContext(ctx conte
 	}).(GroupDiagnosticsPtrOutput)
 }
 func (o GroupDiagnosticsOutput) LogAnalytics() GroupDiagnosticsLogAnalyticsOutput {
-	return o.ApplyT(func (v GroupDiagnostics) GroupDiagnosticsLogAnalytics { return v.LogAnalytics }).(GroupDiagnosticsLogAnalyticsOutput)
+	return o.ApplyT(func(v GroupDiagnostics) GroupDiagnosticsLogAnalytics { return v.LogAnalytics }).(GroupDiagnosticsLogAnalyticsOutput)
 }
 
-type GroupDiagnosticsPtrOutput struct { *pulumi.OutputState}
+type GroupDiagnosticsPtrOutput struct{ *pulumi.OutputState }
 
 func (GroupDiagnosticsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupDiagnostics)(nil)).Elem()
@@ -1146,18 +1132,18 @@ func (o GroupDiagnosticsPtrOutput) ToGroupDiagnosticsPtrOutputWithContext(ctx co
 }
 
 func (o GroupDiagnosticsPtrOutput) Elem() GroupDiagnosticsOutput {
-	return o.ApplyT(func (v *GroupDiagnostics) GroupDiagnostics { return *v }).(GroupDiagnosticsOutput)
+	return o.ApplyT(func(v *GroupDiagnostics) GroupDiagnostics { return *v }).(GroupDiagnosticsOutput)
 }
 
 func (o GroupDiagnosticsPtrOutput) LogAnalytics() GroupDiagnosticsLogAnalyticsOutput {
-	return o.ApplyT(func (v GroupDiagnostics) GroupDiagnosticsLogAnalytics { return v.LogAnalytics }).(GroupDiagnosticsLogAnalyticsOutput)
+	return o.ApplyT(func(v GroupDiagnostics) GroupDiagnosticsLogAnalytics { return v.LogAnalytics }).(GroupDiagnosticsLogAnalyticsOutput)
 }
 
 type GroupDiagnosticsLogAnalytics struct {
-	LogType *string `pulumi:"logType"`
-	Metadata map[string]string `pulumi:"metadata"`
-	WorkspaceId string `pulumi:"workspaceId"`
-	WorkspaceKey string `pulumi:"workspaceKey"`
+	LogType      *string           `pulumi:"logType"`
+	Metadata     map[string]string `pulumi:"metadata"`
+	WorkspaceId  string            `pulumi:"workspaceId"`
+	WorkspaceKey string            `pulumi:"workspaceKey"`
 }
 
 type GroupDiagnosticsLogAnalyticsInput interface {
@@ -1168,10 +1154,10 @@ type GroupDiagnosticsLogAnalyticsInput interface {
 }
 
 type GroupDiagnosticsLogAnalyticsArgs struct {
-	LogType pulumi.StringPtrInput `pulumi:"logType"`
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
-	WorkspaceKey pulumi.StringInput `pulumi:"workspaceKey"`
+	LogType      pulumi.StringPtrInput `pulumi:"logType"`
+	Metadata     pulumi.StringMapInput `pulumi:"metadata"`
+	WorkspaceId  pulumi.StringInput    `pulumi:"workspaceId"`
+	WorkspaceKey pulumi.StringInput    `pulumi:"workspaceKey"`
 }
 
 func (GroupDiagnosticsLogAnalyticsArgs) ElementType() reflect.Type {
@@ -1186,7 +1172,7 @@ func (i GroupDiagnosticsLogAnalyticsArgs) ToGroupDiagnosticsLogAnalyticsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GroupDiagnosticsLogAnalyticsOutput)
 }
 
-type GroupDiagnosticsLogAnalyticsOutput struct { *pulumi.OutputState }
+type GroupDiagnosticsLogAnalyticsOutput struct{ *pulumi.OutputState }
 
 func (GroupDiagnosticsLogAnalyticsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupDiagnosticsLogAnalytics)(nil)).Elem()
@@ -1201,25 +1187,25 @@ func (o GroupDiagnosticsLogAnalyticsOutput) ToGroupDiagnosticsLogAnalyticsOutput
 }
 
 func (o GroupDiagnosticsLogAnalyticsOutput) LogType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupDiagnosticsLogAnalytics) *string { return v.LogType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupDiagnosticsLogAnalytics) *string { return v.LogType }).(pulumi.StringPtrOutput)
 }
 
 func (o GroupDiagnosticsLogAnalyticsOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func (v GroupDiagnosticsLogAnalytics) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v GroupDiagnosticsLogAnalytics) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
 }
 
 func (o GroupDiagnosticsLogAnalyticsOutput) WorkspaceId() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupDiagnosticsLogAnalytics) string { return v.WorkspaceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupDiagnosticsLogAnalytics) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
 func (o GroupDiagnosticsLogAnalyticsOutput) WorkspaceKey() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupDiagnosticsLogAnalytics) string { return v.WorkspaceKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupDiagnosticsLogAnalytics) string { return v.WorkspaceKey }).(pulumi.StringOutput)
 }
 
 type GroupIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
-	PrincipalId *string `pulumi:"principalId"`
-	Type string `pulumi:"type"`
+	PrincipalId *string  `pulumi:"principalId"`
+	Type        string   `pulumi:"type"`
 }
 
 type GroupIdentityInput interface {
@@ -1231,8 +1217,8 @@ type GroupIdentityInput interface {
 
 type GroupIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	Type pulumi.StringInput `pulumi:"type"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	Type        pulumi.StringInput      `pulumi:"type"`
 }
 
 func (GroupIdentityArgs) ElementType() reflect.Type {
@@ -1264,7 +1250,8 @@ type GroupIdentityPtrInput interface {
 
 type groupIdentityPtrType GroupIdentityArgs
 
-func GroupIdentityPtr(v *GroupIdentityArgs) GroupIdentityPtrInput {	return (*groupIdentityPtrType)(v)
+func GroupIdentityPtr(v *GroupIdentityArgs) GroupIdentityPtrInput {
+	return (*groupIdentityPtrType)(v)
 }
 
 func (*groupIdentityPtrType) ElementType() reflect.Type {
@@ -1279,7 +1266,7 @@ func (i *groupIdentityPtrType) ToGroupIdentityPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(GroupIdentityPtrOutput)
 }
 
-type GroupIdentityOutput struct { *pulumi.OutputState }
+type GroupIdentityOutput struct{ *pulumi.OutputState }
 
 func (GroupIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupIdentity)(nil)).Elem()
@@ -1303,18 +1290,18 @@ func (o GroupIdentityOutput) ToGroupIdentityPtrOutputWithContext(ctx context.Con
 	}).(GroupIdentityPtrOutput)
 }
 func (o GroupIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GroupIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GroupIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 func (o GroupIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 func (o GroupIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type GroupIdentityPtrOutput struct { *pulumi.OutputState}
+type GroupIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (GroupIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupIdentity)(nil)).Elem()
@@ -1329,24 +1316,24 @@ func (o GroupIdentityPtrOutput) ToGroupIdentityPtrOutputWithContext(ctx context.
 }
 
 func (o GroupIdentityPtrOutput) Elem() GroupIdentityOutput {
-	return o.ApplyT(func (v *GroupIdentity) GroupIdentity { return *v }).(GroupIdentityOutput)
+	return o.ApplyT(func(v *GroupIdentity) GroupIdentity { return *v }).(GroupIdentityOutput)
 }
 
 func (o GroupIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GroupIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GroupIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 func (o GroupIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 func (o GroupIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type GroupImageRegistryCredential struct {
 	Password string `pulumi:"password"`
-	Server string `pulumi:"server"`
+	Server   string `pulumi:"server"`
 	Username string `pulumi:"username"`
 }
 
@@ -1359,7 +1346,7 @@ type GroupImageRegistryCredentialInput interface {
 
 type GroupImageRegistryCredentialArgs struct {
 	Password pulumi.StringInput `pulumi:"password"`
-	Server pulumi.StringInput `pulumi:"server"`
+	Server   pulumi.StringInput `pulumi:"server"`
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -1396,7 +1383,7 @@ func (i GroupImageRegistryCredentialArray) ToGroupImageRegistryCredentialArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GroupImageRegistryCredentialArrayOutput)
 }
 
-type GroupImageRegistryCredentialOutput struct { *pulumi.OutputState }
+type GroupImageRegistryCredentialOutput struct{ *pulumi.OutputState }
 
 func (GroupImageRegistryCredentialOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupImageRegistryCredential)(nil)).Elem()
@@ -1411,18 +1398,18 @@ func (o GroupImageRegistryCredentialOutput) ToGroupImageRegistryCredentialOutput
 }
 
 func (o GroupImageRegistryCredentialOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupImageRegistryCredential) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupImageRegistryCredential) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o GroupImageRegistryCredentialOutput) Server() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupImageRegistryCredential) string { return v.Server }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupImageRegistryCredential) string { return v.Server }).(pulumi.StringOutput)
 }
 
 func (o GroupImageRegistryCredentialOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupImageRegistryCredential) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupImageRegistryCredential) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type GroupImageRegistryCredentialArrayOutput struct { *pulumi.OutputState}
+type GroupImageRegistryCredentialArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupImageRegistryCredentialArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GroupImageRegistryCredential)(nil)).Elem()
@@ -1437,18 +1424,18 @@ func (o GroupImageRegistryCredentialArrayOutput) ToGroupImageRegistryCredentialA
 }
 
 func (o GroupImageRegistryCredentialArrayOutput) Index(i pulumi.IntInput) GroupImageRegistryCredentialOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GroupImageRegistryCredential {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupImageRegistryCredential {
 		return vs[0].([]GroupImageRegistryCredential)[vs[1].(int)]
 	}).(GroupImageRegistryCredentialOutput)
 }
 
 type KubernetesClusterAddonProfile struct {
 	AciConnectorLinux *KubernetesClusterAddonProfileAciConnectorLinux `pulumi:"aciConnectorLinux"`
-	AzurePolicy *KubernetesClusterAddonProfileAzurePolicy `pulumi:"azurePolicy"`
+	AzurePolicy       *KubernetesClusterAddonProfileAzurePolicy       `pulumi:"azurePolicy"`
 	// A `httpApplicationRouting` block as defined below.
 	HttpApplicationRouting *KubernetesClusterAddonProfileHttpApplicationRouting `pulumi:"httpApplicationRouting"`
-	KubeDashboard *KubernetesClusterAddonProfileKubeDashboard `pulumi:"kubeDashboard"`
-	OmsAgent *KubernetesClusterAddonProfileOmsAgent `pulumi:"omsAgent"`
+	KubeDashboard          *KubernetesClusterAddonProfileKubeDashboard          `pulumi:"kubeDashboard"`
+	OmsAgent               *KubernetesClusterAddonProfileOmsAgent               `pulumi:"omsAgent"`
 }
 
 type KubernetesClusterAddonProfileInput interface {
@@ -1460,11 +1447,11 @@ type KubernetesClusterAddonProfileInput interface {
 
 type KubernetesClusterAddonProfileArgs struct {
 	AciConnectorLinux KubernetesClusterAddonProfileAciConnectorLinuxPtrInput `pulumi:"aciConnectorLinux"`
-	AzurePolicy KubernetesClusterAddonProfileAzurePolicyPtrInput `pulumi:"azurePolicy"`
+	AzurePolicy       KubernetesClusterAddonProfileAzurePolicyPtrInput       `pulumi:"azurePolicy"`
 	// A `httpApplicationRouting` block as defined below.
 	HttpApplicationRouting KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput `pulumi:"httpApplicationRouting"`
-	KubeDashboard KubernetesClusterAddonProfileKubeDashboardPtrInput `pulumi:"kubeDashboard"`
-	OmsAgent KubernetesClusterAddonProfileOmsAgentPtrInput `pulumi:"omsAgent"`
+	KubeDashboard          KubernetesClusterAddonProfileKubeDashboardPtrInput          `pulumi:"kubeDashboard"`
+	OmsAgent               KubernetesClusterAddonProfileOmsAgentPtrInput               `pulumi:"omsAgent"`
 }
 
 func (KubernetesClusterAddonProfileArgs) ElementType() reflect.Type {
@@ -1496,7 +1483,8 @@ type KubernetesClusterAddonProfilePtrInput interface {
 
 type kubernetesClusterAddonProfilePtrType KubernetesClusterAddonProfileArgs
 
-func KubernetesClusterAddonProfilePtr(v *KubernetesClusterAddonProfileArgs) KubernetesClusterAddonProfilePtrInput {	return (*kubernetesClusterAddonProfilePtrType)(v)
+func KubernetesClusterAddonProfilePtr(v *KubernetesClusterAddonProfileArgs) KubernetesClusterAddonProfilePtrInput {
+	return (*kubernetesClusterAddonProfilePtrType)(v)
 }
 
 func (*kubernetesClusterAddonProfilePtrType) ElementType() reflect.Type {
@@ -1511,7 +1499,7 @@ func (i *kubernetesClusterAddonProfilePtrType) ToKubernetesClusterAddonProfilePt
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfilePtrOutput)
 }
 
-type KubernetesClusterAddonProfileOutput struct { *pulumi.OutputState }
+type KubernetesClusterAddonProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterAddonProfile)(nil)).Elem()
@@ -1535,27 +1523,33 @@ func (o KubernetesClusterAddonProfileOutput) ToKubernetesClusterAddonProfilePtrO
 	}).(KubernetesClusterAddonProfilePtrOutput)
 }
 func (o KubernetesClusterAddonProfileOutput) AciConnectorLinux() KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAciConnectorLinux { return v.AciConnectorLinux }).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAciConnectorLinux {
+		return v.AciConnectorLinux
+	}).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
 }
 
 func (o KubernetesClusterAddonProfileOutput) AzurePolicy() KubernetesClusterAddonProfileAzurePolicyPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzurePolicy { return v.AzurePolicy }).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzurePolicy { return v.AzurePolicy }).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
 }
 
 // A `httpApplicationRouting` block as defined below.
 func (o KubernetesClusterAddonProfileOutput) HttpApplicationRouting() KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileHttpApplicationRouting { return v.HttpApplicationRouting }).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileHttpApplicationRouting {
+		return v.HttpApplicationRouting
+	}).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
 }
 
 func (o KubernetesClusterAddonProfileOutput) KubeDashboard() KubernetesClusterAddonProfileKubeDashboardPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileKubeDashboard { return v.KubeDashboard }).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileKubeDashboard {
+		return v.KubeDashboard
+	}).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
 }
 
 func (o KubernetesClusterAddonProfileOutput) OmsAgent() KubernetesClusterAddonProfileOmsAgentPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOmsAgent { return v.OmsAgent }).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOmsAgent { return v.OmsAgent }).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
 }
 
-type KubernetesClusterAddonProfilePtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterAddonProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterAddonProfile)(nil)).Elem()
@@ -1570,32 +1564,38 @@ func (o KubernetesClusterAddonProfilePtrOutput) ToKubernetesClusterAddonProfileP
 }
 
 func (o KubernetesClusterAddonProfilePtrOutput) Elem() KubernetesClusterAddonProfileOutput {
-	return o.ApplyT(func (v *KubernetesClusterAddonProfile) KubernetesClusterAddonProfile { return *v }).(KubernetesClusterAddonProfileOutput)
+	return o.ApplyT(func(v *KubernetesClusterAddonProfile) KubernetesClusterAddonProfile { return *v }).(KubernetesClusterAddonProfileOutput)
 }
 
 func (o KubernetesClusterAddonProfilePtrOutput) AciConnectorLinux() KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAciConnectorLinux { return v.AciConnectorLinux }).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAciConnectorLinux {
+		return v.AciConnectorLinux
+	}).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
 }
 
 func (o KubernetesClusterAddonProfilePtrOutput) AzurePolicy() KubernetesClusterAddonProfileAzurePolicyPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzurePolicy { return v.AzurePolicy }).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzurePolicy { return v.AzurePolicy }).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
 }
 
 // A `httpApplicationRouting` block as defined below.
 func (o KubernetesClusterAddonProfilePtrOutput) HttpApplicationRouting() KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileHttpApplicationRouting { return v.HttpApplicationRouting }).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileHttpApplicationRouting {
+		return v.HttpApplicationRouting
+	}).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
 }
 
 func (o KubernetesClusterAddonProfilePtrOutput) KubeDashboard() KubernetesClusterAddonProfileKubeDashboardPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileKubeDashboard { return v.KubeDashboard }).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileKubeDashboard {
+		return v.KubeDashboard
+	}).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
 }
 
 func (o KubernetesClusterAddonProfilePtrOutput) OmsAgent() KubernetesClusterAddonProfileOmsAgentPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOmsAgent { return v.OmsAgent }).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOmsAgent { return v.OmsAgent }).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
 }
 
 type KubernetesClusterAddonProfileAciConnectorLinux struct {
-	Enabled bool `pulumi:"enabled"`
+	Enabled    bool    `pulumi:"enabled"`
 	SubnetName *string `pulumi:"subnetName"`
 }
 
@@ -1607,7 +1607,7 @@ type KubernetesClusterAddonProfileAciConnectorLinuxInput interface {
 }
 
 type KubernetesClusterAddonProfileAciConnectorLinuxArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled    pulumi.BoolInput      `pulumi:"enabled"`
 	SubnetName pulumi.StringPtrInput `pulumi:"subnetName"`
 }
 
@@ -1640,7 +1640,8 @@ type KubernetesClusterAddonProfileAciConnectorLinuxPtrInput interface {
 
 type kubernetesClusterAddonProfileAciConnectorLinuxPtrType KubernetesClusterAddonProfileAciConnectorLinuxArgs
 
-func KubernetesClusterAddonProfileAciConnectorLinuxPtr(v *KubernetesClusterAddonProfileAciConnectorLinuxArgs) KubernetesClusterAddonProfileAciConnectorLinuxPtrInput {	return (*kubernetesClusterAddonProfileAciConnectorLinuxPtrType)(v)
+func KubernetesClusterAddonProfileAciConnectorLinuxPtr(v *KubernetesClusterAddonProfileAciConnectorLinuxArgs) KubernetesClusterAddonProfileAciConnectorLinuxPtrInput {
+	return (*kubernetesClusterAddonProfileAciConnectorLinuxPtrType)(v)
 }
 
 func (*kubernetesClusterAddonProfileAciConnectorLinuxPtrType) ElementType() reflect.Type {
@@ -1655,7 +1656,7 @@ func (i *kubernetesClusterAddonProfileAciConnectorLinuxPtrType) ToKubernetesClus
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
 }
 
-type KubernetesClusterAddonProfileAciConnectorLinuxOutput struct { *pulumi.OutputState }
+type KubernetesClusterAddonProfileAciConnectorLinuxOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileAciConnectorLinuxOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterAddonProfileAciConnectorLinux)(nil)).Elem()
@@ -1679,14 +1680,14 @@ func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) ToKubernetesCluste
 	}).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
 }
 func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileAciConnectorLinux) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAciConnectorLinux) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) SubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileAciConnectorLinux) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAciConnectorLinux) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterAddonProfileAciConnectorLinux)(nil)).Elem()
@@ -1701,15 +1702,17 @@ func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) ToKubernetesClu
 }
 
 func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) Elem() KubernetesClusterAddonProfileAciConnectorLinuxOutput {
-	return o.ApplyT(func (v *KubernetesClusterAddonProfileAciConnectorLinux) KubernetesClusterAddonProfileAciConnectorLinux { return *v }).(KubernetesClusterAddonProfileAciConnectorLinuxOutput)
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileAciConnectorLinux) KubernetesClusterAddonProfileAciConnectorLinux {
+		return *v
+	}).(KubernetesClusterAddonProfileAciConnectorLinuxOutput)
 }
 
 func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileAciConnectorLinux) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAciConnectorLinux) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) SubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileAciConnectorLinux) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAciConnectorLinux) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterAddonProfileAzurePolicy struct {
@@ -1756,7 +1759,8 @@ type KubernetesClusterAddonProfileAzurePolicyPtrInput interface {
 
 type kubernetesClusterAddonProfileAzurePolicyPtrType KubernetesClusterAddonProfileAzurePolicyArgs
 
-func KubernetesClusterAddonProfileAzurePolicyPtr(v *KubernetesClusterAddonProfileAzurePolicyArgs) KubernetesClusterAddonProfileAzurePolicyPtrInput {	return (*kubernetesClusterAddonProfileAzurePolicyPtrType)(v)
+func KubernetesClusterAddonProfileAzurePolicyPtr(v *KubernetesClusterAddonProfileAzurePolicyArgs) KubernetesClusterAddonProfileAzurePolicyPtrInput {
+	return (*kubernetesClusterAddonProfileAzurePolicyPtrType)(v)
 }
 
 func (*kubernetesClusterAddonProfileAzurePolicyPtrType) ElementType() reflect.Type {
@@ -1771,7 +1775,7 @@ func (i *kubernetesClusterAddonProfileAzurePolicyPtrType) ToKubernetesClusterAdd
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
 }
 
-type KubernetesClusterAddonProfileAzurePolicyOutput struct { *pulumi.OutputState }
+type KubernetesClusterAddonProfileAzurePolicyOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileAzurePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterAddonProfileAzurePolicy)(nil)).Elem()
@@ -1795,10 +1799,10 @@ func (o KubernetesClusterAddonProfileAzurePolicyOutput) ToKubernetesClusterAddon
 	}).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
 }
 func (o KubernetesClusterAddonProfileAzurePolicyOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileAzurePolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAzurePolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type KubernetesClusterAddonProfileAzurePolicyPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterAddonProfileAzurePolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileAzurePolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterAddonProfileAzurePolicy)(nil)).Elem()
@@ -1813,11 +1817,11 @@ func (o KubernetesClusterAddonProfileAzurePolicyPtrOutput) ToKubernetesClusterAd
 }
 
 func (o KubernetesClusterAddonProfileAzurePolicyPtrOutput) Elem() KubernetesClusterAddonProfileAzurePolicyOutput {
-	return o.ApplyT(func (v *KubernetesClusterAddonProfileAzurePolicy) KubernetesClusterAddonProfileAzurePolicy { return *v }).(KubernetesClusterAddonProfileAzurePolicyOutput)
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileAzurePolicy) KubernetesClusterAddonProfileAzurePolicy { return *v }).(KubernetesClusterAddonProfileAzurePolicyOutput)
 }
 
 func (o KubernetesClusterAddonProfileAzurePolicyPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileAzurePolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAzurePolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 type KubernetesClusterAddonProfileHttpApplicationRouting struct {
@@ -1868,7 +1872,8 @@ type KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput interface {
 
 type kubernetesClusterAddonProfileHttpApplicationRoutingPtrType KubernetesClusterAddonProfileHttpApplicationRoutingArgs
 
-func KubernetesClusterAddonProfileHttpApplicationRoutingPtr(v *KubernetesClusterAddonProfileHttpApplicationRoutingArgs) KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput {	return (*kubernetesClusterAddonProfileHttpApplicationRoutingPtrType)(v)
+func KubernetesClusterAddonProfileHttpApplicationRoutingPtr(v *KubernetesClusterAddonProfileHttpApplicationRoutingArgs) KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput {
+	return (*kubernetesClusterAddonProfileHttpApplicationRoutingPtrType)(v)
 }
 
 func (*kubernetesClusterAddonProfileHttpApplicationRoutingPtrType) ElementType() reflect.Type {
@@ -1883,7 +1888,7 @@ func (i *kubernetesClusterAddonProfileHttpApplicationRoutingPtrType) ToKubernete
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
 }
 
-type KubernetesClusterAddonProfileHttpApplicationRoutingOutput struct { *pulumi.OutputState }
+type KubernetesClusterAddonProfileHttpApplicationRoutingOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileHttpApplicationRoutingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterAddonProfileHttpApplicationRouting)(nil)).Elem()
@@ -1907,15 +1912,17 @@ func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) ToKubernetesC
 	}).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
 }
 func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileHttpApplicationRouting) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileHttpApplicationRouting) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // The Zone Name of the HTTP Application Routing.
 func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) HttpApplicationRoutingZoneName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileHttpApplicationRouting) *string { return v.HttpApplicationRoutingZoneName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileHttpApplicationRouting) *string {
+		return v.HttpApplicationRoutingZoneName
+	}).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterAddonProfileHttpApplicationRouting)(nil)).Elem()
@@ -1930,16 +1937,20 @@ func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) ToKubernet
 }
 
 func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) Elem() KubernetesClusterAddonProfileHttpApplicationRoutingOutput {
-	return o.ApplyT(func (v *KubernetesClusterAddonProfileHttpApplicationRouting) KubernetesClusterAddonProfileHttpApplicationRouting { return *v }).(KubernetesClusterAddonProfileHttpApplicationRoutingOutput)
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileHttpApplicationRouting) KubernetesClusterAddonProfileHttpApplicationRouting {
+		return *v
+	}).(KubernetesClusterAddonProfileHttpApplicationRoutingOutput)
 }
 
 func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileHttpApplicationRouting) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileHttpApplicationRouting) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // The Zone Name of the HTTP Application Routing.
 func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) HttpApplicationRoutingZoneName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileHttpApplicationRouting) *string { return v.HttpApplicationRoutingZoneName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileHttpApplicationRouting) *string {
+		return v.HttpApplicationRoutingZoneName
+	}).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterAddonProfileKubeDashboard struct {
@@ -1986,7 +1997,8 @@ type KubernetesClusterAddonProfileKubeDashboardPtrInput interface {
 
 type kubernetesClusterAddonProfileKubeDashboardPtrType KubernetesClusterAddonProfileKubeDashboardArgs
 
-func KubernetesClusterAddonProfileKubeDashboardPtr(v *KubernetesClusterAddonProfileKubeDashboardArgs) KubernetesClusterAddonProfileKubeDashboardPtrInput {	return (*kubernetesClusterAddonProfileKubeDashboardPtrType)(v)
+func KubernetesClusterAddonProfileKubeDashboardPtr(v *KubernetesClusterAddonProfileKubeDashboardArgs) KubernetesClusterAddonProfileKubeDashboardPtrInput {
+	return (*kubernetesClusterAddonProfileKubeDashboardPtrType)(v)
 }
 
 func (*kubernetesClusterAddonProfileKubeDashboardPtrType) ElementType() reflect.Type {
@@ -2001,7 +2013,7 @@ func (i *kubernetesClusterAddonProfileKubeDashboardPtrType) ToKubernetesClusterA
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
 }
 
-type KubernetesClusterAddonProfileKubeDashboardOutput struct { *pulumi.OutputState }
+type KubernetesClusterAddonProfileKubeDashboardOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileKubeDashboardOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterAddonProfileKubeDashboard)(nil)).Elem()
@@ -2025,10 +2037,10 @@ func (o KubernetesClusterAddonProfileKubeDashboardOutput) ToKubernetesClusterAdd
 	}).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
 }
 func (o KubernetesClusterAddonProfileKubeDashboardOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileKubeDashboard) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileKubeDashboard) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type KubernetesClusterAddonProfileKubeDashboardPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterAddonProfileKubeDashboardPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileKubeDashboardPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterAddonProfileKubeDashboard)(nil)).Elem()
@@ -2043,15 +2055,17 @@ func (o KubernetesClusterAddonProfileKubeDashboardPtrOutput) ToKubernetesCluster
 }
 
 func (o KubernetesClusterAddonProfileKubeDashboardPtrOutput) Elem() KubernetesClusterAddonProfileKubeDashboardOutput {
-	return o.ApplyT(func (v *KubernetesClusterAddonProfileKubeDashboard) KubernetesClusterAddonProfileKubeDashboard { return *v }).(KubernetesClusterAddonProfileKubeDashboardOutput)
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileKubeDashboard) KubernetesClusterAddonProfileKubeDashboard {
+		return *v
+	}).(KubernetesClusterAddonProfileKubeDashboardOutput)
 }
 
 func (o KubernetesClusterAddonProfileKubeDashboardPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileKubeDashboard) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileKubeDashboard) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 type KubernetesClusterAddonProfileOmsAgent struct {
-	Enabled bool `pulumi:"enabled"`
+	Enabled                 bool    `pulumi:"enabled"`
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 }
 
@@ -2063,7 +2077,7 @@ type KubernetesClusterAddonProfileOmsAgentInput interface {
 }
 
 type KubernetesClusterAddonProfileOmsAgentArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled                 pulumi.BoolInput      `pulumi:"enabled"`
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput `pulumi:"logAnalyticsWorkspaceId"`
 }
 
@@ -2096,7 +2110,8 @@ type KubernetesClusterAddonProfileOmsAgentPtrInput interface {
 
 type kubernetesClusterAddonProfileOmsAgentPtrType KubernetesClusterAddonProfileOmsAgentArgs
 
-func KubernetesClusterAddonProfileOmsAgentPtr(v *KubernetesClusterAddonProfileOmsAgentArgs) KubernetesClusterAddonProfileOmsAgentPtrInput {	return (*kubernetesClusterAddonProfileOmsAgentPtrType)(v)
+func KubernetesClusterAddonProfileOmsAgentPtr(v *KubernetesClusterAddonProfileOmsAgentArgs) KubernetesClusterAddonProfileOmsAgentPtrInput {
+	return (*kubernetesClusterAddonProfileOmsAgentPtrType)(v)
 }
 
 func (*kubernetesClusterAddonProfileOmsAgentPtrType) ElementType() reflect.Type {
@@ -2111,7 +2126,7 @@ func (i *kubernetesClusterAddonProfileOmsAgentPtrType) ToKubernetesClusterAddonP
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
 }
 
-type KubernetesClusterAddonProfileOmsAgentOutput struct { *pulumi.OutputState }
+type KubernetesClusterAddonProfileOmsAgentOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileOmsAgentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterAddonProfileOmsAgent)(nil)).Elem()
@@ -2135,14 +2150,14 @@ func (o KubernetesClusterAddonProfileOmsAgentOutput) ToKubernetesClusterAddonPro
 	}).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
 }
 func (o KubernetesClusterAddonProfileOmsAgentOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileOmsAgent) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgent) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o KubernetesClusterAddonProfileOmsAgentOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileOmsAgent) *string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgent) *string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterAddonProfileOmsAgentPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterAddonProfileOmsAgentPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileOmsAgentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterAddonProfileOmsAgent)(nil)).Elem()
@@ -2157,217 +2172,35 @@ func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) ToKubernetesClusterAddon
 }
 
 func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) Elem() KubernetesClusterAddonProfileOmsAgentOutput {
-	return o.ApplyT(func (v *KubernetesClusterAddonProfileOmsAgent) KubernetesClusterAddonProfileOmsAgent { return *v }).(KubernetesClusterAddonProfileOmsAgentOutput)
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileOmsAgent) KubernetesClusterAddonProfileOmsAgent { return *v }).(KubernetesClusterAddonProfileOmsAgentOutput)
 }
 
 func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileOmsAgent) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgent) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileOmsAgent) *string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
-}
-
-type KubernetesClusterAgentPoolProfile struct {
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	Count *int `pulumi:"count"`
-	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-	DnsPrefix *string `pulumi:"dnsPrefix"`
-	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
-	// The FQDN of the Azure Kubernetes Managed Cluster.
-	Fqdn *string `pulumi:"fqdn"`
-	MaxCount *int `pulumi:"maxCount"`
-	MaxPods *int `pulumi:"maxPods"`
-	MinCount *int `pulumi:"minCount"`
-	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	NodeTaints []string `pulumi:"nodeTaints"`
-	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
-	OsType *string `pulumi:"osType"`
-	Type *string `pulumi:"type"`
-	VmSize string `pulumi:"vmSize"`
-	VnetSubnetId *string `pulumi:"vnetSubnetId"`
-}
-
-type KubernetesClusterAgentPoolProfileInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAgentPoolProfileOutput() KubernetesClusterAgentPoolProfileOutput
-	ToKubernetesClusterAgentPoolProfileOutputWithContext(context.Context) KubernetesClusterAgentPoolProfileOutput
-}
-
-type KubernetesClusterAgentPoolProfileArgs struct {
-	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-	DnsPrefix pulumi.StringPtrInput `pulumi:"dnsPrefix"`
-	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
-	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
-	// The FQDN of the Azure Kubernetes Managed Cluster.
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
-	MaxPods pulumi.IntPtrInput `pulumi:"maxPods"`
-	MinCount pulumi.IntPtrInput `pulumi:"minCount"`
-	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
-	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
-	VnetSubnetId pulumi.StringPtrInput `pulumi:"vnetSubnetId"`
-}
-
-func (KubernetesClusterAgentPoolProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAgentPoolProfile)(nil)).Elem()
-}
-
-func (i KubernetesClusterAgentPoolProfileArgs) ToKubernetesClusterAgentPoolProfileOutput() KubernetesClusterAgentPoolProfileOutput {
-	return i.ToKubernetesClusterAgentPoolProfileOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAgentPoolProfileArgs) ToKubernetesClusterAgentPoolProfileOutputWithContext(ctx context.Context) KubernetesClusterAgentPoolProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAgentPoolProfileOutput)
-}
-
-type KubernetesClusterAgentPoolProfileArrayInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAgentPoolProfileArrayOutput() KubernetesClusterAgentPoolProfileArrayOutput
-	ToKubernetesClusterAgentPoolProfileArrayOutputWithContext(context.Context) KubernetesClusterAgentPoolProfileArrayOutput
-}
-
-type KubernetesClusterAgentPoolProfileArray []KubernetesClusterAgentPoolProfileInput
-
-func (KubernetesClusterAgentPoolProfileArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesClusterAgentPoolProfile)(nil)).Elem()
-}
-
-func (i KubernetesClusterAgentPoolProfileArray) ToKubernetesClusterAgentPoolProfileArrayOutput() KubernetesClusterAgentPoolProfileArrayOutput {
-	return i.ToKubernetesClusterAgentPoolProfileArrayOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAgentPoolProfileArray) ToKubernetesClusterAgentPoolProfileArrayOutputWithContext(ctx context.Context) KubernetesClusterAgentPoolProfileArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAgentPoolProfileArrayOutput)
-}
-
-type KubernetesClusterAgentPoolProfileOutput struct { *pulumi.OutputState }
-
-func (KubernetesClusterAgentPoolProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAgentPoolProfile)(nil)).Elem()
-}
-
-func (o KubernetesClusterAgentPoolProfileOutput) ToKubernetesClusterAgentPoolProfileOutput() KubernetesClusterAgentPoolProfileOutput {
-	return o
-}
-
-func (o KubernetesClusterAgentPoolProfileOutput) ToKubernetesClusterAgentPoolProfileOutputWithContext(ctx context.Context) KubernetesClusterAgentPoolProfileOutput {
-	return o
-}
-
-func (o KubernetesClusterAgentPoolProfileOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterAgentPoolProfile) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
-}
-
-func (o KubernetesClusterAgentPoolProfileOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAgentPoolProfile) *int { return v.Count }).(pulumi.IntPtrOutput)
-}
-
-// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-func (o KubernetesClusterAgentPoolProfileOutput) DnsPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAgentPoolProfile) *string { return v.DnsPrefix }).(pulumi.StringPtrOutput)
-}
-
-func (o KubernetesClusterAgentPoolProfileOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAgentPoolProfile) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
-}
-
-func (o KubernetesClusterAgentPoolProfileOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAgentPoolProfile) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
-}
-
-// The FQDN of the Azure Kubernetes Managed Cluster.
-func (o KubernetesClusterAgentPoolProfileOutput) Fqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAgentPoolProfile) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
-}
-
-func (o KubernetesClusterAgentPoolProfileOutput) MaxCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAgentPoolProfile) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
-}
-
-func (o KubernetesClusterAgentPoolProfileOutput) MaxPods() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAgentPoolProfile) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
-}
-
-func (o KubernetesClusterAgentPoolProfileOutput) MinCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAgentPoolProfile) *int { return v.MinCount }).(pulumi.IntPtrOutput)
-}
-
-// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-func (o KubernetesClusterAgentPoolProfileOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterAgentPoolProfile) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o KubernetesClusterAgentPoolProfileOutput) NodeTaints() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterAgentPoolProfile) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
-}
-
-func (o KubernetesClusterAgentPoolProfileOutput) OsDiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAgentPoolProfile) *int { return v.OsDiskSizeGb }).(pulumi.IntPtrOutput)
-}
-
-func (o KubernetesClusterAgentPoolProfileOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAgentPoolProfile) *string { return v.OsType }).(pulumi.StringPtrOutput)
-}
-
-func (o KubernetesClusterAgentPoolProfileOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAgentPoolProfile) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o KubernetesClusterAgentPoolProfileOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterAgentPoolProfile) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-func (o KubernetesClusterAgentPoolProfileOutput) VnetSubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAgentPoolProfile) *string { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
-}
-
-type KubernetesClusterAgentPoolProfileArrayOutput struct { *pulumi.OutputState}
-
-func (KubernetesClusterAgentPoolProfileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesClusterAgentPoolProfile)(nil)).Elem()
-}
-
-func (o KubernetesClusterAgentPoolProfileArrayOutput) ToKubernetesClusterAgentPoolProfileArrayOutput() KubernetesClusterAgentPoolProfileArrayOutput {
-	return o
-}
-
-func (o KubernetesClusterAgentPoolProfileArrayOutput) ToKubernetesClusterAgentPoolProfileArrayOutputWithContext(ctx context.Context) KubernetesClusterAgentPoolProfileArrayOutput {
-	return o
-}
-
-func (o KubernetesClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntInput) KubernetesClusterAgentPoolProfileOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) KubernetesClusterAgentPoolProfile {
-		return vs[0].([]KubernetesClusterAgentPoolProfile)[vs[1].(int)]
-	}).(KubernetesClusterAgentPoolProfileOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgent) *string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterDefaultNodePool struct {
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
-	MaxCount *int `pulumi:"maxCount"`
-	MaxPods *int `pulumi:"maxPods"`
-	MinCount *int `pulumi:"minCount"`
+	AvailabilityZones  []string `pulumi:"availabilityZones"`
+	EnableAutoScaling  *bool    `pulumi:"enableAutoScaling"`
+	EnableNodePublicIp *bool    `pulumi:"enableNodePublicIp"`
+	MaxCount           *int     `pulumi:"maxCount"`
+	MaxPods            *int     `pulumi:"maxPods"`
+	MinCount           *int     `pulumi:"minCount"`
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	NodeCount *int `pulumi:"nodeCount"`
-	NodeTaints []string `pulumi:"nodeTaints"`
-	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
-	Type *string `pulumi:"type"`
-	VmSize string `pulumi:"vmSize"`
-	VnetSubnetId *string `pulumi:"vnetSubnetId"`
+	Name         string            `pulumi:"name"`
+	NodeCount    *int              `pulumi:"nodeCount"`
+	NodeLabels   map[string]string `pulumi:"nodeLabels"`
+	NodeTaints   []string          `pulumi:"nodeTaints"`
+	OsDiskSizeGb *int              `pulumi:"osDiskSizeGb"`
+	// A mapping of tags to assign to the resource.
+	Tags         map[string]string `pulumi:"tags"`
+	Type         *string           `pulumi:"type"`
+	VmSize       string            `pulumi:"vmSize"`
+	VnetSubnetId *string           `pulumi:"vnetSubnetId"`
 }
 
 type KubernetesClusterDefaultNodePoolInput interface {
@@ -2378,19 +2211,22 @@ type KubernetesClusterDefaultNodePoolInput interface {
 }
 
 type KubernetesClusterDefaultNodePoolArgs struct {
-	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
-	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
-	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
-	MaxPods pulumi.IntPtrInput `pulumi:"maxPods"`
-	MinCount pulumi.IntPtrInput `pulumi:"minCount"`
+	AvailabilityZones  pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	EnableAutoScaling  pulumi.BoolPtrInput     `pulumi:"enableAutoScaling"`
+	EnableNodePublicIp pulumi.BoolPtrInput     `pulumi:"enableNodePublicIp"`
+	MaxCount           pulumi.IntPtrInput      `pulumi:"maxCount"`
+	MaxPods            pulumi.IntPtrInput      `pulumi:"maxPods"`
+	MinCount           pulumi.IntPtrInput      `pulumi:"minCount"`
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
-	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
-	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Name         pulumi.StringInput      `pulumi:"name"`
+	NodeCount    pulumi.IntPtrInput      `pulumi:"nodeCount"`
+	NodeLabels   pulumi.StringMapInput   `pulumi:"nodeLabels"`
+	NodeTaints   pulumi.StringArrayInput `pulumi:"nodeTaints"`
+	OsDiskSizeGb pulumi.IntPtrInput      `pulumi:"osDiskSizeGb"`
+	// A mapping of tags to assign to the resource.
+	Tags         pulumi.StringMapInput `pulumi:"tags"`
+	Type         pulumi.StringPtrInput `pulumi:"type"`
+	VmSize       pulumi.StringInput    `pulumi:"vmSize"`
 	VnetSubnetId pulumi.StringPtrInput `pulumi:"vnetSubnetId"`
 }
 
@@ -2423,7 +2259,8 @@ type KubernetesClusterDefaultNodePoolPtrInput interface {
 
 type kubernetesClusterDefaultNodePoolPtrType KubernetesClusterDefaultNodePoolArgs
 
-func KubernetesClusterDefaultNodePoolPtr(v *KubernetesClusterDefaultNodePoolArgs) KubernetesClusterDefaultNodePoolPtrInput {	return (*kubernetesClusterDefaultNodePoolPtrType)(v)
+func KubernetesClusterDefaultNodePoolPtr(v *KubernetesClusterDefaultNodePoolArgs) KubernetesClusterDefaultNodePoolPtrInput {
+	return (*kubernetesClusterDefaultNodePoolPtrType)(v)
 }
 
 func (*kubernetesClusterDefaultNodePoolPtrType) ElementType() reflect.Type {
@@ -2438,7 +2275,7 @@ func (i *kubernetesClusterDefaultNodePoolPtrType) ToKubernetesClusterDefaultNode
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolPtrOutput)
 }
 
-type KubernetesClusterDefaultNodePoolOutput struct { *pulumi.OutputState }
+type KubernetesClusterDefaultNodePoolOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterDefaultNodePoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterDefaultNodePool)(nil)).Elem()
@@ -2462,59 +2299,68 @@ func (o KubernetesClusterDefaultNodePoolOutput) ToKubernetesClusterDefaultNodePo
 	}).(KubernetesClusterDefaultNodePoolPtrOutput)
 }
 func (o KubernetesClusterDefaultNodePoolOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolOutput) MaxCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolOutput) MaxPods() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolOutput) MinCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.MinCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MinCount }).(pulumi.IntPtrOutput)
 }
 
 // The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolOutput) NodeCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) NodeLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolOutput) NodeTaints() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolOutput) OsDiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.OsDiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.OsDiskSizeGb }).(pulumi.IntPtrOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o KubernetesClusterDefaultNodePoolOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolOutput) VnetSubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *string { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterDefaultNodePoolPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterDefaultNodePoolPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterDefaultNodePoolPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterDefaultNodePool)(nil)).Elem()
@@ -2529,60 +2375,69 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) ToKubernetesClusterDefaultNod
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Elem() KubernetesClusterDefaultNodePoolOutput {
-	return o.ApplyT(func (v *KubernetesClusterDefaultNodePool) KubernetesClusterDefaultNodePool { return *v }).(KubernetesClusterDefaultNodePoolOutput)
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) KubernetesClusterDefaultNodePool { return *v }).(KubernetesClusterDefaultNodePoolOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) MaxCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) MaxPods() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) MinCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.MinCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MinCount }).(pulumi.IntPtrOutput)
 }
 
 // The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeTaints() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.OsDiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.OsDiskSizeGb }).(pulumi.IntPtrOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) VnetSubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *string { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterIdentity struct {
@@ -2590,7 +2445,7 @@ type KubernetesClusterIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The tenant id of the system assigned identity which is used by master components.
 	TenantId *string `pulumi:"tenantId"`
-	Type string `pulumi:"type"`
+	Type     string  `pulumi:"type"`
 }
 
 type KubernetesClusterIdentityInput interface {
@@ -2605,7 +2460,7 @@ type KubernetesClusterIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The tenant id of the system assigned identity which is used by master components.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Type     pulumi.StringInput    `pulumi:"type"`
 }
 
 func (KubernetesClusterIdentityArgs) ElementType() reflect.Type {
@@ -2637,7 +2492,8 @@ type KubernetesClusterIdentityPtrInput interface {
 
 type kubernetesClusterIdentityPtrType KubernetesClusterIdentityArgs
 
-func KubernetesClusterIdentityPtr(v *KubernetesClusterIdentityArgs) KubernetesClusterIdentityPtrInput {	return (*kubernetesClusterIdentityPtrType)(v)
+func KubernetesClusterIdentityPtr(v *KubernetesClusterIdentityArgs) KubernetesClusterIdentityPtrInput {
+	return (*kubernetesClusterIdentityPtrType)(v)
 }
 
 func (*kubernetesClusterIdentityPtrType) ElementType() reflect.Type {
@@ -2652,7 +2508,7 @@ func (i *kubernetesClusterIdentityPtrType) ToKubernetesClusterIdentityPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterIdentityPtrOutput)
 }
 
-type KubernetesClusterIdentityOutput struct { *pulumi.OutputState }
+type KubernetesClusterIdentityOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterIdentity)(nil)).Elem()
@@ -2675,21 +2531,22 @@ func (o KubernetesClusterIdentityOutput) ToKubernetesClusterIdentityPtrOutputWit
 		return &v
 	}).(KubernetesClusterIdentityPtrOutput)
 }
+
 // The principal id of the system assigned identity which is used by master components.
 func (o KubernetesClusterIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The tenant id of the system assigned identity which is used by master components.
 func (o KubernetesClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type KubernetesClusterIdentityPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterIdentity)(nil)).Elem()
@@ -2704,21 +2561,21 @@ func (o KubernetesClusterIdentityPtrOutput) ToKubernetesClusterIdentityPtrOutput
 }
 
 func (o KubernetesClusterIdentityPtrOutput) Elem() KubernetesClusterIdentityOutput {
-	return o.ApplyT(func (v *KubernetesClusterIdentity) KubernetesClusterIdentity { return *v }).(KubernetesClusterIdentityOutput)
+	return o.ApplyT(func(v *KubernetesClusterIdentity) KubernetesClusterIdentity { return *v }).(KubernetesClusterIdentityOutput)
 }
 
 // The principal id of the system assigned identity which is used by master components.
 func (o KubernetesClusterIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The tenant id of the system assigned identity which is used by master components.
 func (o KubernetesClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type KubernetesClusterKubeAdminConfig struct {
@@ -2770,39 +2627,28 @@ func (i KubernetesClusterKubeAdminConfigArgs) ToKubernetesClusterKubeAdminConfig
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeAdminConfigOutput)
 }
 
-func (i KubernetesClusterKubeAdminConfigArgs) ToKubernetesClusterKubeAdminConfigPtrOutput() KubernetesClusterKubeAdminConfigPtrOutput {
-	return i.ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterKubeAdminConfigArgs) ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeAdminConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeAdminConfigOutput).ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(ctx)
-}
-
-type KubernetesClusterKubeAdminConfigPtrInput interface {
+type KubernetesClusterKubeAdminConfigArrayInput interface {
 	pulumi.Input
 
-	ToKubernetesClusterKubeAdminConfigPtrOutput() KubernetesClusterKubeAdminConfigPtrOutput
-	ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(context.Context) KubernetesClusterKubeAdminConfigPtrOutput
+	ToKubernetesClusterKubeAdminConfigArrayOutput() KubernetesClusterKubeAdminConfigArrayOutput
+	ToKubernetesClusterKubeAdminConfigArrayOutputWithContext(context.Context) KubernetesClusterKubeAdminConfigArrayOutput
 }
 
-type kubernetesClusterKubeAdminConfigPtrType KubernetesClusterKubeAdminConfigArgs
+type KubernetesClusterKubeAdminConfigArray []KubernetesClusterKubeAdminConfigInput
 
-func KubernetesClusterKubeAdminConfigPtr(v *KubernetesClusterKubeAdminConfigArgs) KubernetesClusterKubeAdminConfigPtrInput {	return (*kubernetesClusterKubeAdminConfigPtrType)(v)
+func (KubernetesClusterKubeAdminConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterKubeAdminConfig)(nil)).Elem()
 }
 
-func (*kubernetesClusterKubeAdminConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterKubeAdminConfig)(nil)).Elem()
+func (i KubernetesClusterKubeAdminConfigArray) ToKubernetesClusterKubeAdminConfigArrayOutput() KubernetesClusterKubeAdminConfigArrayOutput {
+	return i.ToKubernetesClusterKubeAdminConfigArrayOutputWithContext(context.Background())
 }
 
-func (i *kubernetesClusterKubeAdminConfigPtrType) ToKubernetesClusterKubeAdminConfigPtrOutput() KubernetesClusterKubeAdminConfigPtrOutput {
-	return i.ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(context.Background())
+func (i KubernetesClusterKubeAdminConfigArray) ToKubernetesClusterKubeAdminConfigArrayOutputWithContext(ctx context.Context) KubernetesClusterKubeAdminConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeAdminConfigArrayOutput)
 }
 
-func (i *kubernetesClusterKubeAdminConfigPtrType) ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeAdminConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeAdminConfigPtrOutput)
-}
-
-type KubernetesClusterKubeAdminConfigOutput struct { *pulumi.OutputState }
+type KubernetesClusterKubeAdminConfigOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterKubeAdminConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterKubeAdminConfig)(nil)).Elem()
@@ -2816,91 +2662,54 @@ func (o KubernetesClusterKubeAdminConfigOutput) ToKubernetesClusterKubeAdminConf
 	return o
 }
 
-func (o KubernetesClusterKubeAdminConfigOutput) ToKubernetesClusterKubeAdminConfigPtrOutput() KubernetesClusterKubeAdminConfigPtrOutput {
-	return o.ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(context.Background())
-}
-
-func (o KubernetesClusterKubeAdminConfigOutput) ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeAdminConfigPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterKubeAdminConfig) *KubernetesClusterKubeAdminConfig {
-		return &v
-	}).(KubernetesClusterKubeAdminConfigPtrOutput)
-}
 // Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeAdminConfigOutput) ClientCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.ClientCertificate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeAdminConfig) *string { return v.ClientCertificate }).(pulumi.StringPtrOutput)
 }
 
 // Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeAdminConfigOutput) ClientKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.ClientKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeAdminConfig) *string { return v.ClientKey }).(pulumi.StringPtrOutput)
 }
 
 // Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
 func (o KubernetesClusterKubeAdminConfigOutput) ClusterCaCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.ClusterCaCertificate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeAdminConfig) *string { return v.ClusterCaCertificate }).(pulumi.StringPtrOutput)
 }
 
 // The Kubernetes cluster server host.
 func (o KubernetesClusterKubeAdminConfigOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.Host }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeAdminConfig) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
 // A password or token used to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeAdminConfigOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeAdminConfig) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // A username used to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeAdminConfigOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeAdminConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterKubeAdminConfigPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterKubeAdminConfigArrayOutput struct{ *pulumi.OutputState }
 
-func (KubernetesClusterKubeAdminConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterKubeAdminConfig)(nil)).Elem()
+func (KubernetesClusterKubeAdminConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterKubeAdminConfig)(nil)).Elem()
 }
 
-func (o KubernetesClusterKubeAdminConfigPtrOutput) ToKubernetesClusterKubeAdminConfigPtrOutput() KubernetesClusterKubeAdminConfigPtrOutput {
+func (o KubernetesClusterKubeAdminConfigArrayOutput) ToKubernetesClusterKubeAdminConfigArrayOutput() KubernetesClusterKubeAdminConfigArrayOutput {
 	return o
 }
 
-func (o KubernetesClusterKubeAdminConfigPtrOutput) ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeAdminConfigPtrOutput {
+func (o KubernetesClusterKubeAdminConfigArrayOutput) ToKubernetesClusterKubeAdminConfigArrayOutputWithContext(ctx context.Context) KubernetesClusterKubeAdminConfigArrayOutput {
 	return o
 }
 
-func (o KubernetesClusterKubeAdminConfigPtrOutput) Elem() KubernetesClusterKubeAdminConfigOutput {
-	return o.ApplyT(func (v *KubernetesClusterKubeAdminConfig) KubernetesClusterKubeAdminConfig { return *v }).(KubernetesClusterKubeAdminConfigOutput)
-}
-
-// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
-func (o KubernetesClusterKubeAdminConfigPtrOutput) ClientCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.ClientCertificate }).(pulumi.StringPtrOutput)
-}
-
-// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
-func (o KubernetesClusterKubeAdminConfigPtrOutput) ClientKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.ClientKey }).(pulumi.StringPtrOutput)
-}
-
-// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
-func (o KubernetesClusterKubeAdminConfigPtrOutput) ClusterCaCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.ClusterCaCertificate }).(pulumi.StringPtrOutput)
-}
-
-// The Kubernetes cluster server host.
-func (o KubernetesClusterKubeAdminConfigPtrOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.Host }).(pulumi.StringPtrOutput)
-}
-
-// A password or token used to authenticate to the Kubernetes cluster.
-func (o KubernetesClusterKubeAdminConfigPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// A username used to authenticate to the Kubernetes cluster.
-func (o KubernetesClusterKubeAdminConfigPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
+func (o KubernetesClusterKubeAdminConfigArrayOutput) Index(i pulumi.IntInput) KubernetesClusterKubeAdminConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterKubeAdminConfig {
+		return vs[0].([]KubernetesClusterKubeAdminConfig)[vs[1].(int)]
+	}).(KubernetesClusterKubeAdminConfigOutput)
 }
 
 type KubernetesClusterKubeConfig struct {
@@ -2952,39 +2761,28 @@ func (i KubernetesClusterKubeConfigArgs) ToKubernetesClusterKubeConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeConfigOutput)
 }
 
-func (i KubernetesClusterKubeConfigArgs) ToKubernetesClusterKubeConfigPtrOutput() KubernetesClusterKubeConfigPtrOutput {
-	return i.ToKubernetesClusterKubeConfigPtrOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterKubeConfigArgs) ToKubernetesClusterKubeConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeConfigOutput).ToKubernetesClusterKubeConfigPtrOutputWithContext(ctx)
-}
-
-type KubernetesClusterKubeConfigPtrInput interface {
+type KubernetesClusterKubeConfigArrayInput interface {
 	pulumi.Input
 
-	ToKubernetesClusterKubeConfigPtrOutput() KubernetesClusterKubeConfigPtrOutput
-	ToKubernetesClusterKubeConfigPtrOutputWithContext(context.Context) KubernetesClusterKubeConfigPtrOutput
+	ToKubernetesClusterKubeConfigArrayOutput() KubernetesClusterKubeConfigArrayOutput
+	ToKubernetesClusterKubeConfigArrayOutputWithContext(context.Context) KubernetesClusterKubeConfigArrayOutput
 }
 
-type kubernetesClusterKubeConfigPtrType KubernetesClusterKubeConfigArgs
+type KubernetesClusterKubeConfigArray []KubernetesClusterKubeConfigInput
 
-func KubernetesClusterKubeConfigPtr(v *KubernetesClusterKubeConfigArgs) KubernetesClusterKubeConfigPtrInput {	return (*kubernetesClusterKubeConfigPtrType)(v)
+func (KubernetesClusterKubeConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterKubeConfig)(nil)).Elem()
 }
 
-func (*kubernetesClusterKubeConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterKubeConfig)(nil)).Elem()
+func (i KubernetesClusterKubeConfigArray) ToKubernetesClusterKubeConfigArrayOutput() KubernetesClusterKubeConfigArrayOutput {
+	return i.ToKubernetesClusterKubeConfigArrayOutputWithContext(context.Background())
 }
 
-func (i *kubernetesClusterKubeConfigPtrType) ToKubernetesClusterKubeConfigPtrOutput() KubernetesClusterKubeConfigPtrOutput {
-	return i.ToKubernetesClusterKubeConfigPtrOutputWithContext(context.Background())
+func (i KubernetesClusterKubeConfigArray) ToKubernetesClusterKubeConfigArrayOutputWithContext(ctx context.Context) KubernetesClusterKubeConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeConfigArrayOutput)
 }
 
-func (i *kubernetesClusterKubeConfigPtrType) ToKubernetesClusterKubeConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeConfigPtrOutput)
-}
-
-type KubernetesClusterKubeConfigOutput struct { *pulumi.OutputState }
+type KubernetesClusterKubeConfigOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterKubeConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterKubeConfig)(nil)).Elem()
@@ -2998,96 +2796,59 @@ func (o KubernetesClusterKubeConfigOutput) ToKubernetesClusterKubeConfigOutputWi
 	return o
 }
 
-func (o KubernetesClusterKubeConfigOutput) ToKubernetesClusterKubeConfigPtrOutput() KubernetesClusterKubeConfigPtrOutput {
-	return o.ToKubernetesClusterKubeConfigPtrOutputWithContext(context.Background())
-}
-
-func (o KubernetesClusterKubeConfigOutput) ToKubernetesClusterKubeConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeConfigPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterKubeConfig) *KubernetesClusterKubeConfig {
-		return &v
-	}).(KubernetesClusterKubeConfigPtrOutput)
-}
 // Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeConfigOutput) ClientCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.ClientCertificate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeConfig) *string { return v.ClientCertificate }).(pulumi.StringPtrOutput)
 }
 
 // Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeConfigOutput) ClientKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.ClientKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeConfig) *string { return v.ClientKey }).(pulumi.StringPtrOutput)
 }
 
 // Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
 func (o KubernetesClusterKubeConfigOutput) ClusterCaCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.ClusterCaCertificate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeConfig) *string { return v.ClusterCaCertificate }).(pulumi.StringPtrOutput)
 }
 
 // The Kubernetes cluster server host.
 func (o KubernetesClusterKubeConfigOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.Host }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeConfig) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
 // A password or token used to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeConfigOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeConfig) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // A username used to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeConfigOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterKubeConfigPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterKubeConfigArrayOutput struct{ *pulumi.OutputState }
 
-func (KubernetesClusterKubeConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterKubeConfig)(nil)).Elem()
+func (KubernetesClusterKubeConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterKubeConfig)(nil)).Elem()
 }
 
-func (o KubernetesClusterKubeConfigPtrOutput) ToKubernetesClusterKubeConfigPtrOutput() KubernetesClusterKubeConfigPtrOutput {
+func (o KubernetesClusterKubeConfigArrayOutput) ToKubernetesClusterKubeConfigArrayOutput() KubernetesClusterKubeConfigArrayOutput {
 	return o
 }
 
-func (o KubernetesClusterKubeConfigPtrOutput) ToKubernetesClusterKubeConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeConfigPtrOutput {
+func (o KubernetesClusterKubeConfigArrayOutput) ToKubernetesClusterKubeConfigArrayOutputWithContext(ctx context.Context) KubernetesClusterKubeConfigArrayOutput {
 	return o
 }
 
-func (o KubernetesClusterKubeConfigPtrOutput) Elem() KubernetesClusterKubeConfigOutput {
-	return o.ApplyT(func (v *KubernetesClusterKubeConfig) KubernetesClusterKubeConfig { return *v }).(KubernetesClusterKubeConfigOutput)
-}
-
-// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
-func (o KubernetesClusterKubeConfigPtrOutput) ClientCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.ClientCertificate }).(pulumi.StringPtrOutput)
-}
-
-// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
-func (o KubernetesClusterKubeConfigPtrOutput) ClientKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.ClientKey }).(pulumi.StringPtrOutput)
-}
-
-// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
-func (o KubernetesClusterKubeConfigPtrOutput) ClusterCaCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.ClusterCaCertificate }).(pulumi.StringPtrOutput)
-}
-
-// The Kubernetes cluster server host.
-func (o KubernetesClusterKubeConfigPtrOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.Host }).(pulumi.StringPtrOutput)
-}
-
-// A password or token used to authenticate to the Kubernetes cluster.
-func (o KubernetesClusterKubeConfigPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// A username used to authenticate to the Kubernetes cluster.
-func (o KubernetesClusterKubeConfigPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
+func (o KubernetesClusterKubeConfigArrayOutput) Index(i pulumi.IntInput) KubernetesClusterKubeConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterKubeConfig {
+		return vs[0].([]KubernetesClusterKubeConfig)[vs[1].(int)]
+	}).(KubernetesClusterKubeConfigOutput)
 }
 
 type KubernetesClusterLinuxProfile struct {
-	AdminUsername string `pulumi:"adminUsername"`
-	SshKey KubernetesClusterLinuxProfileSshKey `pulumi:"sshKey"`
+	AdminUsername string                              `pulumi:"adminUsername"`
+	SshKey        KubernetesClusterLinuxProfileSshKey `pulumi:"sshKey"`
 }
 
 type KubernetesClusterLinuxProfileInput interface {
@@ -3098,8 +2859,8 @@ type KubernetesClusterLinuxProfileInput interface {
 }
 
 type KubernetesClusterLinuxProfileArgs struct {
-	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
-	SshKey KubernetesClusterLinuxProfileSshKeyInput `pulumi:"sshKey"`
+	AdminUsername pulumi.StringInput                       `pulumi:"adminUsername"`
+	SshKey        KubernetesClusterLinuxProfileSshKeyInput `pulumi:"sshKey"`
 }
 
 func (KubernetesClusterLinuxProfileArgs) ElementType() reflect.Type {
@@ -3131,7 +2892,8 @@ type KubernetesClusterLinuxProfilePtrInput interface {
 
 type kubernetesClusterLinuxProfilePtrType KubernetesClusterLinuxProfileArgs
 
-func KubernetesClusterLinuxProfilePtr(v *KubernetesClusterLinuxProfileArgs) KubernetesClusterLinuxProfilePtrInput {	return (*kubernetesClusterLinuxProfilePtrType)(v)
+func KubernetesClusterLinuxProfilePtr(v *KubernetesClusterLinuxProfileArgs) KubernetesClusterLinuxProfilePtrInput {
+	return (*kubernetesClusterLinuxProfilePtrType)(v)
 }
 
 func (*kubernetesClusterLinuxProfilePtrType) ElementType() reflect.Type {
@@ -3146,7 +2908,7 @@ func (i *kubernetesClusterLinuxProfilePtrType) ToKubernetesClusterLinuxProfilePt
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterLinuxProfilePtrOutput)
 }
 
-type KubernetesClusterLinuxProfileOutput struct { *pulumi.OutputState }
+type KubernetesClusterLinuxProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterLinuxProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterLinuxProfile)(nil)).Elem()
@@ -3170,14 +2932,14 @@ func (o KubernetesClusterLinuxProfileOutput) ToKubernetesClusterLinuxProfilePtrO
 	}).(KubernetesClusterLinuxProfilePtrOutput)
 }
 func (o KubernetesClusterLinuxProfileOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
 func (o KubernetesClusterLinuxProfileOutput) SshKey() KubernetesClusterLinuxProfileSshKeyOutput {
-	return o.ApplyT(func (v KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfileSshKey { return v.SshKey }).(KubernetesClusterLinuxProfileSshKeyOutput)
+	return o.ApplyT(func(v KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfileSshKey { return v.SshKey }).(KubernetesClusterLinuxProfileSshKeyOutput)
 }
 
-type KubernetesClusterLinuxProfilePtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterLinuxProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterLinuxProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterLinuxProfile)(nil)).Elem()
@@ -3192,15 +2954,15 @@ func (o KubernetesClusterLinuxProfilePtrOutput) ToKubernetesClusterLinuxProfileP
 }
 
 func (o KubernetesClusterLinuxProfilePtrOutput) Elem() KubernetesClusterLinuxProfileOutput {
-	return o.ApplyT(func (v *KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfile { return *v }).(KubernetesClusterLinuxProfileOutput)
+	return o.ApplyT(func(v *KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfile { return *v }).(KubernetesClusterLinuxProfileOutput)
 }
 
 func (o KubernetesClusterLinuxProfilePtrOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
 func (o KubernetesClusterLinuxProfilePtrOutput) SshKey() KubernetesClusterLinuxProfileSshKeyOutput {
-	return o.ApplyT(func (v KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfileSshKey { return v.SshKey }).(KubernetesClusterLinuxProfileSshKeyOutput)
+	return o.ApplyT(func(v KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfileSshKey { return v.SshKey }).(KubernetesClusterLinuxProfileSshKeyOutput)
 }
 
 type KubernetesClusterLinuxProfileSshKey struct {
@@ -3230,7 +2992,7 @@ func (i KubernetesClusterLinuxProfileSshKeyArgs) ToKubernetesClusterLinuxProfile
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterLinuxProfileSshKeyOutput)
 }
 
-type KubernetesClusterLinuxProfileSshKeyOutput struct { *pulumi.OutputState }
+type KubernetesClusterLinuxProfileSshKeyOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterLinuxProfileSshKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterLinuxProfileSshKey)(nil)).Elem()
@@ -3245,18 +3007,18 @@ func (o KubernetesClusterLinuxProfileSshKeyOutput) ToKubernetesClusterLinuxProfi
 }
 
 func (o KubernetesClusterLinuxProfileSshKeyOutput) KeyData() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterLinuxProfileSshKey) string { return v.KeyData }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterLinuxProfileSshKey) string { return v.KeyData }).(pulumi.StringOutput)
 }
 
 type KubernetesClusterNetworkProfile struct {
-	DnsServiceIp *string `pulumi:"dnsServiceIp"`
-	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
+	DnsServiceIp        *string                                             `pulumi:"dnsServiceIp"`
+	DockerBridgeCidr    *string                                             `pulumi:"dockerBridgeCidr"`
 	LoadBalancerProfile *KubernetesClusterNetworkProfileLoadBalancerProfile `pulumi:"loadBalancerProfile"`
-	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
-	NetworkPlugin string `pulumi:"networkPlugin"`
-	NetworkPolicy *string `pulumi:"networkPolicy"`
-	PodCidr *string `pulumi:"podCidr"`
-	ServiceCidr *string `pulumi:"serviceCidr"`
+	LoadBalancerSku     *string                                             `pulumi:"loadBalancerSku"`
+	NetworkPlugin       string                                              `pulumi:"networkPlugin"`
+	NetworkPolicy       *string                                             `pulumi:"networkPolicy"`
+	PodCidr             *string                                             `pulumi:"podCidr"`
+	ServiceCidr         *string                                             `pulumi:"serviceCidr"`
 }
 
 type KubernetesClusterNetworkProfileInput interface {
@@ -3267,14 +3029,14 @@ type KubernetesClusterNetworkProfileInput interface {
 }
 
 type KubernetesClusterNetworkProfileArgs struct {
-	DnsServiceIp pulumi.StringPtrInput `pulumi:"dnsServiceIp"`
-	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
+	DnsServiceIp        pulumi.StringPtrInput                                      `pulumi:"dnsServiceIp"`
+	DockerBridgeCidr    pulumi.StringPtrInput                                      `pulumi:"dockerBridgeCidr"`
 	LoadBalancerProfile KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput `pulumi:"loadBalancerProfile"`
-	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
-	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
-	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
-	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
-	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
+	LoadBalancerSku     pulumi.StringPtrInput                                      `pulumi:"loadBalancerSku"`
+	NetworkPlugin       pulumi.StringInput                                         `pulumi:"networkPlugin"`
+	NetworkPolicy       pulumi.StringPtrInput                                      `pulumi:"networkPolicy"`
+	PodCidr             pulumi.StringPtrInput                                      `pulumi:"podCidr"`
+	ServiceCidr         pulumi.StringPtrInput                                      `pulumi:"serviceCidr"`
 }
 
 func (KubernetesClusterNetworkProfileArgs) ElementType() reflect.Type {
@@ -3306,7 +3068,8 @@ type KubernetesClusterNetworkProfilePtrInput interface {
 
 type kubernetesClusterNetworkProfilePtrType KubernetesClusterNetworkProfileArgs
 
-func KubernetesClusterNetworkProfilePtr(v *KubernetesClusterNetworkProfileArgs) KubernetesClusterNetworkProfilePtrInput {	return (*kubernetesClusterNetworkProfilePtrType)(v)
+func KubernetesClusterNetworkProfilePtr(v *KubernetesClusterNetworkProfileArgs) KubernetesClusterNetworkProfilePtrInput {
+	return (*kubernetesClusterNetworkProfilePtrType)(v)
 }
 
 func (*kubernetesClusterNetworkProfilePtrType) ElementType() reflect.Type {
@@ -3321,7 +3084,7 @@ func (i *kubernetesClusterNetworkProfilePtrType) ToKubernetesClusterNetworkProfi
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNetworkProfilePtrOutput)
 }
 
-type KubernetesClusterNetworkProfileOutput struct { *pulumi.OutputState }
+type KubernetesClusterNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNetworkProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterNetworkProfile)(nil)).Elem()
@@ -3345,38 +3108,40 @@ func (o KubernetesClusterNetworkProfileOutput) ToKubernetesClusterNetworkProfile
 	}).(KubernetesClusterNetworkProfilePtrOutput)
 }
 func (o KubernetesClusterNetworkProfileOutput) DnsServiceIp() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.DnsServiceIp }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DnsServiceIp }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterNetworkProfileOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterNetworkProfileOutput) LoadBalancerProfile() KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile { return v.LoadBalancerProfile }).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile {
+		return v.LoadBalancerProfile
+	}).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
 }
 
 func (o KubernetesClusterNetworkProfileOutput) LoadBalancerSku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterNetworkProfileOutput) NetworkPlugin() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
 }
 
 func (o KubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterNetworkProfileOutput) PodCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterNetworkProfileOutput) ServiceCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterNetworkProfilePtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterNetworkProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNetworkProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterNetworkProfile)(nil)).Elem()
@@ -3391,47 +3156,49 @@ func (o KubernetesClusterNetworkProfilePtrOutput) ToKubernetesClusterNetworkProf
 }
 
 func (o KubernetesClusterNetworkProfilePtrOutput) Elem() KubernetesClusterNetworkProfileOutput {
-	return o.ApplyT(func (v *KubernetesClusterNetworkProfile) KubernetesClusterNetworkProfile { return *v }).(KubernetesClusterNetworkProfileOutput)
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) KubernetesClusterNetworkProfile { return *v }).(KubernetesClusterNetworkProfileOutput)
 }
 
 func (o KubernetesClusterNetworkProfilePtrOutput) DnsServiceIp() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.DnsServiceIp }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DnsServiceIp }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterNetworkProfilePtrOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterNetworkProfilePtrOutput) LoadBalancerProfile() KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile { return v.LoadBalancerProfile }).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile {
+		return v.LoadBalancerProfile
+	}).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
 }
 
 func (o KubernetesClusterNetworkProfilePtrOutput) LoadBalancerSku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPlugin() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
 }
 
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterNetworkProfilePtrOutput) PodCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterNetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterNetworkProfileLoadBalancerProfile struct {
 	// The outcome (resource IDs) of the specified arguments.
-	EffectiveOutboundIps []string `pulumi:"effectiveOutboundIps"`
-	ManagedOutboundIpCount *int `pulumi:"managedOutboundIpCount"`
-	OutboundIpAddressIds []string `pulumi:"outboundIpAddressIds"`
-	OutboundIpPrefixIds []string `pulumi:"outboundIpPrefixIds"`
+	EffectiveOutboundIps   []string `pulumi:"effectiveOutboundIps"`
+	ManagedOutboundIpCount *int     `pulumi:"managedOutboundIpCount"`
+	OutboundIpAddressIds   []string `pulumi:"outboundIpAddressIds"`
+	OutboundIpPrefixIds    []string `pulumi:"outboundIpPrefixIds"`
 }
 
 type KubernetesClusterNetworkProfileLoadBalancerProfileInput interface {
@@ -3443,10 +3210,10 @@ type KubernetesClusterNetworkProfileLoadBalancerProfileInput interface {
 
 type KubernetesClusterNetworkProfileLoadBalancerProfileArgs struct {
 	// The outcome (resource IDs) of the specified arguments.
-	EffectiveOutboundIps pulumi.StringArrayInput `pulumi:"effectiveOutboundIps"`
-	ManagedOutboundIpCount pulumi.IntPtrInput `pulumi:"managedOutboundIpCount"`
-	OutboundIpAddressIds pulumi.StringArrayInput `pulumi:"outboundIpAddressIds"`
-	OutboundIpPrefixIds pulumi.StringArrayInput `pulumi:"outboundIpPrefixIds"`
+	EffectiveOutboundIps   pulumi.StringArrayInput `pulumi:"effectiveOutboundIps"`
+	ManagedOutboundIpCount pulumi.IntPtrInput      `pulumi:"managedOutboundIpCount"`
+	OutboundIpAddressIds   pulumi.StringArrayInput `pulumi:"outboundIpAddressIds"`
+	OutboundIpPrefixIds    pulumi.StringArrayInput `pulumi:"outboundIpPrefixIds"`
 }
 
 func (KubernetesClusterNetworkProfileLoadBalancerProfileArgs) ElementType() reflect.Type {
@@ -3478,7 +3245,8 @@ type KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput interface {
 
 type kubernetesClusterNetworkProfileLoadBalancerProfilePtrType KubernetesClusterNetworkProfileLoadBalancerProfileArgs
 
-func KubernetesClusterNetworkProfileLoadBalancerProfilePtr(v *KubernetesClusterNetworkProfileLoadBalancerProfileArgs) KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput {	return (*kubernetesClusterNetworkProfileLoadBalancerProfilePtrType)(v)
+func KubernetesClusterNetworkProfileLoadBalancerProfilePtr(v *KubernetesClusterNetworkProfileLoadBalancerProfileArgs) KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput {
+	return (*kubernetesClusterNetworkProfileLoadBalancerProfilePtrType)(v)
 }
 
 func (*kubernetesClusterNetworkProfileLoadBalancerProfilePtrType) ElementType() reflect.Type {
@@ -3493,7 +3261,7 @@ func (i *kubernetesClusterNetworkProfileLoadBalancerProfilePtrType) ToKubernetes
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
 }
 
-type KubernetesClusterNetworkProfileLoadBalancerProfileOutput struct { *pulumi.OutputState }
+type KubernetesClusterNetworkProfileLoadBalancerProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterNetworkProfileLoadBalancerProfile)(nil)).Elem()
@@ -3516,24 +3284,25 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ToKubernetesCl
 		return &v
 	}).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
 }
+
 // The outcome (resource IDs) of the specified arguments.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) EffectiveOutboundIps() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.EffectiveOutboundIps }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.EffectiveOutboundIps }).(pulumi.StringArrayOutput)
 }
 
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ManagedOutboundIpCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfileLoadBalancerProfile) *int { return v.ManagedOutboundIpCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) *int { return v.ManagedOutboundIpCount }).(pulumi.IntPtrOutput)
 }
 
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) OutboundIpAddressIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpAddressIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpAddressIds }).(pulumi.StringArrayOutput)
 }
 
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) OutboundIpPrefixIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpPrefixIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpPrefixIds }).(pulumi.StringArrayOutput)
 }
 
-type KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterNetworkProfileLoadBalancerProfile)(nil)).Elem()
@@ -3548,29 +3317,31 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ToKubernete
 }
 
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) Elem() KubernetesClusterNetworkProfileLoadBalancerProfileOutput {
-	return o.ApplyT(func (v *KubernetesClusterNetworkProfileLoadBalancerProfile) KubernetesClusterNetworkProfileLoadBalancerProfile { return *v }).(KubernetesClusterNetworkProfileLoadBalancerProfileOutput)
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfileLoadBalancerProfile) KubernetesClusterNetworkProfileLoadBalancerProfile {
+		return *v
+	}).(KubernetesClusterNetworkProfileLoadBalancerProfileOutput)
 }
 
 // The outcome (resource IDs) of the specified arguments.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) EffectiveOutboundIps() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.EffectiveOutboundIps }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.EffectiveOutboundIps }).(pulumi.StringArrayOutput)
 }
 
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ManagedOutboundIpCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfileLoadBalancerProfile) *int { return v.ManagedOutboundIpCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) *int { return v.ManagedOutboundIpCount }).(pulumi.IntPtrOutput)
 }
 
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) OutboundIpAddressIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpAddressIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpAddressIds }).(pulumi.StringArrayOutput)
 }
 
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) OutboundIpPrefixIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpPrefixIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpPrefixIds }).(pulumi.StringArrayOutput)
 }
 
 type KubernetesClusterRoleBasedAccessControl struct {
 	AzureActiveDirectory *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory `pulumi:"azureActiveDirectory"`
-	Enabled bool `pulumi:"enabled"`
+	Enabled              bool                                                         `pulumi:"enabled"`
 }
 
 type KubernetesClusterRoleBasedAccessControlInput interface {
@@ -3582,7 +3353,7 @@ type KubernetesClusterRoleBasedAccessControlInput interface {
 
 type KubernetesClusterRoleBasedAccessControlArgs struct {
 	AzureActiveDirectory KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrInput `pulumi:"azureActiveDirectory"`
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled              pulumi.BoolInput                                                    `pulumi:"enabled"`
 }
 
 func (KubernetesClusterRoleBasedAccessControlArgs) ElementType() reflect.Type {
@@ -3614,7 +3385,8 @@ type KubernetesClusterRoleBasedAccessControlPtrInput interface {
 
 type kubernetesClusterRoleBasedAccessControlPtrType KubernetesClusterRoleBasedAccessControlArgs
 
-func KubernetesClusterRoleBasedAccessControlPtr(v *KubernetesClusterRoleBasedAccessControlArgs) KubernetesClusterRoleBasedAccessControlPtrInput {	return (*kubernetesClusterRoleBasedAccessControlPtrType)(v)
+func KubernetesClusterRoleBasedAccessControlPtr(v *KubernetesClusterRoleBasedAccessControlArgs) KubernetesClusterRoleBasedAccessControlPtrInput {
+	return (*kubernetesClusterRoleBasedAccessControlPtrType)(v)
 }
 
 func (*kubernetesClusterRoleBasedAccessControlPtrType) ElementType() reflect.Type {
@@ -3629,7 +3401,7 @@ func (i *kubernetesClusterRoleBasedAccessControlPtrType) ToKubernetesClusterRole
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterRoleBasedAccessControlPtrOutput)
 }
 
-type KubernetesClusterRoleBasedAccessControlOutput struct { *pulumi.OutputState }
+type KubernetesClusterRoleBasedAccessControlOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterRoleBasedAccessControlOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterRoleBasedAccessControl)(nil)).Elem()
@@ -3653,14 +3425,16 @@ func (o KubernetesClusterRoleBasedAccessControlOutput) ToKubernetesClusterRoleBa
 	}).(KubernetesClusterRoleBasedAccessControlPtrOutput)
 }
 func (o KubernetesClusterRoleBasedAccessControlOutput) AzureActiveDirectory() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControl) *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory { return v.AzureActiveDirectory }).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControl) *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
+		return v.AzureActiveDirectory
+	}).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
 }
 
 func (o KubernetesClusterRoleBasedAccessControlOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControl) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControl) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type KubernetesClusterRoleBasedAccessControlPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterRoleBasedAccessControlPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterRoleBasedAccessControlPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterRoleBasedAccessControl)(nil)).Elem()
@@ -3675,20 +3449,22 @@ func (o KubernetesClusterRoleBasedAccessControlPtrOutput) ToKubernetesClusterRol
 }
 
 func (o KubernetesClusterRoleBasedAccessControlPtrOutput) Elem() KubernetesClusterRoleBasedAccessControlOutput {
-	return o.ApplyT(func (v *KubernetesClusterRoleBasedAccessControl) KubernetesClusterRoleBasedAccessControl { return *v }).(KubernetesClusterRoleBasedAccessControlOutput)
+	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControl) KubernetesClusterRoleBasedAccessControl { return *v }).(KubernetesClusterRoleBasedAccessControlOutput)
 }
 
 func (o KubernetesClusterRoleBasedAccessControlPtrOutput) AzureActiveDirectory() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControl) *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory { return v.AzureActiveDirectory }).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControl) *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
+		return v.AzureActiveDirectory
+	}).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
 }
 
 func (o KubernetesClusterRoleBasedAccessControlPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControl) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControl) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 type KubernetesClusterRoleBasedAccessControlAzureActiveDirectory struct {
-	ClientAppId string `pulumi:"clientAppId"`
-	ServerAppId string `pulumi:"serverAppId"`
+	ClientAppId     string `pulumi:"clientAppId"`
+	ServerAppId     string `pulumi:"serverAppId"`
 	ServerAppSecret string `pulumi:"serverAppSecret"`
 	// The tenant id of the system assigned identity which is used by master components.
 	TenantId *string `pulumi:"tenantId"`
@@ -3702,8 +3478,8 @@ type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput interface 
 }
 
 type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs struct {
-	ClientAppId pulumi.StringInput `pulumi:"clientAppId"`
-	ServerAppId pulumi.StringInput `pulumi:"serverAppId"`
+	ClientAppId     pulumi.StringInput `pulumi:"clientAppId"`
+	ServerAppId     pulumi.StringInput `pulumi:"serverAppId"`
 	ServerAppSecret pulumi.StringInput `pulumi:"serverAppSecret"`
 	// The tenant id of the system assigned identity which is used by master components.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
@@ -3738,7 +3514,8 @@ type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrInput interfa
 
 type kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrType KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs
 
-func KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtr(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrInput {	return (*kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrType)(v)
+func KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtr(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrInput {
+	return (*kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrType)(v)
 }
 
 func (*kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrType) ElementType() reflect.Type {
@@ -3753,7 +3530,7 @@ func (i *kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrType) ToK
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
 }
 
-type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput struct { *pulumi.OutputState }
+type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterRoleBasedAccessControlAzureActiveDirectory)(nil)).Elem()
@@ -3777,23 +3554,23 @@ func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ToKub
 	}).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
 }
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ClientAppId() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ClientAppId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ClientAppId }).(pulumi.StringOutput)
 }
 
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ServerAppId() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppId }).(pulumi.StringOutput)
 }
 
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ServerAppSecret() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppSecret }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppSecret }).(pulumi.StringOutput)
 }
 
 // The tenant id of the system assigned identity which is used by master components.
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterRoleBasedAccessControlAzureActiveDirectory)(nil)).Elem()
@@ -3808,28 +3585,30 @@ func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) To
 }
 
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) Elem() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
-	return o.ApplyT(func (v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) KubernetesClusterRoleBasedAccessControlAzureActiveDirectory { return *v }).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput)
+	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
+		return *v
+	}).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput)
 }
 
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) ClientAppId() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ClientAppId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ClientAppId }).(pulumi.StringOutput)
 }
 
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) ServerAppId() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppId }).(pulumi.StringOutput)
 }
 
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) ServerAppSecret() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppSecret }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppSecret }).(pulumi.StringOutput)
 }
 
 // The tenant id of the system assigned identity which is used by master components.
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterServicePrincipal struct {
-	ClientId string `pulumi:"clientId"`
+	ClientId     string `pulumi:"clientId"`
 	ClientSecret string `pulumi:"clientSecret"`
 }
 
@@ -3841,7 +3620,7 @@ type KubernetesClusterServicePrincipalInput interface {
 }
 
 type KubernetesClusterServicePrincipalArgs struct {
-	ClientId pulumi.StringInput `pulumi:"clientId"`
+	ClientId     pulumi.StringInput `pulumi:"clientId"`
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
 }
 
@@ -3874,7 +3653,8 @@ type KubernetesClusterServicePrincipalPtrInput interface {
 
 type kubernetesClusterServicePrincipalPtrType KubernetesClusterServicePrincipalArgs
 
-func KubernetesClusterServicePrincipalPtr(v *KubernetesClusterServicePrincipalArgs) KubernetesClusterServicePrincipalPtrInput {	return (*kubernetesClusterServicePrincipalPtrType)(v)
+func KubernetesClusterServicePrincipalPtr(v *KubernetesClusterServicePrincipalArgs) KubernetesClusterServicePrincipalPtrInput {
+	return (*kubernetesClusterServicePrincipalPtrType)(v)
 }
 
 func (*kubernetesClusterServicePrincipalPtrType) ElementType() reflect.Type {
@@ -3889,7 +3669,7 @@ func (i *kubernetesClusterServicePrincipalPtrType) ToKubernetesClusterServicePri
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterServicePrincipalPtrOutput)
 }
 
-type KubernetesClusterServicePrincipalOutput struct { *pulumi.OutputState }
+type KubernetesClusterServicePrincipalOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterServicePrincipalOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterServicePrincipal)(nil)).Elem()
@@ -3913,14 +3693,14 @@ func (o KubernetesClusterServicePrincipalOutput) ToKubernetesClusterServicePrinc
 	}).(KubernetesClusterServicePrincipalPtrOutput)
 }
 func (o KubernetesClusterServicePrincipalOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterServicePrincipal) string { return v.ClientId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterServicePrincipal) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
 func (o KubernetesClusterServicePrincipalOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterServicePrincipal) string { return v.ClientSecret }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterServicePrincipal) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
-type KubernetesClusterServicePrincipalPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterServicePrincipalPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterServicePrincipalPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterServicePrincipal)(nil)).Elem()
@@ -3935,20 +3715,20 @@ func (o KubernetesClusterServicePrincipalPtrOutput) ToKubernetesClusterServicePr
 }
 
 func (o KubernetesClusterServicePrincipalPtrOutput) Elem() KubernetesClusterServicePrincipalOutput {
-	return o.ApplyT(func (v *KubernetesClusterServicePrincipal) KubernetesClusterServicePrincipal { return *v }).(KubernetesClusterServicePrincipalOutput)
+	return o.ApplyT(func(v *KubernetesClusterServicePrincipal) KubernetesClusterServicePrincipal { return *v }).(KubernetesClusterServicePrincipalOutput)
 }
 
 func (o KubernetesClusterServicePrincipalPtrOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterServicePrincipal) string { return v.ClientId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterServicePrincipal) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
 func (o KubernetesClusterServicePrincipalPtrOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterServicePrincipal) string { return v.ClientSecret }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterServicePrincipal) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
 type KubernetesClusterWindowsProfile struct {
 	AdminPassword *string `pulumi:"adminPassword"`
-	AdminUsername string `pulumi:"adminUsername"`
+	AdminUsername string  `pulumi:"adminUsername"`
 }
 
 type KubernetesClusterWindowsProfileInput interface {
@@ -3960,7 +3740,7 @@ type KubernetesClusterWindowsProfileInput interface {
 
 type KubernetesClusterWindowsProfileArgs struct {
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
-	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+	AdminUsername pulumi.StringInput    `pulumi:"adminUsername"`
 }
 
 func (KubernetesClusterWindowsProfileArgs) ElementType() reflect.Type {
@@ -3992,7 +3772,8 @@ type KubernetesClusterWindowsProfilePtrInput interface {
 
 type kubernetesClusterWindowsProfilePtrType KubernetesClusterWindowsProfileArgs
 
-func KubernetesClusterWindowsProfilePtr(v *KubernetesClusterWindowsProfileArgs) KubernetesClusterWindowsProfilePtrInput {	return (*kubernetesClusterWindowsProfilePtrType)(v)
+func KubernetesClusterWindowsProfilePtr(v *KubernetesClusterWindowsProfileArgs) KubernetesClusterWindowsProfilePtrInput {
+	return (*kubernetesClusterWindowsProfilePtrType)(v)
 }
 
 func (*kubernetesClusterWindowsProfilePtrType) ElementType() reflect.Type {
@@ -4007,7 +3788,7 @@ func (i *kubernetesClusterWindowsProfilePtrType) ToKubernetesClusterWindowsProfi
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWindowsProfilePtrOutput)
 }
 
-type KubernetesClusterWindowsProfileOutput struct { *pulumi.OutputState }
+type KubernetesClusterWindowsProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterWindowsProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterWindowsProfile)(nil)).Elem()
@@ -4031,14 +3812,14 @@ func (o KubernetesClusterWindowsProfileOutput) ToKubernetesClusterWindowsProfile
 	}).(KubernetesClusterWindowsProfilePtrOutput)
 }
 func (o KubernetesClusterWindowsProfileOutput) AdminPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterWindowsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterWindowsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterWindowsProfileOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-type KubernetesClusterWindowsProfilePtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterWindowsProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterWindowsProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterWindowsProfile)(nil)).Elem()
@@ -4053,15 +3834,15 @@ func (o KubernetesClusterWindowsProfilePtrOutput) ToKubernetesClusterWindowsProf
 }
 
 func (o KubernetesClusterWindowsProfilePtrOutput) Elem() KubernetesClusterWindowsProfileOutput {
-	return o.ApplyT(func (v *KubernetesClusterWindowsProfile) KubernetesClusterWindowsProfile { return *v }).(KubernetesClusterWindowsProfileOutput)
+	return o.ApplyT(func(v *KubernetesClusterWindowsProfile) KubernetesClusterWindowsProfile { return *v }).(KubernetesClusterWindowsProfileOutput)
 }
 
 func (o KubernetesClusterWindowsProfilePtrOutput) AdminPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterWindowsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterWindowsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterWindowsProfilePtrOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
 type RegistryNetworkRuleSet struct {
@@ -4118,7 +3899,8 @@ type RegistryNetworkRuleSetPtrInput interface {
 
 type registryNetworkRuleSetPtrType RegistryNetworkRuleSetArgs
 
-func RegistryNetworkRuleSetPtr(v *RegistryNetworkRuleSetArgs) RegistryNetworkRuleSetPtrInput {	return (*registryNetworkRuleSetPtrType)(v)
+func RegistryNetworkRuleSetPtr(v *RegistryNetworkRuleSetArgs) RegistryNetworkRuleSetPtrInput {
+	return (*registryNetworkRuleSetPtrType)(v)
 }
 
 func (*registryNetworkRuleSetPtrType) ElementType() reflect.Type {
@@ -4133,7 +3915,7 @@ func (i *registryNetworkRuleSetPtrType) ToRegistryNetworkRuleSetPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryNetworkRuleSetPtrOutput)
 }
 
-type RegistryNetworkRuleSetOutput struct { *pulumi.OutputState }
+type RegistryNetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (RegistryNetworkRuleSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegistryNetworkRuleSet)(nil)).Elem()
@@ -4156,22 +3938,23 @@ func (o RegistryNetworkRuleSetOutput) ToRegistryNetworkRuleSetPtrOutputWithConte
 		return &v
 	}).(RegistryNetworkRuleSetPtrOutput)
 }
+
 // The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
 func (o RegistryNetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
 // One or more `ipRule` blocks as defined below.
 func (o RegistryNetworkRuleSetOutput) IpRules() RegistryNetworkRuleSetIpRuleArrayOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule { return v.IpRules }).(RegistryNetworkRuleSetIpRuleArrayOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule { return v.IpRules }).(RegistryNetworkRuleSetIpRuleArrayOutput)
 }
 
 // One or more `virtualNetwork` blocks as defined below.
 func (o RegistryNetworkRuleSetOutput) VirtualNetworks() RegistryNetworkRuleSetVirtualNetworkArrayOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSet) []RegistryNetworkRuleSetVirtualNetwork { return v.VirtualNetworks }).(RegistryNetworkRuleSetVirtualNetworkArrayOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetVirtualNetwork { return v.VirtualNetworks }).(RegistryNetworkRuleSetVirtualNetworkArrayOutput)
 }
 
-type RegistryNetworkRuleSetPtrOutput struct { *pulumi.OutputState}
+type RegistryNetworkRuleSetPtrOutput struct{ *pulumi.OutputState }
 
 func (RegistryNetworkRuleSetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RegistryNetworkRuleSet)(nil)).Elem()
@@ -4186,22 +3969,22 @@ func (o RegistryNetworkRuleSetPtrOutput) ToRegistryNetworkRuleSetPtrOutputWithCo
 }
 
 func (o RegistryNetworkRuleSetPtrOutput) Elem() RegistryNetworkRuleSetOutput {
-	return o.ApplyT(func (v *RegistryNetworkRuleSet) RegistryNetworkRuleSet { return *v }).(RegistryNetworkRuleSetOutput)
+	return o.ApplyT(func(v *RegistryNetworkRuleSet) RegistryNetworkRuleSet { return *v }).(RegistryNetworkRuleSetOutput)
 }
 
 // The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
 func (o RegistryNetworkRuleSetPtrOutput) DefaultAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
 // One or more `ipRule` blocks as defined below.
 func (o RegistryNetworkRuleSetPtrOutput) IpRules() RegistryNetworkRuleSetIpRuleArrayOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule { return v.IpRules }).(RegistryNetworkRuleSetIpRuleArrayOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule { return v.IpRules }).(RegistryNetworkRuleSetIpRuleArrayOutput)
 }
 
 // One or more `virtualNetwork` blocks as defined below.
 func (o RegistryNetworkRuleSetPtrOutput) VirtualNetworks() RegistryNetworkRuleSetVirtualNetworkArrayOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSet) []RegistryNetworkRuleSetVirtualNetwork { return v.VirtualNetworks }).(RegistryNetworkRuleSetVirtualNetworkArrayOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetVirtualNetwork { return v.VirtualNetworks }).(RegistryNetworkRuleSetVirtualNetworkArrayOutput)
 }
 
 type RegistryNetworkRuleSetIpRule struct {
@@ -4258,7 +4041,7 @@ func (i RegistryNetworkRuleSetIpRuleArray) ToRegistryNetworkRuleSetIpRuleArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryNetworkRuleSetIpRuleArrayOutput)
 }
 
-type RegistryNetworkRuleSetIpRuleOutput struct { *pulumi.OutputState }
+type RegistryNetworkRuleSetIpRuleOutput struct{ *pulumi.OutputState }
 
 func (RegistryNetworkRuleSetIpRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegistryNetworkRuleSetIpRule)(nil)).Elem()
@@ -4274,15 +4057,15 @@ func (o RegistryNetworkRuleSetIpRuleOutput) ToRegistryNetworkRuleSetIpRuleOutput
 
 // The behaviour for requests matching this rule. At this time the only supported value is `Allow`
 func (o RegistryNetworkRuleSetIpRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSetIpRule) string { return v.Action }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSetIpRule) string { return v.Action }).(pulumi.StringOutput)
 }
 
 // The CIDR block from which requests will match the rule.
 func (o RegistryNetworkRuleSetIpRuleOutput) IpRange() pulumi.StringOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSetIpRule) string { return v.IpRange }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSetIpRule) string { return v.IpRange }).(pulumi.StringOutput)
 }
 
-type RegistryNetworkRuleSetIpRuleArrayOutput struct { *pulumi.OutputState}
+type RegistryNetworkRuleSetIpRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (RegistryNetworkRuleSetIpRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]RegistryNetworkRuleSetIpRule)(nil)).Elem()
@@ -4297,7 +4080,7 @@ func (o RegistryNetworkRuleSetIpRuleArrayOutput) ToRegistryNetworkRuleSetIpRuleA
 }
 
 func (o RegistryNetworkRuleSetIpRuleArrayOutput) Index(i pulumi.IntInput) RegistryNetworkRuleSetIpRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) RegistryNetworkRuleSetIpRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryNetworkRuleSetIpRule {
 		return vs[0].([]RegistryNetworkRuleSetIpRule)[vs[1].(int)]
 	}).(RegistryNetworkRuleSetIpRuleOutput)
 }
@@ -4356,7 +4139,7 @@ func (i RegistryNetworkRuleSetVirtualNetworkArray) ToRegistryNetworkRuleSetVirtu
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryNetworkRuleSetVirtualNetworkArrayOutput)
 }
 
-type RegistryNetworkRuleSetVirtualNetworkOutput struct { *pulumi.OutputState }
+type RegistryNetworkRuleSetVirtualNetworkOutput struct{ *pulumi.OutputState }
 
 func (RegistryNetworkRuleSetVirtualNetworkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegistryNetworkRuleSetVirtualNetwork)(nil)).Elem()
@@ -4372,15 +4155,15 @@ func (o RegistryNetworkRuleSetVirtualNetworkOutput) ToRegistryNetworkRuleSetVirt
 
 // The behaviour for requests matching this rule. At this time the only supported value is `Allow`
 func (o RegistryNetworkRuleSetVirtualNetworkOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSetVirtualNetwork) string { return v.Action }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSetVirtualNetwork) string { return v.Action }).(pulumi.StringOutput)
 }
 
 // The subnet id from which requests will match the rule.
 func (o RegistryNetworkRuleSetVirtualNetworkOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSetVirtualNetwork) string { return v.SubnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSetVirtualNetwork) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-type RegistryNetworkRuleSetVirtualNetworkArrayOutput struct { *pulumi.OutputState}
+type RegistryNetworkRuleSetVirtualNetworkArrayOutput struct{ *pulumi.OutputState }
 
 func (RegistryNetworkRuleSetVirtualNetworkArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]RegistryNetworkRuleSetVirtualNetwork)(nil)).Elem()
@@ -4395,853 +4178,9 @@ func (o RegistryNetworkRuleSetVirtualNetworkArrayOutput) ToRegistryNetworkRuleSe
 }
 
 func (o RegistryNetworkRuleSetVirtualNetworkArrayOutput) Index(i pulumi.IntInput) RegistryNetworkRuleSetVirtualNetworkOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) RegistryNetworkRuleSetVirtualNetwork {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryNetworkRuleSetVirtualNetwork {
 		return vs[0].([]RegistryNetworkRuleSetVirtualNetwork)[vs[1].(int)]
 	}).(RegistryNetworkRuleSetVirtualNetworkOutput)
-}
-
-type RegistryStorageAccount struct {
-	AccessKey string `pulumi:"accessKey"`
-	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-}
-
-type RegistryStorageAccountInput interface {
-	pulumi.Input
-
-	ToRegistryStorageAccountOutput() RegistryStorageAccountOutput
-	ToRegistryStorageAccountOutputWithContext(context.Context) RegistryStorageAccountOutput
-}
-
-type RegistryStorageAccountArgs struct {
-	AccessKey pulumi.StringInput `pulumi:"accessKey"`
-	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (RegistryStorageAccountArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryStorageAccount)(nil)).Elem()
-}
-
-func (i RegistryStorageAccountArgs) ToRegistryStorageAccountOutput() RegistryStorageAccountOutput {
-	return i.ToRegistryStorageAccountOutputWithContext(context.Background())
-}
-
-func (i RegistryStorageAccountArgs) ToRegistryStorageAccountOutputWithContext(ctx context.Context) RegistryStorageAccountOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryStorageAccountOutput)
-}
-
-func (i RegistryStorageAccountArgs) ToRegistryStorageAccountPtrOutput() RegistryStorageAccountPtrOutput {
-	return i.ToRegistryStorageAccountPtrOutputWithContext(context.Background())
-}
-
-func (i RegistryStorageAccountArgs) ToRegistryStorageAccountPtrOutputWithContext(ctx context.Context) RegistryStorageAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryStorageAccountOutput).ToRegistryStorageAccountPtrOutputWithContext(ctx)
-}
-
-type RegistryStorageAccountPtrInput interface {
-	pulumi.Input
-
-	ToRegistryStorageAccountPtrOutput() RegistryStorageAccountPtrOutput
-	ToRegistryStorageAccountPtrOutputWithContext(context.Context) RegistryStorageAccountPtrOutput
-}
-
-type registryStorageAccountPtrType RegistryStorageAccountArgs
-
-func RegistryStorageAccountPtr(v *RegistryStorageAccountArgs) RegistryStorageAccountPtrInput {	return (*registryStorageAccountPtrType)(v)
-}
-
-func (*registryStorageAccountPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryStorageAccount)(nil)).Elem()
-}
-
-func (i *registryStorageAccountPtrType) ToRegistryStorageAccountPtrOutput() RegistryStorageAccountPtrOutput {
-	return i.ToRegistryStorageAccountPtrOutputWithContext(context.Background())
-}
-
-func (i *registryStorageAccountPtrType) ToRegistryStorageAccountPtrOutputWithContext(ctx context.Context) RegistryStorageAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryStorageAccountPtrOutput)
-}
-
-type RegistryStorageAccountOutput struct { *pulumi.OutputState }
-
-func (RegistryStorageAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryStorageAccount)(nil)).Elem()
-}
-
-func (o RegistryStorageAccountOutput) ToRegistryStorageAccountOutput() RegistryStorageAccountOutput {
-	return o
-}
-
-func (o RegistryStorageAccountOutput) ToRegistryStorageAccountOutputWithContext(ctx context.Context) RegistryStorageAccountOutput {
-	return o
-}
-
-func (o RegistryStorageAccountOutput) ToRegistryStorageAccountPtrOutput() RegistryStorageAccountPtrOutput {
-	return o.ToRegistryStorageAccountPtrOutputWithContext(context.Background())
-}
-
-func (o RegistryStorageAccountOutput) ToRegistryStorageAccountPtrOutputWithContext(ctx context.Context) RegistryStorageAccountPtrOutput {
-	return o.ApplyT(func(v RegistryStorageAccount) *RegistryStorageAccount {
-		return &v
-	}).(RegistryStorageAccountPtrOutput)
-}
-func (o RegistryStorageAccountOutput) AccessKey() pulumi.StringOutput {
-	return o.ApplyT(func (v RegistryStorageAccount) string { return v.AccessKey }).(pulumi.StringOutput)
-}
-
-// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
-func (o RegistryStorageAccountOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v RegistryStorageAccount) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type RegistryStorageAccountPtrOutput struct { *pulumi.OutputState}
-
-func (RegistryStorageAccountPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryStorageAccount)(nil)).Elem()
-}
-
-func (o RegistryStorageAccountPtrOutput) ToRegistryStorageAccountPtrOutput() RegistryStorageAccountPtrOutput {
-	return o
-}
-
-func (o RegistryStorageAccountPtrOutput) ToRegistryStorageAccountPtrOutputWithContext(ctx context.Context) RegistryStorageAccountPtrOutput {
-	return o
-}
-
-func (o RegistryStorageAccountPtrOutput) Elem() RegistryStorageAccountOutput {
-	return o.ApplyT(func (v *RegistryStorageAccount) RegistryStorageAccount { return *v }).(RegistryStorageAccountOutput)
-}
-
-func (o RegistryStorageAccountPtrOutput) AccessKey() pulumi.StringOutput {
-	return o.ApplyT(func (v RegistryStorageAccount) string { return v.AccessKey }).(pulumi.StringOutput)
-}
-
-// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
-func (o RegistryStorageAccountPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v RegistryStorageAccount) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type ServiceAgentPoolProfile struct {
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-	Count *int `pulumi:"count"`
-	// The DNS Prefix given to Agents in this Agent Pool.
-	DnsPrefix string `pulumi:"dnsPrefix"`
-	Fqdn *string `pulumi:"fqdn"`
-	// Unique name of the agent pool profile in the context of the subscription and resource group.
-	Name string `pulumi:"name"`
-	// The VM Size of each of the Agent Pool VM's (e.g. Standard_F1 / Standard_D2v2).
-	VmSize string `pulumi:"vmSize"`
-}
-
-type ServiceAgentPoolProfileInput interface {
-	pulumi.Input
-
-	ToServiceAgentPoolProfileOutput() ServiceAgentPoolProfileOutput
-	ToServiceAgentPoolProfileOutputWithContext(context.Context) ServiceAgentPoolProfileOutput
-}
-
-type ServiceAgentPoolProfileArgs struct {
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The DNS Prefix given to Agents in this Agent Pool.
-	DnsPrefix pulumi.StringInput `pulumi:"dnsPrefix"`
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// Unique name of the agent pool profile in the context of the subscription and resource group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The VM Size of each of the Agent Pool VM's (e.g. Standard_F1 / Standard_D2v2).
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
-}
-
-func (ServiceAgentPoolProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceAgentPoolProfile)(nil)).Elem()
-}
-
-func (i ServiceAgentPoolProfileArgs) ToServiceAgentPoolProfileOutput() ServiceAgentPoolProfileOutput {
-	return i.ToServiceAgentPoolProfileOutputWithContext(context.Background())
-}
-
-func (i ServiceAgentPoolProfileArgs) ToServiceAgentPoolProfileOutputWithContext(ctx context.Context) ServiceAgentPoolProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceAgentPoolProfileOutput)
-}
-
-func (i ServiceAgentPoolProfileArgs) ToServiceAgentPoolProfilePtrOutput() ServiceAgentPoolProfilePtrOutput {
-	return i.ToServiceAgentPoolProfilePtrOutputWithContext(context.Background())
-}
-
-func (i ServiceAgentPoolProfileArgs) ToServiceAgentPoolProfilePtrOutputWithContext(ctx context.Context) ServiceAgentPoolProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceAgentPoolProfileOutput).ToServiceAgentPoolProfilePtrOutputWithContext(ctx)
-}
-
-type ServiceAgentPoolProfilePtrInput interface {
-	pulumi.Input
-
-	ToServiceAgentPoolProfilePtrOutput() ServiceAgentPoolProfilePtrOutput
-	ToServiceAgentPoolProfilePtrOutputWithContext(context.Context) ServiceAgentPoolProfilePtrOutput
-}
-
-type serviceAgentPoolProfilePtrType ServiceAgentPoolProfileArgs
-
-func ServiceAgentPoolProfilePtr(v *ServiceAgentPoolProfileArgs) ServiceAgentPoolProfilePtrInput {	return (*serviceAgentPoolProfilePtrType)(v)
-}
-
-func (*serviceAgentPoolProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceAgentPoolProfile)(nil)).Elem()
-}
-
-func (i *serviceAgentPoolProfilePtrType) ToServiceAgentPoolProfilePtrOutput() ServiceAgentPoolProfilePtrOutput {
-	return i.ToServiceAgentPoolProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *serviceAgentPoolProfilePtrType) ToServiceAgentPoolProfilePtrOutputWithContext(ctx context.Context) ServiceAgentPoolProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceAgentPoolProfilePtrOutput)
-}
-
-type ServiceAgentPoolProfileOutput struct { *pulumi.OutputState }
-
-func (ServiceAgentPoolProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceAgentPoolProfile)(nil)).Elem()
-}
-
-func (o ServiceAgentPoolProfileOutput) ToServiceAgentPoolProfileOutput() ServiceAgentPoolProfileOutput {
-	return o
-}
-
-func (o ServiceAgentPoolProfileOutput) ToServiceAgentPoolProfileOutputWithContext(ctx context.Context) ServiceAgentPoolProfileOutput {
-	return o
-}
-
-func (o ServiceAgentPoolProfileOutput) ToServiceAgentPoolProfilePtrOutput() ServiceAgentPoolProfilePtrOutput {
-	return o.ToServiceAgentPoolProfilePtrOutputWithContext(context.Background())
-}
-
-func (o ServiceAgentPoolProfileOutput) ToServiceAgentPoolProfilePtrOutputWithContext(ctx context.Context) ServiceAgentPoolProfilePtrOutput {
-	return o.ApplyT(func(v ServiceAgentPoolProfile) *ServiceAgentPoolProfile {
-		return &v
-	}).(ServiceAgentPoolProfilePtrOutput)
-}
-// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-func (o ServiceAgentPoolProfileOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ServiceAgentPoolProfile) *int { return v.Count }).(pulumi.IntPtrOutput)
-}
-
-// The DNS Prefix given to Agents in this Agent Pool.
-func (o ServiceAgentPoolProfileOutput) DnsPrefix() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceAgentPoolProfile) string { return v.DnsPrefix }).(pulumi.StringOutput)
-}
-
-func (o ServiceAgentPoolProfileOutput) Fqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceAgentPoolProfile) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
-}
-
-// Unique name of the agent pool profile in the context of the subscription and resource group.
-func (o ServiceAgentPoolProfileOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceAgentPoolProfile) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The VM Size of each of the Agent Pool VM's (e.g. Standard_F1 / Standard_D2v2).
-func (o ServiceAgentPoolProfileOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceAgentPoolProfile) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type ServiceAgentPoolProfilePtrOutput struct { *pulumi.OutputState}
-
-func (ServiceAgentPoolProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceAgentPoolProfile)(nil)).Elem()
-}
-
-func (o ServiceAgentPoolProfilePtrOutput) ToServiceAgentPoolProfilePtrOutput() ServiceAgentPoolProfilePtrOutput {
-	return o
-}
-
-func (o ServiceAgentPoolProfilePtrOutput) ToServiceAgentPoolProfilePtrOutputWithContext(ctx context.Context) ServiceAgentPoolProfilePtrOutput {
-	return o
-}
-
-func (o ServiceAgentPoolProfilePtrOutput) Elem() ServiceAgentPoolProfileOutput {
-	return o.ApplyT(func (v *ServiceAgentPoolProfile) ServiceAgentPoolProfile { return *v }).(ServiceAgentPoolProfileOutput)
-}
-
-// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-func (o ServiceAgentPoolProfilePtrOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ServiceAgentPoolProfile) *int { return v.Count }).(pulumi.IntPtrOutput)
-}
-
-// The DNS Prefix given to Agents in this Agent Pool.
-func (o ServiceAgentPoolProfilePtrOutput) DnsPrefix() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceAgentPoolProfile) string { return v.DnsPrefix }).(pulumi.StringOutput)
-}
-
-func (o ServiceAgentPoolProfilePtrOutput) Fqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceAgentPoolProfile) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
-}
-
-// Unique name of the agent pool profile in the context of the subscription and resource group.
-func (o ServiceAgentPoolProfilePtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceAgentPoolProfile) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The VM Size of each of the Agent Pool VM's (e.g. Standard_F1 / Standard_D2v2).
-func (o ServiceAgentPoolProfilePtrOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceAgentPoolProfile) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type ServiceDiagnosticsProfile struct {
-	// Should VM Diagnostics be enabled for the Container Service VM's
-	Enabled bool `pulumi:"enabled"`
-	StorageUri *string `pulumi:"storageUri"`
-}
-
-type ServiceDiagnosticsProfileInput interface {
-	pulumi.Input
-
-	ToServiceDiagnosticsProfileOutput() ServiceDiagnosticsProfileOutput
-	ToServiceDiagnosticsProfileOutputWithContext(context.Context) ServiceDiagnosticsProfileOutput
-}
-
-type ServiceDiagnosticsProfileArgs struct {
-	// Should VM Diagnostics be enabled for the Container Service VM's
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	StorageUri pulumi.StringPtrInput `pulumi:"storageUri"`
-}
-
-func (ServiceDiagnosticsProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceDiagnosticsProfile)(nil)).Elem()
-}
-
-func (i ServiceDiagnosticsProfileArgs) ToServiceDiagnosticsProfileOutput() ServiceDiagnosticsProfileOutput {
-	return i.ToServiceDiagnosticsProfileOutputWithContext(context.Background())
-}
-
-func (i ServiceDiagnosticsProfileArgs) ToServiceDiagnosticsProfileOutputWithContext(ctx context.Context) ServiceDiagnosticsProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceDiagnosticsProfileOutput)
-}
-
-func (i ServiceDiagnosticsProfileArgs) ToServiceDiagnosticsProfilePtrOutput() ServiceDiagnosticsProfilePtrOutput {
-	return i.ToServiceDiagnosticsProfilePtrOutputWithContext(context.Background())
-}
-
-func (i ServiceDiagnosticsProfileArgs) ToServiceDiagnosticsProfilePtrOutputWithContext(ctx context.Context) ServiceDiagnosticsProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceDiagnosticsProfileOutput).ToServiceDiagnosticsProfilePtrOutputWithContext(ctx)
-}
-
-type ServiceDiagnosticsProfilePtrInput interface {
-	pulumi.Input
-
-	ToServiceDiagnosticsProfilePtrOutput() ServiceDiagnosticsProfilePtrOutput
-	ToServiceDiagnosticsProfilePtrOutputWithContext(context.Context) ServiceDiagnosticsProfilePtrOutput
-}
-
-type serviceDiagnosticsProfilePtrType ServiceDiagnosticsProfileArgs
-
-func ServiceDiagnosticsProfilePtr(v *ServiceDiagnosticsProfileArgs) ServiceDiagnosticsProfilePtrInput {	return (*serviceDiagnosticsProfilePtrType)(v)
-}
-
-func (*serviceDiagnosticsProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceDiagnosticsProfile)(nil)).Elem()
-}
-
-func (i *serviceDiagnosticsProfilePtrType) ToServiceDiagnosticsProfilePtrOutput() ServiceDiagnosticsProfilePtrOutput {
-	return i.ToServiceDiagnosticsProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *serviceDiagnosticsProfilePtrType) ToServiceDiagnosticsProfilePtrOutputWithContext(ctx context.Context) ServiceDiagnosticsProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceDiagnosticsProfilePtrOutput)
-}
-
-type ServiceDiagnosticsProfileOutput struct { *pulumi.OutputState }
-
-func (ServiceDiagnosticsProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceDiagnosticsProfile)(nil)).Elem()
-}
-
-func (o ServiceDiagnosticsProfileOutput) ToServiceDiagnosticsProfileOutput() ServiceDiagnosticsProfileOutput {
-	return o
-}
-
-func (o ServiceDiagnosticsProfileOutput) ToServiceDiagnosticsProfileOutputWithContext(ctx context.Context) ServiceDiagnosticsProfileOutput {
-	return o
-}
-
-func (o ServiceDiagnosticsProfileOutput) ToServiceDiagnosticsProfilePtrOutput() ServiceDiagnosticsProfilePtrOutput {
-	return o.ToServiceDiagnosticsProfilePtrOutputWithContext(context.Background())
-}
-
-func (o ServiceDiagnosticsProfileOutput) ToServiceDiagnosticsProfilePtrOutputWithContext(ctx context.Context) ServiceDiagnosticsProfilePtrOutput {
-	return o.ApplyT(func(v ServiceDiagnosticsProfile) *ServiceDiagnosticsProfile {
-		return &v
-	}).(ServiceDiagnosticsProfilePtrOutput)
-}
-// Should VM Diagnostics be enabled for the Container Service VM's
-func (o ServiceDiagnosticsProfileOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v ServiceDiagnosticsProfile) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-func (o ServiceDiagnosticsProfileOutput) StorageUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceDiagnosticsProfile) *string { return v.StorageUri }).(pulumi.StringPtrOutput)
-}
-
-type ServiceDiagnosticsProfilePtrOutput struct { *pulumi.OutputState}
-
-func (ServiceDiagnosticsProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceDiagnosticsProfile)(nil)).Elem()
-}
-
-func (o ServiceDiagnosticsProfilePtrOutput) ToServiceDiagnosticsProfilePtrOutput() ServiceDiagnosticsProfilePtrOutput {
-	return o
-}
-
-func (o ServiceDiagnosticsProfilePtrOutput) ToServiceDiagnosticsProfilePtrOutputWithContext(ctx context.Context) ServiceDiagnosticsProfilePtrOutput {
-	return o
-}
-
-func (o ServiceDiagnosticsProfilePtrOutput) Elem() ServiceDiagnosticsProfileOutput {
-	return o.ApplyT(func (v *ServiceDiagnosticsProfile) ServiceDiagnosticsProfile { return *v }).(ServiceDiagnosticsProfileOutput)
-}
-
-// Should VM Diagnostics be enabled for the Container Service VM's
-func (o ServiceDiagnosticsProfilePtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v ServiceDiagnosticsProfile) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-func (o ServiceDiagnosticsProfilePtrOutput) StorageUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceDiagnosticsProfile) *string { return v.StorageUri }).(pulumi.StringPtrOutput)
-}
-
-type ServiceLinuxProfile struct {
-	// The Admin Username for the Cluster.
-	AdminUsername string `pulumi:"adminUsername"`
-	// An SSH Key block as documented below.
-	SshKey ServiceLinuxProfileSshKey `pulumi:"sshKey"`
-}
-
-type ServiceLinuxProfileInput interface {
-	pulumi.Input
-
-	ToServiceLinuxProfileOutput() ServiceLinuxProfileOutput
-	ToServiceLinuxProfileOutputWithContext(context.Context) ServiceLinuxProfileOutput
-}
-
-type ServiceLinuxProfileArgs struct {
-	// The Admin Username for the Cluster.
-	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
-	// An SSH Key block as documented below.
-	SshKey ServiceLinuxProfileSshKeyInput `pulumi:"sshKey"`
-}
-
-func (ServiceLinuxProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLinuxProfile)(nil)).Elem()
-}
-
-func (i ServiceLinuxProfileArgs) ToServiceLinuxProfileOutput() ServiceLinuxProfileOutput {
-	return i.ToServiceLinuxProfileOutputWithContext(context.Background())
-}
-
-func (i ServiceLinuxProfileArgs) ToServiceLinuxProfileOutputWithContext(ctx context.Context) ServiceLinuxProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceLinuxProfileOutput)
-}
-
-func (i ServiceLinuxProfileArgs) ToServiceLinuxProfilePtrOutput() ServiceLinuxProfilePtrOutput {
-	return i.ToServiceLinuxProfilePtrOutputWithContext(context.Background())
-}
-
-func (i ServiceLinuxProfileArgs) ToServiceLinuxProfilePtrOutputWithContext(ctx context.Context) ServiceLinuxProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceLinuxProfileOutput).ToServiceLinuxProfilePtrOutputWithContext(ctx)
-}
-
-type ServiceLinuxProfilePtrInput interface {
-	pulumi.Input
-
-	ToServiceLinuxProfilePtrOutput() ServiceLinuxProfilePtrOutput
-	ToServiceLinuxProfilePtrOutputWithContext(context.Context) ServiceLinuxProfilePtrOutput
-}
-
-type serviceLinuxProfilePtrType ServiceLinuxProfileArgs
-
-func ServiceLinuxProfilePtr(v *ServiceLinuxProfileArgs) ServiceLinuxProfilePtrInput {	return (*serviceLinuxProfilePtrType)(v)
-}
-
-func (*serviceLinuxProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceLinuxProfile)(nil)).Elem()
-}
-
-func (i *serviceLinuxProfilePtrType) ToServiceLinuxProfilePtrOutput() ServiceLinuxProfilePtrOutput {
-	return i.ToServiceLinuxProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *serviceLinuxProfilePtrType) ToServiceLinuxProfilePtrOutputWithContext(ctx context.Context) ServiceLinuxProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceLinuxProfilePtrOutput)
-}
-
-type ServiceLinuxProfileOutput struct { *pulumi.OutputState }
-
-func (ServiceLinuxProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLinuxProfile)(nil)).Elem()
-}
-
-func (o ServiceLinuxProfileOutput) ToServiceLinuxProfileOutput() ServiceLinuxProfileOutput {
-	return o
-}
-
-func (o ServiceLinuxProfileOutput) ToServiceLinuxProfileOutputWithContext(ctx context.Context) ServiceLinuxProfileOutput {
-	return o
-}
-
-func (o ServiceLinuxProfileOutput) ToServiceLinuxProfilePtrOutput() ServiceLinuxProfilePtrOutput {
-	return o.ToServiceLinuxProfilePtrOutputWithContext(context.Background())
-}
-
-func (o ServiceLinuxProfileOutput) ToServiceLinuxProfilePtrOutputWithContext(ctx context.Context) ServiceLinuxProfilePtrOutput {
-	return o.ApplyT(func(v ServiceLinuxProfile) *ServiceLinuxProfile {
-		return &v
-	}).(ServiceLinuxProfilePtrOutput)
-}
-// The Admin Username for the Cluster.
-func (o ServiceLinuxProfileOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
-}
-
-// An SSH Key block as documented below.
-func (o ServiceLinuxProfileOutput) SshKey() ServiceLinuxProfileSshKeyOutput {
-	return o.ApplyT(func (v ServiceLinuxProfile) ServiceLinuxProfileSshKey { return v.SshKey }).(ServiceLinuxProfileSshKeyOutput)
-}
-
-type ServiceLinuxProfilePtrOutput struct { *pulumi.OutputState}
-
-func (ServiceLinuxProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceLinuxProfile)(nil)).Elem()
-}
-
-func (o ServiceLinuxProfilePtrOutput) ToServiceLinuxProfilePtrOutput() ServiceLinuxProfilePtrOutput {
-	return o
-}
-
-func (o ServiceLinuxProfilePtrOutput) ToServiceLinuxProfilePtrOutputWithContext(ctx context.Context) ServiceLinuxProfilePtrOutput {
-	return o
-}
-
-func (o ServiceLinuxProfilePtrOutput) Elem() ServiceLinuxProfileOutput {
-	return o.ApplyT(func (v *ServiceLinuxProfile) ServiceLinuxProfile { return *v }).(ServiceLinuxProfileOutput)
-}
-
-// The Admin Username for the Cluster.
-func (o ServiceLinuxProfilePtrOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
-}
-
-// An SSH Key block as documented below.
-func (o ServiceLinuxProfilePtrOutput) SshKey() ServiceLinuxProfileSshKeyOutput {
-	return o.ApplyT(func (v ServiceLinuxProfile) ServiceLinuxProfileSshKey { return v.SshKey }).(ServiceLinuxProfileSshKeyOutput)
-}
-
-type ServiceLinuxProfileSshKey struct {
-	// The Public SSH Key used to access the cluster.
-	KeyData string `pulumi:"keyData"`
-}
-
-type ServiceLinuxProfileSshKeyInput interface {
-	pulumi.Input
-
-	ToServiceLinuxProfileSshKeyOutput() ServiceLinuxProfileSshKeyOutput
-	ToServiceLinuxProfileSshKeyOutputWithContext(context.Context) ServiceLinuxProfileSshKeyOutput
-}
-
-type ServiceLinuxProfileSshKeyArgs struct {
-	// The Public SSH Key used to access the cluster.
-	KeyData pulumi.StringInput `pulumi:"keyData"`
-}
-
-func (ServiceLinuxProfileSshKeyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLinuxProfileSshKey)(nil)).Elem()
-}
-
-func (i ServiceLinuxProfileSshKeyArgs) ToServiceLinuxProfileSshKeyOutput() ServiceLinuxProfileSshKeyOutput {
-	return i.ToServiceLinuxProfileSshKeyOutputWithContext(context.Background())
-}
-
-func (i ServiceLinuxProfileSshKeyArgs) ToServiceLinuxProfileSshKeyOutputWithContext(ctx context.Context) ServiceLinuxProfileSshKeyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceLinuxProfileSshKeyOutput)
-}
-
-type ServiceLinuxProfileSshKeyOutput struct { *pulumi.OutputState }
-
-func (ServiceLinuxProfileSshKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLinuxProfileSshKey)(nil)).Elem()
-}
-
-func (o ServiceLinuxProfileSshKeyOutput) ToServiceLinuxProfileSshKeyOutput() ServiceLinuxProfileSshKeyOutput {
-	return o
-}
-
-func (o ServiceLinuxProfileSshKeyOutput) ToServiceLinuxProfileSshKeyOutputWithContext(ctx context.Context) ServiceLinuxProfileSshKeyOutput {
-	return o
-}
-
-// The Public SSH Key used to access the cluster.
-func (o ServiceLinuxProfileSshKeyOutput) KeyData() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceLinuxProfileSshKey) string { return v.KeyData }).(pulumi.StringOutput)
-}
-
-type ServiceMasterProfile struct {
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-	Count *int `pulumi:"count"`
-	// The DNS Prefix given to Agents in this Agent Pool.
-	DnsPrefix string `pulumi:"dnsPrefix"`
-	Fqdn *string `pulumi:"fqdn"`
-}
-
-type ServiceMasterProfileInput interface {
-	pulumi.Input
-
-	ToServiceMasterProfileOutput() ServiceMasterProfileOutput
-	ToServiceMasterProfileOutputWithContext(context.Context) ServiceMasterProfileOutput
-}
-
-type ServiceMasterProfileArgs struct {
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The DNS Prefix given to Agents in this Agent Pool.
-	DnsPrefix pulumi.StringInput `pulumi:"dnsPrefix"`
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-}
-
-func (ServiceMasterProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceMasterProfile)(nil)).Elem()
-}
-
-func (i ServiceMasterProfileArgs) ToServiceMasterProfileOutput() ServiceMasterProfileOutput {
-	return i.ToServiceMasterProfileOutputWithContext(context.Background())
-}
-
-func (i ServiceMasterProfileArgs) ToServiceMasterProfileOutputWithContext(ctx context.Context) ServiceMasterProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceMasterProfileOutput)
-}
-
-func (i ServiceMasterProfileArgs) ToServiceMasterProfilePtrOutput() ServiceMasterProfilePtrOutput {
-	return i.ToServiceMasterProfilePtrOutputWithContext(context.Background())
-}
-
-func (i ServiceMasterProfileArgs) ToServiceMasterProfilePtrOutputWithContext(ctx context.Context) ServiceMasterProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceMasterProfileOutput).ToServiceMasterProfilePtrOutputWithContext(ctx)
-}
-
-type ServiceMasterProfilePtrInput interface {
-	pulumi.Input
-
-	ToServiceMasterProfilePtrOutput() ServiceMasterProfilePtrOutput
-	ToServiceMasterProfilePtrOutputWithContext(context.Context) ServiceMasterProfilePtrOutput
-}
-
-type serviceMasterProfilePtrType ServiceMasterProfileArgs
-
-func ServiceMasterProfilePtr(v *ServiceMasterProfileArgs) ServiceMasterProfilePtrInput {	return (*serviceMasterProfilePtrType)(v)
-}
-
-func (*serviceMasterProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceMasterProfile)(nil)).Elem()
-}
-
-func (i *serviceMasterProfilePtrType) ToServiceMasterProfilePtrOutput() ServiceMasterProfilePtrOutput {
-	return i.ToServiceMasterProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *serviceMasterProfilePtrType) ToServiceMasterProfilePtrOutputWithContext(ctx context.Context) ServiceMasterProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceMasterProfilePtrOutput)
-}
-
-type ServiceMasterProfileOutput struct { *pulumi.OutputState }
-
-func (ServiceMasterProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceMasterProfile)(nil)).Elem()
-}
-
-func (o ServiceMasterProfileOutput) ToServiceMasterProfileOutput() ServiceMasterProfileOutput {
-	return o
-}
-
-func (o ServiceMasterProfileOutput) ToServiceMasterProfileOutputWithContext(ctx context.Context) ServiceMasterProfileOutput {
-	return o
-}
-
-func (o ServiceMasterProfileOutput) ToServiceMasterProfilePtrOutput() ServiceMasterProfilePtrOutput {
-	return o.ToServiceMasterProfilePtrOutputWithContext(context.Background())
-}
-
-func (o ServiceMasterProfileOutput) ToServiceMasterProfilePtrOutputWithContext(ctx context.Context) ServiceMasterProfilePtrOutput {
-	return o.ApplyT(func(v ServiceMasterProfile) *ServiceMasterProfile {
-		return &v
-	}).(ServiceMasterProfilePtrOutput)
-}
-// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-func (o ServiceMasterProfileOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ServiceMasterProfile) *int { return v.Count }).(pulumi.IntPtrOutput)
-}
-
-// The DNS Prefix given to Agents in this Agent Pool.
-func (o ServiceMasterProfileOutput) DnsPrefix() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceMasterProfile) string { return v.DnsPrefix }).(pulumi.StringOutput)
-}
-
-func (o ServiceMasterProfileOutput) Fqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceMasterProfile) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
-}
-
-type ServiceMasterProfilePtrOutput struct { *pulumi.OutputState}
-
-func (ServiceMasterProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceMasterProfile)(nil)).Elem()
-}
-
-func (o ServiceMasterProfilePtrOutput) ToServiceMasterProfilePtrOutput() ServiceMasterProfilePtrOutput {
-	return o
-}
-
-func (o ServiceMasterProfilePtrOutput) ToServiceMasterProfilePtrOutputWithContext(ctx context.Context) ServiceMasterProfilePtrOutput {
-	return o
-}
-
-func (o ServiceMasterProfilePtrOutput) Elem() ServiceMasterProfileOutput {
-	return o.ApplyT(func (v *ServiceMasterProfile) ServiceMasterProfile { return *v }).(ServiceMasterProfileOutput)
-}
-
-// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-func (o ServiceMasterProfilePtrOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ServiceMasterProfile) *int { return v.Count }).(pulumi.IntPtrOutput)
-}
-
-// The DNS Prefix given to Agents in this Agent Pool.
-func (o ServiceMasterProfilePtrOutput) DnsPrefix() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceMasterProfile) string { return v.DnsPrefix }).(pulumi.StringOutput)
-}
-
-func (o ServiceMasterProfilePtrOutput) Fqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceMasterProfile) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
-}
-
-type ServiceServicePrincipal struct {
-	// The ID for the Service Principal.
-	ClientId string `pulumi:"clientId"`
-	// The secret password associated with the service principal.
-	ClientSecret string `pulumi:"clientSecret"`
-}
-
-type ServiceServicePrincipalInput interface {
-	pulumi.Input
-
-	ToServiceServicePrincipalOutput() ServiceServicePrincipalOutput
-	ToServiceServicePrincipalOutputWithContext(context.Context) ServiceServicePrincipalOutput
-}
-
-type ServiceServicePrincipalArgs struct {
-	// The ID for the Service Principal.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The secret password associated with the service principal.
-	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
-}
-
-func (ServiceServicePrincipalArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceServicePrincipal)(nil)).Elem()
-}
-
-func (i ServiceServicePrincipalArgs) ToServiceServicePrincipalOutput() ServiceServicePrincipalOutput {
-	return i.ToServiceServicePrincipalOutputWithContext(context.Background())
-}
-
-func (i ServiceServicePrincipalArgs) ToServiceServicePrincipalOutputWithContext(ctx context.Context) ServiceServicePrincipalOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceServicePrincipalOutput)
-}
-
-func (i ServiceServicePrincipalArgs) ToServiceServicePrincipalPtrOutput() ServiceServicePrincipalPtrOutput {
-	return i.ToServiceServicePrincipalPtrOutputWithContext(context.Background())
-}
-
-func (i ServiceServicePrincipalArgs) ToServiceServicePrincipalPtrOutputWithContext(ctx context.Context) ServiceServicePrincipalPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceServicePrincipalOutput).ToServiceServicePrincipalPtrOutputWithContext(ctx)
-}
-
-type ServiceServicePrincipalPtrInput interface {
-	pulumi.Input
-
-	ToServiceServicePrincipalPtrOutput() ServiceServicePrincipalPtrOutput
-	ToServiceServicePrincipalPtrOutputWithContext(context.Context) ServiceServicePrincipalPtrOutput
-}
-
-type serviceServicePrincipalPtrType ServiceServicePrincipalArgs
-
-func ServiceServicePrincipalPtr(v *ServiceServicePrincipalArgs) ServiceServicePrincipalPtrInput {	return (*serviceServicePrincipalPtrType)(v)
-}
-
-func (*serviceServicePrincipalPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceServicePrincipal)(nil)).Elem()
-}
-
-func (i *serviceServicePrincipalPtrType) ToServiceServicePrincipalPtrOutput() ServiceServicePrincipalPtrOutput {
-	return i.ToServiceServicePrincipalPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceServicePrincipalPtrType) ToServiceServicePrincipalPtrOutputWithContext(ctx context.Context) ServiceServicePrincipalPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceServicePrincipalPtrOutput)
-}
-
-type ServiceServicePrincipalOutput struct { *pulumi.OutputState }
-
-func (ServiceServicePrincipalOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceServicePrincipal)(nil)).Elem()
-}
-
-func (o ServiceServicePrincipalOutput) ToServiceServicePrincipalOutput() ServiceServicePrincipalOutput {
-	return o
-}
-
-func (o ServiceServicePrincipalOutput) ToServiceServicePrincipalOutputWithContext(ctx context.Context) ServiceServicePrincipalOutput {
-	return o
-}
-
-func (o ServiceServicePrincipalOutput) ToServiceServicePrincipalPtrOutput() ServiceServicePrincipalPtrOutput {
-	return o.ToServiceServicePrincipalPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceServicePrincipalOutput) ToServiceServicePrincipalPtrOutputWithContext(ctx context.Context) ServiceServicePrincipalPtrOutput {
-	return o.ApplyT(func(v ServiceServicePrincipal) *ServiceServicePrincipal {
-		return &v
-	}).(ServiceServicePrincipalPtrOutput)
-}
-// The ID for the Service Principal.
-func (o ServiceServicePrincipalOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceServicePrincipal) string { return v.ClientId }).(pulumi.StringOutput)
-}
-
-// The secret password associated with the service principal.
-func (o ServiceServicePrincipalOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceServicePrincipal) string { return v.ClientSecret }).(pulumi.StringOutput)
-}
-
-type ServiceServicePrincipalPtrOutput struct { *pulumi.OutputState}
-
-func (ServiceServicePrincipalPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceServicePrincipal)(nil)).Elem()
-}
-
-func (o ServiceServicePrincipalPtrOutput) ToServiceServicePrincipalPtrOutput() ServiceServicePrincipalPtrOutput {
-	return o
-}
-
-func (o ServiceServicePrincipalPtrOutput) ToServiceServicePrincipalPtrOutputWithContext(ctx context.Context) ServiceServicePrincipalPtrOutput {
-	return o
-}
-
-func (o ServiceServicePrincipalPtrOutput) Elem() ServiceServicePrincipalOutput {
-	return o.ApplyT(func (v *ServiceServicePrincipal) ServiceServicePrincipal { return *v }).(ServiceServicePrincipalOutput)
-}
-
-// The ID for the Service Principal.
-func (o ServiceServicePrincipalPtrOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceServicePrincipal) string { return v.ClientId }).(pulumi.StringOutput)
-}
-
-// The secret password associated with the service principal.
-func (o ServiceServicePrincipalPtrOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceServicePrincipal) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
 type GetKubernetesClusterAddonProfile struct {
@@ -5306,7 +4245,7 @@ func (i GetKubernetesClusterAddonProfileArray) ToGetKubernetesClusterAddonProfil
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileArrayOutput)
 }
 
-type GetKubernetesClusterAddonProfileOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterAddonProfileOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterAddonProfile)(nil)).Elem()
@@ -5322,25 +4261,33 @@ func (o GetKubernetesClusterAddonProfileOutput) ToGetKubernetesClusterAddonProfi
 
 // A `azurePolicy` block.
 func (o GetKubernetesClusterAddonProfileOutput) AzurePolicies() GetKubernetesClusterAddonProfileAzurePolicyArrayOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileAzurePolicy { return v.AzurePolicies }).(GetKubernetesClusterAddonProfileAzurePolicyArrayOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileAzurePolicy {
+		return v.AzurePolicies
+	}).(GetKubernetesClusterAddonProfileAzurePolicyArrayOutput)
 }
 
 // A `httpApplicationRouting` block.
 func (o GetKubernetesClusterAddonProfileOutput) HttpApplicationRoutings() GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileHttpApplicationRouting { return v.HttpApplicationRoutings }).(GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileHttpApplicationRouting {
+		return v.HttpApplicationRoutings
+	}).(GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput)
 }
 
 // A `kubeDashboard` block.
 func (o GetKubernetesClusterAddonProfileOutput) KubeDashboards() GetKubernetesClusterAddonProfileKubeDashboardArrayOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileKubeDashboard { return v.KubeDashboards }).(GetKubernetesClusterAddonProfileKubeDashboardArrayOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileKubeDashboard {
+		return v.KubeDashboards
+	}).(GetKubernetesClusterAddonProfileKubeDashboardArrayOutput)
 }
 
 // A `omsAgent` block.
 func (o GetKubernetesClusterAddonProfileOutput) OmsAgents() GetKubernetesClusterAddonProfileOmsAgentArrayOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileOmsAgent { return v.OmsAgents }).(GetKubernetesClusterAddonProfileOmsAgentArrayOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileOmsAgent {
+		return v.OmsAgents
+	}).(GetKubernetesClusterAddonProfileOmsAgentArrayOutput)
 }
 
-type GetKubernetesClusterAddonProfileArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterAddonProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfile)(nil)).Elem()
@@ -5355,7 +4302,7 @@ func (o GetKubernetesClusterAddonProfileArrayOutput) ToGetKubernetesClusterAddon
 }
 
 func (o GetKubernetesClusterAddonProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterAddonProfile {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfile {
 		return vs[0].([]GetKubernetesClusterAddonProfile)[vs[1].(int)]
 	}).(GetKubernetesClusterAddonProfileOutput)
 }
@@ -5410,7 +4357,7 @@ func (i GetKubernetesClusterAddonProfileAzurePolicyArray) ToGetKubernetesCluster
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileAzurePolicyArrayOutput)
 }
 
-type GetKubernetesClusterAddonProfileAzurePolicyOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterAddonProfileAzurePolicyOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileAzurePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterAddonProfileAzurePolicy)(nil)).Elem()
@@ -5426,10 +4373,10 @@ func (o GetKubernetesClusterAddonProfileAzurePolicyOutput) ToGetKubernetesCluste
 
 // Is Role Based Access Control enabled?
 func (o GetKubernetesClusterAddonProfileAzurePolicyOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfileAzurePolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileAzurePolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type GetKubernetesClusterAddonProfileAzurePolicyArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterAddonProfileAzurePolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileAzurePolicyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileAzurePolicy)(nil)).Elem()
@@ -5444,7 +4391,7 @@ func (o GetKubernetesClusterAddonProfileAzurePolicyArrayOutput) ToGetKubernetesC
 }
 
 func (o GetKubernetesClusterAddonProfileAzurePolicyArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileAzurePolicyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterAddonProfileAzurePolicy {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileAzurePolicy {
 		return vs[0].([]GetKubernetesClusterAddonProfileAzurePolicy)[vs[1].(int)]
 	}).(GetKubernetesClusterAddonProfileAzurePolicyOutput)
 }
@@ -5503,7 +4450,7 @@ func (i GetKubernetesClusterAddonProfileHttpApplicationRoutingArray) ToGetKubern
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput)
 }
 
-type GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterAddonProfileHttpApplicationRouting)(nil)).Elem()
@@ -5519,15 +4466,17 @@ func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput) ToGetKuber
 
 // Is Role Based Access Control enabled?
 func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfileHttpApplicationRouting) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileHttpApplicationRouting) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // The Zone Name of the HTTP Application Routing.
 func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput) HttpApplicationRoutingZoneName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfileHttpApplicationRouting) string { return v.HttpApplicationRoutingZoneName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileHttpApplicationRouting) string {
+		return v.HttpApplicationRoutingZoneName
+	}).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileHttpApplicationRouting)(nil)).Elem()
@@ -5542,7 +4491,7 @@ func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput) ToGet
 }
 
 func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterAddonProfileHttpApplicationRouting {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileHttpApplicationRouting {
 		return vs[0].([]GetKubernetesClusterAddonProfileHttpApplicationRouting)[vs[1].(int)]
 	}).(GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput)
 }
@@ -5597,7 +4546,7 @@ func (i GetKubernetesClusterAddonProfileKubeDashboardArray) ToGetKubernetesClust
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileKubeDashboardArrayOutput)
 }
 
-type GetKubernetesClusterAddonProfileKubeDashboardOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterAddonProfileKubeDashboardOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileKubeDashboardOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterAddonProfileKubeDashboard)(nil)).Elem()
@@ -5613,10 +4562,10 @@ func (o GetKubernetesClusterAddonProfileKubeDashboardOutput) ToGetKubernetesClus
 
 // Is Role Based Access Control enabled?
 func (o GetKubernetesClusterAddonProfileKubeDashboardOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfileKubeDashboard) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileKubeDashboard) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type GetKubernetesClusterAddonProfileKubeDashboardArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterAddonProfileKubeDashboardArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileKubeDashboardArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileKubeDashboard)(nil)).Elem()
@@ -5631,7 +4580,7 @@ func (o GetKubernetesClusterAddonProfileKubeDashboardArrayOutput) ToGetKubernete
 }
 
 func (o GetKubernetesClusterAddonProfileKubeDashboardArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileKubeDashboardOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterAddonProfileKubeDashboard {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileKubeDashboard {
 		return vs[0].([]GetKubernetesClusterAddonProfileKubeDashboard)[vs[1].(int)]
 	}).(GetKubernetesClusterAddonProfileKubeDashboardOutput)
 }
@@ -5690,7 +4639,7 @@ func (i GetKubernetesClusterAddonProfileOmsAgentArray) ToGetKubernetesClusterAdd
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileOmsAgentArrayOutput)
 }
 
-type GetKubernetesClusterAddonProfileOmsAgentOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterAddonProfileOmsAgentOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileOmsAgentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterAddonProfileOmsAgent)(nil)).Elem()
@@ -5706,15 +4655,15 @@ func (o GetKubernetesClusterAddonProfileOmsAgentOutput) ToGetKubernetesClusterAd
 
 // Is Role Based Access Control enabled?
 func (o GetKubernetesClusterAddonProfileOmsAgentOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfileOmsAgent) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileOmsAgent) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // The ID of the Log Analytics Workspace which the OMS Agent should send data to.
 func (o GetKubernetesClusterAddonProfileOmsAgentOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfileOmsAgent) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileOmsAgent) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterAddonProfileOmsAgentArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterAddonProfileOmsAgentArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileOmsAgentArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileOmsAgent)(nil)).Elem()
@@ -5729,7 +4678,7 @@ func (o GetKubernetesClusterAddonProfileOmsAgentArrayOutput) ToGetKubernetesClus
 }
 
 func (o GetKubernetesClusterAddonProfileOmsAgentArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileOmsAgentOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterAddonProfileOmsAgent {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileOmsAgent {
 		return vs[0].([]GetKubernetesClusterAddonProfileOmsAgent)[vs[1].(int)]
 	}).(GetKubernetesClusterAddonProfileOmsAgentOutput)
 }
@@ -5739,10 +4688,8 @@ type GetKubernetesClusterAgentPoolProfile struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The number of Agents (VM's) in the Pool.
 	Count int `pulumi:"count"`
-	// The DNS Prefix of the managed Kubernetes cluster.
-	DnsPrefix string `pulumi:"dnsPrefix"`
 	// If the auto-scaler is enabled.
-	EnableAutoScaling bool `pulumi:"enableAutoScaling"`
+	EnableAutoScaling  bool  `pulumi:"enableAutoScaling"`
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount int `pulumi:"maxCount"`
@@ -5751,13 +4698,16 @@ type GetKubernetesClusterAgentPoolProfile struct {
 	// Minimum number of nodes for auto-scaling
 	MinCount int `pulumi:"minCount"`
 	// The name of the managed Kubernetes Cluster.
-	Name string `pulumi:"name"`
+	Name       string            `pulumi:"name"`
+	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// The list of Kubernetes taints which are applied to nodes in the agent pool
 	NodeTaints []string `pulumi:"nodeTaints"`
 	// The size of the Agent VM's Operating System Disk in GB.
 	OsDiskSizeGb int `pulumi:"osDiskSizeGb"`
 	// The Operating System used for the Agents.
 	OsType string `pulumi:"osType"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The type of the Agent Pool.
 	Type string `pulumi:"type"`
 	// The size of each VM in the Agent Pool (e.g. `Standard_F1`).
@@ -5778,10 +4728,8 @@ type GetKubernetesClusterAgentPoolProfileArgs struct {
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// The number of Agents (VM's) in the Pool.
 	Count pulumi.IntInput `pulumi:"count"`
-	// The DNS Prefix of the managed Kubernetes cluster.
-	DnsPrefix pulumi.StringInput `pulumi:"dnsPrefix"`
 	// If the auto-scaler is enabled.
-	EnableAutoScaling pulumi.BoolInput `pulumi:"enableAutoScaling"`
+	EnableAutoScaling  pulumi.BoolInput    `pulumi:"enableAutoScaling"`
 	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount pulumi.IntInput `pulumi:"maxCount"`
@@ -5790,13 +4738,16 @@ type GetKubernetesClusterAgentPoolProfileArgs struct {
 	// Minimum number of nodes for auto-scaling
 	MinCount pulumi.IntInput `pulumi:"minCount"`
 	// The name of the managed Kubernetes Cluster.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name       pulumi.StringInput    `pulumi:"name"`
+	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
 	// The list of Kubernetes taints which are applied to nodes in the agent pool
 	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
 	// The size of the Agent VM's Operating System Disk in GB.
 	OsDiskSizeGb pulumi.IntInput `pulumi:"osDiskSizeGb"`
 	// The Operating System used for the Agents.
 	OsType pulumi.StringInput `pulumi:"osType"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The type of the Agent Pool.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The size of each VM in the Agent Pool (e.g. `Standard_F1`).
@@ -5838,7 +4789,7 @@ func (i GetKubernetesClusterAgentPoolProfileArray) ToGetKubernetesClusterAgentPo
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAgentPoolProfileArrayOutput)
 }
 
-type GetKubernetesClusterAgentPoolProfileOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterAgentPoolProfileOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAgentPoolProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterAgentPoolProfile)(nil)).Elem()
@@ -5854,79 +4805,83 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) ToGetKubernetesClusterAgentP
 
 // The availability zones used for the nodes.
 func (o GetKubernetesClusterAgentPoolProfileOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
 // The number of Agents (VM's) in the Pool.
 func (o GetKubernetesClusterAgentPoolProfileOutput) Count() pulumi.IntOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) int { return v.Count }).(pulumi.IntOutput)
-}
-
-// The DNS Prefix of the managed Kubernetes cluster.
-func (o GetKubernetesClusterAgentPoolProfileOutput) DnsPrefix() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) string { return v.DnsPrefix }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) int { return v.Count }).(pulumi.IntOutput)
 }
 
 // If the auto-scaler is enabled.
 func (o GetKubernetesClusterAgentPoolProfileOutput) EnableAutoScaling() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) bool { return v.EnableAutoScaling }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) bool { return v.EnableAutoScaling }).(pulumi.BoolOutput)
 }
 
 func (o GetKubernetesClusterAgentPoolProfileOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
 }
 
 // Maximum number of nodes for auto-scaling
 func (o GetKubernetesClusterAgentPoolProfileOutput) MaxCount() pulumi.IntOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) int { return v.MaxCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) int { return v.MaxCount }).(pulumi.IntOutput)
 }
 
 // The maximum number of pods that can run on each agent.
 func (o GetKubernetesClusterAgentPoolProfileOutput) MaxPods() pulumi.IntOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) int { return v.MaxPods }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) int { return v.MaxPods }).(pulumi.IntOutput)
 }
 
 // Minimum number of nodes for auto-scaling
 func (o GetKubernetesClusterAgentPoolProfileOutput) MinCount() pulumi.IntOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) int { return v.MinCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) int { return v.MinCount }).(pulumi.IntOutput)
 }
 
 // The name of the managed Kubernetes Cluster.
 func (o GetKubernetesClusterAgentPoolProfileOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetKubernetesClusterAgentPoolProfileOutput) NodeLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
 
 // The list of Kubernetes taints which are applied to nodes in the agent pool
 func (o GetKubernetesClusterAgentPoolProfileOutput) NodeTaints() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
 
 // The size of the Agent VM's Operating System Disk in GB.
 func (o GetKubernetesClusterAgentPoolProfileOutput) OsDiskSizeGb() pulumi.IntOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) int { return v.OsDiskSizeGb }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) int { return v.OsDiskSizeGb }).(pulumi.IntOutput)
 }
 
 // The Operating System used for the Agents.
 func (o GetKubernetesClusterAgentPoolProfileOutput) OsType() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) string { return v.OsType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.OsType }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o GetKubernetesClusterAgentPoolProfileOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The type of the Agent Pool.
 func (o GetKubernetesClusterAgentPoolProfileOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The size of each VM in the Agent Pool (e.g. `Standard_F1`).
 func (o GetKubernetesClusterAgentPoolProfileOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 // The ID of the Subnet where the Agents in the Pool are provisioned.
 func (o GetKubernetesClusterAgentPoolProfileOutput) VnetSubnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) string { return v.VnetSubnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.VnetSubnetId }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterAgentPoolProfileArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterAgentPoolProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAgentPoolProfileArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterAgentPoolProfile)(nil)).Elem()
@@ -5941,7 +4896,7 @@ func (o GetKubernetesClusterAgentPoolProfileArrayOutput) ToGetKubernetesClusterA
 }
 
 func (o GetKubernetesClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAgentPoolProfileOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterAgentPoolProfile {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAgentPoolProfile {
 		return vs[0].([]GetKubernetesClusterAgentPoolProfile)[vs[1].(int)]
 	}).(GetKubernetesClusterAgentPoolProfileOutput)
 }
@@ -6016,7 +4971,7 @@ func (i GetKubernetesClusterKubeAdminConfigArray) ToGetKubernetesClusterKubeAdmi
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKubeAdminConfigArrayOutput)
 }
 
-type GetKubernetesClusterKubeAdminConfigOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterKubeAdminConfigOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterKubeAdminConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterKubeAdminConfig)(nil)).Elem()
@@ -6032,35 +4987,35 @@ func (o GetKubernetesClusterKubeAdminConfigOutput) ToGetKubernetesClusterKubeAdm
 
 // Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
 func (o GetKubernetesClusterKubeAdminConfigOutput) ClientCertificate() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeAdminConfig) string { return v.ClientCertificate }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeAdminConfig) string { return v.ClientCertificate }).(pulumi.StringOutput)
 }
 
 // Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
 func (o GetKubernetesClusterKubeAdminConfigOutput) ClientKey() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeAdminConfig) string { return v.ClientKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeAdminConfig) string { return v.ClientKey }).(pulumi.StringOutput)
 }
 
 // Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
 func (o GetKubernetesClusterKubeAdminConfigOutput) ClusterCaCertificate() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeAdminConfig) string { return v.ClusterCaCertificate }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeAdminConfig) string { return v.ClusterCaCertificate }).(pulumi.StringOutput)
 }
 
 // The Kubernetes cluster server host.
 func (o GetKubernetesClusterKubeAdminConfigOutput) Host() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeAdminConfig) string { return v.Host }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeAdminConfig) string { return v.Host }).(pulumi.StringOutput)
 }
 
 // A password or token used to authenticate to the Kubernetes cluster.
 func (o GetKubernetesClusterKubeAdminConfigOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeAdminConfig) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeAdminConfig) string { return v.Password }).(pulumi.StringOutput)
 }
 
 // A username used to authenticate to the Kubernetes cluster.
 func (o GetKubernetesClusterKubeAdminConfigOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeAdminConfig) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeAdminConfig) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterKubeAdminConfigArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterKubeAdminConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterKubeAdminConfigArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterKubeAdminConfig)(nil)).Elem()
@@ -6075,7 +5030,7 @@ func (o GetKubernetesClusterKubeAdminConfigArrayOutput) ToGetKubernetesClusterKu
 }
 
 func (o GetKubernetesClusterKubeAdminConfigArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterKubeAdminConfigOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterKubeAdminConfig {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterKubeAdminConfig {
 		return vs[0].([]GetKubernetesClusterKubeAdminConfig)[vs[1].(int)]
 	}).(GetKubernetesClusterKubeAdminConfigOutput)
 }
@@ -6150,7 +5105,7 @@ func (i GetKubernetesClusterKubeConfigArray) ToGetKubernetesClusterKubeConfigArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKubeConfigArrayOutput)
 }
 
-type GetKubernetesClusterKubeConfigOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterKubeConfigOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterKubeConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterKubeConfig)(nil)).Elem()
@@ -6166,35 +5121,35 @@ func (o GetKubernetesClusterKubeConfigOutput) ToGetKubernetesClusterKubeConfigOu
 
 // Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
 func (o GetKubernetesClusterKubeConfigOutput) ClientCertificate() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeConfig) string { return v.ClientCertificate }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeConfig) string { return v.ClientCertificate }).(pulumi.StringOutput)
 }
 
 // Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
 func (o GetKubernetesClusterKubeConfigOutput) ClientKey() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeConfig) string { return v.ClientKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeConfig) string { return v.ClientKey }).(pulumi.StringOutput)
 }
 
 // Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
 func (o GetKubernetesClusterKubeConfigOutput) ClusterCaCertificate() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeConfig) string { return v.ClusterCaCertificate }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeConfig) string { return v.ClusterCaCertificate }).(pulumi.StringOutput)
 }
 
 // The Kubernetes cluster server host.
 func (o GetKubernetesClusterKubeConfigOutput) Host() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeConfig) string { return v.Host }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeConfig) string { return v.Host }).(pulumi.StringOutput)
 }
 
 // A password or token used to authenticate to the Kubernetes cluster.
 func (o GetKubernetesClusterKubeConfigOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeConfig) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeConfig) string { return v.Password }).(pulumi.StringOutput)
 }
 
 // A username used to authenticate to the Kubernetes cluster.
 func (o GetKubernetesClusterKubeConfigOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeConfig) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeConfig) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterKubeConfigArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterKubeConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterKubeConfigArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterKubeConfig)(nil)).Elem()
@@ -6209,7 +5164,7 @@ func (o GetKubernetesClusterKubeConfigArrayOutput) ToGetKubernetesClusterKubeCon
 }
 
 func (o GetKubernetesClusterKubeConfigArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterKubeConfigOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterKubeConfig {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterKubeConfig {
 		return vs[0].([]GetKubernetesClusterKubeConfig)[vs[1].(int)]
 	}).(GetKubernetesClusterKubeConfigOutput)
 }
@@ -6268,7 +5223,7 @@ func (i GetKubernetesClusterLinuxProfileArray) ToGetKubernetesClusterLinuxProfil
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterLinuxProfileArrayOutput)
 }
 
-type GetKubernetesClusterLinuxProfileOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterLinuxProfileOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterLinuxProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterLinuxProfile)(nil)).Elem()
@@ -6284,15 +5239,15 @@ func (o GetKubernetesClusterLinuxProfileOutput) ToGetKubernetesClusterLinuxProfi
 
 // The username associated with the administrator account of the Windows VMs.
 func (o GetKubernetesClusterLinuxProfileOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
 // An `sshKey` block as defined below.
 func (o GetKubernetesClusterLinuxProfileOutput) SshKeys() GetKubernetesClusterLinuxProfileSshKeyArrayOutput {
-	return o.ApplyT(func (v GetKubernetesClusterLinuxProfile) []GetKubernetesClusterLinuxProfileSshKey { return v.SshKeys }).(GetKubernetesClusterLinuxProfileSshKeyArrayOutput)
+	return o.ApplyT(func(v GetKubernetesClusterLinuxProfile) []GetKubernetesClusterLinuxProfileSshKey { return v.SshKeys }).(GetKubernetesClusterLinuxProfileSshKeyArrayOutput)
 }
 
-type GetKubernetesClusterLinuxProfileArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterLinuxProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterLinuxProfileArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterLinuxProfile)(nil)).Elem()
@@ -6307,7 +5262,7 @@ func (o GetKubernetesClusterLinuxProfileArrayOutput) ToGetKubernetesClusterLinux
 }
 
 func (o GetKubernetesClusterLinuxProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterLinuxProfileOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterLinuxProfile {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterLinuxProfile {
 		return vs[0].([]GetKubernetesClusterLinuxProfile)[vs[1].(int)]
 	}).(GetKubernetesClusterLinuxProfileOutput)
 }
@@ -6362,7 +5317,7 @@ func (i GetKubernetesClusterLinuxProfileSshKeyArray) ToGetKubernetesClusterLinux
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterLinuxProfileSshKeyArrayOutput)
 }
 
-type GetKubernetesClusterLinuxProfileSshKeyOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterLinuxProfileSshKeyOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterLinuxProfileSshKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterLinuxProfileSshKey)(nil)).Elem()
@@ -6378,10 +5333,10 @@ func (o GetKubernetesClusterLinuxProfileSshKeyOutput) ToGetKubernetesClusterLinu
 
 // The Public SSH Key used to access the cluster.
 func (o GetKubernetesClusterLinuxProfileSshKeyOutput) KeyData() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterLinuxProfileSshKey) string { return v.KeyData }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterLinuxProfileSshKey) string { return v.KeyData }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterLinuxProfileSshKeyArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterLinuxProfileSshKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterLinuxProfileSshKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterLinuxProfileSshKey)(nil)).Elem()
@@ -6396,7 +5351,7 @@ func (o GetKubernetesClusterLinuxProfileSshKeyArrayOutput) ToGetKubernetesCluste
 }
 
 func (o GetKubernetesClusterLinuxProfileSshKeyArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterLinuxProfileSshKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterLinuxProfileSshKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterLinuxProfileSshKey {
 		return vs[0].([]GetKubernetesClusterLinuxProfileSshKey)[vs[1].(int)]
 	}).(GetKubernetesClusterLinuxProfileSshKeyOutput)
 }
@@ -6406,7 +5361,7 @@ type GetKubernetesClusterNetworkProfile struct {
 	DnsServiceIp string `pulumi:"dnsServiceIp"`
 	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes.
 	DockerBridgeCidr string `pulumi:"dockerBridgeCidr"`
-	LoadBalancerSku string `pulumi:"loadBalancerSku"`
+	LoadBalancerSku  string `pulumi:"loadBalancerSku"`
 	// Network plugin used such as `azure` or `kubenet`.
 	NetworkPlugin string `pulumi:"networkPlugin"`
 	// Network policy to be used with Azure CNI. Eg: `calico` or `azure`
@@ -6429,7 +5384,7 @@ type GetKubernetesClusterNetworkProfileArgs struct {
 	DnsServiceIp pulumi.StringInput `pulumi:"dnsServiceIp"`
 	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes.
 	DockerBridgeCidr pulumi.StringInput `pulumi:"dockerBridgeCidr"`
-	LoadBalancerSku pulumi.StringInput `pulumi:"loadBalancerSku"`
+	LoadBalancerSku  pulumi.StringInput `pulumi:"loadBalancerSku"`
 	// Network plugin used such as `azure` or `kubenet`.
 	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
 	// Network policy to be used with Azure CNI. Eg: `calico` or `azure`
@@ -6473,7 +5428,7 @@ func (i GetKubernetesClusterNetworkProfileArray) ToGetKubernetesClusterNetworkPr
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterNetworkProfileArrayOutput)
 }
 
-type GetKubernetesClusterNetworkProfileOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterNetworkProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterNetworkProfile)(nil)).Elem()
@@ -6489,39 +5444,39 @@ func (o GetKubernetesClusterNetworkProfileOutput) ToGetKubernetesClusterNetworkP
 
 // IP address within the Kubernetes service address range used by cluster service discovery (kube-dns).
 func (o GetKubernetesClusterNetworkProfileOutput) DnsServiceIp() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterNetworkProfile) string { return v.DnsServiceIp }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.DnsServiceIp }).(pulumi.StringOutput)
 }
 
 // IP address (in CIDR notation) used as the Docker bridge IP address on nodes.
 func (o GetKubernetesClusterNetworkProfileOutput) DockerBridgeCidr() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterNetworkProfile) string { return v.DockerBridgeCidr }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.DockerBridgeCidr }).(pulumi.StringOutput)
 }
 
 func (o GetKubernetesClusterNetworkProfileOutput) LoadBalancerSku() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterNetworkProfile) string { return v.LoadBalancerSku }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.LoadBalancerSku }).(pulumi.StringOutput)
 }
 
 // Network plugin used such as `azure` or `kubenet`.
 func (o GetKubernetesClusterNetworkProfileOutput) NetworkPlugin() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
 }
 
 // Network policy to be used with Azure CNI. Eg: `calico` or `azure`
 func (o GetKubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterNetworkProfile) string { return v.NetworkPolicy }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.NetworkPolicy }).(pulumi.StringOutput)
 }
 
 // The CIDR used for pod IP addresses.
 func (o GetKubernetesClusterNetworkProfileOutput) PodCidr() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterNetworkProfile) string { return v.PodCidr }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.PodCidr }).(pulumi.StringOutput)
 }
 
 // Network range used by the Kubernetes service.
 func (o GetKubernetesClusterNetworkProfileOutput) ServiceCidr() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterNetworkProfile) string { return v.ServiceCidr }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.ServiceCidr }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterNetworkProfileArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterNetworkProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterNetworkProfileArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterNetworkProfile)(nil)).Elem()
@@ -6536,7 +5491,7 @@ func (o GetKubernetesClusterNetworkProfileArrayOutput) ToGetKubernetesClusterNet
 }
 
 func (o GetKubernetesClusterNetworkProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterNetworkProfileOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterNetworkProfile {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterNetworkProfile {
 		return vs[0].([]GetKubernetesClusterNetworkProfile)[vs[1].(int)]
 	}).(GetKubernetesClusterNetworkProfileOutput)
 }
@@ -6595,7 +5550,7 @@ func (i GetKubernetesClusterRoleBasedAccessControlArray) ToGetKubernetesClusterR
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterRoleBasedAccessControlArrayOutput)
 }
 
-type GetKubernetesClusterRoleBasedAccessControlOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterRoleBasedAccessControlOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterRoleBasedAccessControlOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterRoleBasedAccessControl)(nil)).Elem()
@@ -6611,15 +5566,17 @@ func (o GetKubernetesClusterRoleBasedAccessControlOutput) ToGetKubernetesCluster
 
 // A `azureActiveDirectory` block as documented above.
 func (o GetKubernetesClusterRoleBasedAccessControlOutput) AzureActiveDirectories() GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput {
-	return o.ApplyT(func (v GetKubernetesClusterRoleBasedAccessControl) []GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory { return v.AzureActiveDirectories }).(GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput)
+	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControl) []GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
+		return v.AzureActiveDirectories
+	}).(GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput)
 }
 
 // Is Role Based Access Control enabled?
 func (o GetKubernetesClusterRoleBasedAccessControlOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetKubernetesClusterRoleBasedAccessControl) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControl) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type GetKubernetesClusterRoleBasedAccessControlArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterRoleBasedAccessControlArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterRoleBasedAccessControlArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterRoleBasedAccessControl)(nil)).Elem()
@@ -6634,7 +5591,7 @@ func (o GetKubernetesClusterRoleBasedAccessControlArrayOutput) ToGetKubernetesCl
 }
 
 func (o GetKubernetesClusterRoleBasedAccessControlArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterRoleBasedAccessControlOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterRoleBasedAccessControl {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterRoleBasedAccessControl {
 		return vs[0].([]GetKubernetesClusterRoleBasedAccessControl)[vs[1].(int)]
 	}).(GetKubernetesClusterRoleBasedAccessControlOutput)
 }
@@ -6697,7 +5654,7 @@ func (i GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArray) ToG
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput)
 }
 
-type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory)(nil)).Elem()
@@ -6713,20 +5670,20 @@ func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) To
 
 // The Client ID of an Azure Active Directory Application.
 func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ClientAppId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ClientAppId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ClientAppId }).(pulumi.StringOutput)
 }
 
 // The Server ID of an Azure Active Directory Application.
 func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ServerAppId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppId }).(pulumi.StringOutput)
 }
 
 // The Tenant ID used for Azure Active Directory Application.
 func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.TenantId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory)(nil)).Elem()
@@ -6741,7 +5698,7 @@ func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutpu
 }
 
 func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
 		return vs[0].([]GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory)[vs[1].(int)]
 	}).(GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput)
 }
@@ -6796,7 +5753,7 @@ func (i GetKubernetesClusterServicePrincipalArray) ToGetKubernetesClusterService
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterServicePrincipalArrayOutput)
 }
 
-type GetKubernetesClusterServicePrincipalOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterServicePrincipalOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterServicePrincipalOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterServicePrincipal)(nil)).Elem()
@@ -6812,10 +5769,10 @@ func (o GetKubernetesClusterServicePrincipalOutput) ToGetKubernetesClusterServic
 
 // The Client ID of the Service Principal used by this Managed Kubernetes Cluster.
 func (o GetKubernetesClusterServicePrincipalOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterServicePrincipal) string { return v.ClientId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterServicePrincipal) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterServicePrincipalArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterServicePrincipalArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterServicePrincipalArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterServicePrincipal)(nil)).Elem()
@@ -6830,7 +5787,7 @@ func (o GetKubernetesClusterServicePrincipalArrayOutput) ToGetKubernetesClusterS
 }
 
 func (o GetKubernetesClusterServicePrincipalArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterServicePrincipalOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterServicePrincipal {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterServicePrincipal {
 		return vs[0].([]GetKubernetesClusterServicePrincipal)[vs[1].(int)]
 	}).(GetKubernetesClusterServicePrincipalOutput)
 }
@@ -6885,7 +5842,7 @@ func (i GetKubernetesClusterWindowsProfileArray) ToGetKubernetesClusterWindowsPr
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterWindowsProfileArrayOutput)
 }
 
-type GetKubernetesClusterWindowsProfileOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterWindowsProfileOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterWindowsProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterWindowsProfile)(nil)).Elem()
@@ -6901,10 +5858,10 @@ func (o GetKubernetesClusterWindowsProfileOutput) ToGetKubernetesClusterWindowsP
 
 // The username associated with the administrator account of the Windows VMs.
 func (o GetKubernetesClusterWindowsProfileOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterWindowsProfileArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterWindowsProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterWindowsProfileArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterWindowsProfile)(nil)).Elem()
@@ -6919,7 +5876,7 @@ func (o GetKubernetesClusterWindowsProfileArrayOutput) ToGetKubernetesClusterWin
 }
 
 func (o GetKubernetesClusterWindowsProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterWindowsProfileOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterWindowsProfile {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterWindowsProfile {
 		return vs[0].([]GetKubernetesClusterWindowsProfile)[vs[1].(int)]
 	}).(GetKubernetesClusterWindowsProfileOutput)
 }
@@ -6960,16 +5917,14 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileKubeDashboardPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentPtrOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAgentPoolProfileOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAgentPoolProfileArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterIdentityOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterKubeAdminConfigOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterKubeAdminConfigPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterKubeAdminConfigArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterKubeConfigOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterKubeConfigPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterKubeConfigArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterLinuxProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterLinuxProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterLinuxProfileSshKeyOutput{})
@@ -6991,19 +5946,6 @@ func init() {
 	pulumi.RegisterOutputType(RegistryNetworkRuleSetIpRuleArrayOutput{})
 	pulumi.RegisterOutputType(RegistryNetworkRuleSetVirtualNetworkOutput{})
 	pulumi.RegisterOutputType(RegistryNetworkRuleSetVirtualNetworkArrayOutput{})
-	pulumi.RegisterOutputType(RegistryStorageAccountOutput{})
-	pulumi.RegisterOutputType(RegistryStorageAccountPtrOutput{})
-	pulumi.RegisterOutputType(ServiceAgentPoolProfileOutput{})
-	pulumi.RegisterOutputType(ServiceAgentPoolProfilePtrOutput{})
-	pulumi.RegisterOutputType(ServiceDiagnosticsProfileOutput{})
-	pulumi.RegisterOutputType(ServiceDiagnosticsProfilePtrOutput{})
-	pulumi.RegisterOutputType(ServiceLinuxProfileOutput{})
-	pulumi.RegisterOutputType(ServiceLinuxProfilePtrOutput{})
-	pulumi.RegisterOutputType(ServiceLinuxProfileSshKeyOutput{})
-	pulumi.RegisterOutputType(ServiceMasterProfileOutput{})
-	pulumi.RegisterOutputType(ServiceMasterProfilePtrOutput{})
-	pulumi.RegisterOutputType(ServiceServicePrincipalOutput{})
-	pulumi.RegisterOutputType(ServiceServicePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileAzurePolicyOutput{})

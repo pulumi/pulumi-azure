@@ -6,6 +6,7 @@ export * from "./account";
 export * from "./accountNetworkRules";
 export * from "./blob";
 export * from "./container";
+export * from "./customerManagedKey";
 export * from "./dataLakeGen2Filesystem";
 export * from "./getAccount";
 export * from "./getAccountBlobContainerSAS";

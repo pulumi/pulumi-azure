@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an Azure Data Lake Store.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store.html.markdown.
 type Store struct {
 	pulumi.CustomResourceState
@@ -165,4 +165,3 @@ type StoreArgs struct {
 func (StoreArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storeArgs)(nil)).Elem()
 }
-

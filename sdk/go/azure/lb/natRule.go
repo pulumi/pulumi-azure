@@ -11,12 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a Load Balancer NAT Rule. 
-// 
+// Manages a Load Balancer NAT Rule.
+//
 // > **NOTE:** This resource cannot be used with with virtual machine scale sets, instead use the `lb.NatPool` resource.
-// 
+//
 // > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_nat_rule.html.markdown.
 type NatRule struct {
 	pulumi.CustomResourceState
@@ -27,8 +27,8 @@ type NatRule struct {
 	// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp pulumi.BoolOutput `pulumi:"enableFloatingIp"`
 	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
-	EnableTcpReset pulumi.BoolPtrOutput `pulumi:"enableTcpReset"`
-	FrontendIpConfigurationId pulumi.StringOutput `pulumi:"frontendIpConfigurationId"`
+	EnableTcpReset            pulumi.BoolPtrOutput `pulumi:"enableTcpReset"`
+	FrontendIpConfigurationId pulumi.StringOutput  `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName pulumi.StringOutput `pulumi:"frontendIpConfigurationName"`
 	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
@@ -37,7 +37,6 @@ type NatRule struct {
 	IdleTimeoutInMinutes pulumi.IntOutput `pulumi:"idleTimeoutInMinutes"`
 	// The ID of the Load Balancer in which to create the NAT Rule.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
-	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the NAT Rule.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
@@ -98,7 +97,7 @@ type natRuleState struct {
 	// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp *bool `pulumi:"enableFloatingIp"`
 	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
-	EnableTcpReset *bool `pulumi:"enableTcpReset"`
+	EnableTcpReset            *bool   `pulumi:"enableTcpReset"`
 	FrontendIpConfigurationId *string `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName *string `pulumi:"frontendIpConfigurationName"`
@@ -108,7 +107,6 @@ type natRuleState struct {
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// The ID of the Load Balancer in which to create the NAT Rule.
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
-	Location *string `pulumi:"location"`
 	// Specifies the name of the NAT Rule.
 	Name *string `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
@@ -124,7 +122,7 @@ type NatRuleState struct {
 	// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp pulumi.BoolPtrInput
 	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
-	EnableTcpReset pulumi.BoolPtrInput
+	EnableTcpReset            pulumi.BoolPtrInput
 	FrontendIpConfigurationId pulumi.StringPtrInput
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName pulumi.StringPtrInput
@@ -134,7 +132,6 @@ type NatRuleState struct {
 	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// The ID of the Load Balancer in which to create the NAT Rule.
 	LoadbalancerId pulumi.StringPtrInput
-	Location pulumi.StringPtrInput
 	// Specifies the name of the NAT Rule.
 	Name pulumi.StringPtrInput
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
@@ -162,7 +159,6 @@ type natRuleArgs struct {
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// The ID of the Load Balancer in which to create the NAT Rule.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
-	Location *string `pulumi:"location"`
 	// Specifies the name of the NAT Rule.
 	Name *string `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
@@ -187,7 +183,6 @@ type NatRuleArgs struct {
 	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// The ID of the Load Balancer in which to create the NAT Rule.
 	LoadbalancerId pulumi.StringInput
-	Location pulumi.StringPtrInput
 	// Specifies the name of the NAT Rule.
 	Name pulumi.StringPtrInput
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
@@ -199,4 +194,3 @@ type NatRuleArgs struct {
 func (NatRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*natRuleArgs)(nil)).Elem()
 }
-

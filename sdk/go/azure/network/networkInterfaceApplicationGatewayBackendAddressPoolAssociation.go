@@ -12,7 +12,7 @@ import (
 )
 
 // Manages the association between a Network Interface and a Application Gateway's Backend Address Pool.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_application_gateway_backend_address_pool_association.html.markdown.
 type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation struct {
 	pulumi.CustomResourceState
@@ -105,4 +105,3 @@ type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs struct 
 func (NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs)(nil)).Elem()
 }
-

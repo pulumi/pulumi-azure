@@ -8,35 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Container Registry Webhook.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const rg = new azure.core.ResourceGroup("rg", {
- *     location: "West US",
- * });
- * const acr = new azure.containerservice.Registry("acr", {
- *     adminEnabled: false,
- *     location: rg.location,
- *     resourceGroupName: rg.name,
- *     sku: "Standard",
- * });
- * const webhook = new azure.containerservice.RegistryWebook("webhook", {
- *     actions: ["push"],
- *     customHeaders: {
- *         "Content-Type": "application/json",
- *     },
- *     location: rg.location,
- *     registryName: acr.name,
- *     resourceGroupName: rg.name,
- *     scope: "mytag:*",
- *     serviceUri: "https://mywebhookreceiver.example/mytag",
- *     status: "enabled",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_registry_webhook.html.markdown.
  */
@@ -92,7 +63,7 @@ export class RegistryWebook extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Specifies the scope of repositories that can trigger an event. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+     * Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
      */
     public readonly scope!: pulumi.Output<string | undefined>;
     /**
@@ -100,10 +71,10 @@ export class RegistryWebook extends pulumi.CustomResource {
      */
     public readonly serviceUri!: pulumi.Output<string>;
     /**
-     * Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`. 
+     * Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a RegistryWebook resource with the given unique name, arguments, and options.
@@ -192,7 +163,7 @@ export interface RegistryWebookState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * Specifies the scope of repositories that can trigger an event. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+     * Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
      */
     readonly scope?: pulumi.Input<string>;
     /**
@@ -200,7 +171,7 @@ export interface RegistryWebookState {
      */
     readonly serviceUri?: pulumi.Input<string>;
     /**
-     * Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`. 
+     * Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
      */
     readonly status?: pulumi.Input<string>;
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -235,7 +206,7 @@ export interface RegistryWebookArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies the scope of repositories that can trigger an event. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+     * Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
      */
     readonly scope?: pulumi.Input<string>;
     /**
@@ -243,7 +214,7 @@ export interface RegistryWebookArgs {
      */
     readonly serviceUri: pulumi.Input<string>;
     /**
-     * Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`. 
+     * Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
      */
     readonly status?: pulumi.Input<string>;
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

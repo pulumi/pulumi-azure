@@ -11,10 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_virtual_network_swift_connection.html.markdown.
 type VirtualNetworkSwiftConnection struct {
 	pulumi.CustomResourceState
 
+	// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
 	AppServiceId pulumi.StringOutput `pulumi:"appServiceId"`
+	// The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 }
 
@@ -52,12 +57,16 @@ func GetVirtualNetworkSwiftConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkSwiftConnection resources.
 type virtualNetworkSwiftConnectionState struct {
+	// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
 	AppServiceId *string `pulumi:"appServiceId"`
+	// The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
 	SubnetId *string `pulumi:"subnetId"`
 }
 
 type VirtualNetworkSwiftConnectionState struct {
+	// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
 	AppServiceId pulumi.StringPtrInput
+	// The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
 	SubnetId pulumi.StringPtrInput
 }
 
@@ -66,17 +75,20 @@ func (VirtualNetworkSwiftConnectionState) ElementType() reflect.Type {
 }
 
 type virtualNetworkSwiftConnectionArgs struct {
+	// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
 	AppServiceId string `pulumi:"appServiceId"`
+	// The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
 	SubnetId string `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a VirtualNetworkSwiftConnection resource.
 type VirtualNetworkSwiftConnectionArgs struct {
+	// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
 	AppServiceId pulumi.StringInput
+	// The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
 	SubnetId pulumi.StringInput
 }
 
 func (VirtualNetworkSwiftConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkSwiftConnectionArgs)(nil)).Elem()
 }
-

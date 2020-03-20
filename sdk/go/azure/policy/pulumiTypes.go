@@ -16,7 +16,7 @@ type AssignmentIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
 	TenantId *string `pulumi:"tenantId"`
-	Type *string `pulumi:"type"`
+	Type     *string `pulumi:"type"`
 }
 
 type AssignmentIdentityInput interface {
@@ -31,7 +31,7 @@ type AssignmentIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type     pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (AssignmentIdentityArgs) ElementType() reflect.Type {
@@ -63,7 +63,8 @@ type AssignmentIdentityPtrInput interface {
 
 type assignmentIdentityPtrType AssignmentIdentityArgs
 
-func AssignmentIdentityPtr(v *AssignmentIdentityArgs) AssignmentIdentityPtrInput {	return (*assignmentIdentityPtrType)(v)
+func AssignmentIdentityPtr(v *AssignmentIdentityArgs) AssignmentIdentityPtrInput {
+	return (*assignmentIdentityPtrType)(v)
 }
 
 func (*assignmentIdentityPtrType) ElementType() reflect.Type {
@@ -78,7 +79,7 @@ func (i *assignmentIdentityPtrType) ToAssignmentIdentityPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentIdentityPtrOutput)
 }
 
-type AssignmentIdentityOutput struct { *pulumi.OutputState }
+type AssignmentIdentityOutput struct{ *pulumi.OutputState }
 
 func (AssignmentIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AssignmentIdentity)(nil)).Elem()
@@ -101,21 +102,22 @@ func (o AssignmentIdentityOutput) ToAssignmentIdentityPtrOutputWithContext(ctx c
 		return &v
 	}).(AssignmentIdentityPtrOutput)
 }
+
 // The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
 func (o AssignmentIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AssignmentIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AssignmentIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
 func (o AssignmentIdentityOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AssignmentIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AssignmentIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 func (o AssignmentIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AssignmentIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AssignmentIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type AssignmentIdentityPtrOutput struct { *pulumi.OutputState}
+type AssignmentIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (AssignmentIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AssignmentIdentity)(nil)).Elem()
@@ -130,21 +132,21 @@ func (o AssignmentIdentityPtrOutput) ToAssignmentIdentityPtrOutputWithContext(ct
 }
 
 func (o AssignmentIdentityPtrOutput) Elem() AssignmentIdentityOutput {
-	return o.ApplyT(func (v *AssignmentIdentity) AssignmentIdentity { return *v }).(AssignmentIdentityOutput)
+	return o.ApplyT(func(v *AssignmentIdentity) AssignmentIdentity { return *v }).(AssignmentIdentityOutput)
 }
 
 // The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
 func (o AssignmentIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AssignmentIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AssignmentIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
 func (o AssignmentIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AssignmentIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AssignmentIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 func (o AssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AssignmentIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AssignmentIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func init() {

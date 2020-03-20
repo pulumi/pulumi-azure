@@ -6,30 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a resources Advanced Threat Protection setting.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const rg = new azure.core.ResourceGroup("rg", {
- *     location: "northeurope",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: azurerm_resource_group_example.location,
- *     resourceGroupName: azurerm_resource_group_example.name,
- *     tags: {
- *         environment: "example",
- *     },
- * });
- * const exampleAdvancedThreatProtection = new azure.securitycenter.AdvancedThreatProtection("example", {
- *     enabled: true,
- *     targetResourceId: exampleAccount.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/advanced_threat_protection.html.markdown.
  */

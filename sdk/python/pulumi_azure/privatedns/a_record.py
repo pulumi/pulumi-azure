@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class ARecord(pulumi.CustomResource):
+    fqdn: pulumi.Output[str]
+    """
+    The FQDN of the DNS A Record.
+    """
     name: pulumi.Output[str]
     """
     The name of the DNS A Record.
@@ -34,7 +38,9 @@ class ARecord(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, name=None, records=None, resource_group_name=None, tags=None, ttl=None, zone_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Enables you to manage DNS A Records within Azure Private DNS.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_a_record.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS A Record.
@@ -42,8 +48,6 @@ class ARecord(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_a_record.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,6 +80,7 @@ class ARecord(pulumi.CustomResource):
             if zone_name is None:
                 raise TypeError("Missing required property 'zone_name'")
             __props__['zone_name'] = zone_name
+            __props__['fqdn'] = None
         super(ARecord, __self__).__init__(
             'azure:privatedns/aRecord:ARecord',
             resource_name,
@@ -83,25 +88,26 @@ class ARecord(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, records=None, resource_group_name=None, tags=None, ttl=None, zone_name=None):
+    def get(resource_name, id, opts=None, fqdn=None, name=None, records=None, resource_group_name=None, tags=None, ttl=None, zone_name=None):
         """
         Get an existing ARecord resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] fqdn: The FQDN of the DNS A Record.
         :param pulumi.Input[str] name: The name of the DNS A Record.
         :param pulumi.Input[list] records: List of IPv4 Addresses.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_a_record.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
+        __props__["fqdn"] = fqdn
         __props__["name"] = name
         __props__["records"] = records
         __props__["resource_group_name"] = resource_group_name

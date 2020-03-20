@@ -12,9 +12,9 @@ import (
 )
 
 type DefinitionPermission struct {
-	Actions []string `pulumi:"actions"`
-	DataActions []string `pulumi:"dataActions"`
-	NotActions []string `pulumi:"notActions"`
+	Actions        []string `pulumi:"actions"`
+	DataActions    []string `pulumi:"dataActions"`
+	NotActions     []string `pulumi:"notActions"`
 	NotDataActions []string `pulumi:"notDataActions"`
 }
 
@@ -26,9 +26,9 @@ type DefinitionPermissionInput interface {
 }
 
 type DefinitionPermissionArgs struct {
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
-	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
+	Actions        pulumi.StringArrayInput `pulumi:"actions"`
+	DataActions    pulumi.StringArrayInput `pulumi:"dataActions"`
+	NotActions     pulumi.StringArrayInput `pulumi:"notActions"`
 	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
 }
 
@@ -65,7 +65,7 @@ func (i DefinitionPermissionArray) ToDefinitionPermissionArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionPermissionArrayOutput)
 }
 
-type DefinitionPermissionOutput struct { *pulumi.OutputState }
+type DefinitionPermissionOutput struct{ *pulumi.OutputState }
 
 func (DefinitionPermissionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DefinitionPermission)(nil)).Elem()
@@ -80,22 +80,22 @@ func (o DefinitionPermissionOutput) ToDefinitionPermissionOutputWithContext(ctx 
 }
 
 func (o DefinitionPermissionOutput) Actions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DefinitionPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DefinitionPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
 func (o DefinitionPermissionOutput) DataActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DefinitionPermission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DefinitionPermission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
 }
 
 func (o DefinitionPermissionOutput) NotActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DefinitionPermission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DefinitionPermission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
 }
 
 func (o DefinitionPermissionOutput) NotDataActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DefinitionPermission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DefinitionPermission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
 }
 
-type DefinitionPermissionArrayOutput struct { *pulumi.OutputState}
+type DefinitionPermissionArrayOutput struct{ *pulumi.OutputState }
 
 func (DefinitionPermissionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DefinitionPermission)(nil)).Elem()
@@ -110,133 +110,15 @@ func (o DefinitionPermissionArrayOutput) ToDefinitionPermissionArrayOutputWithCo
 }
 
 func (o DefinitionPermissionArrayOutput) Index(i pulumi.IntInput) DefinitionPermissionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DefinitionPermission {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DefinitionPermission {
 		return vs[0].([]DefinitionPermission)[vs[1].(int)]
 	}).(DefinitionPermissionOutput)
 }
 
-type GetBuiltinRoleDefinitionPermission struct {
-	// a list of actions supported by this role
-	Actions []string `pulumi:"actions"`
-	// a list of data actions supported by this role
-	DataActions []string `pulumi:"dataActions"`
-	// a list of actions which are denied by this role
-	NotActions []string `pulumi:"notActions"`
-	// a list of data actions which are denied by this role
-	NotDataActions []string `pulumi:"notDataActions"`
-}
-
-type GetBuiltinRoleDefinitionPermissionInput interface {
-	pulumi.Input
-
-	ToGetBuiltinRoleDefinitionPermissionOutput() GetBuiltinRoleDefinitionPermissionOutput
-	ToGetBuiltinRoleDefinitionPermissionOutputWithContext(context.Context) GetBuiltinRoleDefinitionPermissionOutput
-}
-
-type GetBuiltinRoleDefinitionPermissionArgs struct {
-	// a list of actions supported by this role
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// a list of data actions supported by this role
-	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
-	// a list of actions which are denied by this role
-	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
-	// a list of data actions which are denied by this role
-	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
-}
-
-func (GetBuiltinRoleDefinitionPermissionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBuiltinRoleDefinitionPermission)(nil)).Elem()
-}
-
-func (i GetBuiltinRoleDefinitionPermissionArgs) ToGetBuiltinRoleDefinitionPermissionOutput() GetBuiltinRoleDefinitionPermissionOutput {
-	return i.ToGetBuiltinRoleDefinitionPermissionOutputWithContext(context.Background())
-}
-
-func (i GetBuiltinRoleDefinitionPermissionArgs) ToGetBuiltinRoleDefinitionPermissionOutputWithContext(ctx context.Context) GetBuiltinRoleDefinitionPermissionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBuiltinRoleDefinitionPermissionOutput)
-}
-
-type GetBuiltinRoleDefinitionPermissionArrayInput interface {
-	pulumi.Input
-
-	ToGetBuiltinRoleDefinitionPermissionArrayOutput() GetBuiltinRoleDefinitionPermissionArrayOutput
-	ToGetBuiltinRoleDefinitionPermissionArrayOutputWithContext(context.Context) GetBuiltinRoleDefinitionPermissionArrayOutput
-}
-
-type GetBuiltinRoleDefinitionPermissionArray []GetBuiltinRoleDefinitionPermissionInput
-
-func (GetBuiltinRoleDefinitionPermissionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetBuiltinRoleDefinitionPermission)(nil)).Elem()
-}
-
-func (i GetBuiltinRoleDefinitionPermissionArray) ToGetBuiltinRoleDefinitionPermissionArrayOutput() GetBuiltinRoleDefinitionPermissionArrayOutput {
-	return i.ToGetBuiltinRoleDefinitionPermissionArrayOutputWithContext(context.Background())
-}
-
-func (i GetBuiltinRoleDefinitionPermissionArray) ToGetBuiltinRoleDefinitionPermissionArrayOutputWithContext(ctx context.Context) GetBuiltinRoleDefinitionPermissionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBuiltinRoleDefinitionPermissionArrayOutput)
-}
-
-type GetBuiltinRoleDefinitionPermissionOutput struct { *pulumi.OutputState }
-
-func (GetBuiltinRoleDefinitionPermissionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBuiltinRoleDefinitionPermission)(nil)).Elem()
-}
-
-func (o GetBuiltinRoleDefinitionPermissionOutput) ToGetBuiltinRoleDefinitionPermissionOutput() GetBuiltinRoleDefinitionPermissionOutput {
-	return o
-}
-
-func (o GetBuiltinRoleDefinitionPermissionOutput) ToGetBuiltinRoleDefinitionPermissionOutputWithContext(ctx context.Context) GetBuiltinRoleDefinitionPermissionOutput {
-	return o
-}
-
-// a list of actions supported by this role
-func (o GetBuiltinRoleDefinitionPermissionOutput) Actions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetBuiltinRoleDefinitionPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
-}
-
-// a list of data actions supported by this role
-func (o GetBuiltinRoleDefinitionPermissionOutput) DataActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetBuiltinRoleDefinitionPermission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
-}
-
-// a list of actions which are denied by this role
-func (o GetBuiltinRoleDefinitionPermissionOutput) NotActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetBuiltinRoleDefinitionPermission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
-}
-
-// a list of data actions which are denied by this role
-func (o GetBuiltinRoleDefinitionPermissionOutput) NotDataActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetBuiltinRoleDefinitionPermission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
-}
-
-type GetBuiltinRoleDefinitionPermissionArrayOutput struct { *pulumi.OutputState}
-
-func (GetBuiltinRoleDefinitionPermissionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetBuiltinRoleDefinitionPermission)(nil)).Elem()
-}
-
-func (o GetBuiltinRoleDefinitionPermissionArrayOutput) ToGetBuiltinRoleDefinitionPermissionArrayOutput() GetBuiltinRoleDefinitionPermissionArrayOutput {
-	return o
-}
-
-func (o GetBuiltinRoleDefinitionPermissionArrayOutput) ToGetBuiltinRoleDefinitionPermissionArrayOutputWithContext(ctx context.Context) GetBuiltinRoleDefinitionPermissionArrayOutput {
-	return o
-}
-
-func (o GetBuiltinRoleDefinitionPermissionArrayOutput) Index(i pulumi.IntInput) GetBuiltinRoleDefinitionPermissionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetBuiltinRoleDefinitionPermission {
-		return vs[0].([]GetBuiltinRoleDefinitionPermission)[vs[1].(int)]
-	}).(GetBuiltinRoleDefinitionPermissionOutput)
-}
-
 type GetRoleDefinitionPermission struct {
-	// a list of actions supported by this role
-	Actions []string `pulumi:"actions"`
-	DataActions []string `pulumi:"dataActions"`
-	// a list of actions which are denied by this role
-	NotActions []string `pulumi:"notActions"`
+	Actions        []string `pulumi:"actions"`
+	DataActions    []string `pulumi:"dataActions"`
+	NotActions     []string `pulumi:"notActions"`
 	NotDataActions []string `pulumi:"notDataActions"`
 }
 
@@ -248,11 +130,9 @@ type GetRoleDefinitionPermissionInput interface {
 }
 
 type GetRoleDefinitionPermissionArgs struct {
-	// a list of actions supported by this role
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
-	// a list of actions which are denied by this role
-	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
+	Actions        pulumi.StringArrayInput `pulumi:"actions"`
+	DataActions    pulumi.StringArrayInput `pulumi:"dataActions"`
+	NotActions     pulumi.StringArrayInput `pulumi:"notActions"`
 	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
 }
 
@@ -289,7 +169,7 @@ func (i GetRoleDefinitionPermissionArray) ToGetRoleDefinitionPermissionArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetRoleDefinitionPermissionArrayOutput)
 }
 
-type GetRoleDefinitionPermissionOutput struct { *pulumi.OutputState }
+type GetRoleDefinitionPermissionOutput struct{ *pulumi.OutputState }
 
 func (GetRoleDefinitionPermissionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetRoleDefinitionPermission)(nil)).Elem()
@@ -303,25 +183,23 @@ func (o GetRoleDefinitionPermissionOutput) ToGetRoleDefinitionPermissionOutputWi
 	return o
 }
 
-// a list of actions supported by this role
 func (o GetRoleDefinitionPermissionOutput) Actions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetRoleDefinitionPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetRoleDefinitionPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
 func (o GetRoleDefinitionPermissionOutput) DataActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetRoleDefinitionPermission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetRoleDefinitionPermission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
 }
 
-// a list of actions which are denied by this role
 func (o GetRoleDefinitionPermissionOutput) NotActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetRoleDefinitionPermission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetRoleDefinitionPermission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
 }
 
 func (o GetRoleDefinitionPermissionOutput) NotDataActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetRoleDefinitionPermission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetRoleDefinitionPermission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
 }
 
-type GetRoleDefinitionPermissionArrayOutput struct { *pulumi.OutputState}
+type GetRoleDefinitionPermissionArrayOutput struct{ *pulumi.OutputState }
 
 func (GetRoleDefinitionPermissionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetRoleDefinitionPermission)(nil)).Elem()
@@ -336,7 +214,7 @@ func (o GetRoleDefinitionPermissionArrayOutput) ToGetRoleDefinitionPermissionArr
 }
 
 func (o GetRoleDefinitionPermissionArrayOutput) Index(i pulumi.IntInput) GetRoleDefinitionPermissionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetRoleDefinitionPermission {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleDefinitionPermission {
 		return vs[0].([]GetRoleDefinitionPermission)[vs[1].(int)]
 	}).(GetRoleDefinitionPermissionOutput)
 }
@@ -344,8 +222,6 @@ func (o GetRoleDefinitionPermissionArrayOutput) Index(i pulumi.IntInput) GetRole
 func init() {
 	pulumi.RegisterOutputType(DefinitionPermissionOutput{})
 	pulumi.RegisterOutputType(DefinitionPermissionArrayOutput{})
-	pulumi.RegisterOutputType(GetBuiltinRoleDefinitionPermissionOutput{})
-	pulumi.RegisterOutputType(GetBuiltinRoleDefinitionPermissionArrayOutput{})
 	pulumi.RegisterOutputType(GetRoleDefinitionPermissionOutput{})
 	pulumi.RegisterOutputType(GetRoleDefinitionPermissionArrayOutput{})
 }

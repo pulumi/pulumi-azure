@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a ServiceBus Namespace.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace.html.markdown.
 type Namespace struct {
 	pulumi.CustomResourceState
@@ -182,4 +182,3 @@ type NamespaceArgs struct {
 func (NamespaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceArgs)(nil)).Elem()
 }
-

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages the subscription's Security Center Contact.
  * 
- * > **NOTE:** Owner access permission is required. 
+ * > **NOTE:** Owner access permission is required.
  * 
  * ## Example Usage
  * 
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_contact.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_contact.markdown.
  */
 export class Contact extends pulumi.CustomResource {
     /**

@@ -12,8 +12,8 @@ import (
 )
 
 type AccountKeyVaultReference struct {
-	// The Batch account ID.
-	Id string `pulumi:"id"`
+	// The ID of the Batch Account.
+	Id  string `pulumi:"id"`
 	Url string `pulumi:"url"`
 }
 
@@ -25,8 +25,8 @@ type AccountKeyVaultReferenceInput interface {
 }
 
 type AccountKeyVaultReferenceArgs struct {
-	// The Batch account ID.
-	Id pulumi.StringInput `pulumi:"id"`
+	// The ID of the Batch Account.
+	Id  pulumi.StringInput `pulumi:"id"`
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -59,7 +59,8 @@ type AccountKeyVaultReferencePtrInput interface {
 
 type accountKeyVaultReferencePtrType AccountKeyVaultReferenceArgs
 
-func AccountKeyVaultReferencePtr(v *AccountKeyVaultReferenceArgs) AccountKeyVaultReferencePtrInput {	return (*accountKeyVaultReferencePtrType)(v)
+func AccountKeyVaultReferencePtr(v *AccountKeyVaultReferenceArgs) AccountKeyVaultReferencePtrInput {
+	return (*accountKeyVaultReferencePtrType)(v)
 }
 
 func (*accountKeyVaultReferencePtrType) ElementType() reflect.Type {
@@ -74,7 +75,7 @@ func (i *accountKeyVaultReferencePtrType) ToAccountKeyVaultReferencePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AccountKeyVaultReferencePtrOutput)
 }
 
-type AccountKeyVaultReferenceOutput struct { *pulumi.OutputState }
+type AccountKeyVaultReferenceOutput struct{ *pulumi.OutputState }
 
 func (AccountKeyVaultReferenceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountKeyVaultReference)(nil)).Elem()
@@ -97,16 +98,17 @@ func (o AccountKeyVaultReferenceOutput) ToAccountKeyVaultReferencePtrOutputWithC
 		return &v
 	}).(AccountKeyVaultReferencePtrOutput)
 }
-// The Batch account ID.
+
+// The ID of the Batch Account.
 func (o AccountKeyVaultReferenceOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountKeyVaultReference) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountKeyVaultReference) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o AccountKeyVaultReferenceOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountKeyVaultReference) string { return v.Url }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountKeyVaultReference) string { return v.Url }).(pulumi.StringOutput)
 }
 
-type AccountKeyVaultReferencePtrOutput struct { *pulumi.OutputState}
+type AccountKeyVaultReferencePtrOutput struct{ *pulumi.OutputState }
 
 func (AccountKeyVaultReferencePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountKeyVaultReference)(nil)).Elem()
@@ -121,21 +123,21 @@ func (o AccountKeyVaultReferencePtrOutput) ToAccountKeyVaultReferencePtrOutputWi
 }
 
 func (o AccountKeyVaultReferencePtrOutput) Elem() AccountKeyVaultReferenceOutput {
-	return o.ApplyT(func (v *AccountKeyVaultReference) AccountKeyVaultReference { return *v }).(AccountKeyVaultReferenceOutput)
+	return o.ApplyT(func(v *AccountKeyVaultReference) AccountKeyVaultReference { return *v }).(AccountKeyVaultReferenceOutput)
 }
 
-// The Batch account ID.
+// The ID of the Batch Account.
 func (o AccountKeyVaultReferencePtrOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountKeyVaultReference) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountKeyVaultReference) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o AccountKeyVaultReferencePtrOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountKeyVaultReference) string { return v.Url }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountKeyVaultReference) string { return v.Url }).(pulumi.StringOutput)
 }
 
 type PoolAutoScale struct {
 	EvaluationInterval *string `pulumi:"evaluationInterval"`
-	Formula string `pulumi:"formula"`
+	Formula            string  `pulumi:"formula"`
 }
 
 type PoolAutoScaleInput interface {
@@ -147,7 +149,7 @@ type PoolAutoScaleInput interface {
 
 type PoolAutoScaleArgs struct {
 	EvaluationInterval pulumi.StringPtrInput `pulumi:"evaluationInterval"`
-	Formula pulumi.StringInput `pulumi:"formula"`
+	Formula            pulumi.StringInput    `pulumi:"formula"`
 }
 
 func (PoolAutoScaleArgs) ElementType() reflect.Type {
@@ -179,7 +181,8 @@ type PoolAutoScalePtrInput interface {
 
 type poolAutoScalePtrType PoolAutoScaleArgs
 
-func PoolAutoScalePtr(v *PoolAutoScaleArgs) PoolAutoScalePtrInput {	return (*poolAutoScalePtrType)(v)
+func PoolAutoScalePtr(v *PoolAutoScaleArgs) PoolAutoScalePtrInput {
+	return (*poolAutoScalePtrType)(v)
 }
 
 func (*poolAutoScalePtrType) ElementType() reflect.Type {
@@ -194,7 +197,7 @@ func (i *poolAutoScalePtrType) ToPoolAutoScalePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(PoolAutoScalePtrOutput)
 }
 
-type PoolAutoScaleOutput struct { *pulumi.OutputState }
+type PoolAutoScaleOutput struct{ *pulumi.OutputState }
 
 func (PoolAutoScaleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PoolAutoScale)(nil)).Elem()
@@ -218,14 +221,14 @@ func (o PoolAutoScaleOutput) ToPoolAutoScalePtrOutputWithContext(ctx context.Con
 	}).(PoolAutoScalePtrOutput)
 }
 func (o PoolAutoScaleOutput) EvaluationInterval() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolAutoScale) *string { return v.EvaluationInterval }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolAutoScale) *string { return v.EvaluationInterval }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolAutoScaleOutput) Formula() pulumi.StringOutput {
-	return o.ApplyT(func (v PoolAutoScale) string { return v.Formula }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PoolAutoScale) string { return v.Formula }).(pulumi.StringOutput)
 }
 
-type PoolAutoScalePtrOutput struct { *pulumi.OutputState}
+type PoolAutoScalePtrOutput struct{ *pulumi.OutputState }
 
 func (PoolAutoScalePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PoolAutoScale)(nil)).Elem()
@@ -240,23 +243,23 @@ func (o PoolAutoScalePtrOutput) ToPoolAutoScalePtrOutputWithContext(ctx context.
 }
 
 func (o PoolAutoScalePtrOutput) Elem() PoolAutoScaleOutput {
-	return o.ApplyT(func (v *PoolAutoScale) PoolAutoScale { return *v }).(PoolAutoScaleOutput)
+	return o.ApplyT(func(v *PoolAutoScale) PoolAutoScale { return *v }).(PoolAutoScaleOutput)
 }
 
 func (o PoolAutoScalePtrOutput) EvaluationInterval() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolAutoScale) *string { return v.EvaluationInterval }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolAutoScale) *string { return v.EvaluationInterval }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolAutoScalePtrOutput) Formula() pulumi.StringOutput {
-	return o.ApplyT(func (v PoolAutoScale) string { return v.Formula }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PoolAutoScale) string { return v.Formula }).(pulumi.StringOutput)
 }
 
 type PoolCertificate struct {
-	// The Batch pool ID.
-	Id string `pulumi:"id"`
-	StoreLocation string `pulumi:"storeLocation"`
-	StoreName *string `pulumi:"storeName"`
-	Visibilities []string `pulumi:"visibilities"`
+	// The ID of the Batch Pool.
+	Id            string   `pulumi:"id"`
+	StoreLocation string   `pulumi:"storeLocation"`
+	StoreName     *string  `pulumi:"storeName"`
+	Visibilities  []string `pulumi:"visibilities"`
 }
 
 type PoolCertificateInput interface {
@@ -267,11 +270,11 @@ type PoolCertificateInput interface {
 }
 
 type PoolCertificateArgs struct {
-	// The Batch pool ID.
-	Id pulumi.StringInput `pulumi:"id"`
-	StoreLocation pulumi.StringInput `pulumi:"storeLocation"`
-	StoreName pulumi.StringPtrInput `pulumi:"storeName"`
-	Visibilities pulumi.StringArrayInput `pulumi:"visibilities"`
+	// The ID of the Batch Pool.
+	Id            pulumi.StringInput      `pulumi:"id"`
+	StoreLocation pulumi.StringInput      `pulumi:"storeLocation"`
+	StoreName     pulumi.StringPtrInput   `pulumi:"storeName"`
+	Visibilities  pulumi.StringArrayInput `pulumi:"visibilities"`
 }
 
 func (PoolCertificateArgs) ElementType() reflect.Type {
@@ -307,7 +310,7 @@ func (i PoolCertificateArray) ToPoolCertificateArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PoolCertificateArrayOutput)
 }
 
-type PoolCertificateOutput struct { *pulumi.OutputState }
+type PoolCertificateOutput struct{ *pulumi.OutputState }
 
 func (PoolCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PoolCertificate)(nil)).Elem()
@@ -321,24 +324,24 @@ func (o PoolCertificateOutput) ToPoolCertificateOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Batch pool ID.
+// The ID of the Batch Pool.
 func (o PoolCertificateOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v PoolCertificate) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PoolCertificate) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o PoolCertificateOutput) StoreLocation() pulumi.StringOutput {
-	return o.ApplyT(func (v PoolCertificate) string { return v.StoreLocation }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PoolCertificate) string { return v.StoreLocation }).(pulumi.StringOutput)
 }
 
 func (o PoolCertificateOutput) StoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolCertificate) *string { return v.StoreName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolCertificate) *string { return v.StoreName }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolCertificateOutput) Visibilities() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PoolCertificate) []string { return v.Visibilities }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PoolCertificate) []string { return v.Visibilities }).(pulumi.StringArrayOutput)
 }
 
-type PoolCertificateArrayOutput struct { *pulumi.OutputState}
+type PoolCertificateArrayOutput struct{ *pulumi.OutputState }
 
 func (PoolCertificateArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PoolCertificate)(nil)).Elem()
@@ -353,14 +356,14 @@ func (o PoolCertificateArrayOutput) ToPoolCertificateArrayOutputWithContext(ctx 
 }
 
 func (o PoolCertificateArrayOutput) Index(i pulumi.IntInput) PoolCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PoolCertificate {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolCertificate {
 		return vs[0].([]PoolCertificate)[vs[1].(int)]
 	}).(PoolCertificateOutput)
 }
 
 type PoolContainerConfiguration struct {
 	ContainerRegistries []PoolContainerConfigurationContainerRegistry `pulumi:"containerRegistries"`
-	Type *string `pulumi:"type"`
+	Type                *string                                       `pulumi:"type"`
 }
 
 type PoolContainerConfigurationInput interface {
@@ -372,7 +375,7 @@ type PoolContainerConfigurationInput interface {
 
 type PoolContainerConfigurationArgs struct {
 	ContainerRegistries PoolContainerConfigurationContainerRegistryArrayInput `pulumi:"containerRegistries"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type                pulumi.StringPtrInput                                 `pulumi:"type"`
 }
 
 func (PoolContainerConfigurationArgs) ElementType() reflect.Type {
@@ -404,7 +407,8 @@ type PoolContainerConfigurationPtrInput interface {
 
 type poolContainerConfigurationPtrType PoolContainerConfigurationArgs
 
-func PoolContainerConfigurationPtr(v *PoolContainerConfigurationArgs) PoolContainerConfigurationPtrInput {	return (*poolContainerConfigurationPtrType)(v)
+func PoolContainerConfigurationPtr(v *PoolContainerConfigurationArgs) PoolContainerConfigurationPtrInput {
+	return (*poolContainerConfigurationPtrType)(v)
 }
 
 func (*poolContainerConfigurationPtrType) ElementType() reflect.Type {
@@ -419,7 +423,7 @@ func (i *poolContainerConfigurationPtrType) ToPoolContainerConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PoolContainerConfigurationPtrOutput)
 }
 
-type PoolContainerConfigurationOutput struct { *pulumi.OutputState }
+type PoolContainerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PoolContainerConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PoolContainerConfiguration)(nil)).Elem()
@@ -443,14 +447,16 @@ func (o PoolContainerConfigurationOutput) ToPoolContainerConfigurationPtrOutputW
 	}).(PoolContainerConfigurationPtrOutput)
 }
 func (o PoolContainerConfigurationOutput) ContainerRegistries() PoolContainerConfigurationContainerRegistryArrayOutput {
-	return o.ApplyT(func (v PoolContainerConfiguration) []PoolContainerConfigurationContainerRegistry { return v.ContainerRegistries }).(PoolContainerConfigurationContainerRegistryArrayOutput)
+	return o.ApplyT(func(v PoolContainerConfiguration) []PoolContainerConfigurationContainerRegistry {
+		return v.ContainerRegistries
+	}).(PoolContainerConfigurationContainerRegistryArrayOutput)
 }
 
 func (o PoolContainerConfigurationOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolContainerConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolContainerConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type PoolContainerConfigurationPtrOutput struct { *pulumi.OutputState}
+type PoolContainerConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (PoolContainerConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PoolContainerConfiguration)(nil)).Elem()
@@ -465,21 +471,23 @@ func (o PoolContainerConfigurationPtrOutput) ToPoolContainerConfigurationPtrOutp
 }
 
 func (o PoolContainerConfigurationPtrOutput) Elem() PoolContainerConfigurationOutput {
-	return o.ApplyT(func (v *PoolContainerConfiguration) PoolContainerConfiguration { return *v }).(PoolContainerConfigurationOutput)
+	return o.ApplyT(func(v *PoolContainerConfiguration) PoolContainerConfiguration { return *v }).(PoolContainerConfigurationOutput)
 }
 
 func (o PoolContainerConfigurationPtrOutput) ContainerRegistries() PoolContainerConfigurationContainerRegistryArrayOutput {
-	return o.ApplyT(func (v PoolContainerConfiguration) []PoolContainerConfigurationContainerRegistry { return v.ContainerRegistries }).(PoolContainerConfigurationContainerRegistryArrayOutput)
+	return o.ApplyT(func(v PoolContainerConfiguration) []PoolContainerConfigurationContainerRegistry {
+		return v.ContainerRegistries
+	}).(PoolContainerConfigurationContainerRegistryArrayOutput)
 }
 
 func (o PoolContainerConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolContainerConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolContainerConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type PoolContainerConfigurationContainerRegistry struct {
-	Password string `pulumi:"password"`
+	Password       string `pulumi:"password"`
 	RegistryServer string `pulumi:"registryServer"`
-	UserName string `pulumi:"userName"`
+	UserName       string `pulumi:"userName"`
 }
 
 type PoolContainerConfigurationContainerRegistryInput interface {
@@ -490,9 +498,9 @@ type PoolContainerConfigurationContainerRegistryInput interface {
 }
 
 type PoolContainerConfigurationContainerRegistryArgs struct {
-	Password pulumi.StringInput `pulumi:"password"`
+	Password       pulumi.StringInput `pulumi:"password"`
 	RegistryServer pulumi.StringInput `pulumi:"registryServer"`
-	UserName pulumi.StringInput `pulumi:"userName"`
+	UserName       pulumi.StringInput `pulumi:"userName"`
 }
 
 func (PoolContainerConfigurationContainerRegistryArgs) ElementType() reflect.Type {
@@ -528,7 +536,7 @@ func (i PoolContainerConfigurationContainerRegistryArray) ToPoolContainerConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(PoolContainerConfigurationContainerRegistryArrayOutput)
 }
 
-type PoolContainerConfigurationContainerRegistryOutput struct { *pulumi.OutputState }
+type PoolContainerConfigurationContainerRegistryOutput struct{ *pulumi.OutputState }
 
 func (PoolContainerConfigurationContainerRegistryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PoolContainerConfigurationContainerRegistry)(nil)).Elem()
@@ -543,18 +551,18 @@ func (o PoolContainerConfigurationContainerRegistryOutput) ToPoolContainerConfig
 }
 
 func (o PoolContainerConfigurationContainerRegistryOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v PoolContainerConfigurationContainerRegistry) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PoolContainerConfigurationContainerRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
 
 func (o PoolContainerConfigurationContainerRegistryOutput) RegistryServer() pulumi.StringOutput {
-	return o.ApplyT(func (v PoolContainerConfigurationContainerRegistry) string { return v.RegistryServer }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PoolContainerConfigurationContainerRegistry) string { return v.RegistryServer }).(pulumi.StringOutput)
 }
 
 func (o PoolContainerConfigurationContainerRegistryOutput) UserName() pulumi.StringOutput {
-	return o.ApplyT(func (v PoolContainerConfigurationContainerRegistry) string { return v.UserName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PoolContainerConfigurationContainerRegistry) string { return v.UserName }).(pulumi.StringOutput)
 }
 
-type PoolContainerConfigurationContainerRegistryArrayOutput struct { *pulumi.OutputState}
+type PoolContainerConfigurationContainerRegistryArrayOutput struct{ *pulumi.OutputState }
 
 func (PoolContainerConfigurationContainerRegistryArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PoolContainerConfigurationContainerRegistry)(nil)).Elem()
@@ -569,15 +577,15 @@ func (o PoolContainerConfigurationContainerRegistryArrayOutput) ToPoolContainerC
 }
 
 func (o PoolContainerConfigurationContainerRegistryArrayOutput) Index(i pulumi.IntInput) PoolContainerConfigurationContainerRegistryOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PoolContainerConfigurationContainerRegistry {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolContainerConfigurationContainerRegistry {
 		return vs[0].([]PoolContainerConfigurationContainerRegistry)[vs[1].(int)]
 	}).(PoolContainerConfigurationContainerRegistryOutput)
 }
 
 type PoolFixedScale struct {
-	ResizeTimeout *string `pulumi:"resizeTimeout"`
-	TargetDedicatedNodes *int `pulumi:"targetDedicatedNodes"`
-	TargetLowPriorityNodes *int `pulumi:"targetLowPriorityNodes"`
+	ResizeTimeout          *string `pulumi:"resizeTimeout"`
+	TargetDedicatedNodes   *int    `pulumi:"targetDedicatedNodes"`
+	TargetLowPriorityNodes *int    `pulumi:"targetLowPriorityNodes"`
 }
 
 type PoolFixedScaleInput interface {
@@ -588,9 +596,9 @@ type PoolFixedScaleInput interface {
 }
 
 type PoolFixedScaleArgs struct {
-	ResizeTimeout pulumi.StringPtrInput `pulumi:"resizeTimeout"`
-	TargetDedicatedNodes pulumi.IntPtrInput `pulumi:"targetDedicatedNodes"`
-	TargetLowPriorityNodes pulumi.IntPtrInput `pulumi:"targetLowPriorityNodes"`
+	ResizeTimeout          pulumi.StringPtrInput `pulumi:"resizeTimeout"`
+	TargetDedicatedNodes   pulumi.IntPtrInput    `pulumi:"targetDedicatedNodes"`
+	TargetLowPriorityNodes pulumi.IntPtrInput    `pulumi:"targetLowPriorityNodes"`
 }
 
 func (PoolFixedScaleArgs) ElementType() reflect.Type {
@@ -622,7 +630,8 @@ type PoolFixedScalePtrInput interface {
 
 type poolFixedScalePtrType PoolFixedScaleArgs
 
-func PoolFixedScalePtr(v *PoolFixedScaleArgs) PoolFixedScalePtrInput {	return (*poolFixedScalePtrType)(v)
+func PoolFixedScalePtr(v *PoolFixedScaleArgs) PoolFixedScalePtrInput {
+	return (*poolFixedScalePtrType)(v)
 }
 
 func (*poolFixedScalePtrType) ElementType() reflect.Type {
@@ -637,7 +646,7 @@ func (i *poolFixedScalePtrType) ToPoolFixedScalePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PoolFixedScalePtrOutput)
 }
 
-type PoolFixedScaleOutput struct { *pulumi.OutputState }
+type PoolFixedScaleOutput struct{ *pulumi.OutputState }
 
 func (PoolFixedScaleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PoolFixedScale)(nil)).Elem()
@@ -661,18 +670,18 @@ func (o PoolFixedScaleOutput) ToPoolFixedScalePtrOutputWithContext(ctx context.C
 	}).(PoolFixedScalePtrOutput)
 }
 func (o PoolFixedScaleOutput) ResizeTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolFixedScale) *string { return v.ResizeTimeout }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolFixedScale) *string { return v.ResizeTimeout }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolFixedScaleOutput) TargetDedicatedNodes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PoolFixedScale) *int { return v.TargetDedicatedNodes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PoolFixedScale) *int { return v.TargetDedicatedNodes }).(pulumi.IntPtrOutput)
 }
 
 func (o PoolFixedScaleOutput) TargetLowPriorityNodes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PoolFixedScale) *int { return v.TargetLowPriorityNodes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PoolFixedScale) *int { return v.TargetLowPriorityNodes }).(pulumi.IntPtrOutput)
 }
 
-type PoolFixedScalePtrOutput struct { *pulumi.OutputState}
+type PoolFixedScalePtrOutput struct{ *pulumi.OutputState }
 
 func (PoolFixedScalePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PoolFixedScale)(nil)).Elem()
@@ -687,24 +696,25 @@ func (o PoolFixedScalePtrOutput) ToPoolFixedScalePtrOutputWithContext(ctx contex
 }
 
 func (o PoolFixedScalePtrOutput) Elem() PoolFixedScaleOutput {
-	return o.ApplyT(func (v *PoolFixedScale) PoolFixedScale { return *v }).(PoolFixedScaleOutput)
+	return o.ApplyT(func(v *PoolFixedScale) PoolFixedScale { return *v }).(PoolFixedScaleOutput)
 }
 
 func (o PoolFixedScalePtrOutput) ResizeTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolFixedScale) *string { return v.ResizeTimeout }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolFixedScale) *string { return v.ResizeTimeout }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolFixedScalePtrOutput) TargetDedicatedNodes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PoolFixedScale) *int { return v.TargetDedicatedNodes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PoolFixedScale) *int { return v.TargetDedicatedNodes }).(pulumi.IntPtrOutput)
 }
 
 func (o PoolFixedScalePtrOutput) TargetLowPriorityNodes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PoolFixedScale) *int { return v.TargetLowPriorityNodes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PoolFixedScale) *int { return v.TargetLowPriorityNodes }).(pulumi.IntPtrOutput)
 }
 
 type PoolNetworkConfiguration struct {
 	EndpointConfigurations []PoolNetworkConfigurationEndpointConfiguration `pulumi:"endpointConfigurations"`
-	SubnetId string `pulumi:"subnetId"`
+	PublicIps              []string                                        `pulumi:"publicIps"`
+	SubnetId               string                                          `pulumi:"subnetId"`
 }
 
 type PoolNetworkConfigurationInput interface {
@@ -716,7 +726,8 @@ type PoolNetworkConfigurationInput interface {
 
 type PoolNetworkConfigurationArgs struct {
 	EndpointConfigurations PoolNetworkConfigurationEndpointConfigurationArrayInput `pulumi:"endpointConfigurations"`
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	PublicIps              pulumi.StringArrayInput                                 `pulumi:"publicIps"`
+	SubnetId               pulumi.StringInput                                      `pulumi:"subnetId"`
 }
 
 func (PoolNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -748,7 +759,8 @@ type PoolNetworkConfigurationPtrInput interface {
 
 type poolNetworkConfigurationPtrType PoolNetworkConfigurationArgs
 
-func PoolNetworkConfigurationPtr(v *PoolNetworkConfigurationArgs) PoolNetworkConfigurationPtrInput {	return (*poolNetworkConfigurationPtrType)(v)
+func PoolNetworkConfigurationPtr(v *PoolNetworkConfigurationArgs) PoolNetworkConfigurationPtrInput {
+	return (*poolNetworkConfigurationPtrType)(v)
 }
 
 func (*poolNetworkConfigurationPtrType) ElementType() reflect.Type {
@@ -763,7 +775,7 @@ func (i *poolNetworkConfigurationPtrType) ToPoolNetworkConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PoolNetworkConfigurationPtrOutput)
 }
 
-type PoolNetworkConfigurationOutput struct { *pulumi.OutputState }
+type PoolNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PoolNetworkConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PoolNetworkConfiguration)(nil)).Elem()
@@ -787,14 +799,20 @@ func (o PoolNetworkConfigurationOutput) ToPoolNetworkConfigurationPtrOutputWithC
 	}).(PoolNetworkConfigurationPtrOutput)
 }
 func (o PoolNetworkConfigurationOutput) EndpointConfigurations() PoolNetworkConfigurationEndpointConfigurationArrayOutput {
-	return o.ApplyT(func (v PoolNetworkConfiguration) []PoolNetworkConfigurationEndpointConfiguration { return v.EndpointConfigurations }).(PoolNetworkConfigurationEndpointConfigurationArrayOutput)
+	return o.ApplyT(func(v PoolNetworkConfiguration) []PoolNetworkConfigurationEndpointConfiguration {
+		return v.EndpointConfigurations
+	}).(PoolNetworkConfigurationEndpointConfigurationArrayOutput)
+}
+
+func (o PoolNetworkConfigurationOutput) PublicIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PoolNetworkConfiguration) []string { return v.PublicIps }).(pulumi.StringArrayOutput)
 }
 
 func (o PoolNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v PoolNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PoolNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-type PoolNetworkConfigurationPtrOutput struct { *pulumi.OutputState}
+type PoolNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (PoolNetworkConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PoolNetworkConfiguration)(nil)).Elem()
@@ -809,24 +827,30 @@ func (o PoolNetworkConfigurationPtrOutput) ToPoolNetworkConfigurationPtrOutputWi
 }
 
 func (o PoolNetworkConfigurationPtrOutput) Elem() PoolNetworkConfigurationOutput {
-	return o.ApplyT(func (v *PoolNetworkConfiguration) PoolNetworkConfiguration { return *v }).(PoolNetworkConfigurationOutput)
+	return o.ApplyT(func(v *PoolNetworkConfiguration) PoolNetworkConfiguration { return *v }).(PoolNetworkConfigurationOutput)
 }
 
 func (o PoolNetworkConfigurationPtrOutput) EndpointConfigurations() PoolNetworkConfigurationEndpointConfigurationArrayOutput {
-	return o.ApplyT(func (v PoolNetworkConfiguration) []PoolNetworkConfigurationEndpointConfiguration { return v.EndpointConfigurations }).(PoolNetworkConfigurationEndpointConfigurationArrayOutput)
+	return o.ApplyT(func(v PoolNetworkConfiguration) []PoolNetworkConfigurationEndpointConfiguration {
+		return v.EndpointConfigurations
+	}).(PoolNetworkConfigurationEndpointConfigurationArrayOutput)
+}
+
+func (o PoolNetworkConfigurationPtrOutput) PublicIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PoolNetworkConfiguration) []string { return v.PublicIps }).(pulumi.StringArrayOutput)
 }
 
 func (o PoolNetworkConfigurationPtrOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v PoolNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PoolNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
 type PoolNetworkConfigurationEndpointConfiguration struct {
-	BackendPort int `pulumi:"backendPort"`
+	BackendPort       int    `pulumi:"backendPort"`
 	FrontendPortRange string `pulumi:"frontendPortRange"`
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
+	Name                      string                                                                  `pulumi:"name"`
 	NetworkSecurityGroupRules []PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule `pulumi:"networkSecurityGroupRules"`
-	Protocol string `pulumi:"protocol"`
+	Protocol                  string                                                                  `pulumi:"protocol"`
 }
 
 type PoolNetworkConfigurationEndpointConfigurationInput interface {
@@ -837,12 +861,12 @@ type PoolNetworkConfigurationEndpointConfigurationInput interface {
 }
 
 type PoolNetworkConfigurationEndpointConfigurationArgs struct {
-	BackendPort pulumi.IntInput `pulumi:"backendPort"`
+	BackendPort       pulumi.IntInput    `pulumi:"backendPort"`
 	FrontendPortRange pulumi.StringInput `pulumi:"frontendPortRange"`
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name                      pulumi.StringInput                                                              `pulumi:"name"`
 	NetworkSecurityGroupRules PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput `pulumi:"networkSecurityGroupRules"`
-	Protocol pulumi.StringInput `pulumi:"protocol"`
+	Protocol                  pulumi.StringInput                                                              `pulumi:"protocol"`
 }
 
 func (PoolNetworkConfigurationEndpointConfigurationArgs) ElementType() reflect.Type {
@@ -878,7 +902,7 @@ func (i PoolNetworkConfigurationEndpointConfigurationArray) ToPoolNetworkConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(PoolNetworkConfigurationEndpointConfigurationArrayOutput)
 }
 
-type PoolNetworkConfigurationEndpointConfigurationOutput struct { *pulumi.OutputState }
+type PoolNetworkConfigurationEndpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PoolNetworkConfigurationEndpointConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PoolNetworkConfigurationEndpointConfiguration)(nil)).Elem()
@@ -893,27 +917,29 @@ func (o PoolNetworkConfigurationEndpointConfigurationOutput) ToPoolNetworkConfig
 }
 
 func (o PoolNetworkConfigurationEndpointConfigurationOutput) BackendPort() pulumi.IntOutput {
-	return o.ApplyT(func (v PoolNetworkConfigurationEndpointConfiguration) int { return v.BackendPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfiguration) int { return v.BackendPort }).(pulumi.IntOutput)
 }
 
 func (o PoolNetworkConfigurationEndpointConfigurationOutput) FrontendPortRange() pulumi.StringOutput {
-	return o.ApplyT(func (v PoolNetworkConfigurationEndpointConfiguration) string { return v.FrontendPortRange }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfiguration) string { return v.FrontendPortRange }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationEndpointConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v PoolNetworkConfigurationEndpointConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o PoolNetworkConfigurationEndpointConfigurationOutput) NetworkSecurityGroupRules() PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput {
-	return o.ApplyT(func (v PoolNetworkConfigurationEndpointConfiguration) []PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule { return v.NetworkSecurityGroupRules }).(PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput)
+	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfiguration) []PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule {
+		return v.NetworkSecurityGroupRules
+	}).(PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput)
 }
 
 func (o PoolNetworkConfigurationEndpointConfigurationOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func (v PoolNetworkConfigurationEndpointConfiguration) string { return v.Protocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfiguration) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-type PoolNetworkConfigurationEndpointConfigurationArrayOutput struct { *pulumi.OutputState}
+type PoolNetworkConfigurationEndpointConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (PoolNetworkConfigurationEndpointConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PoolNetworkConfigurationEndpointConfiguration)(nil)).Elem()
@@ -928,14 +954,14 @@ func (o PoolNetworkConfigurationEndpointConfigurationArrayOutput) ToPoolNetworkC
 }
 
 func (o PoolNetworkConfigurationEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) PoolNetworkConfigurationEndpointConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PoolNetworkConfigurationEndpointConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolNetworkConfigurationEndpointConfiguration {
 		return vs[0].([]PoolNetworkConfigurationEndpointConfiguration)[vs[1].(int)]
 	}).(PoolNetworkConfigurationEndpointConfigurationOutput)
 }
 
 type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule struct {
-	Access string `pulumi:"access"`
-	Priority int `pulumi:"priority"`
+	Access              string `pulumi:"access"`
+	Priority            int    `pulumi:"priority"`
 	SourceAddressPrefix string `pulumi:"sourceAddressPrefix"`
 }
 
@@ -947,8 +973,8 @@ type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleInput 
 }
 
 type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs struct {
-	Access pulumi.StringInput `pulumi:"access"`
-	Priority pulumi.IntInput `pulumi:"priority"`
+	Access              pulumi.StringInput `pulumi:"access"`
+	Priority            pulumi.IntInput    `pulumi:"priority"`
 	SourceAddressPrefix pulumi.StringInput `pulumi:"sourceAddressPrefix"`
 }
 
@@ -985,7 +1011,7 @@ func (i PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArr
 	return pulumi.ToOutputWithContext(ctx, i).(PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput)
 }
 
-type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput struct { *pulumi.OutputState }
+type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput struct{ *pulumi.OutputState }
 
 func (PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule)(nil)).Elem()
@@ -1000,18 +1026,20 @@ func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOut
 }
 
 func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) Access() pulumi.StringOutput {
-	return o.ApplyT(func (v PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) string { return v.Access }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) string { return v.Access }).(pulumi.StringOutput)
 }
 
 func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func (v PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) int { return v.Priority }).(pulumi.IntOutput)
+	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
 func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) SourceAddressPrefix() pulumi.StringOutput {
-	return o.ApplyT(func (v PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) string { return v.SourceAddressPrefix }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) string {
+		return v.SourceAddressPrefix
+	}).(pulumi.StringOutput)
 }
 
-type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput struct { *pulumi.OutputState}
+type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule)(nil)).Elem()
@@ -1026,18 +1054,18 @@ func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArr
 }
 
 func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput) Index(i pulumi.IntInput) PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule {
 		return vs[0].([]PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule)[vs[1].(int)]
 	}).(PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput)
 }
 
 type PoolStartTask struct {
-	CommandLine string `pulumi:"commandLine"`
-	Environment map[string]string `pulumi:"environment"`
-	MaxTaskRetryCount *int `pulumi:"maxTaskRetryCount"`
-	ResourceFiles []PoolStartTaskResourceFile `pulumi:"resourceFiles"`
-	UserIdentity PoolStartTaskUserIdentity `pulumi:"userIdentity"`
-	WaitForSuccess *bool `pulumi:"waitForSuccess"`
+	CommandLine       string                      `pulumi:"commandLine"`
+	Environment       map[string]string           `pulumi:"environment"`
+	MaxTaskRetryCount *int                        `pulumi:"maxTaskRetryCount"`
+	ResourceFiles     []PoolStartTaskResourceFile `pulumi:"resourceFiles"`
+	UserIdentity      PoolStartTaskUserIdentity   `pulumi:"userIdentity"`
+	WaitForSuccess    *bool                       `pulumi:"waitForSuccess"`
 }
 
 type PoolStartTaskInput interface {
@@ -1048,12 +1076,12 @@ type PoolStartTaskInput interface {
 }
 
 type PoolStartTaskArgs struct {
-	CommandLine pulumi.StringInput `pulumi:"commandLine"`
-	Environment pulumi.StringMapInput `pulumi:"environment"`
-	MaxTaskRetryCount pulumi.IntPtrInput `pulumi:"maxTaskRetryCount"`
-	ResourceFiles PoolStartTaskResourceFileArrayInput `pulumi:"resourceFiles"`
-	UserIdentity PoolStartTaskUserIdentityInput `pulumi:"userIdentity"`
-	WaitForSuccess pulumi.BoolPtrInput `pulumi:"waitForSuccess"`
+	CommandLine       pulumi.StringInput                  `pulumi:"commandLine"`
+	Environment       pulumi.StringMapInput               `pulumi:"environment"`
+	MaxTaskRetryCount pulumi.IntPtrInput                  `pulumi:"maxTaskRetryCount"`
+	ResourceFiles     PoolStartTaskResourceFileArrayInput `pulumi:"resourceFiles"`
+	UserIdentity      PoolStartTaskUserIdentityInput      `pulumi:"userIdentity"`
+	WaitForSuccess    pulumi.BoolPtrInput                 `pulumi:"waitForSuccess"`
 }
 
 func (PoolStartTaskArgs) ElementType() reflect.Type {
@@ -1085,7 +1113,8 @@ type PoolStartTaskPtrInput interface {
 
 type poolStartTaskPtrType PoolStartTaskArgs
 
-func PoolStartTaskPtr(v *PoolStartTaskArgs) PoolStartTaskPtrInput {	return (*poolStartTaskPtrType)(v)
+func PoolStartTaskPtr(v *PoolStartTaskArgs) PoolStartTaskPtrInput {
+	return (*poolStartTaskPtrType)(v)
 }
 
 func (*poolStartTaskPtrType) ElementType() reflect.Type {
@@ -1100,7 +1129,7 @@ func (i *poolStartTaskPtrType) ToPoolStartTaskPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskPtrOutput)
 }
 
-type PoolStartTaskOutput struct { *pulumi.OutputState }
+type PoolStartTaskOutput struct{ *pulumi.OutputState }
 
 func (PoolStartTaskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PoolStartTask)(nil)).Elem()
@@ -1124,30 +1153,30 @@ func (o PoolStartTaskOutput) ToPoolStartTaskPtrOutputWithContext(ctx context.Con
 	}).(PoolStartTaskPtrOutput)
 }
 func (o PoolStartTaskOutput) CommandLine() pulumi.StringOutput {
-	return o.ApplyT(func (v PoolStartTask) string { return v.CommandLine }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PoolStartTask) string { return v.CommandLine }).(pulumi.StringOutput)
 }
 
 func (o PoolStartTaskOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func (v PoolStartTask) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v PoolStartTask) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
 func (o PoolStartTaskOutput) MaxTaskRetryCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PoolStartTask) *int { return v.MaxTaskRetryCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PoolStartTask) *int { return v.MaxTaskRetryCount }).(pulumi.IntPtrOutput)
 }
 
 func (o PoolStartTaskOutput) ResourceFiles() PoolStartTaskResourceFileArrayOutput {
-	return o.ApplyT(func (v PoolStartTask) []PoolStartTaskResourceFile { return v.ResourceFiles }).(PoolStartTaskResourceFileArrayOutput)
+	return o.ApplyT(func(v PoolStartTask) []PoolStartTaskResourceFile { return v.ResourceFiles }).(PoolStartTaskResourceFileArrayOutput)
 }
 
 func (o PoolStartTaskOutput) UserIdentity() PoolStartTaskUserIdentityOutput {
-	return o.ApplyT(func (v PoolStartTask) PoolStartTaskUserIdentity { return v.UserIdentity }).(PoolStartTaskUserIdentityOutput)
+	return o.ApplyT(func(v PoolStartTask) PoolStartTaskUserIdentity { return v.UserIdentity }).(PoolStartTaskUserIdentityOutput)
 }
 
 func (o PoolStartTaskOutput) WaitForSuccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PoolStartTask) *bool { return v.WaitForSuccess }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PoolStartTask) *bool { return v.WaitForSuccess }).(pulumi.BoolPtrOutput)
 }
 
-type PoolStartTaskPtrOutput struct { *pulumi.OutputState}
+type PoolStartTaskPtrOutput struct{ *pulumi.OutputState }
 
 func (PoolStartTaskPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PoolStartTask)(nil)).Elem()
@@ -1162,40 +1191,40 @@ func (o PoolStartTaskPtrOutput) ToPoolStartTaskPtrOutputWithContext(ctx context.
 }
 
 func (o PoolStartTaskPtrOutput) Elem() PoolStartTaskOutput {
-	return o.ApplyT(func (v *PoolStartTask) PoolStartTask { return *v }).(PoolStartTaskOutput)
+	return o.ApplyT(func(v *PoolStartTask) PoolStartTask { return *v }).(PoolStartTaskOutput)
 }
 
 func (o PoolStartTaskPtrOutput) CommandLine() pulumi.StringOutput {
-	return o.ApplyT(func (v PoolStartTask) string { return v.CommandLine }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PoolStartTask) string { return v.CommandLine }).(pulumi.StringOutput)
 }
 
 func (o PoolStartTaskPtrOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func (v PoolStartTask) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v PoolStartTask) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
 func (o PoolStartTaskPtrOutput) MaxTaskRetryCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PoolStartTask) *int { return v.MaxTaskRetryCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PoolStartTask) *int { return v.MaxTaskRetryCount }).(pulumi.IntPtrOutput)
 }
 
 func (o PoolStartTaskPtrOutput) ResourceFiles() PoolStartTaskResourceFileArrayOutput {
-	return o.ApplyT(func (v PoolStartTask) []PoolStartTaskResourceFile { return v.ResourceFiles }).(PoolStartTaskResourceFileArrayOutput)
+	return o.ApplyT(func(v PoolStartTask) []PoolStartTaskResourceFile { return v.ResourceFiles }).(PoolStartTaskResourceFileArrayOutput)
 }
 
 func (o PoolStartTaskPtrOutput) UserIdentity() PoolStartTaskUserIdentityOutput {
-	return o.ApplyT(func (v PoolStartTask) PoolStartTaskUserIdentity { return v.UserIdentity }).(PoolStartTaskUserIdentityOutput)
+	return o.ApplyT(func(v PoolStartTask) PoolStartTaskUserIdentity { return v.UserIdentity }).(PoolStartTaskUserIdentityOutput)
 }
 
 func (o PoolStartTaskPtrOutput) WaitForSuccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PoolStartTask) *bool { return v.WaitForSuccess }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PoolStartTask) *bool { return v.WaitForSuccess }).(pulumi.BoolPtrOutput)
 }
 
 type PoolStartTaskResourceFile struct {
 	AutoStorageContainerName *string `pulumi:"autoStorageContainerName"`
-	BlobPrefix *string `pulumi:"blobPrefix"`
-	FileMode *string `pulumi:"fileMode"`
-	FilePath *string `pulumi:"filePath"`
-	HttpUrl *string `pulumi:"httpUrl"`
-	StorageContainerUrl *string `pulumi:"storageContainerUrl"`
+	BlobPrefix               *string `pulumi:"blobPrefix"`
+	FileMode                 *string `pulumi:"fileMode"`
+	FilePath                 *string `pulumi:"filePath"`
+	HttpUrl                  *string `pulumi:"httpUrl"`
+	StorageContainerUrl      *string `pulumi:"storageContainerUrl"`
 }
 
 type PoolStartTaskResourceFileInput interface {
@@ -1207,11 +1236,11 @@ type PoolStartTaskResourceFileInput interface {
 
 type PoolStartTaskResourceFileArgs struct {
 	AutoStorageContainerName pulumi.StringPtrInput `pulumi:"autoStorageContainerName"`
-	BlobPrefix pulumi.StringPtrInput `pulumi:"blobPrefix"`
-	FileMode pulumi.StringPtrInput `pulumi:"fileMode"`
-	FilePath pulumi.StringPtrInput `pulumi:"filePath"`
-	HttpUrl pulumi.StringPtrInput `pulumi:"httpUrl"`
-	StorageContainerUrl pulumi.StringPtrInput `pulumi:"storageContainerUrl"`
+	BlobPrefix               pulumi.StringPtrInput `pulumi:"blobPrefix"`
+	FileMode                 pulumi.StringPtrInput `pulumi:"fileMode"`
+	FilePath                 pulumi.StringPtrInput `pulumi:"filePath"`
+	HttpUrl                  pulumi.StringPtrInput `pulumi:"httpUrl"`
+	StorageContainerUrl      pulumi.StringPtrInput `pulumi:"storageContainerUrl"`
 }
 
 func (PoolStartTaskResourceFileArgs) ElementType() reflect.Type {
@@ -1247,7 +1276,7 @@ func (i PoolStartTaskResourceFileArray) ToPoolStartTaskResourceFileArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskResourceFileArrayOutput)
 }
 
-type PoolStartTaskResourceFileOutput struct { *pulumi.OutputState }
+type PoolStartTaskResourceFileOutput struct{ *pulumi.OutputState }
 
 func (PoolStartTaskResourceFileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PoolStartTaskResourceFile)(nil)).Elem()
@@ -1262,30 +1291,30 @@ func (o PoolStartTaskResourceFileOutput) ToPoolStartTaskResourceFileOutputWithCo
 }
 
 func (o PoolStartTaskResourceFileOutput) AutoStorageContainerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStartTaskResourceFile) *string { return v.AutoStorageContainerName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStartTaskResourceFile) *string { return v.AutoStorageContainerName }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolStartTaskResourceFileOutput) BlobPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStartTaskResourceFile) *string { return v.BlobPrefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStartTaskResourceFile) *string { return v.BlobPrefix }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolStartTaskResourceFileOutput) FileMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStartTaskResourceFile) *string { return v.FileMode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStartTaskResourceFile) *string { return v.FileMode }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolStartTaskResourceFileOutput) FilePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStartTaskResourceFile) *string { return v.FilePath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStartTaskResourceFile) *string { return v.FilePath }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolStartTaskResourceFileOutput) HttpUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStartTaskResourceFile) *string { return v.HttpUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStartTaskResourceFile) *string { return v.HttpUrl }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolStartTaskResourceFileOutput) StorageContainerUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStartTaskResourceFile) *string { return v.StorageContainerUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStartTaskResourceFile) *string { return v.StorageContainerUrl }).(pulumi.StringPtrOutput)
 }
 
-type PoolStartTaskResourceFileArrayOutput struct { *pulumi.OutputState}
+type PoolStartTaskResourceFileArrayOutput struct{ *pulumi.OutputState }
 
 func (PoolStartTaskResourceFileArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PoolStartTaskResourceFile)(nil)).Elem()
@@ -1300,14 +1329,14 @@ func (o PoolStartTaskResourceFileArrayOutput) ToPoolStartTaskResourceFileArrayOu
 }
 
 func (o PoolStartTaskResourceFileArrayOutput) Index(i pulumi.IntInput) PoolStartTaskResourceFileOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PoolStartTaskResourceFile {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolStartTaskResourceFile {
 		return vs[0].([]PoolStartTaskResourceFile)[vs[1].(int)]
 	}).(PoolStartTaskResourceFileOutput)
 }
 
 type PoolStartTaskUserIdentity struct {
 	AutoUser *PoolStartTaskUserIdentityAutoUser `pulumi:"autoUser"`
-	UserName *string `pulumi:"userName"`
+	UserName *string                            `pulumi:"userName"`
 }
 
 type PoolStartTaskUserIdentityInput interface {
@@ -1319,7 +1348,7 @@ type PoolStartTaskUserIdentityInput interface {
 
 type PoolStartTaskUserIdentityArgs struct {
 	AutoUser PoolStartTaskUserIdentityAutoUserPtrInput `pulumi:"autoUser"`
-	UserName pulumi.StringPtrInput `pulumi:"userName"`
+	UserName pulumi.StringPtrInput                     `pulumi:"userName"`
 }
 
 func (PoolStartTaskUserIdentityArgs) ElementType() reflect.Type {
@@ -1334,7 +1363,7 @@ func (i PoolStartTaskUserIdentityArgs) ToPoolStartTaskUserIdentityOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskUserIdentityOutput)
 }
 
-type PoolStartTaskUserIdentityOutput struct { *pulumi.OutputState }
+type PoolStartTaskUserIdentityOutput struct{ *pulumi.OutputState }
 
 func (PoolStartTaskUserIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PoolStartTaskUserIdentity)(nil)).Elem()
@@ -1349,16 +1378,16 @@ func (o PoolStartTaskUserIdentityOutput) ToPoolStartTaskUserIdentityOutputWithCo
 }
 
 func (o PoolStartTaskUserIdentityOutput) AutoUser() PoolStartTaskUserIdentityAutoUserPtrOutput {
-	return o.ApplyT(func (v PoolStartTaskUserIdentity) *PoolStartTaskUserIdentityAutoUser { return v.AutoUser }).(PoolStartTaskUserIdentityAutoUserPtrOutput)
+	return o.ApplyT(func(v PoolStartTaskUserIdentity) *PoolStartTaskUserIdentityAutoUser { return v.AutoUser }).(PoolStartTaskUserIdentityAutoUserPtrOutput)
 }
 
 func (o PoolStartTaskUserIdentityOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStartTaskUserIdentity) *string { return v.UserName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStartTaskUserIdentity) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }
 
 type PoolStartTaskUserIdentityAutoUser struct {
 	ElevationLevel *string `pulumi:"elevationLevel"`
-	Scope *string `pulumi:"scope"`
+	Scope          *string `pulumi:"scope"`
 }
 
 type PoolStartTaskUserIdentityAutoUserInput interface {
@@ -1370,7 +1399,7 @@ type PoolStartTaskUserIdentityAutoUserInput interface {
 
 type PoolStartTaskUserIdentityAutoUserArgs struct {
 	ElevationLevel pulumi.StringPtrInput `pulumi:"elevationLevel"`
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope          pulumi.StringPtrInput `pulumi:"scope"`
 }
 
 func (PoolStartTaskUserIdentityAutoUserArgs) ElementType() reflect.Type {
@@ -1402,7 +1431,8 @@ type PoolStartTaskUserIdentityAutoUserPtrInput interface {
 
 type poolStartTaskUserIdentityAutoUserPtrType PoolStartTaskUserIdentityAutoUserArgs
 
-func PoolStartTaskUserIdentityAutoUserPtr(v *PoolStartTaskUserIdentityAutoUserArgs) PoolStartTaskUserIdentityAutoUserPtrInput {	return (*poolStartTaskUserIdentityAutoUserPtrType)(v)
+func PoolStartTaskUserIdentityAutoUserPtr(v *PoolStartTaskUserIdentityAutoUserArgs) PoolStartTaskUserIdentityAutoUserPtrInput {
+	return (*poolStartTaskUserIdentityAutoUserPtrType)(v)
 }
 
 func (*poolStartTaskUserIdentityAutoUserPtrType) ElementType() reflect.Type {
@@ -1417,7 +1447,7 @@ func (i *poolStartTaskUserIdentityAutoUserPtrType) ToPoolStartTaskUserIdentityAu
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskUserIdentityAutoUserPtrOutput)
 }
 
-type PoolStartTaskUserIdentityAutoUserOutput struct { *pulumi.OutputState }
+type PoolStartTaskUserIdentityAutoUserOutput struct{ *pulumi.OutputState }
 
 func (PoolStartTaskUserIdentityAutoUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PoolStartTaskUserIdentityAutoUser)(nil)).Elem()
@@ -1441,14 +1471,14 @@ func (o PoolStartTaskUserIdentityAutoUserOutput) ToPoolStartTaskUserIdentityAuto
 	}).(PoolStartTaskUserIdentityAutoUserPtrOutput)
 }
 func (o PoolStartTaskUserIdentityAutoUserOutput) ElevationLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStartTaskUserIdentityAutoUser) *string { return v.ElevationLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStartTaskUserIdentityAutoUser) *string { return v.ElevationLevel }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolStartTaskUserIdentityAutoUserOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStartTaskUserIdentityAutoUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStartTaskUserIdentityAutoUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
-type PoolStartTaskUserIdentityAutoUserPtrOutput struct { *pulumi.OutputState}
+type PoolStartTaskUserIdentityAutoUserPtrOutput struct{ *pulumi.OutputState }
 
 func (PoolStartTaskUserIdentityAutoUserPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PoolStartTaskUserIdentityAutoUser)(nil)).Elem()
@@ -1463,24 +1493,24 @@ func (o PoolStartTaskUserIdentityAutoUserPtrOutput) ToPoolStartTaskUserIdentityA
 }
 
 func (o PoolStartTaskUserIdentityAutoUserPtrOutput) Elem() PoolStartTaskUserIdentityAutoUserOutput {
-	return o.ApplyT(func (v *PoolStartTaskUserIdentityAutoUser) PoolStartTaskUserIdentityAutoUser { return *v }).(PoolStartTaskUserIdentityAutoUserOutput)
+	return o.ApplyT(func(v *PoolStartTaskUserIdentityAutoUser) PoolStartTaskUserIdentityAutoUser { return *v }).(PoolStartTaskUserIdentityAutoUserOutput)
 }
 
 func (o PoolStartTaskUserIdentityAutoUserPtrOutput) ElevationLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStartTaskUserIdentityAutoUser) *string { return v.ElevationLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStartTaskUserIdentityAutoUser) *string { return v.ElevationLevel }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolStartTaskUserIdentityAutoUserPtrOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStartTaskUserIdentityAutoUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStartTaskUserIdentityAutoUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 type PoolStorageImageReference struct {
-	// The Batch pool ID.
-	Id *string `pulumi:"id"`
-	Offer *string `pulumi:"offer"`
+	// The ID of the Batch Pool.
+	Id        *string `pulumi:"id"`
+	Offer     *string `pulumi:"offer"`
 	Publisher *string `pulumi:"publisher"`
-	Sku *string `pulumi:"sku"`
-	Version *string `pulumi:"version"`
+	Sku       *string `pulumi:"sku"`
+	Version   *string `pulumi:"version"`
 }
 
 type PoolStorageImageReferenceInput interface {
@@ -1491,12 +1521,12 @@ type PoolStorageImageReferenceInput interface {
 }
 
 type PoolStorageImageReferenceArgs struct {
-	// The Batch pool ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	Offer pulumi.StringPtrInput `pulumi:"offer"`
+	// The ID of the Batch Pool.
+	Id        pulumi.StringPtrInput `pulumi:"id"`
+	Offer     pulumi.StringPtrInput `pulumi:"offer"`
 	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Sku       pulumi.StringPtrInput `pulumi:"sku"`
+	Version   pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (PoolStorageImageReferenceArgs) ElementType() reflect.Type {
@@ -1528,7 +1558,8 @@ type PoolStorageImageReferencePtrInput interface {
 
 type poolStorageImageReferencePtrType PoolStorageImageReferenceArgs
 
-func PoolStorageImageReferencePtr(v *PoolStorageImageReferenceArgs) PoolStorageImageReferencePtrInput {	return (*poolStorageImageReferencePtrType)(v)
+func PoolStorageImageReferencePtr(v *PoolStorageImageReferenceArgs) PoolStorageImageReferencePtrInput {
+	return (*poolStorageImageReferencePtrType)(v)
 }
 
 func (*poolStorageImageReferencePtrType) ElementType() reflect.Type {
@@ -1543,7 +1574,7 @@ func (i *poolStorageImageReferencePtrType) ToPoolStorageImageReferencePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStorageImageReferencePtrOutput)
 }
 
-type PoolStorageImageReferenceOutput struct { *pulumi.OutputState }
+type PoolStorageImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (PoolStorageImageReferenceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PoolStorageImageReference)(nil)).Elem()
@@ -1566,28 +1597,29 @@ func (o PoolStorageImageReferenceOutput) ToPoolStorageImageReferencePtrOutputWit
 		return &v
 	}).(PoolStorageImageReferencePtrOutput)
 }
-// The Batch pool ID.
+
+// The ID of the Batch Pool.
 func (o PoolStorageImageReferenceOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolStorageImageReferenceOutput) Offer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStorageImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolStorageImageReferenceOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStorageImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolStorageImageReferenceOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStorageImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolStorageImageReferenceOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStorageImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-type PoolStorageImageReferencePtrOutput struct { *pulumi.OutputState}
+type PoolStorageImageReferencePtrOutput struct{ *pulumi.OutputState }
 
 func (PoolStorageImageReferencePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PoolStorageImageReference)(nil)).Elem()
@@ -1602,28 +1634,28 @@ func (o PoolStorageImageReferencePtrOutput) ToPoolStorageImageReferencePtrOutput
 }
 
 func (o PoolStorageImageReferencePtrOutput) Elem() PoolStorageImageReferenceOutput {
-	return o.ApplyT(func (v *PoolStorageImageReference) PoolStorageImageReference { return *v }).(PoolStorageImageReferenceOutput)
+	return o.ApplyT(func(v *PoolStorageImageReference) PoolStorageImageReference { return *v }).(PoolStorageImageReferenceOutput)
 }
 
-// The Batch pool ID.
+// The ID of the Batch Pool.
 func (o PoolStorageImageReferencePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolStorageImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStorageImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolStorageImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStorageImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolStorageImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStorageImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
 func (o PoolStorageImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PoolStorageImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type GetAccountKeyVaultReference struct {
@@ -1680,7 +1712,7 @@ func (i GetAccountKeyVaultReferenceArray) ToGetAccountKeyVaultReferenceArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountKeyVaultReferenceArrayOutput)
 }
 
-type GetAccountKeyVaultReferenceOutput struct { *pulumi.OutputState }
+type GetAccountKeyVaultReferenceOutput struct{ *pulumi.OutputState }
 
 func (GetAccountKeyVaultReferenceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetAccountKeyVaultReference)(nil)).Elem()
@@ -1696,15 +1728,15 @@ func (o GetAccountKeyVaultReferenceOutput) ToGetAccountKeyVaultReferenceOutputWi
 
 // The Azure identifier of the Azure KeyVault reference.
 func (o GetAccountKeyVaultReferenceOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetAccountKeyVaultReference) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetAccountKeyVaultReference) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The HTTPS URL of the Azure KeyVault reference.
 func (o GetAccountKeyVaultReferenceOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func (v GetAccountKeyVaultReference) string { return v.Url }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetAccountKeyVaultReference) string { return v.Url }).(pulumi.StringOutput)
 }
 
-type GetAccountKeyVaultReferenceArrayOutput struct { *pulumi.OutputState}
+type GetAccountKeyVaultReferenceArrayOutput struct{ *pulumi.OutputState }
 
 func (GetAccountKeyVaultReferenceArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetAccountKeyVaultReference)(nil)).Elem()
@@ -1719,7 +1751,7 @@ func (o GetAccountKeyVaultReferenceArrayOutput) ToGetAccountKeyVaultReferenceArr
 }
 
 func (o GetAccountKeyVaultReferenceArrayOutput) Index(i pulumi.IntInput) GetAccountKeyVaultReferenceOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetAccountKeyVaultReference {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountKeyVaultReference {
 		return vs[0].([]GetAccountKeyVaultReference)[vs[1].(int)]
 	}).(GetAccountKeyVaultReferenceOutput)
 }
@@ -1778,7 +1810,7 @@ func (i GetPoolAutoScaleArray) ToGetPoolAutoScaleArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolAutoScaleArrayOutput)
 }
 
-type GetPoolAutoScaleOutput struct { *pulumi.OutputState }
+type GetPoolAutoScaleOutput struct{ *pulumi.OutputState }
 
 func (GetPoolAutoScaleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPoolAutoScale)(nil)).Elem()
@@ -1794,15 +1826,15 @@ func (o GetPoolAutoScaleOutput) ToGetPoolAutoScaleOutputWithContext(ctx context.
 
 // The interval to wait before evaluating if the pool needs to be scaled.
 func (o GetPoolAutoScaleOutput) EvaluationInterval() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolAutoScale) string { return v.EvaluationInterval }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolAutoScale) string { return v.EvaluationInterval }).(pulumi.StringOutput)
 }
 
 // The autoscale formula that needs to be used for scaling the Batch pool.
 func (o GetPoolAutoScaleOutput) Formula() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolAutoScale) string { return v.Formula }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolAutoScale) string { return v.Formula }).(pulumi.StringOutput)
 }
 
-type GetPoolAutoScaleArrayOutput struct { *pulumi.OutputState}
+type GetPoolAutoScaleArrayOutput struct{ *pulumi.OutputState }
 
 func (GetPoolAutoScaleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetPoolAutoScale)(nil)).Elem()
@@ -1817,7 +1849,7 @@ func (o GetPoolAutoScaleArrayOutput) ToGetPoolAutoScaleArrayOutputWithContext(ct
 }
 
 func (o GetPoolAutoScaleArrayOutput) Index(i pulumi.IntInput) GetPoolAutoScaleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPoolAutoScale {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolAutoScale {
 		return vs[0].([]GetPoolAutoScale)[vs[1].(int)]
 	}).(GetPoolAutoScaleOutput)
 }
@@ -1884,7 +1916,7 @@ func (i GetPoolCertificateArray) ToGetPoolCertificateArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolCertificateArrayOutput)
 }
 
-type GetPoolCertificateOutput struct { *pulumi.OutputState }
+type GetPoolCertificateOutput struct{ *pulumi.OutputState }
 
 func (GetPoolCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPoolCertificate)(nil)).Elem()
@@ -1900,25 +1932,25 @@ func (o GetPoolCertificateOutput) ToGetPoolCertificateOutputWithContext(ctx cont
 
 // The fully qualified ID of the certificate installed on the pool.
 func (o GetPoolCertificateOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolCertificate) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolCertificate) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
 func (o GetPoolCertificateOutput) StoreLocation() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolCertificate) string { return v.StoreLocation }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolCertificate) string { return v.StoreLocation }).(pulumi.StringOutput)
 }
 
 // The name of the certificate store on the compute node into which the certificate is installed.
 func (o GetPoolCertificateOutput) StoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetPoolCertificate) *string { return v.StoreName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetPoolCertificate) *string { return v.StoreName }).(pulumi.StringPtrOutput)
 }
 
 // Which user accounts on the compute node have access to the private data of the certificate.
 func (o GetPoolCertificateOutput) Visibilities() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetPoolCertificate) []string { return v.Visibilities }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetPoolCertificate) []string { return v.Visibilities }).(pulumi.StringArrayOutput)
 }
 
-type GetPoolCertificateArrayOutput struct { *pulumi.OutputState}
+type GetPoolCertificateArrayOutput struct{ *pulumi.OutputState }
 
 func (GetPoolCertificateArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetPoolCertificate)(nil)).Elem()
@@ -1933,7 +1965,7 @@ func (o GetPoolCertificateArrayOutput) ToGetPoolCertificateArrayOutputWithContex
 }
 
 func (o GetPoolCertificateArrayOutput) Index(i pulumi.IntInput) GetPoolCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPoolCertificate {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolCertificate {
 		return vs[0].([]GetPoolCertificate)[vs[1].(int)]
 	}).(GetPoolCertificateOutput)
 }
@@ -1992,7 +2024,7 @@ func (i GetPoolContainerConfigurationArray) ToGetPoolContainerConfigurationArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolContainerConfigurationArrayOutput)
 }
 
-type GetPoolContainerConfigurationOutput struct { *pulumi.OutputState }
+type GetPoolContainerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetPoolContainerConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPoolContainerConfiguration)(nil)).Elem()
@@ -2008,15 +2040,17 @@ func (o GetPoolContainerConfigurationOutput) ToGetPoolContainerConfigurationOutp
 
 // Additional container registries from which container images can be pulled by the pool's VMs.
 func (o GetPoolContainerConfigurationOutput) ContainerRegistries() GetPoolContainerConfigurationContainerRegistryArrayOutput {
-	return o.ApplyT(func (v GetPoolContainerConfiguration) []GetPoolContainerConfigurationContainerRegistry { return v.ContainerRegistries }).(GetPoolContainerConfigurationContainerRegistryArrayOutput)
+	return o.ApplyT(func(v GetPoolContainerConfiguration) []GetPoolContainerConfigurationContainerRegistry {
+		return v.ContainerRegistries
+	}).(GetPoolContainerConfigurationContainerRegistryArrayOutput)
 }
 
 // The type of container configuration.
 func (o GetPoolContainerConfigurationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolContainerConfiguration) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolContainerConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type GetPoolContainerConfigurationArrayOutput struct { *pulumi.OutputState}
+type GetPoolContainerConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (GetPoolContainerConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetPoolContainerConfiguration)(nil)).Elem()
@@ -2031,7 +2065,7 @@ func (o GetPoolContainerConfigurationArrayOutput) ToGetPoolContainerConfiguratio
 }
 
 func (o GetPoolContainerConfigurationArrayOutput) Index(i pulumi.IntInput) GetPoolContainerConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPoolContainerConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolContainerConfiguration {
 		return vs[0].([]GetPoolContainerConfiguration)[vs[1].(int)]
 	}).(GetPoolContainerConfigurationOutput)
 }
@@ -2094,7 +2128,7 @@ func (i GetPoolContainerConfigurationContainerRegistryArray) ToGetPoolContainerC
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolContainerConfigurationContainerRegistryArrayOutput)
 }
 
-type GetPoolContainerConfigurationContainerRegistryOutput struct { *pulumi.OutputState }
+type GetPoolContainerConfigurationContainerRegistryOutput struct{ *pulumi.OutputState }
 
 func (GetPoolContainerConfigurationContainerRegistryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPoolContainerConfigurationContainerRegistry)(nil)).Elem()
@@ -2110,20 +2144,20 @@ func (o GetPoolContainerConfigurationContainerRegistryOutput) ToGetPoolContainer
 
 // The password to log into the registry server.
 func (o GetPoolContainerConfigurationContainerRegistryOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolContainerConfigurationContainerRegistry) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolContainerConfigurationContainerRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
 
 // The container registry URL. The default is "docker.io".
 func (o GetPoolContainerConfigurationContainerRegistryOutput) RegistryServer() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolContainerConfigurationContainerRegistry) string { return v.RegistryServer }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolContainerConfigurationContainerRegistry) string { return v.RegistryServer }).(pulumi.StringOutput)
 }
 
 // The user name to log into the registry server.
 func (o GetPoolContainerConfigurationContainerRegistryOutput) UserName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolContainerConfigurationContainerRegistry) string { return v.UserName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolContainerConfigurationContainerRegistry) string { return v.UserName }).(pulumi.StringOutput)
 }
 
-type GetPoolContainerConfigurationContainerRegistryArrayOutput struct { *pulumi.OutputState}
+type GetPoolContainerConfigurationContainerRegistryArrayOutput struct{ *pulumi.OutputState }
 
 func (GetPoolContainerConfigurationContainerRegistryArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetPoolContainerConfigurationContainerRegistry)(nil)).Elem()
@@ -2138,7 +2172,7 @@ func (o GetPoolContainerConfigurationContainerRegistryArrayOutput) ToGetPoolCont
 }
 
 func (o GetPoolContainerConfigurationContainerRegistryArrayOutput) Index(i pulumi.IntInput) GetPoolContainerConfigurationContainerRegistryOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPoolContainerConfigurationContainerRegistry {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolContainerConfigurationContainerRegistry {
 		return vs[0].([]GetPoolContainerConfigurationContainerRegistry)[vs[1].(int)]
 	}).(GetPoolContainerConfigurationContainerRegistryOutput)
 }
@@ -2201,7 +2235,7 @@ func (i GetPoolFixedScaleArray) ToGetPoolFixedScaleArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolFixedScaleArrayOutput)
 }
 
-type GetPoolFixedScaleOutput struct { *pulumi.OutputState }
+type GetPoolFixedScaleOutput struct{ *pulumi.OutputState }
 
 func (GetPoolFixedScaleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPoolFixedScale)(nil)).Elem()
@@ -2217,20 +2251,20 @@ func (o GetPoolFixedScaleOutput) ToGetPoolFixedScaleOutputWithContext(ctx contex
 
 // The timeout for resize operations.
 func (o GetPoolFixedScaleOutput) ResizeTimeout() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolFixedScale) string { return v.ResizeTimeout }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolFixedScale) string { return v.ResizeTimeout }).(pulumi.StringOutput)
 }
 
 // The number of nodes in the Batch pool.
 func (o GetPoolFixedScaleOutput) TargetDedicatedNodes() pulumi.IntOutput {
-	return o.ApplyT(func (v GetPoolFixedScale) int { return v.TargetDedicatedNodes }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetPoolFixedScale) int { return v.TargetDedicatedNodes }).(pulumi.IntOutput)
 }
 
 // The number of low priority nodes in the Batch pool.
 func (o GetPoolFixedScaleOutput) TargetLowPriorityNodes() pulumi.IntOutput {
-	return o.ApplyT(func (v GetPoolFixedScale) int { return v.TargetLowPriorityNodes }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetPoolFixedScale) int { return v.TargetLowPriorityNodes }).(pulumi.IntOutput)
 }
 
-type GetPoolFixedScaleArrayOutput struct { *pulumi.OutputState}
+type GetPoolFixedScaleArrayOutput struct{ *pulumi.OutputState }
 
 func (GetPoolFixedScaleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetPoolFixedScale)(nil)).Elem()
@@ -2245,15 +2279,15 @@ func (o GetPoolFixedScaleArrayOutput) ToGetPoolFixedScaleArrayOutputWithContext(
 }
 
 func (o GetPoolFixedScaleArrayOutput) Index(i pulumi.IntInput) GetPoolFixedScaleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPoolFixedScale {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolFixedScale {
 		return vs[0].([]GetPoolFixedScale)[vs[1].(int)]
 	}).(GetPoolFixedScaleOutput)
 }
 
 type GetPoolNetworkConfiguration struct {
-	// (Optional) The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+	// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
 	EndpointConfiguration GetPoolNetworkConfigurationEndpointConfiguration `pulumi:"endpointConfiguration"`
-	// (Optional) The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
+	// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -2265,9 +2299,9 @@ type GetPoolNetworkConfigurationInput interface {
 }
 
 type GetPoolNetworkConfigurationArgs struct {
-	// (Optional) The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+	// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
 	EndpointConfiguration GetPoolNetworkConfigurationEndpointConfigurationInput `pulumi:"endpointConfiguration"`
-	// (Optional) The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
+	// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -2283,7 +2317,7 @@ func (i GetPoolNetworkConfigurationArgs) ToGetPoolNetworkConfigurationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolNetworkConfigurationOutput)
 }
 
-type GetPoolNetworkConfigurationOutput struct { *pulumi.OutputState }
+type GetPoolNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetPoolNetworkConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPoolNetworkConfiguration)(nil)).Elem()
@@ -2297,14 +2331,16 @@ func (o GetPoolNetworkConfigurationOutput) ToGetPoolNetworkConfigurationOutputWi
 	return o
 }
 
-// (Optional) The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
 func (o GetPoolNetworkConfigurationOutput) EndpointConfiguration() GetPoolNetworkConfigurationEndpointConfigurationOutput {
-	return o.ApplyT(func (v GetPoolNetworkConfiguration) GetPoolNetworkConfigurationEndpointConfiguration { return v.EndpointConfiguration }).(GetPoolNetworkConfigurationEndpointConfigurationOutput)
+	return o.ApplyT(func(v GetPoolNetworkConfiguration) GetPoolNetworkConfigurationEndpointConfiguration {
+		return v.EndpointConfiguration
+	}).(GetPoolNetworkConfigurationEndpointConfigurationOutput)
 }
 
-// (Optional) The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
+// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
 func (o GetPoolNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
 type GetPoolNetworkConfigurationEndpointConfiguration struct {
@@ -2314,7 +2350,7 @@ type GetPoolNetworkConfigurationEndpointConfiguration struct {
 	FrontendPortRange string `pulumi:"frontendPortRange"`
 	// The name of the endpoint.
 	Name string `pulumi:"name"`
-	// (Optional) The list of network security group rules that are applied to the endpoint.
+	// The list of network security group rules that are applied to the endpoint.
 	NetworkSecurityGroupRules []GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule `pulumi:"networkSecurityGroupRules"`
 	// The protocol of the endpoint.
 	Protocol string `pulumi:"protocol"`
@@ -2334,7 +2370,7 @@ type GetPoolNetworkConfigurationEndpointConfigurationArgs struct {
 	FrontendPortRange pulumi.StringInput `pulumi:"frontendPortRange"`
 	// The name of the endpoint.
 	Name pulumi.StringInput `pulumi:"name"`
-	// (Optional) The list of network security group rules that are applied to the endpoint.
+	// The list of network security group rules that are applied to the endpoint.
 	NetworkSecurityGroupRules GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput `pulumi:"networkSecurityGroupRules"`
 	// The protocol of the endpoint.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
@@ -2352,7 +2388,7 @@ func (i GetPoolNetworkConfigurationEndpointConfigurationArgs) ToGetPoolNetworkCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolNetworkConfigurationEndpointConfigurationOutput)
 }
 
-type GetPoolNetworkConfigurationEndpointConfigurationOutput struct { *pulumi.OutputState }
+type GetPoolNetworkConfigurationEndpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetPoolNetworkConfigurationEndpointConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPoolNetworkConfigurationEndpointConfiguration)(nil)).Elem()
@@ -2368,27 +2404,29 @@ func (o GetPoolNetworkConfigurationEndpointConfigurationOutput) ToGetPoolNetwork
 
 // The port number on the compute node.
 func (o GetPoolNetworkConfigurationEndpointConfigurationOutput) BackendPort() pulumi.IntOutput {
-	return o.ApplyT(func (v GetPoolNetworkConfigurationEndpointConfiguration) int { return v.BackendPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetPoolNetworkConfigurationEndpointConfiguration) int { return v.BackendPort }).(pulumi.IntOutput)
 }
 
 // The range of external ports that are used to provide inbound access to the backendPort on the individual compute nodes in the format of `1000-1100`.
 func (o GetPoolNetworkConfigurationEndpointConfigurationOutput) FrontendPortRange() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolNetworkConfigurationEndpointConfiguration) string { return v.FrontendPortRange }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolNetworkConfigurationEndpointConfiguration) string { return v.FrontendPortRange }).(pulumi.StringOutput)
 }
 
 // The name of the endpoint.
 func (o GetPoolNetworkConfigurationEndpointConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolNetworkConfigurationEndpointConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolNetworkConfigurationEndpointConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// (Optional) The list of network security group rules that are applied to the endpoint.
+// The list of network security group rules that are applied to the endpoint.
 func (o GetPoolNetworkConfigurationEndpointConfigurationOutput) NetworkSecurityGroupRules() GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput {
-	return o.ApplyT(func (v GetPoolNetworkConfigurationEndpointConfiguration) []GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule { return v.NetworkSecurityGroupRules }).(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput)
+	return o.ApplyT(func(v GetPoolNetworkConfigurationEndpointConfiguration) []GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule {
+		return v.NetworkSecurityGroupRules
+	}).(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput)
 }
 
 // The protocol of the endpoint.
 func (o GetPoolNetworkConfigurationEndpointConfigurationOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolNetworkConfigurationEndpointConfiguration) string { return v.Protocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolNetworkConfigurationEndpointConfiguration) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
 type GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule struct {
@@ -2449,7 +2487,7 @@ func (i GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput)
 }
 
-type GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput struct { *pulumi.OutputState }
+type GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput struct{ *pulumi.OutputState }
 
 func (GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule)(nil)).Elem()
@@ -2465,20 +2503,26 @@ func (o GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule
 
 // The action that should be taken for a specified IP address, subnet range or tag.
 func (o GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) Access() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) string { return v.Access }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) string {
+		return v.Access
+	}).(pulumi.StringOutput)
 }
 
 // The priority for this rule.
 func (o GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func (v GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) int { return v.Priority }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
 }
 
 // The source address prefix or tag to match for the rule.
 func (o GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) SourceAddressPrefix() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) string { return v.SourceAddressPrefix }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) string {
+		return v.SourceAddressPrefix
+	}).(pulumi.StringOutput)
 }
 
-type GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput struct { *pulumi.OutputState}
+type GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule)(nil)).Elem()
@@ -2493,7 +2537,7 @@ func (o GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule
 }
 
 func (o GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput) Index(i pulumi.IntInput) GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule {
 		return vs[0].([]GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule)[vs[1].(int)]
 	}).(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput)
 }
@@ -2505,7 +2549,7 @@ type GetPoolStartTask struct {
 	Environment map[string]string `pulumi:"environment"`
 	// The number of retry count.
 	MaxTaskRetryCount *int `pulumi:"maxTaskRetryCount"`
-	// (Optional) One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 	ResourceFiles []GetPoolStartTaskResourceFile `pulumi:"resourceFiles"`
 	// A `userIdentity` block that describes the user identity under which the start task runs.
 	UserIdentities []GetPoolStartTaskUserIdentity `pulumi:"userIdentities"`
@@ -2527,7 +2571,7 @@ type GetPoolStartTaskArgs struct {
 	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// The number of retry count.
 	MaxTaskRetryCount pulumi.IntPtrInput `pulumi:"maxTaskRetryCount"`
-	// (Optional) One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 	ResourceFiles GetPoolStartTaskResourceFileArrayInput `pulumi:"resourceFiles"`
 	// A `userIdentity` block that describes the user identity under which the start task runs.
 	UserIdentities GetPoolStartTaskUserIdentityArrayInput `pulumi:"userIdentities"`
@@ -2547,7 +2591,7 @@ func (i GetPoolStartTaskArgs) ToGetPoolStartTaskOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskOutput)
 }
 
-type GetPoolStartTaskOutput struct { *pulumi.OutputState }
+type GetPoolStartTaskOutput struct{ *pulumi.OutputState }
 
 func (GetPoolStartTaskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPoolStartTask)(nil)).Elem()
@@ -2563,32 +2607,32 @@ func (o GetPoolStartTaskOutput) ToGetPoolStartTaskOutputWithContext(ctx context.
 
 // The command line executed by the start task.
 func (o GetPoolStartTaskOutput) CommandLine() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolStartTask) string { return v.CommandLine }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolStartTask) string { return v.CommandLine }).(pulumi.StringOutput)
 }
 
 // A map of strings (key,value) that represents the environment variables to set in the start task.
 func (o GetPoolStartTaskOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func (v GetPoolStartTask) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v GetPoolStartTask) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
 // The number of retry count.
 func (o GetPoolStartTaskOutput) MaxTaskRetryCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GetPoolStartTask) *int { return v.MaxTaskRetryCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GetPoolStartTask) *int { return v.MaxTaskRetryCount }).(pulumi.IntPtrOutput)
 }
 
-// (Optional) One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 func (o GetPoolStartTaskOutput) ResourceFiles() GetPoolStartTaskResourceFileArrayOutput {
-	return o.ApplyT(func (v GetPoolStartTask) []GetPoolStartTaskResourceFile { return v.ResourceFiles }).(GetPoolStartTaskResourceFileArrayOutput)
+	return o.ApplyT(func(v GetPoolStartTask) []GetPoolStartTaskResourceFile { return v.ResourceFiles }).(GetPoolStartTaskResourceFileArrayOutput)
 }
 
 // A `userIdentity` block that describes the user identity under which the start task runs.
 func (o GetPoolStartTaskOutput) UserIdentities() GetPoolStartTaskUserIdentityArrayOutput {
-	return o.ApplyT(func (v GetPoolStartTask) []GetPoolStartTaskUserIdentity { return v.UserIdentities }).(GetPoolStartTaskUserIdentityArrayOutput)
+	return o.ApplyT(func(v GetPoolStartTask) []GetPoolStartTaskUserIdentity { return v.UserIdentities }).(GetPoolStartTaskUserIdentityArrayOutput)
 }
 
 // A flag that indicates if the Batch pool should wait for the start task to be completed.
 func (o GetPoolStartTaskOutput) WaitForSuccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v GetPoolStartTask) *bool { return v.WaitForSuccess }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v GetPoolStartTask) *bool { return v.WaitForSuccess }).(pulumi.BoolPtrOutput)
 }
 
 type GetPoolStartTaskResourceFile struct {
@@ -2661,7 +2705,7 @@ func (i GetPoolStartTaskResourceFileArray) ToGetPoolStartTaskResourceFileArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskResourceFileArrayOutput)
 }
 
-type GetPoolStartTaskResourceFileOutput struct { *pulumi.OutputState }
+type GetPoolStartTaskResourceFileOutput struct{ *pulumi.OutputState }
 
 func (GetPoolStartTaskResourceFileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPoolStartTaskResourceFile)(nil)).Elem()
@@ -2677,35 +2721,35 @@ func (o GetPoolStartTaskResourceFileOutput) ToGetPoolStartTaskResourceFileOutput
 
 // The storage container name in the auto storage account.
 func (o GetPoolStartTaskResourceFileOutput) AutoStorageContainerName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolStartTaskResourceFile) string { return v.AutoStorageContainerName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolStartTaskResourceFile) string { return v.AutoStorageContainerName }).(pulumi.StringOutput)
 }
 
 // The blob prefix used when downloading blobs from an Azure Storage container.
 func (o GetPoolStartTaskResourceFileOutput) BlobPrefix() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolStartTaskResourceFile) string { return v.BlobPrefix }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolStartTaskResourceFile) string { return v.BlobPrefix }).(pulumi.StringOutput)
 }
 
 // The file permission mode attribute represented as a string in octal format (e.g. `"0644"`).
 func (o GetPoolStartTaskResourceFileOutput) FileMode() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolStartTaskResourceFile) string { return v.FileMode }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolStartTaskResourceFile) string { return v.FileMode }).(pulumi.StringOutput)
 }
 
 // The location on the compute node to which to download the file, relative to the task's working directory. If the `httpUrl` property is specified, the `filePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `autoStorageContainerName` or `storageContainerUrl` property is specified.
 func (o GetPoolStartTaskResourceFileOutput) FilePath() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolStartTaskResourceFile) string { return v.FilePath }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolStartTaskResourceFile) string { return v.FilePath }).(pulumi.StringOutput)
 }
 
 // The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access.
 func (o GetPoolStartTaskResourceFileOutput) HttpUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolStartTaskResourceFile) string { return v.HttpUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolStartTaskResourceFile) string { return v.HttpUrl }).(pulumi.StringOutput)
 }
 
 // The URL of the blob container within Azure Blob Storage.
 func (o GetPoolStartTaskResourceFileOutput) StorageContainerUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolStartTaskResourceFile) string { return v.StorageContainerUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolStartTaskResourceFile) string { return v.StorageContainerUrl }).(pulumi.StringOutput)
 }
 
-type GetPoolStartTaskResourceFileArrayOutput struct { *pulumi.OutputState}
+type GetPoolStartTaskResourceFileArrayOutput struct{ *pulumi.OutputState }
 
 func (GetPoolStartTaskResourceFileArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetPoolStartTaskResourceFile)(nil)).Elem()
@@ -2720,7 +2764,7 @@ func (o GetPoolStartTaskResourceFileArrayOutput) ToGetPoolStartTaskResourceFileA
 }
 
 func (o GetPoolStartTaskResourceFileArrayOutput) Index(i pulumi.IntInput) GetPoolStartTaskResourceFileOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPoolStartTaskResourceFile {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolStartTaskResourceFile {
 		return vs[0].([]GetPoolStartTaskResourceFile)[vs[1].(int)]
 	}).(GetPoolStartTaskResourceFileOutput)
 }
@@ -2779,7 +2823,7 @@ func (i GetPoolStartTaskUserIdentityArray) ToGetPoolStartTaskUserIdentityArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskUserIdentityArrayOutput)
 }
 
-type GetPoolStartTaskUserIdentityOutput struct { *pulumi.OutputState }
+type GetPoolStartTaskUserIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetPoolStartTaskUserIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPoolStartTaskUserIdentity)(nil)).Elem()
@@ -2795,15 +2839,15 @@ func (o GetPoolStartTaskUserIdentityOutput) ToGetPoolStartTaskUserIdentityOutput
 
 // A `autoUser` block that describes the user identity under which the start task runs.
 func (o GetPoolStartTaskUserIdentityOutput) AutoUsers() GetPoolStartTaskUserIdentityAutoUserArrayOutput {
-	return o.ApplyT(func (v GetPoolStartTaskUserIdentity) []GetPoolStartTaskUserIdentityAutoUser { return v.AutoUsers }).(GetPoolStartTaskUserIdentityAutoUserArrayOutput)
+	return o.ApplyT(func(v GetPoolStartTaskUserIdentity) []GetPoolStartTaskUserIdentityAutoUser { return v.AutoUsers }).(GetPoolStartTaskUserIdentityAutoUserArrayOutput)
 }
 
 // The user name to log into the registry server.
 func (o GetPoolStartTaskUserIdentityOutput) UserName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolStartTaskUserIdentity) string { return v.UserName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolStartTaskUserIdentity) string { return v.UserName }).(pulumi.StringOutput)
 }
 
-type GetPoolStartTaskUserIdentityArrayOutput struct { *pulumi.OutputState}
+type GetPoolStartTaskUserIdentityArrayOutput struct{ *pulumi.OutputState }
 
 func (GetPoolStartTaskUserIdentityArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetPoolStartTaskUserIdentity)(nil)).Elem()
@@ -2818,7 +2862,7 @@ func (o GetPoolStartTaskUserIdentityArrayOutput) ToGetPoolStartTaskUserIdentityA
 }
 
 func (o GetPoolStartTaskUserIdentityArrayOutput) Index(i pulumi.IntInput) GetPoolStartTaskUserIdentityOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPoolStartTaskUserIdentity {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolStartTaskUserIdentity {
 		return vs[0].([]GetPoolStartTaskUserIdentity)[vs[1].(int)]
 	}).(GetPoolStartTaskUserIdentityOutput)
 }
@@ -2877,7 +2921,7 @@ func (i GetPoolStartTaskUserIdentityAutoUserArray) ToGetPoolStartTaskUserIdentit
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskUserIdentityAutoUserArrayOutput)
 }
 
-type GetPoolStartTaskUserIdentityAutoUserOutput struct { *pulumi.OutputState }
+type GetPoolStartTaskUserIdentityAutoUserOutput struct{ *pulumi.OutputState }
 
 func (GetPoolStartTaskUserIdentityAutoUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPoolStartTaskUserIdentityAutoUser)(nil)).Elem()
@@ -2893,15 +2937,15 @@ func (o GetPoolStartTaskUserIdentityAutoUserOutput) ToGetPoolStartTaskUserIdenti
 
 // The elevation level of the user identity under which the start task runs.
 func (o GetPoolStartTaskUserIdentityAutoUserOutput) ElevationLevel() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolStartTaskUserIdentityAutoUser) string { return v.ElevationLevel }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolStartTaskUserIdentityAutoUser) string { return v.ElevationLevel }).(pulumi.StringOutput)
 }
 
 // The scope of the user identity under which the start task runs.
 func (o GetPoolStartTaskUserIdentityAutoUserOutput) Scope() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolStartTaskUserIdentityAutoUser) string { return v.Scope }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolStartTaskUserIdentityAutoUser) string { return v.Scope }).(pulumi.StringOutput)
 }
 
-type GetPoolStartTaskUserIdentityAutoUserArrayOutput struct { *pulumi.OutputState}
+type GetPoolStartTaskUserIdentityAutoUserArrayOutput struct{ *pulumi.OutputState }
 
 func (GetPoolStartTaskUserIdentityAutoUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetPoolStartTaskUserIdentityAutoUser)(nil)).Elem()
@@ -2916,18 +2960,18 @@ func (o GetPoolStartTaskUserIdentityAutoUserArrayOutput) ToGetPoolStartTaskUserI
 }
 
 func (o GetPoolStartTaskUserIdentityAutoUserArrayOutput) Index(i pulumi.IntInput) GetPoolStartTaskUserIdentityAutoUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPoolStartTaskUserIdentityAutoUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolStartTaskUserIdentityAutoUser {
 		return vs[0].([]GetPoolStartTaskUserIdentityAutoUser)[vs[1].(int)]
 	}).(GetPoolStartTaskUserIdentityAutoUserOutput)
 }
 
 type GetPoolStorageImageReference struct {
 	// The fully qualified ID of the certificate installed on the pool.
-	Id string `pulumi:"id"`
-	Offer string `pulumi:"offer"`
+	Id        string `pulumi:"id"`
+	Offer     string `pulumi:"offer"`
 	Publisher string `pulumi:"publisher"`
-	Sku string `pulumi:"sku"`
-	Version string `pulumi:"version"`
+	Sku       string `pulumi:"sku"`
+	Version   string `pulumi:"version"`
 }
 
 type GetPoolStorageImageReferenceInput interface {
@@ -2939,11 +2983,11 @@ type GetPoolStorageImageReferenceInput interface {
 
 type GetPoolStorageImageReferenceArgs struct {
 	// The fully qualified ID of the certificate installed on the pool.
-	Id pulumi.StringInput `pulumi:"id"`
-	Offer pulumi.StringInput `pulumi:"offer"`
+	Id        pulumi.StringInput `pulumi:"id"`
+	Offer     pulumi.StringInput `pulumi:"offer"`
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	Sku pulumi.StringInput `pulumi:"sku"`
-	Version pulumi.StringInput `pulumi:"version"`
+	Sku       pulumi.StringInput `pulumi:"sku"`
+	Version   pulumi.StringInput `pulumi:"version"`
 }
 
 func (GetPoolStorageImageReferenceArgs) ElementType() reflect.Type {
@@ -2979,7 +3023,7 @@ func (i GetPoolStorageImageReferenceArray) ToGetPoolStorageImageReferenceArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStorageImageReferenceArrayOutput)
 }
 
-type GetPoolStorageImageReferenceOutput struct { *pulumi.OutputState }
+type GetPoolStorageImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (GetPoolStorageImageReferenceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPoolStorageImageReference)(nil)).Elem()
@@ -2995,26 +3039,26 @@ func (o GetPoolStorageImageReferenceOutput) ToGetPoolStorageImageReferenceOutput
 
 // The fully qualified ID of the certificate installed on the pool.
 func (o GetPoolStorageImageReferenceOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolStorageImageReference) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolStorageImageReference) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetPoolStorageImageReferenceOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolStorageImageReference) string { return v.Offer }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolStorageImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
 func (o GetPoolStorageImageReferenceOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolStorageImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolStorageImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 func (o GetPoolStorageImageReferenceOutput) Sku() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolStorageImageReference) string { return v.Sku }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolStorageImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
 func (o GetPoolStorageImageReferenceOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPoolStorageImageReference) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPoolStorageImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
 
-type GetPoolStorageImageReferenceArrayOutput struct { *pulumi.OutputState}
+type GetPoolStorageImageReferenceArrayOutput struct{ *pulumi.OutputState }
 
 func (GetPoolStorageImageReferenceArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetPoolStorageImageReference)(nil)).Elem()
@@ -3029,7 +3073,7 @@ func (o GetPoolStorageImageReferenceArrayOutput) ToGetPoolStorageImageReferenceA
 }
 
 func (o GetPoolStorageImageReferenceArrayOutput) Index(i pulumi.IntInput) GetPoolStorageImageReferenceOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPoolStorageImageReference {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolStorageImageReference {
 		return vs[0].([]GetPoolStorageImageReference)[vs[1].(int)]
 	}).(GetPoolStorageImageReferenceOutput)
 }

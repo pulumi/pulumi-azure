@@ -17,7 +17,7 @@ class SubscriptionRule(pulumi.CustomResource):
     correlation_filter: pulumi.Output[dict]
     """
     A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
-    
+
       * `content_type` (`str`) - Content type of the message.
       * `correlationId` (`str`) - Identifier of the correlation.
       * `label` (`str`) - Application specific label.
@@ -58,7 +58,9 @@ class SubscriptionRule(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, action=None, correlation_filter=None, filter_type=None, name=None, namespace_name=None, resource_group_name=None, sql_filter=None, subscription_name=None, topic_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Subscription Rule.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription_rule.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
@@ -70,9 +72,9 @@ class SubscriptionRule(pulumi.CustomResource):
         :param pulumi.Input[str] sql_filter: Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
         :param pulumi.Input[str] subscription_name: The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] topic_name: The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
-        
+
         The **correlation_filter** object supports the following:
-        
+
           * `content_type` (`pulumi.Input[str]`) - Content type of the message.
           * `correlationId` (`pulumi.Input[str]`) - Identifier of the correlation.
           * `label` (`pulumi.Input[str]`) - Application specific label.
@@ -81,8 +83,6 @@ class SubscriptionRule(pulumi.CustomResource):
           * `replyToSessionId` (`pulumi.Input[str]`) - Session identifier to reply to.
           * `sessionId` (`pulumi.Input[str]`) - Session identifier.
           * `to` (`pulumi.Input[str]`) - Address to send to.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription_rule_legacy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -131,7 +131,7 @@ class SubscriptionRule(pulumi.CustomResource):
         """
         Get an existing SubscriptionRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,9 +144,9 @@ class SubscriptionRule(pulumi.CustomResource):
         :param pulumi.Input[str] sql_filter: Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
         :param pulumi.Input[str] subscription_name: The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] topic_name: The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
-        
+
         The **correlation_filter** object supports the following:
-        
+
           * `content_type` (`pulumi.Input[str]`) - Content type of the message.
           * `correlationId` (`pulumi.Input[str]`) - Identifier of the correlation.
           * `label` (`pulumi.Input[str]`) - Application specific label.
@@ -155,12 +155,11 @@ class SubscriptionRule(pulumi.CustomResource):
           * `replyToSessionId` (`pulumi.Input[str]`) - Session identifier to reply to.
           * `sessionId` (`pulumi.Input[str]`) - Session identifier.
           * `to` (`pulumi.Input[str]`) - Address to send to.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription_rule_legacy.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["action"] = action
         __props__["correlation_filter"] = correlation_filter
         __props__["filter_type"] = filter_type

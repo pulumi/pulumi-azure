@@ -8,35 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Associates a NAT Gateway with a Subnet within a Virtual Network.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "East US 2",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     addressPrefix: "10.0.2.0/24",
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * const exampleNatGateway = new azure.network.NatGateway("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnetNatGatewayAssociation = new azure.network.SubnetNatGatewayAssociation("example", {
- *     natGatewayId: exampleNatGateway.id,
- *     subnetId: exampleSubnet.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_nat_gateway_association.html.markdown.
  */
@@ -68,11 +39,11 @@ export class SubnetNatGatewayAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The Azure resource ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
+     * The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
     public readonly natGatewayId!: pulumi.Output<string>;
     /**
-     * The Azure resource ID of the Subnet. Changing this forces a new resource to be created.
+     * The ID of the Subnet. Changing this forces a new resource to be created.
      */
     public readonly subnetId!: pulumi.Output<string>;
 
@@ -117,11 +88,11 @@ export class SubnetNatGatewayAssociation extends pulumi.CustomResource {
  */
 export interface SubnetNatGatewayAssociationState {
     /**
-     * The Azure resource ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
+     * The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
     readonly natGatewayId?: pulumi.Input<string>;
     /**
-     * The Azure resource ID of the Subnet. Changing this forces a new resource to be created.
+     * The ID of the Subnet. Changing this forces a new resource to be created.
      */
     readonly subnetId?: pulumi.Input<string>;
 }
@@ -131,11 +102,11 @@ export interface SubnetNatGatewayAssociationState {
  */
 export interface SubnetNatGatewayAssociationArgs {
     /**
-     * The Azure resource ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
+     * The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
     readonly natGatewayId: pulumi.Input<string>;
     /**
-     * The Azure resource ID of the Subnet. Changing this forces a new resource to be created.
+     * The ID of the Subnet. Changing this forces a new resource to be created.
      */
     readonly subnetId: pulumi.Input<string>;
 }

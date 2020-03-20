@@ -8,51 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Metric Alert within Azure Monitor.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const mainResourceGroup = new azure.core.ResourceGroup("main", {
- *     location: "West US",
- * });
- * const toMonitor = new azure.storage.Account("toMonitor", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: mainResourceGroup.location,
- *     resourceGroupName: mainResourceGroup.name,
- * });
- * const mainActionGroup = new azure.monitoring.ActionGroup("main", {
- *     resourceGroupName: mainResourceGroup.name,
- *     shortName: "exampleact",
- *     webhookReceivers: [{
- *         name: "callmyapi",
- *         serviceUri: "http://example.com/alert",
- *     }],
- * });
- * const example = new azure.monitoring.MetricAlert("example", {
- *     actions: [{
- *         actionGroupId: mainActionGroup.id,
- *     }],
- *     criterias: [{
- *         aggregation: "Total",
- *         dimensions: [{
- *             name: "ApiName",
- *             operator: "Include",
- *             values: ["*"],
- *         }],
- *         metricName: "Transactions",
- *         metricNamespace: "Microsoft.Storage/storageAccounts",
- *         operator: "GreaterThan",
- *         threshold: 50,
- *     }],
- *     description: "Action will be triggered when Transactions count is greater than 50.",
- *     resourceGroupName: mainResourceGroup.name,
- *     scopes: toMonitor.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_metric_alert.html.markdown.
  */
@@ -88,7 +43,7 @@ export class MetricAlert extends pulumi.CustomResource {
      */
     public readonly actions!: pulumi.Output<outputs.monitoring.MetricAlertAction[] | undefined>;
     /**
-     * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+     * Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
      */
     public readonly autoMitigate!: pulumi.Output<boolean | undefined>;
     /**
@@ -126,7 +81,7 @@ export class MetricAlert extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
      */
@@ -200,7 +155,7 @@ export interface MetricAlertState {
      */
     readonly actions?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertAction>[]>;
     /**
-     * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+     * Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
      */
     readonly autoMitigate?: pulumi.Input<boolean>;
     /**
@@ -254,7 +209,7 @@ export interface MetricAlertArgs {
      */
     readonly actions?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertAction>[]>;
     /**
-     * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+     * Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
      */
     readonly autoMitigate?: pulumi.Input<boolean>;
     /**

@@ -2,37 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Manages a Automation Credential.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.automation.Account("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         name: "Basic",
- *     },
- * });
- * const exampleCredential = new azure.automation.Credential("example", {
- *     automationAccountName: exampleAccount.name,
- *     description: "This is an example credential",
- *     password: "examplePwd",
- *     resourceGroupName: exampleResourceGroup.name,
- *     username: "exampleUser",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_credential.html.markdown.
  */
@@ -63,7 +36,6 @@ export class Credential extends pulumi.CustomResource {
         return obj['__pulumiType'] === Credential.__pulumiType;
     }
 
-    public readonly accountName!: pulumi.Output<string>;
     /**
      * The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
      */
@@ -101,7 +73,6 @@ export class Credential extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as CredentialState | undefined;
-            inputs["accountName"] = state ? state.accountName : undefined;
             inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -110,6 +81,9 @@ export class Credential extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as CredentialArgs | undefined;
+            if (!args || args.automationAccountName === undefined) {
+                throw new Error("Missing required property 'automationAccountName'");
+            }
             if (!args || args.password === undefined) {
                 throw new Error("Missing required property 'password'");
             }
@@ -119,7 +93,6 @@ export class Credential extends pulumi.CustomResource {
             if (!args || args.username === undefined) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -142,7 +115,6 @@ export class Credential extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Credential resources.
  */
 export interface CredentialState {
-    readonly accountName?: pulumi.Input<string>;
     /**
      * The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
      */
@@ -173,11 +145,10 @@ export interface CredentialState {
  * The set of arguments for constructing a Credential resource.
  */
 export interface CredentialArgs {
-    readonly accountName?: pulumi.Input<string>;
     /**
      * The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
      */
-    readonly automationAccountName?: pulumi.Input<string>;
+    readonly automationAccountName: pulumi.Input<string>;
     /**
      * The description associated with this Automation Credential.
      */

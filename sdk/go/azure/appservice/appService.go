@@ -12,9 +12,9 @@ import (
 )
 
 // Manages an App Service (within an App Service Plan).
-// 
+//
 // > **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service.html.markdown.
 type AppService struct {
 	pulumi.CustomResourceState
@@ -25,6 +25,7 @@ type AppService struct {
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings AppServiceAuthSettingsOutput `pulumi:"authSettings"`
+	// A `backup` block as defined below.
 	Backup AppServiceBackupPtrOutput `pulumi:"backup"`
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled pulumi.BoolOutput `pulumi:"clientAffinityEnabled"`
@@ -55,9 +56,9 @@ type AppService struct {
 	// A `siteConfig` block as defined below.
 	SiteConfig AppServiceSiteConfigOutput `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential AppServiceSiteCredentialOutput `pulumi:"siteCredential"`
+	SiteCredentials AppServiceSiteCredentialArrayOutput `pulumi:"siteCredentials"`
 	// A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
-	SourceControl AppServiceSourceControlOutput `pulumi:"sourceControl"`
+	SourceControls AppServiceSourceControlArrayOutput `pulumi:"sourceControls"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts AppServiceStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// A mapping of tags to assign to the resource.
@@ -104,6 +105,7 @@ type appServiceState struct {
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *AppServiceAuthSettings `pulumi:"authSettings"`
+	// A `backup` block as defined below.
 	Backup *AppServiceBackup `pulumi:"backup"`
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
@@ -134,9 +136,9 @@ type appServiceState struct {
 	// A `siteConfig` block as defined below.
 	SiteConfig *AppServiceSiteConfig `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential *AppServiceSiteCredential `pulumi:"siteCredential"`
+	SiteCredentials []AppServiceSiteCredential `pulumi:"siteCredentials"`
 	// A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
-	SourceControl *AppServiceSourceControl `pulumi:"sourceControl"`
+	SourceControls []AppServiceSourceControl `pulumi:"sourceControls"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []AppServiceStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags to assign to the resource.
@@ -150,6 +152,7 @@ type AppServiceState struct {
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings AppServiceAuthSettingsPtrInput
+	// A `backup` block as defined below.
 	Backup AppServiceBackupPtrInput
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled pulumi.BoolPtrInput
@@ -180,9 +183,9 @@ type AppServiceState struct {
 	// A `siteConfig` block as defined below.
 	SiteConfig AppServiceSiteConfigPtrInput
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential AppServiceSiteCredentialPtrInput
+	SiteCredentials AppServiceSiteCredentialArrayInput
 	// A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
-	SourceControl AppServiceSourceControlPtrInput
+	SourceControls AppServiceSourceControlArrayInput
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts AppServiceStorageAccountArrayInput
 	// A mapping of tags to assign to the resource.
@@ -200,6 +203,7 @@ type appServiceArgs struct {
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *AppServiceAuthSettings `pulumi:"authSettings"`
+	// A `backup` block as defined below.
 	Backup *AppServiceBackup `pulumi:"backup"`
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
@@ -237,6 +241,7 @@ type AppServiceArgs struct {
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings AppServiceAuthSettingsPtrInput
+	// A `backup` block as defined below.
 	Backup AppServiceBackupPtrInput
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled pulumi.BoolPtrInput
@@ -269,4 +274,3 @@ type AppServiceArgs struct {
 func (AppServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*appServiceArgs)(nil)).Elem()
 }
-

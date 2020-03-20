@@ -12,7 +12,7 @@ import (
 )
 
 // Configures Network Packet Capturing against a Virtual Machine using a Network Watcher.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_packet_capture.html.markdown.
 type NetworkPacketCapture struct {
 	pulumi.CustomResourceState
@@ -168,4 +168,3 @@ type NetworkPacketCaptureArgs struct {
 func (NetworkPacketCaptureArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkPacketCaptureArgs)(nil)).Elem()
 }
-

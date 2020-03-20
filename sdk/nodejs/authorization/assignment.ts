@@ -6,97 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Assigns a given Principal (User or Application) to a given Role.
- * 
- * ## Example Usage (using a built-in Role)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const primary = azure.core.getSubscription();
- * const exampleClientConfig = azure.core.getClientConfig();
- * const exampleAssignment = new azure.authorization.Assignment("example", {
- *     principalId: exampleClientConfig.servicePrincipalObjectId,
- *     roleDefinitionName: "Reader",
- *     scope: primary.id,
- * });
- * ```
- * 
- * ## Example Usage (Custom Role & Service Principal)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const primary = azure.core.getSubscription();
- * const exampleClientConfig = azure.core.getClientConfig();
- * const exampleRoleDefinition = new azure.authorization.RoleDefinition("example", {
- *     assignableScopes: [primary.id],
- *     permissions: [{
- *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
- *         notActions: [],
- *     }],
- *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
- *     scope: primary.id,
- * });
- * const exampleAssignment = new azure.authorization.Assignment("example", {
- *     name: "00000000-0000-0000-0000-000000000000",
- *     principalId: exampleClientConfig.servicePrincipalObjectId,
- *     roleDefinitionId: exampleRoleDefinition.id,
- *     scope: primary.id,
- * });
- * ```
- * 
- * ## Example Usage (Custom Role & User)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const primary = azure.core.getSubscription();
- * const exampleClientConfig = azure.core.getClientConfig();
- * const exampleRoleDefinition = new azure.authorization.RoleDefinition("example", {
- *     assignableScopes: [primary.id],
- *     permissions: [{
- *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
- *         notActions: [],
- *     }],
- *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
- *     scope: primary.id,
- * });
- * const exampleAssignment = new azure.authorization.Assignment("example", {
- *     name: "00000000-0000-0000-0000-000000000000",
- *     principalId: exampleClientConfig.clientId,
- *     roleDefinitionId: exampleRoleDefinition.id,
- *     scope: primary.id,
- * });
- * ```
- * 
- * ## Example Usage (Custom Role & Management Group)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const primary = azure.core.getSubscription();
- * const exampleClientConfig = azure.core.getClientConfig();
- * const exampleGroup = azure.management.getGroup();
- * const exampleRoleDefinition = new azure.authorization.RoleDefinition("example", {
- *     assignableScopes: [primary.id],
- *     permissions: [{
- *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
- *         notActions: [],
- *     }],
- *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
- *     scope: primary.id,
- * });
- * const exampleAssignment = new azure.authorization.Assignment("example", {
- *     name: "00000000-0000-0000-0000-000000000000",
- *     principalId: exampleClientConfig.clientId,
- *     roleDefinitionId: exampleRoleDefinition.id,
- *     scope: azurerm_management_group_primary.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_assignment.html.markdown.
  */
@@ -132,7 +41,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created. 
+     * The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created.
      */
     public readonly principalId!: pulumi.Output<string>;
     /**
@@ -213,7 +122,7 @@ export interface AssignmentState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created. 
+     * The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created.
      */
     readonly principalId?: pulumi.Input<string>;
     /**
@@ -247,7 +156,7 @@ export interface AssignmentArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created. 
+     * The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created.
      */
     readonly principalId: pulumi.Input<string>;
     /**

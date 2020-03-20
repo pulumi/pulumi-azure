@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a Virtual WAN.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_wan.html.markdown.
 type VirtualWan struct {
 	pulumi.CustomResourceState
@@ -31,9 +31,10 @@ type VirtualWan struct {
 	Office365LocalBreakoutCategory pulumi.StringPtrOutput `pulumi:"office365LocalBreakoutCategory"`
 	// The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	SecurityProviderName pulumi.StringPtrOutput `pulumi:"securityProviderName"`
 	// A mapping of tags to assign to the Virtual WAN.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewVirtualWan registers a new resource with the given unique name, arguments, and options.
@@ -81,9 +82,10 @@ type virtualWanState struct {
 	Office365LocalBreakoutCategory *string `pulumi:"office365LocalBreakoutCategory"`
 	// The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	SecurityProviderName *string `pulumi:"securityProviderName"`
 	// A mapping of tags to assign to the Virtual WAN.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+	Type *string `pulumi:"type"`
 }
 
 type VirtualWanState struct {
@@ -101,9 +103,10 @@ type VirtualWanState struct {
 	Office365LocalBreakoutCategory pulumi.StringPtrInput
 	// The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	SecurityProviderName pulumi.StringPtrInput
 	// A mapping of tags to assign to the Virtual WAN.
 	Tags pulumi.StringMapInput
+	// Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+	Type pulumi.StringPtrInput
 }
 
 func (VirtualWanState) ElementType() reflect.Type {
@@ -125,9 +128,10 @@ type virtualWanArgs struct {
 	Office365LocalBreakoutCategory *string `pulumi:"office365LocalBreakoutCategory"`
 	// The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	SecurityProviderName *string `pulumi:"securityProviderName"`
 	// A mapping of tags to assign to the Virtual WAN.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a VirtualWan resource.
@@ -146,12 +150,12 @@ type VirtualWanArgs struct {
 	Office365LocalBreakoutCategory pulumi.StringPtrInput
 	// The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	SecurityProviderName pulumi.StringPtrInput
 	// A mapping of tags to assign to the Virtual WAN.
 	Tags pulumi.StringMapInput
+	// Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
+	Type pulumi.StringPtrInput
 }
 
 func (VirtualWanArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualWanArgs)(nil)).Elem()
 }
-
