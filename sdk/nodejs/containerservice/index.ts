@@ -9,4 +9,5 @@ export * from "./group";
 export * from "./kubernetesCluster";
 export * from "./kubernetesClusterNodePool";
 export * from "./registry";
+export * from "./registryWebhook";
 export * from "./registryWebook";

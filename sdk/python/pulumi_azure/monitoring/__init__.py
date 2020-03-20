@@ -10,6 +10,8 @@ from .diagnostic_setting import *
 from .get_action_group import *
 from .get_diagnostic_categories import *
 from .get_log_profile import *
+from .get_scheduled_query_rules_alert import *
+from .get_scheduled_query_rules_log import *
 from .log_profile import *
 from .metric_alert import *
 from .scheduled_query_rules_alert import *

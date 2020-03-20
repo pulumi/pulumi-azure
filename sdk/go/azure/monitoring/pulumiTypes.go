@@ -5073,6 +5073,532 @@ func (o GetLogProfileRetentionPolicyArrayOutput) Index(i pulumi.IntInput) GetLog
 	}).(GetLogProfileRetentionPolicyOutput)
 }
 
+type GetScheduledQueryRulesAlertAction struct {
+	// List of action group reference resource IDs.
+	ActionGroups []string `pulumi:"actionGroups"`
+	// Custom payload to be sent for all webhook URI in Azure action group.
+	CustomWebhookPayload string `pulumi:"customWebhookPayload"`
+	// Custom subject override for all email IDs in Azure action group.
+	EmailSubject string `pulumi:"emailSubject"`
+}
+
+type GetScheduledQueryRulesAlertActionInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesAlertActionOutput() GetScheduledQueryRulesAlertActionOutput
+	ToGetScheduledQueryRulesAlertActionOutputWithContext(context.Context) GetScheduledQueryRulesAlertActionOutput
+}
+
+type GetScheduledQueryRulesAlertActionArgs struct {
+	// List of action group reference resource IDs.
+	ActionGroups pulumi.StringArrayInput `pulumi:"actionGroups"`
+	// Custom payload to be sent for all webhook URI in Azure action group.
+	CustomWebhookPayload pulumi.StringInput `pulumi:"customWebhookPayload"`
+	// Custom subject override for all email IDs in Azure action group.
+	EmailSubject pulumi.StringInput `pulumi:"emailSubject"`
+}
+
+func (GetScheduledQueryRulesAlertActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesAlertAction)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesAlertActionArgs) ToGetScheduledQueryRulesAlertActionOutput() GetScheduledQueryRulesAlertActionOutput {
+	return i.ToGetScheduledQueryRulesAlertActionOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesAlertActionArgs) ToGetScheduledQueryRulesAlertActionOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertActionOutput)
+}
+
+type GetScheduledQueryRulesAlertActionArrayInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesAlertActionArrayOutput() GetScheduledQueryRulesAlertActionArrayOutput
+	ToGetScheduledQueryRulesAlertActionArrayOutputWithContext(context.Context) GetScheduledQueryRulesAlertActionArrayOutput
+}
+
+type GetScheduledQueryRulesAlertActionArray []GetScheduledQueryRulesAlertActionInput
+
+func (GetScheduledQueryRulesAlertActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesAlertAction)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesAlertActionArray) ToGetScheduledQueryRulesAlertActionArrayOutput() GetScheduledQueryRulesAlertActionArrayOutput {
+	return i.ToGetScheduledQueryRulesAlertActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesAlertActionArray) ToGetScheduledQueryRulesAlertActionArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertActionArrayOutput)
+}
+
+type GetScheduledQueryRulesAlertActionOutput struct { *pulumi.OutputState }
+
+func (GetScheduledQueryRulesAlertActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesAlertAction)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesAlertActionOutput) ToGetScheduledQueryRulesAlertActionOutput() GetScheduledQueryRulesAlertActionOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertActionOutput) ToGetScheduledQueryRulesAlertActionOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertActionOutput {
+	return o
+}
+
+// List of action group reference resource IDs.
+func (o GetScheduledQueryRulesAlertActionOutput) ActionGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v GetScheduledQueryRulesAlertAction) []string { return v.ActionGroups }).(pulumi.StringArrayOutput)
+}
+
+// Custom payload to be sent for all webhook URI in Azure action group.
+func (o GetScheduledQueryRulesAlertActionOutput) CustomWebhookPayload() pulumi.StringOutput {
+	return o.ApplyT(func (v GetScheduledQueryRulesAlertAction) string { return v.CustomWebhookPayload }).(pulumi.StringOutput)
+}
+
+// Custom subject override for all email IDs in Azure action group.
+func (o GetScheduledQueryRulesAlertActionOutput) EmailSubject() pulumi.StringOutput {
+	return o.ApplyT(func (v GetScheduledQueryRulesAlertAction) string { return v.EmailSubject }).(pulumi.StringOutput)
+}
+
+type GetScheduledQueryRulesAlertActionArrayOutput struct { *pulumi.OutputState}
+
+func (GetScheduledQueryRulesAlertActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesAlertAction)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesAlertActionArrayOutput) ToGetScheduledQueryRulesAlertActionArrayOutput() GetScheduledQueryRulesAlertActionArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertActionArrayOutput) ToGetScheduledQueryRulesAlertActionArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertActionArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertActionArrayOutput) Index(i pulumi.IntInput) GetScheduledQueryRulesAlertActionOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetScheduledQueryRulesAlertAction {
+		return vs[0].([]GetScheduledQueryRulesAlertAction)[vs[1].(int)]
+	}).(GetScheduledQueryRulesAlertActionOutput)
+}
+
+type GetScheduledQueryRulesAlertTrigger struct {
+	MetricTriggers []GetScheduledQueryRulesAlertTriggerMetricTrigger `pulumi:"metricTriggers"`
+	// Evaluation operation for rule.
+	Operator string `pulumi:"operator"`
+	// Result or count threshold based on which rule should be triggered.
+	Threshold float64 `pulumi:"threshold"`
+}
+
+type GetScheduledQueryRulesAlertTriggerInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesAlertTriggerOutput() GetScheduledQueryRulesAlertTriggerOutput
+	ToGetScheduledQueryRulesAlertTriggerOutputWithContext(context.Context) GetScheduledQueryRulesAlertTriggerOutput
+}
+
+type GetScheduledQueryRulesAlertTriggerArgs struct {
+	MetricTriggers GetScheduledQueryRulesAlertTriggerMetricTriggerArrayInput `pulumi:"metricTriggers"`
+	// Evaluation operation for rule.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Result or count threshold based on which rule should be triggered.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+}
+
+func (GetScheduledQueryRulesAlertTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesAlertTrigger)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesAlertTriggerArgs) ToGetScheduledQueryRulesAlertTriggerOutput() GetScheduledQueryRulesAlertTriggerOutput {
+	return i.ToGetScheduledQueryRulesAlertTriggerOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesAlertTriggerArgs) ToGetScheduledQueryRulesAlertTriggerOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertTriggerOutput)
+}
+
+type GetScheduledQueryRulesAlertTriggerArrayInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesAlertTriggerArrayOutput() GetScheduledQueryRulesAlertTriggerArrayOutput
+	ToGetScheduledQueryRulesAlertTriggerArrayOutputWithContext(context.Context) GetScheduledQueryRulesAlertTriggerArrayOutput
+}
+
+type GetScheduledQueryRulesAlertTriggerArray []GetScheduledQueryRulesAlertTriggerInput
+
+func (GetScheduledQueryRulesAlertTriggerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesAlertTrigger)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesAlertTriggerArray) ToGetScheduledQueryRulesAlertTriggerArrayOutput() GetScheduledQueryRulesAlertTriggerArrayOutput {
+	return i.ToGetScheduledQueryRulesAlertTriggerArrayOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesAlertTriggerArray) ToGetScheduledQueryRulesAlertTriggerArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertTriggerArrayOutput)
+}
+
+type GetScheduledQueryRulesAlertTriggerOutput struct { *pulumi.OutputState }
+
+func (GetScheduledQueryRulesAlertTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesAlertTrigger)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesAlertTriggerOutput) ToGetScheduledQueryRulesAlertTriggerOutput() GetScheduledQueryRulesAlertTriggerOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertTriggerOutput) ToGetScheduledQueryRulesAlertTriggerOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertTriggerOutput) MetricTriggers() GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput {
+	return o.ApplyT(func (v GetScheduledQueryRulesAlertTrigger) []GetScheduledQueryRulesAlertTriggerMetricTrigger { return v.MetricTriggers }).(GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput)
+}
+
+// Evaluation operation for rule.
+func (o GetScheduledQueryRulesAlertTriggerOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func (v GetScheduledQueryRulesAlertTrigger) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Result or count threshold based on which rule should be triggered.
+func (o GetScheduledQueryRulesAlertTriggerOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func (v GetScheduledQueryRulesAlertTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+type GetScheduledQueryRulesAlertTriggerArrayOutput struct { *pulumi.OutputState}
+
+func (GetScheduledQueryRulesAlertTriggerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesAlertTrigger)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesAlertTriggerArrayOutput) ToGetScheduledQueryRulesAlertTriggerArrayOutput() GetScheduledQueryRulesAlertTriggerArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertTriggerArrayOutput) ToGetScheduledQueryRulesAlertTriggerArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertTriggerArrayOutput) Index(i pulumi.IntInput) GetScheduledQueryRulesAlertTriggerOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetScheduledQueryRulesAlertTrigger {
+		return vs[0].([]GetScheduledQueryRulesAlertTrigger)[vs[1].(int)]
+	}).(GetScheduledQueryRulesAlertTriggerOutput)
+}
+
+type GetScheduledQueryRulesAlertTriggerMetricTrigger struct {
+	MetricColumn string `pulumi:"metricColumn"`
+	MetricTriggerType string `pulumi:"metricTriggerType"`
+	// Evaluation operation for rule.
+	Operator string `pulumi:"operator"`
+	// Result or count threshold based on which rule should be triggered.
+	Threshold float64 `pulumi:"threshold"`
+}
+
+type GetScheduledQueryRulesAlertTriggerMetricTriggerInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesAlertTriggerMetricTriggerOutput() GetScheduledQueryRulesAlertTriggerMetricTriggerOutput
+	ToGetScheduledQueryRulesAlertTriggerMetricTriggerOutputWithContext(context.Context) GetScheduledQueryRulesAlertTriggerMetricTriggerOutput
+}
+
+type GetScheduledQueryRulesAlertTriggerMetricTriggerArgs struct {
+	MetricColumn pulumi.StringInput `pulumi:"metricColumn"`
+	MetricTriggerType pulumi.StringInput `pulumi:"metricTriggerType"`
+	// Evaluation operation for rule.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Result or count threshold based on which rule should be triggered.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+}
+
+func (GetScheduledQueryRulesAlertTriggerMetricTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesAlertTriggerMetricTrigger)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesAlertTriggerMetricTriggerArgs) ToGetScheduledQueryRulesAlertTriggerMetricTriggerOutput() GetScheduledQueryRulesAlertTriggerMetricTriggerOutput {
+	return i.ToGetScheduledQueryRulesAlertTriggerMetricTriggerOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesAlertTriggerMetricTriggerArgs) ToGetScheduledQueryRulesAlertTriggerMetricTriggerOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerMetricTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertTriggerMetricTriggerOutput)
+}
+
+type GetScheduledQueryRulesAlertTriggerMetricTriggerArrayInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput() GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput
+	ToGetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutputWithContext(context.Context) GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput
+}
+
+type GetScheduledQueryRulesAlertTriggerMetricTriggerArray []GetScheduledQueryRulesAlertTriggerMetricTriggerInput
+
+func (GetScheduledQueryRulesAlertTriggerMetricTriggerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesAlertTriggerMetricTrigger)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesAlertTriggerMetricTriggerArray) ToGetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput() GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput {
+	return i.ToGetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesAlertTriggerMetricTriggerArray) ToGetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput)
+}
+
+type GetScheduledQueryRulesAlertTriggerMetricTriggerOutput struct { *pulumi.OutputState }
+
+func (GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesAlertTriggerMetricTrigger)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) ToGetScheduledQueryRulesAlertTriggerMetricTriggerOutput() GetScheduledQueryRulesAlertTriggerMetricTriggerOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) ToGetScheduledQueryRulesAlertTriggerMetricTriggerOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerMetricTriggerOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) MetricColumn() pulumi.StringOutput {
+	return o.ApplyT(func (v GetScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.MetricColumn }).(pulumi.StringOutput)
+}
+
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) MetricTriggerType() pulumi.StringOutput {
+	return o.ApplyT(func (v GetScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.MetricTriggerType }).(pulumi.StringOutput)
+}
+
+// Evaluation operation for rule.
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func (v GetScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Result or count threshold based on which rule should be triggered.
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func (v GetScheduledQueryRulesAlertTriggerMetricTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+type GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput struct { *pulumi.OutputState}
+
+func (GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesAlertTriggerMetricTrigger)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput) ToGetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput() GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput) ToGetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput) Index(i pulumi.IntInput) GetScheduledQueryRulesAlertTriggerMetricTriggerOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetScheduledQueryRulesAlertTriggerMetricTrigger {
+		return vs[0].([]GetScheduledQueryRulesAlertTriggerMetricTrigger)[vs[1].(int)]
+	}).(GetScheduledQueryRulesAlertTriggerMetricTriggerOutput)
+}
+
+type GetScheduledQueryRulesLogCriteria struct {
+	// A `dimension` block as defined below.
+	Dimensions []GetScheduledQueryRulesLogCriteriaDimension `pulumi:"dimensions"`
+	// Name of the metric.
+	MetricName string `pulumi:"metricName"`
+}
+
+type GetScheduledQueryRulesLogCriteriaInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesLogCriteriaOutput() GetScheduledQueryRulesLogCriteriaOutput
+	ToGetScheduledQueryRulesLogCriteriaOutputWithContext(context.Context) GetScheduledQueryRulesLogCriteriaOutput
+}
+
+type GetScheduledQueryRulesLogCriteriaArgs struct {
+	// A `dimension` block as defined below.
+	Dimensions GetScheduledQueryRulesLogCriteriaDimensionArrayInput `pulumi:"dimensions"`
+	// Name of the metric.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+}
+
+func (GetScheduledQueryRulesLogCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesLogCriteria)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesLogCriteriaArgs) ToGetScheduledQueryRulesLogCriteriaOutput() GetScheduledQueryRulesLogCriteriaOutput {
+	return i.ToGetScheduledQueryRulesLogCriteriaOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesLogCriteriaArgs) ToGetScheduledQueryRulesLogCriteriaOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesLogCriteriaOutput)
+}
+
+type GetScheduledQueryRulesLogCriteriaArrayInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesLogCriteriaArrayOutput() GetScheduledQueryRulesLogCriteriaArrayOutput
+	ToGetScheduledQueryRulesLogCriteriaArrayOutputWithContext(context.Context) GetScheduledQueryRulesLogCriteriaArrayOutput
+}
+
+type GetScheduledQueryRulesLogCriteriaArray []GetScheduledQueryRulesLogCriteriaInput
+
+func (GetScheduledQueryRulesLogCriteriaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesLogCriteria)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesLogCriteriaArray) ToGetScheduledQueryRulesLogCriteriaArrayOutput() GetScheduledQueryRulesLogCriteriaArrayOutput {
+	return i.ToGetScheduledQueryRulesLogCriteriaArrayOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesLogCriteriaArray) ToGetScheduledQueryRulesLogCriteriaArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesLogCriteriaArrayOutput)
+}
+
+type GetScheduledQueryRulesLogCriteriaOutput struct { *pulumi.OutputState }
+
+func (GetScheduledQueryRulesLogCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesLogCriteria)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesLogCriteriaOutput) ToGetScheduledQueryRulesLogCriteriaOutput() GetScheduledQueryRulesLogCriteriaOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesLogCriteriaOutput) ToGetScheduledQueryRulesLogCriteriaOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaOutput {
+	return o
+}
+
+// A `dimension` block as defined below.
+func (o GetScheduledQueryRulesLogCriteriaOutput) Dimensions() GetScheduledQueryRulesLogCriteriaDimensionArrayOutput {
+	return o.ApplyT(func (v GetScheduledQueryRulesLogCriteria) []GetScheduledQueryRulesLogCriteriaDimension { return v.Dimensions }).(GetScheduledQueryRulesLogCriteriaDimensionArrayOutput)
+}
+
+// Name of the metric.
+func (o GetScheduledQueryRulesLogCriteriaOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func (v GetScheduledQueryRulesLogCriteria) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+type GetScheduledQueryRulesLogCriteriaArrayOutput struct { *pulumi.OutputState}
+
+func (GetScheduledQueryRulesLogCriteriaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesLogCriteria)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesLogCriteriaArrayOutput) ToGetScheduledQueryRulesLogCriteriaArrayOutput() GetScheduledQueryRulesLogCriteriaArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesLogCriteriaArrayOutput) ToGetScheduledQueryRulesLogCriteriaArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesLogCriteriaArrayOutput) Index(i pulumi.IntInput) GetScheduledQueryRulesLogCriteriaOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetScheduledQueryRulesLogCriteria {
+		return vs[0].([]GetScheduledQueryRulesLogCriteria)[vs[1].(int)]
+	}).(GetScheduledQueryRulesLogCriteriaOutput)
+}
+
+type GetScheduledQueryRulesLogCriteriaDimension struct {
+	// Specifies the name of the scheduled query rule.
+	Name string `pulumi:"name"`
+	// Operator for dimension values.
+	Operator string `pulumi:"operator"`
+	// List of dimension values.
+	Values []string `pulumi:"values"`
+}
+
+type GetScheduledQueryRulesLogCriteriaDimensionInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesLogCriteriaDimensionOutput() GetScheduledQueryRulesLogCriteriaDimensionOutput
+	ToGetScheduledQueryRulesLogCriteriaDimensionOutputWithContext(context.Context) GetScheduledQueryRulesLogCriteriaDimensionOutput
+}
+
+type GetScheduledQueryRulesLogCriteriaDimensionArgs struct {
+	// Specifies the name of the scheduled query rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Operator for dimension values.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of dimension values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetScheduledQueryRulesLogCriteriaDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesLogCriteriaDimension)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesLogCriteriaDimensionArgs) ToGetScheduledQueryRulesLogCriteriaDimensionOutput() GetScheduledQueryRulesLogCriteriaDimensionOutput {
+	return i.ToGetScheduledQueryRulesLogCriteriaDimensionOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesLogCriteriaDimensionArgs) ToGetScheduledQueryRulesLogCriteriaDimensionOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesLogCriteriaDimensionOutput)
+}
+
+type GetScheduledQueryRulesLogCriteriaDimensionArrayInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesLogCriteriaDimensionArrayOutput() GetScheduledQueryRulesLogCriteriaDimensionArrayOutput
+	ToGetScheduledQueryRulesLogCriteriaDimensionArrayOutputWithContext(context.Context) GetScheduledQueryRulesLogCriteriaDimensionArrayOutput
+}
+
+type GetScheduledQueryRulesLogCriteriaDimensionArray []GetScheduledQueryRulesLogCriteriaDimensionInput
+
+func (GetScheduledQueryRulesLogCriteriaDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesLogCriteriaDimension)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesLogCriteriaDimensionArray) ToGetScheduledQueryRulesLogCriteriaDimensionArrayOutput() GetScheduledQueryRulesLogCriteriaDimensionArrayOutput {
+	return i.ToGetScheduledQueryRulesLogCriteriaDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesLogCriteriaDimensionArray) ToGetScheduledQueryRulesLogCriteriaDimensionArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesLogCriteriaDimensionArrayOutput)
+}
+
+type GetScheduledQueryRulesLogCriteriaDimensionOutput struct { *pulumi.OutputState }
+
+func (GetScheduledQueryRulesLogCriteriaDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesLogCriteriaDimension)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesLogCriteriaDimensionOutput) ToGetScheduledQueryRulesLogCriteriaDimensionOutput() GetScheduledQueryRulesLogCriteriaDimensionOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesLogCriteriaDimensionOutput) ToGetScheduledQueryRulesLogCriteriaDimensionOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaDimensionOutput {
+	return o
+}
+
+// Specifies the name of the scheduled query rule.
+func (o GetScheduledQueryRulesLogCriteriaDimensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func (v GetScheduledQueryRulesLogCriteriaDimension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Operator for dimension values.
+func (o GetScheduledQueryRulesLogCriteriaDimensionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func (v GetScheduledQueryRulesLogCriteriaDimension) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of dimension values.
+func (o GetScheduledQueryRulesLogCriteriaDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v GetScheduledQueryRulesLogCriteriaDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetScheduledQueryRulesLogCriteriaDimensionArrayOutput struct { *pulumi.OutputState}
+
+func (GetScheduledQueryRulesLogCriteriaDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesLogCriteriaDimension)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesLogCriteriaDimensionArrayOutput) ToGetScheduledQueryRulesLogCriteriaDimensionArrayOutput() GetScheduledQueryRulesLogCriteriaDimensionArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesLogCriteriaDimensionArrayOutput) ToGetScheduledQueryRulesLogCriteriaDimensionArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaDimensionArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesLogCriteriaDimensionArrayOutput) Index(i pulumi.IntInput) GetScheduledQueryRulesLogCriteriaDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetScheduledQueryRulesLogCriteriaDimension {
+		return vs[0].([]GetScheduledQueryRulesLogCriteriaDimension)[vs[1].(int)]
+	}).(GetScheduledQueryRulesLogCriteriaDimensionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActionGroupArmRoleReceiverOutput{})
 	pulumi.RegisterOutputType(ActionGroupArmRoleReceiverArrayOutput{})
@@ -5161,4 +5687,14 @@ func init() {
 	pulumi.RegisterOutputType(GetActionGroupWebhookReceiverArrayOutput{})
 	pulumi.RegisterOutputType(GetLogProfileRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(GetLogProfileRetentionPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesAlertActionOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesAlertActionArrayOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesAlertTriggerOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesAlertTriggerArrayOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesAlertTriggerMetricTriggerOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesLogCriteriaOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesLogCriteriaArrayOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesLogCriteriaDimensionOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesLogCriteriaDimensionArrayOutput{})
 }

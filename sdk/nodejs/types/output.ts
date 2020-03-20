@@ -5979,6 +5979,72 @@ export namespace monitoring {
         enabled: boolean;
     }
 
+    export interface GetScheduledQueryRulesAlertAction {
+        /**
+         * List of action group reference resource IDs.
+         */
+        actionGroups: string[];
+        /**
+         * Custom payload to be sent for all webhook URI in Azure action group.
+         */
+        customWebhookPayload: string;
+        /**
+         * Custom subject override for all email IDs in Azure action group.
+         */
+        emailSubject: string;
+    }
+
+    export interface GetScheduledQueryRulesAlertTrigger {
+        metricTriggers: outputs.monitoring.GetScheduledQueryRulesAlertTriggerMetricTrigger[];
+        /**
+         * Evaluation operation for rule.
+         */
+        operator: string;
+        /**
+         * Result or count threshold based on which rule should be triggered.
+         */
+        threshold: number;
+    }
+
+    export interface GetScheduledQueryRulesAlertTriggerMetricTrigger {
+        metricColumn: string;
+        metricTriggerType: string;
+        /**
+         * Evaluation operation for rule.
+         */
+        operator: string;
+        /**
+         * Result or count threshold based on which rule should be triggered.
+         */
+        threshold: number;
+    }
+
+    export interface GetScheduledQueryRulesLogCriteria {
+        /**
+         * A `dimension` block as defined below.
+         */
+        dimensions: outputs.monitoring.GetScheduledQueryRulesLogCriteriaDimension[];
+        /**
+         * Name of the metric.
+         */
+        metricName: string;
+    }
+
+    export interface GetScheduledQueryRulesLogCriteriaDimension {
+        /**
+         * Specifies the name of the scheduled query rule.
+         */
+        name: string;
+        /**
+         * Operator for dimension values.
+         */
+        operator: string;
+        /**
+         * List of dimension values.
+         */
+        values: string[];
+    }
+
     export interface LogProfileRetentionPolicy {
         days?: number;
         enabled: boolean;
