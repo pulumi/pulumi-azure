@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Rename resource `containerService.Webook` to `containerService.Webhook`
 
 ---
 

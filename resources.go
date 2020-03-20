@@ -487,9 +487,6 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_container_registry_webhook": {
-				Tok: azureResource(azureContainerService, "RegistryWebook"),
-			},
 			"azurerm_container_group": {
 				Tok: azureResource(azureContainerService, "Group"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1298,14 +1295,24 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "loadbalancer_backend_address_pool.html.markdown",
 				},
 			},
-			"azurerm_log_analytics_workspace":       {Tok: azureDataSource(azureOperationalInsights, "getAnalyticsWorkspace")},
-			"azurerm_logic_app_workflow":            {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
-			"azurerm_maps_account":                  {Tok: azureDataSource(azureMaps, "getAccount")},
-			"azurerm_monitor_action_group":          {Tok: azureDataSource(azureMonitoring, "getActionGroup")},
-			"azurerm_monitor_diagnostic_categories": {Tok: azureDataSource(azureMonitoring, "getDiagnosticCategories")},
-			"azurerm_monitor_log_profile":           {Tok: azureDataSource(azureMonitoring, "getLogProfile")},
-			"azurerm_mssql_elasticpool":             {Tok: azureDataSource(azureMSSQL, "getElasticPool")},
-			"azurerm_dns_zone":                      {Tok: azureDataSource(azureDNS, "getZone")},
+			"azurerm_log_analytics_workspace": {
+				Tok: azureDataSource(azureOperationalInsights, "getAnalyticsWorkspace"),
+			},
+			"azurerm_logic_app_workflow":   {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
+			"azurerm_maps_account":         {Tok: azureDataSource(azureMaps, "getAccount")},
+			"azurerm_monitor_action_group": {Tok: azureDataSource(azureMonitoring, "getActionGroup")},
+			"azurerm_monitor_diagnostic_categories": {
+				Tok: azureDataSource(azureMonitoring, "getDiagnosticCategories"),
+			},
+			"azurerm_monitor_log_profile": {Tok: azureDataSource(azureMonitoring, "getLogProfile")},
+			"azurerm_monitor_scheduled_query_rules_alert": {
+				Tok: azureDataSource(azureMonitoring, "getScheduledQueryRulesAlert"),
+			},
+			"azurerm_monitor_scheduled_query_rules_log": {
+				Tok: azureDataSource(azureMonitoring, "getScheduledQueryRulesLog"),
+			},
+			"azurerm_mssql_elasticpool": {Tok: azureDataSource(azureMSSQL, "getElasticPool")},
+			"azurerm_dns_zone":          {Tok: azureDataSource(azureDNS, "getZone")},
 			"azurerm_key_vault": {
 				Tok: azureDataSource(azureKeyVault, "getKeyVault"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1660,6 +1667,11 @@ func Provider() tfbridge.ProviderInfo {
 					CSharpName: "KeyVaultCertificate",
 				},
 			}})
+
+	// Fix the spelling of ContainerService Webook to Webhook
+	prov.RenameResourceWithAlias("azurerm_container_registry_webhook",
+		azureResource(azureContainerService, "RegistryWebook"),
+		azureResource(azureContainerService, "RegistryWebhook"), azureContainerService, azureContainerService, nil)
 
 	// Deprecated, remove in 3.0.
 	prov.P.ResourcesMap["azurerm_storage_zipblob"] = prov.P.ResourcesMap["azurerm_storage_blob"]
