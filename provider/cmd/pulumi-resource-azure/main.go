@@ -21,7 +21,7 @@ import (
 
 	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
 
-	azure "github.com/pulumi/pulumi-azure"
+	azure "github.com/pulumi/pulumi-azure/provider"
 	"github.com/pulumi/pulumi-azure/provider/pkg/version"
 )
 
