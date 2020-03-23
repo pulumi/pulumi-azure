@@ -60,6 +60,7 @@ from .subnet_route_table_association import *
 from .traffic_manager_endpoint import *
 from .traffic_manager_profile import *
 from .virtual_hub import *
+from .virtual_hub_connection import *
 from .virtual_network import *
 from .virtual_network_gateway import *
 from .virtual_network_gateway_connection import *

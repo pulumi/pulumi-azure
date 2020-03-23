@@ -350,60 +350,60 @@ export namespace apimanagement {
 export namespace appconfiguration {
     export interface ConfigurationStorePrimaryReadKey {
         /**
-         * The connection string including the endpoint, id and secret.
+         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
          */
         connectionString?: pulumi.Input<string>;
         /**
-         * The ID of the access key.
+         * The ID of the Access Key.
          */
         id?: pulumi.Input<string>;
         /**
-         * The secret of the access key.
+         * The Secret of the Access Key.
          */
         secret?: pulumi.Input<string>;
     }
 
     export interface ConfigurationStorePrimaryWriteKey {
         /**
-         * The connection string including the endpoint, id and secret.
+         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
          */
         connectionString?: pulumi.Input<string>;
         /**
-         * The ID of the access key.
+         * The ID of the Access Key.
          */
         id?: pulumi.Input<string>;
         /**
-         * The secret of the access key.
+         * The Secret of the Access Key.
          */
         secret?: pulumi.Input<string>;
     }
 
     export interface ConfigurationStoreSecondaryReadKey {
         /**
-         * The connection string including the endpoint, id and secret.
+         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
          */
         connectionString?: pulumi.Input<string>;
         /**
-         * The ID of the access key.
+         * The ID of the Access Key.
          */
         id?: pulumi.Input<string>;
         /**
-         * The secret of the access key.
+         * The Secret of the Access Key.
          */
         secret?: pulumi.Input<string>;
     }
 
     export interface ConfigurationStoreSecondaryWriteKey {
         /**
-         * The connection string including the endpoint, id and secret.
+         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
          */
         connectionString?: pulumi.Input<string>;
         /**
-         * The ID of the access key.
+         * The ID of the Access Key.
          */
         id?: pulumi.Input<string>;
         /**
-         * The secret of the access key.
+         * The Secret of the Access Key.
          */
         secret?: pulumi.Input<string>;
     }
@@ -1603,6 +1603,11 @@ export namespace compute {
         version: pulumi.Input<string>;
     }
 
+    export interface LinuxVirtualMachineScaleSetTerminateNotification {
+        enabled: pulumi.Input<boolean>;
+        timeout?: pulumi.Input<string>;
+    }
+
     export interface LinuxVirtualMachineSecret {
         certificates: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineSecretCertificate>[]>;
         keyVaultId: pulumi.Input<string>;
@@ -2334,6 +2339,11 @@ export namespace compute {
         version: pulumi.Input<string>;
     }
 
+    export interface WindowsVirtualMachineScaleSetTerminateNotification {
+        enabled: pulumi.Input<boolean>;
+        timeout?: pulumi.Input<string>;
+    }
+
     export interface WindowsVirtualMachineScaleSetWinrmListener {
         certificateUrl?: pulumi.Input<string>;
         protocol: pulumi.Input<string>;
@@ -2749,6 +2759,19 @@ export namespace cosmosdb {
 
     export interface SqlContainerUniqueKey {
         paths: pulumi.Input<pulumi.Input<string>[]>;
+    }
+}
+
+export namespace costmanagement {
+    export interface ResourceGroupExportDeliveryInfo {
+        containerName: pulumi.Input<string>;
+        rootFolderPath: pulumi.Input<string>;
+        storageAccountId: pulumi.Input<string>;
+    }
+
+    export interface ResourceGroupExportQuery {
+        timeFrame: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 }
 
@@ -3936,6 +3959,10 @@ export namespace healthcare {
          * The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
          */
         audience?: pulumi.Input<string>;
+        /**
+         * The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
+         * Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
+         */
         authority?: pulumi.Input<string>;
         /**
          * Enables the 'SMART on FHIR' option for mobile and web implementations.
@@ -5209,16 +5236,17 @@ export namespace network {
     }
 
     export interface ApplicationGatewaySslCertificate {
-        data: pulumi.Input<string>;
+        data?: pulumi.Input<string>;
         /**
          * The ID of the Rewrite Rule Set
          */
         id?: pulumi.Input<string>;
+        keyVaultSecretId?: pulumi.Input<string>;
         /**
          * The name of the Application Gateway. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
-        password: pulumi.Input<string>;
+        password?: pulumi.Input<string>;
         /**
          * The Public Certificate Data associated with the SSL Certificate.
          */
@@ -6135,6 +6163,19 @@ export namespace siterecovery {
 }
 
 export namespace sql {
+    export interface DatabaseExtendedAuditingPolicy {
+        retentionInDays?: pulumi.Input<number>;
+        /**
+         * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+         */
+        storageAccountAccessKey: pulumi.Input<string>;
+        storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
+        /**
+         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         */
+        storageEndpoint: pulumi.Input<string>;
+    }
+
     export interface DatabaseImport {
         /**
          * Specifies the name of the SQL administrator.

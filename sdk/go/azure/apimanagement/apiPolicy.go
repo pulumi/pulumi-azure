@@ -23,6 +23,7 @@ type ApiPolicy struct {
 	ApiName pulumi.StringOutput `pulumi:"apiName"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The XML Content for this Policy as a string.
 	XmlContent pulumi.StringOutput `pulumi:"xmlContent"`
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink pulumi.StringPtrOutput `pulumi:"xmlLink"`
@@ -71,6 +72,7 @@ type apiPolicyState struct {
 	ApiName *string `pulumi:"apiName"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The XML Content for this Policy as a string.
 	XmlContent *string `pulumi:"xmlContent"`
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink *string `pulumi:"xmlLink"`
@@ -83,6 +85,7 @@ type ApiPolicyState struct {
 	ApiName pulumi.StringPtrInput
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The XML Content for this Policy as a string.
 	XmlContent pulumi.StringPtrInput
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink pulumi.StringPtrInput
@@ -99,6 +102,7 @@ type apiPolicyArgs struct {
 	ApiName string `pulumi:"apiName"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The XML Content for this Policy as a string.
 	XmlContent *string `pulumi:"xmlContent"`
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink *string `pulumi:"xmlLink"`
@@ -112,6 +116,7 @@ type ApiPolicyArgs struct {
 	ApiName pulumi.StringInput
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// The XML Content for this Policy as a string.
 	XmlContent pulumi.StringPtrInput
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink pulumi.StringPtrInput

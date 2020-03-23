@@ -30,6 +30,9 @@ namespace Pulumi.Azure.Storage
         [Input("cacheControl")]
         public string? CacheControl { get; set; }
 
+        /// <summary>
+        /// The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `azure.storage.Account` resource.
+        /// </summary>
         [Input("connectionString", required: true)]
         public string ConnectionString { get; set; } = null!;
 

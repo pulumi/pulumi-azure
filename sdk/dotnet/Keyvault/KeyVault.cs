@@ -9,6 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.KeyVault
 {
+    /// <summary>
+    /// Manages a Key Vault.
+    /// 
+    /// ## Disclaimers
+    /// 
+    /// &gt; **Note:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `access_policy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
+    /// 
+    /// &gt; **Note:** This provi will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
+    /// 
+    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
+    /// </summary>
     public partial class KeyVault : Pulumi.CustomResource
     {
         /// <summary>

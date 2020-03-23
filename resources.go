@@ -60,6 +60,7 @@ const (
 	azureContainerService    = "ContainerService"    // Azure Container Service
 	azureCore                = "Core"                // Base Resources
 	azureCosmosDB            = "CosmosDB"            // Cosmos DB
+	azureCostManagement      = "CostManagement"      // CostManagement
 	azureDashboard           = "Dashboard"           // Dashboard
 	azureDatabaseMigration   = "DatabaseMigration"   // Database Migration
 	azureDataFactory         = "DataFactory"         // Data Factory
@@ -96,6 +97,7 @@ const (
 	azureOperationalInsights = "OperationalInsights" // Operational Insights
 	azurePostgresql          = "PostgreSql"          // Postgress SQL
 	azurePolicy              = "Policy"              // Policy
+	azurePowerBi             = "PowerBI"             // PowerBI
 	azureProximity           = "Proximity"           // Proximity
 	azurePrivateDNS          = "PrivateDns"          // Private DNS
 	azurePrivateLink         = "PrivateLink"         // PrivateLink
@@ -797,6 +799,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cosmosdb_gremlin_database":   {Tok: azureResource(azureCosmosDB, "GremlinDatabase")},
 			"azurerm_cosmosdb_gremlin_graph":      {Tok: azureResource(azureCosmosDB, "GremlinGraph")},
 
+			// Cost Management
+			"azurerm_cost_management_export_resource_group": {
+				Tok: azureResource(azureCostManagement, "ResourceGroupExport"),
+			},
+
 			// Maps
 			"azurerm_maps_account": {Tok: azureResource(azureMaps, "Account")},
 
@@ -1035,6 +1042,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_subnet_nat_gateway_association": {Tok: azureResource(azureNetwork, "SubnetNatGatewayAssociation")},
 			"azurerm_point_to_site_vpn_gateway":      {Tok: azureResource(azureNetwork, "PointToPointVpnGateway")},
 			"azurerm_virtual_hub":                    {Tok: azureResource(azureNetwork, "VirtualHub")},
+			"azurerm_virtual_hub_connection":         {Tok: azureResource(azureNetwork, "VirtualHubConnection")},
 			"azurerm_vpn_gateway":                    {Tok: azureResource(azureNetwork, "VpnGateway")},
 			"azurerm_vpn_server_configuration":       {Tok: azureResource(azureNetwork, "VpnServerConfiguration")},
 
@@ -1233,6 +1241,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Mixed Reality
 			"azurerm_spatial_anchors_account": {Tok: azureResource(azureMixedReality, "SpatialAnchorsAccount")},
+
+			// PowerBI
+			"azurerm_powerbi_embedded": {Tok: azureResource(azurePowerBi, "Embedded")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1425,6 +1436,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_servicebus_topic_authorization_rule": {
 				Tok: azureDataSource(azureServiceBus, "getTopicAuthorizationRule"),
 			},
+			"azurerm_app_configuration": {Tok: azureDataSource(azureAppConfiguration, "getConfigurationStore")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

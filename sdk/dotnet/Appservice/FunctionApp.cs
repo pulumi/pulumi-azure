@@ -47,6 +47,12 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<Outputs.FunctionAppConnectionStrings>> ConnectionStrings { get; private set; } = null!;
 
         /// <summary>
+        /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        /// </summary>
+        [Output("dailyMemoryTimeQuota")]
+        public Output<int?> DailyMemoryTimeQuota { get; private set; } = null!;
+
+        /// <summary>
         /// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
         /// </summary>
         [Output("defaultHostname")]
@@ -237,6 +243,12 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
+        /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        /// </summary>
+        [Input("dailyMemoryTimeQuota")]
+        public Input<int>? DailyMemoryTimeQuota { get; set; }
+
+        /// <summary>
         /// Should the built-in logging of this Function App be enabled? Defaults to `true`.
         /// </summary>
         [Input("enableBuiltinLogging")]
@@ -362,6 +374,12 @@ namespace Pulumi.Azure.AppService
             get => _connectionStrings ?? (_connectionStrings = new InputList<Inputs.FunctionAppConnectionStringsGetArgs>());
             set => _connectionStrings = value;
         }
+
+        /// <summary>
+        /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        /// </summary>
+        [Input("dailyMemoryTimeQuota")]
+        public Input<int>? DailyMemoryTimeQuota { get; set; }
 
         /// <summary>
         /// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`

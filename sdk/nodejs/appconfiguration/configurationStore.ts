@@ -51,11 +51,11 @@ export class ConfigurationStore extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * An `accessKey` block as defined below containing the primary read access key.
+     * A `primaryReadKey` block as defined below containing the primary read access key.
      */
     public /*out*/ readonly primaryReadKeys!: pulumi.Output<outputs.appconfiguration.ConfigurationStorePrimaryReadKey[]>;
     /**
-     * An `accessKey` block as defined below containing the primary write access key.
+     * A `primaryWriteKey` block as defined below containing the primary write access key.
      */
     public /*out*/ readonly primaryWriteKeys!: pulumi.Output<outputs.appconfiguration.ConfigurationStorePrimaryWriteKey[]>;
     /**
@@ -63,11 +63,11 @@ export class ConfigurationStore extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * An `accessKey` block as defined below containing the secondary read access key.
+     * A `secondaryReadKey` block as defined below containing the secondary read access key.
      */
     public /*out*/ readonly secondaryReadKeys!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreSecondaryReadKey[]>;
     /**
-     * An `accessKey` block as defined below containing the secondary write access key.
+     * A `secondaryWriteKey` block as defined below containing the secondary write access key.
      */
     public /*out*/ readonly secondaryWriteKeys!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreSecondaryWriteKey[]>;
     /**
@@ -145,11 +145,11 @@ export interface ConfigurationStoreState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * An `accessKey` block as defined below containing the primary read access key.
+     * A `primaryReadKey` block as defined below containing the primary read access key.
      */
     readonly primaryReadKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStorePrimaryReadKey>[]>;
     /**
-     * An `accessKey` block as defined below containing the primary write access key.
+     * A `primaryWriteKey` block as defined below containing the primary write access key.
      */
     readonly primaryWriteKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStorePrimaryWriteKey>[]>;
     /**
@@ -157,11 +157,11 @@ export interface ConfigurationStoreState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * An `accessKey` block as defined below containing the secondary read access key.
+     * A `secondaryReadKey` block as defined below containing the secondary read access key.
      */
     readonly secondaryReadKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStoreSecondaryReadKey>[]>;
     /**
-     * An `accessKey` block as defined below containing the secondary write access key.
+     * A `secondaryWriteKey` block as defined below containing the secondary write access key.
      */
     readonly secondaryWriteKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStoreSecondaryWriteKey>[]>;
     /**

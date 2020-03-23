@@ -23,6 +23,7 @@ type MongoDatabase struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput pulumi.IntOutput `pulumi:"throughput"`
 }
 
@@ -66,6 +67,7 @@ type mongoDatabaseState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput *int `pulumi:"throughput"`
 }
 
@@ -76,6 +78,7 @@ type MongoDatabaseState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Mongo Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput pulumi.IntPtrInput
 }
 
@@ -90,6 +93,7 @@ type mongoDatabaseArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput *int `pulumi:"throughput"`
 }
 
@@ -101,6 +105,7 @@ type MongoDatabaseArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Mongo Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput pulumi.IntPtrInput
 }
 

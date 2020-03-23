@@ -23,6 +23,9 @@ class ApiPolicy(pulumi.CustomResource):
     The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
     """
     xml_content: pulumi.Output[str]
+    """
+    The XML Content for this Policy as a string.
+    """
     xml_link: pulumi.Output[str]
     """
     A link to a Policy XML Document, which must be publicly available.
@@ -38,6 +41,7 @@ class ApiPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_name: The ID of the API Management API within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] xml_content: The XML Content for this Policy as a string.
         :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
         if __name__ is not None:
@@ -86,6 +90,7 @@ class ApiPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_name: The ID of the API Management API within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] xml_content: The XML Content for this Policy as a string.
         :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

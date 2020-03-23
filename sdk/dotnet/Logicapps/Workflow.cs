@@ -17,10 +17,22 @@ namespace Pulumi.Azure.LogicApps
     public partial class Workflow : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Access Endpoint for the Logic App Workflow
+        /// The Access Endpoint for the Logic App Workflow.
         /// </summary>
         [Output("accessEndpoint")]
         public Output<string> AccessEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of access endpoint ip addresses of connector.
+        /// </summary>
+        [Output("connectorEndpointIpAddresses")]
+        public Output<ImmutableArray<string>> ConnectorEndpointIpAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of outgoing ip addresses of connector.
+        /// </summary>
+        [Output("connectorOutboundIpAddresses")]
+        public Output<ImmutableArray<string>> ConnectorOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
@@ -51,6 +63,18 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of access endpoint ip addresses of workflow.
+        /// </summary>
+        [Output("workflowEndpointIpAddresses")]
+        public Output<ImmutableArray<string>> WorkflowEndpointIpAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of outgoing ip addresses of workflow.
+        /// </summary>
+        [Output("workflowOutboundIpAddresses")]
+        public Output<ImmutableArray<string>> WorkflowOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
@@ -172,10 +196,34 @@ namespace Pulumi.Azure.LogicApps
     public sealed class WorkflowState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Access Endpoint for the Logic App Workflow
+        /// The Access Endpoint for the Logic App Workflow.
         /// </summary>
         [Input("accessEndpoint")]
         public Input<string>? AccessEndpoint { get; set; }
+
+        [Input("connectorEndpointIpAddresses")]
+        private InputList<string>? _connectorEndpointIpAddresses;
+
+        /// <summary>
+        /// The list of access endpoint ip addresses of connector.
+        /// </summary>
+        public InputList<string> ConnectorEndpointIpAddresses
+        {
+            get => _connectorEndpointIpAddresses ?? (_connectorEndpointIpAddresses = new InputList<string>());
+            set => _connectorEndpointIpAddresses = value;
+        }
+
+        [Input("connectorOutboundIpAddresses")]
+        private InputList<string>? _connectorOutboundIpAddresses;
+
+        /// <summary>
+        /// The list of outgoing ip addresses of connector.
+        /// </summary>
+        public InputList<string> ConnectorOutboundIpAddresses
+        {
+            get => _connectorOutboundIpAddresses ?? (_connectorOutboundIpAddresses = new InputList<string>());
+            set => _connectorOutboundIpAddresses = value;
+        }
 
         /// <summary>
         /// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
@@ -217,6 +265,30 @@ namespace Pulumi.Azure.LogicApps
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("workflowEndpointIpAddresses")]
+        private InputList<string>? _workflowEndpointIpAddresses;
+
+        /// <summary>
+        /// The list of access endpoint ip addresses of workflow.
+        /// </summary>
+        public InputList<string> WorkflowEndpointIpAddresses
+        {
+            get => _workflowEndpointIpAddresses ?? (_workflowEndpointIpAddresses = new InputList<string>());
+            set => _workflowEndpointIpAddresses = value;
+        }
+
+        [Input("workflowOutboundIpAddresses")]
+        private InputList<string>? _workflowOutboundIpAddresses;
+
+        /// <summary>
+        /// The list of outgoing ip addresses of workflow.
+        /// </summary>
+        public InputList<string> WorkflowOutboundIpAddresses
+        {
+            get => _workflowOutboundIpAddresses ?? (_workflowOutboundIpAddresses = new InputList<string>());
+            set => _workflowOutboundIpAddresses = value;
         }
 
         /// <summary>

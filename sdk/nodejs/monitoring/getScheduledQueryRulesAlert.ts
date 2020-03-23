@@ -6,6 +6,25 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to access the properties of an AlertingAction scheduled query rule.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = azure.monitoring.getScheduledQueryRulesAlert({
+ *     name: "tfex-queryrule",
+ *     resourceGroupName: "example-rg",
+ * });
+ * 
+ * export const queryRuleId = example.id;
+ * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_scheduled_query_rules_alert.html.markdown.
+ */
 export function getScheduledQueryRulesAlert(args: GetScheduledQueryRulesAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRulesAlertResult> & GetScheduledQueryRulesAlertResult {
     if (!opts) {
         opts = {}

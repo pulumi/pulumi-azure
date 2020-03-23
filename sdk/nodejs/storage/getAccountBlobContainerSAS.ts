@@ -47,6 +47,9 @@ export interface GetAccountBlobContainerSASArgs {
      * The `Cache-Control` response header that is sent when this SAS token is used.
      */
     readonly cacheControl?: string;
+    /**
+     * The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `azure.storage.Account` resource.
+     */
     readonly connectionString: string;
     /**
      * Name of the container.
