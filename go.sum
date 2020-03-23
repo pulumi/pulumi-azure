@@ -403,8 +403,8 @@ github.com/pulumi/pulumi v1.12.2-0.20200313044354-8111d33438b9 h1:BQ8u77A4PqWqGy
 github.com/pulumi/pulumi v1.12.2-0.20200313044354-8111d33438b9/go.mod h1:wem+vUldHRqBV0Q7+yHmQfjYFfVslMCtWW60yqmo9Ag=
 github.com/pulumi/pulumi-terraform-bridge v1.8.2 h1:FBmpvqq068nTmh41YqBufqHk3sxRJojaQfRGXWFz27k=
 github.com/pulumi/pulumi-terraform-bridge v1.8.2/go.mod h1:tiLPf2G1xYqheyTXRsBU2CnaBtvuZzw8nRJzGpi5uMo=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200312134040-42fb554f01cb h1:hHPelkRyWw1cFfujix/ZJ/E2zobRwfarNSle/lKB7S8=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200312134040-42fb554f01cb/go.mod h1:aLR3evj7dxK+pbXdf4Lidx5aL8mPHs8VpWmtcVsdsQI=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200323191251-00c883caf53c h1:qmGvB/gle/DKcTLWcRVQ2MrqMr2p31MgoVcunmUosq8=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200323191251-00c883caf53c/go.mod h1:aLR3evj7dxK+pbXdf4Lidx5aL8mPHs8VpWmtcVsdsQI=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/reconquest/loreley v0.0.0-20160708080500-2ab6b7470a54 h1:J2RvHxEMIzMV6XbaZIj9s5G4lG3hhqWxS7Cl1Jii44c=
 github.com/reconquest/loreley v0.0.0-20160708080500-2ab6b7470a54/go.mod h1:1NF/j951kWm+ZnRXpOkBqweImgwhlzFVwTA4A0V7TEU=
