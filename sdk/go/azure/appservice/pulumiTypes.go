@@ -4170,7 +4170,7 @@ type FunctionAppSiteConfig struct {
 	FtpsState *string `pulumi:"ftpsState"`
 	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
-	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	// A list of objects representing ip restrictions as defined below.
 	IpRestrictions []FunctionAppSiteConfigIpRestriction `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
 	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
@@ -4198,7 +4198,7 @@ type FunctionAppSiteConfigArgs struct {
 	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
 	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
-	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	// A list of objects representing ip restrictions as defined below.
 	IpRestrictions FunctionAppSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
@@ -4297,7 +4297,7 @@ func (o FunctionAppSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v FunctionAppSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+// A list of objects representing ip restrictions as defined below.
 func (o FunctionAppSiteConfigOutput) IpRestrictions() FunctionAppSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func (v FunctionAppSiteConfig) []FunctionAppSiteConfigIpRestriction { return v.IpRestrictions }).(FunctionAppSiteConfigIpRestrictionArrayOutput)
 }
@@ -4360,7 +4360,7 @@ func (o FunctionAppSiteConfigPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v FunctionAppSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+// A list of objects representing ip restrictions as defined below.
 func (o FunctionAppSiteConfigPtrOutput) IpRestrictions() FunctionAppSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func (v FunctionAppSiteConfig) []FunctionAppSiteConfigIpRestriction { return v.IpRestrictions }).(FunctionAppSiteConfigIpRestrictionArrayOutput)
 }
@@ -6678,7 +6678,7 @@ type SlotSiteConfig struct {
 	FtpsState *string `pulumi:"ftpsState"`
 	// Is HTTP2 Enabled on this App Service? Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
-	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	// A list of objects representing ip restrictions as defined below.
 	IpRestrictions []SlotSiteConfigIpRestriction `pulumi:"ipRestrictions"`
 	// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JETTY` and `TOMCAT`.
 	JavaContainer *string `pulumi:"javaContainer"`
@@ -6733,7 +6733,7 @@ type SlotSiteConfigArgs struct {
 	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
 	// Is HTTP2 Enabled on this App Service? Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
-	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	// A list of objects representing ip restrictions as defined below.
 	IpRestrictions SlotSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
 	// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JETTY` and `TOMCAT`.
 	JavaContainer pulumi.StringPtrInput `pulumi:"javaContainer"`
@@ -6871,7 +6871,7 @@ func (o SlotSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v SlotSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+// A list of objects representing ip restrictions as defined below.
 func (o SlotSiteConfigOutput) IpRestrictions() SlotSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func (v SlotSiteConfig) []SlotSiteConfigIpRestriction { return v.IpRestrictions }).(SlotSiteConfigIpRestrictionArrayOutput)
 }
@@ -7006,7 +7006,7 @@ func (o SlotSiteConfigPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v SlotSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+// A list of objects representing ip restrictions as defined below.
 func (o SlotSiteConfigPtrOutput) IpRestrictions() SlotSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func (v SlotSiteConfig) []SlotSiteConfigIpRestriction { return v.IpRestrictions }).(SlotSiteConfigIpRestrictionArrayOutput)
 }

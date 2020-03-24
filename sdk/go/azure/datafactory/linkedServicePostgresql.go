@@ -13,8 +13,6 @@ import (
 
 // Manages a Linked Service (connection) between PostgreSQL and Azure Data Factory.
 //
-// > **Note:** All arguments including the connectionString will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_postgresql.html.markdown.
 type LinkedServicePostgresql struct {
 	pulumi.CustomResourceState

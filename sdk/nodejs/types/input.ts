@@ -720,7 +720,7 @@ export namespace appservice {
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
-         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         * A list of objects representing ip restrictions as defined below.
          */
         ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSiteConfigIpRestriction>[]>;
         /**
@@ -912,7 +912,7 @@ export namespace appservice {
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
-         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         * A list of objects representing ip restrictions as defined below.
          */
         ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.SlotSiteConfigIpRestriction>[]>;
         /**
