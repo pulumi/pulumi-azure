@@ -196,7 +196,22 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, additional_capabilities=None, additional_unattend_contents=None, admin_password=None, admin_username=None, allow_extension_operations=None, availability_set_id=None, boot_diagnostics=None, computer_name=None, custom_data=None, dedicated_host_id=None, enable_automatic_updates=None, eviction_policy=None, identity=None, license_type=None, location=None, max_bid_price=None, name=None, network_interface_ids=None, os_disk=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, secrets=None, size=None, source_image_id=None, source_image_reference=None, tags=None, timezone=None, winrm_listeners=None, zone=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a WindowsVirtualMachine resource with the given unique name, props, and options.
+        Manages a Windows Virtual Machine.
+
+        ## Disclaimers
+
+        > **Note** This provider will automatically remove the OS Disk by default - this behaviour can be configured using the `features` configuration within the Provider configuration block.
+
+        > **Note** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+
+        > **Note** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.VirtualMachine` resource instead.
+
+        > **Note** This resource does not support attaching existing OS Disks. You can instead capture an image of the OS Disk or continue to use the `compute.VirtualMachine` resource instead.
+
+        > In this release there's a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP's.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/windows_virtual_machine.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] additional_capabilities: A `additional_capabilities` block as defined below.

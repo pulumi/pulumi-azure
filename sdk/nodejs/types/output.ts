@@ -441,60 +441,120 @@ export namespace apimanagement {
 export namespace appconfiguration {
     export interface ConfigurationStorePrimaryReadKey {
         /**
-         * The connection string including the endpoint, id and secret.
+         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
          */
         connectionString: string;
         /**
-         * The ID of the access key.
+         * The ID of the Access Key.
          */
         id: string;
         /**
-         * The secret of the access key.
+         * The Secret of the Access Key.
          */
         secret: string;
     }
 
     export interface ConfigurationStorePrimaryWriteKey {
         /**
-         * The connection string including the endpoint, id and secret.
+         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
          */
         connectionString: string;
         /**
-         * The ID of the access key.
+         * The ID of the Access Key.
          */
         id: string;
         /**
-         * The secret of the access key.
+         * The Secret of the Access Key.
          */
         secret: string;
     }
 
     export interface ConfigurationStoreSecondaryReadKey {
         /**
-         * The connection string including the endpoint, id and secret.
+         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
          */
         connectionString: string;
         /**
-         * The ID of the access key.
+         * The ID of the Access Key.
          */
         id: string;
         /**
-         * The secret of the access key.
+         * The Secret of the Access Key.
          */
         secret: string;
     }
 
     export interface ConfigurationStoreSecondaryWriteKey {
         /**
-         * The connection string including the endpoint, id and secret.
+         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
          */
         connectionString: string;
         /**
-         * The ID of the access key.
+         * The ID of the Access Key.
          */
         id: string;
         /**
-         * The secret of the access key.
+         * The Secret of the Access Key.
+         */
+        secret: string;
+    }
+
+    export interface GetConfigurationStorePrimaryReadKey {
+        /**
+         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         */
+        connectionString: string;
+        /**
+         * The ID of the Access Key.
+         */
+        id: string;
+        /**
+         * The Secret of the Access Key.
+         */
+        secret: string;
+    }
+
+    export interface GetConfigurationStorePrimaryWriteKey {
+        /**
+         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         */
+        connectionString: string;
+        /**
+         * The ID of the Access Key.
+         */
+        id: string;
+        /**
+         * The Secret of the Access Key.
+         */
+        secret: string;
+    }
+
+    export interface GetConfigurationStoreSecondaryReadKey {
+        /**
+         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         */
+        connectionString: string;
+        /**
+         * The ID of the Access Key.
+         */
+        id: string;
+        /**
+         * The Secret of the Access Key.
+         */
+        secret: string;
+    }
+
+    export interface GetConfigurationStoreSecondaryWriteKey {
+        /**
+         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         */
+        connectionString: string;
+        /**
+         * The ID of the Access Key.
+         */
+        id: string;
+        /**
+         * The Secret of the Access Key.
          */
         secret: string;
     }
@@ -2076,6 +2136,11 @@ export namespace compute {
         version: string;
     }
 
+    export interface LinuxVirtualMachineScaleSetTerminateNotification {
+        enabled: boolean;
+        timeout?: string;
+    }
+
     export interface LinuxVirtualMachineSecret {
         certificates: outputs.compute.LinuxVirtualMachineSecretCertificate[];
         keyVaultId: string;
@@ -2805,6 +2870,11 @@ export namespace compute {
          */
         sku: string;
         version: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetTerminateNotification {
+        enabled: boolean;
+        timeout?: string;
     }
 
     export interface WindowsVirtualMachineScaleSetWinrmListener {
@@ -3572,6 +3642,19 @@ export namespace cosmosdb {
 
     export interface SqlContainerUniqueKey {
         paths: string[];
+    }
+}
+
+export namespace costmanagement {
+    export interface ResourceGroupExportDeliveryInfo {
+        containerName: string;
+        rootFolderPath: string;
+        storageAccountId: string;
+    }
+
+    export interface ResourceGroupExportQuery {
+        timeFrame: string;
+        type: string;
     }
 }
 
@@ -4912,6 +4995,10 @@ export namespace healthcare {
          * The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
          */
         audience?: string;
+        /**
+         * The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
+         * Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
+         */
         authority?: string;
         /**
          * Enables the 'SMART on FHIR' option for mobile and web implementations.
@@ -6540,16 +6627,17 @@ export namespace network {
     }
 
     export interface ApplicationGatewaySslCertificate {
-        data: string;
+        data?: string;
         /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
+        keyVaultSecretId?: string;
         /**
          * The name of the Application Gateway. Changing this forces a new resource to be created.
          */
         name: string;
-        password: string;
+        password?: string;
         /**
          * The Public Certificate Data associated with the SSL Certificate.
          */
@@ -7999,6 +8087,19 @@ export namespace siterecovery {
 }
 
 export namespace sql {
+    export interface DatabaseExtendedAuditingPolicy {
+        retentionInDays?: number;
+        /**
+         * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+         */
+        storageAccountAccessKey: string;
+        storageAccountAccessKeyIsSecondary?: boolean;
+        /**
+         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         */
+        storageEndpoint: string;
+    }
+
     export interface DatabaseImport {
         /**
          * Specifies the name of the SQL administrator.

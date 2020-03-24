@@ -48,6 +48,14 @@ export interface GetWorkflowResult {
      */
     readonly accessEndpoint: string;
     /**
+     * The list of access endpoint ip addresses of connector.
+     */
+    readonly connectorEndpointIpAddresses: string[];
+    /**
+     * The list of outgoing ip addresses of connector.
+     */
+    readonly connectorOutboundIpAddresses: string[];
+    /**
      * The Azure location where the Logic App Workflow exists.
      */
     readonly location: string;
@@ -61,6 +69,14 @@ export interface GetWorkflowResult {
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * The list of access endpoint ip addresses of workflow.
+     */
+    readonly workflowEndpointIpAddresses: string[];
+    /**
+     * The list of outgoing ip addresses of workflow.
+     */
+    readonly workflowOutboundIpAddresses: string[];
     /**
      * The Schema used for this Logic App Workflow.
      */

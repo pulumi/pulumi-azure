@@ -48,6 +48,9 @@ class GremlinGraph(pulumi.CustomResource):
     The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
     """
     throughput: pulumi.Output[float]
+    """
+    The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+    """
     unique_keys: pulumi.Output[list]
     """
     One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
@@ -69,6 +72,7 @@ class GremlinGraph(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] throughput: The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[list] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
 
         The **conflict_resolution_policies** object supports the following:
@@ -146,6 +150,7 @@ class GremlinGraph(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] throughput: The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[list] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
 
         The **conflict_resolution_policies** object supports the following:

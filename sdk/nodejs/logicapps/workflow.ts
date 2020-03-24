@@ -37,9 +37,17 @@ export class Workflow extends pulumi.CustomResource {
     }
 
     /**
-     * The Access Endpoint for the Logic App Workflow
+     * The Access Endpoint for the Logic App Workflow.
      */
     public /*out*/ readonly accessEndpoint!: pulumi.Output<string>;
+    /**
+     * The list of access endpoint ip addresses of connector.
+     */
+    public /*out*/ readonly connectorEndpointIpAddresses!: pulumi.Output<string[]>;
+    /**
+     * The list of outgoing ip addresses of connector.
+     */
+    public /*out*/ readonly connectorOutboundIpAddresses!: pulumi.Output<string[]>;
     /**
      * Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
      */
@@ -60,6 +68,14 @@ export class Workflow extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The list of access endpoint ip addresses of workflow.
+     */
+    public /*out*/ readonly workflowEndpointIpAddresses!: pulumi.Output<string[]>;
+    /**
+     * The list of outgoing ip addresses of workflow.
+     */
+    public /*out*/ readonly workflowOutboundIpAddresses!: pulumi.Output<string[]>;
     /**
      * Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
      */
@@ -82,11 +98,15 @@ export class Workflow extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as WorkflowState | undefined;
             inputs["accessEndpoint"] = state ? state.accessEndpoint : undefined;
+            inputs["connectorEndpointIpAddresses"] = state ? state.connectorEndpointIpAddresses : undefined;
+            inputs["connectorOutboundIpAddresses"] = state ? state.connectorOutboundIpAddresses : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["workflowEndpointIpAddresses"] = state ? state.workflowEndpointIpAddresses : undefined;
+            inputs["workflowOutboundIpAddresses"] = state ? state.workflowOutboundIpAddresses : undefined;
             inputs["workflowSchema"] = state ? state.workflowSchema : undefined;
             inputs["workflowVersion"] = state ? state.workflowVersion : undefined;
         } else {
@@ -102,6 +122,10 @@ export class Workflow extends pulumi.CustomResource {
             inputs["workflowSchema"] = args ? args.workflowSchema : undefined;
             inputs["workflowVersion"] = args ? args.workflowVersion : undefined;
             inputs["accessEndpoint"] = undefined /*out*/;
+            inputs["connectorEndpointIpAddresses"] = undefined /*out*/;
+            inputs["connectorOutboundIpAddresses"] = undefined /*out*/;
+            inputs["workflowEndpointIpAddresses"] = undefined /*out*/;
+            inputs["workflowOutboundIpAddresses"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -119,9 +143,17 @@ export class Workflow extends pulumi.CustomResource {
  */
 export interface WorkflowState {
     /**
-     * The Access Endpoint for the Logic App Workflow
+     * The Access Endpoint for the Logic App Workflow.
      */
     readonly accessEndpoint?: pulumi.Input<string>;
+    /**
+     * The list of access endpoint ip addresses of connector.
+     */
+    readonly connectorEndpointIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The list of outgoing ip addresses of connector.
+     */
+    readonly connectorOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
      */
@@ -142,6 +174,14 @@ export interface WorkflowState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The list of access endpoint ip addresses of workflow.
+     */
+    readonly workflowEndpointIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The list of outgoing ip addresses of workflow.
+     */
+    readonly workflowOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
      */

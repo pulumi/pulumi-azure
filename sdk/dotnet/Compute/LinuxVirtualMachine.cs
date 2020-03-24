@@ -9,6 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Compute
 {
+    /// <summary>
+    /// Manages a Linux Virtual Machine.
+    /// 
+    /// ## Disclaimers
+    /// 
+    /// &gt; **Note** This provider will automatically remove the OS Disk by default - this behaviour can be configured using the `features` configuration within the Provider configuration block.
+    /// 
+    /// &gt; **Note** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+    /// 
+    /// &gt; **Note** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.VirtualMachine` resource instead.
+    /// 
+    /// &gt; **Note** This resource does not support attaching existing OS Disks. You can instead capture an image of the OS Disk or continue to use the `azure.compute.VirtualMachine` resource instead.
+    /// 
+    /// &gt; In this release there's a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP's.
+    /// 
+    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/linux_virtual_machine.html.markdown.
+    /// </summary>
     public partial class LinuxVirtualMachine : Pulumi.CustomResource
     {
         /// <summary>

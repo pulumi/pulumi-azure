@@ -40,7 +40,12 @@ class Project(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, service_name=None, source_platform=None, tags=None, target_platform=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a Project resource with the given unique name, props, and options.
+        Manage a Azure Database Migration Project.
+
+        > **NOTE:** Destroying a Database Migration Project will leave any outstanding tasks untouched. This is to avoid unexpectedly deleting any tasks managed outside of this provider.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/database_migration_project.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Rename resource `containerService.Webook` to `containerService.Webhook`
+* Upgrade to v2.2.0 of the AzureRM Terraform Provider
 
 ---
 

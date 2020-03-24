@@ -17,32 +17,25 @@ namespace Pulumi.Azure.EventHub
     public partial class Subscription : Pulumi.CustomResource
     {
         /// <summary>
-        /// The idle interval after which the
-        /// Subscription is automatically deleted, minimum of 5 minutes. Provided in the
-        /// TimeSpan format.
+        /// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
         /// </summary>
         [Output("autoDeleteOnIdle")]
         public Output<string> AutoDeleteOnIdle { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls
-        /// whether the Subscription has dead letter support when a message expires. Defaults
-        /// to false.
+        /// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
         /// </summary>
         [Output("deadLetteringOnMessageExpiration")]
         public Output<bool?> DeadLetteringOnMessageExpiration { get; private set; } = null!;
 
         /// <summary>
-        /// The TTL of messages sent to this Subscription
-        /// if no TTL value is set on the message itself. Provided in the TimeSpan
-        /// format.
+        /// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         /// </summary>
         [Output("defaultMessageTtl")]
         public Output<string> DefaultMessageTtl { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether the
-        /// Subscription supports batched operations. Defaults to false.
+        /// Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
         /// </summary>
         [Output("enableBatchedOperations")]
         public Output<bool?> EnableBatchedOperations { get; private set; } = null!;
@@ -60,8 +53,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string?> ForwardTo { get; private set; } = null!;
 
         /// <summary>
-        /// The lock duration for the subscription, maximum
-        /// supported value is 5 minutes. Defaults to 1 minute.
+        /// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
         /// </summary>
         [Output("lockDuration")]
         public Output<string> LockDuration { get; private set; } = null!;
@@ -73,37 +65,31 @@ namespace Pulumi.Azure.EventHub
         public Output<int> MaxDeliveryCount { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Subscription resource.
-        /// Changing this forces a new resource to be created.
+        /// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the ServiceBus Namespace to create
-        /// this Subscription in. Changing this forces a new resource to be created.
+        /// The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
         /// </summary>
         [Output("namespaceName")]
         public Output<string> NamespaceName { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether this Subscription
-        /// supports the concept of a session. Defaults to false. Changing this forces a
-        /// new resource to be created.
+        /// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("requiresSession")]
         public Output<bool?> RequiresSession { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the namespace. Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the ServiceBus Topic to create
-        /// this Subscription in. Changing this forces a new resource to be created.
+        /// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         /// </summary>
         [Output("topicName")]
         public Output<string> TopicName { get; private set; } = null!;
@@ -155,32 +141,25 @@ namespace Pulumi.Azure.EventHub
     public sealed class SubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The idle interval after which the
-        /// Subscription is automatically deleted, minimum of 5 minutes. Provided in the
-        /// TimeSpan format.
+        /// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
         /// </summary>
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls
-        /// whether the Subscription has dead letter support when a message expires. Defaults
-        /// to false.
+        /// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
         /// </summary>
         [Input("deadLetteringOnMessageExpiration")]
         public Input<bool>? DeadLetteringOnMessageExpiration { get; set; }
 
         /// <summary>
-        /// The TTL of messages sent to this Subscription
-        /// if no TTL value is set on the message itself. Provided in the TimeSpan
-        /// format.
+        /// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         /// </summary>
         [Input("defaultMessageTtl")]
         public Input<string>? DefaultMessageTtl { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the
-        /// Subscription supports batched operations. Defaults to false.
+        /// Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
         /// </summary>
         [Input("enableBatchedOperations")]
         public Input<bool>? EnableBatchedOperations { get; set; }
@@ -198,8 +177,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? ForwardTo { get; set; }
 
         /// <summary>
-        /// The lock duration for the subscription, maximum
-        /// supported value is 5 minutes. Defaults to 1 minute.
+        /// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
         /// </summary>
         [Input("lockDuration")]
         public Input<string>? LockDuration { get; set; }
@@ -211,37 +189,31 @@ namespace Pulumi.Azure.EventHub
         public Input<int> MaxDeliveryCount { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Subscription resource.
-        /// Changing this forces a new resource to be created.
+        /// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the ServiceBus Namespace to create
-        /// this Subscription in. Changing this forces a new resource to be created.
+        /// The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether this Subscription
-        /// supports the concept of a session. Defaults to false. Changing this forces a
-        /// new resource to be created.
+        /// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("requiresSession")]
         public Input<bool>? RequiresSession { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the namespace. Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the ServiceBus Topic to create
-        /// this Subscription in. Changing this forces a new resource to be created.
+        /// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         /// </summary>
         [Input("topicName", required: true)]
         public Input<string> TopicName { get; set; } = null!;
@@ -254,32 +226,25 @@ namespace Pulumi.Azure.EventHub
     public sealed class SubscriptionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The idle interval after which the
-        /// Subscription is automatically deleted, minimum of 5 minutes. Provided in the
-        /// TimeSpan format.
+        /// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
         /// </summary>
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls
-        /// whether the Subscription has dead letter support when a message expires. Defaults
-        /// to false.
+        /// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
         /// </summary>
         [Input("deadLetteringOnMessageExpiration")]
         public Input<bool>? DeadLetteringOnMessageExpiration { get; set; }
 
         /// <summary>
-        /// The TTL of messages sent to this Subscription
-        /// if no TTL value is set on the message itself. Provided in the TimeSpan
-        /// format.
+        /// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         /// </summary>
         [Input("defaultMessageTtl")]
         public Input<string>? DefaultMessageTtl { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the
-        /// Subscription supports batched operations. Defaults to false.
+        /// Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
         /// </summary>
         [Input("enableBatchedOperations")]
         public Input<bool>? EnableBatchedOperations { get; set; }
@@ -297,8 +262,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? ForwardTo { get; set; }
 
         /// <summary>
-        /// The lock duration for the subscription, maximum
-        /// supported value is 5 minutes. Defaults to 1 minute.
+        /// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
         /// </summary>
         [Input("lockDuration")]
         public Input<string>? LockDuration { get; set; }
@@ -310,37 +274,31 @@ namespace Pulumi.Azure.EventHub
         public Input<int>? MaxDeliveryCount { get; set; }
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Subscription resource.
-        /// Changing this forces a new resource to be created.
+        /// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the ServiceBus Namespace to create
-        /// this Subscription in. Changing this forces a new resource to be created.
+        /// The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
         /// </summary>
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether this Subscription
-        /// supports the concept of a session. Defaults to false. Changing this forces a
-        /// new resource to be created.
+        /// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("requiresSession")]
         public Input<bool>? RequiresSession { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the namespace. Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The name of the ServiceBus Topic to create
-        /// this Subscription in. Changing this forces a new resource to be created.
+        /// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         /// </summary>
         [Input("topicName")]
         public Input<string>? TopicName { get; set; }

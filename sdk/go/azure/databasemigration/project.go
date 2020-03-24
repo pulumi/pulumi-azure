@@ -11,6 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Manage a Azure Database Migration Project.
+//
+// > **NOTE:** Destroying a Database Migration Project will leave any outstanding tasks untouched. This is to avoid unexpectedly deleting any tasks managed outside of this provider.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/database_migration_project.html.markdown.
 type Project struct {
 	pulumi.CustomResourceState
 

@@ -64,6 +64,10 @@ export class Database extends pulumi.CustomResource {
     public readonly elasticPoolName!: pulumi.Output<string>;
     public /*out*/ readonly encryption!: pulumi.Output<string>;
     /**
+     * A `extendedAuditingPolicy` block as defined below.
+     */
+    public readonly extendedAuditingPolicy!: pulumi.Output<outputs.sql.DatabaseExtendedAuditingPolicy | undefined>;
+    /**
      * A Database Import block as documented below. `createMode` must be set to `Default`.
      */
     public readonly import!: pulumi.Output<outputs.sql.DatabaseImport | undefined>;
@@ -145,6 +149,7 @@ export class Database extends pulumi.CustomResource {
             inputs["edition"] = state ? state.edition : undefined;
             inputs["elasticPoolName"] = state ? state.elasticPoolName : undefined;
             inputs["encryption"] = state ? state.encryption : undefined;
+            inputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
             inputs["import"] = state ? state.import : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maxSizeBytes"] = state ? state.maxSizeBytes : undefined;
@@ -173,6 +178,7 @@ export class Database extends pulumi.CustomResource {
             inputs["createMode"] = args ? args.createMode : undefined;
             inputs["edition"] = args ? args.edition : undefined;
             inputs["elasticPoolName"] = args ? args.elasticPoolName : undefined;
+            inputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
             inputs["import"] = args ? args.import : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
@@ -233,6 +239,10 @@ export interface DatabaseState {
      */
     readonly elasticPoolName?: pulumi.Input<string>;
     readonly encryption?: pulumi.Input<string>;
+    /**
+     * A `extendedAuditingPolicy` block as defined below.
+     */
+    readonly extendedAuditingPolicy?: pulumi.Input<inputs.sql.DatabaseExtendedAuditingPolicy>;
     /**
      * A Database Import block as documented below. `createMode` must be set to `Default`.
      */
@@ -317,6 +327,10 @@ export interface DatabaseArgs {
      * The name of the elastic database pool.
      */
     readonly elasticPoolName?: pulumi.Input<string>;
+    /**
+     * A `extendedAuditingPolicy` block as defined below.
+     */
+    readonly extendedAuditingPolicy?: pulumi.Input<inputs.sql.DatabaseExtendedAuditingPolicy>;
     /**
      * A Database Import block as documented below. `createMode` must be set to `Default`.
      */
