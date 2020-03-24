@@ -33,6 +33,10 @@ type LookupWorkflowArgs struct {
 type LookupWorkflowResult struct {
 	// The Access Endpoint for the Logic App Workflow
 	AccessEndpoint string `pulumi:"accessEndpoint"`
+	// The list of access endpoint ip addresses of connector.
+	ConnectorEndpointIpAddresses []string `pulumi:"connectorEndpointIpAddresses"`
+	// The list of outgoing ip addresses of connector.
+	ConnectorOutboundIpAddresses []string `pulumi:"connectorOutboundIpAddresses"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure location where the Logic App Workflow exists.
@@ -43,6 +47,10 @@ type LookupWorkflowResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The list of access endpoint ip addresses of workflow.
+	WorkflowEndpointIpAddresses []string `pulumi:"workflowEndpointIpAddresses"`
+	// The list of outgoing ip addresses of workflow.
+	WorkflowOutboundIpAddresses []string `pulumi:"workflowOutboundIpAddresses"`
 	// The Schema used for this Logic App Workflow.
 	WorkflowSchema string `pulumi:"workflowSchema"`
 	// The version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`.

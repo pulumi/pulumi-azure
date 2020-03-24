@@ -2797,12 +2797,13 @@ func (o ApplicationGatewaySkuPtrOutput) Tier() pulumi.StringOutput {
 }
 
 type ApplicationGatewaySslCertificate struct {
-	Data string `pulumi:"data"`
+	Data *string `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
+	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
-	Password string `pulumi:"password"`
+	Password *string `pulumi:"password"`
 	// The Public Certificate Data associated with the SSL Certificate.
 	PublicCertData *string `pulumi:"publicCertData"`
 }
@@ -2815,12 +2816,13 @@ type ApplicationGatewaySslCertificateInput interface {
 }
 
 type ApplicationGatewaySslCertificateArgs struct {
-	Data pulumi.StringInput `pulumi:"data"`
+	Data pulumi.StringPtrInput `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	KeyVaultSecretId pulumi.StringPtrInput `pulumi:"keyVaultSecretId"`
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
-	Password pulumi.StringInput `pulumi:"password"`
+	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The Public Certificate Data associated with the SSL Certificate.
 	PublicCertData pulumi.StringPtrInput `pulumi:"publicCertData"`
 }
@@ -2872,8 +2874,8 @@ func (o ApplicationGatewaySslCertificateOutput) ToApplicationGatewaySslCertifica
 	return o
 }
 
-func (o ApplicationGatewaySslCertificateOutput) Data() pulumi.StringOutput {
-	return o.ApplyT(func (v ApplicationGatewaySslCertificate) string { return v.Data }).(pulumi.StringOutput)
+func (o ApplicationGatewaySslCertificateOutput) Data() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ApplicationGatewaySslCertificate) *string { return v.Data }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Rewrite Rule Set
@@ -2881,13 +2883,17 @@ func (o ApplicationGatewaySslCertificateOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v ApplicationGatewaySslCertificate) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+func (o ApplicationGatewaySslCertificateOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ApplicationGatewaySslCertificate) *string { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
+}
+
 // The name of the Application Gateway. Changing this forces a new resource to be created.
 func (o ApplicationGatewaySslCertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func (v ApplicationGatewaySslCertificate) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o ApplicationGatewaySslCertificateOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v ApplicationGatewaySslCertificate) string { return v.Password }).(pulumi.StringOutput)
+func (o ApplicationGatewaySslCertificateOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ApplicationGatewaySslCertificate) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // The Public Certificate Data associated with the SSL Certificate.

@@ -34,6 +34,9 @@ namespace Pulumi.Azure.ApiManagement
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The XML Content for this Policy as a string.
+        /// </summary>
         [Output("xmlContent")]
         public Output<string> XmlContent { get; private set; } = null!;
 
@@ -107,6 +110,9 @@ namespace Pulumi.Azure.ApiManagement
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The XML Content for this Policy as a string.
+        /// </summary>
         [Input("xmlContent")]
         public Input<string>? XmlContent { get; set; }
 
@@ -141,6 +147,9 @@ namespace Pulumi.Azure.ApiManagement
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// The XML Content for this Policy as a string.
+        /// </summary>
         [Input("xmlContent")]
         public Input<string>? XmlContent { get; set; }
 

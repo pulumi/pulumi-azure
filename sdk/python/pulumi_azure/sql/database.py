@@ -35,6 +35,15 @@ class Database(pulumi.CustomResource):
     The name of the elastic database pool.
     """
     encryption: pulumi.Output[str]
+    extended_auditing_policy: pulumi.Output[dict]
+    """
+    A `extended_auditing_policy` block as defined below.
+
+      * `retention_in_days` (`float`)
+      * `storage_account_access_key` (`str`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+      * `storageAccountAccessKeyIsSecondary` (`bool`)
+      * `storage_endpoint` (`str`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+    """
     import_: pulumi.Output[dict]
     """
     A Database Import block as documented below. `create_mode` must be set to `Default`.
@@ -114,7 +123,7 @@ class Database(pulumi.CustomResource):
     """
     Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
     """
-    def __init__(__self__, resource_name, opts=None, collation=None, create_mode=None, edition=None, elastic_pool_name=None, import_=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, read_scale=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None, threat_detection_policy=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, collation=None, create_mode=None, edition=None, elastic_pool_name=None, extended_auditing_policy=None, import_=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, read_scale=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None, threat_detection_policy=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
         """
         Allows you to manage an Azure SQL Database
 
@@ -126,6 +135,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] create_mode: Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/en-us/rest/api/sql/databases/createorupdate#createmode)
         :param pulumi.Input[str] edition: The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic database pool.
+        :param pulumi.Input[dict] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input[dict] import_: A Database Import block as documented below. `create_mode` must be set to `Default`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] max_size_bytes: The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
@@ -142,6 +152,13 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+
+        The **extended_auditing_policy** object supports the following:
+
+          * `retention_in_days` (`pulumi.Input[float]`)
+          * `storage_account_access_key` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+          * `storageAccountAccessKeyIsSecondary` (`pulumi.Input[bool]`)
+          * `storage_endpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 
         The **import_** object supports the following:
 
@@ -185,6 +202,7 @@ class Database(pulumi.CustomResource):
             __props__['create_mode'] = create_mode
             __props__['edition'] = edition
             __props__['elastic_pool_name'] = elastic_pool_name
+            __props__['extended_auditing_policy'] = extended_auditing_policy
             __props__['import_'] = import_
             __props__['location'] = location
             __props__['max_size_bytes'] = max_size_bytes
@@ -215,7 +233,7 @@ class Database(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, collation=None, create_mode=None, creation_date=None, default_secondary_location=None, edition=None, elastic_pool_name=None, encryption=None, import_=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, read_scale=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None, threat_detection_policy=None, zone_redundant=None):
+    def get(resource_name, id, opts=None, collation=None, create_mode=None, creation_date=None, default_secondary_location=None, edition=None, elastic_pool_name=None, encryption=None, extended_auditing_policy=None, import_=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, read_scale=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None, threat_detection_policy=None, zone_redundant=None):
         """
         Get an existing Database resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -229,6 +247,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] default_secondary_location: The default secondary location of the SQL Database.
         :param pulumi.Input[str] edition: The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic database pool.
+        :param pulumi.Input[dict] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input[dict] import_: A Database Import block as documented below. `create_mode` must be set to `Default`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] max_size_bytes: The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
@@ -245,6 +264,13 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+
+        The **extended_auditing_policy** object supports the following:
+
+          * `retention_in_days` (`pulumi.Input[float]`)
+          * `storage_account_access_key` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+          * `storageAccountAccessKeyIsSecondary` (`pulumi.Input[bool]`)
+          * `storage_endpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 
         The **import_** object supports the following:
 
@@ -278,6 +304,7 @@ class Database(pulumi.CustomResource):
         __props__["edition"] = edition
         __props__["elastic_pool_name"] = elastic_pool_name
         __props__["encryption"] = encryption
+        __props__["extended_auditing_policy"] = extended_auditing_policy
         __props__["import_"] = import_
         __props__["location"] = location
         __props__["max_size_bytes"] = max_size_bytes

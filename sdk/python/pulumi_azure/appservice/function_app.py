@@ -68,6 +68,10 @@ class FunctionApp(pulumi.CustomResource):
       * `type` (`str`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
       * `value` (`str`) - The value for the Connection String.
     """
+    daily_memory_time_quota: pulumi.Output[float]
+    """
+    The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+    """
     default_hostname: pulumi.Output[str]
     """
     The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
@@ -132,7 +136,7 @@ class FunctionApp(pulumi.CustomResource):
 
       * `ftpsState` (`str`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
       * `http2Enabled` (`bool`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
-      * `ipRestrictions` (`list`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+      * `ipRestrictions` (`list`) - A list of objects representing ip restrictions as defined below.
         * `ip_address` (`str`)
         * `subnet_id` (`str`)
 
@@ -160,7 +164,7 @@ class FunctionApp(pulumi.CustomResource):
     """
     The runtime version associated with the Function App. Defaults to `~1`.
     """
-    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, location=None, name=None, os_type=None, resource_group_name=None, site_config=None, storage_connection_string=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, daily_memory_time_quota=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, location=None, name=None, os_type=None, resource_group_name=None, site_config=None, storage_connection_string=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Function App.
 
@@ -173,6 +177,7 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[dict] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[list] connection_strings: An `connection_string` block as defined below.
+        :param pulumi.Input[float] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of this Function App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] enabled: Is the Function App enabled?
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
@@ -244,7 +249,7 @@ class FunctionApp(pulumi.CustomResource):
 
           * `ftpsState` (`pulumi.Input[str]`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
           * `http2Enabled` (`pulumi.Input[bool]`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
-          * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+          * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
             * `ip_address` (`pulumi.Input[str]`)
             * `subnet_id` (`pulumi.Input[str]`)
 
@@ -277,6 +282,7 @@ class FunctionApp(pulumi.CustomResource):
             __props__['auth_settings'] = auth_settings
             __props__['client_affinity_enabled'] = client_affinity_enabled
             __props__['connection_strings'] = connection_strings
+            __props__['daily_memory_time_quota'] = daily_memory_time_quota
             __props__['enable_builtin_logging'] = enable_builtin_logging
             __props__['enabled'] = enabled
             __props__['https_only'] = https_only
@@ -305,7 +311,7 @@ class FunctionApp(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, default_hostname=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, kind=None, location=None, name=None, os_type=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, storage_connection_string=None, tags=None, version=None):
+    def get(resource_name, id, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, daily_memory_time_quota=None, default_hostname=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, kind=None, location=None, name=None, os_type=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, storage_connection_string=None, tags=None, version=None):
         """
         Get an existing FunctionApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -318,6 +324,7 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[dict] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[list] connection_strings: An `connection_string` block as defined below.
+        :param pulumi.Input[float] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
         :param pulumi.Input[str] default_hostname: The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of this Function App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] enabled: Is the Function App enabled?
@@ -394,7 +401,7 @@ class FunctionApp(pulumi.CustomResource):
 
           * `ftpsState` (`pulumi.Input[str]`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
           * `http2Enabled` (`pulumi.Input[bool]`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
-          * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+          * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
             * `ip_address` (`pulumi.Input[str]`)
             * `subnet_id` (`pulumi.Input[str]`)
 
@@ -417,6 +424,7 @@ class FunctionApp(pulumi.CustomResource):
         __props__["auth_settings"] = auth_settings
         __props__["client_affinity_enabled"] = client_affinity_enabled
         __props__["connection_strings"] = connection_strings
+        __props__["daily_memory_time_quota"] = daily_memory_time_quota
         __props__["default_hostname"] = default_hostname
         __props__["enable_builtin_logging"] = enable_builtin_logging
         __props__["enabled"] = enabled

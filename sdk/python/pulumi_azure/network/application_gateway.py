@@ -229,6 +229,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
       * `data` (`str`)
       * `id` (`str`) - The ID of the Rewrite Rule Set
+      * `key_vault_secret_id` (`str`)
       * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
       * `password` (`str`)
       * `publicCertData` (`str`) - The Public Certificate Data associated with the SSL Certificate.
@@ -513,6 +514,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
           * `data` (`pulumi.Input[str]`)
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
+          * `key_vault_secret_id` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
           * `password` (`pulumi.Input[str]`)
           * `publicCertData` (`pulumi.Input[str]`) - The Public Certificate Data associated with the SSL Certificate.
@@ -849,6 +851,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
           * `data` (`pulumi.Input[str]`)
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
+          * `key_vault_secret_id` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
           * `password` (`pulumi.Input[str]`)
           * `publicCertData` (`pulumi.Input[str]`) - The Public Certificate Data associated with the SSL Certificate.

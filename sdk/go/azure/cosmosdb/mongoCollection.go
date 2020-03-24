@@ -28,6 +28,7 @@ type MongoCollection struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
 	ShardKey pulumi.StringPtrOutput `pulumi:"shardKey"`
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput pulumi.IntOutput `pulumi:"throughput"`
 }
 
@@ -79,6 +80,7 @@ type mongoCollectionState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
 	ShardKey *string `pulumi:"shardKey"`
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput *int `pulumi:"throughput"`
 }
 
@@ -94,6 +96,7 @@ type MongoCollectionState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
 	ShardKey pulumi.StringPtrInput
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput pulumi.IntPtrInput
 }
 
@@ -113,6 +116,7 @@ type mongoCollectionArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
 	ShardKey *string `pulumi:"shardKey"`
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput *int `pulumi:"throughput"`
 }
 
@@ -129,6 +133,7 @@ type MongoCollectionArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
 	ShardKey pulumi.StringPtrInput
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput pulumi.IntPtrInput
 }
 

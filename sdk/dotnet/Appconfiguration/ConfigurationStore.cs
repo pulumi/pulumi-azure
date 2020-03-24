@@ -35,13 +35,13 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An `access_key` block as defined below containing the primary read access key.
+        /// A `primary_read_key` block as defined below containing the primary read access key.
         /// </summary>
         [Output("primaryReadKeys")]
         public Output<ImmutableArray<Outputs.ConfigurationStorePrimaryReadKeys>> PrimaryReadKeys { get; private set; } = null!;
 
         /// <summary>
-        /// An `access_key` block as defined below containing the primary write access key.
+        /// A `primary_write_key` block as defined below containing the primary write access key.
         /// </summary>
         [Output("primaryWriteKeys")]
         public Output<ImmutableArray<Outputs.ConfigurationStorePrimaryWriteKeys>> PrimaryWriteKeys { get; private set; } = null!;
@@ -53,13 +53,13 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// An `access_key` block as defined below containing the secondary read access key.
+        /// A `secondary_read_key` block as defined below containing the secondary read access key.
         /// </summary>
         [Output("secondaryReadKeys")]
         public Output<ImmutableArray<Outputs.ConfigurationStoreSecondaryReadKeys>> SecondaryReadKeys { get; private set; } = null!;
 
         /// <summary>
-        /// An `access_key` block as defined below containing the secondary write access key.
+        /// A `secondary_write_key` block as defined below containing the secondary write access key.
         /// </summary>
         [Output("secondaryWriteKeys")]
         public Output<ImmutableArray<Outputs.ConfigurationStoreSecondaryWriteKeys>> SecondaryWriteKeys { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.AppConfiguration
         private InputList<Inputs.ConfigurationStorePrimaryReadKeysGetArgs>? _primaryReadKeys;
 
         /// <summary>
-        /// An `access_key` block as defined below containing the primary read access key.
+        /// A `primary_read_key` block as defined below containing the primary read access key.
         /// </summary>
         public InputList<Inputs.ConfigurationStorePrimaryReadKeysGetArgs> PrimaryReadKeys
         {
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.AppConfiguration
         private InputList<Inputs.ConfigurationStorePrimaryWriteKeysGetArgs>? _primaryWriteKeys;
 
         /// <summary>
-        /// An `access_key` block as defined below containing the primary write access key.
+        /// A `primary_write_key` block as defined below containing the primary write access key.
         /// </summary>
         public InputList<Inputs.ConfigurationStorePrimaryWriteKeysGetArgs> PrimaryWriteKeys
         {
@@ -217,7 +217,7 @@ namespace Pulumi.Azure.AppConfiguration
         private InputList<Inputs.ConfigurationStoreSecondaryReadKeysGetArgs>? _secondaryReadKeys;
 
         /// <summary>
-        /// An `access_key` block as defined below containing the secondary read access key.
+        /// A `secondary_read_key` block as defined below containing the secondary read access key.
         /// </summary>
         public InputList<Inputs.ConfigurationStoreSecondaryReadKeysGetArgs> SecondaryReadKeys
         {
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.AppConfiguration
         private InputList<Inputs.ConfigurationStoreSecondaryWriteKeysGetArgs>? _secondaryWriteKeys;
 
         /// <summary>
-        /// An `access_key` block as defined below containing the secondary write access key.
+        /// A `secondary_write_key` block as defined below containing the secondary write access key.
         /// </summary>
         public InputList<Inputs.ConfigurationStoreSecondaryWriteKeysGetArgs> SecondaryWriteKeys
         {
@@ -266,19 +266,19 @@ namespace Pulumi.Azure.AppConfiguration
     public sealed class ConfigurationStorePrimaryReadKeysGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The connection string including the endpoint, id and secret.
+        /// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
         /// </summary>
         [Input("connectionString")]
         public Input<string>? ConnectionString { get; set; }
 
         /// <summary>
-        /// The ID of the access key.
+        /// The ID of the Access Key.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The secret of the access key.
+        /// The Secret of the Access Key.
         /// </summary>
         [Input("secret")]
         public Input<string>? Secret { get; set; }
@@ -291,19 +291,19 @@ namespace Pulumi.Azure.AppConfiguration
     public sealed class ConfigurationStorePrimaryWriteKeysGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The connection string including the endpoint, id and secret.
+        /// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
         /// </summary>
         [Input("connectionString")]
         public Input<string>? ConnectionString { get; set; }
 
         /// <summary>
-        /// The ID of the access key.
+        /// The ID of the Access Key.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The secret of the access key.
+        /// The Secret of the Access Key.
         /// </summary>
         [Input("secret")]
         public Input<string>? Secret { get; set; }
@@ -316,19 +316,19 @@ namespace Pulumi.Azure.AppConfiguration
     public sealed class ConfigurationStoreSecondaryReadKeysGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The connection string including the endpoint, id and secret.
+        /// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
         /// </summary>
         [Input("connectionString")]
         public Input<string>? ConnectionString { get; set; }
 
         /// <summary>
-        /// The ID of the access key.
+        /// The ID of the Access Key.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The secret of the access key.
+        /// The Secret of the Access Key.
         /// </summary>
         [Input("secret")]
         public Input<string>? Secret { get; set; }
@@ -341,19 +341,19 @@ namespace Pulumi.Azure.AppConfiguration
     public sealed class ConfigurationStoreSecondaryWriteKeysGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The connection string including the endpoint, id and secret.
+        /// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
         /// </summary>
         [Input("connectionString")]
         public Input<string>? ConnectionString { get; set; }
 
         /// <summary>
-        /// The ID of the access key.
+        /// The ID of the Access Key.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The secret of the access key.
+        /// The Secret of the Access Key.
         /// </summary>
         [Input("secret")]
         public Input<string>? Secret { get; set; }
@@ -371,15 +371,15 @@ namespace Pulumi.Azure.AppConfiguration
     public sealed class ConfigurationStorePrimaryReadKeys
     {
         /// <summary>
-        /// The connection string including the endpoint, id and secret.
+        /// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
         /// </summary>
         public readonly string ConnectionString;
         /// <summary>
-        /// The ID of the access key.
+        /// The ID of the Access Key.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The secret of the access key.
+        /// The Secret of the Access Key.
         /// </summary>
         public readonly string Secret;
 
@@ -399,15 +399,15 @@ namespace Pulumi.Azure.AppConfiguration
     public sealed class ConfigurationStorePrimaryWriteKeys
     {
         /// <summary>
-        /// The connection string including the endpoint, id and secret.
+        /// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
         /// </summary>
         public readonly string ConnectionString;
         /// <summary>
-        /// The ID of the access key.
+        /// The ID of the Access Key.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The secret of the access key.
+        /// The Secret of the Access Key.
         /// </summary>
         public readonly string Secret;
 
@@ -427,15 +427,15 @@ namespace Pulumi.Azure.AppConfiguration
     public sealed class ConfigurationStoreSecondaryReadKeys
     {
         /// <summary>
-        /// The connection string including the endpoint, id and secret.
+        /// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
         /// </summary>
         public readonly string ConnectionString;
         /// <summary>
-        /// The ID of the access key.
+        /// The ID of the Access Key.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The secret of the access key.
+        /// The Secret of the Access Key.
         /// </summary>
         public readonly string Secret;
 
@@ -455,15 +455,15 @@ namespace Pulumi.Azure.AppConfiguration
     public sealed class ConfigurationStoreSecondaryWriteKeys
     {
         /// <summary>
-        /// The connection string including the endpoint, id and secret.
+        /// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
         /// </summary>
         public readonly string ConnectionString;
         /// <summary>
-        /// The ID of the access key.
+        /// The ID of the Access Key.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The secret of the access key.
+        /// The Secret of the Access Key.
         /// </summary>
         public readonly string Secret;
 

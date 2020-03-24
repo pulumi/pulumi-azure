@@ -11,6 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Manages a Windows Virtual Machine Scale Set.
+//
+// ## Disclaimers
+//
+// > **Note** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` configuration within the Provider configuration block.
+//
+// > **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.ScaleSet` resource instead
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/windows_virtual_machine_scale_set.html.markdown.
 type WindowsVirtualMachineScaleSet struct {
 	pulumi.CustomResourceState
 
@@ -69,6 +78,8 @@ type WindowsVirtualMachineScaleSet struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput `pulumi:"rollingUpgradePolicy"`
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	ScaleInPolicy pulumi.StringPtrOutput `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets WindowsVirtualMachineScaleSetSecretArrayOutput `pulumi:"secrets"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
@@ -81,6 +92,8 @@ type WindowsVirtualMachineScaleSet struct {
 	SourceImageReference WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A `terminateNotification` block as defined below.
+	TerminateNotification WindowsVirtualMachineScaleSetTerminateNotificationOutput `pulumi:"terminateNotification"`
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 	// The Unique ID for this Windows Virtual Machine Scale Set.
@@ -199,6 +212,8 @@ type windowsVirtualMachineScaleSetState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy *WindowsVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	ScaleInPolicy *string `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets []WindowsVirtualMachineScaleSetSecret `pulumi:"secrets"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
@@ -211,6 +226,8 @@ type windowsVirtualMachineScaleSetState struct {
 	SourceImageReference *WindowsVirtualMachineScaleSetSourceImageReference `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags map[string]string `pulumi:"tags"`
+	// A `terminateNotification` block as defined below.
+	TerminateNotification *WindowsVirtualMachineScaleSetTerminateNotification `pulumi:"terminateNotification"`
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone *string `pulumi:"timezone"`
 	// The Unique ID for this Windows Virtual Machine Scale Set.
@@ -281,6 +298,8 @@ type WindowsVirtualMachineScaleSetState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrInput
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	ScaleInPolicy pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets WindowsVirtualMachineScaleSetSecretArrayInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
@@ -293,6 +312,8 @@ type WindowsVirtualMachineScaleSetState struct {
 	SourceImageReference WindowsVirtualMachineScaleSetSourceImageReferencePtrInput
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapInput
+	// A `terminateNotification` block as defined below.
+	TerminateNotification WindowsVirtualMachineScaleSetTerminateNotificationPtrInput
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrInput
 	// The Unique ID for this Windows Virtual Machine Scale Set.
@@ -367,6 +388,8 @@ type windowsVirtualMachineScaleSetArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy *WindowsVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	ScaleInPolicy *string `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets []WindowsVirtualMachineScaleSetSecret `pulumi:"secrets"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
@@ -379,6 +402,8 @@ type windowsVirtualMachineScaleSetArgs struct {
 	SourceImageReference *WindowsVirtualMachineScaleSetSourceImageReference `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags map[string]string `pulumi:"tags"`
+	// A `terminateNotification` block as defined below.
+	TerminateNotification *WindowsVirtualMachineScaleSetTerminateNotification `pulumi:"terminateNotification"`
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone *string `pulumi:"timezone"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
@@ -448,6 +473,8 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrInput
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	ScaleInPolicy pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets WindowsVirtualMachineScaleSetSecretArrayInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
@@ -460,6 +487,8 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	SourceImageReference WindowsVirtualMachineScaleSetSourceImageReferencePtrInput
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapInput
+	// A `terminateNotification` block as defined below.
+	TerminateNotification WindowsVirtualMachineScaleSetTerminateNotificationPtrInput
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrInput
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.

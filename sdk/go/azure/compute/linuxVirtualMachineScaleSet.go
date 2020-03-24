@@ -11,6 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Manages a Linux Virtual Machine Scale Set.
+//
+// ## Disclaimers
+//
+// > **Note** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` configuration within the Provider configuration block.
+//
+// > **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.ScaleSet` resource instead
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/linux_virtual_machine_scale_set.html.markdown.
 type LinuxVirtualMachineScaleSet struct {
 	pulumi.CustomResourceState
 
@@ -67,6 +76,8 @@ type LinuxVirtualMachineScaleSet struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput `pulumi:"rollingUpgradePolicy"`
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	ScaleInPolicy pulumi.StringPtrOutput `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets LinuxVirtualMachineScaleSetSecretArrayOutput `pulumi:"secrets"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
@@ -79,6 +90,8 @@ type LinuxVirtualMachineScaleSet struct {
 	SourceImageReference LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A `terminateNotification` block as defined below.
+	TerminateNotification LinuxVirtualMachineScaleSetTerminateNotificationOutput `pulumi:"terminateNotification"`
 	// The Unique ID for this Linux Virtual Machine Scale Set.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
@@ -188,6 +201,8 @@ type linuxVirtualMachineScaleSetState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy *LinuxVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	ScaleInPolicy *string `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets []LinuxVirtualMachineScaleSetSecret `pulumi:"secrets"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
@@ -200,6 +215,8 @@ type linuxVirtualMachineScaleSetState struct {
 	SourceImageReference *LinuxVirtualMachineScaleSetSourceImageReference `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags map[string]string `pulumi:"tags"`
+	// A `terminateNotification` block as defined below.
+	TerminateNotification *LinuxVirtualMachineScaleSetTerminateNotification `pulumi:"terminateNotification"`
 	// The Unique ID for this Linux Virtual Machine Scale Set.
 	UniqueId *string `pulumi:"uniqueId"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
@@ -264,6 +281,8 @@ type LinuxVirtualMachineScaleSetState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	ScaleInPolicy pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets LinuxVirtualMachineScaleSetSecretArrayInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
@@ -276,6 +295,8 @@ type LinuxVirtualMachineScaleSetState struct {
 	SourceImageReference LinuxVirtualMachineScaleSetSourceImageReferencePtrInput
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapInput
+	// A `terminateNotification` block as defined below.
+	TerminateNotification LinuxVirtualMachineScaleSetTerminateNotificationPtrInput
 	// The Unique ID for this Linux Virtual Machine Scale Set.
 	UniqueId pulumi.StringPtrInput
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
@@ -344,6 +365,8 @@ type linuxVirtualMachineScaleSetArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy *LinuxVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	ScaleInPolicy *string `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets []LinuxVirtualMachineScaleSetSecret `pulumi:"secrets"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
@@ -356,6 +379,8 @@ type linuxVirtualMachineScaleSetArgs struct {
 	SourceImageReference *LinuxVirtualMachineScaleSetSourceImageReference `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags map[string]string `pulumi:"tags"`
+	// A `terminateNotification` block as defined below.
+	TerminateNotification *LinuxVirtualMachineScaleSetTerminateNotification `pulumi:"terminateNotification"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode *string `pulumi:"upgradeMode"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -419,6 +444,8 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	ScaleInPolicy pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets LinuxVirtualMachineScaleSetSecretArrayInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
@@ -431,6 +458,8 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	SourceImageReference LinuxVirtualMachineScaleSetSourceImageReferencePtrInput
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapInput
+	// A `terminateNotification` block as defined below.
+	TerminateNotification LinuxVirtualMachineScaleSetTerminateNotificationPtrInput
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode pulumi.StringPtrInput
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.

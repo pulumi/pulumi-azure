@@ -16,7 +16,8 @@ class Service(pulumi.CustomResource):
     An `authentication_configuration` block as defined below.
 
       * `audience` (`str`) - The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
-      * `authority` (`str`)
+      * `authority` (`str`) - The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
+        Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
       * `smartProxyEnabled` (`bool`) - Enables the 'SMART on FHIR' option for mobile and web implementations.
     """
     cors_configuration: pulumi.Output[dict]
@@ -73,7 +74,8 @@ class Service(pulumi.CustomResource):
         The **authentication_configuration** object supports the following:
 
           * `audience` (`pulumi.Input[str]`) - The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
-          * `authority` (`pulumi.Input[str]`)
+          * `authority` (`pulumi.Input[str]`) - The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
+            Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
           * `smartProxyEnabled` (`pulumi.Input[bool]`) - Enables the 'SMART on FHIR' option for mobile and web implementations.
 
         The **cors_configuration** object supports the following:
@@ -141,7 +143,8 @@ class Service(pulumi.CustomResource):
         The **authentication_configuration** object supports the following:
 
           * `audience` (`pulumi.Input[str]`) - The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
-          * `authority` (`pulumi.Input[str]`)
+          * `authority` (`pulumi.Input[str]`) - The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
+            Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
           * `smartProxyEnabled` (`pulumi.Input[bool]`) - Enables the 'SMART on FHIR' option for mobile and web implementations.
 
         The **cors_configuration** object supports the following:

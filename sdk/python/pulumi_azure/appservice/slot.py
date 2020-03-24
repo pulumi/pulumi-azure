@@ -121,7 +121,7 @@ class Slot(pulumi.CustomResource):
       * `dotnetFrameworkVersion` (`str`) - The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
       * `ftpsState` (`str`)
       * `http2Enabled` (`bool`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
-      * `ipRestrictions` (`list`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+      * `ipRestrictions` (`list`) - A list of objects representing ip restrictions as defined below.
         * `ip_address` (`str`)
         * `virtualNetworkSubnetId` (`str`)
 
@@ -256,7 +256,7 @@ class Slot(pulumi.CustomResource):
           * `dotnetFrameworkVersion` (`pulumi.Input[str]`) - The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
           * `ftpsState` (`pulumi.Input[str]`)
           * `http2Enabled` (`pulumi.Input[bool]`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
-          * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+          * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
             * `ip_address` (`pulumi.Input[str]`)
             * `virtualNetworkSubnetId` (`pulumi.Input[str]`)
 
@@ -427,7 +427,7 @@ class Slot(pulumi.CustomResource):
           * `dotnetFrameworkVersion` (`pulumi.Input[str]`) - The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
           * `ftpsState` (`pulumi.Input[str]`)
           * `http2Enabled` (`pulumi.Input[bool]`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
-          * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+          * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
             * `ip_address` (`pulumi.Input[str]`)
             * `virtualNetworkSubnetId` (`pulumi.Input[str]`)
 

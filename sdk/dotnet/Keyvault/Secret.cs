@@ -12,9 +12,6 @@ namespace Pulumi.Azure.KeyVault
     /// <summary>
     /// Manages a Key Vault Secret.
     /// 
-    /// &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
-    /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_secret.html.markdown.
     /// </summary>
     public partial class Secret : Pulumi.CustomResource

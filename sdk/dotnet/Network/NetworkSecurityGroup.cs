@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
+        /// A list of objects representing security rules, as defined below.
         /// </summary>
         [Output("securityRules")]
         public Output<ImmutableArray<Outputs.NetworkSecurityGroupSecurityRules>> SecurityRules { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkSecurityGroupSecurityRulesArgs>? _securityRules;
 
         /// <summary>
-        /// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
+        /// A list of objects representing security rules, as defined below.
         /// </summary>
         public InputList<Inputs.NetworkSecurityGroupSecurityRulesArgs> SecurityRules
         {
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkSecurityGroupSecurityRulesGetArgs>? _securityRules;
 
         /// <summary>
-        /// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
+        /// A list of objects representing security rules, as defined below.
         /// </summary>
         public InputList<Inputs.NetworkSecurityGroupSecurityRulesGetArgs> SecurityRules
         {

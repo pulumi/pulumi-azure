@@ -13,12 +13,24 @@ class GetWorkflowResult:
     """
     A collection of values returned by getWorkflow.
     """
-    def __init__(__self__, access_endpoint=None, id=None, location=None, name=None, parameters=None, resource_group_name=None, tags=None, workflow_schema=None, workflow_version=None):
+    def __init__(__self__, access_endpoint=None, connector_endpoint_ip_addresses=None, connector_outbound_ip_addresses=None, id=None, location=None, name=None, parameters=None, resource_group_name=None, tags=None, workflow_endpoint_ip_addresses=None, workflow_outbound_ip_addresses=None, workflow_schema=None, workflow_version=None):
         if access_endpoint and not isinstance(access_endpoint, str):
             raise TypeError("Expected argument 'access_endpoint' to be a str")
         __self__.access_endpoint = access_endpoint
         """
         The Access Endpoint for the Logic App Workflow
+        """
+        if connector_endpoint_ip_addresses and not isinstance(connector_endpoint_ip_addresses, list):
+            raise TypeError("Expected argument 'connector_endpoint_ip_addresses' to be a list")
+        __self__.connector_endpoint_ip_addresses = connector_endpoint_ip_addresses
+        """
+        The list of access endpoint ip addresses of connector.
+        """
+        if connector_outbound_ip_addresses and not isinstance(connector_outbound_ip_addresses, list):
+            raise TypeError("Expected argument 'connector_outbound_ip_addresses' to be a list")
+        __self__.connector_outbound_ip_addresses = connector_outbound_ip_addresses
+        """
+        The list of outgoing ip addresses of connector.
         """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -50,6 +62,18 @@ class GetWorkflowResult:
         """
         A mapping of tags assigned to the resource.
         """
+        if workflow_endpoint_ip_addresses and not isinstance(workflow_endpoint_ip_addresses, list):
+            raise TypeError("Expected argument 'workflow_endpoint_ip_addresses' to be a list")
+        __self__.workflow_endpoint_ip_addresses = workflow_endpoint_ip_addresses
+        """
+        The list of access endpoint ip addresses of workflow.
+        """
+        if workflow_outbound_ip_addresses and not isinstance(workflow_outbound_ip_addresses, list):
+            raise TypeError("Expected argument 'workflow_outbound_ip_addresses' to be a list")
+        __self__.workflow_outbound_ip_addresses = workflow_outbound_ip_addresses
+        """
+        The list of outgoing ip addresses of workflow.
+        """
         if workflow_schema and not isinstance(workflow_schema, str):
             raise TypeError("Expected argument 'workflow_schema' to be a str")
         __self__.workflow_schema = workflow_schema
@@ -69,12 +93,16 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
             yield self
         return GetWorkflowResult(
             access_endpoint=self.access_endpoint,
+            connector_endpoint_ip_addresses=self.connector_endpoint_ip_addresses,
+            connector_outbound_ip_addresses=self.connector_outbound_ip_addresses,
             id=self.id,
             location=self.location,
             name=self.name,
             parameters=self.parameters,
             resource_group_name=self.resource_group_name,
             tags=self.tags,
+            workflow_endpoint_ip_addresses=self.workflow_endpoint_ip_addresses,
+            workflow_outbound_ip_addresses=self.workflow_outbound_ip_addresses,
             workflow_schema=self.workflow_schema,
             workflow_version=self.workflow_version)
 
@@ -101,11 +129,15 @@ def get_workflow(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetWorkflowResult(
         access_endpoint=__ret__.get('accessEndpoint'),
+        connector_endpoint_ip_addresses=__ret__.get('connectorEndpointIpAddresses'),
+        connector_outbound_ip_addresses=__ret__.get('connectorOutboundIpAddresses'),
         id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         parameters=__ret__.get('parameters'),
         resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
+        workflow_endpoint_ip_addresses=__ret__.get('workflowEndpointIpAddresses'),
+        workflow_outbound_ip_addresses=__ret__.get('workflowOutboundIpAddresses'),
         workflow_schema=__ret__.get('workflowSchema'),
         workflow_version=__ret__.get('workflowVersion'))

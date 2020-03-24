@@ -12,7 +12,7 @@ from .. import utilities, tables
 class KeyVault(pulumi.CustomResource):
     access_policies: pulumi.Output[list]
     """
-    [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
+    A list of up to 16 objects describing access policies, as described below.
 
       * `application_id` (`str`)
       * `certificate_permissions` (`list`)
@@ -81,10 +81,19 @@ class KeyVault(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, name=None, network_acls=None, purge_protection_enabled=None, resource_group_name=None, sku_name=None, soft_delete_enabled=None, tags=None, tenant_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a KeyVault resource with the given unique name, props, and options.
+        Manages a Key Vault.
+
+        ## Disclaimers
+
+        > **Note:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `access_policy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
+
+        > **Note:** This provi will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] access_policies: [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
+        :param pulumi.Input[list] access_policies: A list of up to 16 objects describing access policies, as described below.
         :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
@@ -167,7 +176,7 @@ class KeyVault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] access_policies: [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
+        :param pulumi.Input[list] access_policies: A list of up to 16 objects describing access policies, as described below.
         :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.

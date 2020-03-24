@@ -181,6 +181,10 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
       * `maxUnhealthyUpgradedInstancePercent` (`float`)
       * `pauseTimeBetweenBatches` (`str`)
     """
+    scale_in_policy: pulumi.Output[str]
+    """
+    The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+    """
     secrets: pulumi.Output[list]
     """
     One or more `secret` blocks as defined below.
@@ -216,6 +220,13 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     """
     A mapping of tags which should be assigned to this Virtual Machine Scale Set.
     """
+    terminate_notification: pulumi.Output[dict]
+    """
+    A `terminate_notification` block as defined below.
+
+      * `enabled` (`bool`)
+      * `timeout` (`str`)
+    """
     timezone: pulumi.Output[str]
     """
     Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
@@ -243,9 +254,18 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     """
     A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, additional_capabilities=None, additional_unattend_contents=None, admin_password=None, admin_username=None, automatic_os_upgrade_policy=None, boot_diagnostics=None, computer_name_prefix=None, custom_data=None, data_disks=None, do_not_run_extensions_on_overprovisioned_machines=None, enable_automatic_updates=None, eviction_policy=None, health_probe_id=None, identity=None, instances=None, license_type=None, location=None, max_bid_price=None, name=None, network_interfaces=None, os_disk=None, overprovision=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, rolling_upgrade_policy=None, secrets=None, single_placement_group=None, sku=None, source_image_id=None, source_image_reference=None, tags=None, timezone=None, upgrade_mode=None, winrm_listeners=None, zone_balance=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, additional_capabilities=None, additional_unattend_contents=None, admin_password=None, admin_username=None, automatic_os_upgrade_policy=None, boot_diagnostics=None, computer_name_prefix=None, custom_data=None, data_disks=None, do_not_run_extensions_on_overprovisioned_machines=None, enable_automatic_updates=None, eviction_policy=None, health_probe_id=None, identity=None, instances=None, license_type=None, location=None, max_bid_price=None, name=None, network_interfaces=None, os_disk=None, overprovision=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, rolling_upgrade_policy=None, scale_in_policy=None, secrets=None, single_placement_group=None, sku=None, source_image_id=None, source_image_reference=None, tags=None, terminate_notification=None, timezone=None, upgrade_mode=None, winrm_listeners=None, zone_balance=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a WindowsVirtualMachineScaleSet resource with the given unique name, props, and options.
+        Manages a Windows Virtual Machine Scale Set.
+
+        ## Disclaimers
+
+        > **Note** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` configuration within the Provider configuration block.
+
+        > **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.ScaleSet` resource instead
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/windows_virtual_machine_scale_set.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] additional_capabilities: A `additional_capabilities` block as defined below.
@@ -275,12 +295,14 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        :param pulumi.Input[str] scale_in_policy: The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
         :param pulumi.Input[list] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         :param pulumi.Input[str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
         :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on.
         :param pulumi.Input[dict] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
+        :param pulumi.Input[dict] terminate_notification: A `terminate_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
         :param pulumi.Input[list] winrm_listeners: One or more `winrm_listener` blocks as defined below.
@@ -388,6 +410,11 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
           * `sku` (`pulumi.Input[str]`) - The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
           * `version` (`pulumi.Input[str]`)
 
+        The **terminate_notification** object supports the following:
+
+          * `enabled` (`pulumi.Input[bool]`)
+          * `timeout` (`pulumi.Input[str]`)
+
         The **winrm_listeners** object supports the following:
 
           * `certificateUrl` (`pulumi.Input[str]`)
@@ -450,6 +477,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['rolling_upgrade_policy'] = rolling_upgrade_policy
+            __props__['scale_in_policy'] = scale_in_policy
             __props__['secrets'] = secrets
             __props__['single_placement_group'] = single_placement_group
             if sku is None:
@@ -458,6 +486,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__['source_image_id'] = source_image_id
             __props__['source_image_reference'] = source_image_reference
             __props__['tags'] = tags
+            __props__['terminate_notification'] = terminate_notification
             __props__['timezone'] = timezone
             __props__['upgrade_mode'] = upgrade_mode
             __props__['winrm_listeners'] = winrm_listeners
@@ -471,7 +500,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, additional_capabilities=None, additional_unattend_contents=None, admin_password=None, admin_username=None, automatic_os_upgrade_policy=None, boot_diagnostics=None, computer_name_prefix=None, custom_data=None, data_disks=None, do_not_run_extensions_on_overprovisioned_machines=None, enable_automatic_updates=None, eviction_policy=None, health_probe_id=None, identity=None, instances=None, license_type=None, location=None, max_bid_price=None, name=None, network_interfaces=None, os_disk=None, overprovision=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, rolling_upgrade_policy=None, secrets=None, single_placement_group=None, sku=None, source_image_id=None, source_image_reference=None, tags=None, timezone=None, unique_id=None, upgrade_mode=None, winrm_listeners=None, zone_balance=None, zones=None):
+    def get(resource_name, id, opts=None, additional_capabilities=None, additional_unattend_contents=None, admin_password=None, admin_username=None, automatic_os_upgrade_policy=None, boot_diagnostics=None, computer_name_prefix=None, custom_data=None, data_disks=None, do_not_run_extensions_on_overprovisioned_machines=None, enable_automatic_updates=None, eviction_policy=None, health_probe_id=None, identity=None, instances=None, license_type=None, location=None, max_bid_price=None, name=None, network_interfaces=None, os_disk=None, overprovision=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, rolling_upgrade_policy=None, scale_in_policy=None, secrets=None, single_placement_group=None, sku=None, source_image_id=None, source_image_reference=None, tags=None, terminate_notification=None, timezone=None, unique_id=None, upgrade_mode=None, winrm_listeners=None, zone_balance=None, zones=None):
         """
         Get an existing WindowsVirtualMachineScaleSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -506,12 +535,14 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        :param pulumi.Input[str] scale_in_policy: The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
         :param pulumi.Input[list] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         :param pulumi.Input[str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
         :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on.
         :param pulumi.Input[dict] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
+        :param pulumi.Input[dict] terminate_notification: A `terminate_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] unique_id: The Unique ID for this Windows Virtual Machine Scale Set.
         :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
@@ -620,6 +651,11 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
           * `sku` (`pulumi.Input[str]`) - The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
           * `version` (`pulumi.Input[str]`)
 
+        The **terminate_notification** object supports the following:
+
+          * `enabled` (`pulumi.Input[bool]`)
+          * `timeout` (`pulumi.Input[str]`)
+
         The **winrm_listeners** object supports the following:
 
           * `certificateUrl` (`pulumi.Input[str]`)
@@ -657,12 +693,14 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         __props__["proximity_placement_group_id"] = proximity_placement_group_id
         __props__["resource_group_name"] = resource_group_name
         __props__["rolling_upgrade_policy"] = rolling_upgrade_policy
+        __props__["scale_in_policy"] = scale_in_policy
         __props__["secrets"] = secrets
         __props__["single_placement_group"] = single_placement_group
         __props__["sku"] = sku
         __props__["source_image_id"] = source_image_id
         __props__["source_image_reference"] = source_image_reference
         __props__["tags"] = tags
+        __props__["terminate_notification"] = terminate_notification
         __props__["timezone"] = timezone
         __props__["unique_id"] = unique_id
         __props__["upgrade_mode"] = upgrade_mode

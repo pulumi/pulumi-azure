@@ -9,6 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Compute
 {
+    /// <summary>
+    /// Manages a Linux Virtual Machine Scale Set.
+    /// 
+    /// ## Disclaimers
+    /// 
+    /// &gt; **Note** This provider will automatically update &amp; reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` configuration within the Provider configuration block.
+    /// 
+    /// &gt; **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
+    /// 
+    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/linux_virtual_machine_scale_set.html.markdown.
+    /// </summary>
     public partial class LinuxVirtualMachineScaleSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -171,6 +182,12 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.LinuxVirtualMachineScaleSetRollingUpgradePolicy?> RollingUpgradePolicy { get; private set; } = null!;
 
         /// <summary>
+        /// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+        /// </summary>
+        [Output("scaleInPolicy")]
+        public Output<string?> ScaleInPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `secret` blocks as defined below.
         /// </summary>
         [Output("secrets")]
@@ -205,6 +222,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A `terminate_notification` block as defined below.
+        /// </summary>
+        [Output("terminateNotification")]
+        public Output<Outputs.LinuxVirtualMachineScaleSetTerminateNotification> TerminateNotification { get; private set; } = null!;
 
         /// <summary>
         /// The Unique ID for this Linux Virtual Machine Scale Set.
@@ -453,6 +476,12 @@ namespace Pulumi.Azure.Compute
         [Input("rollingUpgradePolicy")]
         public Input<Inputs.LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs>? RollingUpgradePolicy { get; set; }
 
+        /// <summary>
+        /// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+        /// </summary>
+        [Input("scaleInPolicy")]
+        public Input<string>? ScaleInPolicy { get; set; }
+
         [Input("secrets")]
         private InputList<Inputs.LinuxVirtualMachineScaleSetSecretsArgs>? _secrets;
 
@@ -500,6 +529,12 @@ namespace Pulumi.Azure.Compute
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `terminate_notification` block as defined below.
+        /// </summary>
+        [Input("terminateNotification")]
+        public Input<Inputs.LinuxVirtualMachineScaleSetTerminateNotificationArgs>? TerminateNotification { get; set; }
 
         /// <summary>
         /// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
@@ -709,6 +744,12 @@ namespace Pulumi.Azure.Compute
         [Input("rollingUpgradePolicy")]
         public Input<Inputs.LinuxVirtualMachineScaleSetRollingUpgradePolicyGetArgs>? RollingUpgradePolicy { get; set; }
 
+        /// <summary>
+        /// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+        /// </summary>
+        [Input("scaleInPolicy")]
+        public Input<string>? ScaleInPolicy { get; set; }
+
         [Input("secrets")]
         private InputList<Inputs.LinuxVirtualMachineScaleSetSecretsGetArgs>? _secrets;
 
@@ -756,6 +797,12 @@ namespace Pulumi.Azure.Compute
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `terminate_notification` block as defined below.
+        /// </summary>
+        [Input("terminateNotification")]
+        public Input<Inputs.LinuxVirtualMachineScaleSetTerminateNotificationGetArgs>? TerminateNotification { get; set; }
 
         /// <summary>
         /// The Unique ID for this Linux Virtual Machine Scale Set.
@@ -1522,6 +1569,32 @@ namespace Pulumi.Azure.Compute
         {
         }
     }
+
+    public sealed class LinuxVirtualMachineScaleSetTerminateNotificationArgs : Pulumi.ResourceArgs
+    {
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
+
+        [Input("timeout")]
+        public Input<string>? Timeout { get; set; }
+
+        public LinuxVirtualMachineScaleSetTerminateNotificationArgs()
+        {
+        }
+    }
+
+    public sealed class LinuxVirtualMachineScaleSetTerminateNotificationGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
+
+        [Input("timeout")]
+        public Input<string>? Timeout { get; set; }
+
+        public LinuxVirtualMachineScaleSetTerminateNotificationGetArgs()
+        {
+        }
+    }
     }
 
     namespace Outputs
@@ -1885,6 +1958,22 @@ namespace Pulumi.Azure.Compute
             Publisher = publisher;
             Sku = sku;
             Version = version;
+        }
+    }
+
+    [OutputType]
+    public sealed class LinuxVirtualMachineScaleSetTerminateNotification
+    {
+        public readonly bool Enabled;
+        public readonly string? Timeout;
+
+        [OutputConstructor]
+        private LinuxVirtualMachineScaleSetTerminateNotification(
+            bool enabled,
+            string? timeout)
+        {
+            Enabled = enabled;
+            Timeout = timeout;
         }
     }
     }

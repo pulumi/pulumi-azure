@@ -59,6 +59,10 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly connectionStrings!: pulumi.Output<outputs.appservice.FunctionAppConnectionString[]>;
     /**
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+     */
+    public readonly dailyMemoryTimeQuota!: pulumi.Output<number | undefined>;
+    /**
      * The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
      */
     public /*out*/ readonly defaultHostname!: pulumi.Output<string>;
@@ -144,6 +148,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["authSettings"] = state ? state.authSettings : undefined;
             inputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
+            inputs["dailyMemoryTimeQuota"] = state ? state.dailyMemoryTimeQuota : undefined;
             inputs["defaultHostname"] = state ? state.defaultHostname : undefined;
             inputs["enableBuiltinLogging"] = state ? state.enableBuiltinLogging : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -177,6 +182,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["authSettings"] = args ? args.authSettings : undefined;
             inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
             inputs["connectionStrings"] = args ? args.connectionStrings : undefined;
+            inputs["dailyMemoryTimeQuota"] = args ? args.dailyMemoryTimeQuota : undefined;
             inputs["enableBuiltinLogging"] = args ? args.enableBuiltinLogging : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["httpsOnly"] = args ? args.httpsOnly : undefined;
@@ -230,6 +236,10 @@ export interface FunctionAppState {
      * An `connectionString` block as defined below.
      */
     readonly connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppConnectionString>[]>;
+    /**
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+     */
+    readonly dailyMemoryTimeQuota?: pulumi.Input<number>;
     /**
      * The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
      */
@@ -324,6 +334,10 @@ export interface FunctionAppArgs {
      * An `connectionString` block as defined below.
      */
     readonly connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppConnectionString>[]>;
+    /**
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+     */
+    readonly dailyMemoryTimeQuota?: pulumi.Input<number>;
     /**
      * Should the built-in logging of this Function App be enabled? Defaults to `true`.
      */

@@ -66,6 +66,9 @@ export class GremlinGraph extends pulumi.CustomResource {
      * The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     */
     public readonly throughput!: pulumi.Output<number>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
@@ -163,6 +166,9 @@ export interface GremlinGraphState {
      * The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     */
     readonly throughput?: pulumi.Input<number>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
@@ -202,6 +208,9 @@ export interface GremlinGraphArgs {
      * The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     */
     readonly throughput?: pulumi.Input<number>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.

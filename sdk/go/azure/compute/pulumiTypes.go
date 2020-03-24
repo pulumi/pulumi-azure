@@ -3435,6 +3435,124 @@ func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Version() pulu
 	return o.ApplyT(func (v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
 
+type LinuxVirtualMachineScaleSetTerminateNotification struct {
+	Enabled bool `pulumi:"enabled"`
+	Timeout *string `pulumi:"timeout"`
+}
+
+type LinuxVirtualMachineScaleSetTerminateNotificationInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetTerminateNotificationOutput() LinuxVirtualMachineScaleSetTerminateNotificationOutput
+	ToLinuxVirtualMachineScaleSetTerminateNotificationOutputWithContext(context.Context) LinuxVirtualMachineScaleSetTerminateNotificationOutput
+}
+
+type LinuxVirtualMachineScaleSetTerminateNotificationArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
+}
+
+func (LinuxVirtualMachineScaleSetTerminateNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetTerminateNotificationArgs) ToLinuxVirtualMachineScaleSetTerminateNotificationOutput() LinuxVirtualMachineScaleSetTerminateNotificationOutput {
+	return i.ToLinuxVirtualMachineScaleSetTerminateNotificationOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetTerminateNotificationArgs) ToLinuxVirtualMachineScaleSetTerminateNotificationOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminateNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetTerminateNotificationOutput)
+}
+
+func (i LinuxVirtualMachineScaleSetTerminateNotificationArgs) ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutput() LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetTerminateNotificationArgs) ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetTerminateNotificationOutput).ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx)
+}
+
+type LinuxVirtualMachineScaleSetTerminateNotificationPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutput() LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput
+	ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(context.Context) LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput
+}
+
+type linuxVirtualMachineScaleSetTerminateNotificationPtrType LinuxVirtualMachineScaleSetTerminateNotificationArgs
+
+func LinuxVirtualMachineScaleSetTerminateNotificationPtr(v *LinuxVirtualMachineScaleSetTerminateNotificationArgs) LinuxVirtualMachineScaleSetTerminateNotificationPtrInput {	return (*linuxVirtualMachineScaleSetTerminateNotificationPtrType)(v)
+}
+
+func (*linuxVirtualMachineScaleSetTerminateNotificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineScaleSetTerminateNotificationPtrType) ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutput() LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineScaleSetTerminateNotificationPtrType) ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetTerminateNotificationOutput struct { *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetTerminateNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) ToLinuxVirtualMachineScaleSetTerminateNotificationOutput() LinuxVirtualMachineScaleSetTerminateNotificationOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) ToLinuxVirtualMachineScaleSetTerminateNotificationOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminateNotificationOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutput() LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput {
+	return o.ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetTerminateNotification) *LinuxVirtualMachineScaleSetTerminateNotification {
+		return &v
+	}).(LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput)
+}
+func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func (v LinuxVirtualMachineScaleSetTerminateNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v LinuxVirtualMachineScaleSetTerminateNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput struct { *pulumi.OutputState}
+
+func (LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutput() LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) Elem() LinuxVirtualMachineScaleSetTerminateNotificationOutput {
+	return o.ApplyT(func (v *LinuxVirtualMachineScaleSetTerminateNotification) LinuxVirtualMachineScaleSetTerminateNotification { return *v }).(LinuxVirtualMachineScaleSetTerminateNotificationOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func (v LinuxVirtualMachineScaleSetTerminateNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v LinuxVirtualMachineScaleSetTerminateNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+}
+
 type LinuxVirtualMachineSecret struct {
 	Certificates []LinuxVirtualMachineSecretCertificate `pulumi:"certificates"`
 	KeyVaultId string `pulumi:"keyVaultId"`
@@ -12244,6 +12362,124 @@ func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Version() pu
 	return o.ApplyT(func (v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
 
+type WindowsVirtualMachineScaleSetTerminateNotification struct {
+	Enabled bool `pulumi:"enabled"`
+	Timeout *string `pulumi:"timeout"`
+}
+
+type WindowsVirtualMachineScaleSetTerminateNotificationInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetTerminateNotificationOutput() WindowsVirtualMachineScaleSetTerminateNotificationOutput
+	ToWindowsVirtualMachineScaleSetTerminateNotificationOutputWithContext(context.Context) WindowsVirtualMachineScaleSetTerminateNotificationOutput
+}
+
+type WindowsVirtualMachineScaleSetTerminateNotificationArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
+}
+
+func (WindowsVirtualMachineScaleSetTerminateNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetTerminateNotificationArgs) ToWindowsVirtualMachineScaleSetTerminateNotificationOutput() WindowsVirtualMachineScaleSetTerminateNotificationOutput {
+	return i.ToWindowsVirtualMachineScaleSetTerminateNotificationOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetTerminateNotificationArgs) ToWindowsVirtualMachineScaleSetTerminateNotificationOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminateNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetTerminateNotificationOutput)
+}
+
+func (i WindowsVirtualMachineScaleSetTerminateNotificationArgs) ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutput() WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetTerminateNotificationArgs) ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetTerminateNotificationOutput).ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx)
+}
+
+type WindowsVirtualMachineScaleSetTerminateNotificationPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutput() WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput
+	ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(context.Context) WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput
+}
+
+type windowsVirtualMachineScaleSetTerminateNotificationPtrType WindowsVirtualMachineScaleSetTerminateNotificationArgs
+
+func WindowsVirtualMachineScaleSetTerminateNotificationPtr(v *WindowsVirtualMachineScaleSetTerminateNotificationArgs) WindowsVirtualMachineScaleSetTerminateNotificationPtrInput {	return (*windowsVirtualMachineScaleSetTerminateNotificationPtrType)(v)
+}
+
+func (*windowsVirtualMachineScaleSetTerminateNotificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineScaleSetTerminateNotificationPtrType) ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutput() WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineScaleSetTerminateNotificationPtrType) ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetTerminateNotificationOutput struct { *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetTerminateNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) ToWindowsVirtualMachineScaleSetTerminateNotificationOutput() WindowsVirtualMachineScaleSetTerminateNotificationOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) ToWindowsVirtualMachineScaleSetTerminateNotificationOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminateNotificationOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutput() WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput {
+	return o.ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetTerminateNotification) *WindowsVirtualMachineScaleSetTerminateNotification {
+		return &v
+	}).(WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput)
+}
+func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func (v WindowsVirtualMachineScaleSetTerminateNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v WindowsVirtualMachineScaleSetTerminateNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput struct { *pulumi.OutputState}
+
+func (WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutput() WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) Elem() WindowsVirtualMachineScaleSetTerminateNotificationOutput {
+	return o.ApplyT(func (v *WindowsVirtualMachineScaleSetTerminateNotification) WindowsVirtualMachineScaleSetTerminateNotification { return *v }).(WindowsVirtualMachineScaleSetTerminateNotificationOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func (v WindowsVirtualMachineScaleSetTerminateNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v WindowsVirtualMachineScaleSetTerminateNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+}
+
 type WindowsVirtualMachineScaleSetWinrmListener struct {
 	CertificateUrl *string `pulumi:"certificateUrl"`
 	Protocol string `pulumi:"protocol"`
@@ -13562,6 +13798,8 @@ func init() {
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSecretCertificateArrayOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSourceImageReferenceOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetTerminateNotificationOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineSecretOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineSecretArrayOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineSecretCertificateOutput{})
@@ -13704,6 +13942,8 @@ func init() {
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSecretCertificateArrayOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSourceImageReferenceOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetTerminateNotificationOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetWinrmListenerOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetWinrmListenerArrayOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineSecretOutput{})

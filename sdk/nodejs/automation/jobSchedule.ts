@@ -4,6 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Links an Automation Runbook and Schedule.
+ * 
+ * ## Example Usage
+ * 
+ * This is an example of just the Job Schedule.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = new azure.automation.JobSchedule("example", {
+ *     automationAccountName: "tf-automation-account",
+ *     parameters: {
+ *         resourcegroup: "tf-rgr-vm",
+ *         vmname: "TF-VM-01",
+ *     },
+ *     resourceGroupName: "tf-rgr-automation",
+ *     runbookName: "Get-VirtualMachine",
+ *     scheduleName: "hour",
+ * });
+ * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_job_schedule.html.markdown.
+ */
 export class JobSchedule extends pulumi.CustomResource {
     /**
      * Get an existing JobSchedule resource's state with the given name, ID, and optional extra

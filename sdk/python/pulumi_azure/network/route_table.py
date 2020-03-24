@@ -28,7 +28,7 @@ class RouteTable(pulumi.CustomResource):
     """
     routes: pulumi.Output[list]
     """
-    [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
+    A list of objects representing routes. Each object accepts the arguments documented below.
 
       * `address_prefix` (`str`) - The destination CIDR to which the route applies, such as 10.1.0.0/16
       * `name` (`str`) - The name of the route.
@@ -55,7 +55,7 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the route.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] routes: [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
+        :param pulumi.Input[list] routes: A list of objects representing routes. Each object accepts the arguments documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         The **routes** object supports the following:
@@ -110,7 +110,7 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the route.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] routes: [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
+        :param pulumi.Input[list] routes: A list of objects representing routes. Each object accepts the arguments documented below.
         :param pulumi.Input[list] subnets: The collection of Subnets associated with this route table.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 

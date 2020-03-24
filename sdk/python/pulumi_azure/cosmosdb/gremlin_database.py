@@ -23,6 +23,9 @@ class GremlinDatabase(pulumi.CustomResource):
     The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
     """
     throughput: pulumi.Output[float]
+    """
+    The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+    """
     def __init__(__self__, resource_name, opts=None, account_name=None, name=None, resource_group_name=None, throughput=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Gremlin Database within a Cosmos DB Account.
@@ -34,6 +37,7 @@ class GremlinDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] throughput: The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -78,6 +82,7 @@ class GremlinDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] throughput: The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

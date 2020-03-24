@@ -8,8 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
- * 
- * > **Note:** All arguments including the `servicePrincipalKey` will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_data_lake_storage_gen2.html.markdown.
  */

@@ -32,7 +32,14 @@ class ProtectedFileShare(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, backup_policy_id=None, recovery_vault_name=None, resource_group_name=None, source_file_share_name=None, source_storage_account_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a ProtectedFileShare resource with the given unique name, props, and options.
+        Manages an Azure Backup Protected File Share to enable backups for file shares within an Azure Storage Account
+
+        > **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
+
+        > **NOTE** Azure Backup for Azure File Shares does not support Soft Delete at this time. Deleting this resource will also delete all associated backup data. Please exercise caution. Consider using [`protect`](https://www.pulumi.com/docs/intro/concepts/programming-model/#protect) to guard against accidental deletion.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_protected_file_share.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_policy_id: Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.

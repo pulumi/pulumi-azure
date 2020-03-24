@@ -55,7 +55,7 @@ export class RouteTable extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
+     * A list of objects representing routes. Each object accepts the arguments documented below.
      */
     public readonly routes!: pulumi.Output<outputs.network.RouteTableRoute[]>;
     /**
@@ -131,7 +131,7 @@ export interface RouteTableState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
+     * A list of objects representing routes. Each object accepts the arguments documented below.
      */
     readonly routes?: pulumi.Input<pulumi.Input<inputs.network.RouteTableRoute>[]>;
     /**
@@ -165,7 +165,7 @@ export interface RouteTableArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
+     * A list of objects representing routes. Each object accepts the arguments documented below.
      */
     readonly routes?: pulumi.Input<pulumi.Input<inputs.network.RouteTableRoute>[]>;
     /**

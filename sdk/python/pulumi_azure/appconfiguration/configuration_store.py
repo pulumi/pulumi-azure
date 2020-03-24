@@ -24,19 +24,19 @@ class ConfigurationStore(pulumi.CustomResource):
     """
     primary_read_keys: pulumi.Output[list]
     """
-    An `access_key` block as defined below containing the primary read access key.
+    A `primary_read_key` block as defined below containing the primary read access key.
 
-      * `connection_string` (`str`) - The connection string including the endpoint, id and secret.
-      * `id` (`str`) - The ID of the access key.
-      * `secret` (`str`) - The secret of the access key.
+      * `connection_string` (`str`) - The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+      * `id` (`str`) - The ID of the Access Key.
+      * `secret` (`str`) - The Secret of the Access Key.
     """
     primary_write_keys: pulumi.Output[list]
     """
-    An `access_key` block as defined below containing the primary write access key.
+    A `primary_write_key` block as defined below containing the primary write access key.
 
-      * `connection_string` (`str`) - The connection string including the endpoint, id and secret.
-      * `id` (`str`) - The ID of the access key.
-      * `secret` (`str`) - The secret of the access key.
+      * `connection_string` (`str`) - The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+      * `id` (`str`) - The ID of the Access Key.
+      * `secret` (`str`) - The Secret of the Access Key.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -44,19 +44,19 @@ class ConfigurationStore(pulumi.CustomResource):
     """
     secondary_read_keys: pulumi.Output[list]
     """
-    An `access_key` block as defined below containing the secondary read access key.
+    A `secondary_read_key` block as defined below containing the secondary read access key.
 
-      * `connection_string` (`str`) - The connection string including the endpoint, id and secret.
-      * `id` (`str`) - The ID of the access key.
-      * `secret` (`str`) - The secret of the access key.
+      * `connection_string` (`str`) - The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+      * `id` (`str`) - The ID of the Access Key.
+      * `secret` (`str`) - The Secret of the Access Key.
     """
     secondary_write_keys: pulumi.Output[list]
     """
-    An `access_key` block as defined below containing the secondary write access key.
+    A `secondary_write_key` block as defined below containing the secondary write access key.
 
-      * `connection_string` (`str`) - The connection string including the endpoint, id and secret.
-      * `id` (`str`) - The ID of the access key.
-      * `secret` (`str`) - The secret of the access key.
+      * `connection_string` (`str`) - The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+      * `id` (`str`) - The ID of the Access Key.
+      * `secret` (`str`) - The Secret of the Access Key.
     """
     sku: pulumi.Output[str]
     """
@@ -127,37 +127,37 @@ class ConfigurationStore(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint: The URL of the App Configuration.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the App Configuration. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] primary_read_keys: An `access_key` block as defined below containing the primary read access key.
-        :param pulumi.Input[list] primary_write_keys: An `access_key` block as defined below containing the primary write access key.
+        :param pulumi.Input[list] primary_read_keys: A `primary_read_key` block as defined below containing the primary read access key.
+        :param pulumi.Input[list] primary_write_keys: A `primary_write_key` block as defined below containing the primary write access key.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] secondary_read_keys: An `access_key` block as defined below containing the secondary read access key.
-        :param pulumi.Input[list] secondary_write_keys: An `access_key` block as defined below containing the secondary write access key.
+        :param pulumi.Input[list] secondary_read_keys: A `secondary_read_key` block as defined below containing the secondary read access key.
+        :param pulumi.Input[list] secondary_write_keys: A `secondary_write_key` block as defined below containing the secondary write access key.
         :param pulumi.Input[str] sku: The SKU name of the the App Configuration. Possible values are `free` and `standard`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         The **primary_read_keys** object supports the following:
 
-          * `connection_string` (`pulumi.Input[str]`) - The connection string including the endpoint, id and secret.
-          * `id` (`pulumi.Input[str]`) - The ID of the access key.
-          * `secret` (`pulumi.Input[str]`) - The secret of the access key.
+          * `connection_string` (`pulumi.Input[str]`) - The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+          * `id` (`pulumi.Input[str]`) - The ID of the Access Key.
+          * `secret` (`pulumi.Input[str]`) - The Secret of the Access Key.
 
         The **primary_write_keys** object supports the following:
 
-          * `connection_string` (`pulumi.Input[str]`) - The connection string including the endpoint, id and secret.
-          * `id` (`pulumi.Input[str]`) - The ID of the access key.
-          * `secret` (`pulumi.Input[str]`) - The secret of the access key.
+          * `connection_string` (`pulumi.Input[str]`) - The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+          * `id` (`pulumi.Input[str]`) - The ID of the Access Key.
+          * `secret` (`pulumi.Input[str]`) - The Secret of the Access Key.
 
         The **secondary_read_keys** object supports the following:
 
-          * `connection_string` (`pulumi.Input[str]`) - The connection string including the endpoint, id and secret.
-          * `id` (`pulumi.Input[str]`) - The ID of the access key.
-          * `secret` (`pulumi.Input[str]`) - The secret of the access key.
+          * `connection_string` (`pulumi.Input[str]`) - The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+          * `id` (`pulumi.Input[str]`) - The ID of the Access Key.
+          * `secret` (`pulumi.Input[str]`) - The Secret of the Access Key.
 
         The **secondary_write_keys** object supports the following:
 
-          * `connection_string` (`pulumi.Input[str]`) - The connection string including the endpoint, id and secret.
-          * `id` (`pulumi.Input[str]`) - The ID of the access key.
-          * `secret` (`pulumi.Input[str]`) - The secret of the access key.
+          * `connection_string` (`pulumi.Input[str]`) - The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+          * `id` (`pulumi.Input[str]`) - The ID of the Access Key.
+          * `secret` (`pulumi.Input[str]`) - The Secret of the Access Key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

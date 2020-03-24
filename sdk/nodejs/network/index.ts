@@ -59,6 +59,7 @@ export * from "./subnetRouteTableAssociation";
 export * from "./trafficManagerEndpoint";
 export * from "./trafficManagerProfile";
 export * from "./virtualHub";
+export * from "./virtualHubConnection";
 export * from "./virtualNetwork";
 export * from "./virtualNetworkGateway";
 export * from "./virtualNetworkGatewayConnection";

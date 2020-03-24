@@ -2119,8 +2119,8 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewaySslCertificatesArgs : Pulumi.ResourceArgs
     {
-        [Input("data", required: true)]
-        public Input<string> Data { get; set; } = null!;
+        [Input("data")]
+        public Input<string>? Data { get; set; }
 
         /// <summary>
         /// The ID of the Rewrite Rule Set
@@ -2128,14 +2128,17 @@ namespace Pulumi.Azure.Network
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("keyVaultSecretId")]
+        public Input<string>? KeyVaultSecretId { get; set; }
+
         /// <summary>
         /// The name of the Application Gateway. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         /// <summary>
         /// The Public Certificate Data associated with the SSL Certificate.
@@ -2150,8 +2153,8 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewaySslCertificatesGetArgs : Pulumi.ResourceArgs
     {
-        [Input("data", required: true)]
-        public Input<string> Data { get; set; } = null!;
+        [Input("data")]
+        public Input<string>? Data { get; set; }
 
         /// <summary>
         /// The ID of the Rewrite Rule Set
@@ -2159,14 +2162,17 @@ namespace Pulumi.Azure.Network
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("keyVaultSecretId")]
+        public Input<string>? KeyVaultSecretId { get; set; }
+
         /// <summary>
         /// The name of the Application Gateway. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         /// <summary>
         /// The Public Certificate Data associated with the SSL Certificate.
@@ -3399,16 +3405,17 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewaySslCertificates
     {
-        public readonly string Data;
+        public readonly string? Data;
         /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
+        public readonly string? KeyVaultSecretId;
         /// <summary>
         /// The name of the Application Gateway. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
-        public readonly string Password;
+        public readonly string? Password;
         /// <summary>
         /// The Public Certificate Data associated with the SSL Certificate.
         /// </summary>
@@ -3416,14 +3423,16 @@ namespace Pulumi.Azure.Network
 
         [OutputConstructor]
         private ApplicationGatewaySslCertificates(
-            string data,
+            string? data,
             string id,
+            string? keyVaultSecretId,
             string name,
-            string password,
+            string? password,
             string publicCertData)
         {
             Data = data;
             Id = id;
+            KeyVaultSecretId = keyVaultSecretId;
             Name = name;
             Password = password;
             PublicCertData = publicCertData;

@@ -55,7 +55,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
+     * A list of objects representing security rules, as defined below.
      */
     public readonly securityRules!: pulumi.Output<outputs.network.NetworkSecurityGroupSecurityRule[]>;
     /**
@@ -119,7 +119,7 @@ export interface NetworkSecurityGroupState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
+     * A list of objects representing security rules, as defined below.
      */
     readonly securityRules?: pulumi.Input<pulumi.Input<inputs.network.NetworkSecurityGroupSecurityRule>[]>;
     /**
@@ -145,7 +145,7 @@ export interface NetworkSecurityGroupArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
+     * A list of objects representing security rules, as defined below.
      */
     readonly securityRules?: pulumi.Input<pulumi.Input<inputs.network.NetworkSecurityGroupSecurityRule>[]>;
     /**
