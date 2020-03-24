@@ -136,7 +136,7 @@ class FunctionApp(pulumi.CustomResource):
 
       * `ftpsState` (`str`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
       * `http2Enabled` (`bool`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
-      * `ipRestrictions` (`list`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+      * `ipRestrictions` (`list`) - A list of objects representing ip restrictions as defined below.
         * `ip_address` (`str`)
         * `subnet_id` (`str`)
 
@@ -249,7 +249,7 @@ class FunctionApp(pulumi.CustomResource):
 
           * `ftpsState` (`pulumi.Input[str]`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
           * `http2Enabled` (`pulumi.Input[bool]`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
-          * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+          * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
             * `ip_address` (`pulumi.Input[str]`)
             * `subnet_id` (`pulumi.Input[str]`)
 
@@ -401,7 +401,7 @@ class FunctionApp(pulumi.CustomResource):
 
           * `ftpsState` (`pulumi.Input[str]`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
           * `http2Enabled` (`pulumi.Input[bool]`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
-          * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+          * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
             * `ip_address` (`pulumi.Input[str]`)
             * `subnet_id` (`pulumi.Input[str]`)
 

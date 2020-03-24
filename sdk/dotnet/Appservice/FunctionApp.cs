@@ -967,7 +967,7 @@ namespace Pulumi.Azure.AppService
         private InputList<FunctionAppSiteConfigIpRestrictionsArgs>? _ipRestrictions;
 
         /// <summary>
-        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        /// A list of objects representing ip restrictions as defined below.
         /// </summary>
         public InputList<FunctionAppSiteConfigIpRestrictionsArgs> IpRestrictions
         {
@@ -1070,7 +1070,7 @@ namespace Pulumi.Azure.AppService
         private InputList<FunctionAppSiteConfigIpRestrictionsGetArgs>? _ipRestrictions;
 
         /// <summary>
-        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        /// A list of objects representing ip restrictions as defined below.
         /// </summary>
         public InputList<FunctionAppSiteConfigIpRestrictionsGetArgs> IpRestrictions
         {
@@ -1382,7 +1382,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly bool? Http2Enabled;
         /// <summary>
-        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        /// A list of objects representing ip restrictions as defined below.
         /// </summary>
         public readonly ImmutableArray<FunctionAppSiteConfigIpRestrictions> IpRestrictions;
         /// <summary>

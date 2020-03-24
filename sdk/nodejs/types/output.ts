@@ -871,7 +871,7 @@ export namespace appservice {
          */
         http2Enabled?: boolean;
         /**
-         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         * A list of objects representing ip restrictions as defined below.
          */
         ipRestrictions: outputs.appservice.FunctionAppSiteConfigIpRestriction[];
         /**
@@ -1262,7 +1262,7 @@ export namespace appservice {
          */
         http2Enabled?: boolean;
         /**
-         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         * A list of objects representing ip restrictions as defined below.
          */
         ipRestrictions: outputs.appservice.SlotSiteConfigIpRestriction[];
         /**

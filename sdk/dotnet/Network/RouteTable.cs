@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
+        /// A list of objects representing routes. Each object accepts the arguments documented below.
         /// </summary>
         [Output("routes")]
         public Output<ImmutableArray<Outputs.RouteTableRoutes>> Routes { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.RouteTableRoutesArgs>? _routes;
 
         /// <summary>
-        /// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
+        /// A list of objects representing routes. Each object accepts the arguments documented below.
         /// </summary>
         public InputList<Inputs.RouteTableRoutesArgs> Routes
         {
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.RouteTableRoutesGetArgs>? _routes;
 
         /// <summary>
-        /// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
+        /// A list of objects representing routes. Each object accepts the arguments documented below.
         /// </summary>
         public InputList<Inputs.RouteTableRoutesGetArgs> Routes
         {

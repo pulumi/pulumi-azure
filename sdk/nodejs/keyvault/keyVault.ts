@@ -45,7 +45,7 @@ export class KeyVault extends pulumi.CustomResource {
     }
 
     /**
-     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
+     * A list of up to 16 objects describing access policies, as described below.
      */
     public readonly accessPolicies!: pulumi.Output<outputs.keyvault.KeyVaultAccessPolicy[]>;
     /**
@@ -169,7 +169,7 @@ export class KeyVault extends pulumi.CustomResource {
  */
 export interface KeyVaultState {
     /**
-     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
+     * A list of up to 16 objects describing access policies, as described below.
      */
     readonly accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
     /**
@@ -231,7 +231,7 @@ export interface KeyVaultState {
  */
 export interface KeyVaultArgs {
     /**
-     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
+     * A list of up to 16 objects describing access policies, as described below.
      */
     readonly accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
     /**

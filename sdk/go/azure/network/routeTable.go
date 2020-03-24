@@ -25,7 +25,7 @@ type RouteTable struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
+	// A list of objects representing routes. Each object accepts the arguments documented below.
 	Routes RouteTableRouteArrayOutput `pulumi:"routes"`
 	// The collection of Subnets associated with this route table.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
@@ -72,7 +72,7 @@ type routeTableState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
+	// A list of objects representing routes. Each object accepts the arguments documented below.
 	Routes []RouteTableRoute `pulumi:"routes"`
 	// The collection of Subnets associated with this route table.
 	Subnets []string `pulumi:"subnets"`
@@ -89,7 +89,7 @@ type RouteTableState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
+	// A list of objects representing routes. Each object accepts the arguments documented below.
 	Routes RouteTableRouteArrayInput
 	// The collection of Subnets associated with this route table.
 	Subnets pulumi.StringArrayInput
@@ -110,7 +110,7 @@ type routeTableArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
+	// A list of objects representing routes. Each object accepts the arguments documented below.
 	Routes []RouteTableRoute `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -126,7 +126,7 @@ type RouteTableArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
+	// A list of objects representing routes. Each object accepts the arguments documented below.
 	Routes RouteTableRouteArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

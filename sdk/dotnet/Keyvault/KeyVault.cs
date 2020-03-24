@@ -23,7 +23,7 @@ namespace Pulumi.Azure.KeyVault
     public partial class KeyVault : Pulumi.CustomResource
     {
         /// <summary>
-        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
+        /// A list of up to 16 objects describing access policies, as described below.
         /// </summary>
         [Output("accessPolicies")]
         public Output<ImmutableArray<Outputs.KeyVaultAccessPolicies>> AccessPolicies { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<Inputs.KeyVaultAccessPoliciesArgs>? _accessPolicies;
 
         /// <summary>
-        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
+        /// A list of up to 16 objects describing access policies, as described below.
         /// </summary>
         public InputList<Inputs.KeyVaultAccessPoliciesArgs> AccessPolicies
         {
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<Inputs.KeyVaultAccessPoliciesGetArgs>? _accessPolicies;
 
         /// <summary>
-        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
+        /// A list of up to 16 objects describing access policies, as described below.
         /// </summary>
         public InputList<Inputs.KeyVaultAccessPoliciesGetArgs> AccessPolicies
         {

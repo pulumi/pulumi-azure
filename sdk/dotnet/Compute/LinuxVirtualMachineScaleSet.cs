@@ -14,8 +14,6 @@ namespace Pulumi.Azure.Compute
     /// 
     /// ## Disclaimers
     /// 
-    /// &gt; **Note**: All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-    /// 
     /// &gt; **Note** This provider will automatically update &amp; reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` configuration within the Provider configuration block.
     /// 
     /// &gt; **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead

@@ -24,7 +24,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
     """
     security_rules: pulumi.Output[list]
     """
-    [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
+    A list of objects representing security rules, as defined below.
 
       * `access` (`str`) - Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
       * `description` (`str`) - A description for this rule. Restricted to 140 characters.
@@ -62,7 +62,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the security rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] security_rules: [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
+        :param pulumi.Input[list] security_rules: A list of objects representing security rules, as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         The **security_rules** object supports the following:
@@ -126,7 +126,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the security rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] security_rules: [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
+        :param pulumi.Input[list] security_rules: A list of objects representing security rules, as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         The **security_rules** object supports the following:
