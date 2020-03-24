@@ -10,3 +10,4 @@ yarn.lock
 *.iml
 obj/
 bin/
+**/pulumiManifest.go
