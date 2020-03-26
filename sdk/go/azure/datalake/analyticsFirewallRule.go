@@ -128,4 +128,3 @@ type AnalyticsFirewallRuleArgs struct {
 func (AnalyticsFirewallRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyticsFirewallRuleArgs)(nil)).Elem()
 }
-

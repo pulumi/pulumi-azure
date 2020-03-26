@@ -125,4 +125,3 @@ type VirtualNetworkRuleArgs struct {
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkRuleArgs)(nil)).Elem()
 }
-

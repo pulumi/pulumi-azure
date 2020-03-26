@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Core
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscriptions.html.markdown.
         /// </summary>
+        [Obsolete("Use GetSubscriptions.InvokeAsync() instead")]
         public static Task<GetSubscriptionsResult> GetSubscriptions(GetSubscriptionsArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionsResult>("azure:core/getSubscriptions:getSubscriptions", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetSubscriptions
+    {
+        /// <summary>
+        /// Use this data source to access information about all the Subscriptions currently available.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscriptions.html.markdown.
+        /// </summary>
+        public static Task<GetSubscriptionsResult> InvokeAsync(GetSubscriptionsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionsResult>("azure:core/getSubscriptions:getSubscriptions", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -175,4 +175,3 @@ type PolicyVMArgs struct {
 func (PolicyVMArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyVMArgs)(nil)).Elem()
 }
-

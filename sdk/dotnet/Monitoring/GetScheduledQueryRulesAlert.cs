@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Monitoring
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_scheduled_query_rules_alert.html.markdown.
         /// </summary>
+        [Obsolete("Use GetScheduledQueryRulesAlert.InvokeAsync() instead")]
         public static Task<GetScheduledQueryRulesAlertResult> GetScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetScheduledQueryRulesAlert
+    {
+        /// <summary>
+        /// Use this data source to access the properties of an AlertingAction scheduled query rule.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_scheduled_query_rules_alert.html.markdown.
+        /// </summary>
+        public static Task<GetScheduledQueryRulesAlertResult> InvokeAsync(GetScheduledQueryRulesAlertArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

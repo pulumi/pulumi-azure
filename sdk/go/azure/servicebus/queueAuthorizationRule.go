@@ -56,6 +56,12 @@ func NewQueueAuthorizationRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &QueueAuthorizationRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource QueueAuthorizationRule
 	err := ctx.RegisterResource("azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {
@@ -169,4 +175,3 @@ type QueueAuthorizationRuleArgs struct {
 func (QueueAuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueAuthorizationRuleArgs)(nil)).Elem()
 }
-

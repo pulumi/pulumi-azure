@@ -16,23 +16,44 @@ namespace Pulumi.Azure.Batch
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_pool.html.markdown.
         /// </summary>
+        [Obsolete("Use GetPool.InvokeAsync() instead")]
         public static Task<GetPoolResult> GetPool(GetPoolArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:batch/getPool:getPool", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetPool
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Batch pool
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_pool.html.markdown.
+        /// </summary>
+        public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:batch/getPool:getPool", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetPoolArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the Batch account.
+        /// </summary>
         [Input("accountName", required: true)]
         public string AccountName { get; set; } = null!;
 
         [Input("certificates")]
         private List<Inputs.GetPoolCertificatesArgs>? _certificates;
+
+        /// <summary>
+        /// One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
+        /// </summary>
         public List<Inputs.GetPoolCertificatesArgs> Certificates
         {
             get => _certificates ?? (_certificates = new List<Inputs.GetPoolCertificatesArgs>());
             set => _certificates = value;
         }
 
+        /// <summary>
+        /// The name of the endpoint.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -42,6 +63,9 @@ namespace Pulumi.Azure.Batch
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// A `start_task` block that describes the start task settings for the Batch pool.
+        /// </summary>
         [Input("startTask")]
         public Inputs.GetPoolStartTaskArgs? StartTask { get; set; }
 

@@ -272,4 +272,3 @@ type LinuxVirtualMachineArgs struct {
 func (LinuxVirtualMachineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linuxVirtualMachineArgs)(nil)).Elem()
 }
-

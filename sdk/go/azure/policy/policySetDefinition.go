@@ -154,4 +154,3 @@ type PolicySetDefinitionArgs struct {
 func (PolicySetDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policySetDefinitionArgs)(nil)).Elem()
 }
-

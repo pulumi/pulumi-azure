@@ -230,4 +230,3 @@ type VirtualNetworkPeeringArgs struct {
 func (VirtualNetworkPeeringArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkPeeringArgs)(nil)).Elem()
 }
-

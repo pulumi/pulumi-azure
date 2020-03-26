@@ -506,7 +506,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? GatewayRegionalUrl { get; set; }
 
         /// <summary>
-        /// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+        /// The name of the Azure Region in which the API Management Service should be expanded to.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
@@ -537,7 +537,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? GatewayRegionalUrl { get; set; }
 
         /// <summary>
-        /// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+        /// The name of the Azure Region in which the API Management Service should be expanded to.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
@@ -561,12 +561,21 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ServiceCertificatesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The password for the certificate.
+        /// </summary>
         [Input("certificatePassword", required: true)]
         public Input<string> CertificatePassword { get; set; } = null!;
 
+        /// <summary>
+        /// The Base64 Encoded PFX Certificate.
+        /// </summary>
         [Input("encodedCertificate", required: true)]
         public Input<string> EncodedCertificate { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
+        /// </summary>
         [Input("storeName", required: true)]
         public Input<string> StoreName { get; set; } = null!;
 
@@ -577,12 +586,21 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ServiceCertificatesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The password for the certificate.
+        /// </summary>
         [Input("certificatePassword", required: true)]
         public Input<string> CertificatePassword { get; set; } = null!;
 
+        /// <summary>
+        /// The Base64 Encoded PFX Certificate.
+        /// </summary>
         [Input("encodedCertificate", required: true)]
         public Input<string> EncodedCertificate { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
+        /// </summary>
         [Input("storeName", required: true)]
         public Input<string> StoreName { get; set; } = null!;
 
@@ -595,6 +613,10 @@ namespace Pulumi.Azure.ApiManagement
     {
         [Input("managements")]
         private InputList<ServiceHostnameConfigurationManagementsArgs>? _managements;
+
+        /// <summary>
+        /// One or more `management` blocks as documented below.
+        /// </summary>
         public InputList<ServiceHostnameConfigurationManagementsArgs> Managements
         {
             get => _managements ?? (_managements = new InputList<ServiceHostnameConfigurationManagementsArgs>());
@@ -603,6 +625,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("portals")]
         private InputList<ServiceHostnameConfigurationPortalsArgs>? _portals;
+
+        /// <summary>
+        /// One or more `portal` blocks as documented below.
+        /// </summary>
         public InputList<ServiceHostnameConfigurationPortalsArgs> Portals
         {
             get => _portals ?? (_portals = new InputList<ServiceHostnameConfigurationPortalsArgs>());
@@ -611,6 +637,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("proxies")]
         private InputList<ServiceHostnameConfigurationProxiesArgs>? _proxies;
+
+        /// <summary>
+        /// One or more `proxy` blocks as documented below.
+        /// </summary>
         public InputList<ServiceHostnameConfigurationProxiesArgs> Proxies
         {
             get => _proxies ?? (_proxies = new InputList<ServiceHostnameConfigurationProxiesArgs>());
@@ -619,6 +649,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("scms")]
         private InputList<ServiceHostnameConfigurationScmsArgs>? _scms;
+
+        /// <summary>
+        /// One or more `scm` blocks as documented below.
+        /// </summary>
         public InputList<ServiceHostnameConfigurationScmsArgs> Scms
         {
             get => _scms ?? (_scms = new InputList<ServiceHostnameConfigurationScmsArgs>());
@@ -634,6 +668,10 @@ namespace Pulumi.Azure.ApiManagement
     {
         [Input("managements")]
         private InputList<ServiceHostnameConfigurationManagementsGetArgs>? _managements;
+
+        /// <summary>
+        /// One or more `management` blocks as documented below.
+        /// </summary>
         public InputList<ServiceHostnameConfigurationManagementsGetArgs> Managements
         {
             get => _managements ?? (_managements = new InputList<ServiceHostnameConfigurationManagementsGetArgs>());
@@ -642,6 +680,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("portals")]
         private InputList<ServiceHostnameConfigurationPortalsGetArgs>? _portals;
+
+        /// <summary>
+        /// One or more `portal` blocks as documented below.
+        /// </summary>
         public InputList<ServiceHostnameConfigurationPortalsGetArgs> Portals
         {
             get => _portals ?? (_portals = new InputList<ServiceHostnameConfigurationPortalsGetArgs>());
@@ -650,6 +692,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("proxies")]
         private InputList<ServiceHostnameConfigurationProxiesGetArgs>? _proxies;
+
+        /// <summary>
+        /// One or more `proxy` blocks as documented below.
+        /// </summary>
         public InputList<ServiceHostnameConfigurationProxiesGetArgs> Proxies
         {
             get => _proxies ?? (_proxies = new InputList<ServiceHostnameConfigurationProxiesGetArgs>());
@@ -658,6 +704,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("scms")]
         private InputList<ServiceHostnameConfigurationScmsGetArgs>? _scms;
+
+        /// <summary>
+        /// One or more `scm` blocks as documented below.
+        /// </summary>
         public InputList<ServiceHostnameConfigurationScmsGetArgs> Scms
         {
             get => _scms ?? (_scms = new InputList<ServiceHostnameConfigurationScmsGetArgs>());
@@ -672,20 +722,32 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class ServiceHostnameConfigurationManagementsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// One or more (up to 10) `certificate` blocks as defined below.
+        /// The Base64 Encoded Certificate.
         /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
 
+        /// <summary>
+        /// The password associated with the certificate provided above.
+        /// </summary>
         [Input("certificatePassword")]
         public Input<string>? CertificatePassword { get; set; }
 
+        /// <summary>
+        /// The Hostname to use for the Management API.
+        /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+        /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
 
+        /// <summary>
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        /// </summary>
         [Input("negotiateClientCertificate")]
         public Input<bool>? NegotiateClientCertificate { get; set; }
 
@@ -697,20 +759,32 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class ServiceHostnameConfigurationManagementsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// One or more (up to 10) `certificate` blocks as defined below.
+        /// The Base64 Encoded Certificate.
         /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
 
+        /// <summary>
+        /// The password associated with the certificate provided above.
+        /// </summary>
         [Input("certificatePassword")]
         public Input<string>? CertificatePassword { get; set; }
 
+        /// <summary>
+        /// The Hostname to use for the Management API.
+        /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+        /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
 
+        /// <summary>
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        /// </summary>
         [Input("negotiateClientCertificate")]
         public Input<bool>? NegotiateClientCertificate { get; set; }
 
@@ -727,15 +801,27 @@ namespace Pulumi.Azure.ApiManagement
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
 
+        /// <summary>
+        /// The password for the certificate.
+        /// </summary>
         [Input("certificatePassword")]
         public Input<string>? CertificatePassword { get; set; }
 
+        /// <summary>
+        /// The Hostname to use for the Management API.
+        /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+        /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
 
+        /// <summary>
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        /// </summary>
         [Input("negotiateClientCertificate")]
         public Input<bool>? NegotiateClientCertificate { get; set; }
 
@@ -752,15 +838,27 @@ namespace Pulumi.Azure.ApiManagement
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
 
+        /// <summary>
+        /// The password for the certificate.
+        /// </summary>
         [Input("certificatePassword")]
         public Input<string>? CertificatePassword { get; set; }
 
+        /// <summary>
+        /// The Hostname to use for the Management API.
+        /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+        /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
 
+        /// <summary>
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        /// </summary>
         [Input("negotiateClientCertificate")]
         public Input<bool>? NegotiateClientCertificate { get; set; }
 
@@ -772,23 +870,38 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class ServiceHostnameConfigurationProxiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// One or more (up to 10) `certificate` blocks as defined below.
+        /// The Base64 Encoded Certificate.
         /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
 
+        /// <summary>
+        /// The password associated with the certificate provided above.
+        /// </summary>
         [Input("certificatePassword")]
         public Input<string>? CertificatePassword { get; set; }
 
+        /// <summary>
+        /// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
+        /// </summary>
         [Input("defaultSslBinding")]
         public Input<bool>? DefaultSslBinding { get; set; }
 
+        /// <summary>
+        /// The Hostname to use for the Management API.
+        /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+        /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
 
+        /// <summary>
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        /// </summary>
         [Input("negotiateClientCertificate")]
         public Input<bool>? NegotiateClientCertificate { get; set; }
 
@@ -800,23 +913,38 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class ServiceHostnameConfigurationProxiesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// One or more (up to 10) `certificate` blocks as defined below.
+        /// The Base64 Encoded Certificate.
         /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
 
+        /// <summary>
+        /// The password associated with the certificate provided above.
+        /// </summary>
         [Input("certificatePassword")]
         public Input<string>? CertificatePassword { get; set; }
 
+        /// <summary>
+        /// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
+        /// </summary>
         [Input("defaultSslBinding")]
         public Input<bool>? DefaultSslBinding { get; set; }
 
+        /// <summary>
+        /// The Hostname to use for the Management API.
+        /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+        /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
 
+        /// <summary>
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        /// </summary>
         [Input("negotiateClientCertificate")]
         public Input<bool>? NegotiateClientCertificate { get; set; }
 
@@ -833,15 +961,27 @@ namespace Pulumi.Azure.ApiManagement
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
 
+        /// <summary>
+        /// The password for the certificate.
+        /// </summary>
         [Input("certificatePassword")]
         public Input<string>? CertificatePassword { get; set; }
 
+        /// <summary>
+        /// The Hostname to use for the Management API.
+        /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+        /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
 
+        /// <summary>
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        /// </summary>
         [Input("negotiateClientCertificate")]
         public Input<bool>? NegotiateClientCertificate { get; set; }
 
@@ -858,15 +998,27 @@ namespace Pulumi.Azure.ApiManagement
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
 
+        /// <summary>
+        /// The password for the certificate.
+        /// </summary>
         [Input("certificatePassword")]
         public Input<string>? CertificatePassword { get; set; }
 
+        /// <summary>
+        /// The Hostname to use for the Management API.
+        /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+        /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
 
+        /// <summary>
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        /// </summary>
         [Input("negotiateClientCertificate")]
         public Input<bool>? NegotiateClientCertificate { get; set; }
 
@@ -889,6 +1041,9 @@ namespace Pulumi.Azure.ApiManagement
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// Specifies the type of Managed Service Identity that should be configured on this API Management Service. At this time the only supported value is`SystemAssigned`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -911,6 +1066,9 @@ namespace Pulumi.Azure.ApiManagement
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// Specifies the type of Managed Service Identity that should be configured on this API Management Service. At this time the only supported value is`SystemAssigned`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -921,9 +1079,15 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ServicePolicyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The XML Content for this Policy.
+        /// </summary>
         [Input("xmlContent")]
         public Input<string>? XmlContent { get; set; }
 
+        /// <summary>
+        /// A link to an API Management Policy XML Document, which must be publicly available.
+        /// </summary>
         [Input("xmlLink")]
         public Input<string>? XmlLink { get; set; }
 
@@ -934,9 +1098,15 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ServicePolicyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The XML Content for this Policy.
+        /// </summary>
         [Input("xmlContent")]
         public Input<string>? XmlContent { get; set; }
 
+        /// <summary>
+        /// A link to an API Management Policy XML Document, which must be publicly available.
+        /// </summary>
         [Input("xmlLink")]
         public Input<string>? XmlLink { get; set; }
 
@@ -947,6 +1117,9 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ServiceProtocolsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
+        /// </summary>
         [Input("enableHttp2")]
         public Input<bool>? EnableHttp2 { get; set; }
 
@@ -957,6 +1130,9 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ServiceProtocolsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
+        /// </summary>
         [Input("enableHttp2")]
         public Input<bool>? EnableHttp2 { get; set; }
 
@@ -967,24 +1143,45 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ServiceSecurityArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
+        /// </summary>
         [Input("enableBackendSsl30")]
         public Input<bool>? EnableBackendSsl30 { get; set; }
 
+        /// <summary>
+        /// Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
+        /// </summary>
         [Input("enableBackendTls10")]
         public Input<bool>? EnableBackendTls10 { get; set; }
 
+        /// <summary>
+        /// Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
+        /// </summary>
         [Input("enableBackendTls11")]
         public Input<bool>? EnableBackendTls11 { get; set; }
 
+        /// <summary>
+        /// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
+        /// </summary>
         [Input("enableFrontendSsl30")]
         public Input<bool>? EnableFrontendSsl30 { get; set; }
 
+        /// <summary>
+        /// Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
+        /// </summary>
         [Input("enableFrontendTls10")]
         public Input<bool>? EnableFrontendTls10 { get; set; }
 
+        /// <summary>
+        /// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
+        /// </summary>
         [Input("enableFrontendTls11")]
         public Input<bool>? EnableFrontendTls11 { get; set; }
 
+        /// <summary>
+        /// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+        /// </summary>
         [Input("enableTripleDesCiphers")]
         public Input<bool>? EnableTripleDesCiphers { get; set; }
 
@@ -995,24 +1192,45 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ServiceSecurityGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
+        /// </summary>
         [Input("enableBackendSsl30")]
         public Input<bool>? EnableBackendSsl30 { get; set; }
 
+        /// <summary>
+        /// Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
+        /// </summary>
         [Input("enableBackendTls10")]
         public Input<bool>? EnableBackendTls10 { get; set; }
 
+        /// <summary>
+        /// Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
+        /// </summary>
         [Input("enableBackendTls11")]
         public Input<bool>? EnableBackendTls11 { get; set; }
 
+        /// <summary>
+        /// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
+        /// </summary>
         [Input("enableFrontendSsl30")]
         public Input<bool>? EnableFrontendSsl30 { get; set; }
 
+        /// <summary>
+        /// Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
+        /// </summary>
         [Input("enableFrontendTls10")]
         public Input<bool>? EnableFrontendTls10 { get; set; }
 
+        /// <summary>
+        /// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
+        /// </summary>
         [Input("enableFrontendTls11")]
         public Input<bool>? EnableFrontendTls11 { get; set; }
 
+        /// <summary>
+        /// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+        /// </summary>
         [Input("enableTripleDesCiphers")]
         public Input<bool>? EnableTripleDesCiphers { get; set; }
 
@@ -1023,6 +1241,9 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ServiceSignInArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should anonymous users be redirected to the sign in page?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -1033,6 +1254,9 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ServiceSignInGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should anonymous users be redirected to the sign in page?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -1043,9 +1267,15 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ServiceSignUpArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Can users sign up on the development portal?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// A `terms_of_service` block as defined below.
+        /// </summary>
         [Input("termsOfService", required: true)]
         public Input<ServiceSignUpTermsOfServiceArgs> TermsOfService { get; set; } = null!;
 
@@ -1056,9 +1286,15 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ServiceSignUpGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Can users sign up on the development portal?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// A `terms_of_service` block as defined below.
+        /// </summary>
         [Input("termsOfService", required: true)]
         public Input<ServiceSignUpTermsOfServiceGetArgs> TermsOfService { get; set; } = null!;
 
@@ -1069,12 +1305,21 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ServiceSignUpTermsOfServiceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should the user be asked for consent during sign up?
+        /// </summary>
         [Input("consentRequired", required: true)]
         public Input<bool> ConsentRequired { get; set; } = null!;
 
+        /// <summary>
+        /// Should Terms of Service be displayed during sign up?.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// The Terms of Service which users are required to agree to in order to sign up.
+        /// </summary>
         [Input("text")]
         public Input<string>? Text { get; set; }
 
@@ -1085,12 +1330,21 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ServiceSignUpTermsOfServiceGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should the user be asked for consent during sign up?
+        /// </summary>
         [Input("consentRequired", required: true)]
         public Input<bool> ConsentRequired { get; set; } = null!;
 
+        /// <summary>
+        /// Should Terms of Service be displayed during sign up?.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// The Terms of Service which users are required to agree to in order to sign up.
+        /// </summary>
         [Input("text")]
         public Input<string>? Text { get; set; }
 
@@ -1111,7 +1365,7 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         public readonly string GatewayRegionalUrl;
         /// <summary>
-        /// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+        /// The name of the Azure Region in which the API Management Service should be expanded to.
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -1134,8 +1388,17 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ServiceCertificates
     {
+        /// <summary>
+        /// The password for the certificate.
+        /// </summary>
         public readonly string CertificatePassword;
+        /// <summary>
+        /// The Base64 Encoded PFX Certificate.
+        /// </summary>
         public readonly string EncodedCertificate;
+        /// <summary>
+        /// The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
+        /// </summary>
         public readonly string StoreName;
 
         [OutputConstructor]
@@ -1153,9 +1416,21 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ServiceHostnameConfiguration
     {
+        /// <summary>
+        /// One or more `management` blocks as documented below.
+        /// </summary>
         public readonly ImmutableArray<ServiceHostnameConfigurationManagements> Managements;
+        /// <summary>
+        /// One or more `portal` blocks as documented below.
+        /// </summary>
         public readonly ImmutableArray<ServiceHostnameConfigurationPortals> Portals;
+        /// <summary>
+        /// One or more `proxy` blocks as documented below.
+        /// </summary>
         public readonly ImmutableArray<ServiceHostnameConfigurationProxies> Proxies;
+        /// <summary>
+        /// One or more `scm` blocks as documented below.
+        /// </summary>
         public readonly ImmutableArray<ServiceHostnameConfigurationScms> Scms;
 
         [OutputConstructor]
@@ -1176,12 +1451,24 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class ServiceHostnameConfigurationManagements
     {
         /// <summary>
-        /// One or more (up to 10) `certificate` blocks as defined below.
+        /// The Base64 Encoded Certificate.
         /// </summary>
         public readonly string? Certificate;
+        /// <summary>
+        /// The password associated with the certificate provided above.
+        /// </summary>
         public readonly string? CertificatePassword;
+        /// <summary>
+        /// The Hostname to use for the Management API.
+        /// </summary>
         public readonly string HostName;
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+        /// </summary>
         public readonly string? KeyVaultId;
+        /// <summary>
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        /// </summary>
         public readonly bool? NegotiateClientCertificate;
 
         [OutputConstructor]
@@ -1207,9 +1494,21 @@ namespace Pulumi.Azure.ApiManagement
         /// One or more (up to 10) `certificate` blocks as defined below.
         /// </summary>
         public readonly string? Certificate;
+        /// <summary>
+        /// The password for the certificate.
+        /// </summary>
         public readonly string? CertificatePassword;
+        /// <summary>
+        /// The Hostname to use for the Management API.
+        /// </summary>
         public readonly string HostName;
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+        /// </summary>
         public readonly string? KeyVaultId;
+        /// <summary>
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        /// </summary>
         public readonly bool? NegotiateClientCertificate;
 
         [OutputConstructor]
@@ -1232,13 +1531,28 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class ServiceHostnameConfigurationProxies
     {
         /// <summary>
-        /// One or more (up to 10) `certificate` blocks as defined below.
+        /// The Base64 Encoded Certificate.
         /// </summary>
         public readonly string? Certificate;
+        /// <summary>
+        /// The password associated with the certificate provided above.
+        /// </summary>
         public readonly string? CertificatePassword;
+        /// <summary>
+        /// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
+        /// </summary>
         public readonly bool DefaultSslBinding;
+        /// <summary>
+        /// The Hostname to use for the Management API.
+        /// </summary>
         public readonly string HostName;
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+        /// </summary>
         public readonly string? KeyVaultId;
+        /// <summary>
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        /// </summary>
         public readonly bool? NegotiateClientCertificate;
 
         [OutputConstructor]
@@ -1266,9 +1580,21 @@ namespace Pulumi.Azure.ApiManagement
         /// One or more (up to 10) `certificate` blocks as defined below.
         /// </summary>
         public readonly string? Certificate;
+        /// <summary>
+        /// The password for the certificate.
+        /// </summary>
         public readonly string? CertificatePassword;
+        /// <summary>
+        /// The Hostname to use for the Management API.
+        /// </summary>
         public readonly string HostName;
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+        /// </summary>
         public readonly string? KeyVaultId;
+        /// <summary>
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        /// </summary>
         public readonly bool? NegotiateClientCertificate;
 
         [OutputConstructor]
@@ -1298,6 +1624,9 @@ namespace Pulumi.Azure.ApiManagement
         /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string TenantId;
+        /// <summary>
+        /// Specifies the type of Managed Service Identity that should be configured on this API Management Service. At this time the only supported value is`SystemAssigned`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
@@ -1315,7 +1644,13 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ServicePolicy
     {
+        /// <summary>
+        /// The XML Content for this Policy.
+        /// </summary>
         public readonly string XmlContent;
+        /// <summary>
+        /// A link to an API Management Policy XML Document, which must be publicly available.
+        /// </summary>
         public readonly string? XmlLink;
 
         [OutputConstructor]
@@ -1331,6 +1666,9 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ServiceProtocols
     {
+        /// <summary>
+        /// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
+        /// </summary>
         public readonly bool? EnableHttp2;
 
         [OutputConstructor]
@@ -1343,12 +1681,33 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ServiceSecurity
     {
+        /// <summary>
+        /// Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
+        /// </summary>
         public readonly bool? EnableBackendSsl30;
+        /// <summary>
+        /// Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
+        /// </summary>
         public readonly bool? EnableBackendTls10;
+        /// <summary>
+        /// Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
+        /// </summary>
         public readonly bool? EnableBackendTls11;
+        /// <summary>
+        /// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
+        /// </summary>
         public readonly bool? EnableFrontendSsl30;
+        /// <summary>
+        /// Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
+        /// </summary>
         public readonly bool? EnableFrontendTls10;
+        /// <summary>
+        /// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
+        /// </summary>
         public readonly bool? EnableFrontendTls11;
+        /// <summary>
+        /// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+        /// </summary>
         public readonly bool? EnableTripleDesCiphers;
 
         [OutputConstructor]
@@ -1374,6 +1733,9 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ServiceSignIn
     {
+        /// <summary>
+        /// Should anonymous users be redirected to the sign in page?
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]
@@ -1386,7 +1748,13 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ServiceSignUp
     {
+        /// <summary>
+        /// Can users sign up on the development portal?
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// A `terms_of_service` block as defined below.
+        /// </summary>
         public readonly ServiceSignUpTermsOfService TermsOfService;
 
         [OutputConstructor]
@@ -1402,8 +1770,17 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ServiceSignUpTermsOfService
     {
+        /// <summary>
+        /// Should the user be asked for consent during sign up?
+        /// </summary>
         public readonly bool ConsentRequired;
+        /// <summary>
+        /// Should Terms of Service be displayed during sign up?.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// The Terms of Service which users are required to agree to in order to sign up.
+        /// </summary>
         public readonly string? Text;
 
         [OutputConstructor]

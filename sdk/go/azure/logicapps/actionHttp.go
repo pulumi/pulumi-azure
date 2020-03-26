@@ -135,4 +135,3 @@ type ActionHttpArgs struct {
 func (ActionHttpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionHttpArgs)(nil)).Elem()
 }
-

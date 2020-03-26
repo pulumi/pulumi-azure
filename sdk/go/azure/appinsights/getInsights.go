@@ -28,7 +28,6 @@ type LookupInsightsArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getInsights.
 type LookupInsightsResult struct {
 	// The App ID associated with this Application Insights component.
@@ -40,12 +39,11 @@ type LookupInsightsResult struct {
 	// The instrumentation key of the Application Insights component.
 	InstrumentationKey string `pulumi:"instrumentationKey"`
 	// The Azure location where the component exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The retention period in days.
 	RetentionInDays int `pulumi:"retentionInDays"`
 	// Tags applied to the component.
 	Tags map[string]string `pulumi:"tags"`
 }
-

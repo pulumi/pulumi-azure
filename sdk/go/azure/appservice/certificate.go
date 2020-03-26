@@ -40,8 +40,8 @@ type Certificate struct {
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The subject name of the certificate.
-	SubjectName pulumi.StringOutput `pulumi:"subjectName"`
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	SubjectName pulumi.StringOutput    `pulumi:"subjectName"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
 	// The thumbprint for the certificate.
 	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
 }
@@ -100,8 +100,8 @@ type certificateState struct {
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The subject name of the certificate.
-	SubjectName *string `pulumi:"subjectName"`
-	Tags map[string]string `pulumi:"tags"`
+	SubjectName *string           `pulumi:"subjectName"`
+	Tags        map[string]string `pulumi:"tags"`
 	// The thumbprint for the certificate.
 	Thumbprint *string `pulumi:"thumbprint"`
 }
@@ -131,7 +131,7 @@ type CertificateState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The subject name of the certificate.
 	SubjectName pulumi.StringPtrInput
-	Tags pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
 	// The thumbprint for the certificate.
 	Thumbprint pulumi.StringPtrInput
 }
@@ -152,8 +152,8 @@ type certificateArgs struct {
 	// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
 	PfxBlob *string `pulumi:"pfxBlob"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Tags map[string]string `pulumi:"tags"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Certificate resource.
@@ -170,10 +170,9 @@ type CertificateArgs struct {
 	PfxBlob pulumi.StringPtrInput
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateArgs)(nil)).Elem()
 }
-

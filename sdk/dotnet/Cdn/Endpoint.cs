@@ -28,6 +28,9 @@ namespace Pulumi.Azure.Cdn
         [Output("geoFilters")]
         public Output<ImmutableArray<Outputs.EndpointGeoFilters>> GeoFilters { get; private set; } = null!;
 
+        /// <summary>
+        /// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("hostName")]
         public Output<string> HostName { get; private set; } = null!;
 
@@ -56,7 +59,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+        /// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -210,7 +213,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+        /// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -312,6 +315,9 @@ namespace Pulumi.Azure.Cdn
             set => _geoFilters = value;
         }
 
+        /// <summary>
+        /// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("hostName")]
         public Input<string>? HostName { get; set; }
 
@@ -340,7 +346,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+        /// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -421,17 +427,27 @@ namespace Pulumi.Azure.Cdn
 
     public sealed class EndpointGeoFiltersArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Action of the Geo Filter. Possible values include `Allow` and `Block`.
+        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
         [Input("countryCodes", required: true)]
         private InputList<string>? _countryCodes;
+
+        /// <summary>
+        /// A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
+        /// </summary>
         public InputList<string> CountryCodes
         {
             get => _countryCodes ?? (_countryCodes = new InputList<string>());
             set => _countryCodes = value;
         }
 
+        /// <summary>
+        /// The relative path applicable to geo filter.
+        /// </summary>
         [Input("relativePath", required: true)]
         public Input<string> RelativePath { get; set; } = null!;
 
@@ -442,17 +458,27 @@ namespace Pulumi.Azure.Cdn
 
     public sealed class EndpointGeoFiltersGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Action of the Geo Filter. Possible values include `Allow` and `Block`.
+        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
         [Input("countryCodes", required: true)]
         private InputList<string>? _countryCodes;
+
+        /// <summary>
+        /// A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
+        /// </summary>
         public InputList<string> CountryCodes
         {
             get => _countryCodes ?? (_countryCodes = new InputList<string>());
             set => _countryCodes = value;
         }
 
+        /// <summary>
+        /// The relative path applicable to geo filter.
+        /// </summary>
         [Input("relativePath", required: true)]
         public Input<string> RelativePath { get; set; } = null!;
 
@@ -463,17 +489,26 @@ namespace Pulumi.Azure.Cdn
 
     public sealed class EndpointOriginsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
+        /// <summary>
+        /// The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("httpPort")]
         public Input<int>? HttpPort { get; set; }
 
+        /// <summary>
+        /// The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("httpsPort")]
         public Input<int>? HttpsPort { get; set; }
 
         /// <summary>
-        /// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+        /// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -485,17 +520,26 @@ namespace Pulumi.Azure.Cdn
 
     public sealed class EndpointOriginsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
+        /// <summary>
+        /// The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("httpPort")]
         public Input<int>? HttpPort { get; set; }
 
+        /// <summary>
+        /// The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("httpsPort")]
         public Input<int>? HttpsPort { get; set; }
 
         /// <summary>
-        /// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+        /// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -512,8 +556,17 @@ namespace Pulumi.Azure.Cdn
     [OutputType]
     public sealed class EndpointGeoFilters
     {
+        /// <summary>
+        /// The Action of the Geo Filter. Possible values include `Allow` and `Block`.
+        /// </summary>
         public readonly string Action;
+        /// <summary>
+        /// A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
+        /// </summary>
         public readonly ImmutableArray<string> CountryCodes;
+        /// <summary>
+        /// The relative path applicable to geo filter.
+        /// </summary>
         public readonly string RelativePath;
 
         [OutputConstructor]
@@ -531,11 +584,20 @@ namespace Pulumi.Azure.Cdn
     [OutputType]
     public sealed class EndpointOrigins
     {
+        /// <summary>
+        /// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string HostName;
+        /// <summary>
+        /// The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? HttpPort;
+        /// <summary>
+        /// The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? HttpsPort;
         /// <summary>
-        /// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+        /// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
 

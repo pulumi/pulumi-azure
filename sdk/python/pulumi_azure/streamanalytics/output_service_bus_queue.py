@@ -26,10 +26,10 @@ class OutputServiceBusQueue(pulumi.CustomResource):
     """
     A `serialization` block as defined below.
 
-      * `encoding` (`str`)
-      * `fieldDelimiter` (`str`)
-      * `format` (`str`)
-      * `type` (`str`)
+      * `encoding` (`str`) - The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+      * `fieldDelimiter` (`str`) - The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+      * `format` (`str`) - Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
+      * `type` (`str`) - The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
     """
     servicebus_namespace: pulumi.Output[str]
     """
@@ -66,10 +66,10 @@ class OutputServiceBusQueue(pulumi.CustomResource):
 
         The **serialization** object supports the following:
 
-          * `encoding` (`pulumi.Input[str]`)
-          * `fieldDelimiter` (`pulumi.Input[str]`)
-          * `format` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`)
+          * `encoding` (`pulumi.Input[str]`) - The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+          * `fieldDelimiter` (`pulumi.Input[str]`) - The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+          * `format` (`pulumi.Input[str]`) - Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
+          * `type` (`pulumi.Input[str]`) - The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -136,10 +136,10 @@ class OutputServiceBusQueue(pulumi.CustomResource):
 
         The **serialization** object supports the following:
 
-          * `encoding` (`pulumi.Input[str]`)
-          * `fieldDelimiter` (`pulumi.Input[str]`)
-          * `format` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`)
+          * `encoding` (`pulumi.Input[str]`) - The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+          * `fieldDelimiter` (`pulumi.Input[str]`) - The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+          * `format` (`pulumi.Input[str]`) - Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
+          * `type` (`pulumi.Input[str]`) - The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

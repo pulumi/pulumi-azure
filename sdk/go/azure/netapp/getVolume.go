@@ -32,18 +32,17 @@ type LookupVolumeArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getVolume.
 type LookupVolumeResult struct {
 	AccountName string `pulumi:"accountName"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region where the NetApp Volume exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
-	PoolName string `pulumi:"poolName"`
-	Protocols []string `pulumi:"protocols"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Location          string   `pulumi:"location"`
+	Name              string   `pulumi:"name"`
+	PoolName          string   `pulumi:"poolName"`
+	Protocols         []string `pulumi:"protocols"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
 	// The service level of the file system.
 	ServiceLevel string `pulumi:"serviceLevel"`
 	// The maximum Storage Quota in Gigabytes allowed for a file system.
@@ -53,4 +52,3 @@ type LookupVolumeResult struct {
 	// The unique file path of the volume.
 	VolumePath string `pulumi:"volumePath"`
 }
-

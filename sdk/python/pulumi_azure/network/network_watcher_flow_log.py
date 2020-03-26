@@ -12,7 +12,7 @@ from .. import utilities, tables
 class NetworkWatcherFlowLog(pulumi.CustomResource):
     enabled: pulumi.Output[bool]
     """
-    Boolean flag to enable/disable traffic analytics.
+    Should Network Flow Logging be Enabled?
     """
     network_security_group_id: pulumi.Output[str]
     """
@@ -31,7 +31,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
     A `retention_policy` block as documented below.
 
       * `days` (`float`) - The number of days to retain flow log records.
-      * `enabled` (`bool`) - Boolean flag to enable/disable traffic analytics.
+      * `enabled` (`bool`) - Boolean flag to enable/disable retention.
     """
     storage_account_id: pulumi.Output[str]
     """
@@ -59,7 +59,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enabled: Boolean flag to enable/disable traffic analytics.
+        :param pulumi.Input[bool] enabled: Should Network Flow Logging be Enabled?
         :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
@@ -71,7 +71,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         The **retention_policy** object supports the following:
 
           * `days` (`pulumi.Input[float]`) - The number of days to retain flow log records.
-          * `enabled` (`pulumi.Input[bool]`) - Boolean flag to enable/disable traffic analytics.
+          * `enabled` (`pulumi.Input[bool]`) - Boolean flag to enable/disable retention.
 
         The **traffic_analytics** object supports the following:
 
@@ -133,7 +133,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enabled: Boolean flag to enable/disable traffic analytics.
+        :param pulumi.Input[bool] enabled: Should Network Flow Logging be Enabled?
         :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
@@ -145,7 +145,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         The **retention_policy** object supports the following:
 
           * `days` (`pulumi.Input[float]`) - The number of days to retain flow log records.
-          * `enabled` (`pulumi.Input[bool]`) - Boolean flag to enable/disable traffic analytics.
+          * `enabled` (`pulumi.Input[bool]`) - Boolean flag to enable/disable retention.
 
         The **traffic_analytics** object supports the following:
 

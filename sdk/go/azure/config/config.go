@@ -12,6 +12,7 @@ import (
 func GetAuxiliaryTenantIds(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:auxiliaryTenantIds")
 }
+
 // The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
 // Certificate
 func GetClientCertificatePassword(ctx *pulumi.Context) string {
@@ -19,7 +20,9 @@ func GetClientCertificatePassword(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD").(string)}
+	return getEnvOrDefault("", nil, "AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD").(string)
+}
+
 // The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
 // Principal using a Client Certificate.
 func GetClientCertificatePath(ctx *pulumi.Context) string {
@@ -27,32 +30,41 @@ func GetClientCertificatePath(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "AZURE_CLIENT_CERTIFICATE_PATH", "ARM_CLIENT_CERTIFICATE_PATH").(string)}
+	return getEnvOrDefault("", nil, "AZURE_CLIENT_CERTIFICATE_PATH", "ARM_CLIENT_CERTIFICATE_PATH").(string)
+}
+
 // The Client ID which should be used.
 func GetClientId(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "azure:clientId")
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "AZURE_CLIENT_ID", "ARM_CLIENT_ID").(string)}
+	return getEnvOrDefault("", nil, "AZURE_CLIENT_ID", "ARM_CLIENT_ID").(string)
+}
+
 // The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
 func GetClientSecret(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "azure:clientSecret")
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET").(string)}
+	return getEnvOrDefault("", nil, "AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET").(string)
+}
+
 // This will disable the x-ms-correlation-request-id header.
 func GetDisableCorrelationRequestId(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "azure:disableCorrelationRequestId")
 }
+
 // This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
 func GetDisableTerraformPartnerId(ctx *pulumi.Context) bool {
 	v, err := config.TryBool(ctx, "azure:disableTerraformPartnerId")
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault(true, parseEnvBool, "ARM_DISABLE_TERRAFORM_PARTNER_ID").(bool)}
+	return getEnvOrDefault(true, parseEnvBool, "ARM_DISABLE_TERRAFORM_PARTNER_ID").(bool)
+}
+
 // The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
 // public.
 func GetEnvironment(ctx *pulumi.Context) string {
@@ -60,7 +72,8 @@ func GetEnvironment(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("public", nil, "AZURE_ENVIRONMENT", "ARM_ENVIRONMENT").(string)}
+	return getEnvOrDefault("public", nil, "AZURE_ENVIRONMENT", "ARM_ENVIRONMENT").(string)
+}
 func GetFeatures(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:features")
 }
@@ -69,7 +82,9 @@ func GetLocation(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "ARM_LOCATION").(string)}
+	return getEnvOrDefault("", nil, "ARM_LOCATION").(string)
+}
+
 // The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 // automatically.
 func GetMsiEndpoint(ctx *pulumi.Context) string {
@@ -77,21 +92,27 @@ func GetMsiEndpoint(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "ARM_MSI_ENDPOINT").(string)}
+	return getEnvOrDefault("", nil, "ARM_MSI_ENDPOINT").(string)
+}
+
 // A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 func GetPartnerId(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "azure:partnerId")
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "ARM_PARTNER_ID").(string)}
+	return getEnvOrDefault("", nil, "ARM_PARTNER_ID").(string)
+}
+
 // This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
 func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
 	v, err := config.TryBool(ctx, "azure:skipCredentialsValidation")
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_CREDENTIALS_VALIDATION").(bool)}
+	return getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_CREDENTIALS_VALIDATION").(bool)
+}
+
 // Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
 // registered?
 func GetSkipProviderRegistration(ctx *pulumi.Context) bool {
@@ -99,29 +120,37 @@ func GetSkipProviderRegistration(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION").(bool)}
+	return getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION").(bool)
+}
+
 // Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
 func GetStorageUseAzuread(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "azure:storageUseAzuread")
 }
+
 // The Subscription ID which should be used.
 func GetSubscriptionId(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "azure:subscriptionId")
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "ARM_SUBSCRIPTION_ID").(string)}
+	return getEnvOrDefault("", nil, "ARM_SUBSCRIPTION_ID").(string)
+}
+
 // The Tenant ID which should be used.
 func GetTenantId(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "azure:tenantId")
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "AZURE_TENANT_ID", "ARM_TENANT_ID").(string)}
+	return getEnvOrDefault("", nil, "AZURE_TENANT_ID", "ARM_TENANT_ID").(string)
+}
+
 // Allowed Managed Service Identity be used for Authentication.
 func GetUseMsi(ctx *pulumi.Context) bool {
 	v, err := config.TryBool(ctx, "azure:useMsi")
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault(false, parseEnvBool, "ARM_USE_MSI").(bool)}
+	return getEnvOrDefault(false, parseEnvBool, "ARM_USE_MSI").(bool)
+}

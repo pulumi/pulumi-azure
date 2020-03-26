@@ -132,4 +132,3 @@ type DateTimeVariableArgs struct {
 func (DateTimeVariableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dateTimeVariableArgs)(nil)).Elem()
 }
-

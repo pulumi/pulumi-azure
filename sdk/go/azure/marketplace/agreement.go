@@ -21,7 +21,7 @@ type Agreement struct {
 	// The Offer of the Marketplace Image. Changing this forces a new resource to be created.
 	Offer pulumi.StringOutput `pulumi:"offer"`
 	// The Plan of the Marketplace Image. Changing this forces a new resource to be created.
-	Plan pulumi.StringOutput `pulumi:"plan"`
+	Plan              pulumi.StringOutput `pulumi:"plan"`
 	PrivacyPolicyLink pulumi.StringOutput `pulumi:"privacyPolicyLink"`
 	// The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
 	Publisher pulumi.StringOutput `pulumi:"publisher"`
@@ -68,7 +68,7 @@ type agreementState struct {
 	// The Offer of the Marketplace Image. Changing this forces a new resource to be created.
 	Offer *string `pulumi:"offer"`
 	// The Plan of the Marketplace Image. Changing this forces a new resource to be created.
-	Plan *string `pulumi:"plan"`
+	Plan              *string `pulumi:"plan"`
 	PrivacyPolicyLink *string `pulumi:"privacyPolicyLink"`
 	// The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
 	Publisher *string `pulumi:"publisher"`
@@ -79,7 +79,7 @@ type AgreementState struct {
 	// The Offer of the Marketplace Image. Changing this forces a new resource to be created.
 	Offer pulumi.StringPtrInput
 	// The Plan of the Marketplace Image. Changing this forces a new resource to be created.
-	Plan pulumi.StringPtrInput
+	Plan              pulumi.StringPtrInput
 	PrivacyPolicyLink pulumi.StringPtrInput
 	// The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
 	Publisher pulumi.StringPtrInput
@@ -111,4 +111,3 @@ type AgreementArgs struct {
 func (AgreementArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*agreementArgs)(nil)).Elem()
 }
-

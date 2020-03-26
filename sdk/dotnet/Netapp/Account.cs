@@ -185,24 +185,43 @@ namespace Pulumi.Azure.NetApp
     {
         [Input("dnsServers", required: true)]
         private InputList<string>? _dnsServers;
+
+        /// <summary>
+        /// A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
+        /// </summary>
         public InputList<string> DnsServers
         {
             get => _dnsServers ?? (_dnsServers = new InputList<string>());
             set => _dnsServers = value;
         }
 
+        /// <summary>
+        /// The name of the Active Directory domain.
+        /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
+        /// <summary>
+        /// The Organizational Unit (OU) within the Active Directory Domain.
+        /// </summary>
         [Input("organizationalUnit")]
         public Input<string>? OrganizationalUnit { get; set; }
 
+        /// <summary>
+        /// The password associated with the `username`.
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
+        /// <summary>
+        /// The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
+        /// </summary>
         [Input("smbServerName", required: true)]
         public Input<string> SmbServerName { get; set; } = null!;
 
+        /// <summary>
+        /// The Username of Active Directory Domain Administrator.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -215,24 +234,43 @@ namespace Pulumi.Azure.NetApp
     {
         [Input("dnsServers", required: true)]
         private InputList<string>? _dnsServers;
+
+        /// <summary>
+        /// A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
+        /// </summary>
         public InputList<string> DnsServers
         {
             get => _dnsServers ?? (_dnsServers = new InputList<string>());
             set => _dnsServers = value;
         }
 
+        /// <summary>
+        /// The name of the Active Directory domain.
+        /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
+        /// <summary>
+        /// The Organizational Unit (OU) within the Active Directory Domain.
+        /// </summary>
         [Input("organizationalUnit")]
         public Input<string>? OrganizationalUnit { get; set; }
 
+        /// <summary>
+        /// The password associated with the `username`.
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
+        /// <summary>
+        /// The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
+        /// </summary>
         [Input("smbServerName", required: true)]
         public Input<string> SmbServerName { get; set; } = null!;
 
+        /// <summary>
+        /// The Username of Active Directory Domain Administrator.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -248,11 +286,29 @@ namespace Pulumi.Azure.NetApp
     [OutputType]
     public sealed class AccountActiveDirectory
     {
+        /// <summary>
+        /// A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
+        /// </summary>
         public readonly ImmutableArray<string> DnsServers;
+        /// <summary>
+        /// The name of the Active Directory domain.
+        /// </summary>
         public readonly string Domain;
+        /// <summary>
+        /// The Organizational Unit (OU) within the Active Directory Domain.
+        /// </summary>
         public readonly string? OrganizationalUnit;
+        /// <summary>
+        /// The password associated with the `username`.
+        /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
+        /// </summary>
         public readonly string SmbServerName;
+        /// <summary>
+        /// The Username of Active Directory Domain Administrator.
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Sql
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_server.html.markdown.
         /// </summary>
+        [Obsolete("Use GetServer.InvokeAsync() instead")]
         public static Task<GetServerResult> GetServer(GetServerArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:sql/getServer:getServer", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetServer
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing SQL Azure Database Server.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_server.html.markdown.
+        /// </summary>
+        public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:sql/getServer:getServer", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

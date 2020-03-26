@@ -18,9 +18,9 @@ class BastionHost(pulumi.CustomResource):
     """
     A `ip_configuration` block as defined below.
 
-      * `name` (`str`) - Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
-      * `publicIpAddressId` (`str`)
-      * `subnet_id` (`str`)
+      * `name` (`str`) - The name of the IP configuration.
+      * `publicIpAddressId` (`str`) - Reference to a Public IP Address to associate with this Bastion Host.
+      * `subnet_id` (`str`) - Reference to a subnet in which this Bastion Host has been created.
     """
     location: pulumi.Output[str]
     """
@@ -56,9 +56,9 @@ class BastionHost(pulumi.CustomResource):
 
         The **ip_configuration** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
-          * `publicIpAddressId` (`pulumi.Input[str]`)
-          * `subnet_id` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of the IP configuration.
+          * `publicIpAddressId` (`pulumi.Input[str]`) - Reference to a Public IP Address to associate with this Bastion Host.
+          * `subnet_id` (`pulumi.Input[str]`) - Reference to a subnet in which this Bastion Host has been created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -109,9 +109,9 @@ class BastionHost(pulumi.CustomResource):
 
         The **ip_configuration** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
-          * `publicIpAddressId` (`pulumi.Input[str]`)
-          * `subnet_id` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of the IP configuration.
+          * `publicIpAddressId` (`pulumi.Input[str]`) - Reference to a Public IP Address to associate with this Bastion Host.
+          * `subnet_id` (`pulumi.Input[str]`) - Reference to a subnet in which this Bastion Host has been created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

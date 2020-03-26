@@ -27,7 +27,7 @@ namespace Pulumi.Azure.PrivateLink
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+        /// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.PrivateLink
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+        /// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.PrivateLink
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+        /// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

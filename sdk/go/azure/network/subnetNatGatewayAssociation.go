@@ -92,4 +92,3 @@ type SubnetNatGatewayAssociationArgs struct {
 func (SubnetNatGatewayAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetNatGatewayAssociationArgs)(nil)).Elem()
 }
-

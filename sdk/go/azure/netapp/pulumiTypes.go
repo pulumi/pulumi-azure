@@ -12,11 +12,17 @@ import (
 )
 
 type AccountActiveDirectory struct {
+	// A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
 	DnsServers []string `pulumi:"dnsServers"`
+	// The name of the Active Directory domain.
 	Domain string `pulumi:"domain"`
+	// The Organizational Unit (OU) within the Active Directory Domain.
 	OrganizationalUnit *string `pulumi:"organizationalUnit"`
+	// The password associated with the `username`.
 	Password string `pulumi:"password"`
+	// The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
 	SmbServerName string `pulumi:"smbServerName"`
+	// The Username of Active Directory Domain Administrator.
 	Username string `pulumi:"username"`
 }
 
@@ -28,11 +34,17 @@ type AccountActiveDirectoryInput interface {
 }
 
 type AccountActiveDirectoryArgs struct {
+	// A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
+	// The name of the Active Directory domain.
 	Domain pulumi.StringInput `pulumi:"domain"`
+	// The Organizational Unit (OU) within the Active Directory Domain.
 	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
+	// The password associated with the `username`.
 	Password pulumi.StringInput `pulumi:"password"`
+	// The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
 	SmbServerName pulumi.StringInput `pulumi:"smbServerName"`
+	// The Username of Active Directory Domain Administrator.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -65,7 +77,8 @@ type AccountActiveDirectoryPtrInput interface {
 
 type accountActiveDirectoryPtrType AccountActiveDirectoryArgs
 
-func AccountActiveDirectoryPtr(v *AccountActiveDirectoryArgs) AccountActiveDirectoryPtrInput {	return (*accountActiveDirectoryPtrType)(v)
+func AccountActiveDirectoryPtr(v *AccountActiveDirectoryArgs) AccountActiveDirectoryPtrInput {
+	return (*accountActiveDirectoryPtrType)(v)
 }
 
 func (*accountActiveDirectoryPtrType) ElementType() reflect.Type {
@@ -80,7 +93,7 @@ func (i *accountActiveDirectoryPtrType) ToAccountActiveDirectoryPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AccountActiveDirectoryPtrOutput)
 }
 
-type AccountActiveDirectoryOutput struct { *pulumi.OutputState }
+type AccountActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (AccountActiveDirectoryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountActiveDirectory)(nil)).Elem()
@@ -103,31 +116,38 @@ func (o AccountActiveDirectoryOutput) ToAccountActiveDirectoryPtrOutputWithConte
 		return &v
 	}).(AccountActiveDirectoryPtrOutput)
 }
+
+// A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
 func (o AccountActiveDirectoryOutput) DnsServers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
+// The name of the Active Directory domain.
 func (o AccountActiveDirectoryOutput) Domain() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) string { return v.Domain }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Domain }).(pulumi.StringOutput)
 }
 
+// The Organizational Unit (OU) within the Active Directory Domain.
 func (o AccountActiveDirectoryOutput) OrganizationalUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
 }
 
+// The password associated with the `username`.
 func (o AccountActiveDirectoryOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
 func (o AccountActiveDirectoryOutput) SmbServerName() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) string { return v.SmbServerName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) string { return v.SmbServerName }).(pulumi.StringOutput)
 }
 
+// The Username of Active Directory Domain Administrator.
 func (o AccountActiveDirectoryOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type AccountActiveDirectoryPtrOutput struct { *pulumi.OutputState}
+type AccountActiveDirectoryPtrOutput struct{ *pulumi.OutputState }
 
 func (AccountActiveDirectoryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountActiveDirectory)(nil)).Elem()
@@ -142,41 +162,55 @@ func (o AccountActiveDirectoryPtrOutput) ToAccountActiveDirectoryPtrOutputWithCo
 }
 
 func (o AccountActiveDirectoryPtrOutput) Elem() AccountActiveDirectoryOutput {
-	return o.ApplyT(func (v *AccountActiveDirectory) AccountActiveDirectory { return *v }).(AccountActiveDirectoryOutput)
+	return o.ApplyT(func(v *AccountActiveDirectory) AccountActiveDirectory { return *v }).(AccountActiveDirectoryOutput)
 }
 
+// A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
 func (o AccountActiveDirectoryPtrOutput) DnsServers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
+// The name of the Active Directory domain.
 func (o AccountActiveDirectoryPtrOutput) Domain() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) string { return v.Domain }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Domain }).(pulumi.StringOutput)
 }
 
+// The Organizational Unit (OU) within the Active Directory Domain.
 func (o AccountActiveDirectoryPtrOutput) OrganizationalUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
 }
 
+// The password associated with the `username`.
 func (o AccountActiveDirectoryPtrOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
 func (o AccountActiveDirectoryPtrOutput) SmbServerName() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) string { return v.SmbServerName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) string { return v.SmbServerName }).(pulumi.StringOutput)
 }
 
+// The Username of Active Directory Domain Administrator.
 func (o AccountActiveDirectoryPtrOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountActiveDirectory) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Username }).(pulumi.StringOutput)
 }
 
 type VolumeExportPolicyRule struct {
+	// A list of allowed clients IPv4 addresses.
 	AllowedClients []string `pulumi:"allowedClients"`
+	// Is the CIFS protocol allowed?
 	CifsEnabled *bool `pulumi:"cifsEnabled"`
+	// Is the NFSv3 protocol allowed?
 	Nfsv3Enabled *bool `pulumi:"nfsv3Enabled"`
+	// Is the NFSv4 protocol allowed?
 	Nfsv4Enabled *bool `pulumi:"nfsv4Enabled"`
+	// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
 	ProtocolsEnabled *string `pulumi:"protocolsEnabled"`
+	// The index number of the rule.
 	RuleIndex int `pulumi:"ruleIndex"`
+	// Is the file system on unix read only?
 	UnixReadOnly *bool `pulumi:"unixReadOnly"`
+	// Is the file system on unix read and write?
 	UnixReadWrite *bool `pulumi:"unixReadWrite"`
 }
 
@@ -188,13 +222,21 @@ type VolumeExportPolicyRuleInput interface {
 }
 
 type VolumeExportPolicyRuleArgs struct {
+	// A list of allowed clients IPv4 addresses.
 	AllowedClients pulumi.StringArrayInput `pulumi:"allowedClients"`
+	// Is the CIFS protocol allowed?
 	CifsEnabled pulumi.BoolPtrInput `pulumi:"cifsEnabled"`
+	// Is the NFSv3 protocol allowed?
 	Nfsv3Enabled pulumi.BoolPtrInput `pulumi:"nfsv3Enabled"`
+	// Is the NFSv4 protocol allowed?
 	Nfsv4Enabled pulumi.BoolPtrInput `pulumi:"nfsv4Enabled"`
+	// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
 	ProtocolsEnabled pulumi.StringPtrInput `pulumi:"protocolsEnabled"`
+	// The index number of the rule.
 	RuleIndex pulumi.IntInput `pulumi:"ruleIndex"`
+	// Is the file system on unix read only?
 	UnixReadOnly pulumi.BoolPtrInput `pulumi:"unixReadOnly"`
+	// Is the file system on unix read and write?
 	UnixReadWrite pulumi.BoolPtrInput `pulumi:"unixReadWrite"`
 }
 
@@ -231,7 +273,7 @@ func (i VolumeExportPolicyRuleArray) ToVolumeExportPolicyRuleArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeExportPolicyRuleArrayOutput)
 }
 
-type VolumeExportPolicyRuleOutput struct { *pulumi.OutputState }
+type VolumeExportPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (VolumeExportPolicyRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VolumeExportPolicyRule)(nil)).Elem()
@@ -245,39 +287,47 @@ func (o VolumeExportPolicyRuleOutput) ToVolumeExportPolicyRuleOutputWithContext(
 	return o
 }
 
+// A list of allowed clients IPv4 addresses.
 func (o VolumeExportPolicyRuleOutput) AllowedClients() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v VolumeExportPolicyRule) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
 }
 
+// Is the CIFS protocol allowed?
 func (o VolumeExportPolicyRuleOutput) CifsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) *bool { return v.CifsEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.CifsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Is the NFSv3 protocol allowed?
 func (o VolumeExportPolicyRuleOutput) Nfsv3Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) *bool { return v.Nfsv3Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.Nfsv3Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Is the NFSv4 protocol allowed?
 func (o VolumeExportPolicyRuleOutput) Nfsv4Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) *bool { return v.Nfsv4Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.Nfsv4Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
 func (o VolumeExportPolicyRuleOutput) ProtocolsEnabled() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) *string { return v.ProtocolsEnabled }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VolumeExportPolicyRule) *string { return v.ProtocolsEnabled }).(pulumi.StringPtrOutput)
 }
 
+// The index number of the rule.
 func (o VolumeExportPolicyRuleOutput) RuleIndex() pulumi.IntOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) int { return v.RuleIndex }).(pulumi.IntOutput)
+	return o.ApplyT(func(v VolumeExportPolicyRule) int { return v.RuleIndex }).(pulumi.IntOutput)
 }
 
+// Is the file system on unix read only?
 func (o VolumeExportPolicyRuleOutput) UnixReadOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) *bool { return v.UnixReadOnly }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.UnixReadOnly }).(pulumi.BoolPtrOutput)
 }
 
+// Is the file system on unix read and write?
 func (o VolumeExportPolicyRuleOutput) UnixReadWrite() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VolumeExportPolicyRule) *bool { return v.UnixReadWrite }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.UnixReadWrite }).(pulumi.BoolPtrOutput)
 }
 
-type VolumeExportPolicyRuleArrayOutput struct { *pulumi.OutputState}
+type VolumeExportPolicyRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (VolumeExportPolicyRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]VolumeExportPolicyRule)(nil)).Elem()
@@ -292,7 +342,7 @@ func (o VolumeExportPolicyRuleArrayOutput) ToVolumeExportPolicyRuleArrayOutputWi
 }
 
 func (o VolumeExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) VolumeExportPolicyRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) VolumeExportPolicyRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeExportPolicyRule {
 		return vs[0].([]VolumeExportPolicyRule)[vs[1].(int)]
 	}).(VolumeExportPolicyRuleOutput)
 }

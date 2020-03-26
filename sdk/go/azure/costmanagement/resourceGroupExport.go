@@ -25,7 +25,7 @@ type ResourceGroupExport struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `query` block as defined below.
 	Query ResourceGroupExportQueryOutput `pulumi:"query"`
-	// The date the export will stop capturing information. 
+	// The date the export will stop capturing information.
 	RecurrencePeriodEnd pulumi.StringOutput `pulumi:"recurrencePeriodEnd"`
 	// The date the export will start capturing information.
 	RecurrencePeriodStart pulumi.StringOutput `pulumi:"recurrencePeriodStart"`
@@ -89,7 +89,7 @@ type resourceGroupExportState struct {
 	Name *string `pulumi:"name"`
 	// A `query` block as defined below.
 	Query *ResourceGroupExportQuery `pulumi:"query"`
-	// The date the export will stop capturing information. 
+	// The date the export will stop capturing information.
 	RecurrencePeriodEnd *string `pulumi:"recurrencePeriodEnd"`
 	// The date the export will start capturing information.
 	RecurrencePeriodStart *string `pulumi:"recurrencePeriodStart"`
@@ -108,7 +108,7 @@ type ResourceGroupExportState struct {
 	Name pulumi.StringPtrInput
 	// A `query` block as defined below.
 	Query ResourceGroupExportQueryPtrInput
-	// The date the export will stop capturing information. 
+	// The date the export will stop capturing information.
 	RecurrencePeriodEnd pulumi.StringPtrInput
 	// The date the export will start capturing information.
 	RecurrencePeriodStart pulumi.StringPtrInput
@@ -131,7 +131,7 @@ type resourceGroupExportArgs struct {
 	Name *string `pulumi:"name"`
 	// A `query` block as defined below.
 	Query ResourceGroupExportQuery `pulumi:"query"`
-	// The date the export will stop capturing information. 
+	// The date the export will stop capturing information.
 	RecurrencePeriodEnd string `pulumi:"recurrencePeriodEnd"`
 	// The date the export will start capturing information.
 	RecurrencePeriodStart string `pulumi:"recurrencePeriodStart"`
@@ -151,7 +151,7 @@ type ResourceGroupExportArgs struct {
 	Name pulumi.StringPtrInput
 	// A `query` block as defined below.
 	Query ResourceGroupExportQueryInput
-	// The date the export will stop capturing information. 
+	// The date the export will stop capturing information.
 	RecurrencePeriodEnd pulumi.StringInput
 	// The date the export will start capturing information.
 	RecurrencePeriodStart pulumi.StringInput
@@ -164,4 +164,3 @@ type ResourceGroupExportArgs struct {
 func (ResourceGroupExportArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceGroupExportArgs)(nil)).Elem()
 }
-

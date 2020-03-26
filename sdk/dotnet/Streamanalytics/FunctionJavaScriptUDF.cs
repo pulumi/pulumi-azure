@@ -199,6 +199,9 @@ namespace Pulumi.Azure.StreamAnalytics
 
     public sealed class FunctionJavaScriptUDFInputsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -209,6 +212,9 @@ namespace Pulumi.Azure.StreamAnalytics
 
     public sealed class FunctionJavaScriptUDFInputsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -219,6 +225,9 @@ namespace Pulumi.Azure.StreamAnalytics
 
     public sealed class FunctionJavaScriptUDFOutputArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -229,6 +238,9 @@ namespace Pulumi.Azure.StreamAnalytics
 
     public sealed class FunctionJavaScriptUDFOutputGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -244,6 +256,9 @@ namespace Pulumi.Azure.StreamAnalytics
     [OutputType]
     public sealed class FunctionJavaScriptUDFInputs
     {
+        /// <summary>
+        /// The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
@@ -256,6 +271,9 @@ namespace Pulumi.Azure.StreamAnalytics
     [OutputType]
     public sealed class FunctionJavaScriptUDFOutput
     {
+        /// <summary>
+        /// The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -92,4 +92,3 @@ type NetworkInterfaceApplicationSecurityGroupAssociationArgs struct {
 func (NetworkInterfaceApplicationSecurityGroupAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceApplicationSecurityGroupAssociationArgs)(nil)).Elem()
 }
-

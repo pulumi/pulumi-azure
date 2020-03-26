@@ -43,6 +43,12 @@ func NewUserAssignedIdentity(ctx *pulumi.Context,
 	if args == nil {
 		args = &UserAssignedIdentityArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:msi/userAssignedIdentity:UserAssignedIdentity"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource UserAssignedIdentity
 	err := ctx.RegisterResource("azure:authorization/userAssignedIdentity:UserAssignedIdentity", name, args, &resource, opts...)
 	if err != nil {
@@ -136,4 +142,3 @@ type UserAssignedIdentityArgs struct {
 func (UserAssignedIdentityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userAssignedIdentityArgs)(nil)).Elem()
 }
-

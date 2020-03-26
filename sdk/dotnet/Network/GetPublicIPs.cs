@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ips.html.markdown.
         /// </summary>
+        [Obsolete("Use GetPublicIPs.InvokeAsync() instead")]
         public static Task<GetPublicIPsResult> GetPublicIPs(GetPublicIPsArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPsResult>("azure:network/getPublicIPs:getPublicIPs", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetPublicIPs
+    {
+        /// <summary>
+        /// Use this data source to access information about a set of existing Public IP Addresses.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ips.html.markdown.
+        /// </summary>
+        public static Task<GetPublicIPsResult> InvokeAsync(GetPublicIPsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPsResult>("azure:network/getPublicIPs:getPublicIPs", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

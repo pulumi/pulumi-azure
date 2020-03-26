@@ -167,4 +167,3 @@ type OutputServiceBusQueueArgs struct {
 func (OutputServiceBusQueueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*outputServiceBusQueueArgs)(nil)).Elem()
 }
-

@@ -26,8 +26,8 @@ class Account(pulumi.CustomResource):
     """
     One or more `storage_account` blocks as defined below.
 
-      * `id` (`str`) - The ID of the Media Services Account.
-      * `isPrimary` (`bool`)
+      * `id` (`str`) - Specifies the ID of the Storage Account that will be associated with the Media Services instance.
+      * `isPrimary` (`bool`) - Specifies whether the storage account should be the primary account or not. Defaults to `false`.
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, storage_accounts=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -44,8 +44,8 @@ class Account(pulumi.CustomResource):
 
         The **storage_accounts** object supports the following:
 
-          * `id` (`pulumi.Input[str]`) - The ID of the Media Services Account.
-          * `isPrimary` (`pulumi.Input[bool]`)
+          * `id` (`pulumi.Input[str]`) - Specifies the ID of the Storage Account that will be associated with the Media Services instance.
+          * `isPrimary` (`pulumi.Input[bool]`) - Specifies whether the storage account should be the primary account or not. Defaults to `false`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,8 +94,8 @@ class Account(pulumi.CustomResource):
 
         The **storage_accounts** object supports the following:
 
-          * `id` (`pulumi.Input[str]`) - The ID of the Media Services Account.
-          * `isPrimary` (`pulumi.Input[bool]`)
+          * `id` (`pulumi.Input[str]`) - Specifies the ID of the Storage Account that will be associated with the Media Services instance.
+          * `isPrimary` (`pulumi.Input[bool]`) - Specifies whether the storage account should be the primary account or not. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

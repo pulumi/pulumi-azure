@@ -127,4 +127,3 @@ type BastionHostArgs struct {
 func (BastionHostArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bastionHostArgs)(nil)).Elem()
 }
-

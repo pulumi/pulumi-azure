@@ -223,4 +223,3 @@ type CertificateOrderArgs struct {
 func (CertificateOrderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateOrderArgs)(nil)).Elem()
 }
-

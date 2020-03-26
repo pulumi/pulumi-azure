@@ -25,10 +25,9 @@ type LookupFunctionAppArgs struct {
 	// The name of the Function App resource.
 	Name string `pulumi:"name"`
 	// The name of the Resource Group where the Function App exists.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Tags map[string]string `pulumi:"tags"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getFunctionApp.
 type LookupFunctionAppResult struct {
@@ -43,7 +42,7 @@ type LookupFunctionAppResult struct {
 	// Is the Function App enabled?
 	Enabled bool `pulumi:"enabled"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id       string `pulumi:"id"`
 	Location string `pulumi:"location"`
 	// The name of the Connection String.
 	Name string `pulumi:"name"`
@@ -53,9 +52,8 @@ type LookupFunctionAppResult struct {
 	OutboundIpAddresses string `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses, not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses string `pulumi:"possibleOutboundIpAddresses"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName           string `pulumi:"resourceGroupName"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
 	SiteCredentials []GetFunctionAppSiteCredential `pulumi:"siteCredentials"`
-	Tags map[string]string `pulumi:"tags"`
+	Tags            map[string]string              `pulumi:"tags"`
 }
-

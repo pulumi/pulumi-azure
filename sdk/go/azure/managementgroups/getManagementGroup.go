@@ -26,12 +26,11 @@ type LookupManagementGroupArgs struct {
 	GroupId string `pulumi:"groupId"`
 }
 
-
 // A collection of values returned by getManagementGroup.
 type LookupManagementGroupResult struct {
 	// A friendly name for the Management Group.
 	DisplayName string `pulumi:"displayName"`
-	GroupId string `pulumi:"groupId"`
+	GroupId     string `pulumi:"groupId"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ID of any Parent Management Group.
@@ -39,4 +38,3 @@ type LookupManagementGroupResult struct {
 	// A list of Subscription ID's which are assigned to the Management Group.
 	SubscriptionIds []string `pulumi:"subscriptionIds"`
 }
-

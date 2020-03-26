@@ -170,4 +170,3 @@ type FailoverGroupArgs struct {
 func (FailoverGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*failoverGroupArgs)(nil)).Elem()
 }
-

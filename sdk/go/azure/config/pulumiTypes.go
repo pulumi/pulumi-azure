@@ -12,8 +12,8 @@ import (
 )
 
 type Features struct {
-	KeyVault *FeaturesKeyVault `pulumi:"keyVault"`
-	VirtualMachine *FeaturesVirtualMachine `pulumi:"virtualMachine"`
+	KeyVault               *FeaturesKeyVault               `pulumi:"keyVault"`
+	VirtualMachine         *FeaturesVirtualMachine         `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet *FeaturesVirtualMachineScaleSet `pulumi:"virtualMachineScaleSet"`
 }
 
@@ -25,8 +25,8 @@ type FeaturesInput interface {
 }
 
 type FeaturesArgs struct {
-	KeyVault FeaturesKeyVaultPtrInput `pulumi:"keyVault"`
-	VirtualMachine FeaturesVirtualMachinePtrInput `pulumi:"virtualMachine"`
+	KeyVault               FeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
+	VirtualMachine         FeaturesVirtualMachinePtrInput         `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet FeaturesVirtualMachineScaleSetPtrInput `pulumi:"virtualMachineScaleSet"`
 }
 
@@ -42,7 +42,7 @@ func (i FeaturesArgs) ToFeaturesOutputWithContext(ctx context.Context) FeaturesO
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesOutput)
 }
 
-type FeaturesOutput struct { *pulumi.OutputState }
+type FeaturesOutput struct{ *pulumi.OutputState }
 
 func (FeaturesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Features)(nil)).Elem()
@@ -57,19 +57,19 @@ func (o FeaturesOutput) ToFeaturesOutputWithContext(ctx context.Context) Feature
 }
 
 func (o FeaturesOutput) KeyVault() FeaturesKeyVaultPtrOutput {
-	return o.ApplyT(func (v Features) *FeaturesKeyVault { return v.KeyVault }).(FeaturesKeyVaultPtrOutput)
+	return o.ApplyT(func(v Features) *FeaturesKeyVault { return v.KeyVault }).(FeaturesKeyVaultPtrOutput)
 }
 
 func (o FeaturesOutput) VirtualMachine() FeaturesVirtualMachinePtrOutput {
-	return o.ApplyT(func (v Features) *FeaturesVirtualMachine { return v.VirtualMachine }).(FeaturesVirtualMachinePtrOutput)
+	return o.ApplyT(func(v Features) *FeaturesVirtualMachine { return v.VirtualMachine }).(FeaturesVirtualMachinePtrOutput)
 }
 
 func (o FeaturesOutput) VirtualMachineScaleSet() FeaturesVirtualMachineScaleSetPtrOutput {
-	return o.ApplyT(func (v Features) *FeaturesVirtualMachineScaleSet { return v.VirtualMachineScaleSet }).(FeaturesVirtualMachineScaleSetPtrOutput)
+	return o.ApplyT(func(v Features) *FeaturesVirtualMachineScaleSet { return v.VirtualMachineScaleSet }).(FeaturesVirtualMachineScaleSetPtrOutput)
 }
 
 type FeaturesKeyVault struct {
-	PurgeSoftDeleteOnDestroy *bool `pulumi:"purgeSoftDeleteOnDestroy"`
+	PurgeSoftDeleteOnDestroy    *bool `pulumi:"purgeSoftDeleteOnDestroy"`
 	RecoverSoftDeletedKeyVaults *bool `pulumi:"recoverSoftDeletedKeyVaults"`
 }
 
@@ -81,7 +81,7 @@ type FeaturesKeyVaultInput interface {
 }
 
 type FeaturesKeyVaultArgs struct {
-	PurgeSoftDeleteOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
+	PurgeSoftDeleteOnDestroy    pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
 	RecoverSoftDeletedKeyVaults pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedKeyVaults"`
 }
 
@@ -114,7 +114,8 @@ type FeaturesKeyVaultPtrInput interface {
 
 type featuresKeyVaultPtrType FeaturesKeyVaultArgs
 
-func FeaturesKeyVaultPtr(v *FeaturesKeyVaultArgs) FeaturesKeyVaultPtrInput {	return (*featuresKeyVaultPtrType)(v)
+func FeaturesKeyVaultPtr(v *FeaturesKeyVaultArgs) FeaturesKeyVaultPtrInput {
+	return (*featuresKeyVaultPtrType)(v)
 }
 
 func (*featuresKeyVaultPtrType) ElementType() reflect.Type {
@@ -129,7 +130,7 @@ func (i *featuresKeyVaultPtrType) ToFeaturesKeyVaultPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesKeyVaultPtrOutput)
 }
 
-type FeaturesKeyVaultOutput struct { *pulumi.OutputState }
+type FeaturesKeyVaultOutput struct{ *pulumi.OutputState }
 
 func (FeaturesKeyVaultOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FeaturesKeyVault)(nil)).Elem()
@@ -153,14 +154,14 @@ func (o FeaturesKeyVaultOutput) ToFeaturesKeyVaultPtrOutputWithContext(ctx conte
 	}).(FeaturesKeyVaultPtrOutput)
 }
 func (o FeaturesKeyVaultOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FeaturesKeyVault) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
 func (o FeaturesKeyVaultOutput) RecoverSoftDeletedKeyVaults() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FeaturesKeyVault) *bool { return v.RecoverSoftDeletedKeyVaults }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.RecoverSoftDeletedKeyVaults }).(pulumi.BoolPtrOutput)
 }
 
-type FeaturesKeyVaultPtrOutput struct { *pulumi.OutputState}
+type FeaturesKeyVaultPtrOutput struct{ *pulumi.OutputState }
 
 func (FeaturesKeyVaultPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FeaturesKeyVault)(nil)).Elem()
@@ -175,15 +176,15 @@ func (o FeaturesKeyVaultPtrOutput) ToFeaturesKeyVaultPtrOutputWithContext(ctx co
 }
 
 func (o FeaturesKeyVaultPtrOutput) Elem() FeaturesKeyVaultOutput {
-	return o.ApplyT(func (v *FeaturesKeyVault) FeaturesKeyVault { return *v }).(FeaturesKeyVaultOutput)
+	return o.ApplyT(func(v *FeaturesKeyVault) FeaturesKeyVault { return *v }).(FeaturesKeyVaultOutput)
 }
 
 func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FeaturesKeyVault) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
 func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeyVaults() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FeaturesKeyVault) *bool { return v.RecoverSoftDeletedKeyVaults }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.RecoverSoftDeletedKeyVaults }).(pulumi.BoolPtrOutput)
 }
 
 type FeaturesVirtualMachine struct {
@@ -230,7 +231,8 @@ type FeaturesVirtualMachinePtrInput interface {
 
 type featuresVirtualMachinePtrType FeaturesVirtualMachineArgs
 
-func FeaturesVirtualMachinePtr(v *FeaturesVirtualMachineArgs) FeaturesVirtualMachinePtrInput {	return (*featuresVirtualMachinePtrType)(v)
+func FeaturesVirtualMachinePtr(v *FeaturesVirtualMachineArgs) FeaturesVirtualMachinePtrInput {
+	return (*featuresVirtualMachinePtrType)(v)
 }
 
 func (*featuresVirtualMachinePtrType) ElementType() reflect.Type {
@@ -245,7 +247,7 @@ func (i *featuresVirtualMachinePtrType) ToFeaturesVirtualMachinePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesVirtualMachinePtrOutput)
 }
 
-type FeaturesVirtualMachineOutput struct { *pulumi.OutputState }
+type FeaturesVirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (FeaturesVirtualMachineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FeaturesVirtualMachine)(nil)).Elem()
@@ -269,10 +271,10 @@ func (o FeaturesVirtualMachineOutput) ToFeaturesVirtualMachinePtrOutputWithConte
 	}).(FeaturesVirtualMachinePtrOutput)
 }
 func (o FeaturesVirtualMachineOutput) DeleteOsDiskOnDeletion() pulumi.BoolOutput {
-	return o.ApplyT(func (v FeaturesVirtualMachine) bool { return v.DeleteOsDiskOnDeletion }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v FeaturesVirtualMachine) bool { return v.DeleteOsDiskOnDeletion }).(pulumi.BoolOutput)
 }
 
-type FeaturesVirtualMachinePtrOutput struct { *pulumi.OutputState}
+type FeaturesVirtualMachinePtrOutput struct{ *pulumi.OutputState }
 
 func (FeaturesVirtualMachinePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FeaturesVirtualMachine)(nil)).Elem()
@@ -287,11 +289,11 @@ func (o FeaturesVirtualMachinePtrOutput) ToFeaturesVirtualMachinePtrOutputWithCo
 }
 
 func (o FeaturesVirtualMachinePtrOutput) Elem() FeaturesVirtualMachineOutput {
-	return o.ApplyT(func (v *FeaturesVirtualMachine) FeaturesVirtualMachine { return *v }).(FeaturesVirtualMachineOutput)
+	return o.ApplyT(func(v *FeaturesVirtualMachine) FeaturesVirtualMachine { return *v }).(FeaturesVirtualMachineOutput)
 }
 
 func (o FeaturesVirtualMachinePtrOutput) DeleteOsDiskOnDeletion() pulumi.BoolOutput {
-	return o.ApplyT(func (v FeaturesVirtualMachine) bool { return v.DeleteOsDiskOnDeletion }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v FeaturesVirtualMachine) bool { return v.DeleteOsDiskOnDeletion }).(pulumi.BoolOutput)
 }
 
 type FeaturesVirtualMachineScaleSet struct {
@@ -338,7 +340,8 @@ type FeaturesVirtualMachineScaleSetPtrInput interface {
 
 type featuresVirtualMachineScaleSetPtrType FeaturesVirtualMachineScaleSetArgs
 
-func FeaturesVirtualMachineScaleSetPtr(v *FeaturesVirtualMachineScaleSetArgs) FeaturesVirtualMachineScaleSetPtrInput {	return (*featuresVirtualMachineScaleSetPtrType)(v)
+func FeaturesVirtualMachineScaleSetPtr(v *FeaturesVirtualMachineScaleSetArgs) FeaturesVirtualMachineScaleSetPtrInput {
+	return (*featuresVirtualMachineScaleSetPtrType)(v)
 }
 
 func (*featuresVirtualMachineScaleSetPtrType) ElementType() reflect.Type {
@@ -353,7 +356,7 @@ func (i *featuresVirtualMachineScaleSetPtrType) ToFeaturesVirtualMachineScaleSet
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesVirtualMachineScaleSetPtrOutput)
 }
 
-type FeaturesVirtualMachineScaleSetOutput struct { *pulumi.OutputState }
+type FeaturesVirtualMachineScaleSetOutput struct{ *pulumi.OutputState }
 
 func (FeaturesVirtualMachineScaleSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FeaturesVirtualMachineScaleSet)(nil)).Elem()
@@ -377,10 +380,10 @@ func (o FeaturesVirtualMachineScaleSetOutput) ToFeaturesVirtualMachineScaleSetPt
 	}).(FeaturesVirtualMachineScaleSetPtrOutput)
 }
 func (o FeaturesVirtualMachineScaleSetOutput) RollInstancesWhenRequired() pulumi.BoolOutput {
-	return o.ApplyT(func (v FeaturesVirtualMachineScaleSet) bool { return v.RollInstancesWhenRequired }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v FeaturesVirtualMachineScaleSet) bool { return v.RollInstancesWhenRequired }).(pulumi.BoolOutput)
 }
 
-type FeaturesVirtualMachineScaleSetPtrOutput struct { *pulumi.OutputState}
+type FeaturesVirtualMachineScaleSetPtrOutput struct{ *pulumi.OutputState }
 
 func (FeaturesVirtualMachineScaleSetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FeaturesVirtualMachineScaleSet)(nil)).Elem()
@@ -395,11 +398,11 @@ func (o FeaturesVirtualMachineScaleSetPtrOutput) ToFeaturesVirtualMachineScaleSe
 }
 
 func (o FeaturesVirtualMachineScaleSetPtrOutput) Elem() FeaturesVirtualMachineScaleSetOutput {
-	return o.ApplyT(func (v *FeaturesVirtualMachineScaleSet) FeaturesVirtualMachineScaleSet { return *v }).(FeaturesVirtualMachineScaleSetOutput)
+	return o.ApplyT(func(v *FeaturesVirtualMachineScaleSet) FeaturesVirtualMachineScaleSet { return *v }).(FeaturesVirtualMachineScaleSetOutput)
 }
 
 func (o FeaturesVirtualMachineScaleSetPtrOutput) RollInstancesWhenRequired() pulumi.BoolOutput {
-	return o.ApplyT(func (v FeaturesVirtualMachineScaleSet) bool { return v.RollInstancesWhenRequired }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v FeaturesVirtualMachineScaleSet) bool { return v.RollInstancesWhenRequired }).(pulumi.BoolOutput)
 }
 
 func init() {

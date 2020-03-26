@@ -61,7 +61,7 @@ class EventSubscription(pulumi.CustomResource):
     A `storage_queue_endpoint` block as defined below.
 
       * `queue_name` (`str`) - Specifies the name of the storage queue where the Event Subscriptio will receive events.
-      * `storage_account_id` (`str`) - Specifies the id of the storage account id where the storage blob is located.
+      * `storage_account_id` (`str`) - Specifies the id of the storage account id where the storage queue is located.
     """
     subject_filter: pulumi.Output[dict]
     """
@@ -124,7 +124,7 @@ class EventSubscription(pulumi.CustomResource):
         The **storage_queue_endpoint** object supports the following:
 
           * `queue_name` (`pulumi.Input[str]`) - Specifies the name of the storage queue where the Event Subscriptio will receive events.
-          * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located.
+          * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage queue is located.
 
         The **subject_filter** object supports the following:
 
@@ -218,7 +218,7 @@ class EventSubscription(pulumi.CustomResource):
         The **storage_queue_endpoint** object supports the following:
 
           * `queue_name` (`pulumi.Input[str]`) - Specifies the name of the storage queue where the Event Subscriptio will receive events.
-          * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located.
+          * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage queue is located.
 
         The **subject_filter** object supports the following:
 

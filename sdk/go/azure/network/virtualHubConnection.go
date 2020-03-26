@@ -132,4 +132,3 @@ type VirtualHubConnectionArgs struct {
 func (VirtualHubConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualHubConnectionArgs)(nil)).Elem()
 }
-

@@ -193,4 +193,3 @@ type OutputBlobArgs struct {
 func (OutputBlobArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*outputBlobArgs)(nil)).Elem()
 }
-

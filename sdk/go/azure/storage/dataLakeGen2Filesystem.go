@@ -101,4 +101,3 @@ type DataLakeGen2FilesystemArgs struct {
 func (DataLakeGen2FilesystemArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataLakeGen2FilesystemArgs)(nil)).Elem()
 }
-

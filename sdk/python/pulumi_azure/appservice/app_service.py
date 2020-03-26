@@ -22,54 +22,54 @@ class AppService(pulumi.CustomResource):
     """
     A `auth_settings` block as defined below.
 
-      * `active_directory` (`dict`)
-        * `allowedAudiences` (`list`)
-        * `client_id` (`str`)
-        * `client_secret` (`str`)
+      * `active_directory` (`dict`) - A `active_directory` block as defined below.
+        * `allowedAudiences` (`list`) - Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        * `client_id` (`str`) - The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+        * `client_secret` (`str`) - The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
 
-      * `additionalLoginParams` (`dict`)
-      * `allowedExternalRedirectUrls` (`list`)
-      * `defaultProvider` (`str`)
-      * `enabled` (`bool`) - Is the App Service Enabled?
-      * `facebook` (`dict`)
-        * `app_id` (`str`)
-        * `app_secret` (`str`)
-        * `oauthScopes` (`list`)
+      * `additionalLoginParams` (`dict`) - Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+      * `allowedExternalRedirectUrls` (`list`) - External URLs that can be redirected to as part of logging in or logging out of the app.
+      * `defaultProvider` (`str`) - The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+      * `enabled` (`bool`) - Is Authentication enabled?
+      * `facebook` (`dict`) - A `facebook` block as defined below.
+        * `app_id` (`str`) - The App ID of the Facebook app used for login
+        * `app_secret` (`str`) - The App Secret of the Facebook app used for Facebook Login.
+        * `oauthScopes` (`list`) - The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
 
-      * `google` (`dict`)
-        * `client_id` (`str`)
-        * `client_secret` (`str`)
-        * `oauthScopes` (`list`)
+      * `google` (`dict`) - A `google` block as defined below.
+        * `client_id` (`str`) - The OpenID Connect Client ID for the Google web application.
+        * `client_secret` (`str`) - The client secret associated with the Google web application.
+        * `oauthScopes` (`list`) - The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
 
-      * `issuer` (`str`)
-      * `microsoft` (`dict`)
-        * `client_id` (`str`)
-        * `client_secret` (`str`)
-        * `oauthScopes` (`list`)
+      * `issuer` (`str`) - Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+      * `microsoft` (`dict`) - A `microsoft` block as defined below.
+        * `client_id` (`str`) - The OAuth 2.0 client ID that was created for the app used for authentication.
+        * `client_secret` (`str`) - The OAuth 2.0 client secret that was created for the app used for authentication.
+        * `oauthScopes` (`list`) - The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
 
-      * `runtimeVersion` (`str`)
-      * `tokenRefreshExtensionHours` (`float`)
-      * `tokenStoreEnabled` (`bool`)
-      * `twitter` (`dict`)
+      * `runtimeVersion` (`str`) - The runtime version of the Authentication/Authorization module.
+      * `tokenRefreshExtensionHours` (`float`) - The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+      * `tokenStoreEnabled` (`bool`) - If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+      * `twitter` (`dict`) - A `twitter` block as defined below.
         * `consumerKey` (`str`)
         * `consumerSecret` (`str`)
 
-      * `unauthenticatedClientAction` (`str`)
+      * `unauthenticatedClientAction` (`str`) - The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
     """
     backup: pulumi.Output[dict]
     """
     A `backup` block as defined below.
 
-      * `enabled` (`bool`) - Is the App Service Enabled?
-      * `name` (`str`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
-      * `schedule` (`dict`)
-        * `frequencyInterval` (`float`)
-        * `frequencyUnit` (`str`)
-        * `keepAtLeastOneBackup` (`bool`)
-        * `retentionPeriodInDays` (`float`)
-        * `start_time` (`str`)
+      * `enabled` (`bool`) - Is this Backup enabled?
+      * `name` (`str`) - Specifies the name for this Backup.
+      * `schedule` (`dict`) - A `schedule` block as defined below.
+        * `frequencyInterval` (`float`) - Sets how often the backup should be executed.
+        * `frequencyUnit` (`str`) - Sets the unit of time for how often the backup should be executed. Possible values are `Day` or `Hour`.
+        * `keepAtLeastOneBackup` (`bool`) - Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is?
+        * `retentionPeriodInDays` (`float`) - Specifies the number of days after which Backups should be deleted.
+        * `start_time` (`str`) - Sets when the schedule should start working.
 
-      * `storageAccountUrl` (`str`)
+      * `storageAccountUrl` (`str`) - The SAS URL to a Storage Container where Backups should be saved.
     """
     client_affinity_enabled: pulumi.Output[bool]
     """
@@ -83,9 +83,9 @@ class AppService(pulumi.CustomResource):
     """
     One or more `connection_string` blocks as defined below.
 
-      * `name` (`str`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
-      * `type` (`str`)
-      * `value` (`str`)
+      * `name` (`str`) - The name of the Connection String.
+      * `type` (`str`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+      * `value` (`str`) - The value for the Connection String.
     """
     default_site_hostname: pulumi.Output[str]
     """
@@ -103,10 +103,10 @@ class AppService(pulumi.CustomResource):
     """
     A Managed Service Identity block as defined below.
 
-      * `identityIds` (`list`)
+      * `identityIds` (`list`) - Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
       * `principal_id` (`str`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
       * `tenant_id` (`str`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
-      * `type` (`str`)
+      * `type` (`str`) - Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
     """
     location: pulumi.Output[str]
     """
@@ -116,20 +116,20 @@ class AppService(pulumi.CustomResource):
     """
     A `logs` block as defined below.
 
-      * `applicationLogs` (`dict`)
-        * `azureBlobStorage` (`dict`)
-          * `level` (`str`)
-          * `retention_in_days` (`float`)
-          * `sasUrl` (`str`)
+      * `applicationLogs` (`dict`) - An `application_logs` block as defined below.
+        * `azureBlobStorage` (`dict`) - An `azure_blob_storage` block as defined below.
+          * `level` (`str`) - The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+          * `retention_in_days` (`float`) - The number of days to retain logs for.
+          * `sasUrl` (`str`) - The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 
-      * `httpLogs` (`dict`)
-        * `azureBlobStorage` (`dict`)
-          * `retention_in_days` (`float`)
-          * `sasUrl` (`str`)
+      * `httpLogs` (`dict`) - An `http_logs` block as defined below.
+        * `azureBlobStorage` (`dict`) - An `azure_blob_storage` block as defined below.
+          * `retention_in_days` (`float`) - The number of days to retain logs for.
+          * `sasUrl` (`str`) - The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 
-        * `fileSystem` (`dict`)
-          * `retention_in_days` (`float`)
-          * `retentionInMb` (`float`)
+        * `fileSystem` (`dict`) - A `file_system` block as defined below.
+          * `retention_in_days` (`float`) - The number of days to retain logs for.
+          * `retentionInMb` (`float`) - The maximum size in megabytes that http log files can use before being removed.
     """
     name: pulumi.Output[str]
     """
@@ -151,36 +151,36 @@ class AppService(pulumi.CustomResource):
     """
     A `site_config` block as defined below.
 
-      * `alwaysOn` (`bool`)
-      * `appCommandLine` (`str`)
+      * `alwaysOn` (`bool`) - Should the app be loaded at all times? Defaults to `false`.
+      * `appCommandLine` (`str`) - App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
       * `autoSwapSlotName` (`str`)
-      * `cors` (`dict`)
-        * `allowedOrigins` (`list`)
-        * `supportCredentials` (`bool`)
+      * `cors` (`dict`) - A `cors` block as defined below.
+        * `allowedOrigins` (`list`) - A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        * `supportCredentials` (`bool`) - Are credentials supported?
 
-      * `defaultDocuments` (`list`)
-      * `dotnetFrameworkVersion` (`str`)
-      * `ftpsState` (`str`)
-      * `http2Enabled` (`bool`)
-      * `ipRestrictions` (`list`)
-        * `ip_address` (`str`)
-        * `virtualNetworkSubnetId` (`str`)
+      * `defaultDocuments` (`list`) - The ordering of default documents to load, if an address isn't specified.
+      * `dotnetFrameworkVersion` (`str`) - The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+      * `ftpsState` (`str`) - State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+      * `http2Enabled` (`bool`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
+      * `ipRestrictions` (`list`) - A list of objects representing ip restrictions as defined below.
+        * `ip_address` (`str`) - The IP Address used for this IP Restriction in CIDR notation.
+        * `virtualNetworkSubnetId` (`str`) - The Virtual Network Subnet ID used for this IP Restriction.
 
-      * `javaContainer` (`str`)
-      * `javaContainerVersion` (`str`)
-      * `javaVersion` (`str`)
-      * `linuxFxVersion` (`str`)
-      * `localMysqlEnabled` (`bool`)
-      * `managedPipelineMode` (`str`)
-      * `minTlsVersion` (`str`)
-      * `phpVersion` (`str`)
-      * `pythonVersion` (`str`)
-      * `remoteDebuggingEnabled` (`bool`)
-      * `remoteDebuggingVersion` (`str`)
-      * `scmType` (`str`)
-      * `use32BitWorkerProcess` (`bool`)
-      * `websocketsEnabled` (`bool`)
-      * `windowsFxVersion` (`str`)
+      * `javaContainer` (`str`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+      * `javaContainerVersion` (`str`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+      * `javaVersion` (`str`) - The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+      * `linuxFxVersion` (`str`) - Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
+      * `localMysqlEnabled` (`bool`) - Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+      * `managedPipelineMode` (`str`) - The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
+      * `minTlsVersion` (`str`) - The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+      * `phpVersion` (`str`) - The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+      * `pythonVersion` (`str`) - The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
+      * `remoteDebuggingEnabled` (`bool`) - Is Remote Debugging Enabled? Defaults to `false`.
+      * `remoteDebuggingVersion` (`str`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+      * `scmType` (`str`) - The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+      * `use32BitWorkerProcess` (`bool`) - Should the App Service run in 32 bit mode, rather than 64 bit mode?
+      * `websocketsEnabled` (`bool`) - Should WebSockets be enabled?
+      * `windowsFxVersion` (`str`) - The Windows Docker container image (`DOCKER|<user/image:tag>`)
     """
     site_credentials: pulumi.Output[list]
     """
@@ -200,12 +200,12 @@ class AppService(pulumi.CustomResource):
     """
     One or more `storage_account` blocks as defined below.
 
-      * `accessKey` (`str`)
-      * `account_name` (`str`)
-      * `mountPath` (`str`)
-      * `name` (`str`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
-      * `share_name` (`str`)
-      * `type` (`str`)
+      * `accessKey` (`str`) - The access key for the storage account.
+      * `account_name` (`str`) - The name of the storage account.
+      * `mountPath` (`str`) - The path to mount the storage within the site's runtime environment.
+      * `name` (`str`) - The name of the storage account identifier.
+      * `share_name` (`str`) - The name of the file share (container name, for Blob storage).
+      * `type` (`str`) - The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
     """
     tags: pulumi.Output[dict]
     """
@@ -241,124 +241,124 @@ class AppService(pulumi.CustomResource):
 
         The **auth_settings** object supports the following:
 
-          * `active_directory` (`pulumi.Input[dict]`)
-            * `allowedAudiences` (`pulumi.Input[list]`)
-            * `client_id` (`pulumi.Input[str]`)
-            * `client_secret` (`pulumi.Input[str]`)
+          * `active_directory` (`pulumi.Input[dict]`) - A `active_directory` block as defined below.
+            * `allowedAudiences` (`pulumi.Input[list]`) - Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+            * `client_id` (`pulumi.Input[str]`) - The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+            * `client_secret` (`pulumi.Input[str]`) - The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
 
-          * `additionalLoginParams` (`pulumi.Input[dict]`)
-          * `allowedExternalRedirectUrls` (`pulumi.Input[list]`)
-          * `defaultProvider` (`pulumi.Input[str]`)
-          * `enabled` (`pulumi.Input[bool]`) - Is the App Service Enabled?
-          * `facebook` (`pulumi.Input[dict]`)
-            * `app_id` (`pulumi.Input[str]`)
-            * `app_secret` (`pulumi.Input[str]`)
-            * `oauthScopes` (`pulumi.Input[list]`)
+          * `additionalLoginParams` (`pulumi.Input[dict]`) - Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+          * `allowedExternalRedirectUrls` (`pulumi.Input[list]`) - External URLs that can be redirected to as part of logging in or logging out of the app.
+          * `defaultProvider` (`pulumi.Input[str]`) - The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+          * `enabled` (`pulumi.Input[bool]`) - Is Authentication enabled?
+          * `facebook` (`pulumi.Input[dict]`) - A `facebook` block as defined below.
+            * `app_id` (`pulumi.Input[str]`) - The App ID of the Facebook app used for login
+            * `app_secret` (`pulumi.Input[str]`) - The App Secret of the Facebook app used for Facebook Login.
+            * `oauthScopes` (`pulumi.Input[list]`) - The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
 
-          * `google` (`pulumi.Input[dict]`)
-            * `client_id` (`pulumi.Input[str]`)
-            * `client_secret` (`pulumi.Input[str]`)
-            * `oauthScopes` (`pulumi.Input[list]`)
+          * `google` (`pulumi.Input[dict]`) - A `google` block as defined below.
+            * `client_id` (`pulumi.Input[str]`) - The OpenID Connect Client ID for the Google web application.
+            * `client_secret` (`pulumi.Input[str]`) - The client secret associated with the Google web application.
+            * `oauthScopes` (`pulumi.Input[list]`) - The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
 
-          * `issuer` (`pulumi.Input[str]`)
-          * `microsoft` (`pulumi.Input[dict]`)
-            * `client_id` (`pulumi.Input[str]`)
-            * `client_secret` (`pulumi.Input[str]`)
-            * `oauthScopes` (`pulumi.Input[list]`)
+          * `issuer` (`pulumi.Input[str]`) - Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+          * `microsoft` (`pulumi.Input[dict]`) - A `microsoft` block as defined below.
+            * `client_id` (`pulumi.Input[str]`) - The OAuth 2.0 client ID that was created for the app used for authentication.
+            * `client_secret` (`pulumi.Input[str]`) - The OAuth 2.0 client secret that was created for the app used for authentication.
+            * `oauthScopes` (`pulumi.Input[list]`) - The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
 
-          * `runtimeVersion` (`pulumi.Input[str]`)
-          * `tokenRefreshExtensionHours` (`pulumi.Input[float]`)
-          * `tokenStoreEnabled` (`pulumi.Input[bool]`)
-          * `twitter` (`pulumi.Input[dict]`)
+          * `runtimeVersion` (`pulumi.Input[str]`) - The runtime version of the Authentication/Authorization module.
+          * `tokenRefreshExtensionHours` (`pulumi.Input[float]`) - The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+          * `tokenStoreEnabled` (`pulumi.Input[bool]`) - If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+          * `twitter` (`pulumi.Input[dict]`) - A `twitter` block as defined below.
             * `consumerKey` (`pulumi.Input[str]`)
             * `consumerSecret` (`pulumi.Input[str]`)
 
-          * `unauthenticatedClientAction` (`pulumi.Input[str]`)
+          * `unauthenticatedClientAction` (`pulumi.Input[str]`) - The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
 
         The **backup** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`) - Is the App Service Enabled?
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
-          * `schedule` (`pulumi.Input[dict]`)
-            * `frequencyInterval` (`pulumi.Input[float]`)
-            * `frequencyUnit` (`pulumi.Input[str]`)
-            * `keepAtLeastOneBackup` (`pulumi.Input[bool]`)
-            * `retentionPeriodInDays` (`pulumi.Input[float]`)
-            * `start_time` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is this Backup enabled?
+          * `name` (`pulumi.Input[str]`) - Specifies the name for this Backup.
+          * `schedule` (`pulumi.Input[dict]`) - A `schedule` block as defined below.
+            * `frequencyInterval` (`pulumi.Input[float]`) - Sets how often the backup should be executed.
+            * `frequencyUnit` (`pulumi.Input[str]`) - Sets the unit of time for how often the backup should be executed. Possible values are `Day` or `Hour`.
+            * `keepAtLeastOneBackup` (`pulumi.Input[bool]`) - Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is?
+            * `retentionPeriodInDays` (`pulumi.Input[float]`) - Specifies the number of days after which Backups should be deleted.
+            * `start_time` (`pulumi.Input[str]`) - Sets when the schedule should start working.
 
-          * `storageAccountUrl` (`pulumi.Input[str]`)
+          * `storageAccountUrl` (`pulumi.Input[str]`) - The SAS URL to a Storage Container where Backups should be saved.
 
         The **connection_strings** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
-          * `type` (`pulumi.Input[str]`)
-          * `value` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of the Connection String.
+          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+          * `value` (`pulumi.Input[str]`) - The value for the Connection String.
 
         The **identity** object supports the following:
 
-          * `identityIds` (`pulumi.Input[list]`)
+          * `identityIds` (`pulumi.Input[list]`) - Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
           * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 
         The **logs** object supports the following:
 
-          * `applicationLogs` (`pulumi.Input[dict]`)
-            * `azureBlobStorage` (`pulumi.Input[dict]`)
-              * `level` (`pulumi.Input[str]`)
-              * `retention_in_days` (`pulumi.Input[float]`)
-              * `sasUrl` (`pulumi.Input[str]`)
+          * `applicationLogs` (`pulumi.Input[dict]`) - An `application_logs` block as defined below.
+            * `azureBlobStorage` (`pulumi.Input[dict]`) - An `azure_blob_storage` block as defined below.
+              * `level` (`pulumi.Input[str]`) - The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+              * `retention_in_days` (`pulumi.Input[float]`) - The number of days to retain logs for.
+              * `sasUrl` (`pulumi.Input[str]`) - The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 
-          * `httpLogs` (`pulumi.Input[dict]`)
-            * `azureBlobStorage` (`pulumi.Input[dict]`)
-              * `retention_in_days` (`pulumi.Input[float]`)
-              * `sasUrl` (`pulumi.Input[str]`)
+          * `httpLogs` (`pulumi.Input[dict]`) - An `http_logs` block as defined below.
+            * `azureBlobStorage` (`pulumi.Input[dict]`) - An `azure_blob_storage` block as defined below.
+              * `retention_in_days` (`pulumi.Input[float]`) - The number of days to retain logs for.
+              * `sasUrl` (`pulumi.Input[str]`) - The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 
-            * `fileSystem` (`pulumi.Input[dict]`)
-              * `retention_in_days` (`pulumi.Input[float]`)
-              * `retentionInMb` (`pulumi.Input[float]`)
+            * `fileSystem` (`pulumi.Input[dict]`) - A `file_system` block as defined below.
+              * `retention_in_days` (`pulumi.Input[float]`) - The number of days to retain logs for.
+              * `retentionInMb` (`pulumi.Input[float]`) - The maximum size in megabytes that http log files can use before being removed.
 
         The **site_config** object supports the following:
 
-          * `alwaysOn` (`pulumi.Input[bool]`)
-          * `appCommandLine` (`pulumi.Input[str]`)
+          * `alwaysOn` (`pulumi.Input[bool]`) - Should the app be loaded at all times? Defaults to `false`.
+          * `appCommandLine` (`pulumi.Input[str]`) - App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
           * `autoSwapSlotName` (`pulumi.Input[str]`)
-          * `cors` (`pulumi.Input[dict]`)
-            * `allowedOrigins` (`pulumi.Input[list]`)
-            * `supportCredentials` (`pulumi.Input[bool]`)
+          * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
+            * `allowedOrigins` (`pulumi.Input[list]`) - A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+            * `supportCredentials` (`pulumi.Input[bool]`) - Are credentials supported?
 
-          * `defaultDocuments` (`pulumi.Input[list]`)
-          * `dotnetFrameworkVersion` (`pulumi.Input[str]`)
-          * `ftpsState` (`pulumi.Input[str]`)
-          * `http2Enabled` (`pulumi.Input[bool]`)
-          * `ipRestrictions` (`pulumi.Input[list]`)
-            * `ip_address` (`pulumi.Input[str]`)
-            * `virtualNetworkSubnetId` (`pulumi.Input[str]`)
+          * `defaultDocuments` (`pulumi.Input[list]`) - The ordering of default documents to load, if an address isn't specified.
+          * `dotnetFrameworkVersion` (`pulumi.Input[str]`) - The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+          * `ftpsState` (`pulumi.Input[str]`) - State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+          * `http2Enabled` (`pulumi.Input[bool]`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
+          * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
 
-          * `javaContainer` (`pulumi.Input[str]`)
-          * `javaContainerVersion` (`pulumi.Input[str]`)
-          * `javaVersion` (`pulumi.Input[str]`)
-          * `linuxFxVersion` (`pulumi.Input[str]`)
-          * `localMysqlEnabled` (`pulumi.Input[bool]`)
-          * `managedPipelineMode` (`pulumi.Input[str]`)
-          * `minTlsVersion` (`pulumi.Input[str]`)
-          * `phpVersion` (`pulumi.Input[str]`)
-          * `pythonVersion` (`pulumi.Input[str]`)
-          * `remoteDebuggingEnabled` (`pulumi.Input[bool]`)
-          * `remoteDebuggingVersion` (`pulumi.Input[str]`)
-          * `scmType` (`pulumi.Input[str]`)
-          * `use32BitWorkerProcess` (`pulumi.Input[bool]`)
-          * `websocketsEnabled` (`pulumi.Input[bool]`)
-          * `windowsFxVersion` (`pulumi.Input[str]`)
+          * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+          * `javaContainerVersion` (`pulumi.Input[str]`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+          * `javaVersion` (`pulumi.Input[str]`) - The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+          * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
+          * `localMysqlEnabled` (`pulumi.Input[bool]`) - Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+          * `managedPipelineMode` (`pulumi.Input[str]`) - The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
+          * `minTlsVersion` (`pulumi.Input[str]`) - The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+          * `phpVersion` (`pulumi.Input[str]`) - The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+          * `pythonVersion` (`pulumi.Input[str]`) - The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
+          * `remoteDebuggingEnabled` (`pulumi.Input[bool]`) - Is Remote Debugging Enabled? Defaults to `false`.
+          * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+          * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+          * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the App Service run in 32 bit mode, rather than 64 bit mode?
+          * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
+          * `windowsFxVersion` (`pulumi.Input[str]`) - The Windows Docker container image (`DOCKER|<user/image:tag>`)
 
         The **storage_accounts** object supports the following:
 
-          * `accessKey` (`pulumi.Input[str]`)
-          * `account_name` (`pulumi.Input[str]`)
-          * `mountPath` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
-          * `share_name` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`)
+          * `accessKey` (`pulumi.Input[str]`) - The access key for the storage account.
+          * `account_name` (`pulumi.Input[str]`) - The name of the storage account.
+          * `mountPath` (`pulumi.Input[str]`) - The path to mount the storage within the site's runtime environment.
+          * `name` (`pulumi.Input[str]`) - The name of the storage account identifier.
+          * `share_name` (`pulumi.Input[str]`) - The name of the file share (container name, for Blob storage).
+          * `type` (`pulumi.Input[str]`) - The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -443,115 +443,115 @@ class AppService(pulumi.CustomResource):
 
         The **auth_settings** object supports the following:
 
-          * `active_directory` (`pulumi.Input[dict]`)
-            * `allowedAudiences` (`pulumi.Input[list]`)
-            * `client_id` (`pulumi.Input[str]`)
-            * `client_secret` (`pulumi.Input[str]`)
+          * `active_directory` (`pulumi.Input[dict]`) - A `active_directory` block as defined below.
+            * `allowedAudiences` (`pulumi.Input[list]`) - Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+            * `client_id` (`pulumi.Input[str]`) - The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+            * `client_secret` (`pulumi.Input[str]`) - The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
 
-          * `additionalLoginParams` (`pulumi.Input[dict]`)
-          * `allowedExternalRedirectUrls` (`pulumi.Input[list]`)
-          * `defaultProvider` (`pulumi.Input[str]`)
-          * `enabled` (`pulumi.Input[bool]`) - Is the App Service Enabled?
-          * `facebook` (`pulumi.Input[dict]`)
-            * `app_id` (`pulumi.Input[str]`)
-            * `app_secret` (`pulumi.Input[str]`)
-            * `oauthScopes` (`pulumi.Input[list]`)
+          * `additionalLoginParams` (`pulumi.Input[dict]`) - Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+          * `allowedExternalRedirectUrls` (`pulumi.Input[list]`) - External URLs that can be redirected to as part of logging in or logging out of the app.
+          * `defaultProvider` (`pulumi.Input[str]`) - The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+          * `enabled` (`pulumi.Input[bool]`) - Is Authentication enabled?
+          * `facebook` (`pulumi.Input[dict]`) - A `facebook` block as defined below.
+            * `app_id` (`pulumi.Input[str]`) - The App ID of the Facebook app used for login
+            * `app_secret` (`pulumi.Input[str]`) - The App Secret of the Facebook app used for Facebook Login.
+            * `oauthScopes` (`pulumi.Input[list]`) - The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
 
-          * `google` (`pulumi.Input[dict]`)
-            * `client_id` (`pulumi.Input[str]`)
-            * `client_secret` (`pulumi.Input[str]`)
-            * `oauthScopes` (`pulumi.Input[list]`)
+          * `google` (`pulumi.Input[dict]`) - A `google` block as defined below.
+            * `client_id` (`pulumi.Input[str]`) - The OpenID Connect Client ID for the Google web application.
+            * `client_secret` (`pulumi.Input[str]`) - The client secret associated with the Google web application.
+            * `oauthScopes` (`pulumi.Input[list]`) - The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
 
-          * `issuer` (`pulumi.Input[str]`)
-          * `microsoft` (`pulumi.Input[dict]`)
-            * `client_id` (`pulumi.Input[str]`)
-            * `client_secret` (`pulumi.Input[str]`)
-            * `oauthScopes` (`pulumi.Input[list]`)
+          * `issuer` (`pulumi.Input[str]`) - Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+          * `microsoft` (`pulumi.Input[dict]`) - A `microsoft` block as defined below.
+            * `client_id` (`pulumi.Input[str]`) - The OAuth 2.0 client ID that was created for the app used for authentication.
+            * `client_secret` (`pulumi.Input[str]`) - The OAuth 2.0 client secret that was created for the app used for authentication.
+            * `oauthScopes` (`pulumi.Input[list]`) - The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
 
-          * `runtimeVersion` (`pulumi.Input[str]`)
-          * `tokenRefreshExtensionHours` (`pulumi.Input[float]`)
-          * `tokenStoreEnabled` (`pulumi.Input[bool]`)
-          * `twitter` (`pulumi.Input[dict]`)
+          * `runtimeVersion` (`pulumi.Input[str]`) - The runtime version of the Authentication/Authorization module.
+          * `tokenRefreshExtensionHours` (`pulumi.Input[float]`) - The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+          * `tokenStoreEnabled` (`pulumi.Input[bool]`) - If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+          * `twitter` (`pulumi.Input[dict]`) - A `twitter` block as defined below.
             * `consumerKey` (`pulumi.Input[str]`)
             * `consumerSecret` (`pulumi.Input[str]`)
 
-          * `unauthenticatedClientAction` (`pulumi.Input[str]`)
+          * `unauthenticatedClientAction` (`pulumi.Input[str]`) - The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
 
         The **backup** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`) - Is the App Service Enabled?
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
-          * `schedule` (`pulumi.Input[dict]`)
-            * `frequencyInterval` (`pulumi.Input[float]`)
-            * `frequencyUnit` (`pulumi.Input[str]`)
-            * `keepAtLeastOneBackup` (`pulumi.Input[bool]`)
-            * `retentionPeriodInDays` (`pulumi.Input[float]`)
-            * `start_time` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is this Backup enabled?
+          * `name` (`pulumi.Input[str]`) - Specifies the name for this Backup.
+          * `schedule` (`pulumi.Input[dict]`) - A `schedule` block as defined below.
+            * `frequencyInterval` (`pulumi.Input[float]`) - Sets how often the backup should be executed.
+            * `frequencyUnit` (`pulumi.Input[str]`) - Sets the unit of time for how often the backup should be executed. Possible values are `Day` or `Hour`.
+            * `keepAtLeastOneBackup` (`pulumi.Input[bool]`) - Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is?
+            * `retentionPeriodInDays` (`pulumi.Input[float]`) - Specifies the number of days after which Backups should be deleted.
+            * `start_time` (`pulumi.Input[str]`) - Sets when the schedule should start working.
 
-          * `storageAccountUrl` (`pulumi.Input[str]`)
+          * `storageAccountUrl` (`pulumi.Input[str]`) - The SAS URL to a Storage Container where Backups should be saved.
 
         The **connection_strings** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
-          * `type` (`pulumi.Input[str]`)
-          * `value` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of the Connection String.
+          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+          * `value` (`pulumi.Input[str]`) - The value for the Connection String.
 
         The **identity** object supports the following:
 
-          * `identityIds` (`pulumi.Input[list]`)
+          * `identityIds` (`pulumi.Input[list]`) - Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
           * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 
         The **logs** object supports the following:
 
-          * `applicationLogs` (`pulumi.Input[dict]`)
-            * `azureBlobStorage` (`pulumi.Input[dict]`)
-              * `level` (`pulumi.Input[str]`)
-              * `retention_in_days` (`pulumi.Input[float]`)
-              * `sasUrl` (`pulumi.Input[str]`)
+          * `applicationLogs` (`pulumi.Input[dict]`) - An `application_logs` block as defined below.
+            * `azureBlobStorage` (`pulumi.Input[dict]`) - An `azure_blob_storage` block as defined below.
+              * `level` (`pulumi.Input[str]`) - The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+              * `retention_in_days` (`pulumi.Input[float]`) - The number of days to retain logs for.
+              * `sasUrl` (`pulumi.Input[str]`) - The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 
-          * `httpLogs` (`pulumi.Input[dict]`)
-            * `azureBlobStorage` (`pulumi.Input[dict]`)
-              * `retention_in_days` (`pulumi.Input[float]`)
-              * `sasUrl` (`pulumi.Input[str]`)
+          * `httpLogs` (`pulumi.Input[dict]`) - An `http_logs` block as defined below.
+            * `azureBlobStorage` (`pulumi.Input[dict]`) - An `azure_blob_storage` block as defined below.
+              * `retention_in_days` (`pulumi.Input[float]`) - The number of days to retain logs for.
+              * `sasUrl` (`pulumi.Input[str]`) - The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 
-            * `fileSystem` (`pulumi.Input[dict]`)
-              * `retention_in_days` (`pulumi.Input[float]`)
-              * `retentionInMb` (`pulumi.Input[float]`)
+            * `fileSystem` (`pulumi.Input[dict]`) - A `file_system` block as defined below.
+              * `retention_in_days` (`pulumi.Input[float]`) - The number of days to retain logs for.
+              * `retentionInMb` (`pulumi.Input[float]`) - The maximum size in megabytes that http log files can use before being removed.
 
         The **site_config** object supports the following:
 
-          * `alwaysOn` (`pulumi.Input[bool]`)
-          * `appCommandLine` (`pulumi.Input[str]`)
+          * `alwaysOn` (`pulumi.Input[bool]`) - Should the app be loaded at all times? Defaults to `false`.
+          * `appCommandLine` (`pulumi.Input[str]`) - App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
           * `autoSwapSlotName` (`pulumi.Input[str]`)
-          * `cors` (`pulumi.Input[dict]`)
-            * `allowedOrigins` (`pulumi.Input[list]`)
-            * `supportCredentials` (`pulumi.Input[bool]`)
+          * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
+            * `allowedOrigins` (`pulumi.Input[list]`) - A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+            * `supportCredentials` (`pulumi.Input[bool]`) - Are credentials supported?
 
-          * `defaultDocuments` (`pulumi.Input[list]`)
-          * `dotnetFrameworkVersion` (`pulumi.Input[str]`)
-          * `ftpsState` (`pulumi.Input[str]`)
-          * `http2Enabled` (`pulumi.Input[bool]`)
-          * `ipRestrictions` (`pulumi.Input[list]`)
-            * `ip_address` (`pulumi.Input[str]`)
-            * `virtualNetworkSubnetId` (`pulumi.Input[str]`)
+          * `defaultDocuments` (`pulumi.Input[list]`) - The ordering of default documents to load, if an address isn't specified.
+          * `dotnetFrameworkVersion` (`pulumi.Input[str]`) - The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+          * `ftpsState` (`pulumi.Input[str]`) - State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+          * `http2Enabled` (`pulumi.Input[bool]`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
+          * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
 
-          * `javaContainer` (`pulumi.Input[str]`)
-          * `javaContainerVersion` (`pulumi.Input[str]`)
-          * `javaVersion` (`pulumi.Input[str]`)
-          * `linuxFxVersion` (`pulumi.Input[str]`)
-          * `localMysqlEnabled` (`pulumi.Input[bool]`)
-          * `managedPipelineMode` (`pulumi.Input[str]`)
-          * `minTlsVersion` (`pulumi.Input[str]`)
-          * `phpVersion` (`pulumi.Input[str]`)
-          * `pythonVersion` (`pulumi.Input[str]`)
-          * `remoteDebuggingEnabled` (`pulumi.Input[bool]`)
-          * `remoteDebuggingVersion` (`pulumi.Input[str]`)
-          * `scmType` (`pulumi.Input[str]`)
-          * `use32BitWorkerProcess` (`pulumi.Input[bool]`)
-          * `websocketsEnabled` (`pulumi.Input[bool]`)
-          * `windowsFxVersion` (`pulumi.Input[str]`)
+          * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+          * `javaContainerVersion` (`pulumi.Input[str]`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+          * `javaVersion` (`pulumi.Input[str]`) - The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+          * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
+          * `localMysqlEnabled` (`pulumi.Input[bool]`) - Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+          * `managedPipelineMode` (`pulumi.Input[str]`) - The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
+          * `minTlsVersion` (`pulumi.Input[str]`) - The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+          * `phpVersion` (`pulumi.Input[str]`) - The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+          * `pythonVersion` (`pulumi.Input[str]`) - The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
+          * `remoteDebuggingEnabled` (`pulumi.Input[bool]`) - Is Remote Debugging Enabled? Defaults to `false`.
+          * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+          * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+          * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the App Service run in 32 bit mode, rather than 64 bit mode?
+          * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
+          * `windowsFxVersion` (`pulumi.Input[str]`) - The Windows Docker container image (`DOCKER|<user/image:tag>`)
 
         The **site_credentials** object supports the following:
 
@@ -565,12 +565,12 @@ class AppService(pulumi.CustomResource):
 
         The **storage_accounts** object supports the following:
 
-          * `accessKey` (`pulumi.Input[str]`)
-          * `account_name` (`pulumi.Input[str]`)
-          * `mountPath` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
-          * `share_name` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`)
+          * `accessKey` (`pulumi.Input[str]`) - The access key for the storage account.
+          * `account_name` (`pulumi.Input[str]`) - The name of the storage account.
+          * `mountPath` (`pulumi.Input[str]`) - The path to mount the storage within the site's runtime environment.
+          * `name` (`pulumi.Input[str]`) - The name of the storage account identifier.
+          * `share_name` (`pulumi.Input[str]`) - The name of the file share (container name, for Blob storage).
+          * `type` (`pulumi.Input[str]`) - The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

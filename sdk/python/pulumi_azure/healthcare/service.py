@@ -24,11 +24,11 @@ class Service(pulumi.CustomResource):
     """
     A `cors_configuration` block as defined below.
 
-      * `allowCredentials` (`bool`)
-      * `allowedHeaders` (`list`)
-      * `allowedMethods` (`list`)
-      * `allowedOrigins` (`list`)
-      * `maxAgeInSeconds` (`float`)
+      * `allowCredentials` (`bool`) - If credentials are allowed via CORS.
+      * `allowedHeaders` (`list`) - A set of headers to be allowed via CORS.
+      * `allowedMethods` (`list`) - The methods to be allowed via CORS.
+      * `allowedOrigins` (`list`) - A set of origins to be allowed via CORS.
+      * `maxAgeInSeconds` (`float`) - The max age to be allowed via CORS.
     """
     cosmosdb_throughput: pulumi.Output[float]
     """
@@ -80,11 +80,11 @@ class Service(pulumi.CustomResource):
 
         The **cors_configuration** object supports the following:
 
-          * `allowCredentials` (`pulumi.Input[bool]`)
-          * `allowedHeaders` (`pulumi.Input[list]`)
-          * `allowedMethods` (`pulumi.Input[list]`)
-          * `allowedOrigins` (`pulumi.Input[list]`)
-          * `maxAgeInSeconds` (`pulumi.Input[float]`)
+          * `allowCredentials` (`pulumi.Input[bool]`) - If credentials are allowed via CORS.
+          * `allowedHeaders` (`pulumi.Input[list]`) - A set of headers to be allowed via CORS.
+          * `allowedMethods` (`pulumi.Input[list]`) - The methods to be allowed via CORS.
+          * `allowedOrigins` (`pulumi.Input[list]`) - A set of origins to be allowed via CORS.
+          * `maxAgeInSeconds` (`pulumi.Input[float]`) - The max age to be allowed via CORS.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -149,11 +149,11 @@ class Service(pulumi.CustomResource):
 
         The **cors_configuration** object supports the following:
 
-          * `allowCredentials` (`pulumi.Input[bool]`)
-          * `allowedHeaders` (`pulumi.Input[list]`)
-          * `allowedMethods` (`pulumi.Input[list]`)
-          * `allowedOrigins` (`pulumi.Input[list]`)
-          * `maxAgeInSeconds` (`pulumi.Input[float]`)
+          * `allowCredentials` (`pulumi.Input[bool]`) - If credentials are allowed via CORS.
+          * `allowedHeaders` (`pulumi.Input[list]`) - A set of headers to be allowed via CORS.
+          * `allowedMethods` (`pulumi.Input[list]`) - The methods to be allowed via CORS.
+          * `allowedOrigins` (`pulumi.Input[list]`) - A set of origins to be allowed via CORS.
+          * `maxAgeInSeconds` (`pulumi.Input[float]`) - The max age to be allowed via CORS.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

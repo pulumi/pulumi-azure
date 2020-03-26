@@ -128,4 +128,3 @@ type ReplicationPolicyArgs struct {
 func (ReplicationPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationPolicyArgs)(nil)).Elem()
 }
-

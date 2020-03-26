@@ -16,7 +16,18 @@ namespace Pulumi.Azure.ServiceBus
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_topic_authorization_rule.html.markdown.
         /// </summary>
+        [Obsolete("Use GetTopicAuthorizationRule.InvokeAsync() instead")]
         public static Task<GetTopicAuthorizationRuleResult> GetTopicAuthorizationRule(GetTopicAuthorizationRuleArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicAuthorizationRuleResult>("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetTopicAuthorizationRule
+    {
+        /// <summary>
+        /// Use this data source to access information about a ServiceBus Topic Authorization Rule within a ServiceBus Topic.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_topic_authorization_rule.html.markdown.
+        /// </summary>
+        public static Task<GetTopicAuthorizationRuleResult> InvokeAsync(GetTopicAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTopicAuthorizationRuleResult>("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

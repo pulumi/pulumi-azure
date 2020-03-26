@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_ddos_protection_plan.html.markdown.
         /// </summary>
+        [Obsolete("Use GetNetworkDdosProtectionPlan.InvokeAsync() instead")]
         public static Task<GetNetworkDdosProtectionPlanResult> GetNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkDdosProtectionPlanResult>("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetNetworkDdosProtectionPlan
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Azure Network DDoS Protection Plan.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_ddos_protection_plan.html.markdown.
+        /// </summary>
+        public static Task<GetNetworkDdosProtectionPlanResult> InvokeAsync(GetNetworkDdosProtectionPlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkDdosProtectionPlanResult>("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -36,6 +47,10 @@ namespace Pulumi.Azure.Network
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());

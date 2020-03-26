@@ -339,6 +339,9 @@ namespace Pulumi.Azure.Sql
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -361,6 +364,9 @@ namespace Pulumi.Azure.Sql
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -418,6 +424,9 @@ namespace Pulumi.Azure.Sql
         /// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
         /// </summary>
         public readonly string TenantId;
+        /// <summary>
+        /// Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -44,6 +44,9 @@ export function getStorageContainer(args: GetStorageContainerArgs, opts?: pulumi
  * A collection of arguments for invoking getStorageContainer.
  */
 export interface GetStorageContainerArgs {
+    /**
+     * A mapping of MetaData for this Container.
+     */
     readonly metadata?: {[key: string]: string};
     /**
      * The name of the Container.

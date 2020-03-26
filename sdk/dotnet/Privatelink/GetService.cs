@@ -18,7 +18,20 @@ namespace Pulumi.Azure.PrivateLink
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service.html.markdown.
         /// </summary>
+        [Obsolete("Use GetService.InvokeAsync() instead")]
         public static Task<GetServiceResult> GetService(GetServiceArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:privatelink/getService:getService", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetService
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Private Link Service.
+        /// 
+        /// &gt; **NOTE** Private Link is currently in Public Preview.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service.html.markdown.
+        /// </summary>
+        public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:privatelink/getService:getService", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

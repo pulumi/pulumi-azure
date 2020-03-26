@@ -155,4 +155,3 @@ type ActivityLogAlertArgs struct {
 func (ActivityLogAlertArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*activityLogAlertArgs)(nil)).Elem()
 }
-

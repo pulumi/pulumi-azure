@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Iot
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps.html.markdown.
         /// </summary>
+        [Obsolete("Use GetDps.InvokeAsync() instead")]
         public static Task<GetDpsResult> GetDps(GetDpsArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDpsResult>("azure:iot/getDps:getDps", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetDps
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing IotHub Device Provisioning Service.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps.html.markdown.
+        /// </summary>
+        public static Task<GetDpsResult> InvokeAsync(GetDpsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDpsResult>("azure:iot/getDps:getDps", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

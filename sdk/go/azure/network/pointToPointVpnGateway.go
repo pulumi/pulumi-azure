@@ -161,4 +161,3 @@ type PointToPointVpnGatewayArgs struct {
 func (PointToPointVpnGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*pointToPointVpnGatewayArgs)(nil)).Elem()
 }
-

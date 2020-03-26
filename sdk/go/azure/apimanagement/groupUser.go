@@ -118,4 +118,3 @@ type GroupUserArgs struct {
 func (GroupUserArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupUserArgs)(nil)).Elem()
 }
-

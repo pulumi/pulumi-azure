@@ -141,4 +141,3 @@ type FunctionJavaScriptUDFArgs struct {
 func (FunctionJavaScriptUDFArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionJavaScriptUDFArgs)(nil)).Elem()
 }
-

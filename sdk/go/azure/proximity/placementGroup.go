@@ -109,4 +109,3 @@ type PlacementGroupArgs struct {
 func (PlacementGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*placementGroupArgs)(nil)).Elem()
 }
-

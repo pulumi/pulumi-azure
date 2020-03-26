@@ -31,8 +31,8 @@ class VirtualNetwork(pulumi.CustomResource):
     A `subnet` block as defined below.
 
       * `name` (`str`) - Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
-      * `useInVirtualMachineCreation` (`str`)
-      * `usePublicIpAddress` (`str`)
+      * `useInVirtualMachineCreation` (`str`) - Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
+      * `usePublicIpAddress` (`str`) - Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
     """
     tags: pulumi.Output[dict]
     """
@@ -60,8 +60,8 @@ class VirtualNetwork(pulumi.CustomResource):
         The **subnet** object supports the following:
 
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
-          * `useInVirtualMachineCreation` (`pulumi.Input[str]`)
-          * `usePublicIpAddress` (`pulumi.Input[str]`)
+          * `useInVirtualMachineCreation` (`pulumi.Input[str]`) - Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
+          * `usePublicIpAddress` (`pulumi.Input[str]`) - Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -117,8 +117,8 @@ class VirtualNetwork(pulumi.CustomResource):
         The **subnet** object supports the following:
 
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
-          * `useInVirtualMachineCreation` (`pulumi.Input[str]`)
-          * `usePublicIpAddress` (`pulumi.Input[str]`)
+          * `useInVirtualMachineCreation` (`pulumi.Input[str]`) - Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
+          * `usePublicIpAddress` (`pulumi.Input[str]`) - Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

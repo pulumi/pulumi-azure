@@ -28,7 +28,6 @@ type GetServerArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getServer.
 type GetServerResult struct {
 	// The administrator username of the SQL Server.
@@ -40,12 +39,11 @@ type GetServerResult struct {
 	// An `identity` block as defined below.
 	Identities []GetServerIdentity `pulumi:"identities"`
 	// The location of the Resource Group in which the SQL Server exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The version of the SQL Server.
 	Version string `pulumi:"version"`
 }
-

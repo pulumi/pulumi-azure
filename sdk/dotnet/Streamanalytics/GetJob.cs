@@ -16,7 +16,18 @@ namespace Pulumi.Azure.StreamAnalytics
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/stream_analytics_job.html.markdown.
         /// </summary>
+        [Obsolete("Use GetJob.InvokeAsync() instead")]
         public static Task<GetJobResult> GetJob(GetJobArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetJob
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Stream Analytics Job.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/stream_analytics_job.html.markdown.
+        /// </summary>
+        public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

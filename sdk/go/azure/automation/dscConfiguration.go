@@ -31,7 +31,7 @@ type DscConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	State pulumi.StringOutput `pulumi:"state"`
+	State             pulumi.StringOutput `pulumi:"state"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -87,7 +87,7 @@ type dscConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	State *string `pulumi:"state"`
+	State             *string `pulumi:"state"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -107,7 +107,7 @@ type DscConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	State pulumi.StringPtrInput
+	State             pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -158,4 +158,3 @@ type DscConfigurationArgs struct {
 func (DscConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dscConfigurationArgs)(nil)).Elem()
 }
-

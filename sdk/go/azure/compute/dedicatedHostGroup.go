@@ -132,4 +132,3 @@ type DedicatedHostGroupArgs struct {
 func (DedicatedHostGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dedicatedHostGroupArgs)(nil)).Elem()
 }
-

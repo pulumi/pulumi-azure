@@ -140,4 +140,3 @@ type PolicyFileShareArgs struct {
 func (PolicyFileShareArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyFileShareArgs)(nil)).Elem()
 }
-

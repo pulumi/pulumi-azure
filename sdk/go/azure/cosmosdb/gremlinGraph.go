@@ -171,4 +171,3 @@ type GremlinGraphArgs struct {
 func (GremlinGraphArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gremlinGraphArgs)(nil)).Elem()
 }
-

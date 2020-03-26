@@ -28,7 +28,6 @@ type LookupLabArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getLab.
 type LookupLabResult struct {
 	// The ID of the Storage Account used for Artifact Storage.
@@ -43,10 +42,10 @@ type LookupLabResult struct {
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// The Azure location where the Dev Test Lab exists.
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// The ID of the Storage Account used for Storage of Premium Data Disk.
 	PremiumDataDiskStorageAccountId string `pulumi:"premiumDataDiskStorageAccountId"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName               string `pulumi:"resourceGroupName"`
 	// The type of storage used by the Dev Test Lab.
 	StorageType string `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
@@ -54,4 +53,3 @@ type LookupLabResult struct {
 	// The unique immutable identifier of the Dev Test Lab.
 	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
 }
-

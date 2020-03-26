@@ -282,6 +282,10 @@ namespace Pulumi.Azure.Network
     {
         [Input("advertisedPublicPrefixes", required: true)]
         private InputList<string>? _advertisedPublicPrefixes;
+
+        /// <summary>
+        /// A list of Advertised Public Prefixes
+        /// </summary>
         public InputList<string> AdvertisedPublicPrefixes
         {
             get => _advertisedPublicPrefixes ?? (_advertisedPublicPrefixes = new InputList<string>());
@@ -297,6 +301,10 @@ namespace Pulumi.Azure.Network
     {
         [Input("advertisedPublicPrefixes", required: true)]
         private InputList<string>? _advertisedPublicPrefixes;
+
+        /// <summary>
+        /// A list of Advertised Public Prefixes
+        /// </summary>
         public InputList<string> AdvertisedPublicPrefixes
         {
             get => _advertisedPublicPrefixes ?? (_advertisedPublicPrefixes = new InputList<string>());
@@ -315,6 +323,9 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ExpressRouteCircuitPeeringMicrosoftPeeringConfig
     {
+        /// <summary>
+        /// A list of Advertised Public Prefixes
+        /// </summary>
         public readonly ImmutableArray<string> AdvertisedPublicPrefixes;
 
         [OutputConstructor]

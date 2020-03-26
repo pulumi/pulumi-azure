@@ -16,7 +16,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
       * `principal_id` (`str`) - The (Client) ID of the Service Principal.
       * `tenant_id` (`str`) - The ID of the Tenant the Service Principal is assigned in.
-      * `type` (`str`)
+      * `type` (`str`) - The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
     """
     key_vault_key_id: pulumi.Output[str]
     """
@@ -61,7 +61,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
           * `principal_id` (`pulumi.Input[str]`) - The (Client) ID of the Service Principal.
           * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the Service Principal is assigned in.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -118,7 +118,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
           * `principal_id` (`pulumi.Input[str]`) - The (Client) ID of the Service Principal.
           * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the Service Principal is assigned in.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

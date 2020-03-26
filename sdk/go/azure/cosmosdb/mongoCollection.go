@@ -140,4 +140,3 @@ type MongoCollectionArgs struct {
 func (MongoCollectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mongoCollectionArgs)(nil)).Elem()
 }
-

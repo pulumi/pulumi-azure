@@ -382,9 +382,15 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolAutoScaleArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The interval to wait before evaluating if the pool needs to be scaled. Defaults to `PT15M`.
+        /// </summary>
         [Input("evaluationInterval")]
         public Input<string>? EvaluationInterval { get; set; }
 
+        /// <summary>
+        /// The autoscale formula that needs to be used for scaling the Batch pool.
+        /// </summary>
         [Input("formula", required: true)]
         public Input<string> Formula { get; set; } = null!;
 
@@ -395,9 +401,15 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolAutoScaleGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The interval to wait before evaluating if the pool needs to be scaled. Defaults to `PT15M`.
+        /// </summary>
         [Input("evaluationInterval")]
         public Input<string>? EvaluationInterval { get; set; }
 
+        /// <summary>
+        /// The autoscale formula that needs to be used for scaling the Batch pool.
+        /// </summary>
         [Input("formula", required: true)]
         public Input<string> Formula { get; set; } = null!;
 
@@ -409,19 +421,29 @@ namespace Pulumi.Azure.Batch
     public sealed class PoolCertificatesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Batch Pool.
+        /// The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
+        /// </summary>
         [Input("storeLocation", required: true)]
         public Input<string> StoreLocation { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
+        /// </summary>
         [Input("storeName")]
         public Input<string>? StoreName { get; set; }
 
         [Input("visibilities")]
         private InputList<string>? _visibilities;
+
+        /// <summary>
+        /// Which user accounts on the compute node should have access to the private data of the certificate.
+        /// </summary>
         public InputList<string> Visibilities
         {
             get => _visibilities ?? (_visibilities = new InputList<string>());
@@ -436,19 +458,29 @@ namespace Pulumi.Azure.Batch
     public sealed class PoolCertificatesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Batch Pool.
+        /// The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
+        /// </summary>
         [Input("storeLocation", required: true)]
         public Input<string> StoreLocation { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
+        /// </summary>
         [Input("storeName")]
         public Input<string>? StoreName { get; set; }
 
         [Input("visibilities")]
         private InputList<string>? _visibilities;
+
+        /// <summary>
+        /// Which user accounts on the compute node should have access to the private data of the certificate.
+        /// </summary>
         public InputList<string> Visibilities
         {
             get => _visibilities ?? (_visibilities = new InputList<string>());
@@ -464,12 +496,19 @@ namespace Pulumi.Azure.Batch
     {
         [Input("containerRegistries")]
         private InputList<PoolContainerConfigurationContainerRegistriesArgs>? _containerRegistries;
+
+        /// <summary>
+        /// Additional container registries from which container images can be pulled by the pool's VMs.
+        /// </summary>
         public InputList<PoolContainerConfigurationContainerRegistriesArgs> ContainerRegistries
         {
             get => _containerRegistries ?? (_containerRegistries = new InputList<PoolContainerConfigurationContainerRegistriesArgs>());
             set => _containerRegistries = value;
         }
 
+        /// <summary>
+        /// The type of container configuration. Possible value is `DockerCompatible`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -480,12 +519,21 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolContainerConfigurationContainerRegistriesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The password to log into the registry server. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
+        /// <summary>
+        /// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+        /// </summary>
         [Input("registryServer", required: true)]
         public Input<string> RegistryServer { get; set; } = null!;
 
+        /// <summary>
+        /// The user name to log into the registry server. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 
@@ -496,12 +544,21 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolContainerConfigurationContainerRegistriesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The password to log into the registry server. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
+        /// <summary>
+        /// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+        /// </summary>
         [Input("registryServer", required: true)]
         public Input<string> RegistryServer { get; set; } = null!;
 
+        /// <summary>
+        /// The user name to log into the registry server. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 
@@ -514,12 +571,19 @@ namespace Pulumi.Azure.Batch
     {
         [Input("containerRegistries")]
         private InputList<PoolContainerConfigurationContainerRegistriesGetArgs>? _containerRegistries;
+
+        /// <summary>
+        /// Additional container registries from which container images can be pulled by the pool's VMs.
+        /// </summary>
         public InputList<PoolContainerConfigurationContainerRegistriesGetArgs> ContainerRegistries
         {
             get => _containerRegistries ?? (_containerRegistries = new InputList<PoolContainerConfigurationContainerRegistriesGetArgs>());
             set => _containerRegistries = value;
         }
 
+        /// <summary>
+        /// The type of container configuration. Possible value is `DockerCompatible`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -530,12 +594,21 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolFixedScaleArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The timeout for resize operations. Defaults to `PT15M`.
+        /// </summary>
         [Input("resizeTimeout")]
         public Input<string>? ResizeTimeout { get; set; }
 
+        /// <summary>
+        /// The number of nodes in the Batch pool. Defaults to `1`.
+        /// </summary>
         [Input("targetDedicatedNodes")]
         public Input<int>? TargetDedicatedNodes { get; set; }
 
+        /// <summary>
+        /// The number of low priority nodes in the Batch pool. Defaults to `0`.
+        /// </summary>
         [Input("targetLowPriorityNodes")]
         public Input<int>? TargetLowPriorityNodes { get; set; }
 
@@ -546,12 +619,21 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolFixedScaleGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The timeout for resize operations. Defaults to `PT15M`.
+        /// </summary>
         [Input("resizeTimeout")]
         public Input<string>? ResizeTimeout { get; set; }
 
+        /// <summary>
+        /// The number of nodes in the Batch pool. Defaults to `1`.
+        /// </summary>
         [Input("targetDedicatedNodes")]
         public Input<int>? TargetDedicatedNodes { get; set; }
 
+        /// <summary>
+        /// The number of low priority nodes in the Batch pool. Defaults to `0`.
+        /// </summary>
         [Input("targetLowPriorityNodes")]
         public Input<int>? TargetLowPriorityNodes { get; set; }
 
@@ -564,6 +646,10 @@ namespace Pulumi.Azure.Batch
     {
         [Input("endpointConfigurations")]
         private InputList<PoolNetworkConfigurationEndpointConfigurationsArgs>? _endpointConfigurations;
+
+        /// <summary>
+        /// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<PoolNetworkConfigurationEndpointConfigurationsArgs> EndpointConfigurations
         {
             get => _endpointConfigurations ?? (_endpointConfigurations = new InputList<PoolNetworkConfigurationEndpointConfigurationsArgs>());
@@ -572,12 +658,19 @@ namespace Pulumi.Azure.Batch
 
         [Input("publicIps")]
         private InputList<string>? _publicIps;
+
+        /// <summary>
+        /// A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> PublicIps
         {
             get => _publicIps ?? (_publicIps = new InputList<string>());
             set => _publicIps = value;
         }
 
+        /// <summary>
+        /// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -588,26 +681,39 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolNetworkConfigurationEndpointConfigurationsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The port number on the compute node. Acceptable values are between `1` and `65535` except for `29876`, `29877` as these are reserved. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("backendPort", required: true)]
         public Input<int> BackendPort { get; set; } = null!;
 
+        /// <summary>
+        /// The range of external ports that will be used to provide inbound access to the backendPort on individual compute nodes in the format of `1000-1100`. Acceptable values range between `1` and `65534` except ports from `50000` to `55000` which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. Values must be a range of at least `100` nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("frontendPortRange", required: true)]
         public Input<string> FrontendPortRange { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
+        /// The name of the endpoint. The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("networkSecurityGroupRules")]
         private InputList<PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesArgs>? _networkSecurityGroupRules;
+
+        /// <summary>
+        /// A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesArgs> NetworkSecurityGroupRules
         {
             get => _networkSecurityGroupRules ?? (_networkSecurityGroupRules = new InputList<PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesArgs>());
             set => _networkSecurityGroupRules = value;
         }
 
+        /// <summary>
+        /// The protocol of the endpoint. Acceptable values are `TCP` and `UDP`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
@@ -618,26 +724,39 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolNetworkConfigurationEndpointConfigurationsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The port number on the compute node. Acceptable values are between `1` and `65535` except for `29876`, `29877` as these are reserved. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("backendPort", required: true)]
         public Input<int> BackendPort { get; set; } = null!;
 
+        /// <summary>
+        /// The range of external ports that will be used to provide inbound access to the backendPort on individual compute nodes in the format of `1000-1100`. Acceptable values range between `1` and `65534` except ports from `50000` to `55000` which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. Values must be a range of at least `100` nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("frontendPortRange", required: true)]
         public Input<string> FrontendPortRange { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
+        /// The name of the endpoint. The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("networkSecurityGroupRules")]
         private InputList<PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesGetArgs>? _networkSecurityGroupRules;
+
+        /// <summary>
+        /// A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesGetArgs> NetworkSecurityGroupRules
         {
             get => _networkSecurityGroupRules ?? (_networkSecurityGroupRules = new InputList<PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesGetArgs>());
             set => _networkSecurityGroupRules = value;
         }
 
+        /// <summary>
+        /// The protocol of the endpoint. Acceptable values are `TCP` and `UDP`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
@@ -648,12 +767,21 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action that should be taken for a specified IP address, subnet range or tag. Acceptable values are `Allow` and `Deny`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("access", required: true)]
         public Input<string> Access { get; set; } = null!;
 
+        /// <summary>
+        /// The priority for this rule. The value must be at least `150`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
+        /// <summary>
+        /// The source address prefix or tag to match for the rule. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("sourceAddressPrefix", required: true)]
         public Input<string> SourceAddressPrefix { get; set; } = null!;
 
@@ -664,12 +792,21 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action that should be taken for a specified IP address, subnet range or tag. Acceptable values are `Allow` and `Deny`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("access", required: true)]
         public Input<string> Access { get; set; } = null!;
 
+        /// <summary>
+        /// The priority for this rule. The value must be at least `150`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
+        /// <summary>
+        /// The source address prefix or tag to match for the rule. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("sourceAddressPrefix", required: true)]
         public Input<string> SourceAddressPrefix { get; set; } = null!;
 
@@ -682,6 +819,10 @@ namespace Pulumi.Azure.Batch
     {
         [Input("endpointConfigurations")]
         private InputList<PoolNetworkConfigurationEndpointConfigurationsGetArgs>? _endpointConfigurations;
+
+        /// <summary>
+        /// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<PoolNetworkConfigurationEndpointConfigurationsGetArgs> EndpointConfigurations
         {
             get => _endpointConfigurations ?? (_endpointConfigurations = new InputList<PoolNetworkConfigurationEndpointConfigurationsGetArgs>());
@@ -690,12 +831,19 @@ namespace Pulumi.Azure.Batch
 
         [Input("publicIps")]
         private InputList<string>? _publicIps;
+
+        /// <summary>
+        /// A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> PublicIps
         {
             get => _publicIps ?? (_publicIps = new InputList<string>());
             set => _publicIps = value;
         }
 
+        /// <summary>
+        /// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -706,31 +854,51 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolStartTaskArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The command line executed by the start task.
+        /// </summary>
         [Input("commandLine", required: true)]
         public Input<string> CommandLine { get; set; } = null!;
 
         [Input("environment")]
         private InputMap<string>? _environment;
+
+        /// <summary>
+        /// A map of strings (key,value) that represents the environment variables to set in the start task.
+        /// </summary>
         public InputMap<string> Environment
         {
             get => _environment ?? (_environment = new InputMap<string>());
             set => _environment = value;
         }
 
+        /// <summary>
+        /// The number of retry count. Defaults to `1`.
+        /// </summary>
         [Input("maxTaskRetryCount")]
         public Input<int>? MaxTaskRetryCount { get; set; }
 
         [Input("resourceFiles")]
         private InputList<PoolStartTaskResourceFilesArgs>? _resourceFiles;
+
+        /// <summary>
+        /// One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+        /// </summary>
         public InputList<PoolStartTaskResourceFilesArgs> ResourceFiles
         {
             get => _resourceFiles ?? (_resourceFiles = new InputList<PoolStartTaskResourceFilesArgs>());
             set => _resourceFiles = value;
         }
 
+        /// <summary>
+        /// A `user_identity` block that describes the user identity under which the start task runs.
+        /// </summary>
         [Input("userIdentity", required: true)]
         public Input<PoolStartTaskUserIdentityArgs> UserIdentity { get; set; } = null!;
 
+        /// <summary>
+        /// A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
+        /// </summary>
         [Input("waitForSuccess")]
         public Input<bool>? WaitForSuccess { get; set; }
 
@@ -741,31 +909,51 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolStartTaskGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The command line executed by the start task.
+        /// </summary>
         [Input("commandLine", required: true)]
         public Input<string> CommandLine { get; set; } = null!;
 
         [Input("environment")]
         private InputMap<string>? _environment;
+
+        /// <summary>
+        /// A map of strings (key,value) that represents the environment variables to set in the start task.
+        /// </summary>
         public InputMap<string> Environment
         {
             get => _environment ?? (_environment = new InputMap<string>());
             set => _environment = value;
         }
 
+        /// <summary>
+        /// The number of retry count. Defaults to `1`.
+        /// </summary>
         [Input("maxTaskRetryCount")]
         public Input<int>? MaxTaskRetryCount { get; set; }
 
         [Input("resourceFiles")]
         private InputList<PoolStartTaskResourceFilesGetArgs>? _resourceFiles;
+
+        /// <summary>
+        /// One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+        /// </summary>
         public InputList<PoolStartTaskResourceFilesGetArgs> ResourceFiles
         {
             get => _resourceFiles ?? (_resourceFiles = new InputList<PoolStartTaskResourceFilesGetArgs>());
             set => _resourceFiles = value;
         }
 
+        /// <summary>
+        /// A `user_identity` block that describes the user identity under which the start task runs.
+        /// </summary>
         [Input("userIdentity", required: true)]
         public Input<PoolStartTaskUserIdentityGetArgs> UserIdentity { get; set; } = null!;
 
+        /// <summary>
+        /// A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
+        /// </summary>
         [Input("waitForSuccess")]
         public Input<bool>? WaitForSuccess { get; set; }
 
@@ -776,21 +964,39 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolStartTaskResourceFilesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The storage container name in the auto storage account.
+        /// </summary>
         [Input("autoStorageContainerName")]
         public Input<string>? AutoStorageContainerName { get; set; }
 
+        /// <summary>
+        /// The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when `auto_storage_container_name` or `storage_container_url` is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
+        /// </summary>
         [Input("blobPrefix")]
         public Input<string>? BlobPrefix { get; set; }
 
+        /// <summary>
+        /// The file permission mode represented as a string in octal format (e.g. `"0644"`). This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a `resource_file` which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
+        /// </summary>
         [Input("fileMode")]
         public Input<string>? FileMode { get; set; }
 
+        /// <summary>
+        /// The location on the compute node to which to download the file, relative to the task's working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified, `file_path` is optional and is the directory to download the files to. In the case where `file_path` is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task's working directory (for example by using '..').
+        /// </summary>
         [Input("filePath")]
         public Input<string>? FilePath { get; set; }
 
+        /// <summary>
+        /// The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
+        /// </summary>
         [Input("httpUrl")]
         public Input<string>? HttpUrl { get; set; }
 
+        /// <summary>
+        /// The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
+        /// </summary>
         [Input("storageContainerUrl")]
         public Input<string>? StorageContainerUrl { get; set; }
 
@@ -801,21 +1007,39 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolStartTaskResourceFilesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The storage container name in the auto storage account.
+        /// </summary>
         [Input("autoStorageContainerName")]
         public Input<string>? AutoStorageContainerName { get; set; }
 
+        /// <summary>
+        /// The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when `auto_storage_container_name` or `storage_container_url` is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
+        /// </summary>
         [Input("blobPrefix")]
         public Input<string>? BlobPrefix { get; set; }
 
+        /// <summary>
+        /// The file permission mode represented as a string in octal format (e.g. `"0644"`). This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a `resource_file` which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
+        /// </summary>
         [Input("fileMode")]
         public Input<string>? FileMode { get; set; }
 
+        /// <summary>
+        /// The location on the compute node to which to download the file, relative to the task's working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified, `file_path` is optional and is the directory to download the files to. In the case where `file_path` is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task's working directory (for example by using '..').
+        /// </summary>
         [Input("filePath")]
         public Input<string>? FilePath { get; set; }
 
+        /// <summary>
+        /// The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
+        /// </summary>
         [Input("httpUrl")]
         public Input<string>? HttpUrl { get; set; }
 
+        /// <summary>
+        /// The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
+        /// </summary>
         [Input("storageContainerUrl")]
         public Input<string>? StorageContainerUrl { get; set; }
 
@@ -826,9 +1050,15 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolStartTaskUserIdentityArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `auto_user` block that describes the user identity under which the start task runs.
+        /// </summary>
         [Input("autoUser")]
         public Input<PoolStartTaskUserIdentityAutoUserArgs>? AutoUser { get; set; }
 
+        /// <summary>
+        /// The username to be used by the Batch pool start task.
+        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 
@@ -839,9 +1069,15 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolStartTaskUserIdentityAutoUserArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The elevation level of the user identity under which the start task runs. Possible values are `Admin` or `NonAdmin`. Defaults to `NonAdmin`.
+        /// </summary>
         [Input("elevationLevel")]
         public Input<string>? ElevationLevel { get; set; }
 
+        /// <summary>
+        /// The scope of the user identity under which the start task runs. Possible values are `Task` or `Pool`. Defaults to `Task`.
+        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
@@ -852,9 +1088,15 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolStartTaskUserIdentityAutoUserGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The elevation level of the user identity under which the start task runs. Possible values are `Admin` or `NonAdmin`. Defaults to `NonAdmin`.
+        /// </summary>
         [Input("elevationLevel")]
         public Input<string>? ElevationLevel { get; set; }
 
+        /// <summary>
+        /// The scope of the user identity under which the start task runs. Possible values are `Task` or `Pool`. Defaults to `Task`.
+        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
@@ -865,9 +1107,15 @@ namespace Pulumi.Azure.Batch
 
     public sealed class PoolStartTaskUserIdentityGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `auto_user` block that describes the user identity under which the start task runs.
+        /// </summary>
         [Input("autoUser")]
         public Input<PoolStartTaskUserIdentityAutoUserGetArgs>? AutoUser { get; set; }
 
+        /// <summary>
+        /// The username to be used by the Batch pool start task.
+        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 
@@ -879,20 +1127,33 @@ namespace Pulumi.Azure.Batch
     public sealed class PoolStorageImageReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Batch Pool.
+        /// Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images) for more details.
+        /// ---
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("offer")]
         public Input<string>? Offer { get; set; }
 
+        /// <summary>
+        /// Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("publisher")]
         public Input<string>? Publisher { get; set; }
 
+        /// <summary>
+        /// Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
+        /// <summary>
+        /// Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
@@ -904,20 +1165,33 @@ namespace Pulumi.Azure.Batch
     public sealed class PoolStorageImageReferenceGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Batch Pool.
+        /// Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images) for more details.
+        /// ---
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("offer")]
         public Input<string>? Offer { get; set; }
 
+        /// <summary>
+        /// Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("publisher")]
         public Input<string>? Publisher { get; set; }
 
+        /// <summary>
+        /// Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
+        /// <summary>
+        /// Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
@@ -933,7 +1207,13 @@ namespace Pulumi.Azure.Batch
     [OutputType]
     public sealed class PoolAutoScale
     {
+        /// <summary>
+        /// The interval to wait before evaluating if the pool needs to be scaled. Defaults to `PT15M`.
+        /// </summary>
         public readonly string? EvaluationInterval;
+        /// <summary>
+        /// The autoscale formula that needs to be used for scaling the Batch pool.
+        /// </summary>
         public readonly string Formula;
 
         [OutputConstructor]
@@ -950,11 +1230,20 @@ namespace Pulumi.Azure.Batch
     public sealed class PoolCertificates
     {
         /// <summary>
-        /// The ID of the Batch Pool.
+        /// The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
+        /// </summary>
         public readonly string StoreLocation;
+        /// <summary>
+        /// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
+        /// </summary>
         public readonly string? StoreName;
+        /// <summary>
+        /// Which user accounts on the compute node should have access to the private data of the certificate.
+        /// </summary>
         public readonly ImmutableArray<string> Visibilities;
 
         [OutputConstructor]
@@ -974,7 +1263,13 @@ namespace Pulumi.Azure.Batch
     [OutputType]
     public sealed class PoolContainerConfiguration
     {
+        /// <summary>
+        /// Additional container registries from which container images can be pulled by the pool's VMs.
+        /// </summary>
         public readonly ImmutableArray<PoolContainerConfigurationContainerRegistries> ContainerRegistries;
+        /// <summary>
+        /// The type of container configuration. Possible value is `DockerCompatible`.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]
@@ -990,8 +1285,17 @@ namespace Pulumi.Azure.Batch
     [OutputType]
     public sealed class PoolContainerConfigurationContainerRegistries
     {
+        /// <summary>
+        /// The password to log into the registry server. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string RegistryServer;
+        /// <summary>
+        /// The user name to log into the registry server. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string UserName;
 
         [OutputConstructor]
@@ -1009,8 +1313,17 @@ namespace Pulumi.Azure.Batch
     [OutputType]
     public sealed class PoolFixedScale
     {
+        /// <summary>
+        /// The timeout for resize operations. Defaults to `PT15M`.
+        /// </summary>
         public readonly string? ResizeTimeout;
+        /// <summary>
+        /// The number of nodes in the Batch pool. Defaults to `1`.
+        /// </summary>
         public readonly int? TargetDedicatedNodes;
+        /// <summary>
+        /// The number of low priority nodes in the Batch pool. Defaults to `0`.
+        /// </summary>
         public readonly int? TargetLowPriorityNodes;
 
         [OutputConstructor]
@@ -1028,8 +1341,17 @@ namespace Pulumi.Azure.Batch
     [OutputType]
     public sealed class PoolNetworkConfiguration
     {
+        /// <summary>
+        /// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableArray<PoolNetworkConfigurationEndpointConfigurations> EndpointConfigurations;
+        /// <summary>
+        /// A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableArray<string> PublicIps;
+        /// <summary>
+        /// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string SubnetId;
 
         [OutputConstructor]
@@ -1047,13 +1369,25 @@ namespace Pulumi.Azure.Batch
     [OutputType]
     public sealed class PoolNetworkConfigurationEndpointConfigurations
     {
+        /// <summary>
+        /// The port number on the compute node. Acceptable values are between `1` and `65535` except for `29876`, `29877` as these are reserved. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int BackendPort;
+        /// <summary>
+        /// The range of external ports that will be used to provide inbound access to the backendPort on individual compute nodes in the format of `1000-1100`. Acceptable values range between `1` and `65534` except ports from `50000` to `55000` which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. Values must be a range of at least `100` nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string FrontendPortRange;
         /// <summary>
-        /// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
+        /// The name of the endpoint. The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableArray<PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRules> NetworkSecurityGroupRules;
+        /// <summary>
+        /// The protocol of the endpoint. Acceptable values are `TCP` and `UDP`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Protocol;
 
         [OutputConstructor]
@@ -1075,8 +1409,17 @@ namespace Pulumi.Azure.Batch
     [OutputType]
     public sealed class PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRules
     {
+        /// <summary>
+        /// The action that should be taken for a specified IP address, subnet range or tag. Acceptable values are `Allow` and `Deny`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Access;
+        /// <summary>
+        /// The priority for this rule. The value must be at least `150`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int Priority;
+        /// <summary>
+        /// The source address prefix or tag to match for the rule. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string SourceAddressPrefix;
 
         [OutputConstructor]
@@ -1094,11 +1437,29 @@ namespace Pulumi.Azure.Batch
     [OutputType]
     public sealed class PoolStartTask
     {
+        /// <summary>
+        /// The command line executed by the start task.
+        /// </summary>
         public readonly string CommandLine;
+        /// <summary>
+        /// A map of strings (key,value) that represents the environment variables to set in the start task.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Environment;
+        /// <summary>
+        /// The number of retry count. Defaults to `1`.
+        /// </summary>
         public readonly int? MaxTaskRetryCount;
+        /// <summary>
+        /// One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+        /// </summary>
         public readonly ImmutableArray<PoolStartTaskResourceFiles> ResourceFiles;
+        /// <summary>
+        /// A `user_identity` block that describes the user identity under which the start task runs.
+        /// </summary>
         public readonly PoolStartTaskUserIdentity UserIdentity;
+        /// <summary>
+        /// A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
+        /// </summary>
         public readonly bool? WaitForSuccess;
 
         [OutputConstructor]
@@ -1122,11 +1483,29 @@ namespace Pulumi.Azure.Batch
     [OutputType]
     public sealed class PoolStartTaskResourceFiles
     {
+        /// <summary>
+        /// The storage container name in the auto storage account.
+        /// </summary>
         public readonly string? AutoStorageContainerName;
+        /// <summary>
+        /// The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when `auto_storage_container_name` or `storage_container_url` is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
+        /// </summary>
         public readonly string? BlobPrefix;
+        /// <summary>
+        /// The file permission mode represented as a string in octal format (e.g. `"0644"`). This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a `resource_file` which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
+        /// </summary>
         public readonly string? FileMode;
+        /// <summary>
+        /// The location on the compute node to which to download the file, relative to the task's working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified, `file_path` is optional and is the directory to download the files to. In the case where `file_path` is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task's working directory (for example by using '..').
+        /// </summary>
         public readonly string? FilePath;
+        /// <summary>
+        /// The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
+        /// </summary>
         public readonly string? HttpUrl;
+        /// <summary>
+        /// The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
+        /// </summary>
         public readonly string? StorageContainerUrl;
 
         [OutputConstructor]
@@ -1150,7 +1529,13 @@ namespace Pulumi.Azure.Batch
     [OutputType]
     public sealed class PoolStartTaskUserIdentity
     {
+        /// <summary>
+        /// A `auto_user` block that describes the user identity under which the start task runs.
+        /// </summary>
         public readonly PoolStartTaskUserIdentityAutoUser? AutoUser;
+        /// <summary>
+        /// The username to be used by the Batch pool start task.
+        /// </summary>
         public readonly string? UserName;
 
         [OutputConstructor]
@@ -1166,7 +1551,13 @@ namespace Pulumi.Azure.Batch
     [OutputType]
     public sealed class PoolStartTaskUserIdentityAutoUser
     {
+        /// <summary>
+        /// The elevation level of the user identity under which the start task runs. Possible values are `Admin` or `NonAdmin`. Defaults to `NonAdmin`.
+        /// </summary>
         public readonly string? ElevationLevel;
+        /// <summary>
+        /// The scope of the user identity under which the start task runs. Possible values are `Task` or `Pool`. Defaults to `Task`.
+        /// </summary>
         public readonly string? Scope;
 
         [OutputConstructor]
@@ -1183,12 +1574,25 @@ namespace Pulumi.Azure.Batch
     public sealed class PoolStorageImageReference
     {
         /// <summary>
-        /// The ID of the Batch Pool.
+        /// Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images) for more details.
+        /// ---
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Offer;
+        /// <summary>
+        /// Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Publisher;
+        /// <summary>
+        /// Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Sku;
+        /// <summary>
+        /// Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

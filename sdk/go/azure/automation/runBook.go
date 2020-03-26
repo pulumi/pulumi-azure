@@ -194,4 +194,3 @@ type RunBookArgs struct {
 func (RunBookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*runBookArgs)(nil)).Elem()
 }
-

@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/firewall.html.markdown.
         /// </summary>
+        [Obsolete("Use GetFirewall.InvokeAsync() instead")]
         public static Task<GetFirewallResult> GetFirewall(GetFirewallArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallResult>("azure:network/getFirewall:getFirewall", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetFirewall
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Azure Firewall.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/firewall.html.markdown.
+        /// </summary>
+        public static Task<GetFirewallResult> InvokeAsync(GetFirewallArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallResult>("azure:network/getFirewall:getFirewall", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

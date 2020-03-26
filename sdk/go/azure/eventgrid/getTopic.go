@@ -25,24 +25,22 @@ type LookupTopicArgs struct {
 	// The name of the EventGrid Topic resource.
 	Name string `pulumi:"name"`
 	// The name of the resource group in which the EventGrid Topic exists.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Tags map[string]string `pulumi:"tags"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getTopic.
 type LookupTopicResult struct {
 	// The Endpoint associated with the EventGrid Topic.
 	Endpoint string `pulumi:"endpoint"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id       string `pulumi:"id"`
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// The Primary Shared Access Key associated with the EventGrid Topic.
-	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
+	PrimaryAccessKey  string `pulumi:"primaryAccessKey"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Secondary Shared Access Key associated with the EventGrid Topic.
-	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
-	Tags map[string]string `pulumi:"tags"`
+	SecondaryAccessKey string            `pulumi:"secondaryAccessKey"`
+	Tags               map[string]string `pulumi:"tags"`
 }
-

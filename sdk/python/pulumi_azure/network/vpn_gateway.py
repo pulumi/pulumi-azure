@@ -14,9 +14,9 @@ class VpnGateway(pulumi.CustomResource):
     """
     A `bgp_settings` block as defined below.
 
-      * `asn` (`float`)
+      * `asn` (`float`) - The ASN of the BGP Speaker. Changing this forces a new resource to be created.
       * `bgpPeeringAddress` (`str`) - The Address which should be used for the BGP Peering.
-      * `peerWeight` (`float`)
+      * `peerWeight` (`float`) - The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
     """
     location: pulumi.Output[str]
     """
@@ -60,9 +60,9 @@ class VpnGateway(pulumi.CustomResource):
 
         The **bgp_settings** object supports the following:
 
-          * `asn` (`pulumi.Input[float]`)
+          * `asn` (`pulumi.Input[float]`) - The ASN of the BGP Speaker. Changing this forces a new resource to be created.
           * `bgpPeeringAddress` (`pulumi.Input[str]`) - The Address which should be used for the BGP Peering.
-          * `peerWeight` (`pulumi.Input[float]`)
+          * `peerWeight` (`pulumi.Input[float]`) - The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -117,9 +117,9 @@ class VpnGateway(pulumi.CustomResource):
 
         The **bgp_settings** object supports the following:
 
-          * `asn` (`pulumi.Input[float]`)
+          * `asn` (`pulumi.Input[float]`) - The ASN of the BGP Speaker. Changing this forces a new resource to be created.
           * `bgpPeeringAddress` (`pulumi.Input[str]`) - The Address which should be used for the BGP Peering.
-          * `peerWeight` (`pulumi.Input[float]`)
+          * `peerWeight` (`pulumi.Input[float]`) - The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

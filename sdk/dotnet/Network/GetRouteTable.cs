@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/route_table.html.markdown.
         /// </summary>
+        [Obsolete("Use GetRouteTable.InvokeAsync() instead")]
         public static Task<GetRouteTableResult> GetRouteTable(GetRouteTableArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("azure:network/getRouteTable:getRouteTable", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetRouteTable
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Route Table.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/route_table.html.markdown.
+        /// </summary>
+        public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("azure:network/getRouteTable:getRouteTable", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -125,4 +125,3 @@ type EventHubConsumerGroupArgs struct {
 func (EventHubConsumerGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventHubConsumerGroupArgs)(nil)).Elem()
 }
-

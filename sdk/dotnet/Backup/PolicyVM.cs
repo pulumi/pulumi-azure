@@ -271,14 +271,24 @@ namespace Pulumi.Azure.Backup
 
     public sealed class PolicyVMBackupArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Sets the backup frequency. Must be either `Daily` or`Weekly`.
+        /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;
 
+        /// <summary>
+        /// The time of day to perform the backup in 24hour format.
+        /// </summary>
         [Input("time", required: true)]
         public Input<string> Time { get; set; } = null!;
 
         [Input("weekdays")]
         private InputList<string>? _weekdays;
+
+        /// <summary>
+        /// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        /// </summary>
         public InputList<string> Weekdays
         {
             get => _weekdays ?? (_weekdays = new InputList<string>());
@@ -292,14 +302,24 @@ namespace Pulumi.Azure.Backup
 
     public sealed class PolicyVMBackupGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Sets the backup frequency. Must be either `Daily` or`Weekly`.
+        /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;
 
+        /// <summary>
+        /// The time of day to perform the backup in 24hour format.
+        /// </summary>
         [Input("time", required: true)]
         public Input<string> Time { get; set; } = null!;
 
         [Input("weekdays")]
         private InputList<string>? _weekdays;
+
+        /// <summary>
+        /// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        /// </summary>
         public InputList<string> Weekdays
         {
             get => _weekdays ?? (_weekdays = new InputList<string>());
@@ -313,6 +333,9 @@ namespace Pulumi.Azure.Backup
 
     public sealed class PolicyVMRetentionDailyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of yearly backups to keep. Must be between `1` and `9999`
+        /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
 
@@ -323,6 +346,9 @@ namespace Pulumi.Azure.Backup
 
     public sealed class PolicyVMRetentionDailyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of yearly backups to keep. Must be between `1` and `9999`
+        /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
 
@@ -333,11 +359,18 @@ namespace Pulumi.Azure.Backup
 
     public sealed class PolicyVMRetentionMonthlyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of yearly backups to keep. Must be between `1` and `9999`
+        /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
 
         [Input("weekdays", required: true)]
         private InputList<string>? _weekdays;
+
+        /// <summary>
+        /// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        /// </summary>
         public InputList<string> Weekdays
         {
             get => _weekdays ?? (_weekdays = new InputList<string>());
@@ -346,6 +379,10 @@ namespace Pulumi.Azure.Backup
 
         [Input("weeks", required: true)]
         private InputList<string>? _weeks;
+
+        /// <summary>
+        /// The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
+        /// </summary>
         public InputList<string> Weeks
         {
             get => _weeks ?? (_weeks = new InputList<string>());
@@ -359,11 +396,18 @@ namespace Pulumi.Azure.Backup
 
     public sealed class PolicyVMRetentionMonthlyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of yearly backups to keep. Must be between `1` and `9999`
+        /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
 
         [Input("weekdays", required: true)]
         private InputList<string>? _weekdays;
+
+        /// <summary>
+        /// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        /// </summary>
         public InputList<string> Weekdays
         {
             get => _weekdays ?? (_weekdays = new InputList<string>());
@@ -372,6 +416,10 @@ namespace Pulumi.Azure.Backup
 
         [Input("weeks", required: true)]
         private InputList<string>? _weeks;
+
+        /// <summary>
+        /// The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
+        /// </summary>
         public InputList<string> Weeks
         {
             get => _weeks ?? (_weeks = new InputList<string>());
@@ -385,11 +433,18 @@ namespace Pulumi.Azure.Backup
 
     public sealed class PolicyVMRetentionWeeklyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of yearly backups to keep. Must be between `1` and `9999`
+        /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
 
         [Input("weekdays", required: true)]
         private InputList<string>? _weekdays;
+
+        /// <summary>
+        /// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        /// </summary>
         public InputList<string> Weekdays
         {
             get => _weekdays ?? (_weekdays = new InputList<string>());
@@ -403,11 +458,18 @@ namespace Pulumi.Azure.Backup
 
     public sealed class PolicyVMRetentionWeeklyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of yearly backups to keep. Must be between `1` and `9999`
+        /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
 
         [Input("weekdays", required: true)]
         private InputList<string>? _weekdays;
+
+        /// <summary>
+        /// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        /// </summary>
         public InputList<string> Weekdays
         {
             get => _weekdays ?? (_weekdays = new InputList<string>());
@@ -421,11 +483,18 @@ namespace Pulumi.Azure.Backup
 
     public sealed class PolicyVMRetentionYearlyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of yearly backups to keep. Must be between `1` and `9999`
+        /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
 
         [Input("months", required: true)]
         private InputList<string>? _months;
+
+        /// <summary>
+        /// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+        /// </summary>
         public InputList<string> Months
         {
             get => _months ?? (_months = new InputList<string>());
@@ -434,6 +503,10 @@ namespace Pulumi.Azure.Backup
 
         [Input("weekdays", required: true)]
         private InputList<string>? _weekdays;
+
+        /// <summary>
+        /// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        /// </summary>
         public InputList<string> Weekdays
         {
             get => _weekdays ?? (_weekdays = new InputList<string>());
@@ -442,6 +515,10 @@ namespace Pulumi.Azure.Backup
 
         [Input("weeks", required: true)]
         private InputList<string>? _weeks;
+
+        /// <summary>
+        /// The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
+        /// </summary>
         public InputList<string> Weeks
         {
             get => _weeks ?? (_weeks = new InputList<string>());
@@ -455,11 +532,18 @@ namespace Pulumi.Azure.Backup
 
     public sealed class PolicyVMRetentionYearlyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of yearly backups to keep. Must be between `1` and `9999`
+        /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
 
         [Input("months", required: true)]
         private InputList<string>? _months;
+
+        /// <summary>
+        /// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+        /// </summary>
         public InputList<string> Months
         {
             get => _months ?? (_months = new InputList<string>());
@@ -468,6 +552,10 @@ namespace Pulumi.Azure.Backup
 
         [Input("weekdays", required: true)]
         private InputList<string>? _weekdays;
+
+        /// <summary>
+        /// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        /// </summary>
         public InputList<string> Weekdays
         {
             get => _weekdays ?? (_weekdays = new InputList<string>());
@@ -476,6 +564,10 @@ namespace Pulumi.Azure.Backup
 
         [Input("weeks", required: true)]
         private InputList<string>? _weeks;
+
+        /// <summary>
+        /// The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
+        /// </summary>
         public InputList<string> Weeks
         {
             get => _weeks ?? (_weeks = new InputList<string>());
@@ -494,8 +586,17 @@ namespace Pulumi.Azure.Backup
     [OutputType]
     public sealed class PolicyVMBackup
     {
+        /// <summary>
+        /// Sets the backup frequency. Must be either `Daily` or`Weekly`.
+        /// </summary>
         public readonly string Frequency;
+        /// <summary>
+        /// The time of day to perform the backup in 24hour format.
+        /// </summary>
         public readonly string Time;
+        /// <summary>
+        /// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        /// </summary>
         public readonly ImmutableArray<string> Weekdays;
 
         [OutputConstructor]
@@ -513,6 +614,9 @@ namespace Pulumi.Azure.Backup
     [OutputType]
     public sealed class PolicyVMRetentionDaily
     {
+        /// <summary>
+        /// The number of yearly backups to keep. Must be between `1` and `9999`
+        /// </summary>
         public readonly int Count;
 
         [OutputConstructor]
@@ -525,8 +629,17 @@ namespace Pulumi.Azure.Backup
     [OutputType]
     public sealed class PolicyVMRetentionMonthly
     {
+        /// <summary>
+        /// The number of yearly backups to keep. Must be between `1` and `9999`
+        /// </summary>
         public readonly int Count;
+        /// <summary>
+        /// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        /// </summary>
         public readonly ImmutableArray<string> Weekdays;
+        /// <summary>
+        /// The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
+        /// </summary>
         public readonly ImmutableArray<string> Weeks;
 
         [OutputConstructor]
@@ -544,7 +657,13 @@ namespace Pulumi.Azure.Backup
     [OutputType]
     public sealed class PolicyVMRetentionWeekly
     {
+        /// <summary>
+        /// The number of yearly backups to keep. Must be between `1` and `9999`
+        /// </summary>
         public readonly int Count;
+        /// <summary>
+        /// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        /// </summary>
         public readonly ImmutableArray<string> Weekdays;
 
         [OutputConstructor]
@@ -560,9 +679,21 @@ namespace Pulumi.Azure.Backup
     [OutputType]
     public sealed class PolicyVMRetentionYearly
     {
+        /// <summary>
+        /// The number of yearly backups to keep. Must be between `1` and `9999`
+        /// </summary>
         public readonly int Count;
+        /// <summary>
+        /// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+        /// </summary>
         public readonly ImmutableArray<string> Months;
+        /// <summary>
+        /// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        /// </summary>
         public readonly ImmutableArray<string> Weekdays;
+        /// <summary>
+        /// The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
+        /// </summary>
         public readonly ImmutableArray<string> Weeks;
 
         [OutputConstructor]

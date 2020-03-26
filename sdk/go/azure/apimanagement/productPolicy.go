@@ -125,4 +125,3 @@ type ProductPolicyArgs struct {
 func (ProductPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*productPolicyArgs)(nil)).Elem()
 }
-

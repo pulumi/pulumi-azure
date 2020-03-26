@@ -134,4 +134,3 @@ type FallbackRouteArgs struct {
 func (FallbackRouteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fallbackRouteArgs)(nil)).Elem()
 }
-

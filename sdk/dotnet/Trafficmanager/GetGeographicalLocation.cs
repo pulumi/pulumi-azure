@@ -16,7 +16,18 @@ namespace Pulumi.Azure.TrafficManager
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/traffic_manager_geographical_location.html.markdown.
         /// </summary>
+        [Obsolete("Use GetGeographicalLocation.InvokeAsync() instead")]
         public static Task<GetGeographicalLocationResult> GetGeographicalLocation(GetGeographicalLocationArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGeographicalLocationResult>("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetGeographicalLocation
+    {
+        /// <summary>
+        /// Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/traffic_manager_geographical_location.html.markdown.
+        /// </summary>
+        public static Task<GetGeographicalLocationResult> InvokeAsync(GetGeographicalLocationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGeographicalLocationResult>("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

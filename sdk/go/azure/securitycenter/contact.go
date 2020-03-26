@@ -117,4 +117,3 @@ type ContactArgs struct {
 func (ContactArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*contactArgs)(nil)).Elem()
 }
-

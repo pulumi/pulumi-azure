@@ -763,6 +763,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayAuthenticationCertificatesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The contents of the Authentication Certificate which should be used.
+        /// </summary>
         [Input("data", required: true)]
         public Input<string> Data { get; set; } = null!;
 
@@ -773,7 +776,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Authentication Certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -785,6 +788,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayAuthenticationCertificatesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The contents of the Authentication Certificate which should be used.
+        /// </summary>
         [Input("data", required: true)]
         public Input<string> Data { get; set; } = null!;
 
@@ -795,7 +801,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Authentication Certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -807,9 +813,15 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayAutoscaleConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
+        /// </summary>
         [Input("maxCapacity")]
         public Input<int>? MaxCapacity { get; set; }
 
+        /// <summary>
+        /// Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
+        /// </summary>
         [Input("minCapacity", required: true)]
         public Input<int> MinCapacity { get; set; } = null!;
 
@@ -820,9 +832,15 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayAutoscaleConfigurationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
+        /// </summary>
         [Input("maxCapacity")]
         public Input<int>? MaxCapacity { get; set; }
 
+        /// <summary>
+        /// Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
+        /// </summary>
         [Input("minCapacity", required: true)]
         public Input<int> MinCapacity { get; set; } = null!;
 
@@ -835,6 +853,10 @@ namespace Pulumi.Azure.Network
     {
         [Input("fqdns")]
         private InputList<string>? _fqdns;
+
+        /// <summary>
+        /// A list of FQDN's which should be part of the Backend Address Pool.
+        /// </summary>
         public InputList<string> Fqdns
         {
             get => _fqdns ?? (_fqdns = new InputList<string>());
@@ -849,6 +871,10 @@ namespace Pulumi.Azure.Network
 
         [Input("ipAddresses")]
         private InputList<string>? _ipAddresses;
+
+        /// <summary>
+        /// A list of IP Addresses which should be part of the Backend Address Pool.
+        /// </summary>
         public InputList<string> IpAddresses
         {
             get => _ipAddresses ?? (_ipAddresses = new InputList<string>());
@@ -856,7 +882,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Backend Address Pool.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -870,6 +896,10 @@ namespace Pulumi.Azure.Network
     {
         [Input("fqdns")]
         private InputList<string>? _fqdns;
+
+        /// <summary>
+        /// A list of FQDN's which should be part of the Backend Address Pool.
+        /// </summary>
         public InputList<string> Fqdns
         {
             get => _fqdns ?? (_fqdns = new InputList<string>());
@@ -884,6 +914,10 @@ namespace Pulumi.Azure.Network
 
         [Input("ipAddresses")]
         private InputList<string>? _ipAddresses;
+
+        /// <summary>
+        /// A list of IP Addresses which should be part of the Backend Address Pool.
+        /// </summary>
         public InputList<string> IpAddresses
         {
             get => _ipAddresses ?? (_ipAddresses = new InputList<string>());
@@ -891,7 +925,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Backend Address Pool.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -903,6 +937,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayBackendHttpSettingsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the affinity cookie.
+        /// </summary>
         [Input("affinityCookieName")]
         public Input<string>? AffinityCookieName { get; set; }
 
@@ -910,7 +947,7 @@ namespace Pulumi.Azure.Network
         private InputList<ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArgs>? _authenticationCertificates;
 
         /// <summary>
-        /// One or more `authentication_certificate` blocks as defined below.
+        /// One or more `authentication_certificate` blocks.
         /// </summary>
         public InputList<ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArgs> AuthenticationCertificates
         {
@@ -918,12 +955,21 @@ namespace Pulumi.Azure.Network
             set => _authenticationCertificates = value;
         }
 
+        /// <summary>
+        /// A `connection_draining` block as defined below.
+        /// </summary>
         [Input("connectionDraining")]
         public Input<ApplicationGatewayBackendHttpSettingsConnectionDrainingArgs>? ConnectionDraining { get; set; }
 
+        /// <summary>
+        /// Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
+        /// </summary>
         [Input("cookieBasedAffinity", required: true)]
         public Input<string> CookieBasedAffinity { get; set; } = null!;
 
+        /// <summary>
+        /// Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
+        /// </summary>
         [Input("hostName")]
         public Input<string>? HostName { get; set; }
 
@@ -934,17 +980,26 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Backend HTTP Settings Collection.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Path which should be used as a prefix for all HTTP requests.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
+        /// <summary>
+        /// Whether host header should be picked from the host name of the backend server. Defaults to `false`.
+        /// </summary>
         [Input("pickHostNameFromBackendAddress")]
         public Input<bool>? PickHostNameFromBackendAddress { get; set; }
 
+        /// <summary>
+        /// The port used for this Frontend Port.
+        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
@@ -954,17 +1009,30 @@ namespace Pulumi.Azure.Network
         [Input("probeId")]
         public Input<string>? ProbeId { get; set; }
 
+        /// <summary>
+        /// The name of an associated HTTP Probe.
+        /// </summary>
         [Input("probeName")]
         public Input<string>? ProbeName { get; set; }
 
+        /// <summary>
+        /// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
+        /// <summary>
+        /// The request timeout in seconds, which must be between 1 and 86400 seconds.
+        /// </summary>
         [Input("requestTimeout")]
         public Input<int>? RequestTimeout { get; set; }
 
         [Input("trustedRootCertificateNames")]
         private InputList<string>? _trustedRootCertificateNames;
+
+        /// <summary>
+        /// A list of `trusted_root_certificate` names.
+        /// </summary>
         public InputList<string> TrustedRootCertificateNames
         {
             get => _trustedRootCertificateNames ?? (_trustedRootCertificateNames = new InputList<string>());
@@ -985,7 +1053,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Authentication Certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -1004,7 +1072,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Authentication Certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -1016,9 +1084,15 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayBackendHttpSettingsConnectionDrainingArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
+        /// </summary>
         [Input("drainTimeoutSec", required: true)]
         public Input<int> DrainTimeoutSec { get; set; } = null!;
 
+        /// <summary>
+        /// If connection draining is enabled or not.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -1029,9 +1103,15 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayBackendHttpSettingsConnectionDrainingGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
+        /// </summary>
         [Input("drainTimeoutSec", required: true)]
         public Input<int> DrainTimeoutSec { get; set; } = null!;
 
+        /// <summary>
+        /// If connection draining is enabled or not.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -1042,6 +1122,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayBackendHttpSettingsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the affinity cookie.
+        /// </summary>
         [Input("affinityCookieName")]
         public Input<string>? AffinityCookieName { get; set; }
 
@@ -1049,7 +1132,7 @@ namespace Pulumi.Azure.Network
         private InputList<ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesGetArgs>? _authenticationCertificates;
 
         /// <summary>
-        /// One or more `authentication_certificate` blocks as defined below.
+        /// One or more `authentication_certificate` blocks.
         /// </summary>
         public InputList<ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesGetArgs> AuthenticationCertificates
         {
@@ -1057,12 +1140,21 @@ namespace Pulumi.Azure.Network
             set => _authenticationCertificates = value;
         }
 
+        /// <summary>
+        /// A `connection_draining` block as defined below.
+        /// </summary>
         [Input("connectionDraining")]
         public Input<ApplicationGatewayBackendHttpSettingsConnectionDrainingGetArgs>? ConnectionDraining { get; set; }
 
+        /// <summary>
+        /// Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
+        /// </summary>
         [Input("cookieBasedAffinity", required: true)]
         public Input<string> CookieBasedAffinity { get; set; } = null!;
 
+        /// <summary>
+        /// Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
+        /// </summary>
         [Input("hostName")]
         public Input<string>? HostName { get; set; }
 
@@ -1073,17 +1165,26 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Backend HTTP Settings Collection.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Path which should be used as a prefix for all HTTP requests.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
+        /// <summary>
+        /// Whether host header should be picked from the host name of the backend server. Defaults to `false`.
+        /// </summary>
         [Input("pickHostNameFromBackendAddress")]
         public Input<bool>? PickHostNameFromBackendAddress { get; set; }
 
+        /// <summary>
+        /// The port used for this Frontend Port.
+        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
@@ -1093,17 +1194,30 @@ namespace Pulumi.Azure.Network
         [Input("probeId")]
         public Input<string>? ProbeId { get; set; }
 
+        /// <summary>
+        /// The name of an associated HTTP Probe.
+        /// </summary>
         [Input("probeName")]
         public Input<string>? ProbeName { get; set; }
 
+        /// <summary>
+        /// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
+        /// <summary>
+        /// The request timeout in seconds, which must be between 1 and 86400 seconds.
+        /// </summary>
         [Input("requestTimeout")]
         public Input<int>? RequestTimeout { get; set; }
 
         [Input("trustedRootCertificateNames")]
         private InputList<string>? _trustedRootCertificateNames;
+
+        /// <summary>
+        /// A list of `trusted_root_certificate` names.
+        /// </summary>
         public InputList<string> TrustedRootCertificateNames
         {
             get => _trustedRootCertificateNames ?? (_trustedRootCertificateNames = new InputList<string>());
@@ -1117,6 +1231,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayCustomErrorConfigurationsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Error page URL of the application gateway customer error.
+        /// </summary>
         [Input("customErrorPageUrl", required: true)]
         public Input<string> CustomErrorPageUrl { get; set; } = null!;
 
@@ -1126,6 +1243,9 @@ namespace Pulumi.Azure.Network
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+        /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
 
@@ -1136,6 +1256,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayCustomErrorConfigurationsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Error page URL of the application gateway customer error.
+        /// </summary>
         [Input("customErrorPageUrl", required: true)]
         public Input<string> CustomErrorPageUrl { get; set; } = null!;
 
@@ -1145,6 +1268,9 @@ namespace Pulumi.Azure.Network
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+        /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
 
@@ -1162,20 +1288,32 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Frontend IP Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Private IP Address to use for the Application Gateway.
+        /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
+        /// <summary>
+        /// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+        /// </summary>
         [Input("privateIpAddressAllocation")]
         public Input<string>? PrivateIpAddressAllocation { get; set; }
 
+        /// <summary>
+        /// The ID of a Public IP Address which the Application Gateway should use.
+        /// </summary>
         [Input("publicIpAddressId")]
         public Input<string>? PublicIpAddressId { get; set; }
 
+        /// <summary>
+        /// The ID of the Subnet which the Application Gateway should be connected to.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
@@ -1193,20 +1331,32 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Frontend IP Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Private IP Address to use for the Application Gateway.
+        /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
+        /// <summary>
+        /// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+        /// </summary>
         [Input("privateIpAddressAllocation")]
         public Input<string>? PrivateIpAddressAllocation { get; set; }
 
+        /// <summary>
+        /// The ID of a Public IP Address which the Application Gateway should use.
+        /// </summary>
         [Input("publicIpAddressId")]
         public Input<string>? PublicIpAddressId { get; set; }
 
+        /// <summary>
+        /// The ID of the Subnet which the Application Gateway should be connected to.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
@@ -1224,11 +1374,14 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Frontend Port.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The port used for this Frontend Port.
+        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
@@ -1246,11 +1399,14 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Frontend Port.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The port used for this Frontend Port.
+        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
@@ -1268,11 +1424,14 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of this Gateway IP Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of a Subnet.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -1290,11 +1449,14 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of this Gateway IP Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of a Subnet.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -1323,6 +1485,9 @@ namespace Pulumi.Azure.Network
         [Input("frontendIpConfigurationId")]
         public Input<string>? FrontendIpConfigurationId { get; set; }
 
+        /// <summary>
+        /// The Name of the Frontend IP Configuration used for this HTTP Listener.
+        /// </summary>
         [Input("frontendIpConfigurationName", required: true)]
         public Input<string> FrontendIpConfigurationName { get; set; } = null!;
 
@@ -1332,9 +1497,15 @@ namespace Pulumi.Azure.Network
         [Input("frontendPortId")]
         public Input<string>? FrontendPortId { get; set; }
 
+        /// <summary>
+        /// The Name of the Frontend Port use for this HTTP Listener.
+        /// </summary>
         [Input("frontendPortName", required: true)]
         public Input<string> FrontendPortName { get; set; } = null!;
 
+        /// <summary>
+        /// The Hostname which should be used for this HTTP Listener.
+        /// </summary>
         [Input("hostName")]
         public Input<string>? HostName { get; set; }
 
@@ -1345,14 +1516,20 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the HTTP Listener.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
+        /// <summary>
+        /// Should Server Name Indication be Required? Defaults to `false`.
+        /// </summary>
         [Input("requireSni")]
         public Input<bool>? RequireSni { get; set; }
 
@@ -1362,6 +1539,9 @@ namespace Pulumi.Azure.Network
         [Input("sslCertificateId")]
         public Input<string>? SslCertificateId { get; set; }
 
+        /// <summary>
+        /// The name of the associated SSL Certificate which should be used for this HTTP Listener.
+        /// </summary>
         [Input("sslCertificateName")]
         public Input<string>? SslCertificateName { get; set; }
 
@@ -1372,6 +1552,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayHttpListenersCustomErrorConfigurationsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Error page URL of the application gateway customer error.
+        /// </summary>
         [Input("customErrorPageUrl", required: true)]
         public Input<string> CustomErrorPageUrl { get; set; } = null!;
 
@@ -1381,6 +1564,9 @@ namespace Pulumi.Azure.Network
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+        /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
 
@@ -1391,6 +1577,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayHttpListenersCustomErrorConfigurationsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Error page URL of the application gateway customer error.
+        /// </summary>
         [Input("customErrorPageUrl", required: true)]
         public Input<string> CustomErrorPageUrl { get; set; } = null!;
 
@@ -1400,6 +1589,9 @@ namespace Pulumi.Azure.Network
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+        /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
 
@@ -1428,6 +1620,9 @@ namespace Pulumi.Azure.Network
         [Input("frontendIpConfigurationId")]
         public Input<string>? FrontendIpConfigurationId { get; set; }
 
+        /// <summary>
+        /// The Name of the Frontend IP Configuration used for this HTTP Listener.
+        /// </summary>
         [Input("frontendIpConfigurationName", required: true)]
         public Input<string> FrontendIpConfigurationName { get; set; } = null!;
 
@@ -1437,9 +1632,15 @@ namespace Pulumi.Azure.Network
         [Input("frontendPortId")]
         public Input<string>? FrontendPortId { get; set; }
 
+        /// <summary>
+        /// The Name of the Frontend Port use for this HTTP Listener.
+        /// </summary>
         [Input("frontendPortName", required: true)]
         public Input<string> FrontendPortName { get; set; } = null!;
 
+        /// <summary>
+        /// The Hostname which should be used for this HTTP Listener.
+        /// </summary>
         [Input("hostName")]
         public Input<string>? HostName { get; set; }
 
@@ -1450,14 +1651,20 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the HTTP Listener.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
+        /// <summary>
+        /// Should Server Name Indication be Required? Defaults to `false`.
+        /// </summary>
         [Input("requireSni")]
         public Input<bool>? RequireSni { get; set; }
 
@@ -1467,6 +1674,9 @@ namespace Pulumi.Azure.Network
         [Input("sslCertificateId")]
         public Input<string>? SslCertificateId { get; set; }
 
+        /// <summary>
+        /// The name of the associated SSL Certificate which should be used for this HTTP Listener.
+        /// </summary>
         [Input("sslCertificateName")]
         public Input<string>? SslCertificateName { get; set; }
 
@@ -1477,9 +1687,15 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayIdentityArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
+        /// </summary>
         [Input("identityIds", required: true)]
         public Input<string> IdentityIds { get; set; } = null!;
 
+        /// <summary>
+        /// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -1490,9 +1706,15 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayIdentityGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
+        /// </summary>
         [Input("identityIds", required: true)]
         public Input<string> IdentityIds { get; set; } = null!;
 
+        /// <summary>
+        /// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -1503,6 +1725,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayProbesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
+        /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }
 
@@ -1512,33 +1737,57 @@ namespace Pulumi.Azure.Network
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+        /// </summary>
         [Input("interval", required: true)]
         public Input<int> Interval { get; set; } = null!;
 
+        /// <summary>
+        /// A `match` block as defined above.
+        /// </summary>
         [Input("match")]
         public Input<ApplicationGatewayProbesMatchArgs>? Match { get; set; }
 
+        /// <summary>
+        /// The minimum number of servers that are always marked as healthy. Defaults to `0`.
+        /// </summary>
         [Input("minimumServers")]
         public Input<int>? MinimumServers { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the Probe.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Path used for this Probe.
+        /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
+        /// <summary>
+        /// Whether the host header should be picked from the backend http settings. Defaults to `false`.
+        /// </summary>
         [Input("pickHostNameFromBackendHttpSettings")]
         public Input<bool>? PickHostNameFromBackendHttpSettings { get; set; }
 
+        /// <summary>
+        /// The Protocol used for this Probe. Possible values are `Http` and `Https`.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
+        /// <summary>
+        /// The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+        /// </summary>
         [Input("timeout", required: true)]
         public Input<int> Timeout { get; set; } = null!;
 
+        /// <summary>
+        /// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+        /// </summary>
         [Input("unhealthyThreshold", required: true)]
         public Input<int> UnhealthyThreshold { get; set; } = null!;
 
@@ -1549,6 +1798,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayProbesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
+        /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }
 
@@ -1558,33 +1810,57 @@ namespace Pulumi.Azure.Network
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+        /// </summary>
         [Input("interval", required: true)]
         public Input<int> Interval { get; set; } = null!;
 
+        /// <summary>
+        /// A `match` block as defined above.
+        /// </summary>
         [Input("match")]
         public Input<ApplicationGatewayProbesMatchGetArgs>? Match { get; set; }
 
+        /// <summary>
+        /// The minimum number of servers that are always marked as healthy. Defaults to `0`.
+        /// </summary>
         [Input("minimumServers")]
         public Input<int>? MinimumServers { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the Probe.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Path used for this Probe.
+        /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
+        /// <summary>
+        /// Whether the host header should be picked from the backend http settings. Defaults to `false`.
+        /// </summary>
         [Input("pickHostNameFromBackendHttpSettings")]
         public Input<bool>? PickHostNameFromBackendHttpSettings { get; set; }
 
+        /// <summary>
+        /// The Protocol used for this Probe. Possible values are `Http` and `Https`.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
+        /// <summary>
+        /// The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+        /// </summary>
         [Input("timeout", required: true)]
         public Input<int> Timeout { get; set; } = null!;
 
+        /// <summary>
+        /// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+        /// </summary>
         [Input("unhealthyThreshold", required: true)]
         public Input<int> UnhealthyThreshold { get; set; } = null!;
 
@@ -1595,11 +1871,18 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayProbesMatchArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A snippet from the Response Body which must be present in the Response..
+        /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
 
         [Input("statusCodes")]
         private InputList<string>? _statusCodes;
+
+        /// <summary>
+        /// A list of allowed status codes for this Health Probe.
+        /// </summary>
         public InputList<string> StatusCodes
         {
             get => _statusCodes ?? (_statusCodes = new InputList<string>());
@@ -1613,11 +1896,18 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayProbesMatchGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A snippet from the Response Body which must be present in the Response..
+        /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
 
         [Input("statusCodes")]
         private InputList<string>? _statusCodes;
+
+        /// <summary>
+        /// A list of allowed status codes for this Health Probe.
+        /// </summary>
         public InputList<string> StatusCodes
         {
             get => _statusCodes ?? (_statusCodes = new InputList<string>());
@@ -1637,27 +1927,42 @@ namespace Pulumi.Azure.Network
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Whether or not to include the path in the redirected Url. Defaults to `false`
+        /// </summary>
         [Input("includePath")]
         public Input<bool>? IncludePath { get; set; }
 
+        /// <summary>
+        /// Whether or not to include the query string in the redirected Url. Default to `false`
+        /// </summary>
         [Input("includeQueryString")]
         public Input<bool>? IncludeQueryString { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// Unique name of the redirect configuration block
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The type of redirect. Possible values are `Permanent`, `Temporary`, `Found` and `SeeOther`
+        /// </summary>
         [Input("redirectType", required: true)]
         public Input<string> RedirectType { get; set; } = null!;
 
         [Input("targetListenerId")]
         public Input<string>? TargetListenerId { get; set; }
 
+        /// <summary>
+        /// The name of the listener to redirect to. Cannot be set if `target_url` is set.
+        /// </summary>
         [Input("targetListenerName")]
         public Input<string>? TargetListenerName { get; set; }
 
+        /// <summary>
+        /// The Url to redirect the request to. Cannot be set if `target_listener_name` is set.
+        /// </summary>
         [Input("targetUrl")]
         public Input<string>? TargetUrl { get; set; }
 
@@ -1674,27 +1979,42 @@ namespace Pulumi.Azure.Network
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Whether or not to include the path in the redirected Url. Defaults to `false`
+        /// </summary>
         [Input("includePath")]
         public Input<bool>? IncludePath { get; set; }
 
+        /// <summary>
+        /// Whether or not to include the query string in the redirected Url. Default to `false`
+        /// </summary>
         [Input("includeQueryString")]
         public Input<bool>? IncludeQueryString { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// Unique name of the redirect configuration block
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The type of redirect. Possible values are `Permanent`, `Temporary`, `Found` and `SeeOther`
+        /// </summary>
         [Input("redirectType", required: true)]
         public Input<string> RedirectType { get; set; } = null!;
 
         [Input("targetListenerId")]
         public Input<string>? TargetListenerId { get; set; }
 
+        /// <summary>
+        /// The name of the listener to redirect to. Cannot be set if `target_url` is set.
+        /// </summary>
         [Input("targetListenerName")]
         public Input<string>? TargetListenerName { get; set; }
 
+        /// <summary>
+        /// The Url to redirect the request to. Cannot be set if `target_listener_name` is set.
+        /// </summary>
         [Input("targetUrl")]
         public Input<string>? TargetUrl { get; set; }
 
@@ -1711,6 +2031,9 @@ namespace Pulumi.Azure.Network
         [Input("backendAddressPoolId")]
         public Input<string>? BackendAddressPoolId { get; set; }
 
+        /// <summary>
+        /// The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+        /// </summary>
         [Input("backendAddressPoolName")]
         public Input<string>? BackendAddressPoolName { get; set; }
 
@@ -1720,6 +2043,9 @@ namespace Pulumi.Azure.Network
         [Input("backendHttpSettingsId")]
         public Input<string>? BackendHttpSettingsId { get; set; }
 
+        /// <summary>
+        /// The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+        /// </summary>
         [Input("backendHttpSettingsName")]
         public Input<string>? BackendHttpSettingsName { get; set; }
 
@@ -1729,6 +2055,9 @@ namespace Pulumi.Azure.Network
         [Input("httpListenerId")]
         public Input<string>? HttpListenerId { get; set; }
 
+        /// <summary>
+        /// The Name of the HTTP Listener which should be used for this Routing Rule.
+        /// </summary>
         [Input("httpListenerName", required: true)]
         public Input<string> HttpListenerName { get; set; } = null!;
 
@@ -1739,7 +2068,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of this Request Routing Rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -1750,6 +2079,9 @@ namespace Pulumi.Azure.Network
         [Input("redirectConfigurationId")]
         public Input<string>? RedirectConfigurationId { get; set; }
 
+        /// <summary>
+        /// The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
+        /// </summary>
         [Input("redirectConfigurationName")]
         public Input<string>? RedirectConfigurationName { get; set; }
 
@@ -1759,9 +2091,15 @@ namespace Pulumi.Azure.Network
         [Input("rewriteRuleSetId")]
         public Input<string>? RewriteRuleSetId { get; set; }
 
+        /// <summary>
+        /// The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+        /// </summary>
         [Input("rewriteRuleSetName")]
         public Input<string>? RewriteRuleSetName { get; set; }
 
+        /// <summary>
+        /// The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
+        /// </summary>
         [Input("ruleType", required: true)]
         public Input<string> RuleType { get; set; } = null!;
 
@@ -1771,6 +2109,9 @@ namespace Pulumi.Azure.Network
         [Input("urlPathMapId")]
         public Input<string>? UrlPathMapId { get; set; }
 
+        /// <summary>
+        /// The Name of the URL Path Map which should be associated with this Routing Rule.
+        /// </summary>
         [Input("urlPathMapName")]
         public Input<string>? UrlPathMapName { get; set; }
 
@@ -1787,6 +2128,9 @@ namespace Pulumi.Azure.Network
         [Input("backendAddressPoolId")]
         public Input<string>? BackendAddressPoolId { get; set; }
 
+        /// <summary>
+        /// The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+        /// </summary>
         [Input("backendAddressPoolName")]
         public Input<string>? BackendAddressPoolName { get; set; }
 
@@ -1796,6 +2140,9 @@ namespace Pulumi.Azure.Network
         [Input("backendHttpSettingsId")]
         public Input<string>? BackendHttpSettingsId { get; set; }
 
+        /// <summary>
+        /// The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+        /// </summary>
         [Input("backendHttpSettingsName")]
         public Input<string>? BackendHttpSettingsName { get; set; }
 
@@ -1805,6 +2152,9 @@ namespace Pulumi.Azure.Network
         [Input("httpListenerId")]
         public Input<string>? HttpListenerId { get; set; }
 
+        /// <summary>
+        /// The Name of the HTTP Listener which should be used for this Routing Rule.
+        /// </summary>
         [Input("httpListenerName", required: true)]
         public Input<string> HttpListenerName { get; set; } = null!;
 
@@ -1815,7 +2165,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of this Request Routing Rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -1826,6 +2176,9 @@ namespace Pulumi.Azure.Network
         [Input("redirectConfigurationId")]
         public Input<string>? RedirectConfigurationId { get; set; }
 
+        /// <summary>
+        /// The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
+        /// </summary>
         [Input("redirectConfigurationName")]
         public Input<string>? RedirectConfigurationName { get; set; }
 
@@ -1835,9 +2188,15 @@ namespace Pulumi.Azure.Network
         [Input("rewriteRuleSetId")]
         public Input<string>? RewriteRuleSetId { get; set; }
 
+        /// <summary>
+        /// The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+        /// </summary>
         [Input("rewriteRuleSetName")]
         public Input<string>? RewriteRuleSetName { get; set; }
 
+        /// <summary>
+        /// The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
+        /// </summary>
         [Input("ruleType", required: true)]
         public Input<string> RuleType { get; set; } = null!;
 
@@ -1847,6 +2206,9 @@ namespace Pulumi.Azure.Network
         [Input("urlPathMapId")]
         public Input<string>? UrlPathMapId { get; set; }
 
+        /// <summary>
+        /// The Name of the URL Path Map which should be associated with this Routing Rule.
+        /// </summary>
         [Input("urlPathMapName")]
         public Input<string>? UrlPathMapName { get; set; }
 
@@ -1864,13 +2226,17 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// Unique name of the rewrite rule set block
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("rewriteRules")]
         private InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesArgs>? _rewriteRules;
+
+        /// <summary>
+        /// One or more `rewrite_rule` blocks as defined above.
+        /// </summary>
         public InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesArgs> RewriteRules
         {
             get => _rewriteRules ?? (_rewriteRules = new InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesArgs>());
@@ -1891,13 +2257,17 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// Unique name of the rewrite rule set block
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("rewriteRules")]
         private InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesGetArgs>? _rewriteRules;
+
+        /// <summary>
+        /// One or more `rewrite_rule` blocks as defined above.
+        /// </summary>
         public InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesGetArgs> RewriteRules
         {
             get => _rewriteRules ?? (_rewriteRules = new InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesGetArgs>());
@@ -1913,6 +2283,10 @@ namespace Pulumi.Azure.Network
     {
         [Input("conditions")]
         private InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArgs>? _conditions;
+
+        /// <summary>
+        /// One or more `condition` blocks as defined above.
+        /// </summary>
         public InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArgs> Conditions
         {
             get => _conditions ?? (_conditions = new InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArgs>());
@@ -1920,13 +2294,17 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// Unique name of the rewrite rule block
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("requestHeaderConfigurations")]
         private InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArgs>? _requestHeaderConfigurations;
+
+        /// <summary>
+        /// One or more `request_header_configuration` blocks as defined above.
+        /// </summary>
         public InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArgs> RequestHeaderConfigurations
         {
             get => _requestHeaderConfigurations ?? (_requestHeaderConfigurations = new InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArgs>());
@@ -1935,12 +2313,19 @@ namespace Pulumi.Azure.Network
 
         [Input("responseHeaderConfigurations")]
         private InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArgs>? _responseHeaderConfigurations;
+
+        /// <summary>
+        /// One or more `response_header_configuration` blocks as defined above.
+        /// </summary>
         public InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArgs> ResponseHeaderConfigurations
         {
             get => _responseHeaderConfigurations ?? (_responseHeaderConfigurations = new InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArgs>());
             set => _responseHeaderConfigurations = value;
         }
 
+        /// <summary>
+        /// Rule sequence of the rewrite rule that determines the order of execution in a set.
+        /// </summary>
         [Input("ruleSequence", required: true)]
         public Input<int> RuleSequence { get; set; } = null!;
 
@@ -1951,15 +2336,27 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Perform a case in-sensitive comparison. Defaults to `false`
+        /// </summary>
         [Input("ignoreCase")]
         public Input<bool>? IgnoreCase { get; set; }
 
+        /// <summary>
+        /// Negate the result of the condition evaluation. Defaults to `false`
+        /// </summary>
         [Input("negate")]
         public Input<bool>? Negate { get; set; }
 
+        /// <summary>
+        /// The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
+        /// </summary>
         [Input("pattern", required: true)]
         public Input<string> Pattern { get; set; } = null!;
 
+        /// <summary>
+        /// The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
+        /// </summary>
         [Input("variable", required: true)]
         public Input<string> Variable { get; set; } = null!;
 
@@ -1970,15 +2367,27 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Perform a case in-sensitive comparison. Defaults to `false`
+        /// </summary>
         [Input("ignoreCase")]
         public Input<bool>? IgnoreCase { get; set; }
 
+        /// <summary>
+        /// Negate the result of the condition evaluation. Defaults to `false`
+        /// </summary>
         [Input("negate")]
         public Input<bool>? Negate { get; set; }
 
+        /// <summary>
+        /// The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
+        /// </summary>
         [Input("pattern", required: true)]
         public Input<string> Pattern { get; set; } = null!;
 
+        /// <summary>
+        /// The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
+        /// </summary>
         [Input("variable", required: true)]
         public Input<string> Variable { get; set; } = null!;
 
@@ -1991,6 +2400,10 @@ namespace Pulumi.Azure.Network
     {
         [Input("conditions")]
         private InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsGetArgs>? _conditions;
+
+        /// <summary>
+        /// One or more `condition` blocks as defined above.
+        /// </summary>
         public InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsGetArgs> Conditions
         {
             get => _conditions ?? (_conditions = new InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsGetArgs>());
@@ -1998,13 +2411,17 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// Unique name of the rewrite rule block
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("requestHeaderConfigurations")]
         private InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsGetArgs>? _requestHeaderConfigurations;
+
+        /// <summary>
+        /// One or more `request_header_configuration` blocks as defined above.
+        /// </summary>
         public InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsGetArgs> RequestHeaderConfigurations
         {
             get => _requestHeaderConfigurations ?? (_requestHeaderConfigurations = new InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsGetArgs>());
@@ -2013,12 +2430,19 @@ namespace Pulumi.Azure.Network
 
         [Input("responseHeaderConfigurations")]
         private InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsGetArgs>? _responseHeaderConfigurations;
+
+        /// <summary>
+        /// One or more `response_header_configuration` blocks as defined above.
+        /// </summary>
         public InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsGetArgs> ResponseHeaderConfigurations
         {
             get => _responseHeaderConfigurations ?? (_responseHeaderConfigurations = new InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsGetArgs>());
             set => _responseHeaderConfigurations = value;
         }
 
+        /// <summary>
+        /// Rule sequence of the rewrite rule that determines the order of execution in a set.
+        /// </summary>
         [Input("ruleSequence", required: true)]
         public Input<int> RuleSequence { get; set; } = null!;
 
@@ -2029,9 +2453,15 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Header name of the header configuration.
+        /// </summary>
         [Input("headerName", required: true)]
         public Input<string> HeaderName { get; set; } = null!;
 
+        /// <summary>
+        /// Header value of the header configuration. To delete a request header set this property to an empty string.
+        /// </summary>
         [Input("headerValue", required: true)]
         public Input<string> HeaderValue { get; set; } = null!;
 
@@ -2042,9 +2472,15 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Header name of the header configuration.
+        /// </summary>
         [Input("headerName", required: true)]
         public Input<string> HeaderName { get; set; } = null!;
 
+        /// <summary>
+        /// Header value of the header configuration. To delete a request header set this property to an empty string.
+        /// </summary>
         [Input("headerValue", required: true)]
         public Input<string> HeaderValue { get; set; } = null!;
 
@@ -2055,9 +2491,15 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Header name of the header configuration.
+        /// </summary>
         [Input("headerName", required: true)]
         public Input<string> HeaderName { get; set; } = null!;
 
+        /// <summary>
+        /// Header value of the header configuration. To delete a response header set this property to an empty string.
+        /// </summary>
         [Input("headerValue", required: true)]
         public Input<string> HeaderValue { get; set; } = null!;
 
@@ -2068,9 +2510,15 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Header name of the header configuration.
+        /// </summary>
         [Input("headerName", required: true)]
         public Input<string> HeaderName { get; set; } = null!;
 
+        /// <summary>
+        /// Header value of the header configuration. To delete a response header set this property to an empty string.
+        /// </summary>
         [Input("headerValue", required: true)]
         public Input<string> HeaderValue { get; set; } = null!;
 
@@ -2081,15 +2529,21 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewaySkuArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscale_configuration` is set.
+        /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
+        /// </summary>
         [Input("tier", required: true)]
         public Input<string> Tier { get; set; } = null!;
 
@@ -2100,15 +2554,21 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewaySkuGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscale_configuration` is set.
+        /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
+        /// </summary>
         [Input("tier", required: true)]
         public Input<string> Tier { get; set; } = null!;
 
@@ -2119,6 +2579,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewaySslCertificatesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// PFX certificate. Required if `key_vault_secret_id` is not set.
+        /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
 
@@ -2128,15 +2591,21 @@ namespace Pulumi.Azure.Network
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+        /// </summary>
         [Input("keyVaultSecretId")]
         public Input<string>? KeyVaultSecretId { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the SSL certificate that is unique within this Application Gateway
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Password for the pfx file specified in data.  Required if `data` is set.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
@@ -2153,6 +2622,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewaySslCertificatesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// PFX certificate. Required if `key_vault_secret_id` is not set.
+        /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
 
@@ -2162,15 +2634,21 @@ namespace Pulumi.Azure.Network
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+        /// </summary>
         [Input("keyVaultSecretId")]
         public Input<string>? KeyVaultSecretId { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the SSL certificate that is unique within this Application Gateway
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Password for the pfx file specified in data.  Required if `data` is set.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
@@ -2189,6 +2667,10 @@ namespace Pulumi.Azure.Network
     {
         [Input("cipherSuites")]
         private InputList<string>? _cipherSuites;
+
+        /// <summary>
+        /// A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+        /// </summary>
         public InputList<string> CipherSuites
         {
             get => _cipherSuites ?? (_cipherSuites = new InputList<string>());
@@ -2197,18 +2679,32 @@ namespace Pulumi.Azure.Network
 
         [Input("disabledProtocols")]
         private InputList<string>? _disabledProtocols;
+
+        /// <summary>
+        /// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        /// </summary>
         public InputList<string> DisabledProtocols
         {
             get => _disabledProtocols ?? (_disabledProtocols = new InputList<string>());
             set => _disabledProtocols = value;
         }
 
+        /// <summary>
+        /// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        /// </summary>
         [Input("minProtocolVersion")]
         public Input<string>? MinProtocolVersion { get; set; }
 
+        /// <summary>
+        /// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
+        /// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
+        /// </summary>
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }
 
+        /// <summary>
+        /// The Type of the Policy. Possible values are `Predefined` and `Custom`.
+        /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }
 
@@ -2221,6 +2717,10 @@ namespace Pulumi.Azure.Network
     {
         [Input("cipherSuites")]
         private InputList<string>? _cipherSuites;
+
+        /// <summary>
+        /// A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+        /// </summary>
         public InputList<string> CipherSuites
         {
             get => _cipherSuites ?? (_cipherSuites = new InputList<string>());
@@ -2229,18 +2729,32 @@ namespace Pulumi.Azure.Network
 
         [Input("disabledProtocols")]
         private InputList<string>? _disabledProtocols;
+
+        /// <summary>
+        /// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        /// </summary>
         public InputList<string> DisabledProtocols
         {
             get => _disabledProtocols ?? (_disabledProtocols = new InputList<string>());
             set => _disabledProtocols = value;
         }
 
+        /// <summary>
+        /// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        /// </summary>
         [Input("minProtocolVersion")]
         public Input<string>? MinProtocolVersion { get; set; }
 
+        /// <summary>
+        /// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
+        /// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
+        /// </summary>
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }
 
+        /// <summary>
+        /// The Type of the Policy. Possible values are `Predefined` and `Custom`.
+        /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }
 
@@ -2251,6 +2765,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayTrustedRootCertificatesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The contents of the Trusted Root Certificate which should be used.
+        /// </summary>
         [Input("data", required: true)]
         public Input<string> Data { get; set; } = null!;
 
@@ -2261,7 +2778,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the Trusted Root Certificate to use.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -2273,6 +2790,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayTrustedRootCertificatesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The contents of the Trusted Root Certificate which should be used.
+        /// </summary>
         [Input("data", required: true)]
         public Input<string> Data { get; set; } = null!;
 
@@ -2283,7 +2803,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the Trusted Root Certificate to use.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -2301,6 +2821,9 @@ namespace Pulumi.Azure.Network
         [Input("defaultBackendAddressPoolId")]
         public Input<string>? DefaultBackendAddressPoolId { get; set; }
 
+        /// <summary>
+        /// The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+        /// </summary>
         [Input("defaultBackendAddressPoolName")]
         public Input<string>? DefaultBackendAddressPoolName { get; set; }
 
@@ -2310,6 +2833,9 @@ namespace Pulumi.Azure.Network
         [Input("defaultBackendHttpSettingsId")]
         public Input<string>? DefaultBackendHttpSettingsId { get; set; }
 
+        /// <summary>
+        /// The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+        /// </summary>
         [Input("defaultBackendHttpSettingsName")]
         public Input<string>? DefaultBackendHttpSettingsName { get; set; }
 
@@ -2319,12 +2845,18 @@ namespace Pulumi.Azure.Network
         [Input("defaultRedirectConfigurationId")]
         public Input<string>? DefaultRedirectConfigurationId { get; set; }
 
+        /// <summary>
+        /// The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
+        /// </summary>
         [Input("defaultRedirectConfigurationName")]
         public Input<string>? DefaultRedirectConfigurationName { get; set; }
 
         [Input("defaultRewriteRuleSetId")]
         public Input<string>? DefaultRewriteRuleSetId { get; set; }
 
+        /// <summary>
+        /// The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
+        /// </summary>
         [Input("defaultRewriteRuleSetName")]
         public Input<string>? DefaultRewriteRuleSetName { get; set; }
 
@@ -2335,7 +2867,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the URL Path Map.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -2344,7 +2876,7 @@ namespace Pulumi.Azure.Network
         private InputList<ApplicationGatewayUrlPathMapsPathRulesArgs>? _pathRules;
 
         /// <summary>
-        /// A list of `path_rule` blocks as defined above.
+        /// One or more `path_rule` blocks as defined above.
         /// </summary>
         public InputList<ApplicationGatewayUrlPathMapsPathRulesArgs> PathRules
         {
@@ -2365,6 +2897,9 @@ namespace Pulumi.Azure.Network
         [Input("defaultBackendAddressPoolId")]
         public Input<string>? DefaultBackendAddressPoolId { get; set; }
 
+        /// <summary>
+        /// The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+        /// </summary>
         [Input("defaultBackendAddressPoolName")]
         public Input<string>? DefaultBackendAddressPoolName { get; set; }
 
@@ -2374,6 +2909,9 @@ namespace Pulumi.Azure.Network
         [Input("defaultBackendHttpSettingsId")]
         public Input<string>? DefaultBackendHttpSettingsId { get; set; }
 
+        /// <summary>
+        /// The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+        /// </summary>
         [Input("defaultBackendHttpSettingsName")]
         public Input<string>? DefaultBackendHttpSettingsName { get; set; }
 
@@ -2383,12 +2921,18 @@ namespace Pulumi.Azure.Network
         [Input("defaultRedirectConfigurationId")]
         public Input<string>? DefaultRedirectConfigurationId { get; set; }
 
+        /// <summary>
+        /// The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
+        /// </summary>
         [Input("defaultRedirectConfigurationName")]
         public Input<string>? DefaultRedirectConfigurationName { get; set; }
 
         [Input("defaultRewriteRuleSetId")]
         public Input<string>? DefaultRewriteRuleSetId { get; set; }
 
+        /// <summary>
+        /// The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
+        /// </summary>
         [Input("defaultRewriteRuleSetName")]
         public Input<string>? DefaultRewriteRuleSetName { get; set; }
 
@@ -2399,7 +2943,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the URL Path Map.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -2408,7 +2952,7 @@ namespace Pulumi.Azure.Network
         private InputList<ApplicationGatewayUrlPathMapsPathRulesGetArgs>? _pathRules;
 
         /// <summary>
-        /// A list of `path_rule` blocks as defined above.
+        /// One or more `path_rule` blocks as defined above.
         /// </summary>
         public InputList<ApplicationGatewayUrlPathMapsPathRulesGetArgs> PathRules
         {
@@ -2429,6 +2973,9 @@ namespace Pulumi.Azure.Network
         [Input("backendAddressPoolId")]
         public Input<string>? BackendAddressPoolId { get; set; }
 
+        /// <summary>
+        /// The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
+        /// </summary>
         [Input("backendAddressPoolName")]
         public Input<string>? BackendAddressPoolName { get; set; }
 
@@ -2438,6 +2985,9 @@ namespace Pulumi.Azure.Network
         [Input("backendHttpSettingsId")]
         public Input<string>? BackendHttpSettingsId { get; set; }
 
+        /// <summary>
+        /// The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
+        /// </summary>
         [Input("backendHttpSettingsName")]
         public Input<string>? BackendHttpSettingsName { get; set; }
 
@@ -2448,13 +2998,17 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the Path Rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("paths", required: true)]
         private InputList<string>? _paths;
+
+        /// <summary>
+        /// A list of Paths used in this Path Rule.
+        /// </summary>
         public InputList<string> Paths
         {
             get => _paths ?? (_paths = new InputList<string>());
@@ -2467,6 +3021,9 @@ namespace Pulumi.Azure.Network
         [Input("redirectConfigurationId")]
         public Input<string>? RedirectConfigurationId { get; set; }
 
+        /// <summary>
+        /// The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backend_address_pool_name` or `backend_http_settings_name` is set.
+        /// </summary>
         [Input("redirectConfigurationName")]
         public Input<string>? RedirectConfigurationName { get; set; }
 
@@ -2476,6 +3033,9 @@ namespace Pulumi.Azure.Network
         [Input("rewriteRuleSetId")]
         public Input<string>? RewriteRuleSetId { get; set; }
 
+        /// <summary>
+        /// The Name of the Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
+        /// </summary>
         [Input("rewriteRuleSetName")]
         public Input<string>? RewriteRuleSetName { get; set; }
 
@@ -2492,6 +3052,9 @@ namespace Pulumi.Azure.Network
         [Input("backendAddressPoolId")]
         public Input<string>? BackendAddressPoolId { get; set; }
 
+        /// <summary>
+        /// The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
+        /// </summary>
         [Input("backendAddressPoolName")]
         public Input<string>? BackendAddressPoolName { get; set; }
 
@@ -2501,6 +3064,9 @@ namespace Pulumi.Azure.Network
         [Input("backendHttpSettingsId")]
         public Input<string>? BackendHttpSettingsId { get; set; }
 
+        /// <summary>
+        /// The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
+        /// </summary>
         [Input("backendHttpSettingsName")]
         public Input<string>? BackendHttpSettingsName { get; set; }
 
@@ -2511,13 +3077,17 @@ namespace Pulumi.Azure.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the Path Rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("paths", required: true)]
         private InputList<string>? _paths;
+
+        /// <summary>
+        /// A list of Paths used in this Path Rule.
+        /// </summary>
         public InputList<string> Paths
         {
             get => _paths ?? (_paths = new InputList<string>());
@@ -2530,6 +3100,9 @@ namespace Pulumi.Azure.Network
         [Input("redirectConfigurationId")]
         public Input<string>? RedirectConfigurationId { get; set; }
 
+        /// <summary>
+        /// The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backend_address_pool_name` or `backend_http_settings_name` is set.
+        /// </summary>
         [Input("redirectConfigurationName")]
         public Input<string>? RedirectConfigurationName { get; set; }
 
@@ -2539,6 +3112,9 @@ namespace Pulumi.Azure.Network
         [Input("rewriteRuleSetId")]
         public Input<string>? RewriteRuleSetId { get; set; }
 
+        /// <summary>
+        /// The Name of the Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
+        /// </summary>
         [Input("rewriteRuleSetName")]
         public Input<string>? RewriteRuleSetName { get; set; }
 
@@ -2551,38 +3127,67 @@ namespace Pulumi.Azure.Network
     {
         [Input("disabledRuleGroups")]
         private InputList<ApplicationGatewayWafConfigurationDisabledRuleGroupsArgs>? _disabledRuleGroups;
+
+        /// <summary>
+        /// one or more `disabled_rule_group` blocks as defined below.
+        /// </summary>
         public InputList<ApplicationGatewayWafConfigurationDisabledRuleGroupsArgs> DisabledRuleGroups
         {
             get => _disabledRuleGroups ?? (_disabledRuleGroups = new InputList<ApplicationGatewayWafConfigurationDisabledRuleGroupsArgs>());
             set => _disabledRuleGroups = value;
         }
 
+        /// <summary>
+        /// Is the Web Application Firewall be enabled?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
         [Input("exclusions")]
         private InputList<ApplicationGatewayWafConfigurationExclusionsArgs>? _exclusions;
+
+        /// <summary>
+        /// one or more `exclusion` blocks as defined below.
+        /// </summary>
         public InputList<ApplicationGatewayWafConfigurationExclusionsArgs> Exclusions
         {
             get => _exclusions ?? (_exclusions = new InputList<ApplicationGatewayWafConfigurationExclusionsArgs>());
             set => _exclusions = value;
         }
 
+        /// <summary>
+        /// The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
+        /// </summary>
         [Input("fileUploadLimitMb")]
         public Input<int>? FileUploadLimitMb { get; set; }
 
+        /// <summary>
+        /// The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
+        /// </summary>
         [Input("firewallMode", required: true)]
         public Input<string> FirewallMode { get; set; } = null!;
 
+        /// <summary>
+        /// The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
+        /// </summary>
         [Input("maxRequestBodySizeKb")]
         public Input<int>? MaxRequestBodySizeKb { get; set; }
 
+        /// <summary>
+        /// Is Request Body Inspection enabled?  Defaults to `true`.
+        /// </summary>
         [Input("requestBodyCheck")]
         public Input<bool>? RequestBodyCheck { get; set; }
 
+        /// <summary>
+        /// The Type of the Rule Set used for this Web Application Firewall.
+        /// </summary>
         [Input("ruleSetType")]
         public Input<string>? RuleSetType { get; set; }
 
+        /// <summary>
+        /// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
+        /// </summary>
         [Input("ruleSetVersion", required: true)]
         public Input<string> RuleSetVersion { get; set; } = null!;
 
@@ -2593,11 +3198,18 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayWafConfigurationDisabledRuleGroupsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The rule group where specific rules should be disabled. Accepted values are:  `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
+        /// </summary>
         [Input("ruleGroupName", required: true)]
         public Input<string> RuleGroupName { get; set; } = null!;
 
         [Input("rules")]
         private InputList<int>? _rules;
+
+        /// <summary>
+        /// A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
+        /// </summary>
         public InputList<int> Rules
         {
             get => _rules ?? (_rules = new InputList<int>());
@@ -2611,11 +3223,18 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayWafConfigurationDisabledRuleGroupsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The rule group where specific rules should be disabled. Accepted values are:  `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
+        /// </summary>
         [Input("ruleGroupName", required: true)]
         public Input<string> RuleGroupName { get; set; } = null!;
 
         [Input("rules")]
         private InputList<int>? _rules;
+
+        /// <summary>
+        /// A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
+        /// </summary>
         public InputList<int> Rules
         {
             get => _rules ?? (_rules = new InputList<int>());
@@ -2629,12 +3248,21 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayWafConfigurationExclusionsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
+        /// </summary>
         [Input("matchVariable", required: true)]
         public Input<string> MatchVariable { get; set; } = null!;
 
+        /// <summary>
+        /// String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
+        /// </summary>
         [Input("selector")]
         public Input<string>? Selector { get; set; }
 
+        /// <summary>
+        /// Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `match_variable`
+        /// </summary>
         [Input("selectorMatchOperator")]
         public Input<string>? SelectorMatchOperator { get; set; }
 
@@ -2645,12 +3273,21 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayWafConfigurationExclusionsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
+        /// </summary>
         [Input("matchVariable", required: true)]
         public Input<string> MatchVariable { get; set; } = null!;
 
+        /// <summary>
+        /// String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
+        /// </summary>
         [Input("selector")]
         public Input<string>? Selector { get; set; }
 
+        /// <summary>
+        /// Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `match_variable`
+        /// </summary>
         [Input("selectorMatchOperator")]
         public Input<string>? SelectorMatchOperator { get; set; }
 
@@ -2663,38 +3300,67 @@ namespace Pulumi.Azure.Network
     {
         [Input("disabledRuleGroups")]
         private InputList<ApplicationGatewayWafConfigurationDisabledRuleGroupsGetArgs>? _disabledRuleGroups;
+
+        /// <summary>
+        /// one or more `disabled_rule_group` blocks as defined below.
+        /// </summary>
         public InputList<ApplicationGatewayWafConfigurationDisabledRuleGroupsGetArgs> DisabledRuleGroups
         {
             get => _disabledRuleGroups ?? (_disabledRuleGroups = new InputList<ApplicationGatewayWafConfigurationDisabledRuleGroupsGetArgs>());
             set => _disabledRuleGroups = value;
         }
 
+        /// <summary>
+        /// Is the Web Application Firewall be enabled?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
         [Input("exclusions")]
         private InputList<ApplicationGatewayWafConfigurationExclusionsGetArgs>? _exclusions;
+
+        /// <summary>
+        /// one or more `exclusion` blocks as defined below.
+        /// </summary>
         public InputList<ApplicationGatewayWafConfigurationExclusionsGetArgs> Exclusions
         {
             get => _exclusions ?? (_exclusions = new InputList<ApplicationGatewayWafConfigurationExclusionsGetArgs>());
             set => _exclusions = value;
         }
 
+        /// <summary>
+        /// The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
+        /// </summary>
         [Input("fileUploadLimitMb")]
         public Input<int>? FileUploadLimitMb { get; set; }
 
+        /// <summary>
+        /// The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
+        /// </summary>
         [Input("firewallMode", required: true)]
         public Input<string> FirewallMode { get; set; } = null!;
 
+        /// <summary>
+        /// The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
+        /// </summary>
         [Input("maxRequestBodySizeKb")]
         public Input<int>? MaxRequestBodySizeKb { get; set; }
 
+        /// <summary>
+        /// Is Request Body Inspection enabled?  Defaults to `true`.
+        /// </summary>
         [Input("requestBodyCheck")]
         public Input<bool>? RequestBodyCheck { get; set; }
 
+        /// <summary>
+        /// The Type of the Rule Set used for this Web Application Firewall.
+        /// </summary>
         [Input("ruleSetType")]
         public Input<string>? RuleSetType { get; set; }
 
+        /// <summary>
+        /// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
+        /// </summary>
         [Input("ruleSetVersion", required: true)]
         public Input<string> RuleSetVersion { get; set; } = null!;
 
@@ -2710,13 +3376,16 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayAuthenticationCertificates
     {
+        /// <summary>
+        /// The contents of the Authentication Certificate which should be used.
+        /// </summary>
         public readonly string Data;
         /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Authentication Certificate.
         /// </summary>
         public readonly string Name;
 
@@ -2735,7 +3404,13 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayAutoscaleConfiguration
     {
+        /// <summary>
+        /// Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
+        /// </summary>
         public readonly int? MaxCapacity;
+        /// <summary>
+        /// Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
+        /// </summary>
         public readonly int MinCapacity;
 
         [OutputConstructor]
@@ -2751,14 +3426,20 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayBackendAddressPools
     {
+        /// <summary>
+        /// A list of FQDN's which should be part of the Backend Address Pool.
+        /// </summary>
         public readonly ImmutableArray<string> Fqdns;
         /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A list of IP Addresses which should be part of the Backend Address Pool.
+        /// </summary>
         public readonly ImmutableArray<string> IpAddresses;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Backend Address Pool.
         /// </summary>
         public readonly string Name;
 
@@ -2779,32 +3460,65 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayBackendHttpSettings
     {
+        /// <summary>
+        /// The name of the affinity cookie.
+        /// </summary>
         public readonly string? AffinityCookieName;
         /// <summary>
-        /// One or more `authentication_certificate` blocks as defined below.
+        /// One or more `authentication_certificate` blocks.
         /// </summary>
         public readonly ImmutableArray<ApplicationGatewayBackendHttpSettingsAuthenticationCertificates> AuthenticationCertificates;
+        /// <summary>
+        /// A `connection_draining` block as defined below.
+        /// </summary>
         public readonly ApplicationGatewayBackendHttpSettingsConnectionDraining? ConnectionDraining;
+        /// <summary>
+        /// Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
+        /// </summary>
         public readonly string CookieBasedAffinity;
+        /// <summary>
+        /// Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
+        /// </summary>
         public readonly string? HostName;
         /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Backend HTTP Settings Collection.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Path which should be used as a prefix for all HTTP requests.
+        /// </summary>
         public readonly string? Path;
+        /// <summary>
+        /// Whether host header should be picked from the host name of the backend server. Defaults to `false`.
+        /// </summary>
         public readonly bool? PickHostNameFromBackendAddress;
+        /// <summary>
+        /// The port used for this Frontend Port.
+        /// </summary>
         public readonly int Port;
         /// <summary>
         /// The ID of the associated Probe.
         /// </summary>
         public readonly string ProbeId;
+        /// <summary>
+        /// The name of an associated HTTP Probe.
+        /// </summary>
         public readonly string? ProbeName;
+        /// <summary>
+        /// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+        /// </summary>
         public readonly string Protocol;
+        /// <summary>
+        /// The request timeout in seconds, which must be between 1 and 86400 seconds.
+        /// </summary>
         public readonly int? RequestTimeout;
+        /// <summary>
+        /// A list of `trusted_root_certificate` names.
+        /// </summary>
         public readonly ImmutableArray<string> TrustedRootCertificateNames;
 
         [OutputConstructor]
@@ -2851,7 +3565,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Authentication Certificate.
         /// </summary>
         public readonly string Name;
 
@@ -2868,7 +3582,13 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayBackendHttpSettingsConnectionDraining
     {
+        /// <summary>
+        /// The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
+        /// </summary>
         public readonly int DrainTimeoutSec;
+        /// <summary>
+        /// If connection draining is enabled or not.
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]
@@ -2884,11 +3604,17 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayCustomErrorConfigurations
     {
+        /// <summary>
+        /// Error page URL of the application gateway customer error.
+        /// </summary>
         public readonly string CustomErrorPageUrl;
         /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+        /// </summary>
         public readonly string StatusCode;
 
         [OutputConstructor]
@@ -2911,12 +3637,24 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Frontend IP Configuration.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Private IP Address to use for the Application Gateway.
+        /// </summary>
         public readonly string PrivateIpAddress;
+        /// <summary>
+        /// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+        /// </summary>
         public readonly string PrivateIpAddressAllocation;
+        /// <summary>
+        /// The ID of a Public IP Address which the Application Gateway should use.
+        /// </summary>
         public readonly string PublicIpAddressId;
+        /// <summary>
+        /// The ID of the Subnet which the Application Gateway should be connected to.
+        /// </summary>
         public readonly string SubnetId;
 
         [OutputConstructor]
@@ -2945,9 +3683,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The name of the Frontend Port.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The port used for this Frontend Port.
+        /// </summary>
         public readonly int Port;
 
         [OutputConstructor]
@@ -2970,9 +3711,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of this Gateway IP Configuration.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The ID of a Subnet.
+        /// </summary>
         public readonly string SubnetId;
 
         [OutputConstructor]
@@ -2998,27 +3742,45 @@ namespace Pulumi.Azure.Network
         /// The ID of the associated Frontend Configuration.
         /// </summary>
         public readonly string FrontendIpConfigurationId;
+        /// <summary>
+        /// The Name of the Frontend IP Configuration used for this HTTP Listener.
+        /// </summary>
         public readonly string FrontendIpConfigurationName;
         /// <summary>
         /// The ID of the associated Frontend Port.
         /// </summary>
         public readonly string FrontendPortId;
+        /// <summary>
+        /// The Name of the Frontend Port use for this HTTP Listener.
+        /// </summary>
         public readonly string FrontendPortName;
+        /// <summary>
+        /// The Hostname which should be used for this HTTP Listener.
+        /// </summary>
         public readonly string? HostName;
         /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the HTTP Listener.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+        /// </summary>
         public readonly string Protocol;
+        /// <summary>
+        /// Should Server Name Indication be Required? Defaults to `false`.
+        /// </summary>
         public readonly bool? RequireSni;
         /// <summary>
         /// The ID of the associated SSL Certificate.
         /// </summary>
         public readonly string SslCertificateId;
+        /// <summary>
+        /// The name of the associated SSL Certificate which should be used for this HTTP Listener.
+        /// </summary>
         public readonly string? SslCertificateName;
 
         [OutputConstructor]
@@ -3054,11 +3816,17 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayHttpListenersCustomErrorConfigurations
     {
+        /// <summary>
+        /// Error page URL of the application gateway customer error.
+        /// </summary>
         public readonly string CustomErrorPageUrl;
         /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+        /// </summary>
         public readonly string StatusCode;
 
         [OutputConstructor]
@@ -3076,7 +3844,13 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayIdentity
     {
+        /// <summary>
+        /// Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
+        /// </summary>
         public readonly string IdentityIds;
+        /// <summary>
+        /// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]
@@ -3092,22 +3866,49 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayProbes
     {
+        /// <summary>
+        /// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
+        /// </summary>
         public readonly string? Host;
         /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+        /// </summary>
         public readonly int Interval;
+        /// <summary>
+        /// A `match` block as defined above.
+        /// </summary>
         public readonly ApplicationGatewayProbesMatch Match;
+        /// <summary>
+        /// The minimum number of servers that are always marked as healthy. Defaults to `0`.
+        /// </summary>
         public readonly int? MinimumServers;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the Probe.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Path used for this Probe.
+        /// </summary>
         public readonly string Path;
+        /// <summary>
+        /// Whether the host header should be picked from the backend http settings. Defaults to `false`.
+        /// </summary>
         public readonly bool? PickHostNameFromBackendHttpSettings;
+        /// <summary>
+        /// The Protocol used for this Probe. Possible values are `Http` and `Https`.
+        /// </summary>
         public readonly string Protocol;
+        /// <summary>
+        /// The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+        /// </summary>
         public readonly int Timeout;
+        /// <summary>
+        /// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+        /// </summary>
         public readonly int UnhealthyThreshold;
 
         [OutputConstructor]
@@ -3141,7 +3942,13 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayProbesMatch
     {
+        /// <summary>
+        /// A snippet from the Response Body which must be present in the Response..
+        /// </summary>
         public readonly string? Body;
+        /// <summary>
+        /// A list of allowed status codes for this Health Probe.
+        /// </summary>
         public readonly ImmutableArray<string> StatusCodes;
 
         [OutputConstructor]
@@ -3161,15 +3968,30 @@ namespace Pulumi.Azure.Network
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Whether or not to include the path in the redirected Url. Defaults to `false`
+        /// </summary>
         public readonly bool? IncludePath;
+        /// <summary>
+        /// Whether or not to include the query string in the redirected Url. Default to `false`
+        /// </summary>
         public readonly bool? IncludeQueryString;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// Unique name of the redirect configuration block
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The type of redirect. Possible values are `Permanent`, `Temporary`, `Found` and `SeeOther`
+        /// </summary>
         public readonly string RedirectType;
         public readonly string TargetListenerId;
+        /// <summary>
+        /// The name of the listener to redirect to. Cannot be set if `target_url` is set.
+        /// </summary>
         public readonly string? TargetListenerName;
+        /// <summary>
+        /// The Url to redirect the request to. Cannot be set if `target_listener_name` is set.
+        /// </summary>
         public readonly string? TargetUrl;
 
         [OutputConstructor]
@@ -3201,40 +4023,61 @@ namespace Pulumi.Azure.Network
         /// The ID of the associated Backend Address Pool.
         /// </summary>
         public readonly string BackendAddressPoolId;
+        /// <summary>
+        /// The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+        /// </summary>
         public readonly string? BackendAddressPoolName;
         /// <summary>
         /// The ID of the associated Backend HTTP Settings Configuration.
         /// </summary>
         public readonly string BackendHttpSettingsId;
+        /// <summary>
+        /// The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+        /// </summary>
         public readonly string? BackendHttpSettingsName;
         /// <summary>
         /// The ID of the associated HTTP Listener.
         /// </summary>
         public readonly string HttpListenerId;
+        /// <summary>
+        /// The Name of the HTTP Listener which should be used for this Routing Rule.
+        /// </summary>
         public readonly string HttpListenerName;
         /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of this Request Routing Rule.
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// The ID of the associated Redirect Configuration.
         /// </summary>
         public readonly string RedirectConfigurationId;
+        /// <summary>
+        /// The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
+        /// </summary>
         public readonly string? RedirectConfigurationName;
         /// <summary>
         /// The ID of the associated Rewrite Rule Set.
         /// </summary>
         public readonly string RewriteRuleSetId;
+        /// <summary>
+        /// The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+        /// </summary>
         public readonly string? RewriteRuleSetName;
+        /// <summary>
+        /// The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
+        /// </summary>
         public readonly string RuleType;
         /// <summary>
         /// The ID of the associated URL Path Map.
         /// </summary>
         public readonly string UrlPathMapId;
+        /// <summary>
+        /// The Name of the URL Path Map which should be associated with this Routing Rule.
+        /// </summary>
         public readonly string? UrlPathMapName;
 
         [OutputConstructor]
@@ -3281,9 +4124,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// Unique name of the rewrite rule set block
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// One or more `rewrite_rule` blocks as defined above.
+        /// </summary>
         public readonly ImmutableArray<ApplicationGatewayRewriteRuleSetsRewriteRules> RewriteRules;
 
         [OutputConstructor]
@@ -3301,13 +4147,25 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayRewriteRuleSetsRewriteRules
     {
+        /// <summary>
+        /// One or more `condition` blocks as defined above.
+        /// </summary>
         public readonly ImmutableArray<ApplicationGatewayRewriteRuleSetsRewriteRulesConditions> Conditions;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// Unique name of the rewrite rule block
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// One or more `request_header_configuration` blocks as defined above.
+        /// </summary>
         public readonly ImmutableArray<ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurations> RequestHeaderConfigurations;
+        /// <summary>
+        /// One or more `response_header_configuration` blocks as defined above.
+        /// </summary>
         public readonly ImmutableArray<ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurations> ResponseHeaderConfigurations;
+        /// <summary>
+        /// Rule sequence of the rewrite rule that determines the order of execution in a set.
+        /// </summary>
         public readonly int RuleSequence;
 
         [OutputConstructor]
@@ -3329,9 +4187,21 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesConditions
     {
+        /// <summary>
+        /// Perform a case in-sensitive comparison. Defaults to `false`
+        /// </summary>
         public readonly bool? IgnoreCase;
+        /// <summary>
+        /// Negate the result of the condition evaluation. Defaults to `false`
+        /// </summary>
         public readonly bool? Negate;
+        /// <summary>
+        /// The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
+        /// </summary>
         public readonly string Pattern;
+        /// <summary>
+        /// The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
+        /// </summary>
         public readonly string Variable;
 
         [OutputConstructor]
@@ -3351,7 +4221,13 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurations
     {
+        /// <summary>
+        /// Header name of the header configuration.
+        /// </summary>
         public readonly string HeaderName;
+        /// <summary>
+        /// Header value of the header configuration. To delete a request header set this property to an empty string.
+        /// </summary>
         public readonly string HeaderValue;
 
         [OutputConstructor]
@@ -3367,7 +4243,13 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurations
     {
+        /// <summary>
+        /// Header name of the header configuration.
+        /// </summary>
         public readonly string HeaderName;
+        /// <summary>
+        /// Header value of the header configuration. To delete a response header set this property to an empty string.
+        /// </summary>
         public readonly string HeaderValue;
 
         [OutputConstructor]
@@ -3383,11 +4265,17 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewaySku
     {
+        /// <summary>
+        /// The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscale_configuration` is set.
+        /// </summary>
         public readonly int? Capacity;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
+        /// </summary>
         public readonly string Tier;
 
         [OutputConstructor]
@@ -3405,16 +4293,25 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewaySslCertificates
     {
+        /// <summary>
+        /// PFX certificate. Required if `key_vault_secret_id` is not set.
+        /// </summary>
         public readonly string? Data;
         /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+        /// </summary>
         public readonly string? KeyVaultSecretId;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the SSL certificate that is unique within this Application Gateway
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Password for the pfx file specified in data.  Required if `data` is set.
+        /// </summary>
         public readonly string? Password;
         /// <summary>
         /// The Public Certificate Data associated with the SSL Certificate.
@@ -3442,10 +4339,26 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewaySslPolicies
     {
+        /// <summary>
+        /// A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+        /// </summary>
         public readonly ImmutableArray<string> CipherSuites;
+        /// <summary>
+        /// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        /// </summary>
         public readonly ImmutableArray<string> DisabledProtocols;
+        /// <summary>
+        /// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        /// </summary>
         public readonly string? MinProtocolVersion;
+        /// <summary>
+        /// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
+        /// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
+        /// </summary>
         public readonly string? PolicyName;
+        /// <summary>
+        /// The Type of the Policy. Possible values are `Predefined` and `Custom`.
+        /// </summary>
         public readonly string? PolicyType;
 
         [OutputConstructor]
@@ -3467,13 +4380,16 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayTrustedRootCertificates
     {
+        /// <summary>
+        /// The contents of the Trusted Root Certificate which should be used.
+        /// </summary>
         public readonly string Data;
         /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the Trusted Root Certificate to use.
         /// </summary>
         public readonly string Name;
 
@@ -3496,29 +4412,41 @@ namespace Pulumi.Azure.Network
         /// The ID of the Default Backend Address Pool.
         /// </summary>
         public readonly string DefaultBackendAddressPoolId;
+        /// <summary>
+        /// The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+        /// </summary>
         public readonly string? DefaultBackendAddressPoolName;
         /// <summary>
         /// The ID of the Default Backend HTTP Settings Collection.
         /// </summary>
         public readonly string DefaultBackendHttpSettingsId;
+        /// <summary>
+        /// The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+        /// </summary>
         public readonly string? DefaultBackendHttpSettingsName;
         /// <summary>
         /// The ID of the Default Redirect Configuration.
         /// </summary>
         public readonly string DefaultRedirectConfigurationId;
+        /// <summary>
+        /// The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
+        /// </summary>
         public readonly string? DefaultRedirectConfigurationName;
         public readonly string DefaultRewriteRuleSetId;
+        /// <summary>
+        /// The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
+        /// </summary>
         public readonly string? DefaultRewriteRuleSetName;
         /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the URL Path Map.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A list of `path_rule` blocks as defined above.
+        /// One or more `path_rule` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<ApplicationGatewayUrlPathMapsPathRules> PathRules;
 
@@ -3557,30 +4485,45 @@ namespace Pulumi.Azure.Network
         /// The ID of the associated Backend Address Pool.
         /// </summary>
         public readonly string BackendAddressPoolId;
+        /// <summary>
+        /// The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
+        /// </summary>
         public readonly string? BackendAddressPoolName;
         /// <summary>
         /// The ID of the associated Backend HTTP Settings Configuration.
         /// </summary>
         public readonly string BackendHttpSettingsId;
+        /// <summary>
+        /// The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
+        /// </summary>
         public readonly string? BackendHttpSettingsName;
         /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the Application Gateway. Changing this forces a new resource to be created.
+        /// The Name of the Path Rule.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A list of Paths used in this Path Rule.
+        /// </summary>
         public readonly ImmutableArray<string> Paths;
         /// <summary>
         /// The ID of the associated Redirect Configuration.
         /// </summary>
         public readonly string RedirectConfigurationId;
+        /// <summary>
+        /// The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backend_address_pool_name` or `backend_http_settings_name` is set.
+        /// </summary>
         public readonly string? RedirectConfigurationName;
         /// <summary>
         /// The ID of the associated Rewrite Rule Set.
         /// </summary>
         public readonly string RewriteRuleSetId;
+        /// <summary>
+        /// The Name of the Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
+        /// </summary>
         public readonly string? RewriteRuleSetName;
 
         [OutputConstructor]
@@ -3614,14 +4557,41 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayWafConfiguration
     {
+        /// <summary>
+        /// one or more `disabled_rule_group` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<ApplicationGatewayWafConfigurationDisabledRuleGroups> DisabledRuleGroups;
+        /// <summary>
+        /// Is the Web Application Firewall be enabled?
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// one or more `exclusion` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<ApplicationGatewayWafConfigurationExclusions> Exclusions;
+        /// <summary>
+        /// The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
+        /// </summary>
         public readonly int? FileUploadLimitMb;
+        /// <summary>
+        /// The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
+        /// </summary>
         public readonly string FirewallMode;
+        /// <summary>
+        /// The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
+        /// </summary>
         public readonly int? MaxRequestBodySizeKb;
+        /// <summary>
+        /// Is Request Body Inspection enabled?  Defaults to `true`.
+        /// </summary>
         public readonly bool? RequestBodyCheck;
+        /// <summary>
+        /// The Type of the Rule Set used for this Web Application Firewall.
+        /// </summary>
         public readonly string? RuleSetType;
+        /// <summary>
+        /// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
+        /// </summary>
         public readonly string RuleSetVersion;
 
         [OutputConstructor]
@@ -3651,7 +4621,13 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayWafConfigurationDisabledRuleGroups
     {
+        /// <summary>
+        /// The rule group where specific rules should be disabled. Accepted values are:  `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
+        /// </summary>
         public readonly string RuleGroupName;
+        /// <summary>
+        /// A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
+        /// </summary>
         public readonly ImmutableArray<int> Rules;
 
         [OutputConstructor]
@@ -3667,8 +4643,17 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ApplicationGatewayWafConfigurationExclusions
     {
+        /// <summary>
+        /// Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
+        /// </summary>
         public readonly string MatchVariable;
+        /// <summary>
+        /// String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
+        /// </summary>
         public readonly string? Selector;
+        /// <summary>
+        /// Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `match_variable`
+        /// </summary>
         public readonly string? SelectorMatchOperator;
 
         [OutputConstructor]

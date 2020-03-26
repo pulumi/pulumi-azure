@@ -176,4 +176,3 @@ type DpsSharedAccessPolicyArgs struct {
 func (DpsSharedAccessPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dpsSharedAccessPolicyArgs)(nil)).Elem()
 }
-

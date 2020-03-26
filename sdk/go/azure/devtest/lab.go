@@ -155,4 +155,3 @@ type LabArgs struct {
 func (LabArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*labArgs)(nil)).Elem()
 }
-

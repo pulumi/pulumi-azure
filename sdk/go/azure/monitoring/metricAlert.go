@@ -195,4 +195,3 @@ type MetricAlertArgs struct {
 func (MetricAlertArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*metricAlertArgs)(nil)).Elem()
 }
-

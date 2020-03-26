@@ -206,4 +206,3 @@ type InteractiveQueryClusterArgs struct {
 func (InteractiveQueryClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*interactiveQueryClusterArgs)(nil)).Elem()
 }
-

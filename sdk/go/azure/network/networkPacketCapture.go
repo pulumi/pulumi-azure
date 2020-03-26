@@ -168,4 +168,3 @@ type NetworkPacketCaptureArgs struct {
 func (NetworkPacketCaptureArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkPacketCaptureArgs)(nil)).Elem()
 }
-

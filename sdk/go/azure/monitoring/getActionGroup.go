@@ -28,7 +28,6 @@ type LookupActionGroupArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getActionGroup.
 type LookupActionGroupResult struct {
 	// One or more `armRoleReceiver` blocks as defined below.
@@ -50,7 +49,7 @@ type LookupActionGroupResult struct {
 	// One or more `logicAppReceiver` blocks as defined below.
 	LogicAppReceivers []GetActionGroupLogicAppReceiver `pulumi:"logicAppReceivers"`
 	// The name of the webhook receiver.
-	Name string `pulumi:"name"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The short name of the action group.
 	ShortName string `pulumi:"shortName"`
@@ -61,4 +60,3 @@ type LookupActionGroupResult struct {
 	// One or more `webhookReceiver` blocks as defined below.
 	WebhookReceivers []GetActionGroupWebhookReceiver `pulumi:"webhookReceivers"`
 }
-

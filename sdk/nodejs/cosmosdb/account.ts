@@ -79,11 +79,11 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * The name of the Azure region to host replicated data.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+     * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -254,11 +254,11 @@ export interface AccountState {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * The name of the Azure region to host replicated data.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+     * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -340,11 +340,11 @@ export interface AccountArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * The name of the Azure region to host replicated data.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+     * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

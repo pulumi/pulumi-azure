@@ -166,4 +166,3 @@ type SharedAccessPolicyArgs struct {
 func (SharedAccessPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sharedAccessPolicyArgs)(nil)).Elem()
 }
-

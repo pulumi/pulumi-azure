@@ -73,7 +73,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         * `metricColumn` (`str`)
         * `metricTriggerType` (`str`)
         * `operator` (`str`) - Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
-        * `threshold` (`float`) - Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+        * `threshold` (`float`) - The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
 
       * `operator` (`str`) - Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
       * `threshold` (`float`) - Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
@@ -112,7 +112,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
             * `metricColumn` (`pulumi.Input[str]`)
             * `metricTriggerType` (`pulumi.Input[str]`)
             * `operator` (`pulumi.Input[str]`) - Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
-            * `threshold` (`pulumi.Input[float]`) - Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+            * `threshold` (`pulumi.Input[float]`) - The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
 
           * `operator` (`pulumi.Input[str]`) - Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
           * `threshold` (`pulumi.Input[float]`) - Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
@@ -205,7 +205,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
             * `metricColumn` (`pulumi.Input[str]`)
             * `metricTriggerType` (`pulumi.Input[str]`)
             * `operator` (`pulumi.Input[str]`) - Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
-            * `threshold` (`pulumi.Input[float]`) - Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+            * `threshold` (`pulumi.Input[float]`) - The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
 
           * `operator` (`pulumi.Input[str]`) - Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
           * `threshold` (`pulumi.Input[float]`) - Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.

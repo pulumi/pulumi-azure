@@ -28,7 +28,6 @@ type LookupAccountArgs struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getAccount.
 type LookupAccountResult struct {
 	// The access tier for `BlobStorage` accounts.
@@ -83,7 +82,7 @@ type LookupAccountResult struct {
 	// The endpoint URL for web storage in the primary location.
 	PrimaryWebEndpoint string `pulumi:"primaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the primary location.
-	PrimaryWebHost string `pulumi:"primaryWebHost"`
+	PrimaryWebHost    string `pulumi:"primaryWebHost"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The secondary access key for the Storage Account.
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
@@ -120,4 +119,3 @@ type LookupAccountResult struct {
 	// A mapping of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
-

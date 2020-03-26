@@ -52,7 +52,7 @@ type KubernetesCluster struct {
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringOutput `pulumi:"nodeResourceGroup"`
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-	PrivateFqdn pulumi.StringOutput `pulumi:"privateFqdn"`
+	PrivateFqdn        pulumi.StringOutput  `pulumi:"privateFqdn"`
 	PrivateLinkEnabled pulumi.BoolPtrOutput `pulumi:"privateLinkEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -141,8 +141,8 @@ type kubernetesClusterState struct {
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-	PrivateFqdn *string `pulumi:"privateFqdn"`
-	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
+	PrivateFqdn        *string `pulumi:"privateFqdn"`
+	PrivateLinkEnabled *bool   `pulumi:"privateLinkEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roleBasedAccessControl` block.
@@ -191,7 +191,7 @@ type KubernetesClusterState struct {
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringPtrInput
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-	PrivateFqdn pulumi.StringPtrInput
+	PrivateFqdn        pulumi.StringPtrInput
 	PrivateLinkEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -233,8 +233,8 @@ type kubernetesClusterArgs struct {
 	// A `networkProfile` block as defined below.
 	NetworkProfile *KubernetesClusterNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
-	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
-	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
+	NodeResourceGroup  *string `pulumi:"nodeResourceGroup"`
+	PrivateLinkEnabled *bool   `pulumi:"privateLinkEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roleBasedAccessControl` block.
@@ -272,7 +272,7 @@ type KubernetesClusterArgs struct {
 	// A `networkProfile` block as defined below.
 	NetworkProfile KubernetesClusterNetworkProfilePtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
-	NodeResourceGroup pulumi.StringPtrInput
+	NodeResourceGroup  pulumi.StringPtrInput
 	PrivateLinkEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -289,4 +289,3 @@ type KubernetesClusterArgs struct {
 func (KubernetesClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*kubernetesClusterArgs)(nil)).Elem()
 }
-

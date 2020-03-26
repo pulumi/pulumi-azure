@@ -19,22 +19,20 @@ func GetRoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs, opts ..
 
 // A collection of arguments for invoking getRoleDefinition.
 type GetRoleDefinitionArgs struct {
-	Name *string `pulumi:"name"`
+	Name             *string `pulumi:"name"`
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	Scope *string `pulumi:"scope"`
+	Scope            *string `pulumi:"scope"`
 }
-
 
 // A collection of values returned by getRoleDefinition.
 type GetRoleDefinitionResult struct {
 	AssignableScopes []string `pulumi:"assignableScopes"`
-	Description string `pulumi:"description"`
+	Description      string   `pulumi:"description"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Name string `pulumi:"name"`
-	Permissions []GetRoleDefinitionPermission `pulumi:"permissions"`
-	RoleDefinitionId string `pulumi:"roleDefinitionId"`
-	Scope *string `pulumi:"scope"`
-	Type string `pulumi:"type"`
+	Id               string                        `pulumi:"id"`
+	Name             string                        `pulumi:"name"`
+	Permissions      []GetRoleDefinitionPermission `pulumi:"permissions"`
+	RoleDefinitionId string                        `pulumi:"roleDefinitionId"`
+	Scope            *string                       `pulumi:"scope"`
+	Type             string                        `pulumi:"type"`
 }
-

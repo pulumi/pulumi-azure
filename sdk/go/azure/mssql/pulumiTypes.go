@@ -12,6 +12,7 @@ import (
 )
 
 type DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult struct {
+	// A list representing a result of the baseline.
 	Results []string `pulumi:"results"`
 }
 
@@ -23,6 +24,7 @@ type DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultInput interface {
 }
 
 type DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgs struct {
+	// A list representing a result of the baseline.
 	Results pulumi.StringArrayInput `pulumi:"results"`
 }
 
@@ -59,7 +61,7 @@ func (i DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArray) ToDataba
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput)
 }
 
-type DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput struct { *pulumi.OutputState }
+type DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput struct{ *pulumi.OutputState }
 
 func (DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult)(nil)).Elem()
@@ -73,11 +75,12 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput) ToDatab
 	return o
 }
 
+// A list representing a result of the baseline.
 func (o DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput) Results() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult) []string { return v.Results }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult) []string { return v.Results }).(pulumi.StringArrayOutput)
 }
 
-type DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput struct { *pulumi.OutputState}
+type DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput struct{ *pulumi.OutputState }
 
 func (DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult)(nil)).Elem()
@@ -92,7 +95,7 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput) To
 }
 
 func (o DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput) Index(i pulumi.IntInput) DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult {
 		return vs[0].([]DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult)[vs[1].(int)]
 	}).(DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput)
 }
@@ -147,7 +150,8 @@ type ElasticPoolPerDatabaseSettingsPtrInput interface {
 
 type elasticPoolPerDatabaseSettingsPtrType ElasticPoolPerDatabaseSettingsArgs
 
-func ElasticPoolPerDatabaseSettingsPtr(v *ElasticPoolPerDatabaseSettingsArgs) ElasticPoolPerDatabaseSettingsPtrInput {	return (*elasticPoolPerDatabaseSettingsPtrType)(v)
+func ElasticPoolPerDatabaseSettingsPtr(v *ElasticPoolPerDatabaseSettingsArgs) ElasticPoolPerDatabaseSettingsPtrInput {
+	return (*elasticPoolPerDatabaseSettingsPtrType)(v)
 }
 
 func (*elasticPoolPerDatabaseSettingsPtrType) ElementType() reflect.Type {
@@ -162,7 +166,7 @@ func (i *elasticPoolPerDatabaseSettingsPtrType) ToElasticPoolPerDatabaseSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsPtrOutput)
 }
 
-type ElasticPoolPerDatabaseSettingsOutput struct { *pulumi.OutputState }
+type ElasticPoolPerDatabaseSettingsOutput struct{ *pulumi.OutputState }
 
 func (ElasticPoolPerDatabaseSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ElasticPoolPerDatabaseSettings)(nil)).Elem()
@@ -185,17 +189,18 @@ func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsPt
 		return &v
 	}).(ElasticPoolPerDatabaseSettingsPtrOutput)
 }
+
 // The maximum capacity any one database can consume.
 func (o ElasticPoolPerDatabaseSettingsOutput) MaxCapacity() pulumi.Float64Output {
-	return o.ApplyT(func (v ElasticPoolPerDatabaseSettings) float64 { return v.MaxCapacity }).(pulumi.Float64Output)
+	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) float64 { return v.MaxCapacity }).(pulumi.Float64Output)
 }
 
 // The minimum capacity all databases are guaranteed.
 func (o ElasticPoolPerDatabaseSettingsOutput) MinCapacity() pulumi.Float64Output {
-	return o.ApplyT(func (v ElasticPoolPerDatabaseSettings) float64 { return v.MinCapacity }).(pulumi.Float64Output)
+	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) float64 { return v.MinCapacity }).(pulumi.Float64Output)
 }
 
-type ElasticPoolPerDatabaseSettingsPtrOutput struct { *pulumi.OutputState}
+type ElasticPoolPerDatabaseSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ElasticPoolPerDatabaseSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ElasticPoolPerDatabaseSettings)(nil)).Elem()
@@ -210,17 +215,17 @@ func (o ElasticPoolPerDatabaseSettingsPtrOutput) ToElasticPoolPerDatabaseSetting
 }
 
 func (o ElasticPoolPerDatabaseSettingsPtrOutput) Elem() ElasticPoolPerDatabaseSettingsOutput {
-	return o.ApplyT(func (v *ElasticPoolPerDatabaseSettings) ElasticPoolPerDatabaseSettings { return *v }).(ElasticPoolPerDatabaseSettingsOutput)
+	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) ElasticPoolPerDatabaseSettings { return *v }).(ElasticPoolPerDatabaseSettingsOutput)
 }
 
 // The maximum capacity any one database can consume.
 func (o ElasticPoolPerDatabaseSettingsPtrOutput) MaxCapacity() pulumi.Float64Output {
-	return o.ApplyT(func (v ElasticPoolPerDatabaseSettings) float64 { return v.MaxCapacity }).(pulumi.Float64Output)
+	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) float64 { return v.MaxCapacity }).(pulumi.Float64Output)
 }
 
 // The minimum capacity all databases are guaranteed.
 func (o ElasticPoolPerDatabaseSettingsPtrOutput) MinCapacity() pulumi.Float64Output {
-	return o.ApplyT(func (v ElasticPoolPerDatabaseSettings) float64 { return v.MinCapacity }).(pulumi.Float64Output)
+	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) float64 { return v.MinCapacity }).(pulumi.Float64Output)
 }
 
 type ElasticPoolSku struct {
@@ -281,7 +286,8 @@ type ElasticPoolSkuPtrInput interface {
 
 type elasticPoolSkuPtrType ElasticPoolSkuArgs
 
-func ElasticPoolSkuPtr(v *ElasticPoolSkuArgs) ElasticPoolSkuPtrInput {	return (*elasticPoolSkuPtrType)(v)
+func ElasticPoolSkuPtr(v *ElasticPoolSkuArgs) ElasticPoolSkuPtrInput {
+	return (*elasticPoolSkuPtrType)(v)
 }
 
 func (*elasticPoolSkuPtrType) ElementType() reflect.Type {
@@ -296,7 +302,7 @@ func (i *elasticPoolSkuPtrType) ToElasticPoolSkuPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolSkuPtrOutput)
 }
 
-type ElasticPoolSkuOutput struct { *pulumi.OutputState }
+type ElasticPoolSkuOutput struct{ *pulumi.OutputState }
 
 func (ElasticPoolSkuOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ElasticPoolSku)(nil)).Elem()
@@ -319,27 +325,28 @@ func (o ElasticPoolSkuOutput) ToElasticPoolSkuPtrOutputWithContext(ctx context.C
 		return &v
 	}).(ElasticPoolSkuPtrOutput)
 }
+
 // The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 func (o ElasticPoolSkuOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func (v ElasticPoolSku) int { return v.Capacity }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ElasticPoolSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
 // The `family` of hardware `Gen4` or `Gen5`.
 func (o ElasticPoolSkuOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ElasticPoolSku) *string { return v.Family }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ElasticPoolSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
 func (o ElasticPoolSkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ElasticPoolSku) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ElasticPoolSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 func (o ElasticPoolSkuOutput) Tier() pulumi.StringOutput {
-	return o.ApplyT(func (v ElasticPoolSku) string { return v.Tier }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ElasticPoolSku) string { return v.Tier }).(pulumi.StringOutput)
 }
 
-type ElasticPoolSkuPtrOutput struct { *pulumi.OutputState}
+type ElasticPoolSkuPtrOutput struct{ *pulumi.OutputState }
 
 func (ElasticPoolSkuPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ElasticPoolSku)(nil)).Elem()
@@ -354,27 +361,27 @@ func (o ElasticPoolSkuPtrOutput) ToElasticPoolSkuPtrOutputWithContext(ctx contex
 }
 
 func (o ElasticPoolSkuPtrOutput) Elem() ElasticPoolSkuOutput {
-	return o.ApplyT(func (v *ElasticPoolSku) ElasticPoolSku { return *v }).(ElasticPoolSkuOutput)
+	return o.ApplyT(func(v *ElasticPoolSku) ElasticPoolSku { return *v }).(ElasticPoolSkuOutput)
 }
 
 // The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 func (o ElasticPoolSkuPtrOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func (v ElasticPoolSku) int { return v.Capacity }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ElasticPoolSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
 // The `family` of hardware `Gen4` or `Gen5`.
 func (o ElasticPoolSkuPtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ElasticPoolSku) *string { return v.Family }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ElasticPoolSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
 func (o ElasticPoolSkuPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ElasticPoolSku) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ElasticPoolSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 func (o ElasticPoolSkuPtrOutput) Tier() pulumi.StringOutput {
-	return o.ApplyT(func (v ElasticPoolSku) string { return v.Tier }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ElasticPoolSku) string { return v.Tier }).(pulumi.StringOutput)
 }
 
 type ServerVulnerabilityAssessmentRecurringScans struct {
@@ -431,7 +438,8 @@ type ServerVulnerabilityAssessmentRecurringScansPtrInput interface {
 
 type serverVulnerabilityAssessmentRecurringScansPtrType ServerVulnerabilityAssessmentRecurringScansArgs
 
-func ServerVulnerabilityAssessmentRecurringScansPtr(v *ServerVulnerabilityAssessmentRecurringScansArgs) ServerVulnerabilityAssessmentRecurringScansPtrInput {	return (*serverVulnerabilityAssessmentRecurringScansPtrType)(v)
+func ServerVulnerabilityAssessmentRecurringScansPtr(v *ServerVulnerabilityAssessmentRecurringScansArgs) ServerVulnerabilityAssessmentRecurringScansPtrInput {
+	return (*serverVulnerabilityAssessmentRecurringScansPtrType)(v)
 }
 
 func (*serverVulnerabilityAssessmentRecurringScansPtrType) ElementType() reflect.Type {
@@ -446,7 +454,7 @@ func (i *serverVulnerabilityAssessmentRecurringScansPtrType) ToServerVulnerabili
 	return pulumi.ToOutputWithContext(ctx, i).(ServerVulnerabilityAssessmentRecurringScansPtrOutput)
 }
 
-type ServerVulnerabilityAssessmentRecurringScansOutput struct { *pulumi.OutputState }
+type ServerVulnerabilityAssessmentRecurringScansOutput struct{ *pulumi.OutputState }
 
 func (ServerVulnerabilityAssessmentRecurringScansOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerVulnerabilityAssessmentRecurringScans)(nil)).Elem()
@@ -469,22 +477,23 @@ func (o ServerVulnerabilityAssessmentRecurringScansOutput) ToServerVulnerability
 		return &v
 	}).(ServerVulnerabilityAssessmentRecurringScansPtrOutput)
 }
+
 // Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
 func (o ServerVulnerabilityAssessmentRecurringScansOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServerVulnerabilityAssessmentRecurringScans) *bool { return v.EmailSubscriptionAdmins }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServerVulnerabilityAssessmentRecurringScans) *bool { return v.EmailSubscriptionAdmins }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies an array of e-mail addresses to which the scan notification is sent.
 func (o ServerVulnerabilityAssessmentRecurringScansOutput) Emails() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ServerVulnerabilityAssessmentRecurringScans) []string { return v.Emails }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ServerVulnerabilityAssessmentRecurringScans) []string { return v.Emails }).(pulumi.StringArrayOutput)
 }
 
 // Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
 func (o ServerVulnerabilityAssessmentRecurringScansOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServerVulnerabilityAssessmentRecurringScans) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServerVulnerabilityAssessmentRecurringScans) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-type ServerVulnerabilityAssessmentRecurringScansPtrOutput struct { *pulumi.OutputState}
+type ServerVulnerabilityAssessmentRecurringScansPtrOutput struct{ *pulumi.OutputState }
 
 func (ServerVulnerabilityAssessmentRecurringScansPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServerVulnerabilityAssessmentRecurringScans)(nil)).Elem()
@@ -499,22 +508,24 @@ func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) ToServerVulnerabil
 }
 
 func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) Elem() ServerVulnerabilityAssessmentRecurringScansOutput {
-	return o.ApplyT(func (v *ServerVulnerabilityAssessmentRecurringScans) ServerVulnerabilityAssessmentRecurringScans { return *v }).(ServerVulnerabilityAssessmentRecurringScansOutput)
+	return o.ApplyT(func(v *ServerVulnerabilityAssessmentRecurringScans) ServerVulnerabilityAssessmentRecurringScans {
+		return *v
+	}).(ServerVulnerabilityAssessmentRecurringScansOutput)
 }
 
 // Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
 func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServerVulnerabilityAssessmentRecurringScans) *bool { return v.EmailSubscriptionAdmins }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServerVulnerabilityAssessmentRecurringScans) *bool { return v.EmailSubscriptionAdmins }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies an array of e-mail addresses to which the scan notification is sent.
 func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) Emails() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ServerVulnerabilityAssessmentRecurringScans) []string { return v.Emails }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ServerVulnerabilityAssessmentRecurringScans) []string { return v.Emails }).(pulumi.StringArrayOutput)
 }
 
 // Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
 func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServerVulnerabilityAssessmentRecurringScans) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServerVulnerabilityAssessmentRecurringScans) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

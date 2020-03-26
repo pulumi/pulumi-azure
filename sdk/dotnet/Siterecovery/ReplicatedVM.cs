@@ -298,20 +298,32 @@ namespace Pulumi.Azure.SiteRecovery
 
     public sealed class ReplicatedVMManagedDisksArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Id of disk that should be replicated.
+        /// </summary>
         [Input("diskId", required: true)]
         public Input<string> DiskId { get; set; } = null!;
 
+        /// <summary>
+        /// Storage account that should be used for caching.
+        /// </summary>
         [Input("stagingStorageAccountId", required: true)]
         public Input<string> StagingStorageAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// What type should the disk be when a failover is done.
+        /// </summary>
         [Input("targetDiskType", required: true)]
         public Input<string> TargetDiskType { get; set; } = null!;
 
+        /// <summary>
+        /// What type should the disk be that holds the replication data.
+        /// </summary>
         [Input("targetReplicaDiskType", required: true)]
         public Input<string> TargetReplicaDiskType { get; set; } = null!;
 
         /// <summary>
-        /// Id of resource group where the VM should be created when a failover is done.
+        /// Resource group disk should belong to when a failover is done.
         /// </summary>
         [Input("targetResourceGroupId", required: true)]
         public Input<string> TargetResourceGroupId { get; set; } = null!;
@@ -323,20 +335,32 @@ namespace Pulumi.Azure.SiteRecovery
 
     public sealed class ReplicatedVMManagedDisksGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Id of disk that should be replicated.
+        /// </summary>
         [Input("diskId", required: true)]
         public Input<string> DiskId { get; set; } = null!;
 
+        /// <summary>
+        /// Storage account that should be used for caching.
+        /// </summary>
         [Input("stagingStorageAccountId", required: true)]
         public Input<string> StagingStorageAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// What type should the disk be when a failover is done.
+        /// </summary>
         [Input("targetDiskType", required: true)]
         public Input<string> TargetDiskType { get; set; } = null!;
 
+        /// <summary>
+        /// What type should the disk be that holds the replication data.
+        /// </summary>
         [Input("targetReplicaDiskType", required: true)]
         public Input<string> TargetReplicaDiskType { get; set; } = null!;
 
         /// <summary>
-        /// Id of resource group where the VM should be created when a failover is done.
+        /// Resource group disk should belong to when a failover is done.
         /// </summary>
         [Input("targetResourceGroupId", required: true)]
         public Input<string> TargetResourceGroupId { get; set; } = null!;
@@ -353,12 +377,24 @@ namespace Pulumi.Azure.SiteRecovery
     [OutputType]
     public sealed class ReplicatedVMManagedDisks
     {
+        /// <summary>
+        /// Id of disk that should be replicated.
+        /// </summary>
         public readonly string DiskId;
+        /// <summary>
+        /// Storage account that should be used for caching.
+        /// </summary>
         public readonly string StagingStorageAccountId;
+        /// <summary>
+        /// What type should the disk be when a failover is done.
+        /// </summary>
         public readonly string TargetDiskType;
+        /// <summary>
+        /// What type should the disk be that holds the replication data.
+        /// </summary>
         public readonly string TargetReplicaDiskType;
         /// <summary>
-        /// Id of resource group where the VM should be created when a failover is done.
+        /// Resource group disk should belong to when a failover is done.
         /// </summary>
         public readonly string TargetResourceGroupId;
 

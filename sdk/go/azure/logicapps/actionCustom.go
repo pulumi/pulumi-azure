@@ -102,4 +102,3 @@ type ActionCustomArgs struct {
 func (ActionCustomArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionCustomArgs)(nil)).Elem()
 }
-

@@ -216,9 +216,15 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class LogProfileRetentionPolicyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of days for the retention policy. Defaults to 0.
+        /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
+        /// <summary>
+        /// A boolean value to indicate whether the retention policy is enabled.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -229,9 +235,15 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class LogProfileRetentionPolicyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of days for the retention policy. Defaults to 0.
+        /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
+        /// <summary>
+        /// A boolean value to indicate whether the retention policy is enabled.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -247,7 +259,13 @@ namespace Pulumi.Azure.Monitoring
     [OutputType]
     public sealed class LogProfileRetentionPolicy
     {
+        /// <summary>
+        /// The number of days for the retention policy. Defaults to 0.
+        /// </summary>
         public readonly int? Days;
+        /// <summary>
+        /// A boolean value to indicate whether the retention policy is enabled.
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

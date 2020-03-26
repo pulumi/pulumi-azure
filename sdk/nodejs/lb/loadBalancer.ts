@@ -47,7 +47,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the frontend ip configuration.
+     * Specifies the name of the Load Balancer.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -129,7 +129,7 @@ export interface LoadBalancerState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the frontend ip configuration.
+     * Specifies the name of the Load Balancer.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -167,7 +167,7 @@ export interface LoadBalancerArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the frontend ip configuration.
+     * Specifies the name of the Load Balancer.
      */
     readonly name?: pulumi.Input<string>;
     /**

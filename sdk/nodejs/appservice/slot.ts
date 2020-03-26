@@ -86,7 +86,7 @@ export class Slot extends pulumi.CustomResource {
     public readonly location!: pulumi.Output<string>;
     public readonly logs!: pulumi.Output<outputs.appservice.SlotLogs>;
     /**
-     * The name of the Connection String.
+     * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -225,7 +225,7 @@ export interface SlotState {
     readonly location?: pulumi.Input<string>;
     readonly logs?: pulumi.Input<inputs.appservice.SlotLogs>;
     /**
-     * The name of the Connection String.
+     * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -292,7 +292,7 @@ export interface SlotArgs {
     readonly location?: pulumi.Input<string>;
     readonly logs?: pulumi.Input<inputs.appservice.SlotLogs>;
     /**
-     * The name of the Connection String.
+     * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

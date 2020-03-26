@@ -22,7 +22,7 @@ type NatPool struct {
 	pulumi.CustomResourceState
 
 	// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
-	BackendPort pulumi.IntOutput `pulumi:"backendPort"`
+	BackendPort               pulumi.IntOutput    `pulumi:"backendPort"`
 	FrontendIpConfigurationId pulumi.StringOutput `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName pulumi.StringOutput `pulumi:"frontendIpConfigurationName"`
@@ -90,7 +90,7 @@ func GetNatPool(ctx *pulumi.Context,
 // Input properties used for looking up and filtering NatPool resources.
 type natPoolState struct {
 	// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
-	BackendPort *int `pulumi:"backendPort"`
+	BackendPort               *int    `pulumi:"backendPort"`
 	FrontendIpConfigurationId *string `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName *string `pulumi:"frontendIpConfigurationName"`
@@ -110,7 +110,7 @@ type natPoolState struct {
 
 type NatPoolState struct {
 	// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
-	BackendPort pulumi.IntPtrInput
+	BackendPort               pulumi.IntPtrInput
 	FrontendIpConfigurationId pulumi.StringPtrInput
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName pulumi.StringPtrInput
@@ -174,4 +174,3 @@ type NatPoolArgs struct {
 func (NatPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*natPoolArgs)(nil)).Elem()
 }
-

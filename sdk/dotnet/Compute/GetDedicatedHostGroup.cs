@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Compute
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dedicated_host_group.html.markdown.
         /// </summary>
+        [Obsolete("Use GetDedicatedHostGroup.InvokeAsync() instead")]
         public static Task<GetDedicatedHostGroupResult> GetDedicatedHostGroup(GetDedicatedHostGroupArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostGroupResult>("azure:compute/getDedicatedHostGroup:getDedicatedHostGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetDedicatedHostGroup
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Dedicated Host Group.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dedicated_host_group.html.markdown.
+        /// </summary>
+        public static Task<GetDedicatedHostGroupResult> InvokeAsync(GetDedicatedHostGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostGroupResult>("azure:compute/getDedicatedHostGroup:getDedicatedHostGroup", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

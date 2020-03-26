@@ -236,4 +236,3 @@ type ApiArgs struct {
 func (ApiArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiArgs)(nil)).Elem()
 }
-

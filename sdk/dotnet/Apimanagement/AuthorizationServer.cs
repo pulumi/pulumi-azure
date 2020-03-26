@@ -471,11 +471,14 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class AuthorizationServerTokenBodyParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of this Authorization Server. Changing this forces a new resource to be created.
+        /// The Name of the Parameter.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Value of the Parameter.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -487,11 +490,14 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class AuthorizationServerTokenBodyParametersGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of this Authorization Server. Changing this forces a new resource to be created.
+        /// The Name of the Parameter.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Value of the Parameter.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -508,9 +514,12 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class AuthorizationServerTokenBodyParameters
     {
         /// <summary>
-        /// The name of this Authorization Server. Changing this forces a new resource to be created.
+        /// The Name of the Parameter.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Value of the Parameter.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

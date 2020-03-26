@@ -71,7 +71,7 @@ export class ActionGroup extends pulumi.CustomResource {
      */
     public readonly logicAppReceivers!: pulumi.Output<outputs.monitoring.ActionGroupLogicAppReceiver[] | undefined>;
     /**
-     * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+     * The name of the Action Group. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -198,7 +198,7 @@ export interface ActionGroupState {
      */
     readonly logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupLogicAppReceiver>[]>;
     /**
-     * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+     * The name of the Action Group. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -264,7 +264,7 @@ export interface ActionGroupArgs {
      */
     readonly logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupLogicAppReceiver>[]>;
     /**
-     * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+     * The name of the Action Group. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

@@ -156,4 +156,3 @@ type NamespaceAuthorizationRuleArgs struct {
 func (NamespaceAuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceAuthorizationRuleArgs)(nil)).Elem()
 }
-

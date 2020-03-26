@@ -25,10 +25,9 @@ type GetDpsArgs struct {
 	// Specifies the name of the Iot Device Provisioning Service resource.
 	Name string `pulumi:"name"`
 	// The name of the resource group under which the Iot Device Provisioning Service is located in.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Tags map[string]string `pulumi:"tags"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getDps.
 type GetDpsResult struct {
@@ -41,11 +40,10 @@ type GetDpsResult struct {
 	// The unique identifier of the IoT Device Provisioning Service.
 	IdScope string `pulumi:"idScope"`
 	// Specifies the supported Azure location where the IoT Device Provisioning Service exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The service endpoint of the IoT Device Provisioning Service.
-	ServiceOperationsHostName string `pulumi:"serviceOperationsHostName"`
-	Tags map[string]string `pulumi:"tags"`
+	ServiceOperationsHostName string            `pulumi:"serviceOperationsHostName"`
+	Tags                      map[string]string `pulumi:"tags"`
 }
-

@@ -171,4 +171,3 @@ type SubscriptionRuleArgs struct {
 func (SubscriptionRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionRuleArgs)(nil)).Elem()
 }
-

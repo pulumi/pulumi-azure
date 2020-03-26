@@ -265,12 +265,21 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class DiagnosticSettingLogsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of a Diagnostic Log Category for this Resource.
+        /// </summary>
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
 
+        /// <summary>
+        /// Is this Diagnostic Log enabled? Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// A `retention_policy` block as defined below.
+        /// </summary>
         [Input("retentionPolicy", required: true)]
         public Input<DiagnosticSettingLogsRetentionPolicyArgs> RetentionPolicy { get; set; } = null!;
 
@@ -281,12 +290,21 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class DiagnosticSettingLogsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of a Diagnostic Log Category for this Resource.
+        /// </summary>
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
 
+        /// <summary>
+        /// Is this Diagnostic Log enabled? Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// A `retention_policy` block as defined below.
+        /// </summary>
         [Input("retentionPolicy", required: true)]
         public Input<DiagnosticSettingLogsRetentionPolicyGetArgs> RetentionPolicy { get; set; } = null!;
 
@@ -297,9 +315,15 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class DiagnosticSettingLogsRetentionPolicyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of days for which this Retention Policy should apply.
+        /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
+        /// <summary>
+        /// Is this Retention Policy enabled?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -310,9 +334,15 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class DiagnosticSettingLogsRetentionPolicyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of days for which this Retention Policy should apply.
+        /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
+        /// <summary>
+        /// Is this Retention Policy enabled?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -323,12 +353,21 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class DiagnosticSettingMetricsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of a Diagnostic Metric Category for this Resource.
+        /// </summary>
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
 
+        /// <summary>
+        /// Is this Diagnostic Metric enabled? Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// A `retention_policy` block as defined below.
+        /// </summary>
         [Input("retentionPolicy", required: true)]
         public Input<DiagnosticSettingMetricsRetentionPolicyArgs> RetentionPolicy { get; set; } = null!;
 
@@ -339,12 +378,21 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class DiagnosticSettingMetricsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of a Diagnostic Metric Category for this Resource.
+        /// </summary>
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
 
+        /// <summary>
+        /// Is this Diagnostic Metric enabled? Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// A `retention_policy` block as defined below.
+        /// </summary>
         [Input("retentionPolicy", required: true)]
         public Input<DiagnosticSettingMetricsRetentionPolicyGetArgs> RetentionPolicy { get; set; } = null!;
 
@@ -355,9 +403,15 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class DiagnosticSettingMetricsRetentionPolicyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of days for which this Retention Policy should apply.
+        /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
+        /// <summary>
+        /// Is this Retention Policy enabled?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -368,9 +422,15 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class DiagnosticSettingMetricsRetentionPolicyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of days for which this Retention Policy should apply.
+        /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
+        /// <summary>
+        /// Is this Retention Policy enabled?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -386,8 +446,17 @@ namespace Pulumi.Azure.Monitoring
     [OutputType]
     public sealed class DiagnosticSettingLogs
     {
+        /// <summary>
+        /// The name of a Diagnostic Log Category for this Resource.
+        /// </summary>
         public readonly string Category;
+        /// <summary>
+        /// Is this Diagnostic Log enabled? Defaults to `true`.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// A `retention_policy` block as defined below.
+        /// </summary>
         public readonly DiagnosticSettingLogsRetentionPolicy RetentionPolicy;
 
         [OutputConstructor]
@@ -405,7 +474,13 @@ namespace Pulumi.Azure.Monitoring
     [OutputType]
     public sealed class DiagnosticSettingLogsRetentionPolicy
     {
+        /// <summary>
+        /// The number of days for which this Retention Policy should apply.
+        /// </summary>
         public readonly int? Days;
+        /// <summary>
+        /// Is this Retention Policy enabled?
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]
@@ -421,8 +496,17 @@ namespace Pulumi.Azure.Monitoring
     [OutputType]
     public sealed class DiagnosticSettingMetrics
     {
+        /// <summary>
+        /// The name of a Diagnostic Metric Category for this Resource.
+        /// </summary>
         public readonly string Category;
+        /// <summary>
+        /// Is this Diagnostic Metric enabled? Defaults to `true`.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// A `retention_policy` block as defined below.
+        /// </summary>
         public readonly DiagnosticSettingMetricsRetentionPolicy RetentionPolicy;
 
         [OutputConstructor]
@@ -440,7 +524,13 @@ namespace Pulumi.Azure.Monitoring
     [OutputType]
     public sealed class DiagnosticSettingMetricsRetentionPolicy
     {
+        /// <summary>
+        /// The number of days for which this Retention Policy should apply.
+        /// </summary>
         public readonly int? Days;
+        /// <summary>
+        /// Is this Retention Policy enabled?
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

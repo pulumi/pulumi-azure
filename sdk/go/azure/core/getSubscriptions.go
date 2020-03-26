@@ -28,14 +28,12 @@ type GetSubscriptionsArgs struct {
 	DisplayNamePrefix *string `pulumi:"displayNamePrefix"`
 }
 
-
 // A collection of values returned by getSubscriptions.
 type GetSubscriptionsResult struct {
 	DisplayNameContains *string `pulumi:"displayNameContains"`
-	DisplayNamePrefix *string `pulumi:"displayNamePrefix"`
+	DisplayNamePrefix   *string `pulumi:"displayNamePrefix"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// One or more `subscription` blocks as defined below.
 	Subscriptions []GetSubscriptionsSubscription `pulumi:"subscriptions"`
 }
-

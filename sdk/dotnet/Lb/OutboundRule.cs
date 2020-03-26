@@ -262,7 +262,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+        /// The name of the Frontend IP Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -281,7 +281,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+        /// The name of the Frontend IP Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+        /// The name of the Frontend IP Configuration.
         /// </summary>
         public readonly string Name;
 

@@ -14,13 +14,13 @@ class KeyVault(pulumi.CustomResource):
     """
     A list of up to 16 objects describing access policies, as described below.
 
-      * `application_id` (`str`)
-      * `certificate_permissions` (`list`)
-      * `key_permissions` (`list`)
-      * `object_id` (`str`)
-      * `secret_permissions` (`list`)
-      * `storage_permissions` (`list`)
-      * `tenant_id` (`str`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+      * `application_id` (`str`) - The object ID of an Application in Azure Active Directory.
+      * `certificate_permissions` (`list`) - List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
+      * `key_permissions` (`list`) - List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
+      * `object_id` (`str`) - The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
+      * `secret_permissions` (`list`) - List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+      * `storage_permissions` (`list`) - List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+      * `tenant_id` (`str`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
     """
     enabled_for_deployment: pulumi.Output[bool]
     """
@@ -46,10 +46,10 @@ class KeyVault(pulumi.CustomResource):
     """
     A `network_acls` block as defined below.
 
-      * `bypass` (`str`)
-      * `default_action` (`str`)
-      * `ip_rules` (`list`)
-      * `virtual_network_subnet_ids` (`list`)
+      * `bypass` (`str`) - Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
+      * `default_action` (`str`) - The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
+      * `ip_rules` (`list`) - One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
+      * `virtual_network_subnet_ids` (`list`) - One or more Subnet ID's which should be able to access this Key Vault.
     """
     purge_protection_enabled: pulumi.Output[bool]
     """
@@ -109,20 +109,20 @@ class KeyVault(pulumi.CustomResource):
 
         The **access_policies** object supports the following:
 
-          * `application_id` (`pulumi.Input[str]`)
-          * `certificate_permissions` (`pulumi.Input[list]`)
-          * `key_permissions` (`pulumi.Input[list]`)
-          * `object_id` (`pulumi.Input[str]`)
-          * `secret_permissions` (`pulumi.Input[list]`)
-          * `storage_permissions` (`pulumi.Input[list]`)
-          * `tenant_id` (`pulumi.Input[str]`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+          * `application_id` (`pulumi.Input[str]`) - The object ID of an Application in Azure Active Directory.
+          * `certificate_permissions` (`pulumi.Input[list]`) - List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
+          * `key_permissions` (`pulumi.Input[list]`) - List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
+          * `object_id` (`pulumi.Input[str]`) - The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
+          * `secret_permissions` (`pulumi.Input[list]`) - List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+          * `storage_permissions` (`pulumi.Input[list]`) - List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+          * `tenant_id` (`pulumi.Input[str]`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
 
         The **network_acls** object supports the following:
 
-          * `bypass` (`pulumi.Input[str]`)
-          * `default_action` (`pulumi.Input[str]`)
-          * `ip_rules` (`pulumi.Input[list]`)
-          * `virtual_network_subnet_ids` (`pulumi.Input[list]`)
+          * `bypass` (`pulumi.Input[str]`) - Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
+          * `default_action` (`pulumi.Input[str]`) - The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
+          * `ip_rules` (`pulumi.Input[list]`) - One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
+          * `virtual_network_subnet_ids` (`pulumi.Input[list]`) - One or more Subnet ID's which should be able to access this Key Vault.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -193,20 +193,20 @@ class KeyVault(pulumi.CustomResource):
 
         The **access_policies** object supports the following:
 
-          * `application_id` (`pulumi.Input[str]`)
-          * `certificate_permissions` (`pulumi.Input[list]`)
-          * `key_permissions` (`pulumi.Input[list]`)
-          * `object_id` (`pulumi.Input[str]`)
-          * `secret_permissions` (`pulumi.Input[list]`)
-          * `storage_permissions` (`pulumi.Input[list]`)
-          * `tenant_id` (`pulumi.Input[str]`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+          * `application_id` (`pulumi.Input[str]`) - The object ID of an Application in Azure Active Directory.
+          * `certificate_permissions` (`pulumi.Input[list]`) - List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
+          * `key_permissions` (`pulumi.Input[list]`) - List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
+          * `object_id` (`pulumi.Input[str]`) - The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
+          * `secret_permissions` (`pulumi.Input[list]`) - List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+          * `storage_permissions` (`pulumi.Input[list]`) - List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+          * `tenant_id` (`pulumi.Input[str]`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
 
         The **network_acls** object supports the following:
 
-          * `bypass` (`pulumi.Input[str]`)
-          * `default_action` (`pulumi.Input[str]`)
-          * `ip_rules` (`pulumi.Input[list]`)
-          * `virtual_network_subnet_ids` (`pulumi.Input[list]`)
+          * `bypass` (`pulumi.Input[str]`) - Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
+          * `default_action` (`pulumi.Input[str]`) - The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
+          * `ip_rules` (`pulumi.Input[list]`) - One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
+          * `virtual_network_subnet_ids` (`pulumi.Input[list]`) - One or more Subnet ID's which should be able to access this Key Vault.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

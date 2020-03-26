@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_hub.html.markdown.
         /// </summary>
+        [Obsolete("Use GetVirtualHub.InvokeAsync() instead")]
         public static Task<GetVirtualHubResult> GetVirtualHub(GetVirtualHubArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure:network/getVirtualHub:getVirtualHub", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetVirtualHub
+    {
+        /// <summary>
+        /// Uses this data source to access information about an existing Virtual Hub.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_hub.html.markdown.
+        /// </summary>
+        public static Task<GetVirtualHubResult> InvokeAsync(GetVirtualHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure:network/getVirtualHub:getVirtualHub", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

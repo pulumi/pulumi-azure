@@ -16,7 +16,18 @@ namespace Pulumi.Azure.EventGrid
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventgrid_topic.html.markdown.
         /// </summary>
+        [Obsolete("Use GetTopic.InvokeAsync() instead")]
         public static Task<GetTopicResult> GetTopic(GetTopicArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure:eventgrid/getTopic:getTopic", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetTopic
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing EventGrid Topic
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventgrid_topic.html.markdown.
+        /// </summary>
+        public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure:eventgrid/getTopic:getTopic", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

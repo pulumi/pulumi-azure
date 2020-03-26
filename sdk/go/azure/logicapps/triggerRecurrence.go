@@ -125,4 +125,3 @@ type TriggerRecurrenceArgs struct {
 func (TriggerRecurrenceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerRecurrenceArgs)(nil)).Elem()
 }
-

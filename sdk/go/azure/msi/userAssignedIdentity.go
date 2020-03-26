@@ -136,4 +136,3 @@ type UserAssignedIdentityArgs struct {
 func (UserAssignedIdentityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userAssignedIdentityArgs)(nil)).Elem()
 }
-

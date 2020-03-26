@@ -156,4 +156,3 @@ type IotHubDpsArgs struct {
 func (IotHubDpsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iotHubDpsArgs)(nil)).Elem()
 }
-

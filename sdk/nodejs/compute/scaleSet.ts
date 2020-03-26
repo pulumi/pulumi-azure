@@ -72,7 +72,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the image from the marketplace.
+     * Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -124,7 +124,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly singlePlacementGroup!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the SKU of the image used to create the virtual machines.
+     * A sku block as documented below.
      */
     public readonly sku!: pulumi.Output<outputs.compute.ScaleSetSku>;
     /**
@@ -286,7 +286,7 @@ export interface ScaleSetState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the image from the marketplace.
+     * Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -338,7 +338,7 @@ export interface ScaleSetState {
      */
     readonly singlePlacementGroup?: pulumi.Input<boolean>;
     /**
-     * Specifies the SKU of the image used to create the virtual machines.
+     * A sku block as documented below.
      */
     readonly sku?: pulumi.Input<inputs.compute.ScaleSetSku>;
     /**
@@ -401,7 +401,7 @@ export interface ScaleSetArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the image from the marketplace.
+     * Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -453,7 +453,7 @@ export interface ScaleSetArgs {
      */
     readonly singlePlacementGroup?: pulumi.Input<boolean>;
     /**
-     * Specifies the SKU of the image used to create the virtual machines.
+     * A sku block as documented below.
      */
     readonly sku: pulumi.Input<inputs.compute.ScaleSetSku>;
     /**

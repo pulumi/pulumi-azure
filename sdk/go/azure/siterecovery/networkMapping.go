@@ -154,4 +154,3 @@ type NetworkMappingArgs struct {
 func (NetworkMappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkMappingArgs)(nil)).Elem()
 }
-

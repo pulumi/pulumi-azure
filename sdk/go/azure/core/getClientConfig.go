@@ -24,9 +24,8 @@ func GetClientConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClie
 type GetClientConfigResult struct {
 	ClientId string `pulumi:"clientId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	ObjectId string `pulumi:"objectId"`
+	Id             string `pulumi:"id"`
+	ObjectId       string `pulumi:"objectId"`
 	SubscriptionId string `pulumi:"subscriptionId"`
-	TenantId string `pulumi:"tenantId"`
+	TenantId       string `pulumi:"tenantId"`
 }
-

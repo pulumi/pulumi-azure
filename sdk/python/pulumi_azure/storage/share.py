@@ -14,12 +14,12 @@ class Share(pulumi.CustomResource):
     """
     One or more `acl` blocks as defined below.
 
-      * `access_policies` (`list`)
-        * `expiry` (`str`)
-        * `permissions` (`str`)
-        * `start` (`str`)
+      * `access_policies` (`list`) - An `access_policy` block as defined below.
+        * `expiry` (`str`) - The ISO8061 UTC time at which this Access Policy should be valid until.
+        * `permissions` (`str`) - The permissions which should associated with this Shared Identifier.
+        * `start` (`str`) - The ISO8061 UTC time at which this Access Policy should be valid from.
 
-      * `id` (`str`) - The ID of the File Share.
+      * `id` (`str`) - The ID which should be used for this Shared Identifier.
     """
     metadata: pulumi.Output[dict]
     """
@@ -59,12 +59,12 @@ class Share(pulumi.CustomResource):
 
         The **acls** object supports the following:
 
-          * `access_policies` (`pulumi.Input[list]`)
-            * `expiry` (`pulumi.Input[str]`)
-            * `permissions` (`pulumi.Input[str]`)
-            * `start` (`pulumi.Input[str]`)
+          * `access_policies` (`pulumi.Input[list]`) - An `access_policy` block as defined below.
+            * `expiry` (`pulumi.Input[str]`) - The ISO8061 UTC time at which this Access Policy should be valid until.
+            * `permissions` (`pulumi.Input[str]`) - The permissions which should associated with this Shared Identifier.
+            * `start` (`pulumi.Input[str]`) - The ISO8061 UTC time at which this Access Policy should be valid from.
 
-          * `id` (`pulumi.Input[str]`) - The ID of the File Share.
+          * `id` (`pulumi.Input[str]`) - The ID which should be used for this Shared Identifier.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -116,12 +116,12 @@ class Share(pulumi.CustomResource):
 
         The **acls** object supports the following:
 
-          * `access_policies` (`pulumi.Input[list]`)
-            * `expiry` (`pulumi.Input[str]`)
-            * `permissions` (`pulumi.Input[str]`)
-            * `start` (`pulumi.Input[str]`)
+          * `access_policies` (`pulumi.Input[list]`) - An `access_policy` block as defined below.
+            * `expiry` (`pulumi.Input[str]`) - The ISO8061 UTC time at which this Access Policy should be valid until.
+            * `permissions` (`pulumi.Input[str]`) - The permissions which should associated with this Shared Identifier.
+            * `start` (`pulumi.Input[str]`) - The ISO8061 UTC time at which this Access Policy should be valid from.
 
-          * `id` (`pulumi.Input[str]`) - The ID of the File Share.
+          * `id` (`pulumi.Input[str]`) - The ID which should be used for this Shared Identifier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

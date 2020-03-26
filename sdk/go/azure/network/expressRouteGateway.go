@@ -135,4 +135,3 @@ type ExpressRouteGatewayArgs struct {
 func (ExpressRouteGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteGatewayArgs)(nil)).Elem()
 }
-

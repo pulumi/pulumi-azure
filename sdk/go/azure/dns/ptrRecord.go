@@ -144,4 +144,3 @@ type PtrRecordArgs struct {
 func (PtrRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ptrRecordArgs)(nil)).Elem()
 }
-

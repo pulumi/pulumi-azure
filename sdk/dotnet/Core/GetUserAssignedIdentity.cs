@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Core
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity.html.markdown.
         /// </summary>
+        [Obsolete("Use GetUserAssignedIdentity.InvokeAsync() instead")]
         public static Task<GetUserAssignedIdentityResult> GetUserAssignedIdentity(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetUserAssignedIdentity
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing User Assigned Identity.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity.html.markdown.
+        /// </summary>
+        public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

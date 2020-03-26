@@ -277,12 +277,21 @@ namespace Pulumi.Azure.CosmosDB
 
     public sealed class GremlinGraphConflictResolutionPoliciesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The conflict resolution path in the case of LastWriterWins mode.
+        /// </summary>
         [Input("conflictResolutionPath")]
         public Input<string>? ConflictResolutionPath { get; set; }
 
+        /// <summary>
+        /// The procedure to resolve conflicts in the case of custom mode.
+        /// </summary>
         [Input("conflictResolutionProcedure")]
         public Input<string>? ConflictResolutionProcedure { get; set; }
 
+        /// <summary>
+        /// Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
+        /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
 
@@ -293,12 +302,21 @@ namespace Pulumi.Azure.CosmosDB
 
     public sealed class GremlinGraphConflictResolutionPoliciesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The conflict resolution path in the case of LastWriterWins mode.
+        /// </summary>
         [Input("conflictResolutionPath")]
         public Input<string>? ConflictResolutionPath { get; set; }
 
+        /// <summary>
+        /// The procedure to resolve conflicts in the case of custom mode.
+        /// </summary>
         [Input("conflictResolutionProcedure")]
         public Input<string>? ConflictResolutionProcedure { get; set; }
 
+        /// <summary>
+        /// Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
+        /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
 
@@ -309,11 +327,18 @@ namespace Pulumi.Azure.CosmosDB
 
     public sealed class GremlinGraphIndexPoliciesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates if the indexing policy is automatic. Defaults to `true`.
+        /// </summary>
         [Input("automatic")]
         public Input<bool>? Automatic { get; set; }
 
         [Input("excludedPaths")]
         private InputList<string>? _excludedPaths;
+
+        /// <summary>
+        /// List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+        /// </summary>
         public InputList<string> ExcludedPaths
         {
             get => _excludedPaths ?? (_excludedPaths = new InputList<string>());
@@ -322,12 +347,19 @@ namespace Pulumi.Azure.CosmosDB
 
         [Input("includedPaths")]
         private InputList<string>? _includedPaths;
+
+        /// <summary>
+        /// List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+        /// </summary>
         public InputList<string> IncludedPaths
         {
             get => _includedPaths ?? (_includedPaths = new InputList<string>());
             set => _includedPaths = value;
         }
 
+        /// <summary>
+        /// Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
+        /// </summary>
         [Input("indexingMode", required: true)]
         public Input<string> IndexingMode { get; set; } = null!;
 
@@ -338,11 +370,18 @@ namespace Pulumi.Azure.CosmosDB
 
     public sealed class GremlinGraphIndexPoliciesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates if the indexing policy is automatic. Defaults to `true`.
+        /// </summary>
         [Input("automatic")]
         public Input<bool>? Automatic { get; set; }
 
         [Input("excludedPaths")]
         private InputList<string>? _excludedPaths;
+
+        /// <summary>
+        /// List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+        /// </summary>
         public InputList<string> ExcludedPaths
         {
             get => _excludedPaths ?? (_excludedPaths = new InputList<string>());
@@ -351,12 +390,19 @@ namespace Pulumi.Azure.CosmosDB
 
         [Input("includedPaths")]
         private InputList<string>? _includedPaths;
+
+        /// <summary>
+        /// List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+        /// </summary>
         public InputList<string> IncludedPaths
         {
             get => _includedPaths ?? (_includedPaths = new InputList<string>());
             set => _includedPaths = value;
         }
 
+        /// <summary>
+        /// Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
+        /// </summary>
         [Input("indexingMode", required: true)]
         public Input<string> IndexingMode { get; set; } = null!;
 
@@ -369,6 +415,10 @@ namespace Pulumi.Azure.CosmosDB
     {
         [Input("paths", required: true)]
         private InputList<string>? _paths;
+
+        /// <summary>
+        /// A list of paths to use for this unique key.
+        /// </summary>
         public InputList<string> Paths
         {
             get => _paths ?? (_paths = new InputList<string>());
@@ -384,6 +434,10 @@ namespace Pulumi.Azure.CosmosDB
     {
         [Input("paths", required: true)]
         private InputList<string>? _paths;
+
+        /// <summary>
+        /// A list of paths to use for this unique key.
+        /// </summary>
         public InputList<string> Paths
         {
             get => _paths ?? (_paths = new InputList<string>());
@@ -402,8 +456,17 @@ namespace Pulumi.Azure.CosmosDB
     [OutputType]
     public sealed class GremlinGraphConflictResolutionPolicies
     {
+        /// <summary>
+        /// The conflict resolution path in the case of LastWriterWins mode.
+        /// </summary>
         public readonly string? ConflictResolutionPath;
+        /// <summary>
+        /// The procedure to resolve conflicts in the case of custom mode.
+        /// </summary>
         public readonly string? ConflictResolutionProcedure;
+        /// <summary>
+        /// Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
+        /// </summary>
         public readonly string Mode;
 
         [OutputConstructor]
@@ -421,9 +484,21 @@ namespace Pulumi.Azure.CosmosDB
     [OutputType]
     public sealed class GremlinGraphIndexPolicies
     {
+        /// <summary>
+        /// Indicates if the indexing policy is automatic. Defaults to `true`.
+        /// </summary>
         public readonly bool? Automatic;
+        /// <summary>
+        /// List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+        /// </summary>
         public readonly ImmutableArray<string> ExcludedPaths;
+        /// <summary>
+        /// List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+        /// </summary>
         public readonly ImmutableArray<string> IncludedPaths;
+        /// <summary>
+        /// Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
+        /// </summary>
         public readonly string IndexingMode;
 
         [OutputConstructor]
@@ -443,6 +518,9 @@ namespace Pulumi.Azure.CosmosDB
     [OutputType]
     public sealed class GremlinGraphUniqueKeys
     {
+        /// <summary>
+        /// A list of paths to use for this unique key.
+        /// </summary>
         public readonly ImmutableArray<string> Paths;
 
         [OutputConstructor]

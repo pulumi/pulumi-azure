@@ -118,4 +118,3 @@ type CustomerManagedKeyArgs struct {
 func (CustomerManagedKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customerManagedKeyArgs)(nil)).Elem()
 }
-

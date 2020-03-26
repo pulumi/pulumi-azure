@@ -28,7 +28,6 @@ type LookupServiceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getService.
 type LookupServiceResult struct {
 	// The FQDN of the SignalR service.
@@ -39,20 +38,19 @@ type LookupServiceResult struct {
 	IpAddress string `pulumi:"ipAddress"`
 	// Specifies the supported Azure location where the SignalR service exists.
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// The primary access key of the SignalR service.
 	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
 	// The primary connection string of the SignalR service.
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
 	// The publicly accessible port of the SignalR service which is designed for browser/client use.
-	PublicPort int `pulumi:"publicPort"`
+	PublicPort        int    `pulumi:"publicPort"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The secondary access key of the SignalR service.
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
 	// The secondary connection string of the SignalR service.
 	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
 	// The publicly accessible port of the SignalR service which is designed for customer server side use.
-	ServerPort int `pulumi:"serverPort"`
-	Tags map[string]string `pulumi:"tags"`
+	ServerPort int               `pulumi:"serverPort"`
+	Tags       map[string]string `pulumi:"tags"`
 }
-

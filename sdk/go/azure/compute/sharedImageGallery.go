@@ -125,4 +125,3 @@ type SharedImageGalleryArgs struct {
 func (SharedImageGalleryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sharedImageGalleryArgs)(nil)).Elem()
 }
-

@@ -167,4 +167,3 @@ type OutputEventHubArgs struct {
 func (OutputEventHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*outputEventHubArgs)(nil)).Elem()
 }
-

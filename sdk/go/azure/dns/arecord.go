@@ -29,7 +29,7 @@ type ARecord struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Azure resource id of the target object. Conflicts with `records`
 	TargetResourceId pulumi.StringPtrOutput `pulumi:"targetResourceId"`
-	Ttl pulumi.IntOutput `pulumi:"ttl"`
+	Ttl              pulumi.IntOutput       `pulumi:"ttl"`
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
@@ -83,7 +83,7 @@ type arecordState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure resource id of the target object. Conflicts with `records`
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	Ttl *int `pulumi:"ttl"`
+	Ttl              *int    `pulumi:"ttl"`
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName *string `pulumi:"zoneName"`
 }
@@ -101,7 +101,7 @@ type ARecordState struct {
 	Tags pulumi.StringMapInput
 	// The Azure resource id of the target object. Conflicts with `records`
 	TargetResourceId pulumi.StringPtrInput
-	Ttl pulumi.IntPtrInput
+	Ttl              pulumi.IntPtrInput
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringPtrInput
 }
@@ -121,7 +121,7 @@ type arecordArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure resource id of the target object. Conflicts with `records`
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	Ttl int `pulumi:"ttl"`
+	Ttl              int     `pulumi:"ttl"`
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName string `pulumi:"zoneName"`
 }
@@ -138,7 +138,7 @@ type ARecordArgs struct {
 	Tags pulumi.StringMapInput
 	// The Azure resource id of the target object. Conflicts with `records`
 	TargetResourceId pulumi.StringPtrInput
-	Ttl pulumi.IntInput
+	Ttl              pulumi.IntInput
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringInput
 }
@@ -146,4 +146,3 @@ type ARecordArgs struct {
 func (ARecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*arecordArgs)(nil)).Elem()
 }
-

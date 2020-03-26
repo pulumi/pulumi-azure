@@ -28,7 +28,6 @@ type LookupNetworkSecurityGroupArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getNetworkSecurityGroup.
 type LookupNetworkSecurityGroupResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
@@ -36,11 +35,10 @@ type LookupNetworkSecurityGroupResult struct {
 	// The supported Azure location where the resource exists.
 	Location string `pulumi:"location"`
 	// The name of the security rule.
-	Name string `pulumi:"name"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `securityRule` blocks as defined below.
 	SecurityRules []GetNetworkSecurityGroupSecurityRule `pulumi:"securityRules"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
-

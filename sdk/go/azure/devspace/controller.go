@@ -160,4 +160,3 @@ type ControllerArgs struct {
 func (ControllerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*controllerArgs)(nil)).Elem()
 }
-

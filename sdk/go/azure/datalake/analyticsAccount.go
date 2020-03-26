@@ -132,4 +132,3 @@ type AnalyticsAccountArgs struct {
 func (AnalyticsAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyticsAccountArgs)(nil)).Elem()
 }
-

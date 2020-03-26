@@ -206,4 +206,3 @@ type HadoopClusterArgs struct {
 func (HadoopClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hadoopClusterArgs)(nil)).Elem()
 }
-

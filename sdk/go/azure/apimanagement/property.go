@@ -148,4 +148,3 @@ type PropertyArgs struct {
 func (PropertyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*propertyArgs)(nil)).Elem()
 }
-

@@ -204,4 +204,3 @@ type LinkedServiceDataLakeStorageGen2Args struct {
 func (LinkedServiceDataLakeStorageGen2Args) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceDataLakeStorageGen2Args)(nil)).Elem()
 }
-

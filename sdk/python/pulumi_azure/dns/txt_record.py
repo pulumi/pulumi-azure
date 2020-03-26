@@ -22,7 +22,7 @@ class TxtRecord(pulumi.CustomResource):
     """
     A list of values that make up the txt record. Each `record` block supports fields documented below.
 
-      * `value` (`str`)
+      * `value` (`str`) - The value of the record. Max length: 1024 characters
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -57,7 +57,7 @@ class TxtRecord(pulumi.CustomResource):
 
         The **records** object supports the following:
 
-          * `value` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[str]`) - The value of the record. Max length: 1024 characters
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -116,7 +116,7 @@ class TxtRecord(pulumi.CustomResource):
 
         The **records** object supports the following:
 
-          * `value` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[str]`) - The value of the record. Max length: 1024 characters
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -193,4 +193,3 @@ type ReferenceInputBlobArgs struct {
 func (ReferenceInputBlobArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*referenceInputBlobArgs)(nil)).Elem()
 }
-

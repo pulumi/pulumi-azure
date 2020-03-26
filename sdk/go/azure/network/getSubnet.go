@@ -30,7 +30,6 @@ type LookupSubnetArgs struct {
 	VirtualNetworkName string `pulumi:"virtualNetworkName"`
 }
 
-
 // A collection of values returned by getSubnet.
 type LookupSubnetResult struct {
 	// The address prefix used for the subnet.
@@ -40,15 +39,14 @@ type LookupSubnetResult struct {
 	// Enable or Disable network policies for the private link service on the subnet.
 	EnforcePrivateLinkServiceNetworkPolicies bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The ID of the Network Security Group associated with the subnet.
 	NetworkSecurityGroupId string `pulumi:"networkSecurityGroupId"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 	// The ID of the Route Table associated with this subnet.
 	RouteTableId string `pulumi:"routeTableId"`
 	// A list of Service Endpoints within this subnet.
-	ServiceEndpoints []string `pulumi:"serviceEndpoints"`
-	VirtualNetworkName string `pulumi:"virtualNetworkName"`
+	ServiceEndpoints   []string `pulumi:"serviceEndpoints"`
+	VirtualNetworkName string   `pulumi:"virtualNetworkName"`
 }
-

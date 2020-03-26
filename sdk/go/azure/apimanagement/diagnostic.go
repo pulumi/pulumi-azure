@@ -118,4 +118,3 @@ type DiagnosticArgs struct {
 func (DiagnosticArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*diagnosticArgs)(nil)).Elem()
 }
-

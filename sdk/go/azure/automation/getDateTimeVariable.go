@@ -30,7 +30,6 @@ type LookupDateTimeVariableArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getDateTimeVariable.
 type LookupDateTimeVariableResult struct {
 	AutomationAccountName string `pulumi:"automationAccountName"`
@@ -39,10 +38,9 @@ type LookupDateTimeVariableResult struct {
 	// Specifies if the Automation Variable is encrypted. Defaults to `false`.
 	Encrypted bool `pulumi:"encrypted"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id                string `pulumi:"id"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The value of the Automation Variable in the [RFC3339 Section 5.6 Internet Date/Time Format](https://tools.ietf.org/html/rfc3339#section-5.6).
 	Value string `pulumi:"value"`
 }
-

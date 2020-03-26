@@ -73,7 +73,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
+     * The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
      */
     public readonly nodeCount!: pulumi.Output<number>;
     /**
@@ -206,7 +206,7 @@ export interface KubernetesClusterNodePoolState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
+     * The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
      */
     readonly nodeCount?: pulumi.Input<number>;
     /**
@@ -276,7 +276,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
+     * The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
      */
     readonly nodeCount?: pulumi.Input<number>;
     /**

@@ -185,4 +185,3 @@ type DatasetMysqlArgs struct {
 func (DatasetMysqlArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetMysqlArgs)(nil)).Elem()
 }
-

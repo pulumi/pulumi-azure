@@ -190,12 +190,21 @@ namespace Pulumi.Azure.OperationalInsights
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("product", required: true)]
         public Input<string> Product { get; set; } = null!;
 
+        /// <summary>
+        /// A promotion code to be used with the solution.
+        /// </summary>
         [Input("promotionCode")]
         public Input<string>? PromotionCode { get; set; }
 
+        /// <summary>
+        /// The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 
@@ -209,12 +218,21 @@ namespace Pulumi.Azure.OperationalInsights
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("product", required: true)]
         public Input<string> Product { get; set; } = null!;
 
+        /// <summary>
+        /// A promotion code to be used with the solution.
+        /// </summary>
         [Input("promotionCode")]
         public Input<string>? PromotionCode { get; set; }
 
+        /// <summary>
+        /// The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 
@@ -231,8 +249,17 @@ namespace Pulumi.Azure.OperationalInsights
     public sealed class AnalyticsSolutionPlan
     {
         public readonly string Name;
+        /// <summary>
+        /// The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Product;
+        /// <summary>
+        /// A promotion code to be used with the solution.
+        /// </summary>
         public readonly string? PromotionCode;
+        /// <summary>
+        /// The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Publisher;
 
         [OutputConstructor]

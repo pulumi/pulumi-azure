@@ -14,19 +14,19 @@ class Policy(pulumi.CustomResource):
     """
     One or more `custom_rule` blocks as defined below.
 
-      * `action` (`str`)
-      * `matchConditions` (`list`)
-        * `matchValues` (`list`)
-        * `matchVariables` (`list`)
-          * `selector` (`str`)
-          * `variableName` (`str`)
+      * `action` (`str`) - Type of Actions
+      * `matchConditions` (`list`) - One or more `match_condition` block defined below.
+        * `matchValues` (`list`) - Match value
+        * `matchVariables` (`list`) - One or more `match_variable` block defined below.
+          * `selector` (`str`) - Describes field of the matchVariable collection
+          * `variableName` (`str`) - The name of the Match Variable
 
-        * `negationCondition` (`bool`)
-        * `operator` (`str`)
+        * `negationCondition` (`bool`) - Describes if this is negate condition or not
+        * `operator` (`str`) - Describes operator to be matched
 
       * `name` (`str`) - The name of the policy. Changing this forces a new resource to be created.
-      * `priority` (`float`)
-      * `ruleType` (`str`)
+      * `priority` (`float`) - Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
+      * `ruleType` (`str`) - Describes the type of rule
     """
     location: pulumi.Output[str]
     """
@@ -40,8 +40,8 @@ class Policy(pulumi.CustomResource):
     """
     A `policy_setting` block as defined below.
 
-      * `enabled` (`bool`)
-      * `mode` (`str`)
+      * `enabled` (`bool`) - Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
+      * `mode` (`str`) - Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -68,24 +68,24 @@ class Policy(pulumi.CustomResource):
 
         The **custom_rules** object supports the following:
 
-          * `action` (`pulumi.Input[str]`)
-          * `matchConditions` (`pulumi.Input[list]`)
-            * `matchValues` (`pulumi.Input[list]`)
-            * `matchVariables` (`pulumi.Input[list]`)
-              * `selector` (`pulumi.Input[str]`)
-              * `variableName` (`pulumi.Input[str]`)
+          * `action` (`pulumi.Input[str]`) - Type of Actions
+          * `matchConditions` (`pulumi.Input[list]`) - One or more `match_condition` block defined below.
+            * `matchValues` (`pulumi.Input[list]`) - Match value
+            * `matchVariables` (`pulumi.Input[list]`) - One or more `match_variable` block defined below.
+              * `selector` (`pulumi.Input[str]`) - Describes field of the matchVariable collection
+              * `variableName` (`pulumi.Input[str]`) - The name of the Match Variable
 
-            * `negationCondition` (`pulumi.Input[bool]`)
-            * `operator` (`pulumi.Input[str]`)
+            * `negationCondition` (`pulumi.Input[bool]`) - Describes if this is negate condition or not
+            * `operator` (`pulumi.Input[str]`) - Describes operator to be matched
 
           * `name` (`pulumi.Input[str]`) - The name of the policy. Changing this forces a new resource to be created.
-          * `priority` (`pulumi.Input[float]`)
-          * `ruleType` (`pulumi.Input[str]`)
+          * `priority` (`pulumi.Input[float]`) - Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
+          * `ruleType` (`pulumi.Input[str]`) - Describes the type of rule
 
         The **policy_settings** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`)
-          * `mode` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
+          * `mode` (`pulumi.Input[str]`) - Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -136,24 +136,24 @@ class Policy(pulumi.CustomResource):
 
         The **custom_rules** object supports the following:
 
-          * `action` (`pulumi.Input[str]`)
-          * `matchConditions` (`pulumi.Input[list]`)
-            * `matchValues` (`pulumi.Input[list]`)
-            * `matchVariables` (`pulumi.Input[list]`)
-              * `selector` (`pulumi.Input[str]`)
-              * `variableName` (`pulumi.Input[str]`)
+          * `action` (`pulumi.Input[str]`) - Type of Actions
+          * `matchConditions` (`pulumi.Input[list]`) - One or more `match_condition` block defined below.
+            * `matchValues` (`pulumi.Input[list]`) - Match value
+            * `matchVariables` (`pulumi.Input[list]`) - One or more `match_variable` block defined below.
+              * `selector` (`pulumi.Input[str]`) - Describes field of the matchVariable collection
+              * `variableName` (`pulumi.Input[str]`) - The name of the Match Variable
 
-            * `negationCondition` (`pulumi.Input[bool]`)
-            * `operator` (`pulumi.Input[str]`)
+            * `negationCondition` (`pulumi.Input[bool]`) - Describes if this is negate condition or not
+            * `operator` (`pulumi.Input[str]`) - Describes operator to be matched
 
           * `name` (`pulumi.Input[str]`) - The name of the policy. Changing this forces a new resource to be created.
-          * `priority` (`pulumi.Input[float]`)
-          * `ruleType` (`pulumi.Input[str]`)
+          * `priority` (`pulumi.Input[float]`) - Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
+          * `ruleType` (`pulumi.Input[str]`) - Describes the type of rule
 
         The **policy_settings** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`)
-          * `mode` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
+          * `mode` (`pulumi.Input[str]`) - Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

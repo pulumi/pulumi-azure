@@ -16,7 +16,18 @@ namespace Pulumi.Azure.MSSql
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mssql_elasticpool.html.markdown.
         /// </summary>
+        [Obsolete("Use GetElasticPool.InvokeAsync() instead")]
         public static Task<GetElasticPoolResult> GetElasticPool(GetElasticPoolArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure:mssql/getElasticPool:getElasticPool", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetElasticPool
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing SQL elastic pool.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mssql_elasticpool.html.markdown.
+        /// </summary>
+        public static Task<GetElasticPoolResult> InvokeAsync(GetElasticPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure:mssql/getElasticPool:getElasticPool", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

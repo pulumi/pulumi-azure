@@ -14,59 +14,59 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     One or more `authentication_certificate` blocks as defined below.
 
-      * `data` (`str`)
+      * `data` (`str`) - The contents of the Authentication Certificate which should be used.
       * `id` (`str`) - The ID of the Rewrite Rule Set
-      * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
+      * `name` (`str`) - The name of the Authentication Certificate.
     """
     autoscale_configuration: pulumi.Output[dict]
     """
     A `autoscale_configuration` block as defined below.
 
-      * `maxCapacity` (`float`)
-      * `minCapacity` (`float`)
+      * `maxCapacity` (`float`) - Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
+      * `minCapacity` (`float`) - Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
     """
     backend_address_pools: pulumi.Output[list]
     """
     One or more `backend_address_pool` blocks as defined below.
 
-      * `fqdns` (`list`)
+      * `fqdns` (`list`) - A list of FQDN's which should be part of the Backend Address Pool.
       * `id` (`str`) - The ID of the Rewrite Rule Set
-      * `ipAddresses` (`list`)
-      * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
+      * `ipAddresses` (`list`) - A list of IP Addresses which should be part of the Backend Address Pool.
+      * `name` (`str`) - The name of the Backend Address Pool.
     """
     backend_http_settings: pulumi.Output[list]
     """
     One or more `backend_http_settings` blocks as defined below.
 
-      * `affinityCookieName` (`str`)
-      * `authentication_certificates` (`list`) - One or more `authentication_certificate` blocks as defined below.
+      * `affinityCookieName` (`str`) - The name of the affinity cookie.
+      * `authentication_certificates` (`list`) - One or more `authentication_certificate` blocks.
         * `id` (`str`) - The ID of the Rewrite Rule Set
-        * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
+        * `name` (`str`) - The name of the Authentication Certificate.
 
-      * `connectionDraining` (`dict`)
-        * `drainTimeoutSec` (`float`)
-        * `enabled` (`bool`)
+      * `connectionDraining` (`dict`) - A `connection_draining` block as defined below.
+        * `drainTimeoutSec` (`float`) - The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
+        * `enabled` (`bool`) - If connection draining is enabled or not.
 
-      * `cookieBasedAffinity` (`str`)
-      * `host_name` (`str`)
+      * `cookieBasedAffinity` (`str`) - Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
+      * `host_name` (`str`) - Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
       * `id` (`str`) - The ID of the Rewrite Rule Set
-      * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-      * `path` (`str`)
-      * `pickHostNameFromBackendAddress` (`bool`)
-      * `port` (`float`)
+      * `name` (`str`) - The name of the Backend HTTP Settings Collection.
+      * `path` (`str`) - The Path which should be used as a prefix for all HTTP requests.
+      * `pickHostNameFromBackendAddress` (`bool`) - Whether host header should be picked from the host name of the backend server. Defaults to `false`.
+      * `port` (`float`) - The port used for this Frontend Port.
       * `probe_id` (`str`) - The ID of the associated Probe.
-      * `probeName` (`str`)
-      * `protocol` (`str`)
-      * `requestTimeout` (`float`)
-      * `trustedRootCertificateNames` (`list`)
+      * `probeName` (`str`) - The name of an associated HTTP Probe.
+      * `protocol` (`str`) - The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+      * `requestTimeout` (`float`) - The request timeout in seconds, which must be between 1 and 86400 seconds.
+      * `trustedRootCertificateNames` (`list`) - A list of `trusted_root_certificate` names.
     """
     custom_error_configurations: pulumi.Output[list]
     """
     One or more `custom_error_configuration` blocks as defined below.
 
-      * `customErrorPageUrl` (`str`)
+      * `customErrorPageUrl` (`str`) - Error page URL of the application gateway customer error.
       * `id` (`str`) - The ID of the Rewrite Rule Set
-      * `statusCode` (`str`)
+      * `statusCode` (`str`) - Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
     """
     enable_http2: pulumi.Output[bool]
     """
@@ -77,55 +77,55 @@ class ApplicationGateway(pulumi.CustomResource):
     One or more `frontend_ip_configuration` blocks as defined below.
 
       * `id` (`str`) - The ID of the Rewrite Rule Set
-      * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-      * `private_ip_address` (`str`)
-      * `privateIpAddressAllocation` (`str`)
-      * `publicIpAddressId` (`str`)
-      * `subnet_id` (`str`)
+      * `name` (`str`) - The name of the Frontend IP Configuration.
+      * `private_ip_address` (`str`) - The Private IP Address to use for the Application Gateway.
+      * `privateIpAddressAllocation` (`str`) - The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+      * `publicIpAddressId` (`str`) - The ID of a Public IP Address which the Application Gateway should use.
+      * `subnet_id` (`str`) - The ID of the Subnet which the Application Gateway should be connected to.
     """
     frontend_ports: pulumi.Output[list]
     """
     One or more `frontend_port` blocks as defined below.
 
       * `id` (`str`) - The ID of the Rewrite Rule Set
-      * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-      * `port` (`float`)
+      * `name` (`str`) - The name of the Frontend Port.
+      * `port` (`float`) - The port used for this Frontend Port.
     """
     gateway_ip_configurations: pulumi.Output[list]
     """
     One or more `gateway_ip_configuration` blocks as defined below.
 
       * `id` (`str`) - The ID of the Rewrite Rule Set
-      * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-      * `subnet_id` (`str`)
+      * `name` (`str`) - The Name of this Gateway IP Configuration.
+      * `subnet_id` (`str`) - The ID of a Subnet.
     """
     http_listeners: pulumi.Output[list]
     """
     One or more `http_listener` blocks as defined below.
 
       * `custom_error_configurations` (`list`) - One or more `custom_error_configuration` blocks as defined below.
-        * `customErrorPageUrl` (`str`)
+        * `customErrorPageUrl` (`str`) - Error page URL of the application gateway customer error.
         * `id` (`str`) - The ID of the Rewrite Rule Set
-        * `statusCode` (`str`)
+        * `statusCode` (`str`) - Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
 
       * `frontend_ip_configuration_id` (`str`) - The ID of the associated Frontend Configuration.
-      * `frontend_ip_configuration_name` (`str`)
+      * `frontend_ip_configuration_name` (`str`) - The Name of the Frontend IP Configuration used for this HTTP Listener.
       * `frontendPortId` (`str`) - The ID of the associated Frontend Port.
-      * `frontendPortName` (`str`)
-      * `host_name` (`str`)
+      * `frontendPortName` (`str`) - The Name of the Frontend Port use for this HTTP Listener.
+      * `host_name` (`str`) - The Hostname which should be used for this HTTP Listener.
       * `id` (`str`) - The ID of the Rewrite Rule Set
-      * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-      * `protocol` (`str`)
-      * `requireSni` (`bool`)
+      * `name` (`str`) - The Name of the HTTP Listener.
+      * `protocol` (`str`) - The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+      * `requireSni` (`bool`) - Should Server Name Indication be Required? Defaults to `false`.
       * `sslCertificateId` (`str`) - The ID of the associated SSL Certificate.
-      * `sslCertificateName` (`str`)
+      * `sslCertificateName` (`str`) - The name of the associated SSL Certificate which should be used for this HTTP Listener.
     """
     identity: pulumi.Output[dict]
     """
     A `identity` block.
 
-      * `identityIds` (`str`)
-      * `type` (`str`)
+      * `identityIds` (`str`) - Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
+      * `type` (`str`) - The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
     """
     location: pulumi.Output[str]
     """
@@ -139,53 +139,53 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     One or more `probe` blocks as defined below.
 
-      * `host` (`str`)
+      * `host` (`str`) - The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
       * `id` (`str`) - The ID of the Rewrite Rule Set
-      * `interval` (`float`)
-      * `match` (`dict`)
-        * `body` (`str`)
-        * `statusCodes` (`list`)
+      * `interval` (`float`) - The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+      * `match` (`dict`) - A `match` block as defined above.
+        * `body` (`str`) - A snippet from the Response Body which must be present in the Response..
+        * `statusCodes` (`list`) - A list of allowed status codes for this Health Probe.
 
-      * `minimumServers` (`float`)
-      * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-      * `path` (`str`)
-      * `pickHostNameFromBackendHttpSettings` (`bool`)
-      * `protocol` (`str`)
-      * `timeout` (`float`)
-      * `unhealthyThreshold` (`float`)
+      * `minimumServers` (`float`) - The minimum number of servers that are always marked as healthy. Defaults to `0`.
+      * `name` (`str`) - The Name of the Probe.
+      * `path` (`str`) - The Path used for this Probe.
+      * `pickHostNameFromBackendHttpSettings` (`bool`) - Whether the host header should be picked from the backend http settings. Defaults to `false`.
+      * `protocol` (`str`) - The Protocol used for this Probe. Possible values are `Http` and `Https`.
+      * `timeout` (`float`) - The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+      * `unhealthyThreshold` (`float`) - The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
     """
     redirect_configurations: pulumi.Output[list]
     """
     A `redirect_configuration` block as defined below.
 
       * `id` (`str`) - The ID of the Rewrite Rule Set
-      * `includePath` (`bool`)
-      * `includeQueryString` (`bool`)
-      * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-      * `redirectType` (`str`)
+      * `includePath` (`bool`) - Whether or not to include the path in the redirected Url. Defaults to `false`
+      * `includeQueryString` (`bool`) - Whether or not to include the query string in the redirected Url. Default to `false`
+      * `name` (`str`) - Unique name of the redirect configuration block
+      * `redirectType` (`str`) - The type of redirect. Possible values are `Permanent`, `Temporary`, `Found` and `SeeOther`
       * `targetListenerId` (`str`)
-      * `targetListenerName` (`str`)
-      * `targetUrl` (`str`)
+      * `targetListenerName` (`str`) - The name of the listener to redirect to. Cannot be set if `target_url` is set.
+      * `targetUrl` (`str`) - The Url to redirect the request to. Cannot be set if `target_listener_name` is set.
     """
     request_routing_rules: pulumi.Output[list]
     """
     One or more `request_routing_rule` blocks as defined below.
 
       * `backend_address_pool_id` (`str`) - The ID of the associated Backend Address Pool.
-      * `backendAddressPoolName` (`str`)
+      * `backendAddressPoolName` (`str`) - The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
       * `backendHttpSettingsId` (`str`) - The ID of the associated Backend HTTP Settings Configuration.
-      * `backendHttpSettingsName` (`str`)
+      * `backendHttpSettingsName` (`str`) - The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
       * `httpListenerId` (`str`) - The ID of the associated HTTP Listener.
-      * `httpListenerName` (`str`)
+      * `httpListenerName` (`str`) - The Name of the HTTP Listener which should be used for this Routing Rule.
       * `id` (`str`) - The ID of the Rewrite Rule Set
-      * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
+      * `name` (`str`) - The Name of this Request Routing Rule.
       * `redirectConfigurationId` (`str`) - The ID of the associated Redirect Configuration.
-      * `redirectConfigurationName` (`str`)
+      * `redirectConfigurationName` (`str`) - The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
       * `rewriteRuleSetId` (`str`) - The ID of the associated Rewrite Rule Set.
-      * `rewriteRuleSetName` (`str`)
-      * `ruleType` (`str`)
+      * `rewriteRuleSetName` (`str`) - The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+      * `ruleType` (`str`) - The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
       * `urlPathMapId` (`str`) - The ID of the associated URL Path Map.
-      * `urlPathMapName` (`str`)
+      * `urlPathMapName` (`str`) - The Name of the URL Path Map which should be associated with this Routing Rule.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -196,53 +196,54 @@ class ApplicationGateway(pulumi.CustomResource):
     One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
 
       * `id` (`str`) - The ID of the Rewrite Rule Set
-      * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-      * `rewriteRules` (`list`)
-        * `conditions` (`list`)
-          * `ignoreCase` (`bool`)
-          * `negate` (`bool`)
-          * `pattern` (`str`)
-          * `variable` (`str`)
+      * `name` (`str`) - Unique name of the rewrite rule set block
+      * `rewriteRules` (`list`) - One or more `rewrite_rule` blocks as defined above.
+        * `conditions` (`list`) - One or more `condition` blocks as defined above.
+          * `ignoreCase` (`bool`) - Perform a case in-sensitive comparison. Defaults to `false`
+          * `negate` (`bool`) - Negate the result of the condition evaluation. Defaults to `false`
+          * `pattern` (`str`) - The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
+          * `variable` (`str`) - The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
 
-        * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-        * `requestHeaderConfigurations` (`list`)
-          * `headerName` (`str`)
-          * `headerValue` (`str`)
+        * `name` (`str`) - Unique name of the rewrite rule block
+        * `requestHeaderConfigurations` (`list`) - One or more `request_header_configuration` blocks as defined above.
+          * `headerName` (`str`) - Header name of the header configuration.
+          * `headerValue` (`str`) - Header value of the header configuration. To delete a request header set this property to an empty string.
 
-        * `responseHeaderConfigurations` (`list`)
-          * `headerName` (`str`)
-          * `headerValue` (`str`)
+        * `responseHeaderConfigurations` (`list`) - One or more `response_header_configuration` blocks as defined above.
+          * `headerName` (`str`) - Header name of the header configuration.
+          * `headerValue` (`str`) - Header value of the header configuration. To delete a response header set this property to an empty string.
 
-        * `ruleSequence` (`float`)
+        * `ruleSequence` (`float`) - Rule sequence of the rewrite rule that determines the order of execution in a set.
     """
     sku: pulumi.Output[dict]
     """
     A `sku` block as defined below.
 
-      * `capacity` (`float`)
-      * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-      * `tier` (`str`)
+      * `capacity` (`float`) - The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscale_configuration` is set.
+      * `name` (`str`) - The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
+      * `tier` (`str`) - The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
     """
     ssl_certificates: pulumi.Output[list]
     """
     One or more `ssl_certificate` blocks as defined below.
 
-      * `data` (`str`)
+      * `data` (`str`) - PFX certificate. Required if `key_vault_secret_id` is not set.
       * `id` (`str`) - The ID of the Rewrite Rule Set
-      * `key_vault_secret_id` (`str`)
-      * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-      * `password` (`str`)
+      * `key_vault_secret_id` (`str`) - Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+      * `name` (`str`) - The Name of the SSL certificate that is unique within this Application Gateway
+      * `password` (`str`) - Password for the pfx file specified in data.  Required if `data` is set.
       * `publicCertData` (`str`) - The Public Certificate Data associated with the SSL Certificate.
     """
     ssl_policies: pulumi.Output[list]
     """
     a `ssl policy` block as defined below.
 
-      * `cipherSuites` (`list`)
-      * `disabledProtocols` (`list`)
-      * `minProtocolVersion` (`str`)
-      * `policyName` (`str`)
-      * `policy_type` (`str`)
+      * `cipherSuites` (`list`) - A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+      * `disabledProtocols` (`list`) - A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+      * `minProtocolVersion` (`str`) - The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+      * `policyName` (`str`) - The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
+        are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
+      * `policy_type` (`str`) - The Type of the Policy. Possible values are `Predefined` and `Custom`.
     """
     tags: pulumi.Output[dict]
     """
@@ -252,57 +253,57 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     One or more `trusted_root_certificate` blocks as defined below.
 
-      * `data` (`str`)
+      * `data` (`str`) - The contents of the Trusted Root Certificate which should be used.
       * `id` (`str`) - The ID of the Rewrite Rule Set
-      * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
+      * `name` (`str`) - The Name of the Trusted Root Certificate to use.
     """
     url_path_maps: pulumi.Output[list]
     """
     One or more `url_path_map` blocks as defined below.
 
       * `defaultBackendAddressPoolId` (`str`) - The ID of the Default Backend Address Pool.
-      * `defaultBackendAddressPoolName` (`str`)
+      * `defaultBackendAddressPoolName` (`str`) - The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
       * `defaultBackendHttpSettingsId` (`str`) - The ID of the Default Backend HTTP Settings Collection.
-      * `defaultBackendHttpSettingsName` (`str`)
+      * `defaultBackendHttpSettingsName` (`str`) - The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
       * `defaultRedirectConfigurationId` (`str`) - The ID of the Default Redirect Configuration.
-      * `defaultRedirectConfigurationName` (`str`)
+      * `defaultRedirectConfigurationName` (`str`) - The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
       * `defaultRewriteRuleSetId` (`str`)
-      * `defaultRewriteRuleSetName` (`str`)
+      * `defaultRewriteRuleSetName` (`str`) - The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
       * `id` (`str`) - The ID of the Rewrite Rule Set
-      * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-      * `pathRules` (`list`) - A list of `path_rule` blocks as defined above.
+      * `name` (`str`) - The Name of the URL Path Map.
+      * `pathRules` (`list`) - One or more `path_rule` blocks as defined above.
         * `backend_address_pool_id` (`str`) - The ID of the associated Backend Address Pool.
-        * `backendAddressPoolName` (`str`)
+        * `backendAddressPoolName` (`str`) - The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
         * `backendHttpSettingsId` (`str`) - The ID of the associated Backend HTTP Settings Configuration.
-        * `backendHttpSettingsName` (`str`)
+        * `backendHttpSettingsName` (`str`) - The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
         * `id` (`str`) - The ID of the Rewrite Rule Set
-        * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-        * `paths` (`list`)
+        * `name` (`str`) - The Name of the Path Rule.
+        * `paths` (`list`) - A list of Paths used in this Path Rule.
         * `redirectConfigurationId` (`str`) - The ID of the associated Redirect Configuration.
-        * `redirectConfigurationName` (`str`)
+        * `redirectConfigurationName` (`str`) - The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backend_address_pool_name` or `backend_http_settings_name` is set.
         * `rewriteRuleSetId` (`str`) - The ID of the associated Rewrite Rule Set.
-        * `rewriteRuleSetName` (`str`)
+        * `rewriteRuleSetName` (`str`) - The Name of the Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
     """
     waf_configuration: pulumi.Output[dict]
     """
     A `waf_configuration` block as defined below.
 
-      * `disabledRuleGroups` (`list`)
-        * `ruleGroupName` (`str`)
-        * `rules` (`list`)
+      * `disabledRuleGroups` (`list`) - one or more `disabled_rule_group` blocks as defined below.
+        * `ruleGroupName` (`str`) - The rule group where specific rules should be disabled. Accepted values are:  `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
+        * `rules` (`list`) - A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
 
-      * `enabled` (`bool`)
-      * `exclusions` (`list`)
-        * `matchVariable` (`str`)
-        * `selector` (`str`)
-        * `selectorMatchOperator` (`str`)
+      * `enabled` (`bool`) - Is the Web Application Firewall be enabled?
+      * `exclusions` (`list`) - one or more `exclusion` blocks as defined below.
+        * `matchVariable` (`str`) - Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
+        * `selector` (`str`) - String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
+        * `selectorMatchOperator` (`str`) - Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `match_variable`
 
-      * `fileUploadLimitMb` (`float`)
-      * `firewallMode` (`str`)
-      * `maxRequestBodySizeKb` (`float`)
-      * `requestBodyCheck` (`bool`)
-      * `ruleSetType` (`str`)
-      * `ruleSetVersion` (`str`)
+      * `fileUploadLimitMb` (`float`) - The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
+      * `firewallMode` (`str`) - The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
+      * `maxRequestBodySizeKb` (`float`) - The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
+      * `requestBodyCheck` (`bool`) - Is Request Body Inspection enabled?  Defaults to `true`.
+      * `ruleSetType` (`str`) - The Type of the Rule Set used for this Web Application Firewall.
+      * `ruleSetVersion` (`str`) - The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
     """
     zones: pulumi.Output[list]
     """
@@ -345,237 +346,238 @@ class ApplicationGateway(pulumi.CustomResource):
 
         The **authentication_certificates** object supports the following:
 
-          * `data` (`pulumi.Input[str]`)
+          * `data` (`pulumi.Input[str]`) - The contents of the Authentication Certificate which should be used.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
+          * `name` (`pulumi.Input[str]`) - The name of the Authentication Certificate.
 
         The **autoscale_configuration** object supports the following:
 
-          * `maxCapacity` (`pulumi.Input[float]`)
-          * `minCapacity` (`pulumi.Input[float]`)
+          * `maxCapacity` (`pulumi.Input[float]`) - Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
+          * `minCapacity` (`pulumi.Input[float]`) - Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
 
         The **backend_address_pools** object supports the following:
 
-          * `fqdns` (`pulumi.Input[list]`)
+          * `fqdns` (`pulumi.Input[list]`) - A list of FQDN's which should be part of the Backend Address Pool.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `ipAddresses` (`pulumi.Input[list]`)
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
+          * `ipAddresses` (`pulumi.Input[list]`) - A list of IP Addresses which should be part of the Backend Address Pool.
+          * `name` (`pulumi.Input[str]`) - The name of the Backend Address Pool.
 
         The **backend_http_settings** object supports the following:
 
-          * `affinityCookieName` (`pulumi.Input[str]`)
-          * `authentication_certificates` (`pulumi.Input[list]`) - One or more `authentication_certificate` blocks as defined below.
+          * `affinityCookieName` (`pulumi.Input[str]`) - The name of the affinity cookie.
+          * `authentication_certificates` (`pulumi.Input[list]`) - One or more `authentication_certificate` blocks.
             * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-            * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
+            * `name` (`pulumi.Input[str]`) - The name of the Authentication Certificate.
 
-          * `connectionDraining` (`pulumi.Input[dict]`)
-            * `drainTimeoutSec` (`pulumi.Input[float]`)
-            * `enabled` (`pulumi.Input[bool]`)
+          * `connectionDraining` (`pulumi.Input[dict]`) - A `connection_draining` block as defined below.
+            * `drainTimeoutSec` (`pulumi.Input[float]`) - The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
+            * `enabled` (`pulumi.Input[bool]`) - If connection draining is enabled or not.
 
-          * `cookieBasedAffinity` (`pulumi.Input[str]`)
-          * `host_name` (`pulumi.Input[str]`)
+          * `cookieBasedAffinity` (`pulumi.Input[str]`) - Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
+          * `host_name` (`pulumi.Input[str]`) - Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `path` (`pulumi.Input[str]`)
-          * `pickHostNameFromBackendAddress` (`pulumi.Input[bool]`)
-          * `port` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - The name of the Backend HTTP Settings Collection.
+          * `path` (`pulumi.Input[str]`) - The Path which should be used as a prefix for all HTTP requests.
+          * `pickHostNameFromBackendAddress` (`pulumi.Input[bool]`) - Whether host header should be picked from the host name of the backend server. Defaults to `false`.
+          * `port` (`pulumi.Input[float]`) - The port used for this Frontend Port.
           * `probe_id` (`pulumi.Input[str]`) - The ID of the associated Probe.
-          * `probeName` (`pulumi.Input[str]`)
-          * `protocol` (`pulumi.Input[str]`)
-          * `requestTimeout` (`pulumi.Input[float]`)
-          * `trustedRootCertificateNames` (`pulumi.Input[list]`)
+          * `probeName` (`pulumi.Input[str]`) - The name of an associated HTTP Probe.
+          * `protocol` (`pulumi.Input[str]`) - The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+          * `requestTimeout` (`pulumi.Input[float]`) - The request timeout in seconds, which must be between 1 and 86400 seconds.
+          * `trustedRootCertificateNames` (`pulumi.Input[list]`) - A list of `trusted_root_certificate` names.
 
         The **custom_error_configurations** object supports the following:
 
-          * `customErrorPageUrl` (`pulumi.Input[str]`)
+          * `customErrorPageUrl` (`pulumi.Input[str]`) - Error page URL of the application gateway customer error.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `statusCode` (`pulumi.Input[str]`)
+          * `statusCode` (`pulumi.Input[str]`) - Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
 
         The **frontend_ip_configurations** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `private_ip_address` (`pulumi.Input[str]`)
-          * `privateIpAddressAllocation` (`pulumi.Input[str]`)
-          * `publicIpAddressId` (`pulumi.Input[str]`)
-          * `subnet_id` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of the Frontend IP Configuration.
+          * `private_ip_address` (`pulumi.Input[str]`) - The Private IP Address to use for the Application Gateway.
+          * `privateIpAddressAllocation` (`pulumi.Input[str]`) - The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+          * `publicIpAddressId` (`pulumi.Input[str]`) - The ID of a Public IP Address which the Application Gateway should use.
+          * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet which the Application Gateway should be connected to.
 
         The **frontend_ports** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `port` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - The name of the Frontend Port.
+          * `port` (`pulumi.Input[float]`) - The port used for this Frontend Port.
 
         The **gateway_ip_configurations** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `subnet_id` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The Name of this Gateway IP Configuration.
+          * `subnet_id` (`pulumi.Input[str]`) - The ID of a Subnet.
 
         The **http_listeners** object supports the following:
 
           * `custom_error_configurations` (`pulumi.Input[list]`) - One or more `custom_error_configuration` blocks as defined below.
-            * `customErrorPageUrl` (`pulumi.Input[str]`)
+            * `customErrorPageUrl` (`pulumi.Input[str]`) - Error page URL of the application gateway customer error.
             * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-            * `statusCode` (`pulumi.Input[str]`)
+            * `statusCode` (`pulumi.Input[str]`) - Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
 
           * `frontend_ip_configuration_id` (`pulumi.Input[str]`) - The ID of the associated Frontend Configuration.
-          * `frontend_ip_configuration_name` (`pulumi.Input[str]`)
+          * `frontend_ip_configuration_name` (`pulumi.Input[str]`) - The Name of the Frontend IP Configuration used for this HTTP Listener.
           * `frontendPortId` (`pulumi.Input[str]`) - The ID of the associated Frontend Port.
-          * `frontendPortName` (`pulumi.Input[str]`)
-          * `host_name` (`pulumi.Input[str]`)
+          * `frontendPortName` (`pulumi.Input[str]`) - The Name of the Frontend Port use for this HTTP Listener.
+          * `host_name` (`pulumi.Input[str]`) - The Hostname which should be used for this HTTP Listener.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `protocol` (`pulumi.Input[str]`)
-          * `requireSni` (`pulumi.Input[bool]`)
+          * `name` (`pulumi.Input[str]`) - The Name of the HTTP Listener.
+          * `protocol` (`pulumi.Input[str]`) - The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+          * `requireSni` (`pulumi.Input[bool]`) - Should Server Name Indication be Required? Defaults to `false`.
           * `sslCertificateId` (`pulumi.Input[str]`) - The ID of the associated SSL Certificate.
-          * `sslCertificateName` (`pulumi.Input[str]`)
+          * `sslCertificateName` (`pulumi.Input[str]`) - The name of the associated SSL Certificate which should be used for this HTTP Listener.
 
         The **identity** object supports the following:
 
-          * `identityIds` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`)
+          * `identityIds` (`pulumi.Input[str]`) - Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
+          * `type` (`pulumi.Input[str]`) - The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
 
         The **probes** object supports the following:
 
-          * `host` (`pulumi.Input[str]`)
+          * `host` (`pulumi.Input[str]`) - The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `interval` (`pulumi.Input[float]`)
-          * `match` (`pulumi.Input[dict]`)
-            * `body` (`pulumi.Input[str]`)
-            * `statusCodes` (`pulumi.Input[list]`)
+          * `interval` (`pulumi.Input[float]`) - The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+          * `match` (`pulumi.Input[dict]`) - A `match` block as defined above.
+            * `body` (`pulumi.Input[str]`) - A snippet from the Response Body which must be present in the Response..
+            * `statusCodes` (`pulumi.Input[list]`) - A list of allowed status codes for this Health Probe.
 
-          * `minimumServers` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `path` (`pulumi.Input[str]`)
-          * `pickHostNameFromBackendHttpSettings` (`pulumi.Input[bool]`)
-          * `protocol` (`pulumi.Input[str]`)
-          * `timeout` (`pulumi.Input[float]`)
-          * `unhealthyThreshold` (`pulumi.Input[float]`)
+          * `minimumServers` (`pulumi.Input[float]`) - The minimum number of servers that are always marked as healthy. Defaults to `0`.
+          * `name` (`pulumi.Input[str]`) - The Name of the Probe.
+          * `path` (`pulumi.Input[str]`) - The Path used for this Probe.
+          * `pickHostNameFromBackendHttpSettings` (`pulumi.Input[bool]`) - Whether the host header should be picked from the backend http settings. Defaults to `false`.
+          * `protocol` (`pulumi.Input[str]`) - The Protocol used for this Probe. Possible values are `Http` and `Https`.
+          * `timeout` (`pulumi.Input[float]`) - The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+          * `unhealthyThreshold` (`pulumi.Input[float]`) - The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
 
         The **redirect_configurations** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `includePath` (`pulumi.Input[bool]`)
-          * `includeQueryString` (`pulumi.Input[bool]`)
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `redirectType` (`pulumi.Input[str]`)
+          * `includePath` (`pulumi.Input[bool]`) - Whether or not to include the path in the redirected Url. Defaults to `false`
+          * `includeQueryString` (`pulumi.Input[bool]`) - Whether or not to include the query string in the redirected Url. Default to `false`
+          * `name` (`pulumi.Input[str]`) - Unique name of the redirect configuration block
+          * `redirectType` (`pulumi.Input[str]`) - The type of redirect. Possible values are `Permanent`, `Temporary`, `Found` and `SeeOther`
           * `targetListenerId` (`pulumi.Input[str]`)
-          * `targetListenerName` (`pulumi.Input[str]`)
-          * `targetUrl` (`pulumi.Input[str]`)
+          * `targetListenerName` (`pulumi.Input[str]`) - The name of the listener to redirect to. Cannot be set if `target_url` is set.
+          * `targetUrl` (`pulumi.Input[str]`) - The Url to redirect the request to. Cannot be set if `target_listener_name` is set.
 
         The **request_routing_rules** object supports the following:
 
           * `backend_address_pool_id` (`pulumi.Input[str]`) - The ID of the associated Backend Address Pool.
-          * `backendAddressPoolName` (`pulumi.Input[str]`)
+          * `backendAddressPoolName` (`pulumi.Input[str]`) - The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
           * `backendHttpSettingsId` (`pulumi.Input[str]`) - The ID of the associated Backend HTTP Settings Configuration.
-          * `backendHttpSettingsName` (`pulumi.Input[str]`)
+          * `backendHttpSettingsName` (`pulumi.Input[str]`) - The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
           * `httpListenerId` (`pulumi.Input[str]`) - The ID of the associated HTTP Listener.
-          * `httpListenerName` (`pulumi.Input[str]`)
+          * `httpListenerName` (`pulumi.Input[str]`) - The Name of the HTTP Listener which should be used for this Routing Rule.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
+          * `name` (`pulumi.Input[str]`) - The Name of this Request Routing Rule.
           * `redirectConfigurationId` (`pulumi.Input[str]`) - The ID of the associated Redirect Configuration.
-          * `redirectConfigurationName` (`pulumi.Input[str]`)
+          * `redirectConfigurationName` (`pulumi.Input[str]`) - The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
           * `rewriteRuleSetId` (`pulumi.Input[str]`) - The ID of the associated Rewrite Rule Set.
-          * `rewriteRuleSetName` (`pulumi.Input[str]`)
-          * `ruleType` (`pulumi.Input[str]`)
+          * `rewriteRuleSetName` (`pulumi.Input[str]`) - The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+          * `ruleType` (`pulumi.Input[str]`) - The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
           * `urlPathMapId` (`pulumi.Input[str]`) - The ID of the associated URL Path Map.
-          * `urlPathMapName` (`pulumi.Input[str]`)
+          * `urlPathMapName` (`pulumi.Input[str]`) - The Name of the URL Path Map which should be associated with this Routing Rule.
 
         The **rewrite_rule_sets** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `rewriteRules` (`pulumi.Input[list]`)
-            * `conditions` (`pulumi.Input[list]`)
-              * `ignoreCase` (`pulumi.Input[bool]`)
-              * `negate` (`pulumi.Input[bool]`)
-              * `pattern` (`pulumi.Input[str]`)
-              * `variable` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Unique name of the rewrite rule set block
+          * `rewriteRules` (`pulumi.Input[list]`) - One or more `rewrite_rule` blocks as defined above.
+            * `conditions` (`pulumi.Input[list]`) - One or more `condition` blocks as defined above.
+              * `ignoreCase` (`pulumi.Input[bool]`) - Perform a case in-sensitive comparison. Defaults to `false`
+              * `negate` (`pulumi.Input[bool]`) - Negate the result of the condition evaluation. Defaults to `false`
+              * `pattern` (`pulumi.Input[str]`) - The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
+              * `variable` (`pulumi.Input[str]`) - The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
 
-            * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-            * `requestHeaderConfigurations` (`pulumi.Input[list]`)
-              * `headerName` (`pulumi.Input[str]`)
-              * `headerValue` (`pulumi.Input[str]`)
+            * `name` (`pulumi.Input[str]`) - Unique name of the rewrite rule block
+            * `requestHeaderConfigurations` (`pulumi.Input[list]`) - One or more `request_header_configuration` blocks as defined above.
+              * `headerName` (`pulumi.Input[str]`) - Header name of the header configuration.
+              * `headerValue` (`pulumi.Input[str]`) - Header value of the header configuration. To delete a request header set this property to an empty string.
 
-            * `responseHeaderConfigurations` (`pulumi.Input[list]`)
-              * `headerName` (`pulumi.Input[str]`)
-              * `headerValue` (`pulumi.Input[str]`)
+            * `responseHeaderConfigurations` (`pulumi.Input[list]`) - One or more `response_header_configuration` blocks as defined above.
+              * `headerName` (`pulumi.Input[str]`) - Header name of the header configuration.
+              * `headerValue` (`pulumi.Input[str]`) - Header value of the header configuration. To delete a response header set this property to an empty string.
 
-            * `ruleSequence` (`pulumi.Input[float]`)
+            * `ruleSequence` (`pulumi.Input[float]`) - Rule sequence of the rewrite rule that determines the order of execution in a set.
 
         The **sku** object supports the following:
 
-          * `capacity` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `tier` (`pulumi.Input[str]`)
+          * `capacity` (`pulumi.Input[float]`) - The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscale_configuration` is set.
+          * `name` (`pulumi.Input[str]`) - The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
+          * `tier` (`pulumi.Input[str]`) - The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
 
         The **ssl_certificates** object supports the following:
 
-          * `data` (`pulumi.Input[str]`)
+          * `data` (`pulumi.Input[str]`) - PFX certificate. Required if `key_vault_secret_id` is not set.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `key_vault_secret_id` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `password` (`pulumi.Input[str]`)
+          * `key_vault_secret_id` (`pulumi.Input[str]`) - Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+          * `name` (`pulumi.Input[str]`) - The Name of the SSL certificate that is unique within this Application Gateway
+          * `password` (`pulumi.Input[str]`) - Password for the pfx file specified in data.  Required if `data` is set.
           * `publicCertData` (`pulumi.Input[str]`) - The Public Certificate Data associated with the SSL Certificate.
 
         The **ssl_policies** object supports the following:
 
-          * `cipherSuites` (`pulumi.Input[list]`)
-          * `disabledProtocols` (`pulumi.Input[list]`)
-          * `minProtocolVersion` (`pulumi.Input[str]`)
-          * `policyName` (`pulumi.Input[str]`)
-          * `policy_type` (`pulumi.Input[str]`)
+          * `cipherSuites` (`pulumi.Input[list]`) - A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+          * `disabledProtocols` (`pulumi.Input[list]`) - A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+          * `minProtocolVersion` (`pulumi.Input[str]`) - The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+          * `policyName` (`pulumi.Input[str]`) - The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
+            are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
+          * `policy_type` (`pulumi.Input[str]`) - The Type of the Policy. Possible values are `Predefined` and `Custom`.
 
         The **trusted_root_certificates** object supports the following:
 
-          * `data` (`pulumi.Input[str]`)
+          * `data` (`pulumi.Input[str]`) - The contents of the Trusted Root Certificate which should be used.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
+          * `name` (`pulumi.Input[str]`) - The Name of the Trusted Root Certificate to use.
 
         The **url_path_maps** object supports the following:
 
           * `defaultBackendAddressPoolId` (`pulumi.Input[str]`) - The ID of the Default Backend Address Pool.
-          * `defaultBackendAddressPoolName` (`pulumi.Input[str]`)
+          * `defaultBackendAddressPoolName` (`pulumi.Input[str]`) - The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
           * `defaultBackendHttpSettingsId` (`pulumi.Input[str]`) - The ID of the Default Backend HTTP Settings Collection.
-          * `defaultBackendHttpSettingsName` (`pulumi.Input[str]`)
+          * `defaultBackendHttpSettingsName` (`pulumi.Input[str]`) - The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
           * `defaultRedirectConfigurationId` (`pulumi.Input[str]`) - The ID of the Default Redirect Configuration.
-          * `defaultRedirectConfigurationName` (`pulumi.Input[str]`)
+          * `defaultRedirectConfigurationName` (`pulumi.Input[str]`) - The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
           * `defaultRewriteRuleSetId` (`pulumi.Input[str]`)
-          * `defaultRewriteRuleSetName` (`pulumi.Input[str]`)
+          * `defaultRewriteRuleSetName` (`pulumi.Input[str]`) - The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `pathRules` (`pulumi.Input[list]`) - A list of `path_rule` blocks as defined above.
+          * `name` (`pulumi.Input[str]`) - The Name of the URL Path Map.
+          * `pathRules` (`pulumi.Input[list]`) - One or more `path_rule` blocks as defined above.
             * `backend_address_pool_id` (`pulumi.Input[str]`) - The ID of the associated Backend Address Pool.
-            * `backendAddressPoolName` (`pulumi.Input[str]`)
+            * `backendAddressPoolName` (`pulumi.Input[str]`) - The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
             * `backendHttpSettingsId` (`pulumi.Input[str]`) - The ID of the associated Backend HTTP Settings Configuration.
-            * `backendHttpSettingsName` (`pulumi.Input[str]`)
+            * `backendHttpSettingsName` (`pulumi.Input[str]`) - The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
             * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-            * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-            * `paths` (`pulumi.Input[list]`)
+            * `name` (`pulumi.Input[str]`) - The Name of the Path Rule.
+            * `paths` (`pulumi.Input[list]`) - A list of Paths used in this Path Rule.
             * `redirectConfigurationId` (`pulumi.Input[str]`) - The ID of the associated Redirect Configuration.
-            * `redirectConfigurationName` (`pulumi.Input[str]`)
+            * `redirectConfigurationName` (`pulumi.Input[str]`) - The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backend_address_pool_name` or `backend_http_settings_name` is set.
             * `rewriteRuleSetId` (`pulumi.Input[str]`) - The ID of the associated Rewrite Rule Set.
-            * `rewriteRuleSetName` (`pulumi.Input[str]`)
+            * `rewriteRuleSetName` (`pulumi.Input[str]`) - The Name of the Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
 
         The **waf_configuration** object supports the following:
 
-          * `disabledRuleGroups` (`pulumi.Input[list]`)
-            * `ruleGroupName` (`pulumi.Input[str]`)
-            * `rules` (`pulumi.Input[list]`)
+          * `disabledRuleGroups` (`pulumi.Input[list]`) - one or more `disabled_rule_group` blocks as defined below.
+            * `ruleGroupName` (`pulumi.Input[str]`) - The rule group where specific rules should be disabled. Accepted values are:  `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
+            * `rules` (`pulumi.Input[list]`) - A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
 
-          * `enabled` (`pulumi.Input[bool]`)
-          * `exclusions` (`pulumi.Input[list]`)
-            * `matchVariable` (`pulumi.Input[str]`)
-            * `selector` (`pulumi.Input[str]`)
-            * `selectorMatchOperator` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is the Web Application Firewall be enabled?
+          * `exclusions` (`pulumi.Input[list]`) - one or more `exclusion` blocks as defined below.
+            * `matchVariable` (`pulumi.Input[str]`) - Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
+            * `selector` (`pulumi.Input[str]`) - String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
+            * `selectorMatchOperator` (`pulumi.Input[str]`) - Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `match_variable`
 
-          * `fileUploadLimitMb` (`pulumi.Input[float]`)
-          * `firewallMode` (`pulumi.Input[str]`)
-          * `maxRequestBodySizeKb` (`pulumi.Input[float]`)
-          * `requestBodyCheck` (`pulumi.Input[bool]`)
-          * `ruleSetType` (`pulumi.Input[str]`)
-          * `ruleSetVersion` (`pulumi.Input[str]`)
+          * `fileUploadLimitMb` (`pulumi.Input[float]`) - The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
+          * `firewallMode` (`pulumi.Input[str]`) - The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
+          * `maxRequestBodySizeKb` (`pulumi.Input[float]`) - The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
+          * `requestBodyCheck` (`pulumi.Input[bool]`) - Is Request Body Inspection enabled?  Defaults to `true`.
+          * `ruleSetType` (`pulumi.Input[str]`) - The Type of the Rule Set used for this Web Application Firewall.
+          * `ruleSetVersion` (`pulumi.Input[str]`) - The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -682,237 +684,238 @@ class ApplicationGateway(pulumi.CustomResource):
 
         The **authentication_certificates** object supports the following:
 
-          * `data` (`pulumi.Input[str]`)
+          * `data` (`pulumi.Input[str]`) - The contents of the Authentication Certificate which should be used.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
+          * `name` (`pulumi.Input[str]`) - The name of the Authentication Certificate.
 
         The **autoscale_configuration** object supports the following:
 
-          * `maxCapacity` (`pulumi.Input[float]`)
-          * `minCapacity` (`pulumi.Input[float]`)
+          * `maxCapacity` (`pulumi.Input[float]`) - Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
+          * `minCapacity` (`pulumi.Input[float]`) - Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
 
         The **backend_address_pools** object supports the following:
 
-          * `fqdns` (`pulumi.Input[list]`)
+          * `fqdns` (`pulumi.Input[list]`) - A list of FQDN's which should be part of the Backend Address Pool.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `ipAddresses` (`pulumi.Input[list]`)
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
+          * `ipAddresses` (`pulumi.Input[list]`) - A list of IP Addresses which should be part of the Backend Address Pool.
+          * `name` (`pulumi.Input[str]`) - The name of the Backend Address Pool.
 
         The **backend_http_settings** object supports the following:
 
-          * `affinityCookieName` (`pulumi.Input[str]`)
-          * `authentication_certificates` (`pulumi.Input[list]`) - One or more `authentication_certificate` blocks as defined below.
+          * `affinityCookieName` (`pulumi.Input[str]`) - The name of the affinity cookie.
+          * `authentication_certificates` (`pulumi.Input[list]`) - One or more `authentication_certificate` blocks.
             * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-            * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
+            * `name` (`pulumi.Input[str]`) - The name of the Authentication Certificate.
 
-          * `connectionDraining` (`pulumi.Input[dict]`)
-            * `drainTimeoutSec` (`pulumi.Input[float]`)
-            * `enabled` (`pulumi.Input[bool]`)
+          * `connectionDraining` (`pulumi.Input[dict]`) - A `connection_draining` block as defined below.
+            * `drainTimeoutSec` (`pulumi.Input[float]`) - The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
+            * `enabled` (`pulumi.Input[bool]`) - If connection draining is enabled or not.
 
-          * `cookieBasedAffinity` (`pulumi.Input[str]`)
-          * `host_name` (`pulumi.Input[str]`)
+          * `cookieBasedAffinity` (`pulumi.Input[str]`) - Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
+          * `host_name` (`pulumi.Input[str]`) - Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `path` (`pulumi.Input[str]`)
-          * `pickHostNameFromBackendAddress` (`pulumi.Input[bool]`)
-          * `port` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - The name of the Backend HTTP Settings Collection.
+          * `path` (`pulumi.Input[str]`) - The Path which should be used as a prefix for all HTTP requests.
+          * `pickHostNameFromBackendAddress` (`pulumi.Input[bool]`) - Whether host header should be picked from the host name of the backend server. Defaults to `false`.
+          * `port` (`pulumi.Input[float]`) - The port used for this Frontend Port.
           * `probe_id` (`pulumi.Input[str]`) - The ID of the associated Probe.
-          * `probeName` (`pulumi.Input[str]`)
-          * `protocol` (`pulumi.Input[str]`)
-          * `requestTimeout` (`pulumi.Input[float]`)
-          * `trustedRootCertificateNames` (`pulumi.Input[list]`)
+          * `probeName` (`pulumi.Input[str]`) - The name of an associated HTTP Probe.
+          * `protocol` (`pulumi.Input[str]`) - The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+          * `requestTimeout` (`pulumi.Input[float]`) - The request timeout in seconds, which must be between 1 and 86400 seconds.
+          * `trustedRootCertificateNames` (`pulumi.Input[list]`) - A list of `trusted_root_certificate` names.
 
         The **custom_error_configurations** object supports the following:
 
-          * `customErrorPageUrl` (`pulumi.Input[str]`)
+          * `customErrorPageUrl` (`pulumi.Input[str]`) - Error page URL of the application gateway customer error.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `statusCode` (`pulumi.Input[str]`)
+          * `statusCode` (`pulumi.Input[str]`) - Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
 
         The **frontend_ip_configurations** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `private_ip_address` (`pulumi.Input[str]`)
-          * `privateIpAddressAllocation` (`pulumi.Input[str]`)
-          * `publicIpAddressId` (`pulumi.Input[str]`)
-          * `subnet_id` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of the Frontend IP Configuration.
+          * `private_ip_address` (`pulumi.Input[str]`) - The Private IP Address to use for the Application Gateway.
+          * `privateIpAddressAllocation` (`pulumi.Input[str]`) - The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+          * `publicIpAddressId` (`pulumi.Input[str]`) - The ID of a Public IP Address which the Application Gateway should use.
+          * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet which the Application Gateway should be connected to.
 
         The **frontend_ports** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `port` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - The name of the Frontend Port.
+          * `port` (`pulumi.Input[float]`) - The port used for this Frontend Port.
 
         The **gateway_ip_configurations** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `subnet_id` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The Name of this Gateway IP Configuration.
+          * `subnet_id` (`pulumi.Input[str]`) - The ID of a Subnet.
 
         The **http_listeners** object supports the following:
 
           * `custom_error_configurations` (`pulumi.Input[list]`) - One or more `custom_error_configuration` blocks as defined below.
-            * `customErrorPageUrl` (`pulumi.Input[str]`)
+            * `customErrorPageUrl` (`pulumi.Input[str]`) - Error page URL of the application gateway customer error.
             * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-            * `statusCode` (`pulumi.Input[str]`)
+            * `statusCode` (`pulumi.Input[str]`) - Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
 
           * `frontend_ip_configuration_id` (`pulumi.Input[str]`) - The ID of the associated Frontend Configuration.
-          * `frontend_ip_configuration_name` (`pulumi.Input[str]`)
+          * `frontend_ip_configuration_name` (`pulumi.Input[str]`) - The Name of the Frontend IP Configuration used for this HTTP Listener.
           * `frontendPortId` (`pulumi.Input[str]`) - The ID of the associated Frontend Port.
-          * `frontendPortName` (`pulumi.Input[str]`)
-          * `host_name` (`pulumi.Input[str]`)
+          * `frontendPortName` (`pulumi.Input[str]`) - The Name of the Frontend Port use for this HTTP Listener.
+          * `host_name` (`pulumi.Input[str]`) - The Hostname which should be used for this HTTP Listener.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `protocol` (`pulumi.Input[str]`)
-          * `requireSni` (`pulumi.Input[bool]`)
+          * `name` (`pulumi.Input[str]`) - The Name of the HTTP Listener.
+          * `protocol` (`pulumi.Input[str]`) - The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+          * `requireSni` (`pulumi.Input[bool]`) - Should Server Name Indication be Required? Defaults to `false`.
           * `sslCertificateId` (`pulumi.Input[str]`) - The ID of the associated SSL Certificate.
-          * `sslCertificateName` (`pulumi.Input[str]`)
+          * `sslCertificateName` (`pulumi.Input[str]`) - The name of the associated SSL Certificate which should be used for this HTTP Listener.
 
         The **identity** object supports the following:
 
-          * `identityIds` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`)
+          * `identityIds` (`pulumi.Input[str]`) - Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
+          * `type` (`pulumi.Input[str]`) - The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
 
         The **probes** object supports the following:
 
-          * `host` (`pulumi.Input[str]`)
+          * `host` (`pulumi.Input[str]`) - The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `interval` (`pulumi.Input[float]`)
-          * `match` (`pulumi.Input[dict]`)
-            * `body` (`pulumi.Input[str]`)
-            * `statusCodes` (`pulumi.Input[list]`)
+          * `interval` (`pulumi.Input[float]`) - The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+          * `match` (`pulumi.Input[dict]`) - A `match` block as defined above.
+            * `body` (`pulumi.Input[str]`) - A snippet from the Response Body which must be present in the Response..
+            * `statusCodes` (`pulumi.Input[list]`) - A list of allowed status codes for this Health Probe.
 
-          * `minimumServers` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `path` (`pulumi.Input[str]`)
-          * `pickHostNameFromBackendHttpSettings` (`pulumi.Input[bool]`)
-          * `protocol` (`pulumi.Input[str]`)
-          * `timeout` (`pulumi.Input[float]`)
-          * `unhealthyThreshold` (`pulumi.Input[float]`)
+          * `minimumServers` (`pulumi.Input[float]`) - The minimum number of servers that are always marked as healthy. Defaults to `0`.
+          * `name` (`pulumi.Input[str]`) - The Name of the Probe.
+          * `path` (`pulumi.Input[str]`) - The Path used for this Probe.
+          * `pickHostNameFromBackendHttpSettings` (`pulumi.Input[bool]`) - Whether the host header should be picked from the backend http settings. Defaults to `false`.
+          * `protocol` (`pulumi.Input[str]`) - The Protocol used for this Probe. Possible values are `Http` and `Https`.
+          * `timeout` (`pulumi.Input[float]`) - The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+          * `unhealthyThreshold` (`pulumi.Input[float]`) - The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
 
         The **redirect_configurations** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `includePath` (`pulumi.Input[bool]`)
-          * `includeQueryString` (`pulumi.Input[bool]`)
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `redirectType` (`pulumi.Input[str]`)
+          * `includePath` (`pulumi.Input[bool]`) - Whether or not to include the path in the redirected Url. Defaults to `false`
+          * `includeQueryString` (`pulumi.Input[bool]`) - Whether or not to include the query string in the redirected Url. Default to `false`
+          * `name` (`pulumi.Input[str]`) - Unique name of the redirect configuration block
+          * `redirectType` (`pulumi.Input[str]`) - The type of redirect. Possible values are `Permanent`, `Temporary`, `Found` and `SeeOther`
           * `targetListenerId` (`pulumi.Input[str]`)
-          * `targetListenerName` (`pulumi.Input[str]`)
-          * `targetUrl` (`pulumi.Input[str]`)
+          * `targetListenerName` (`pulumi.Input[str]`) - The name of the listener to redirect to. Cannot be set if `target_url` is set.
+          * `targetUrl` (`pulumi.Input[str]`) - The Url to redirect the request to. Cannot be set if `target_listener_name` is set.
 
         The **request_routing_rules** object supports the following:
 
           * `backend_address_pool_id` (`pulumi.Input[str]`) - The ID of the associated Backend Address Pool.
-          * `backendAddressPoolName` (`pulumi.Input[str]`)
+          * `backendAddressPoolName` (`pulumi.Input[str]`) - The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
           * `backendHttpSettingsId` (`pulumi.Input[str]`) - The ID of the associated Backend HTTP Settings Configuration.
-          * `backendHttpSettingsName` (`pulumi.Input[str]`)
+          * `backendHttpSettingsName` (`pulumi.Input[str]`) - The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
           * `httpListenerId` (`pulumi.Input[str]`) - The ID of the associated HTTP Listener.
-          * `httpListenerName` (`pulumi.Input[str]`)
+          * `httpListenerName` (`pulumi.Input[str]`) - The Name of the HTTP Listener which should be used for this Routing Rule.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
+          * `name` (`pulumi.Input[str]`) - The Name of this Request Routing Rule.
           * `redirectConfigurationId` (`pulumi.Input[str]`) - The ID of the associated Redirect Configuration.
-          * `redirectConfigurationName` (`pulumi.Input[str]`)
+          * `redirectConfigurationName` (`pulumi.Input[str]`) - The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
           * `rewriteRuleSetId` (`pulumi.Input[str]`) - The ID of the associated Rewrite Rule Set.
-          * `rewriteRuleSetName` (`pulumi.Input[str]`)
-          * `ruleType` (`pulumi.Input[str]`)
+          * `rewriteRuleSetName` (`pulumi.Input[str]`) - The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+          * `ruleType` (`pulumi.Input[str]`) - The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
           * `urlPathMapId` (`pulumi.Input[str]`) - The ID of the associated URL Path Map.
-          * `urlPathMapName` (`pulumi.Input[str]`)
+          * `urlPathMapName` (`pulumi.Input[str]`) - The Name of the URL Path Map which should be associated with this Routing Rule.
 
         The **rewrite_rule_sets** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `rewriteRules` (`pulumi.Input[list]`)
-            * `conditions` (`pulumi.Input[list]`)
-              * `ignoreCase` (`pulumi.Input[bool]`)
-              * `negate` (`pulumi.Input[bool]`)
-              * `pattern` (`pulumi.Input[str]`)
-              * `variable` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Unique name of the rewrite rule set block
+          * `rewriteRules` (`pulumi.Input[list]`) - One or more `rewrite_rule` blocks as defined above.
+            * `conditions` (`pulumi.Input[list]`) - One or more `condition` blocks as defined above.
+              * `ignoreCase` (`pulumi.Input[bool]`) - Perform a case in-sensitive comparison. Defaults to `false`
+              * `negate` (`pulumi.Input[bool]`) - Negate the result of the condition evaluation. Defaults to `false`
+              * `pattern` (`pulumi.Input[str]`) - The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
+              * `variable` (`pulumi.Input[str]`) - The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
 
-            * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-            * `requestHeaderConfigurations` (`pulumi.Input[list]`)
-              * `headerName` (`pulumi.Input[str]`)
-              * `headerValue` (`pulumi.Input[str]`)
+            * `name` (`pulumi.Input[str]`) - Unique name of the rewrite rule block
+            * `requestHeaderConfigurations` (`pulumi.Input[list]`) - One or more `request_header_configuration` blocks as defined above.
+              * `headerName` (`pulumi.Input[str]`) - Header name of the header configuration.
+              * `headerValue` (`pulumi.Input[str]`) - Header value of the header configuration. To delete a request header set this property to an empty string.
 
-            * `responseHeaderConfigurations` (`pulumi.Input[list]`)
-              * `headerName` (`pulumi.Input[str]`)
-              * `headerValue` (`pulumi.Input[str]`)
+            * `responseHeaderConfigurations` (`pulumi.Input[list]`) - One or more `response_header_configuration` blocks as defined above.
+              * `headerName` (`pulumi.Input[str]`) - Header name of the header configuration.
+              * `headerValue` (`pulumi.Input[str]`) - Header value of the header configuration. To delete a response header set this property to an empty string.
 
-            * `ruleSequence` (`pulumi.Input[float]`)
+            * `ruleSequence` (`pulumi.Input[float]`) - Rule sequence of the rewrite rule that determines the order of execution in a set.
 
         The **sku** object supports the following:
 
-          * `capacity` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `tier` (`pulumi.Input[str]`)
+          * `capacity` (`pulumi.Input[float]`) - The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscale_configuration` is set.
+          * `name` (`pulumi.Input[str]`) - The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
+          * `tier` (`pulumi.Input[str]`) - The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
 
         The **ssl_certificates** object supports the following:
 
-          * `data` (`pulumi.Input[str]`)
+          * `data` (`pulumi.Input[str]`) - PFX certificate. Required if `key_vault_secret_id` is not set.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `key_vault_secret_id` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `password` (`pulumi.Input[str]`)
+          * `key_vault_secret_id` (`pulumi.Input[str]`) - Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+          * `name` (`pulumi.Input[str]`) - The Name of the SSL certificate that is unique within this Application Gateway
+          * `password` (`pulumi.Input[str]`) - Password for the pfx file specified in data.  Required if `data` is set.
           * `publicCertData` (`pulumi.Input[str]`) - The Public Certificate Data associated with the SSL Certificate.
 
         The **ssl_policies** object supports the following:
 
-          * `cipherSuites` (`pulumi.Input[list]`)
-          * `disabledProtocols` (`pulumi.Input[list]`)
-          * `minProtocolVersion` (`pulumi.Input[str]`)
-          * `policyName` (`pulumi.Input[str]`)
-          * `policy_type` (`pulumi.Input[str]`)
+          * `cipherSuites` (`pulumi.Input[list]`) - A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+          * `disabledProtocols` (`pulumi.Input[list]`) - A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+          * `minProtocolVersion` (`pulumi.Input[str]`) - The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+          * `policyName` (`pulumi.Input[str]`) - The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
+            are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
+          * `policy_type` (`pulumi.Input[str]`) - The Type of the Policy. Possible values are `Predefined` and `Custom`.
 
         The **trusted_root_certificates** object supports the following:
 
-          * `data` (`pulumi.Input[str]`)
+          * `data` (`pulumi.Input[str]`) - The contents of the Trusted Root Certificate which should be used.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
+          * `name` (`pulumi.Input[str]`) - The Name of the Trusted Root Certificate to use.
 
         The **url_path_maps** object supports the following:
 
           * `defaultBackendAddressPoolId` (`pulumi.Input[str]`) - The ID of the Default Backend Address Pool.
-          * `defaultBackendAddressPoolName` (`pulumi.Input[str]`)
+          * `defaultBackendAddressPoolName` (`pulumi.Input[str]`) - The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
           * `defaultBackendHttpSettingsId` (`pulumi.Input[str]`) - The ID of the Default Backend HTTP Settings Collection.
-          * `defaultBackendHttpSettingsName` (`pulumi.Input[str]`)
+          * `defaultBackendHttpSettingsName` (`pulumi.Input[str]`) - The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
           * `defaultRedirectConfigurationId` (`pulumi.Input[str]`) - The ID of the Default Redirect Configuration.
-          * `defaultRedirectConfigurationName` (`pulumi.Input[str]`)
+          * `defaultRedirectConfigurationName` (`pulumi.Input[str]`) - The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
           * `defaultRewriteRuleSetId` (`pulumi.Input[str]`)
-          * `defaultRewriteRuleSetName` (`pulumi.Input[str]`)
+          * `defaultRewriteRuleSetName` (`pulumi.Input[str]`) - The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-          * `pathRules` (`pulumi.Input[list]`) - A list of `path_rule` blocks as defined above.
+          * `name` (`pulumi.Input[str]`) - The Name of the URL Path Map.
+          * `pathRules` (`pulumi.Input[list]`) - One or more `path_rule` blocks as defined above.
             * `backend_address_pool_id` (`pulumi.Input[str]`) - The ID of the associated Backend Address Pool.
-            * `backendAddressPoolName` (`pulumi.Input[str]`)
+            * `backendAddressPoolName` (`pulumi.Input[str]`) - The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
             * `backendHttpSettingsId` (`pulumi.Input[str]`) - The ID of the associated Backend HTTP Settings Configuration.
-            * `backendHttpSettingsName` (`pulumi.Input[str]`)
+            * `backendHttpSettingsName` (`pulumi.Input[str]`) - The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
             * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
-            * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
-            * `paths` (`pulumi.Input[list]`)
+            * `name` (`pulumi.Input[str]`) - The Name of the Path Rule.
+            * `paths` (`pulumi.Input[list]`) - A list of Paths used in this Path Rule.
             * `redirectConfigurationId` (`pulumi.Input[str]`) - The ID of the associated Redirect Configuration.
-            * `redirectConfigurationName` (`pulumi.Input[str]`)
+            * `redirectConfigurationName` (`pulumi.Input[str]`) - The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backend_address_pool_name` or `backend_http_settings_name` is set.
             * `rewriteRuleSetId` (`pulumi.Input[str]`) - The ID of the associated Rewrite Rule Set.
-            * `rewriteRuleSetName` (`pulumi.Input[str]`)
+            * `rewriteRuleSetName` (`pulumi.Input[str]`) - The Name of the Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
 
         The **waf_configuration** object supports the following:
 
-          * `disabledRuleGroups` (`pulumi.Input[list]`)
-            * `ruleGroupName` (`pulumi.Input[str]`)
-            * `rules` (`pulumi.Input[list]`)
+          * `disabledRuleGroups` (`pulumi.Input[list]`) - one or more `disabled_rule_group` blocks as defined below.
+            * `ruleGroupName` (`pulumi.Input[str]`) - The rule group where specific rules should be disabled. Accepted values are:  `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
+            * `rules` (`pulumi.Input[list]`) - A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
 
-          * `enabled` (`pulumi.Input[bool]`)
-          * `exclusions` (`pulumi.Input[list]`)
-            * `matchVariable` (`pulumi.Input[str]`)
-            * `selector` (`pulumi.Input[str]`)
-            * `selectorMatchOperator` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is the Web Application Firewall be enabled?
+          * `exclusions` (`pulumi.Input[list]`) - one or more `exclusion` blocks as defined below.
+            * `matchVariable` (`pulumi.Input[str]`) - Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
+            * `selector` (`pulumi.Input[str]`) - String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
+            * `selectorMatchOperator` (`pulumi.Input[str]`) - Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `match_variable`
 
-          * `fileUploadLimitMb` (`pulumi.Input[float]`)
-          * `firewallMode` (`pulumi.Input[str]`)
-          * `maxRequestBodySizeKb` (`pulumi.Input[float]`)
-          * `requestBodyCheck` (`pulumi.Input[bool]`)
-          * `ruleSetType` (`pulumi.Input[str]`)
-          * `ruleSetVersion` (`pulumi.Input[str]`)
+          * `fileUploadLimitMb` (`pulumi.Input[float]`) - The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
+          * `firewallMode` (`pulumi.Input[str]`) - The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
+          * `maxRequestBodySizeKb` (`pulumi.Input[float]`) - The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
+          * `requestBodyCheck` (`pulumi.Input[bool]`) - Is Request Body Inspection enabled?  Defaults to `true`.
+          * `ruleSetType` (`pulumi.Input[str]`) - The Type of the Rule Set used for this Web Application Firewall.
+          * `ruleSetVersion` (`pulumi.Input[str]`) - The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

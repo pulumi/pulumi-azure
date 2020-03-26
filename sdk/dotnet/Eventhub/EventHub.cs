@@ -205,21 +205,39 @@ namespace Pulumi.Azure.EventHub
 
     public sealed class EventHubCaptureDescriptionArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `destination` block as defined below.
+        /// </summary>
         [Input("destination", required: true)]
         public Input<EventHubCaptureDescriptionDestinationArgs> Destination { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies if the Capture Description is Enabled.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the Encoding used for the Capture Description. Possible values are `Avro` and `AvroDeflate`.
+        /// </summary>
         [Input("encoding", required: true)]
         public Input<string> Encoding { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
+        /// </summary>
         [Input("intervalInSeconds")]
         public Input<int>? IntervalInSeconds { get; set; }
 
+        /// <summary>
+        /// Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+        /// </summary>
         [Input("sizeLimitInBytes")]
         public Input<int>? SizeLimitInBytes { get; set; }
 
+        /// <summary>
+        /// Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+        /// </summary>
         [Input("skipEmptyArchives")]
         public Input<bool>? SkipEmptyArchives { get; set; }
 
@@ -230,18 +248,27 @@ namespace Pulumi.Azure.EventHub
 
     public sealed class EventHubCaptureDescriptionDestinationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+        /// </summary>
         [Input("archiveNameFormat", required: true)]
         public Input<string> ArchiveNameFormat { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Container within the Blob Storage Account where messages should be archived.
+        /// </summary>
         [Input("blobContainerName", required: true)]
         public Input<string> BlobContainerName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+        /// The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Blob Storage Account where messages should be archived.
+        /// </summary>
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
 
@@ -252,18 +279,27 @@ namespace Pulumi.Azure.EventHub
 
     public sealed class EventHubCaptureDescriptionDestinationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+        /// </summary>
         [Input("archiveNameFormat", required: true)]
         public Input<string> ArchiveNameFormat { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Container within the Blob Storage Account where messages should be archived.
+        /// </summary>
         [Input("blobContainerName", required: true)]
         public Input<string> BlobContainerName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+        /// The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Blob Storage Account where messages should be archived.
+        /// </summary>
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
 
@@ -274,21 +310,39 @@ namespace Pulumi.Azure.EventHub
 
     public sealed class EventHubCaptureDescriptionGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `destination` block as defined below.
+        /// </summary>
         [Input("destination", required: true)]
         public Input<EventHubCaptureDescriptionDestinationGetArgs> Destination { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies if the Capture Description is Enabled.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the Encoding used for the Capture Description. Possible values are `Avro` and `AvroDeflate`.
+        /// </summary>
         [Input("encoding", required: true)]
         public Input<string> Encoding { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
+        /// </summary>
         [Input("intervalInSeconds")]
         public Input<int>? IntervalInSeconds { get; set; }
 
+        /// <summary>
+        /// Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+        /// </summary>
         [Input("sizeLimitInBytes")]
         public Input<int>? SizeLimitInBytes { get; set; }
 
+        /// <summary>
+        /// Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+        /// </summary>
         [Input("skipEmptyArchives")]
         public Input<bool>? SkipEmptyArchives { get; set; }
 
@@ -304,11 +358,29 @@ namespace Pulumi.Azure.EventHub
     [OutputType]
     public sealed class EventHubCaptureDescription
     {
+        /// <summary>
+        /// A `destination` block as defined below.
+        /// </summary>
         public readonly EventHubCaptureDescriptionDestination Destination;
+        /// <summary>
+        /// Specifies if the Capture Description is Enabled.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Specifies the Encoding used for the Capture Description. Possible values are `Avro` and `AvroDeflate`.
+        /// </summary>
         public readonly string Encoding;
+        /// <summary>
+        /// Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
+        /// </summary>
         public readonly int? IntervalInSeconds;
+        /// <summary>
+        /// Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+        /// </summary>
         public readonly int? SizeLimitInBytes;
+        /// <summary>
+        /// Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+        /// </summary>
         public readonly bool? SkipEmptyArchives;
 
         [OutputConstructor]
@@ -332,12 +404,21 @@ namespace Pulumi.Azure.EventHub
     [OutputType]
     public sealed class EventHubCaptureDescriptionDestination
     {
+        /// <summary>
+        /// The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+        /// </summary>
         public readonly string ArchiveNameFormat;
+        /// <summary>
+        /// The name of the Container within the Blob Storage Account where messages should be archived.
+        /// </summary>
         public readonly string BlobContainerName;
         /// <summary>
-        /// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+        /// The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The ID of the Blob Storage Account where messages should be archived.
+        /// </summary>
         public readonly string StorageAccountId;
 
         [OutputConstructor]

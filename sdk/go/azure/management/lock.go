@@ -39,6 +39,12 @@ func NewLock(ctx *pulumi.Context,
 	if args == nil {
 		args = &LockArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:managementresource/manangementLock:ManangementLock"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Lock
 	err := ctx.RegisterResource("azure:management/lock:Lock", name, args, &resource, opts...)
 	if err != nil {
@@ -112,4 +118,3 @@ type LockArgs struct {
 func (LockArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*lockArgs)(nil)).Elem()
 }
-

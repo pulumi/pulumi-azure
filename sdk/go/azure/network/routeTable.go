@@ -135,4 +135,3 @@ type RouteTableArgs struct {
 func (RouteTableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeTableArgs)(nil)).Elem()
 }
-

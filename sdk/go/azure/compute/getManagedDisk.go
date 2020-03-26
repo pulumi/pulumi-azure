@@ -26,10 +26,11 @@ type LookupManagedDiskArgs struct {
 	Name string `pulumi:"name"`
 	// Specifies the name of the Resource Group where this Managed Disk exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A list of Availability Zones where the Managed Disk exists.
 	Zones []string `pulumi:"zones"`
 }
-
 
 // A collection of values returned by getManagedDisk.
 type LookupManagedDiskResult struct {
@@ -43,10 +44,10 @@ type LookupManagedDiskResult struct {
 	// The size of the Managed Disk in gigabytes.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The operating system used for this Managed Disk.
-	OsType string `pulumi:"osType"`
+	OsType            string `pulumi:"osType"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of an existing Managed Disk which this Disk was created from.
 	SourceResourceId string `pulumi:"sourceResourceId"`
@@ -61,4 +62,3 @@ type LookupManagedDiskResult struct {
 	// A list of Availability Zones where the Managed Disk exists.
 	Zones []string `pulumi:"zones"`
 }
-

@@ -41,6 +41,9 @@ export interface GetPublicIPArgs {
      * Specifies the name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * A mapping of tags to assigned to the resource.
+     */
     readonly tags?: {[key: string]: string};
     readonly zones?: string[];
 }

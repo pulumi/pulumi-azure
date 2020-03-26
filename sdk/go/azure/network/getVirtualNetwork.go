@@ -28,7 +28,6 @@ type LookupVirtualNetworkArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getVirtualNetwork.
 type LookupVirtualNetworkResult struct {
 	// The list of address spaces used by the virtual network.
@@ -38,12 +37,11 @@ type LookupVirtualNetworkResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Location of the virtual network.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The list of name of the subnets that are attached to this virtual network.
 	Subnets []string `pulumi:"subnets"`
 	// A mapping of name - virtual network id of the virtual network peerings.
 	VnetPeerings map[string]string `pulumi:"vnetPeerings"`
 }
-

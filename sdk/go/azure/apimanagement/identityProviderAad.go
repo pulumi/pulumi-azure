@@ -131,4 +131,3 @@ type IdentityProviderAadArgs struct {
 func (IdentityProviderAadArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityProviderAadArgs)(nil)).Elem()
 }
-

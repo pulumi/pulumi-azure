@@ -170,4 +170,3 @@ type OutboundRuleArgs struct {
 func (OutboundRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*outboundRuleArgs)(nil)).Elem()
 }
-

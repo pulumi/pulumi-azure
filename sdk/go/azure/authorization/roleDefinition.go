@@ -46,6 +46,12 @@ func NewRoleDefinition(ctx *pulumi.Context,
 	if args == nil {
 		args = &RoleDefinitionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:role/definition:Definition"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RoleDefinition
 	err := ctx.RegisterResource("azure:authorization/roleDefinition:RoleDefinition", name, args, &resource, opts...)
 	if err != nil {
@@ -135,4 +141,3 @@ type RoleDefinitionArgs struct {
 func (RoleDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*roleDefinitionArgs)(nil)).Elem()
 }
-

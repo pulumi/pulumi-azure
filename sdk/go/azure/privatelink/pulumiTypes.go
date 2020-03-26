@@ -77,7 +77,8 @@ type EndpointPrivateServiceConnectionPtrInput interface {
 
 type endpointPrivateServiceConnectionPtrType EndpointPrivateServiceConnectionArgs
 
-func EndpointPrivateServiceConnectionPtr(v *EndpointPrivateServiceConnectionArgs) EndpointPrivateServiceConnectionPtrInput {	return (*endpointPrivateServiceConnectionPtrType)(v)
+func EndpointPrivateServiceConnectionPtr(v *EndpointPrivateServiceConnectionArgs) EndpointPrivateServiceConnectionPtrInput {
+	return (*endpointPrivateServiceConnectionPtrType)(v)
 }
 
 func (*endpointPrivateServiceConnectionPtrType) ElementType() reflect.Type {
@@ -92,7 +93,7 @@ func (i *endpointPrivateServiceConnectionPtrType) ToEndpointPrivateServiceConnec
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateServiceConnectionPtrOutput)
 }
 
-type EndpointPrivateServiceConnectionOutput struct { *pulumi.OutputState }
+type EndpointPrivateServiceConnectionOutput struct{ *pulumi.OutputState }
 
 func (EndpointPrivateServiceConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EndpointPrivateServiceConnection)(nil)).Elem()
@@ -115,37 +116,38 @@ func (o EndpointPrivateServiceConnectionOutput) ToEndpointPrivateServiceConnecti
 		return &v
 	}).(EndpointPrivateServiceConnectionPtrOutput)
 }
+
 // Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
 func (o EndpointPrivateServiceConnectionOutput) IsManualConnection() pulumi.BoolOutput {
-	return o.ApplyT(func (v EndpointPrivateServiceConnection) bool { return v.IsManualConnection }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v EndpointPrivateServiceConnection) bool { return v.IsManualConnection }).(pulumi.BoolOutput)
 }
 
 // Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
 func (o EndpointPrivateServiceConnectionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v EndpointPrivateServiceConnection) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EndpointPrivateServiceConnection) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
 func (o EndpointPrivateServiceConnectionOutput) PrivateConnectionResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v EndpointPrivateServiceConnection) string { return v.PrivateConnectionResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EndpointPrivateServiceConnection) string { return v.PrivateConnectionResourceId }).(pulumi.StringOutput)
 }
 
 // The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
 func (o EndpointPrivateServiceConnectionOutput) PrivateIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v EndpointPrivateServiceConnection) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
 func (o EndpointPrivateServiceConnectionOutput) RequestMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v EndpointPrivateServiceConnection) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
 }
 
 // A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
 func (o EndpointPrivateServiceConnectionOutput) SubresourceNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v EndpointPrivateServiceConnection) []string { return v.SubresourceNames }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v EndpointPrivateServiceConnection) []string { return v.SubresourceNames }).(pulumi.StringArrayOutput)
 }
 
-type EndpointPrivateServiceConnectionPtrOutput struct { *pulumi.OutputState}
+type EndpointPrivateServiceConnectionPtrOutput struct{ *pulumi.OutputState }
 
 func (EndpointPrivateServiceConnectionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EndpointPrivateServiceConnection)(nil)).Elem()
@@ -160,37 +162,37 @@ func (o EndpointPrivateServiceConnectionPtrOutput) ToEndpointPrivateServiceConne
 }
 
 func (o EndpointPrivateServiceConnectionPtrOutput) Elem() EndpointPrivateServiceConnectionOutput {
-	return o.ApplyT(func (v *EndpointPrivateServiceConnection) EndpointPrivateServiceConnection { return *v }).(EndpointPrivateServiceConnectionOutput)
+	return o.ApplyT(func(v *EndpointPrivateServiceConnection) EndpointPrivateServiceConnection { return *v }).(EndpointPrivateServiceConnectionOutput)
 }
 
 // Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
 func (o EndpointPrivateServiceConnectionPtrOutput) IsManualConnection() pulumi.BoolOutput {
-	return o.ApplyT(func (v EndpointPrivateServiceConnection) bool { return v.IsManualConnection }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v EndpointPrivateServiceConnection) bool { return v.IsManualConnection }).(pulumi.BoolOutput)
 }
 
 // Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
 func (o EndpointPrivateServiceConnectionPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v EndpointPrivateServiceConnection) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EndpointPrivateServiceConnection) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
 func (o EndpointPrivateServiceConnectionPtrOutput) PrivateConnectionResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v EndpointPrivateServiceConnection) string { return v.PrivateConnectionResourceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EndpointPrivateServiceConnection) string { return v.PrivateConnectionResourceId }).(pulumi.StringOutput)
 }
 
 // The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
 func (o EndpointPrivateServiceConnectionPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v EndpointPrivateServiceConnection) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
 func (o EndpointPrivateServiceConnectionPtrOutput) RequestMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v EndpointPrivateServiceConnection) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
 }
 
 // A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
 func (o EndpointPrivateServiceConnectionPtrOutput) SubresourceNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v EndpointPrivateServiceConnection) []string { return v.SubresourceNames }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v EndpointPrivateServiceConnection) []string { return v.SubresourceNames }).(pulumi.StringArrayOutput)
 }
 
 type GetEndpointConnectionPrivateServiceConnection struct {
@@ -265,7 +267,7 @@ func (i GetEndpointConnectionPrivateServiceConnectionArray) ToGetEndpointConnect
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointConnectionPrivateServiceConnectionArrayOutput)
 }
 
-type GetEndpointConnectionPrivateServiceConnectionOutput struct { *pulumi.OutputState }
+type GetEndpointConnectionPrivateServiceConnectionOutput struct{ *pulumi.OutputState }
 
 func (GetEndpointConnectionPrivateServiceConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetEndpointConnectionPrivateServiceConnection)(nil)).Elem()
@@ -281,12 +283,12 @@ func (o GetEndpointConnectionPrivateServiceConnectionOutput) ToGetEndpointConnec
 
 // Specifies the Name of the private endpoint.
 func (o GetEndpointConnectionPrivateServiceConnectionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetEndpointConnectionPrivateServiceConnection) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetEndpointConnectionPrivateServiceConnection) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
 func (o GetEndpointConnectionPrivateServiceConnectionOutput) PrivateIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func (v GetEndpointConnectionPrivateServiceConnection) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetEndpointConnectionPrivateServiceConnection) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
 
 // Possible values are as follows:
@@ -296,15 +298,15 @@ func (o GetEndpointConnectionPrivateServiceConnectionOutput) PrivateIpAddress() 
 // `Deleted state` | The resource owner has `Rejected` the private endpoint connection request and has removed your private endpoint request from the remote resource.
 // `request/response message` | If you submitted a manual private endpoint connection request, while in the `Pending` status the `requestResponse` will display the same text from your `requestMessage` in the `privateServiceConnection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `requestResponse` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `requestResponse` text
 func (o GetEndpointConnectionPrivateServiceConnectionOutput) RequestResponse() pulumi.StringOutput {
-	return o.ApplyT(func (v GetEndpointConnectionPrivateServiceConnection) string { return v.RequestResponse }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetEndpointConnectionPrivateServiceConnection) string { return v.RequestResponse }).(pulumi.StringOutput)
 }
 
 // The current status of the private endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
 func (o GetEndpointConnectionPrivateServiceConnectionOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func (v GetEndpointConnectionPrivateServiceConnection) string { return v.Status }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetEndpointConnectionPrivateServiceConnection) string { return v.Status }).(pulumi.StringOutput)
 }
 
-type GetEndpointConnectionPrivateServiceConnectionArrayOutput struct { *pulumi.OutputState}
+type GetEndpointConnectionPrivateServiceConnectionArrayOutput struct{ *pulumi.OutputState }
 
 func (GetEndpointConnectionPrivateServiceConnectionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetEndpointConnectionPrivateServiceConnection)(nil)).Elem()
@@ -319,7 +321,7 @@ func (o GetEndpointConnectionPrivateServiceConnectionArrayOutput) ToGetEndpointC
 }
 
 func (o GetEndpointConnectionPrivateServiceConnectionArrayOutput) Index(i pulumi.IntInput) GetEndpointConnectionPrivateServiceConnectionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetEndpointConnectionPrivateServiceConnection {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointConnectionPrivateServiceConnection {
 		return vs[0].([]GetEndpointConnectionPrivateServiceConnection)[vs[1].(int)]
 	}).(GetEndpointConnectionPrivateServiceConnectionOutput)
 }
@@ -398,7 +400,7 @@ func (i GetServiceEndpointConnectionsPrivateEndpointConnectionArray) ToGetServic
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceEndpointConnectionsPrivateEndpointConnectionArrayOutput)
 }
 
-type GetServiceEndpointConnectionsPrivateEndpointConnectionOutput struct { *pulumi.OutputState }
+type GetServiceEndpointConnectionsPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (GetServiceEndpointConnectionsPrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetServiceEndpointConnectionsPrivateEndpointConnection)(nil)).Elem()
@@ -414,40 +416,40 @@ func (o GetServiceEndpointConnectionsPrivateEndpointConnectionOutput) ToGetServi
 
 // A message indicating if changes on the service provider require any updates or not.
 func (o GetServiceEndpointConnectionsPrivateEndpointConnectionOutput) ActionRequired() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceEndpointConnectionsPrivateEndpointConnection) string { return v.ActionRequired }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceEndpointConnectionsPrivateEndpointConnection) string { return v.ActionRequired }).(pulumi.StringOutput)
 }
 
 // The resource id of the private link service connection between the private link service and the private link endpoint.
 func (o GetServiceEndpointConnectionsPrivateEndpointConnectionOutput) ConnectionId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceEndpointConnectionsPrivateEndpointConnection) string { return v.ConnectionId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceEndpointConnectionsPrivateEndpointConnection) string { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
 // The name of the connection between the private link service and the private link endpoint.
 func (o GetServiceEndpointConnectionsPrivateEndpointConnectionOutput) ConnectionName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceEndpointConnectionsPrivateEndpointConnection) string { return v.ConnectionName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceEndpointConnectionsPrivateEndpointConnection) string { return v.ConnectionName }).(pulumi.StringOutput)
 }
 
 // The request for approval message or the reason for rejection message.
 func (o GetServiceEndpointConnectionsPrivateEndpointConnectionOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceEndpointConnectionsPrivateEndpointConnection) string { return v.Description }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceEndpointConnectionsPrivateEndpointConnection) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // The resource id of the private link endpoint.
 func (o GetServiceEndpointConnectionsPrivateEndpointConnectionOutput) PrivateEndpointId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceEndpointConnectionsPrivateEndpointConnection) string { return v.PrivateEndpointId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceEndpointConnectionsPrivateEndpointConnection) string { return v.PrivateEndpointId }).(pulumi.StringOutput)
 }
 
 // The name of the private link endpoint.
 func (o GetServiceEndpointConnectionsPrivateEndpointConnectionOutput) PrivateEndpointName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceEndpointConnectionsPrivateEndpointConnection) string { return v.PrivateEndpointName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceEndpointConnectionsPrivateEndpointConnection) string { return v.PrivateEndpointName }).(pulumi.StringOutput)
 }
 
 // Indicates the state of the connection between the private link service and the private link endpoint, possible values are `Pending`, `Approved` or `Rejected`.
 func (o GetServiceEndpointConnectionsPrivateEndpointConnectionOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceEndpointConnectionsPrivateEndpointConnection) string { return v.Status }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceEndpointConnectionsPrivateEndpointConnection) string { return v.Status }).(pulumi.StringOutput)
 }
 
-type GetServiceEndpointConnectionsPrivateEndpointConnectionArrayOutput struct { *pulumi.OutputState}
+type GetServiceEndpointConnectionsPrivateEndpointConnectionArrayOutput struct{ *pulumi.OutputState }
 
 func (GetServiceEndpointConnectionsPrivateEndpointConnectionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetServiceEndpointConnectionsPrivateEndpointConnection)(nil)).Elem()
@@ -462,7 +464,7 @@ func (o GetServiceEndpointConnectionsPrivateEndpointConnectionArrayOutput) ToGet
 }
 
 func (o GetServiceEndpointConnectionsPrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) GetServiceEndpointConnectionsPrivateEndpointConnectionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetServiceEndpointConnectionsPrivateEndpointConnection {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceEndpointConnectionsPrivateEndpointConnection {
 		return vs[0].([]GetServiceEndpointConnectionsPrivateEndpointConnection)[vs[1].(int)]
 	}).(GetServiceEndpointConnectionsPrivateEndpointConnectionOutput)
 }
@@ -533,7 +535,7 @@ func (i GetServiceNatIpConfigurationArray) ToGetServiceNatIpConfigurationArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceNatIpConfigurationArrayOutput)
 }
 
-type GetServiceNatIpConfigurationOutput struct { *pulumi.OutputState }
+type GetServiceNatIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetServiceNatIpConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetServiceNatIpConfiguration)(nil)).Elem()
@@ -549,30 +551,30 @@ func (o GetServiceNatIpConfigurationOutput) ToGetServiceNatIpConfigurationOutput
 
 // The name of the private link service.
 func (o GetServiceNatIpConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceNatIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceNatIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Value that indicates if the IP configuration is the primary configuration or not.
 func (o GetServiceNatIpConfigurationOutput) Primary() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetServiceNatIpConfiguration) bool { return v.Primary }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetServiceNatIpConfiguration) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
 // The private IP address of the NAT IP configuration.
 func (o GetServiceNatIpConfigurationOutput) PrivateIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceNatIpConfiguration) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceNatIpConfiguration) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
 
 // The version of the IP Protocol.
 func (o GetServiceNatIpConfigurationOutput) PrivateIpAddressVersion() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceNatIpConfiguration) string { return v.PrivateIpAddressVersion }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceNatIpConfiguration) string { return v.PrivateIpAddressVersion }).(pulumi.StringOutput)
 }
 
 // The ID of the subnet to be used by the service.
 func (o GetServiceNatIpConfigurationOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceNatIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceNatIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-type GetServiceNatIpConfigurationArrayOutput struct { *pulumi.OutputState}
+type GetServiceNatIpConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (GetServiceNatIpConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetServiceNatIpConfiguration)(nil)).Elem()
@@ -587,7 +589,7 @@ func (o GetServiceNatIpConfigurationArrayOutput) ToGetServiceNatIpConfigurationA
 }
 
 func (o GetServiceNatIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetServiceNatIpConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetServiceNatIpConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceNatIpConfiguration {
 		return vs[0].([]GetServiceNatIpConfiguration)[vs[1].(int)]
 	}).(GetServiceNatIpConfigurationOutput)
 }

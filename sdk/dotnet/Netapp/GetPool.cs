@@ -16,7 +16,18 @@ namespace Pulumi.Azure.NetApp
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_pool.html.markdown.
         /// </summary>
+        [Obsolete("Use GetPool.InvokeAsync() instead")]
         public static Task<GetPoolResult> GetPool(GetPoolArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:netapp/getPool:getPool", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetPool
+    {
+        /// <summary>
+        /// Uses this data source to access information about an existing NetApp Pool.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_pool.html.markdown.
+        /// </summary>
+        public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:netapp/getPool:getPool", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

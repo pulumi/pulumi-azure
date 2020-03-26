@@ -26,9 +26,9 @@ class SharedImage(pulumi.CustomResource):
     """
     An `identifier` block as defined below.
 
-      * `offer` (`str`)
-      * `publisher` (`str`)
-      * `sku` (`str`)
+      * `offer` (`str`) - The Offer Name for this Shared Image.
+      * `publisher` (`str`) - The Publisher Name for this Gallery Image.
+      * `sku` (`str`) - The Name of the SKU for this Gallery Image.
     """
     location: pulumi.Output[str]
     """
@@ -80,9 +80,9 @@ class SharedImage(pulumi.CustomResource):
 
         The **identifier** object supports the following:
 
-          * `offer` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
-          * `sku` (`pulumi.Input[str]`)
+          * `offer` (`pulumi.Input[str]`) - The Offer Name for this Shared Image.
+          * `publisher` (`pulumi.Input[str]`) - The Publisher Name for this Gallery Image.
+          * `sku` (`pulumi.Input[str]`) - The Name of the SKU for this Gallery Image.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -149,9 +149,9 @@ class SharedImage(pulumi.CustomResource):
 
         The **identifier** object supports the following:
 
-          * `offer` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
-          * `sku` (`pulumi.Input[str]`)
+          * `offer` (`pulumi.Input[str]`) - The Offer Name for this Shared Image.
+          * `publisher` (`pulumi.Input[str]`) - The Publisher Name for this Gallery Image.
+          * `sku` (`pulumi.Input[str]`) - The Name of the SKU for this Gallery Image.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

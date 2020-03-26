@@ -28,7 +28,6 @@ type LookupCertificateOrderArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getCertificateOrder.
 type LookupCertificateOrderResult struct {
 	// Reasons why App Service Certificate is not renewable at the current moment.
@@ -55,9 +54,9 @@ type LookupCertificateOrderResult struct {
 	KeySize int `pulumi:"keySize"`
 	// The Azure location where the App Service exists.
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// Certificate product type, such as `Standard` or `WildCard`.
-	ProductType string `pulumi:"productType"`
+	ProductType       string `pulumi:"productType"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Certificate thumbprint for root certificate.
 	RootThumbprint string `pulumi:"rootThumbprint"`
@@ -70,4 +69,3 @@ type LookupCertificateOrderResult struct {
 	// Duration in years (must be between 1 and 3).
 	ValidityInYears int `pulumi:"validityInYears"`
 }
-

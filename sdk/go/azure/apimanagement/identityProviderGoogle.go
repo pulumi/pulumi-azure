@@ -118,4 +118,3 @@ type IdentityProviderGoogleArgs struct {
 func (IdentityProviderGoogleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityProviderGoogleArgs)(nil)).Elem()
 }
-

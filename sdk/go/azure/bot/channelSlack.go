@@ -153,4 +153,3 @@ type ChannelSlackArgs struct {
 func (ChannelSlackArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelSlackArgs)(nil)).Elem()
 }
-

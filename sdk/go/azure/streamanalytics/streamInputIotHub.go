@@ -180,4 +180,3 @@ type StreamInputIotHubArgs struct {
 func (StreamInputIotHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamInputIotHubArgs)(nil)).Elem()
 }
-

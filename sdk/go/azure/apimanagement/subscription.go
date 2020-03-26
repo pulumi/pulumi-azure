@@ -21,12 +21,12 @@ type Subscription struct {
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
 	// The display name of this Subscription.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
+	PrimaryKey  pulumi.StringOutput `pulumi:"primaryKey"`
 	// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	ProductId pulumi.StringOutput `pulumi:"productId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
+	SecondaryKey      pulumi.StringOutput `pulumi:"secondaryKey"`
 	// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
@@ -82,12 +82,12 @@ type subscriptionState struct {
 	ApiManagementName *string `pulumi:"apiManagementName"`
 	// The display name of this Subscription.
 	DisplayName *string `pulumi:"displayName"`
-	PrimaryKey *string `pulumi:"primaryKey"`
+	PrimaryKey  *string `pulumi:"primaryKey"`
 	// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	ProductId *string `pulumi:"productId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	SecondaryKey *string `pulumi:"secondaryKey"`
+	SecondaryKey      *string `pulumi:"secondaryKey"`
 	// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
 	State *string `pulumi:"state"`
 	// An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
@@ -101,12 +101,12 @@ type SubscriptionState struct {
 	ApiManagementName pulumi.StringPtrInput
 	// The display name of this Subscription.
 	DisplayName pulumi.StringPtrInput
-	PrimaryKey pulumi.StringPtrInput
+	PrimaryKey  pulumi.StringPtrInput
 	// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	ProductId pulumi.StringPtrInput
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	SecondaryKey pulumi.StringPtrInput
+	SecondaryKey      pulumi.StringPtrInput
 	// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
 	State pulumi.StringPtrInput
 	// An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
@@ -123,13 +123,13 @@ type subscriptionArgs struct {
 	// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`
 	// The display name of this Subscription.
-	DisplayName string `pulumi:"displayName"`
-	PrimaryKey *string `pulumi:"primaryKey"`
+	DisplayName string  `pulumi:"displayName"`
+	PrimaryKey  *string `pulumi:"primaryKey"`
 	// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	ProductId string `pulumi:"productId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	SecondaryKey *string `pulumi:"secondaryKey"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	SecondaryKey      *string `pulumi:"secondaryKey"`
 	// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
 	State *string `pulumi:"state"`
 	// An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
@@ -144,12 +144,12 @@ type SubscriptionArgs struct {
 	ApiManagementName pulumi.StringInput
 	// The display name of this Subscription.
 	DisplayName pulumi.StringInput
-	PrimaryKey pulumi.StringPtrInput
+	PrimaryKey  pulumi.StringPtrInput
 	// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	ProductId pulumi.StringInput
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	SecondaryKey pulumi.StringPtrInput
+	SecondaryKey      pulumi.StringPtrInput
 	// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
 	State pulumi.StringPtrInput
 	// An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
@@ -161,4 +161,3 @@ type SubscriptionArgs struct {
 func (SubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionArgs)(nil)).Elem()
 }
-

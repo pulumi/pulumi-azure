@@ -28,7 +28,6 @@ type LookupServiceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getService.
 type LookupServiceResult struct {
 	// One or more `additionalLocation` blocks as defined below
@@ -56,12 +55,11 @@ type LookupServiceResult struct {
 	// The email of Publisher/Company of the API Management Service.
 	PublisherEmail string `pulumi:"publisherEmail"`
 	// The name of the Publisher/Company of the API Management Service.
-	PublisherName string `pulumi:"publisherName"`
+	PublisherName     string `pulumi:"publisherName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SCM (Source Code Management) endpoint.
-	ScmUrl string `pulumi:"scmUrl"`
+	ScmUrl  string `pulumi:"scmUrl"`
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
-

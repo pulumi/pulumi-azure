@@ -132,4 +132,3 @@ type HubArgs struct {
 func (HubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hubArgs)(nil)).Elem()
 }
-

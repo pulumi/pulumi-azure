@@ -107,4 +107,3 @@ type ContainerStorageAccountArgs struct {
 func (ContainerStorageAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*containerStorageAccountArgs)(nil)).Elem()
 }
-

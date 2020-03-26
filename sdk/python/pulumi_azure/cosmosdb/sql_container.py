@@ -42,7 +42,7 @@ class SqlContainer(pulumi.CustomResource):
     """
     One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
 
-      * `paths` (`list`)
+      * `paths` (`list`) - A list of paths to use for this unique key.
     """
     def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, default_ttl=None, name=None, partition_key_path=None, resource_group_name=None, throughput=None, unique_keys=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -63,7 +63,7 @@ class SqlContainer(pulumi.CustomResource):
 
         The **unique_keys** object supports the following:
 
-          * `paths` (`pulumi.Input[list]`)
+          * `paths` (`pulumi.Input[list]`) - A list of paths to use for this unique key.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -122,7 +122,7 @@ class SqlContainer(pulumi.CustomResource):
 
         The **unique_keys** object supports the following:
 
-          * `paths` (`pulumi.Input[list]`)
+          * `paths` (`pulumi.Input[list]`) - A list of paths to use for this unique key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

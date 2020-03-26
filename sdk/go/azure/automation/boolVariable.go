@@ -132,4 +132,3 @@ type BoolVariableArgs struct {
 func (BoolVariableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*boolVariableArgs)(nil)).Elem()
 }
-

@@ -18,9 +18,9 @@ class ResourceGroupExport(pulumi.CustomResource):
     """
     A `delivery_info` block as defined below.
 
-      * `container_name` (`str`)
-      * `rootFolderPath` (`str`)
-      * `storage_account_id` (`str`)
+      * `container_name` (`str`) - The name of the container where exports will be uploaded.
+      * `rootFolderPath` (`str`) - The path of the directory where exports will be uploaded.
+      * `storage_account_id` (`str`) - The storage account id where exports will be delivered.
     """
     name: pulumi.Output[str]
     """
@@ -30,8 +30,8 @@ class ResourceGroupExport(pulumi.CustomResource):
     """
     A `query` block as defined below.
 
-      * `timeFrame` (`str`)
-      * `type` (`str`)
+      * `timeFrame` (`str`) - The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
+      * `type` (`str`) - The type of the query.
     """
     recurrence_period_end: pulumi.Output[str]
     """
@@ -68,14 +68,14 @@ class ResourceGroupExport(pulumi.CustomResource):
 
         The **delivery_info** object supports the following:
 
-          * `container_name` (`pulumi.Input[str]`)
-          * `rootFolderPath` (`pulumi.Input[str]`)
-          * `storage_account_id` (`pulumi.Input[str]`)
+          * `container_name` (`pulumi.Input[str]`) - The name of the container where exports will be uploaded.
+          * `rootFolderPath` (`pulumi.Input[str]`) - The path of the directory where exports will be uploaded.
+          * `storage_account_id` (`pulumi.Input[str]`) - The storage account id where exports will be delivered.
 
         The **query** object supports the following:
 
-          * `timeFrame` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`)
+          * `timeFrame` (`pulumi.Input[str]`) - The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
+          * `type` (`pulumi.Input[str]`) - The type of the query.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -140,14 +140,14 @@ class ResourceGroupExport(pulumi.CustomResource):
 
         The **delivery_info** object supports the following:
 
-          * `container_name` (`pulumi.Input[str]`)
-          * `rootFolderPath` (`pulumi.Input[str]`)
-          * `storage_account_id` (`pulumi.Input[str]`)
+          * `container_name` (`pulumi.Input[str]`) - The name of the container where exports will be uploaded.
+          * `rootFolderPath` (`pulumi.Input[str]`) - The path of the directory where exports will be uploaded.
+          * `storage_account_id` (`pulumi.Input[str]`) - The storage account id where exports will be delivered.
 
         The **query** object supports the following:
 
-          * `timeFrame` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`)
+          * `timeFrame` (`pulumi.Input[str]`) - The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
+          * `type` (`pulumi.Input[str]`) - The type of the query.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

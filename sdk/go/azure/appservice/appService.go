@@ -274,4 +274,3 @@ type AppServiceArgs struct {
 func (AppServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*appServiceArgs)(nil)).Elem()
 }
-

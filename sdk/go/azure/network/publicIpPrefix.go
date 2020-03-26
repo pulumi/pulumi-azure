@@ -145,4 +145,3 @@ type PublicIpPrefixArgs struct {
 func (PublicIpPrefixArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicIpPrefixArgs)(nil)).Elem()
 }
-

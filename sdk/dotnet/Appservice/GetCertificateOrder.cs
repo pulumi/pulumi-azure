@@ -16,7 +16,18 @@ namespace Pulumi.Azure.AppService
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate_order.html.markdown.
         /// </summary>
+        [Obsolete("Use GetCertificateOrder.InvokeAsync() instead")]
         public static Task<GetCertificateOrderResult> GetCertificateOrder(GetCertificateOrderArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateOrderResult>("azure:appservice/getCertificateOrder:getCertificateOrder", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetCertificateOrder
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing App Service Certificate Order.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate_order.html.markdown.
+        /// </summary>
+        public static Task<GetCertificateOrderResult> InvokeAsync(GetCertificateOrderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateOrderResult>("azure:appservice/getCertificateOrder:getCertificateOrder", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

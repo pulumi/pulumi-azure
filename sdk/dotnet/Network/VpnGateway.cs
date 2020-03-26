@@ -229,6 +229,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class VpnGatewayBgpSettingsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ASN of the BGP Speaker. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("asn", required: true)]
         public Input<int> Asn { get; set; } = null!;
 
@@ -238,6 +241,9 @@ namespace Pulumi.Azure.Network
         [Input("bgpPeeringAddress")]
         public Input<string>? BgpPeeringAddress { get; set; }
 
+        /// <summary>
+        /// The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("peerWeight", required: true)]
         public Input<int> PeerWeight { get; set; } = null!;
 
@@ -248,6 +254,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class VpnGatewayBgpSettingsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ASN of the BGP Speaker. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("asn", required: true)]
         public Input<int> Asn { get; set; } = null!;
 
@@ -257,6 +266,9 @@ namespace Pulumi.Azure.Network
         [Input("bgpPeeringAddress")]
         public Input<string>? BgpPeeringAddress { get; set; }
 
+        /// <summary>
+        /// The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("peerWeight", required: true)]
         public Input<int> PeerWeight { get; set; } = null!;
 
@@ -272,11 +284,17 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class VpnGatewayBgpSettings
     {
+        /// <summary>
+        /// The ASN of the BGP Speaker. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int Asn;
         /// <summary>
         /// The Address which should be used for the BGP Peering.
         /// </summary>
         public readonly string BgpPeeringAddress;
+        /// <summary>
+        /// The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int PeerWeight;
 
         [OutputConstructor]

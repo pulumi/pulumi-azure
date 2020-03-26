@@ -16,7 +16,18 @@ namespace Pulumi.Azure.KeyVault
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_key.html.markdown.
         /// </summary>
+        [Obsolete("Use GetKey.InvokeAsync() instead")]
         public static Task<GetKeyResult> GetKey(GetKeyArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure:keyvault/getKey:getKey", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetKey
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Key Vault Key.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_key.html.markdown.
+        /// </summary>
+        public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure:keyvault/getKey:getKey", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

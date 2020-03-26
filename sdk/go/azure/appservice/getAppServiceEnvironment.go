@@ -28,18 +28,16 @@ type GetAppServiceEnvironmentArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getAppServiceEnvironment.
 type GetAppServiceEnvironmentResult struct {
 	// The number of app instances per App Service Environment Front End
 	FrontEndScaleFactor int `pulumi:"frontEndScaleFactor"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The Pricing Tier (Isolated SKU) of the App Service Environment.
-	PricingTier string `pulumi:"pricingTier"`
+	PricingTier       string `pulumi:"pricingTier"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
-

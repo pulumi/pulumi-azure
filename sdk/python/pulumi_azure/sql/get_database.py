@@ -115,6 +115,7 @@ def get_database(name=None,resource_group_name=None,server_name=None,tags=None,o
     :param str name: The name of the SQL Database.
     :param str resource_group_name: Specifies the name of the Resource Group where the Azure SQL Database exists.
     :param str server_name: The name of the SQL Server.
+    :param dict tags: A mapping of tags assigned to the resource.
     """
     __args__ = dict()
 

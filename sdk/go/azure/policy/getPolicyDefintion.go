@@ -28,14 +28,13 @@ type GetPolicyDefintionArgs struct {
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 }
 
-
 // A collection of values returned by getPolicyDefintion.
 type GetPolicyDefintionResult struct {
 	// The Description of the Policy.
 	Description string `pulumi:"description"`
 	DisplayName string `pulumi:"displayName"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id                string  `pulumi:"id"`
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// Any Metadata defined in the Policy.
 	Metadata string `pulumi:"metadata"`
@@ -50,4 +49,3 @@ type GetPolicyDefintionResult struct {
 	// The Type of Policy.
 	Type string `pulumi:"type"`
 }
-

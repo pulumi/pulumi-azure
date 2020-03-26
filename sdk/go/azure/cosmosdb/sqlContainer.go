@@ -155,4 +155,3 @@ type SqlContainerArgs struct {
 func (SqlContainerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlContainerArgs)(nil)).Elem()
 }
-

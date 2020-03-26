@@ -166,4 +166,3 @@ type TemplateDeploymentArgs struct {
 func (TemplateDeploymentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*templateDeploymentArgs)(nil)).Elem()
 }
-

@@ -12,15 +12,15 @@ import (
 )
 
 type ChannelDirectLineSite struct {
-	Enabled *bool `pulumi:"enabled"`
-	EnhancedAuthenticationEnabled *bool `pulumi:"enhancedAuthenticationEnabled"`
-	Id *string `pulumi:"id"`
-	Key *string `pulumi:"key"`
-	Key2 *string `pulumi:"key2"`
-	Name string `pulumi:"name"`
-	TrustedOrigins []string `pulumi:"trustedOrigins"`
-	V1Allowed *bool `pulumi:"v1Allowed"`
-	V3Allowed *bool `pulumi:"v3Allowed"`
+	Enabled                       *bool    `pulumi:"enabled"`
+	EnhancedAuthenticationEnabled *bool    `pulumi:"enhancedAuthenticationEnabled"`
+	Id                            *string  `pulumi:"id"`
+	Key                           *string  `pulumi:"key"`
+	Key2                          *string  `pulumi:"key2"`
+	Name                          string   `pulumi:"name"`
+	TrustedOrigins                []string `pulumi:"trustedOrigins"`
+	V1Allowed                     *bool    `pulumi:"v1Allowed"`
+	V3Allowed                     *bool    `pulumi:"v3Allowed"`
 }
 
 type ChannelDirectLineSiteInput interface {
@@ -31,15 +31,15 @@ type ChannelDirectLineSiteInput interface {
 }
 
 type ChannelDirectLineSiteArgs struct {
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	EnhancedAuthenticationEnabled pulumi.BoolPtrInput `pulumi:"enhancedAuthenticationEnabled"`
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	Key2 pulumi.StringPtrInput `pulumi:"key2"`
-	Name pulumi.StringInput `pulumi:"name"`
-	TrustedOrigins pulumi.StringArrayInput `pulumi:"trustedOrigins"`
-	V1Allowed pulumi.BoolPtrInput `pulumi:"v1Allowed"`
-	V3Allowed pulumi.BoolPtrInput `pulumi:"v3Allowed"`
+	Enabled                       pulumi.BoolPtrInput     `pulumi:"enabled"`
+	EnhancedAuthenticationEnabled pulumi.BoolPtrInput     `pulumi:"enhancedAuthenticationEnabled"`
+	Id                            pulumi.StringPtrInput   `pulumi:"id"`
+	Key                           pulumi.StringPtrInput   `pulumi:"key"`
+	Key2                          pulumi.StringPtrInput   `pulumi:"key2"`
+	Name                          pulumi.StringInput      `pulumi:"name"`
+	TrustedOrigins                pulumi.StringArrayInput `pulumi:"trustedOrigins"`
+	V1Allowed                     pulumi.BoolPtrInput     `pulumi:"v1Allowed"`
+	V3Allowed                     pulumi.BoolPtrInput     `pulumi:"v3Allowed"`
 }
 
 func (ChannelDirectLineSiteArgs) ElementType() reflect.Type {
@@ -75,7 +75,7 @@ func (i ChannelDirectLineSiteArray) ToChannelDirectLineSiteArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDirectLineSiteArrayOutput)
 }
 
-type ChannelDirectLineSiteOutput struct { *pulumi.OutputState }
+type ChannelDirectLineSiteOutput struct{ *pulumi.OutputState }
 
 func (ChannelDirectLineSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ChannelDirectLineSite)(nil)).Elem()
@@ -90,42 +90,42 @@ func (o ChannelDirectLineSiteOutput) ToChannelDirectLineSiteOutputWithContext(ct
 }
 
 func (o ChannelDirectLineSiteOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ChannelDirectLineSite) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ChannelDirectLineSite) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o ChannelDirectLineSiteOutput) EnhancedAuthenticationEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ChannelDirectLineSite) *bool { return v.EnhancedAuthenticationEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ChannelDirectLineSite) *bool { return v.EnhancedAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o ChannelDirectLineSiteOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ChannelDirectLineSite) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ChannelDirectLineSite) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o ChannelDirectLineSiteOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ChannelDirectLineSite) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ChannelDirectLineSite) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 func (o ChannelDirectLineSiteOutput) Key2() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ChannelDirectLineSite) *string { return v.Key2 }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ChannelDirectLineSite) *string { return v.Key2 }).(pulumi.StringPtrOutput)
 }
 
 func (o ChannelDirectLineSiteOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ChannelDirectLineSite) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ChannelDirectLineSite) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o ChannelDirectLineSiteOutput) TrustedOrigins() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ChannelDirectLineSite) []string { return v.TrustedOrigins }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ChannelDirectLineSite) []string { return v.TrustedOrigins }).(pulumi.StringArrayOutput)
 }
 
 func (o ChannelDirectLineSiteOutput) V1Allowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ChannelDirectLineSite) *bool { return v.V1Allowed }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ChannelDirectLineSite) *bool { return v.V1Allowed }).(pulumi.BoolPtrOutput)
 }
 
 func (o ChannelDirectLineSiteOutput) V3Allowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ChannelDirectLineSite) *bool { return v.V3Allowed }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ChannelDirectLineSite) *bool { return v.V3Allowed }).(pulumi.BoolPtrOutput)
 }
 
-type ChannelDirectLineSiteArrayOutput struct { *pulumi.OutputState}
+type ChannelDirectLineSiteArrayOutput struct{ *pulumi.OutputState }
 
 func (ChannelDirectLineSiteArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ChannelDirectLineSite)(nil)).Elem()
@@ -140,7 +140,7 @@ func (o ChannelDirectLineSiteArrayOutput) ToChannelDirectLineSiteArrayOutputWith
 }
 
 func (o ChannelDirectLineSiteArrayOutput) Index(i pulumi.IntInput) ChannelDirectLineSiteOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ChannelDirectLineSite {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelDirectLineSite {
 		return vs[0].([]ChannelDirectLineSite)[vs[1].(int)]
 	}).(ChannelDirectLineSiteOutput)
 }

@@ -12,18 +12,29 @@ import (
 )
 
 type GroupContainer struct {
+	// A list of commands which should be run on the container. Changing this forces a new resource to be created.
 	Commands []string `pulumi:"commands"`
+	// The required number of CPU cores of the containers. Changing this forces a new resource to be created.
 	Cpu float64 `pulumi:"cpu"`
+	// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
+	// A `gpu` block as defined below. Changing this forces a new resource to be created.
 	Gpu *GroupContainerGpu `pulumi:"gpu"`
+	// The container image name. Changing this forces a new resource to be created.
 	Image string `pulumi:"image"`
+	// The definition of a readiness probe for this container as documented in the `livenessProbe` block below. Changing this forces a new resource to be created.
 	LivenessProbe *GroupContainerLivenessProbe `pulumi:"livenessProbe"`
+	// The required memory of the containers in GB. Changing this forces a new resource to be created.
 	Memory float64 `pulumi:"memory"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
+	// A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
 	Ports []GroupContainerPort `pulumi:"ports"`
+	// The definition of a readiness probe for this container as documented in the `readinessProbe` block below. Changing this forces a new resource to be created.
 	ReadinessProbe *GroupContainerReadinessProbe `pulumi:"readinessProbe"`
+	// A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	SecureEnvironmentVariables map[string]string `pulumi:"secureEnvironmentVariables"`
+	// The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
 	Volumes []GroupContainerVolume `pulumi:"volumes"`
 }
 
@@ -35,18 +46,29 @@ type GroupContainerInput interface {
 }
 
 type GroupContainerArgs struct {
+	// A list of commands which should be run on the container. Changing this forces a new resource to be created.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// The required number of CPU cores of the containers. Changing this forces a new resource to be created.
 	Cpu pulumi.Float64Input `pulumi:"cpu"`
+	// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
+	// A `gpu` block as defined below. Changing this forces a new resource to be created.
 	Gpu GroupContainerGpuPtrInput `pulumi:"gpu"`
+	// The container image name. Changing this forces a new resource to be created.
 	Image pulumi.StringInput `pulumi:"image"`
+	// The definition of a readiness probe for this container as documented in the `livenessProbe` block below. Changing this forces a new resource to be created.
 	LivenessProbe GroupContainerLivenessProbePtrInput `pulumi:"livenessProbe"`
+	// The required memory of the containers in GB. Changing this forces a new resource to be created.
 	Memory pulumi.Float64Input `pulumi:"memory"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
+	// A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
 	Ports GroupContainerPortArrayInput `pulumi:"ports"`
+	// The definition of a readiness probe for this container as documented in the `readinessProbe` block below. Changing this forces a new resource to be created.
 	ReadinessProbe GroupContainerReadinessProbePtrInput `pulumi:"readinessProbe"`
+	// A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	SecureEnvironmentVariables pulumi.StringMapInput `pulumi:"secureEnvironmentVariables"`
+	// The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
 	Volumes GroupContainerVolumeArrayInput `pulumi:"volumes"`
 }
 
@@ -83,7 +105,7 @@ func (i GroupContainerArray) ToGroupContainerArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerArrayOutput)
 }
 
-type GroupContainerOutput struct { *pulumi.OutputState }
+type GroupContainerOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupContainer)(nil)).Elem()
@@ -97,56 +119,67 @@ func (o GroupContainerOutput) ToGroupContainerOutputWithContext(ctx context.Cont
 	return o
 }
 
+// A list of commands which should be run on the container. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) Commands() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GroupContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GroupContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
+// The required number of CPU cores of the containers. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) Cpu() pulumi.Float64Output {
-	return o.ApplyT(func (v GroupContainer) float64 { return v.Cpu }).(pulumi.Float64Output)
+	return o.ApplyT(func(v GroupContainer) float64 { return v.Cpu }).(pulumi.Float64Output)
 }
 
+// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) EnvironmentVariables() pulumi.StringMapOutput {
-	return o.ApplyT(func (v GroupContainer) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v GroupContainer) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
+// A `gpu` block as defined below. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) Gpu() GroupContainerGpuPtrOutput {
-	return o.ApplyT(func (v GroupContainer) *GroupContainerGpu { return v.Gpu }).(GroupContainerGpuPtrOutput)
+	return o.ApplyT(func(v GroupContainer) *GroupContainerGpu { return v.Gpu }).(GroupContainerGpuPtrOutput)
 }
 
+// The container image name. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) Image() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupContainer) string { return v.Image }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
+// The definition of a readiness probe for this container as documented in the `livenessProbe` block below. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) LivenessProbe() GroupContainerLivenessProbePtrOutput {
-	return o.ApplyT(func (v GroupContainer) *GroupContainerLivenessProbe { return v.LivenessProbe }).(GroupContainerLivenessProbePtrOutput)
+	return o.ApplyT(func(v GroupContainer) *GroupContainerLivenessProbe { return v.LivenessProbe }).(GroupContainerLivenessProbePtrOutput)
 }
 
+// The required memory of the containers in GB. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) Memory() pulumi.Float64Output {
-	return o.ApplyT(func (v GroupContainer) float64 { return v.Memory }).(pulumi.Float64Output)
+	return o.ApplyT(func(v GroupContainer) float64 { return v.Memory }).(pulumi.Float64Output)
 }
 
 // Specifies the name of the Container Group. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupContainer) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupContainer) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
 func (o GroupContainerOutput) Ports() GroupContainerPortArrayOutput {
-	return o.ApplyT(func (v GroupContainer) []GroupContainerPort { return v.Ports }).(GroupContainerPortArrayOutput)
+	return o.ApplyT(func(v GroupContainer) []GroupContainerPort { return v.Ports }).(GroupContainerPortArrayOutput)
 }
 
+// The definition of a readiness probe for this container as documented in the `readinessProbe` block below. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) ReadinessProbe() GroupContainerReadinessProbePtrOutput {
-	return o.ApplyT(func (v GroupContainer) *GroupContainerReadinessProbe { return v.ReadinessProbe }).(GroupContainerReadinessProbePtrOutput)
+	return o.ApplyT(func(v GroupContainer) *GroupContainerReadinessProbe { return v.ReadinessProbe }).(GroupContainerReadinessProbePtrOutput)
 }
 
+// A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) SecureEnvironmentVariables() pulumi.StringMapOutput {
-	return o.ApplyT(func (v GroupContainer) map[string]string { return v.SecureEnvironmentVariables }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v GroupContainer) map[string]string { return v.SecureEnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
+// The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) Volumes() GroupContainerVolumeArrayOutput {
-	return o.ApplyT(func (v GroupContainer) []GroupContainerVolume { return v.Volumes }).(GroupContainerVolumeArrayOutput)
+	return o.ApplyT(func(v GroupContainer) []GroupContainerVolume { return v.Volumes }).(GroupContainerVolumeArrayOutput)
 }
 
-type GroupContainerArrayOutput struct { *pulumi.OutputState}
+type GroupContainerArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GroupContainer)(nil)).Elem()
@@ -161,13 +194,15 @@ func (o GroupContainerArrayOutput) ToGroupContainerArrayOutputWithContext(ctx co
 }
 
 func (o GroupContainerArrayOutput) Index(i pulumi.IntInput) GroupContainerOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GroupContainer {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupContainer {
 		return vs[0].([]GroupContainer)[vs[1].(int)]
 	}).(GroupContainerOutput)
 }
 
 type GroupContainerGpu struct {
+	// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
 	Count *int `pulumi:"count"`
+	// The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
 }
 
@@ -179,7 +214,9 @@ type GroupContainerGpuInput interface {
 }
 
 type GroupContainerGpuArgs struct {
+	// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
 	Count pulumi.IntPtrInput `pulumi:"count"`
+	// The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput `pulumi:"sku"`
 }
 
@@ -212,7 +249,8 @@ type GroupContainerGpuPtrInput interface {
 
 type groupContainerGpuPtrType GroupContainerGpuArgs
 
-func GroupContainerGpuPtr(v *GroupContainerGpuArgs) GroupContainerGpuPtrInput {	return (*groupContainerGpuPtrType)(v)
+func GroupContainerGpuPtr(v *GroupContainerGpuArgs) GroupContainerGpuPtrInput {
+	return (*groupContainerGpuPtrType)(v)
 }
 
 func (*groupContainerGpuPtrType) ElementType() reflect.Type {
@@ -227,7 +265,7 @@ func (i *groupContainerGpuPtrType) ToGroupContainerGpuPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerGpuPtrOutput)
 }
 
-type GroupContainerGpuOutput struct { *pulumi.OutputState }
+type GroupContainerGpuOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerGpuOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupContainerGpu)(nil)).Elem()
@@ -250,15 +288,18 @@ func (o GroupContainerGpuOutput) ToGroupContainerGpuPtrOutputWithContext(ctx con
 		return &v
 	}).(GroupContainerGpuPtrOutput)
 }
+
+// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
 func (o GroupContainerGpuOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerGpu) *int { return v.Count }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerGpu) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
+// The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
 func (o GroupContainerGpuOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupContainerGpu) *string { return v.Sku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupContainerGpu) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
-type GroupContainerGpuPtrOutput struct { *pulumi.OutputState}
+type GroupContainerGpuPtrOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerGpuPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupContainerGpu)(nil)).Elem()
@@ -273,24 +314,33 @@ func (o GroupContainerGpuPtrOutput) ToGroupContainerGpuPtrOutputWithContext(ctx 
 }
 
 func (o GroupContainerGpuPtrOutput) Elem() GroupContainerGpuOutput {
-	return o.ApplyT(func (v *GroupContainerGpu) GroupContainerGpu { return *v }).(GroupContainerGpuOutput)
+	return o.ApplyT(func(v *GroupContainerGpu) GroupContainerGpu { return *v }).(GroupContainerGpuOutput)
 }
 
+// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
 func (o GroupContainerGpuPtrOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerGpu) *int { return v.Count }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerGpu) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
+// The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
 func (o GroupContainerGpuPtrOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupContainerGpu) *string { return v.Sku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupContainerGpu) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
 type GroupContainerLivenessProbe struct {
+	// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
 	Execs []string `pulumi:"execs"`
+	// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
 	FailureThreshold *int `pulumi:"failureThreshold"`
+	// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
 	HttpGets []GroupContainerLivenessProbeHttpGet `pulumi:"httpGets"`
+	// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
 	InitialDelaySeconds *int `pulumi:"initialDelaySeconds"`
+	// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
 	PeriodSeconds *int `pulumi:"periodSeconds"`
+	// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
 	SuccessThreshold *int `pulumi:"successThreshold"`
+	// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
 	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
 }
 
@@ -302,12 +352,19 @@ type GroupContainerLivenessProbeInput interface {
 }
 
 type GroupContainerLivenessProbeArgs struct {
+	// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
 	Execs pulumi.StringArrayInput `pulumi:"execs"`
+	// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
 	FailureThreshold pulumi.IntPtrInput `pulumi:"failureThreshold"`
+	// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
 	HttpGets GroupContainerLivenessProbeHttpGetArrayInput `pulumi:"httpGets"`
+	// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
 	InitialDelaySeconds pulumi.IntPtrInput `pulumi:"initialDelaySeconds"`
+	// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
 	PeriodSeconds pulumi.IntPtrInput `pulumi:"periodSeconds"`
+	// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
 	SuccessThreshold pulumi.IntPtrInput `pulumi:"successThreshold"`
+	// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
 	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
 }
 
@@ -340,7 +397,8 @@ type GroupContainerLivenessProbePtrInput interface {
 
 type groupContainerLivenessProbePtrType GroupContainerLivenessProbeArgs
 
-func GroupContainerLivenessProbePtr(v *GroupContainerLivenessProbeArgs) GroupContainerLivenessProbePtrInput {	return (*groupContainerLivenessProbePtrType)(v)
+func GroupContainerLivenessProbePtr(v *GroupContainerLivenessProbeArgs) GroupContainerLivenessProbePtrInput {
+	return (*groupContainerLivenessProbePtrType)(v)
 }
 
 func (*groupContainerLivenessProbePtrType) ElementType() reflect.Type {
@@ -355,7 +413,7 @@ func (i *groupContainerLivenessProbePtrType) ToGroupContainerLivenessProbePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerLivenessProbePtrOutput)
 }
 
-type GroupContainerLivenessProbeOutput struct { *pulumi.OutputState }
+type GroupContainerLivenessProbeOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerLivenessProbeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupContainerLivenessProbe)(nil)).Elem()
@@ -378,35 +436,43 @@ func (o GroupContainerLivenessProbeOutput) ToGroupContainerLivenessProbePtrOutpu
 		return &v
 	}).(GroupContainerLivenessProbePtrOutput)
 }
+
+// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbeOutput) Execs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
 }
 
+// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbeOutput) FailureThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
 }
 
+// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbeOutput) HttpGets() GroupContainerLivenessProbeHttpGetArrayOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) []GroupContainerLivenessProbeHttpGet { return v.HttpGets }).(GroupContainerLivenessProbeHttpGetArrayOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) []GroupContainerLivenessProbeHttpGet { return v.HttpGets }).(GroupContainerLivenessProbeHttpGetArrayOutput)
 }
 
+// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbeOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
 }
 
+// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbeOutput) PeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbeOutput) SuccessThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbeOutput) TimeoutSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
-type GroupContainerLivenessProbePtrOutput struct { *pulumi.OutputState}
+type GroupContainerLivenessProbePtrOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerLivenessProbePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupContainerLivenessProbe)(nil)).Elem()
@@ -421,40 +487,50 @@ func (o GroupContainerLivenessProbePtrOutput) ToGroupContainerLivenessProbePtrOu
 }
 
 func (o GroupContainerLivenessProbePtrOutput) Elem() GroupContainerLivenessProbeOutput {
-	return o.ApplyT(func (v *GroupContainerLivenessProbe) GroupContainerLivenessProbe { return *v }).(GroupContainerLivenessProbeOutput)
+	return o.ApplyT(func(v *GroupContainerLivenessProbe) GroupContainerLivenessProbe { return *v }).(GroupContainerLivenessProbeOutput)
 }
 
+// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbePtrOutput) Execs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
 }
 
+// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
 }
 
+// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbePtrOutput) HttpGets() GroupContainerLivenessProbeHttpGetArrayOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) []GroupContainerLivenessProbeHttpGet { return v.HttpGets }).(GroupContainerLivenessProbeHttpGetArrayOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) []GroupContainerLivenessProbeHttpGet { return v.HttpGets }).(GroupContainerLivenessProbeHttpGetArrayOutput)
 }
 
+// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
 }
 
+// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
 type GroupContainerLivenessProbeHttpGet struct {
+	// Path to access on the HTTP server. Changing this forces a new resource to be created.
 	Path *string `pulumi:"path"`
+	// The port number the container will expose. Changing this forces a new resource to be created.
 	Port *int `pulumi:"port"`
+	// Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
 	Scheme *string `pulumi:"scheme"`
 }
 
@@ -466,8 +542,11 @@ type GroupContainerLivenessProbeHttpGetInput interface {
 }
 
 type GroupContainerLivenessProbeHttpGetArgs struct {
+	// Path to access on the HTTP server. Changing this forces a new resource to be created.
 	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number the container will expose. Changing this forces a new resource to be created.
 	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
 	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
 }
 
@@ -504,7 +583,7 @@ func (i GroupContainerLivenessProbeHttpGetArray) ToGroupContainerLivenessProbeHt
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerLivenessProbeHttpGetArrayOutput)
 }
 
-type GroupContainerLivenessProbeHttpGetOutput struct { *pulumi.OutputState }
+type GroupContainerLivenessProbeHttpGetOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerLivenessProbeHttpGetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupContainerLivenessProbeHttpGet)(nil)).Elem()
@@ -518,19 +597,22 @@ func (o GroupContainerLivenessProbeHttpGetOutput) ToGroupContainerLivenessProbeH
 	return o
 }
 
+// Path to access on the HTTP server. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbeHttpGetOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbeHttpGet) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbeHttpGet) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port number the container will expose. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbeHttpGetOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbeHttpGet) *int { return v.Port }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbeHttpGet) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbeHttpGetOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupContainerLivenessProbeHttpGet) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupContainerLivenessProbeHttpGet) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
 
-type GroupContainerLivenessProbeHttpGetArrayOutput struct { *pulumi.OutputState}
+type GroupContainerLivenessProbeHttpGetArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerLivenessProbeHttpGetArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GroupContainerLivenessProbeHttpGet)(nil)).Elem()
@@ -545,13 +627,15 @@ func (o GroupContainerLivenessProbeHttpGetArrayOutput) ToGroupContainerLivenessP
 }
 
 func (o GroupContainerLivenessProbeHttpGetArrayOutput) Index(i pulumi.IntInput) GroupContainerLivenessProbeHttpGetOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GroupContainerLivenessProbeHttpGet {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupContainerLivenessProbeHttpGet {
 		return vs[0].([]GroupContainerLivenessProbeHttpGet)[vs[1].(int)]
 	}).(GroupContainerLivenessProbeHttpGetOutput)
 }
 
 type GroupContainerPort struct {
+	// The port number the container will expose. Changing this forces a new resource to be created.
 	Port *int `pulumi:"port"`
+	// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
 	Protocol *string `pulumi:"protocol"`
 }
 
@@ -563,7 +647,9 @@ type GroupContainerPortInput interface {
 }
 
 type GroupContainerPortArgs struct {
+	// The port number the container will expose. Changing this forces a new resource to be created.
 	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
@@ -600,7 +686,7 @@ func (i GroupContainerPortArray) ToGroupContainerPortArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerPortArrayOutput)
 }
 
-type GroupContainerPortOutput struct { *pulumi.OutputState }
+type GroupContainerPortOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerPortOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupContainerPort)(nil)).Elem()
@@ -614,15 +700,17 @@ func (o GroupContainerPortOutput) ToGroupContainerPortOutputWithContext(ctx cont
 	return o
 }
 
+// The port number the container will expose. Changing this forces a new resource to be created.
 func (o GroupContainerPortOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerPort) *int { return v.Port }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerPort) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
 func (o GroupContainerPortOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupContainerPort) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupContainerPort) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-type GroupContainerPortArrayOutput struct { *pulumi.OutputState}
+type GroupContainerPortArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerPortArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GroupContainerPort)(nil)).Elem()
@@ -637,18 +725,25 @@ func (o GroupContainerPortArrayOutput) ToGroupContainerPortArrayOutputWithContex
 }
 
 func (o GroupContainerPortArrayOutput) Index(i pulumi.IntInput) GroupContainerPortOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GroupContainerPort {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupContainerPort {
 		return vs[0].([]GroupContainerPort)[vs[1].(int)]
 	}).(GroupContainerPortOutput)
 }
 
 type GroupContainerReadinessProbe struct {
+	// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
 	Execs []string `pulumi:"execs"`
+	// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
 	FailureThreshold *int `pulumi:"failureThreshold"`
+	// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
 	HttpGets []GroupContainerReadinessProbeHttpGet `pulumi:"httpGets"`
+	// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
 	InitialDelaySeconds *int `pulumi:"initialDelaySeconds"`
+	// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
 	PeriodSeconds *int `pulumi:"periodSeconds"`
+	// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
 	SuccessThreshold *int `pulumi:"successThreshold"`
+	// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
 	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
 }
 
@@ -660,12 +755,19 @@ type GroupContainerReadinessProbeInput interface {
 }
 
 type GroupContainerReadinessProbeArgs struct {
+	// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
 	Execs pulumi.StringArrayInput `pulumi:"execs"`
+	// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
 	FailureThreshold pulumi.IntPtrInput `pulumi:"failureThreshold"`
+	// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
 	HttpGets GroupContainerReadinessProbeHttpGetArrayInput `pulumi:"httpGets"`
+	// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
 	InitialDelaySeconds pulumi.IntPtrInput `pulumi:"initialDelaySeconds"`
+	// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
 	PeriodSeconds pulumi.IntPtrInput `pulumi:"periodSeconds"`
+	// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
 	SuccessThreshold pulumi.IntPtrInput `pulumi:"successThreshold"`
+	// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
 	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
 }
 
@@ -698,7 +800,8 @@ type GroupContainerReadinessProbePtrInput interface {
 
 type groupContainerReadinessProbePtrType GroupContainerReadinessProbeArgs
 
-func GroupContainerReadinessProbePtr(v *GroupContainerReadinessProbeArgs) GroupContainerReadinessProbePtrInput {	return (*groupContainerReadinessProbePtrType)(v)
+func GroupContainerReadinessProbePtr(v *GroupContainerReadinessProbeArgs) GroupContainerReadinessProbePtrInput {
+	return (*groupContainerReadinessProbePtrType)(v)
 }
 
 func (*groupContainerReadinessProbePtrType) ElementType() reflect.Type {
@@ -713,7 +816,7 @@ func (i *groupContainerReadinessProbePtrType) ToGroupContainerReadinessProbePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerReadinessProbePtrOutput)
 }
 
-type GroupContainerReadinessProbeOutput struct { *pulumi.OutputState }
+type GroupContainerReadinessProbeOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerReadinessProbeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupContainerReadinessProbe)(nil)).Elem()
@@ -736,35 +839,43 @@ func (o GroupContainerReadinessProbeOutput) ToGroupContainerReadinessProbePtrOut
 		return &v
 	}).(GroupContainerReadinessProbePtrOutput)
 }
+
+// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbeOutput) Execs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
 }
 
+// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbeOutput) FailureThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
 }
 
+// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbeOutput) HttpGets() GroupContainerReadinessProbeHttpGetArrayOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) []GroupContainerReadinessProbeHttpGet { return v.HttpGets }).(GroupContainerReadinessProbeHttpGetArrayOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) []GroupContainerReadinessProbeHttpGet { return v.HttpGets }).(GroupContainerReadinessProbeHttpGetArrayOutput)
 }
 
+// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbeOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
 }
 
+// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbeOutput) PeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbeOutput) SuccessThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbeOutput) TimeoutSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
-type GroupContainerReadinessProbePtrOutput struct { *pulumi.OutputState}
+type GroupContainerReadinessProbePtrOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerReadinessProbePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupContainerReadinessProbe)(nil)).Elem()
@@ -779,40 +890,50 @@ func (o GroupContainerReadinessProbePtrOutput) ToGroupContainerReadinessProbePtr
 }
 
 func (o GroupContainerReadinessProbePtrOutput) Elem() GroupContainerReadinessProbeOutput {
-	return o.ApplyT(func (v *GroupContainerReadinessProbe) GroupContainerReadinessProbe { return *v }).(GroupContainerReadinessProbeOutput)
+	return o.ApplyT(func(v *GroupContainerReadinessProbe) GroupContainerReadinessProbe { return *v }).(GroupContainerReadinessProbeOutput)
 }
 
+// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbePtrOutput) Execs() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
 }
 
+// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
 }
 
+// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbePtrOutput) HttpGets() GroupContainerReadinessProbeHttpGetArrayOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) []GroupContainerReadinessProbeHttpGet { return v.HttpGets }).(GroupContainerReadinessProbeHttpGetArrayOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) []GroupContainerReadinessProbeHttpGet { return v.HttpGets }).(GroupContainerReadinessProbeHttpGetArrayOutput)
 }
 
+// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
 }
 
+// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
 type GroupContainerReadinessProbeHttpGet struct {
+	// Path to access on the HTTP server. Changing this forces a new resource to be created.
 	Path *string `pulumi:"path"`
+	// The port number the container will expose. Changing this forces a new resource to be created.
 	Port *int `pulumi:"port"`
+	// Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
 	Scheme *string `pulumi:"scheme"`
 }
 
@@ -824,8 +945,11 @@ type GroupContainerReadinessProbeHttpGetInput interface {
 }
 
 type GroupContainerReadinessProbeHttpGetArgs struct {
+	// Path to access on the HTTP server. Changing this forces a new resource to be created.
 	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number the container will expose. Changing this forces a new resource to be created.
 	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
 	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
 }
 
@@ -862,7 +986,7 @@ func (i GroupContainerReadinessProbeHttpGetArray) ToGroupContainerReadinessProbe
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerReadinessProbeHttpGetArrayOutput)
 }
 
-type GroupContainerReadinessProbeHttpGetOutput struct { *pulumi.OutputState }
+type GroupContainerReadinessProbeHttpGetOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerReadinessProbeHttpGetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupContainerReadinessProbeHttpGet)(nil)).Elem()
@@ -876,19 +1000,22 @@ func (o GroupContainerReadinessProbeHttpGetOutput) ToGroupContainerReadinessProb
 	return o
 }
 
+// Path to access on the HTTP server. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbeHttpGetOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbeHttpGet) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbeHttpGet) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port number the container will expose. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbeHttpGetOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbeHttpGet) *int { return v.Port }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbeHttpGet) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbeHttpGetOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupContainerReadinessProbeHttpGet) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupContainerReadinessProbeHttpGet) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
 
-type GroupContainerReadinessProbeHttpGetArrayOutput struct { *pulumi.OutputState}
+type GroupContainerReadinessProbeHttpGetArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerReadinessProbeHttpGetArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GroupContainerReadinessProbeHttpGet)(nil)).Elem()
@@ -903,18 +1030,23 @@ func (o GroupContainerReadinessProbeHttpGetArrayOutput) ToGroupContainerReadines
 }
 
 func (o GroupContainerReadinessProbeHttpGetArrayOutput) Index(i pulumi.IntInput) GroupContainerReadinessProbeHttpGetOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GroupContainerReadinessProbeHttpGet {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupContainerReadinessProbeHttpGet {
 		return vs[0].([]GroupContainerReadinessProbeHttpGet)[vs[1].(int)]
 	}).(GroupContainerReadinessProbeHttpGetOutput)
 }
 
 type GroupContainerVolume struct {
+	// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
 	MountPath string `pulumi:"mountPath"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
+	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
 	ReadOnly *bool `pulumi:"readOnly"`
+	// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
 	ShareName string `pulumi:"shareName"`
+	// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
 	StorageAccountKey string `pulumi:"storageAccountKey"`
+	// The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
 	StorageAccountName string `pulumi:"storageAccountName"`
 }
 
@@ -926,12 +1058,17 @@ type GroupContainerVolumeInput interface {
 }
 
 type GroupContainerVolumeArgs struct {
+	// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
 	MountPath pulumi.StringInput `pulumi:"mountPath"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
 	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+	// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
 	ShareName pulumi.StringInput `pulumi:"shareName"`
+	// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
+	// The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
 }
 
@@ -968,7 +1105,7 @@ func (i GroupContainerVolumeArray) ToGroupContainerVolumeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerVolumeArrayOutput)
 }
 
-type GroupContainerVolumeOutput struct { *pulumi.OutputState }
+type GroupContainerVolumeOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerVolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupContainerVolume)(nil)).Elem()
@@ -982,32 +1119,37 @@ func (o GroupContainerVolumeOutput) ToGroupContainerVolumeOutputWithContext(ctx 
 	return o
 }
 
+// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
 func (o GroupContainerVolumeOutput) MountPath() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupContainerVolume) string { return v.MountPath }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupContainerVolume) string { return v.MountPath }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Container Group. Changing this forces a new resource to be created.
 func (o GroupContainerVolumeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupContainerVolume) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupContainerVolume) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
 func (o GroupContainerVolumeOutput) ReadOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v GroupContainerVolume) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v GroupContainerVolume) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
+// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
 func (o GroupContainerVolumeOutput) ShareName() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupContainerVolume) string { return v.ShareName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupContainerVolume) string { return v.ShareName }).(pulumi.StringOutput)
 }
 
+// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
 func (o GroupContainerVolumeOutput) StorageAccountKey() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupContainerVolume) string { return v.StorageAccountKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupContainerVolume) string { return v.StorageAccountKey }).(pulumi.StringOutput)
 }
 
+// The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
 func (o GroupContainerVolumeOutput) StorageAccountName() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupContainerVolume) string { return v.StorageAccountName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupContainerVolume) string { return v.StorageAccountName }).(pulumi.StringOutput)
 }
 
-type GroupContainerVolumeArrayOutput struct { *pulumi.OutputState}
+type GroupContainerVolumeArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerVolumeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GroupContainerVolume)(nil)).Elem()
@@ -1022,12 +1164,13 @@ func (o GroupContainerVolumeArrayOutput) ToGroupContainerVolumeArrayOutputWithCo
 }
 
 func (o GroupContainerVolumeArrayOutput) Index(i pulumi.IntInput) GroupContainerVolumeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GroupContainerVolume {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupContainerVolume {
 		return vs[0].([]GroupContainerVolume)[vs[1].(int)]
 	}).(GroupContainerVolumeOutput)
 }
 
 type GroupDiagnostics struct {
+	// A `logAnalytics` block as defined below. Changing this forces a new resource to be created.
 	LogAnalytics GroupDiagnosticsLogAnalytics `pulumi:"logAnalytics"`
 }
 
@@ -1039,6 +1182,7 @@ type GroupDiagnosticsInput interface {
 }
 
 type GroupDiagnosticsArgs struct {
+	// A `logAnalytics` block as defined below. Changing this forces a new resource to be created.
 	LogAnalytics GroupDiagnosticsLogAnalyticsInput `pulumi:"logAnalytics"`
 }
 
@@ -1071,7 +1215,8 @@ type GroupDiagnosticsPtrInput interface {
 
 type groupDiagnosticsPtrType GroupDiagnosticsArgs
 
-func GroupDiagnosticsPtr(v *GroupDiagnosticsArgs) GroupDiagnosticsPtrInput {	return (*groupDiagnosticsPtrType)(v)
+func GroupDiagnosticsPtr(v *GroupDiagnosticsArgs) GroupDiagnosticsPtrInput {
+	return (*groupDiagnosticsPtrType)(v)
 }
 
 func (*groupDiagnosticsPtrType) ElementType() reflect.Type {
@@ -1086,7 +1231,7 @@ func (i *groupDiagnosticsPtrType) ToGroupDiagnosticsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(GroupDiagnosticsPtrOutput)
 }
 
-type GroupDiagnosticsOutput struct { *pulumi.OutputState }
+type GroupDiagnosticsOutput struct{ *pulumi.OutputState }
 
 func (GroupDiagnosticsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupDiagnostics)(nil)).Elem()
@@ -1109,11 +1254,13 @@ func (o GroupDiagnosticsOutput) ToGroupDiagnosticsPtrOutputWithContext(ctx conte
 		return &v
 	}).(GroupDiagnosticsPtrOutput)
 }
+
+// A `logAnalytics` block as defined below. Changing this forces a new resource to be created.
 func (o GroupDiagnosticsOutput) LogAnalytics() GroupDiagnosticsLogAnalyticsOutput {
-	return o.ApplyT(func (v GroupDiagnostics) GroupDiagnosticsLogAnalytics { return v.LogAnalytics }).(GroupDiagnosticsLogAnalyticsOutput)
+	return o.ApplyT(func(v GroupDiagnostics) GroupDiagnosticsLogAnalytics { return v.LogAnalytics }).(GroupDiagnosticsLogAnalyticsOutput)
 }
 
-type GroupDiagnosticsPtrOutput struct { *pulumi.OutputState}
+type GroupDiagnosticsPtrOutput struct{ *pulumi.OutputState }
 
 func (GroupDiagnosticsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupDiagnostics)(nil)).Elem()
@@ -1128,17 +1275,22 @@ func (o GroupDiagnosticsPtrOutput) ToGroupDiagnosticsPtrOutputWithContext(ctx co
 }
 
 func (o GroupDiagnosticsPtrOutput) Elem() GroupDiagnosticsOutput {
-	return o.ApplyT(func (v *GroupDiagnostics) GroupDiagnostics { return *v }).(GroupDiagnosticsOutput)
+	return o.ApplyT(func(v *GroupDiagnostics) GroupDiagnostics { return *v }).(GroupDiagnosticsOutput)
 }
 
+// A `logAnalytics` block as defined below. Changing this forces a new resource to be created.
 func (o GroupDiagnosticsPtrOutput) LogAnalytics() GroupDiagnosticsLogAnalyticsOutput {
-	return o.ApplyT(func (v GroupDiagnostics) GroupDiagnosticsLogAnalytics { return v.LogAnalytics }).(GroupDiagnosticsLogAnalyticsOutput)
+	return o.ApplyT(func(v GroupDiagnostics) GroupDiagnosticsLogAnalytics { return v.LogAnalytics }).(GroupDiagnosticsLogAnalyticsOutput)
 }
 
 type GroupDiagnosticsLogAnalytics struct {
+	// The log type which should be used. Possible values are `ContainerInsights` and `ContainerInstanceLogs`. Changing this forces a new resource to be created.
 	LogType *string `pulumi:"logType"`
+	// Any metadata required for Log Analytics. Changing this forces a new resource to be created.
 	Metadata map[string]string `pulumi:"metadata"`
+	// The Workspace ID of the Log Analytics Workspace. Changing this forces a new resource to be created.
 	WorkspaceId string `pulumi:"workspaceId"`
+	// The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created.
 	WorkspaceKey string `pulumi:"workspaceKey"`
 }
 
@@ -1150,9 +1302,13 @@ type GroupDiagnosticsLogAnalyticsInput interface {
 }
 
 type GroupDiagnosticsLogAnalyticsArgs struct {
+	// The log type which should be used. Possible values are `ContainerInsights` and `ContainerInstanceLogs`. Changing this forces a new resource to be created.
 	LogType pulumi.StringPtrInput `pulumi:"logType"`
+	// Any metadata required for Log Analytics. Changing this forces a new resource to be created.
 	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	// The Workspace ID of the Log Analytics Workspace. Changing this forces a new resource to be created.
 	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+	// The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created.
 	WorkspaceKey pulumi.StringInput `pulumi:"workspaceKey"`
 }
 
@@ -1168,7 +1324,7 @@ func (i GroupDiagnosticsLogAnalyticsArgs) ToGroupDiagnosticsLogAnalyticsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GroupDiagnosticsLogAnalyticsOutput)
 }
 
-type GroupDiagnosticsLogAnalyticsOutput struct { *pulumi.OutputState }
+type GroupDiagnosticsLogAnalyticsOutput struct{ *pulumi.OutputState }
 
 func (GroupDiagnosticsLogAnalyticsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupDiagnosticsLogAnalytics)(nil)).Elem()
@@ -1182,25 +1338,31 @@ func (o GroupDiagnosticsLogAnalyticsOutput) ToGroupDiagnosticsLogAnalyticsOutput
 	return o
 }
 
+// The log type which should be used. Possible values are `ContainerInsights` and `ContainerInstanceLogs`. Changing this forces a new resource to be created.
 func (o GroupDiagnosticsLogAnalyticsOutput) LogType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupDiagnosticsLogAnalytics) *string { return v.LogType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupDiagnosticsLogAnalytics) *string { return v.LogType }).(pulumi.StringPtrOutput)
 }
 
+// Any metadata required for Log Analytics. Changing this forces a new resource to be created.
 func (o GroupDiagnosticsLogAnalyticsOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func (v GroupDiagnosticsLogAnalytics) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v GroupDiagnosticsLogAnalytics) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
 }
 
+// The Workspace ID of the Log Analytics Workspace. Changing this forces a new resource to be created.
 func (o GroupDiagnosticsLogAnalyticsOutput) WorkspaceId() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupDiagnosticsLogAnalytics) string { return v.WorkspaceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupDiagnosticsLogAnalytics) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
+// The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created.
 func (o GroupDiagnosticsLogAnalyticsOutput) WorkspaceKey() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupDiagnosticsLogAnalytics) string { return v.WorkspaceKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupDiagnosticsLogAnalytics) string { return v.WorkspaceKey }).(pulumi.StringOutput)
 }
 
 type GroupIdentity struct {
+	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
 	IdentityIds []string `pulumi:"identityIds"`
-	PrincipalId *string `pulumi:"principalId"`
+	PrincipalId *string  `pulumi:"principalId"`
+	// The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -1212,8 +1374,10 @@ type GroupIdentityInput interface {
 }
 
 type GroupIdentityArgs struct {
+	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	// The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1246,7 +1410,8 @@ type GroupIdentityPtrInput interface {
 
 type groupIdentityPtrType GroupIdentityArgs
 
-func GroupIdentityPtr(v *GroupIdentityArgs) GroupIdentityPtrInput {	return (*groupIdentityPtrType)(v)
+func GroupIdentityPtr(v *GroupIdentityArgs) GroupIdentityPtrInput {
+	return (*groupIdentityPtrType)(v)
 }
 
 func (*groupIdentityPtrType) ElementType() reflect.Type {
@@ -1261,7 +1426,7 @@ func (i *groupIdentityPtrType) ToGroupIdentityPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(GroupIdentityPtrOutput)
 }
 
-type GroupIdentityOutput struct { *pulumi.OutputState }
+type GroupIdentityOutput struct{ *pulumi.OutputState }
 
 func (GroupIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupIdentity)(nil)).Elem()
@@ -1284,19 +1449,22 @@ func (o GroupIdentityOutput) ToGroupIdentityPtrOutputWithContext(ctx context.Con
 		return &v
 	}).(GroupIdentityPtrOutput)
 }
+
+// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
 func (o GroupIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GroupIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GroupIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 func (o GroupIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
 func (o GroupIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type GroupIdentityPtrOutput struct { *pulumi.OutputState}
+type GroupIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (GroupIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupIdentity)(nil)).Elem()
@@ -1311,24 +1479,29 @@ func (o GroupIdentityPtrOutput) ToGroupIdentityPtrOutputWithContext(ctx context.
 }
 
 func (o GroupIdentityPtrOutput) Elem() GroupIdentityOutput {
-	return o.ApplyT(func (v *GroupIdentity) GroupIdentity { return *v }).(GroupIdentityOutput)
+	return o.ApplyT(func(v *GroupIdentity) GroupIdentity { return *v }).(GroupIdentityOutput)
 }
 
+// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
 func (o GroupIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GroupIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GroupIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 func (o GroupIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
 func (o GroupIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type GroupImageRegistryCredential struct {
+	// The password with which to connect to the registry. Changing this forces a new resource to be created.
 	Password string `pulumi:"password"`
+	// The address to use to connect to the registry without protocol ("https"/"http"). For example: "myacr.acr.io". Changing this forces a new resource to be created.
 	Server string `pulumi:"server"`
+	// The username with which to connect to the registry. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
 }
 
@@ -1340,8 +1513,11 @@ type GroupImageRegistryCredentialInput interface {
 }
 
 type GroupImageRegistryCredentialArgs struct {
+	// The password with which to connect to the registry. Changing this forces a new resource to be created.
 	Password pulumi.StringInput `pulumi:"password"`
+	// The address to use to connect to the registry without protocol ("https"/"http"). For example: "myacr.acr.io". Changing this forces a new resource to be created.
 	Server pulumi.StringInput `pulumi:"server"`
+	// The username with which to connect to the registry. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -1378,7 +1554,7 @@ func (i GroupImageRegistryCredentialArray) ToGroupImageRegistryCredentialArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GroupImageRegistryCredentialArrayOutput)
 }
 
-type GroupImageRegistryCredentialOutput struct { *pulumi.OutputState }
+type GroupImageRegistryCredentialOutput struct{ *pulumi.OutputState }
 
 func (GroupImageRegistryCredentialOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupImageRegistryCredential)(nil)).Elem()
@@ -1392,19 +1568,22 @@ func (o GroupImageRegistryCredentialOutput) ToGroupImageRegistryCredentialOutput
 	return o
 }
 
+// The password with which to connect to the registry. Changing this forces a new resource to be created.
 func (o GroupImageRegistryCredentialOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupImageRegistryCredential) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupImageRegistryCredential) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The address to use to connect to the registry without protocol ("https"/"http"). For example: "myacr.acr.io". Changing this forces a new resource to be created.
 func (o GroupImageRegistryCredentialOutput) Server() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupImageRegistryCredential) string { return v.Server }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupImageRegistryCredential) string { return v.Server }).(pulumi.StringOutput)
 }
 
+// The username with which to connect to the registry. Changing this forces a new resource to be created.
 func (o GroupImageRegistryCredentialOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupImageRegistryCredential) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupImageRegistryCredential) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type GroupImageRegistryCredentialArrayOutput struct { *pulumi.OutputState}
+type GroupImageRegistryCredentialArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupImageRegistryCredentialArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GroupImageRegistryCredential)(nil)).Elem()
@@ -1419,17 +1598,21 @@ func (o GroupImageRegistryCredentialArrayOutput) ToGroupImageRegistryCredentialA
 }
 
 func (o GroupImageRegistryCredentialArrayOutput) Index(i pulumi.IntInput) GroupImageRegistryCredentialOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GroupImageRegistryCredential {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupImageRegistryCredential {
 		return vs[0].([]GroupImageRegistryCredential)[vs[1].(int)]
 	}).(GroupImageRegistryCredentialOutput)
 }
 
 type KubernetesClusterAddonProfile struct {
+	// A `aciConnectorLinux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux *KubernetesClusterAddonProfileAciConnectorLinux `pulumi:"aciConnectorLinux"`
+	// A `azurePolicy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
 	AzurePolicy *KubernetesClusterAddonProfileAzurePolicy `pulumi:"azurePolicy"`
 	// A `httpApplicationRouting` block as defined below.
 	HttpApplicationRouting *KubernetesClusterAddonProfileHttpApplicationRouting `pulumi:"httpApplicationRouting"`
+	// A `kubeDashboard` block as defined below.
 	KubeDashboard *KubernetesClusterAddonProfileKubeDashboard `pulumi:"kubeDashboard"`
+	// A `omsAgent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
 	OmsAgent *KubernetesClusterAddonProfileOmsAgent `pulumi:"omsAgent"`
 }
 
@@ -1441,11 +1624,15 @@ type KubernetesClusterAddonProfileInput interface {
 }
 
 type KubernetesClusterAddonProfileArgs struct {
+	// A `aciConnectorLinux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAddonProfileAciConnectorLinuxPtrInput `pulumi:"aciConnectorLinux"`
+	// A `azurePolicy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
 	AzurePolicy KubernetesClusterAddonProfileAzurePolicyPtrInput `pulumi:"azurePolicy"`
 	// A `httpApplicationRouting` block as defined below.
 	HttpApplicationRouting KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput `pulumi:"httpApplicationRouting"`
+	// A `kubeDashboard` block as defined below.
 	KubeDashboard KubernetesClusterAddonProfileKubeDashboardPtrInput `pulumi:"kubeDashboard"`
+	// A `omsAgent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
 	OmsAgent KubernetesClusterAddonProfileOmsAgentPtrInput `pulumi:"omsAgent"`
 }
 
@@ -1478,7 +1665,8 @@ type KubernetesClusterAddonProfilePtrInput interface {
 
 type kubernetesClusterAddonProfilePtrType KubernetesClusterAddonProfileArgs
 
-func KubernetesClusterAddonProfilePtr(v *KubernetesClusterAddonProfileArgs) KubernetesClusterAddonProfilePtrInput {	return (*kubernetesClusterAddonProfilePtrType)(v)
+func KubernetesClusterAddonProfilePtr(v *KubernetesClusterAddonProfileArgs) KubernetesClusterAddonProfilePtrInput {
+	return (*kubernetesClusterAddonProfilePtrType)(v)
 }
 
 func (*kubernetesClusterAddonProfilePtrType) ElementType() reflect.Type {
@@ -1493,7 +1681,7 @@ func (i *kubernetesClusterAddonProfilePtrType) ToKubernetesClusterAddonProfilePt
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfilePtrOutput)
 }
 
-type KubernetesClusterAddonProfileOutput struct { *pulumi.OutputState }
+type KubernetesClusterAddonProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterAddonProfile)(nil)).Elem()
@@ -1516,28 +1704,39 @@ func (o KubernetesClusterAddonProfileOutput) ToKubernetesClusterAddonProfilePtrO
 		return &v
 	}).(KubernetesClusterAddonProfilePtrOutput)
 }
+
+// A `aciConnectorLinux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 func (o KubernetesClusterAddonProfileOutput) AciConnectorLinux() KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAciConnectorLinux { return v.AciConnectorLinux }).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAciConnectorLinux {
+		return v.AciConnectorLinux
+	}).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
 }
 
+// A `azurePolicy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
 func (o KubernetesClusterAddonProfileOutput) AzurePolicy() KubernetesClusterAddonProfileAzurePolicyPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzurePolicy { return v.AzurePolicy }).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzurePolicy { return v.AzurePolicy }).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
 }
 
 // A `httpApplicationRouting` block as defined below.
 func (o KubernetesClusterAddonProfileOutput) HttpApplicationRouting() KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileHttpApplicationRouting { return v.HttpApplicationRouting }).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileHttpApplicationRouting {
+		return v.HttpApplicationRouting
+	}).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
 }
 
+// A `kubeDashboard` block as defined below.
 func (o KubernetesClusterAddonProfileOutput) KubeDashboard() KubernetesClusterAddonProfileKubeDashboardPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileKubeDashboard { return v.KubeDashboard }).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileKubeDashboard {
+		return v.KubeDashboard
+	}).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
 }
 
+// A `omsAgent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
 func (o KubernetesClusterAddonProfileOutput) OmsAgent() KubernetesClusterAddonProfileOmsAgentPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOmsAgent { return v.OmsAgent }).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOmsAgent { return v.OmsAgent }).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
 }
 
-type KubernetesClusterAddonProfilePtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterAddonProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterAddonProfile)(nil)).Elem()
@@ -1552,32 +1751,44 @@ func (o KubernetesClusterAddonProfilePtrOutput) ToKubernetesClusterAddonProfileP
 }
 
 func (o KubernetesClusterAddonProfilePtrOutput) Elem() KubernetesClusterAddonProfileOutput {
-	return o.ApplyT(func (v *KubernetesClusterAddonProfile) KubernetesClusterAddonProfile { return *v }).(KubernetesClusterAddonProfileOutput)
+	return o.ApplyT(func(v *KubernetesClusterAddonProfile) KubernetesClusterAddonProfile { return *v }).(KubernetesClusterAddonProfileOutput)
 }
 
+// A `aciConnectorLinux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 func (o KubernetesClusterAddonProfilePtrOutput) AciConnectorLinux() KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAciConnectorLinux { return v.AciConnectorLinux }).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAciConnectorLinux {
+		return v.AciConnectorLinux
+	}).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
 }
 
+// A `azurePolicy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
 func (o KubernetesClusterAddonProfilePtrOutput) AzurePolicy() KubernetesClusterAddonProfileAzurePolicyPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzurePolicy { return v.AzurePolicy }).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzurePolicy { return v.AzurePolicy }).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
 }
 
 // A `httpApplicationRouting` block as defined below.
 func (o KubernetesClusterAddonProfilePtrOutput) HttpApplicationRouting() KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileHttpApplicationRouting { return v.HttpApplicationRouting }).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileHttpApplicationRouting {
+		return v.HttpApplicationRouting
+	}).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
 }
 
+// A `kubeDashboard` block as defined below.
 func (o KubernetesClusterAddonProfilePtrOutput) KubeDashboard() KubernetesClusterAddonProfileKubeDashboardPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileKubeDashboard { return v.KubeDashboard }).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileKubeDashboard {
+		return v.KubeDashboard
+	}).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
 }
 
+// A `omsAgent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
 func (o KubernetesClusterAddonProfilePtrOutput) OmsAgent() KubernetesClusterAddonProfileOmsAgentPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOmsAgent { return v.OmsAgent }).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOmsAgent { return v.OmsAgent }).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
 }
 
 type KubernetesClusterAddonProfileAciConnectorLinux struct {
+	// Is the virtual node addon enabled?
 	Enabled bool `pulumi:"enabled"`
+	// The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
 	SubnetName *string `pulumi:"subnetName"`
 }
 
@@ -1589,7 +1800,9 @@ type KubernetesClusterAddonProfileAciConnectorLinuxInput interface {
 }
 
 type KubernetesClusterAddonProfileAciConnectorLinuxArgs struct {
+	// Is the virtual node addon enabled?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
 	SubnetName pulumi.StringPtrInput `pulumi:"subnetName"`
 }
 
@@ -1622,7 +1835,8 @@ type KubernetesClusterAddonProfileAciConnectorLinuxPtrInput interface {
 
 type kubernetesClusterAddonProfileAciConnectorLinuxPtrType KubernetesClusterAddonProfileAciConnectorLinuxArgs
 
-func KubernetesClusterAddonProfileAciConnectorLinuxPtr(v *KubernetesClusterAddonProfileAciConnectorLinuxArgs) KubernetesClusterAddonProfileAciConnectorLinuxPtrInput {	return (*kubernetesClusterAddonProfileAciConnectorLinuxPtrType)(v)
+func KubernetesClusterAddonProfileAciConnectorLinuxPtr(v *KubernetesClusterAddonProfileAciConnectorLinuxArgs) KubernetesClusterAddonProfileAciConnectorLinuxPtrInput {
+	return (*kubernetesClusterAddonProfileAciConnectorLinuxPtrType)(v)
 }
 
 func (*kubernetesClusterAddonProfileAciConnectorLinuxPtrType) ElementType() reflect.Type {
@@ -1637,7 +1851,7 @@ func (i *kubernetesClusterAddonProfileAciConnectorLinuxPtrType) ToKubernetesClus
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
 }
 
-type KubernetesClusterAddonProfileAciConnectorLinuxOutput struct { *pulumi.OutputState }
+type KubernetesClusterAddonProfileAciConnectorLinuxOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileAciConnectorLinuxOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterAddonProfileAciConnectorLinux)(nil)).Elem()
@@ -1660,15 +1874,18 @@ func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) ToKubernetesCluste
 		return &v
 	}).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
 }
+
+// Is the virtual node addon enabled?
 func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileAciConnectorLinux) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAciConnectorLinux) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
 func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) SubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileAciConnectorLinux) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAciConnectorLinux) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterAddonProfileAciConnectorLinux)(nil)).Elem()
@@ -1683,18 +1900,23 @@ func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) ToKubernetesClu
 }
 
 func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) Elem() KubernetesClusterAddonProfileAciConnectorLinuxOutput {
-	return o.ApplyT(func (v *KubernetesClusterAddonProfileAciConnectorLinux) KubernetesClusterAddonProfileAciConnectorLinux { return *v }).(KubernetesClusterAddonProfileAciConnectorLinuxOutput)
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileAciConnectorLinux) KubernetesClusterAddonProfileAciConnectorLinux {
+		return *v
+	}).(KubernetesClusterAddonProfileAciConnectorLinuxOutput)
 }
 
+// Is the virtual node addon enabled?
 func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileAciConnectorLinux) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAciConnectorLinux) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
 func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) SubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileAciConnectorLinux) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAciConnectorLinux) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterAddonProfileAzurePolicy struct {
+	// Is the Azure Policy for Kubernetes Add On enabled?
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -1706,6 +1928,7 @@ type KubernetesClusterAddonProfileAzurePolicyInput interface {
 }
 
 type KubernetesClusterAddonProfileAzurePolicyArgs struct {
+	// Is the Azure Policy for Kubernetes Add On enabled?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -1738,7 +1961,8 @@ type KubernetesClusterAddonProfileAzurePolicyPtrInput interface {
 
 type kubernetesClusterAddonProfileAzurePolicyPtrType KubernetesClusterAddonProfileAzurePolicyArgs
 
-func KubernetesClusterAddonProfileAzurePolicyPtr(v *KubernetesClusterAddonProfileAzurePolicyArgs) KubernetesClusterAddonProfileAzurePolicyPtrInput {	return (*kubernetesClusterAddonProfileAzurePolicyPtrType)(v)
+func KubernetesClusterAddonProfileAzurePolicyPtr(v *KubernetesClusterAddonProfileAzurePolicyArgs) KubernetesClusterAddonProfileAzurePolicyPtrInput {
+	return (*kubernetesClusterAddonProfileAzurePolicyPtrType)(v)
 }
 
 func (*kubernetesClusterAddonProfileAzurePolicyPtrType) ElementType() reflect.Type {
@@ -1753,7 +1977,7 @@ func (i *kubernetesClusterAddonProfileAzurePolicyPtrType) ToKubernetesClusterAdd
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
 }
 
-type KubernetesClusterAddonProfileAzurePolicyOutput struct { *pulumi.OutputState }
+type KubernetesClusterAddonProfileAzurePolicyOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileAzurePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterAddonProfileAzurePolicy)(nil)).Elem()
@@ -1776,11 +2000,13 @@ func (o KubernetesClusterAddonProfileAzurePolicyOutput) ToKubernetesClusterAddon
 		return &v
 	}).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
 }
+
+// Is the Azure Policy for Kubernetes Add On enabled?
 func (o KubernetesClusterAddonProfileAzurePolicyOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileAzurePolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAzurePolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type KubernetesClusterAddonProfileAzurePolicyPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterAddonProfileAzurePolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileAzurePolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterAddonProfileAzurePolicy)(nil)).Elem()
@@ -1795,14 +2021,16 @@ func (o KubernetesClusterAddonProfileAzurePolicyPtrOutput) ToKubernetesClusterAd
 }
 
 func (o KubernetesClusterAddonProfileAzurePolicyPtrOutput) Elem() KubernetesClusterAddonProfileAzurePolicyOutput {
-	return o.ApplyT(func (v *KubernetesClusterAddonProfileAzurePolicy) KubernetesClusterAddonProfileAzurePolicy { return *v }).(KubernetesClusterAddonProfileAzurePolicyOutput)
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileAzurePolicy) KubernetesClusterAddonProfileAzurePolicy { return *v }).(KubernetesClusterAddonProfileAzurePolicyOutput)
 }
 
+// Is the Azure Policy for Kubernetes Add On enabled?
 func (o KubernetesClusterAddonProfileAzurePolicyPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileAzurePolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAzurePolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 type KubernetesClusterAddonProfileHttpApplicationRouting struct {
+	// Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
 	Enabled bool `pulumi:"enabled"`
 	// The Zone Name of the HTTP Application Routing.
 	HttpApplicationRoutingZoneName *string `pulumi:"httpApplicationRoutingZoneName"`
@@ -1816,6 +2044,7 @@ type KubernetesClusterAddonProfileHttpApplicationRoutingInput interface {
 }
 
 type KubernetesClusterAddonProfileHttpApplicationRoutingArgs struct {
+	// Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The Zone Name of the HTTP Application Routing.
 	HttpApplicationRoutingZoneName pulumi.StringPtrInput `pulumi:"httpApplicationRoutingZoneName"`
@@ -1850,7 +2079,8 @@ type KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput interface {
 
 type kubernetesClusterAddonProfileHttpApplicationRoutingPtrType KubernetesClusterAddonProfileHttpApplicationRoutingArgs
 
-func KubernetesClusterAddonProfileHttpApplicationRoutingPtr(v *KubernetesClusterAddonProfileHttpApplicationRoutingArgs) KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput {	return (*kubernetesClusterAddonProfileHttpApplicationRoutingPtrType)(v)
+func KubernetesClusterAddonProfileHttpApplicationRoutingPtr(v *KubernetesClusterAddonProfileHttpApplicationRoutingArgs) KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput {
+	return (*kubernetesClusterAddonProfileHttpApplicationRoutingPtrType)(v)
 }
 
 func (*kubernetesClusterAddonProfileHttpApplicationRoutingPtrType) ElementType() reflect.Type {
@@ -1865,7 +2095,7 @@ func (i *kubernetesClusterAddonProfileHttpApplicationRoutingPtrType) ToKubernete
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
 }
 
-type KubernetesClusterAddonProfileHttpApplicationRoutingOutput struct { *pulumi.OutputState }
+type KubernetesClusterAddonProfileHttpApplicationRoutingOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileHttpApplicationRoutingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterAddonProfileHttpApplicationRouting)(nil)).Elem()
@@ -1888,16 +2118,20 @@ func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) ToKubernetesC
 		return &v
 	}).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
 }
+
+// Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
 func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileHttpApplicationRouting) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileHttpApplicationRouting) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // The Zone Name of the HTTP Application Routing.
 func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) HttpApplicationRoutingZoneName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileHttpApplicationRouting) *string { return v.HttpApplicationRoutingZoneName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileHttpApplicationRouting) *string {
+		return v.HttpApplicationRoutingZoneName
+	}).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterAddonProfileHttpApplicationRouting)(nil)).Elem()
@@ -1912,19 +2146,25 @@ func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) ToKubernet
 }
 
 func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) Elem() KubernetesClusterAddonProfileHttpApplicationRoutingOutput {
-	return o.ApplyT(func (v *KubernetesClusterAddonProfileHttpApplicationRouting) KubernetesClusterAddonProfileHttpApplicationRouting { return *v }).(KubernetesClusterAddonProfileHttpApplicationRoutingOutput)
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileHttpApplicationRouting) KubernetesClusterAddonProfileHttpApplicationRouting {
+		return *v
+	}).(KubernetesClusterAddonProfileHttpApplicationRoutingOutput)
 }
 
+// Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
 func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileHttpApplicationRouting) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileHttpApplicationRouting) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // The Zone Name of the HTTP Application Routing.
 func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) HttpApplicationRoutingZoneName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileHttpApplicationRouting) *string { return v.HttpApplicationRoutingZoneName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileHttpApplicationRouting) *string {
+		return v.HttpApplicationRoutingZoneName
+	}).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterAddonProfileKubeDashboard struct {
+	// Is the Kubernetes Dashboard enabled?
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -1936,6 +2176,7 @@ type KubernetesClusterAddonProfileKubeDashboardInput interface {
 }
 
 type KubernetesClusterAddonProfileKubeDashboardArgs struct {
+	// Is the Kubernetes Dashboard enabled?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -1968,7 +2209,8 @@ type KubernetesClusterAddonProfileKubeDashboardPtrInput interface {
 
 type kubernetesClusterAddonProfileKubeDashboardPtrType KubernetesClusterAddonProfileKubeDashboardArgs
 
-func KubernetesClusterAddonProfileKubeDashboardPtr(v *KubernetesClusterAddonProfileKubeDashboardArgs) KubernetesClusterAddonProfileKubeDashboardPtrInput {	return (*kubernetesClusterAddonProfileKubeDashboardPtrType)(v)
+func KubernetesClusterAddonProfileKubeDashboardPtr(v *KubernetesClusterAddonProfileKubeDashboardArgs) KubernetesClusterAddonProfileKubeDashboardPtrInput {
+	return (*kubernetesClusterAddonProfileKubeDashboardPtrType)(v)
 }
 
 func (*kubernetesClusterAddonProfileKubeDashboardPtrType) ElementType() reflect.Type {
@@ -1983,7 +2225,7 @@ func (i *kubernetesClusterAddonProfileKubeDashboardPtrType) ToKubernetesClusterA
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
 }
 
-type KubernetesClusterAddonProfileKubeDashboardOutput struct { *pulumi.OutputState }
+type KubernetesClusterAddonProfileKubeDashboardOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileKubeDashboardOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterAddonProfileKubeDashboard)(nil)).Elem()
@@ -2006,11 +2248,13 @@ func (o KubernetesClusterAddonProfileKubeDashboardOutput) ToKubernetesClusterAdd
 		return &v
 	}).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
 }
+
+// Is the Kubernetes Dashboard enabled?
 func (o KubernetesClusterAddonProfileKubeDashboardOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileKubeDashboard) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileKubeDashboard) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type KubernetesClusterAddonProfileKubeDashboardPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterAddonProfileKubeDashboardPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileKubeDashboardPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterAddonProfileKubeDashboard)(nil)).Elem()
@@ -2025,15 +2269,20 @@ func (o KubernetesClusterAddonProfileKubeDashboardPtrOutput) ToKubernetesCluster
 }
 
 func (o KubernetesClusterAddonProfileKubeDashboardPtrOutput) Elem() KubernetesClusterAddonProfileKubeDashboardOutput {
-	return o.ApplyT(func (v *KubernetesClusterAddonProfileKubeDashboard) KubernetesClusterAddonProfileKubeDashboard { return *v }).(KubernetesClusterAddonProfileKubeDashboardOutput)
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileKubeDashboard) KubernetesClusterAddonProfileKubeDashboard {
+		return *v
+	}).(KubernetesClusterAddonProfileKubeDashboardOutput)
 }
 
+// Is the Kubernetes Dashboard enabled?
 func (o KubernetesClusterAddonProfileKubeDashboardPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileKubeDashboard) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileKubeDashboard) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 type KubernetesClusterAddonProfileOmsAgent struct {
+	// Is the OMS Agent Enabled?
 	Enabled bool `pulumi:"enabled"`
+	// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 }
 
@@ -2045,7 +2294,9 @@ type KubernetesClusterAddonProfileOmsAgentInput interface {
 }
 
 type KubernetesClusterAddonProfileOmsAgentArgs struct {
+	// Is the OMS Agent Enabled?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput `pulumi:"logAnalyticsWorkspaceId"`
 }
 
@@ -2078,7 +2329,8 @@ type KubernetesClusterAddonProfileOmsAgentPtrInput interface {
 
 type kubernetesClusterAddonProfileOmsAgentPtrType KubernetesClusterAddonProfileOmsAgentArgs
 
-func KubernetesClusterAddonProfileOmsAgentPtr(v *KubernetesClusterAddonProfileOmsAgentArgs) KubernetesClusterAddonProfileOmsAgentPtrInput {	return (*kubernetesClusterAddonProfileOmsAgentPtrType)(v)
+func KubernetesClusterAddonProfileOmsAgentPtr(v *KubernetesClusterAddonProfileOmsAgentArgs) KubernetesClusterAddonProfileOmsAgentPtrInput {
+	return (*kubernetesClusterAddonProfileOmsAgentPtrType)(v)
 }
 
 func (*kubernetesClusterAddonProfileOmsAgentPtrType) ElementType() reflect.Type {
@@ -2093,7 +2345,7 @@ func (i *kubernetesClusterAddonProfileOmsAgentPtrType) ToKubernetesClusterAddonP
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
 }
 
-type KubernetesClusterAddonProfileOmsAgentOutput struct { *pulumi.OutputState }
+type KubernetesClusterAddonProfileOmsAgentOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileOmsAgentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterAddonProfileOmsAgent)(nil)).Elem()
@@ -2116,15 +2368,18 @@ func (o KubernetesClusterAddonProfileOmsAgentOutput) ToKubernetesClusterAddonPro
 		return &v
 	}).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
 }
+
+// Is the OMS Agent Enabled?
 func (o KubernetesClusterAddonProfileOmsAgentOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileOmsAgent) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgent) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
 func (o KubernetesClusterAddonProfileOmsAgentOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileOmsAgent) *string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgent) *string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterAddonProfileOmsAgentPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterAddonProfileOmsAgentPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileOmsAgentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterAddonProfileOmsAgent)(nil)).Elem()
@@ -2139,34 +2394,49 @@ func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) ToKubernetesClusterAddon
 }
 
 func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) Elem() KubernetesClusterAddonProfileOmsAgentOutput {
-	return o.ApplyT(func (v *KubernetesClusterAddonProfileOmsAgent) KubernetesClusterAddonProfileOmsAgent { return *v }).(KubernetesClusterAddonProfileOmsAgentOutput)
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileOmsAgent) KubernetesClusterAddonProfileOmsAgent { return *v }).(KubernetesClusterAddonProfileOmsAgentOutput)
 }
 
+// Is the OMS Agent Enabled?
 func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileOmsAgent) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgent) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
 func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterAddonProfileOmsAgent) *string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgent) *string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterDefaultNodePool struct {
+	// A list of Availability Zones across which the Node Pool should be spread.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
+	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
+	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
 	MaxCount *int `pulumi:"maxCount"`
+	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods *int `pulumi:"maxPods"`
+	// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
 	MinCount *int `pulumi:"minCount"`
-	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+	// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
+	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `minCount` and `maxCount`.
 	NodeCount *int `pulumi:"nodeCount"`
+	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
 	NodeTaints []string `pulumi:"nodeTaints"`
+	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
 	Type *string `pulumi:"type"`
+	// The size of the Virtual Machine, such as `Standard_DS2_v2`.
 	VmSize string `pulumi:"vmSize"`
+	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
 }
 
@@ -2178,22 +2448,35 @@ type KubernetesClusterDefaultNodePoolInput interface {
 }
 
 type KubernetesClusterDefaultNodePoolArgs struct {
+	// A list of Availability Zones across which the Node Pool should be spread.
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
+	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
 	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
+	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
 	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
+	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods pulumi.IntPtrInput `pulumi:"maxPods"`
+	// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
 	MinCount pulumi.IntPtrInput `pulumi:"minCount"`
-	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+	// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `minCount` and `maxCount`.
 	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
+	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
+	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
 	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
+	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
 	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The size of the Virtual Machine, such as `Standard_DS2_v2`.
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId pulumi.StringPtrInput `pulumi:"vnetSubnetId"`
 }
 
@@ -2226,7 +2509,8 @@ type KubernetesClusterDefaultNodePoolPtrInput interface {
 
 type kubernetesClusterDefaultNodePoolPtrType KubernetesClusterDefaultNodePoolArgs
 
-func KubernetesClusterDefaultNodePoolPtr(v *KubernetesClusterDefaultNodePoolArgs) KubernetesClusterDefaultNodePoolPtrInput {	return (*kubernetesClusterDefaultNodePoolPtrType)(v)
+func KubernetesClusterDefaultNodePoolPtr(v *KubernetesClusterDefaultNodePoolArgs) KubernetesClusterDefaultNodePoolPtrInput {
+	return (*kubernetesClusterDefaultNodePoolPtrType)(v)
 }
 
 func (*kubernetesClusterDefaultNodePoolPtrType) ElementType() reflect.Type {
@@ -2241,7 +2525,7 @@ func (i *kubernetesClusterDefaultNodePoolPtrType) ToKubernetesClusterDefaultNode
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolPtrOutput)
 }
 
-type KubernetesClusterDefaultNodePoolOutput struct { *pulumi.OutputState }
+type KubernetesClusterDefaultNodePoolOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterDefaultNodePoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterDefaultNodePool)(nil)).Elem()
@@ -2264,69 +2548,83 @@ func (o KubernetesClusterDefaultNodePoolOutput) ToKubernetesClusterDefaultNodePo
 		return &v
 	}).(KubernetesClusterDefaultNodePoolPtrOutput)
 }
+
+// A list of Availability Zones across which the Node Pool should be spread.
 func (o KubernetesClusterDefaultNodePoolOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
+// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 func (o KubernetesClusterDefaultNodePoolOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
+// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
 func (o KubernetesClusterDefaultNodePoolOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
 }
 
+// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
 func (o KubernetesClusterDefaultNodePoolOutput) MaxCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
 
+// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) MaxPods() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
 func (o KubernetesClusterDefaultNodePoolOutput) MinCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.MinCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MinCount }).(pulumi.IntPtrOutput)
 }
 
-// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `minCount` and `maxCount`.
 func (o KubernetesClusterDefaultNodePoolOutput) NodeCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
 }
 
+// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 func (o KubernetesClusterDefaultNodePoolOutput) NodeLabels() pulumi.StringMapOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
 
+// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
 func (o KubernetesClusterDefaultNodePoolOutput) NodeTaints() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
 
+// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) OsDiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.OsDiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.OsDiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
 // A mapping of tags to assign to the resource.
 func (o KubernetesClusterDefaultNodePoolOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
 func (o KubernetesClusterDefaultNodePoolOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The size of the Virtual Machine, such as `Standard_DS2_v2`.
 func (o KubernetesClusterDefaultNodePoolOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
+// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) VnetSubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *string { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterDefaultNodePoolPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterDefaultNodePoolPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterDefaultNodePoolPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterDefaultNodePool)(nil)).Elem()
@@ -2341,76 +2639,90 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) ToKubernetesClusterDefaultNod
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Elem() KubernetesClusterDefaultNodePoolOutput {
-	return o.ApplyT(func (v *KubernetesClusterDefaultNodePool) KubernetesClusterDefaultNodePool { return *v }).(KubernetesClusterDefaultNodePoolOutput)
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) KubernetesClusterDefaultNodePool { return *v }).(KubernetesClusterDefaultNodePoolOutput)
 }
 
+// A list of Availability Zones across which the Node Pool should be spread.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
+// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
+// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
 }
 
+// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) MaxCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
 
+// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) MaxPods() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) MinCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.MinCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MinCount }).(pulumi.IntPtrOutput)
 }
 
-// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `minCount` and `maxCount`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
 }
 
+// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeLabels() pulumi.StringMapOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
 
+// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeTaints() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
 
+// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *int { return v.OsDiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.OsDiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
 // A mapping of tags to assign to the resource.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The size of the Virtual Machine, such as `Standard_DS2_v2`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
+// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) VnetSubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterDefaultNodePool) *string { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterIdentity struct {
 	// The principal id of the system assigned identity which is used by master components.
 	PrincipalId *string `pulumi:"principalId"`
-	// The tenant id of the system assigned identity which is used by master components.
+	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 	TenantId *string `pulumi:"tenantId"`
+	// The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -2424,8 +2736,9 @@ type KubernetesClusterIdentityInput interface {
 type KubernetesClusterIdentityArgs struct {
 	// The principal id of the system assigned identity which is used by master components.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The tenant id of the system assigned identity which is used by master components.
+	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2458,7 +2771,8 @@ type KubernetesClusterIdentityPtrInput interface {
 
 type kubernetesClusterIdentityPtrType KubernetesClusterIdentityArgs
 
-func KubernetesClusterIdentityPtr(v *KubernetesClusterIdentityArgs) KubernetesClusterIdentityPtrInput {	return (*kubernetesClusterIdentityPtrType)(v)
+func KubernetesClusterIdentityPtr(v *KubernetesClusterIdentityArgs) KubernetesClusterIdentityPtrInput {
+	return (*kubernetesClusterIdentityPtrType)(v)
 }
 
 func (*kubernetesClusterIdentityPtrType) ElementType() reflect.Type {
@@ -2473,7 +2787,7 @@ func (i *kubernetesClusterIdentityPtrType) ToKubernetesClusterIdentityPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterIdentityPtrOutput)
 }
 
-type KubernetesClusterIdentityOutput struct { *pulumi.OutputState }
+type KubernetesClusterIdentityOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterIdentity)(nil)).Elem()
@@ -2496,21 +2810,23 @@ func (o KubernetesClusterIdentityOutput) ToKubernetesClusterIdentityPtrOutputWit
 		return &v
 	}).(KubernetesClusterIdentityPtrOutput)
 }
+
 // The principal id of the system assigned identity which is used by master components.
 func (o KubernetesClusterIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The tenant id of the system assigned identity which is used by master components.
+// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 func (o KubernetesClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
+// The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
 func (o KubernetesClusterIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type KubernetesClusterIdentityPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterIdentity)(nil)).Elem()
@@ -2525,21 +2841,22 @@ func (o KubernetesClusterIdentityPtrOutput) ToKubernetesClusterIdentityPtrOutput
 }
 
 func (o KubernetesClusterIdentityPtrOutput) Elem() KubernetesClusterIdentityOutput {
-	return o.ApplyT(func (v *KubernetesClusterIdentity) KubernetesClusterIdentity { return *v }).(KubernetesClusterIdentityOutput)
+	return o.ApplyT(func(v *KubernetesClusterIdentity) KubernetesClusterIdentity { return *v }).(KubernetesClusterIdentityOutput)
 }
 
 // The principal id of the system assigned identity which is used by master components.
 func (o KubernetesClusterIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The tenant id of the system assigned identity which is used by master components.
+// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 func (o KubernetesClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
+// The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
 func (o KubernetesClusterIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type KubernetesClusterKubeAdminConfig struct {
@@ -2612,7 +2929,7 @@ func (i KubernetesClusterKubeAdminConfigArray) ToKubernetesClusterKubeAdminConfi
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeAdminConfigArrayOutput)
 }
 
-type KubernetesClusterKubeAdminConfigOutput struct { *pulumi.OutputState }
+type KubernetesClusterKubeAdminConfigOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterKubeAdminConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterKubeAdminConfig)(nil)).Elem()
@@ -2628,35 +2945,35 @@ func (o KubernetesClusterKubeAdminConfigOutput) ToKubernetesClusterKubeAdminConf
 
 // Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeAdminConfigOutput) ClientCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.ClientCertificate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeAdminConfig) *string { return v.ClientCertificate }).(pulumi.StringPtrOutput)
 }
 
 // Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeAdminConfigOutput) ClientKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.ClientKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeAdminConfig) *string { return v.ClientKey }).(pulumi.StringPtrOutput)
 }
 
 // Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
 func (o KubernetesClusterKubeAdminConfigOutput) ClusterCaCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.ClusterCaCertificate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeAdminConfig) *string { return v.ClusterCaCertificate }).(pulumi.StringPtrOutput)
 }
 
 // The Kubernetes cluster server host.
 func (o KubernetesClusterKubeAdminConfigOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.Host }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeAdminConfig) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
 // A password or token used to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeAdminConfigOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeAdminConfig) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // A username used to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeAdminConfigOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeAdminConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterKubeAdminConfigArrayOutput struct { *pulumi.OutputState}
+type KubernetesClusterKubeAdminConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterKubeAdminConfigArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]KubernetesClusterKubeAdminConfig)(nil)).Elem()
@@ -2671,7 +2988,7 @@ func (o KubernetesClusterKubeAdminConfigArrayOutput) ToKubernetesClusterKubeAdmi
 }
 
 func (o KubernetesClusterKubeAdminConfigArrayOutput) Index(i pulumi.IntInput) KubernetesClusterKubeAdminConfigOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) KubernetesClusterKubeAdminConfig {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterKubeAdminConfig {
 		return vs[0].([]KubernetesClusterKubeAdminConfig)[vs[1].(int)]
 	}).(KubernetesClusterKubeAdminConfigOutput)
 }
@@ -2746,7 +3063,7 @@ func (i KubernetesClusterKubeConfigArray) ToKubernetesClusterKubeConfigArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeConfigArrayOutput)
 }
 
-type KubernetesClusterKubeConfigOutput struct { *pulumi.OutputState }
+type KubernetesClusterKubeConfigOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterKubeConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterKubeConfig)(nil)).Elem()
@@ -2762,35 +3079,35 @@ func (o KubernetesClusterKubeConfigOutput) ToKubernetesClusterKubeConfigOutputWi
 
 // Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeConfigOutput) ClientCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.ClientCertificate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeConfig) *string { return v.ClientCertificate }).(pulumi.StringPtrOutput)
 }
 
 // Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeConfigOutput) ClientKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.ClientKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeConfig) *string { return v.ClientKey }).(pulumi.StringPtrOutput)
 }
 
 // Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
 func (o KubernetesClusterKubeConfigOutput) ClusterCaCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.ClusterCaCertificate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeConfig) *string { return v.ClusterCaCertificate }).(pulumi.StringPtrOutput)
 }
 
 // The Kubernetes cluster server host.
 func (o KubernetesClusterKubeConfigOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.Host }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeConfig) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
 // A password or token used to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeConfigOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeConfig) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // A username used to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeConfigOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterKubeConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterKubeConfigArrayOutput struct { *pulumi.OutputState}
+type KubernetesClusterKubeConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterKubeConfigArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]KubernetesClusterKubeConfig)(nil)).Elem()
@@ -2805,13 +3122,15 @@ func (o KubernetesClusterKubeConfigArrayOutput) ToKubernetesClusterKubeConfigArr
 }
 
 func (o KubernetesClusterKubeConfigArrayOutput) Index(i pulumi.IntInput) KubernetesClusterKubeConfigOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) KubernetesClusterKubeConfig {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterKubeConfig {
 		return vs[0].([]KubernetesClusterKubeConfig)[vs[1].(int)]
 	}).(KubernetesClusterKubeConfigOutput)
 }
 
 type KubernetesClusterLinuxProfile struct {
+	// The Admin Username for the Cluster. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
+	// An `sshKey` block. Only one is currently allowed. Changing this forces a new resource to be created.
 	SshKey KubernetesClusterLinuxProfileSshKey `pulumi:"sshKey"`
 }
 
@@ -2823,7 +3142,9 @@ type KubernetesClusterLinuxProfileInput interface {
 }
 
 type KubernetesClusterLinuxProfileArgs struct {
+	// The Admin Username for the Cluster. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+	// An `sshKey` block. Only one is currently allowed. Changing this forces a new resource to be created.
 	SshKey KubernetesClusterLinuxProfileSshKeyInput `pulumi:"sshKey"`
 }
 
@@ -2856,7 +3177,8 @@ type KubernetesClusterLinuxProfilePtrInput interface {
 
 type kubernetesClusterLinuxProfilePtrType KubernetesClusterLinuxProfileArgs
 
-func KubernetesClusterLinuxProfilePtr(v *KubernetesClusterLinuxProfileArgs) KubernetesClusterLinuxProfilePtrInput {	return (*kubernetesClusterLinuxProfilePtrType)(v)
+func KubernetesClusterLinuxProfilePtr(v *KubernetesClusterLinuxProfileArgs) KubernetesClusterLinuxProfilePtrInput {
+	return (*kubernetesClusterLinuxProfilePtrType)(v)
 }
 
 func (*kubernetesClusterLinuxProfilePtrType) ElementType() reflect.Type {
@@ -2871,7 +3193,7 @@ func (i *kubernetesClusterLinuxProfilePtrType) ToKubernetesClusterLinuxProfilePt
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterLinuxProfilePtrOutput)
 }
 
-type KubernetesClusterLinuxProfileOutput struct { *pulumi.OutputState }
+type KubernetesClusterLinuxProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterLinuxProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterLinuxProfile)(nil)).Elem()
@@ -2894,15 +3216,18 @@ func (o KubernetesClusterLinuxProfileOutput) ToKubernetesClusterLinuxProfilePtrO
 		return &v
 	}).(KubernetesClusterLinuxProfilePtrOutput)
 }
+
+// The Admin Username for the Cluster. Changing this forces a new resource to be created.
 func (o KubernetesClusterLinuxProfileOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
+// An `sshKey` block. Only one is currently allowed. Changing this forces a new resource to be created.
 func (o KubernetesClusterLinuxProfileOutput) SshKey() KubernetesClusterLinuxProfileSshKeyOutput {
-	return o.ApplyT(func (v KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfileSshKey { return v.SshKey }).(KubernetesClusterLinuxProfileSshKeyOutput)
+	return o.ApplyT(func(v KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfileSshKey { return v.SshKey }).(KubernetesClusterLinuxProfileSshKeyOutput)
 }
 
-type KubernetesClusterLinuxProfilePtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterLinuxProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterLinuxProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterLinuxProfile)(nil)).Elem()
@@ -2917,18 +3242,21 @@ func (o KubernetesClusterLinuxProfilePtrOutput) ToKubernetesClusterLinuxProfileP
 }
 
 func (o KubernetesClusterLinuxProfilePtrOutput) Elem() KubernetesClusterLinuxProfileOutput {
-	return o.ApplyT(func (v *KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfile { return *v }).(KubernetesClusterLinuxProfileOutput)
+	return o.ApplyT(func(v *KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfile { return *v }).(KubernetesClusterLinuxProfileOutput)
 }
 
+// The Admin Username for the Cluster. Changing this forces a new resource to be created.
 func (o KubernetesClusterLinuxProfilePtrOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
+// An `sshKey` block. Only one is currently allowed. Changing this forces a new resource to be created.
 func (o KubernetesClusterLinuxProfilePtrOutput) SshKey() KubernetesClusterLinuxProfileSshKeyOutput {
-	return o.ApplyT(func (v KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfileSshKey { return v.SshKey }).(KubernetesClusterLinuxProfileSshKeyOutput)
+	return o.ApplyT(func(v KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfileSshKey { return v.SshKey }).(KubernetesClusterLinuxProfileSshKeyOutput)
 }
 
 type KubernetesClusterLinuxProfileSshKey struct {
+	// The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
 	KeyData string `pulumi:"keyData"`
 }
 
@@ -2940,6 +3268,7 @@ type KubernetesClusterLinuxProfileSshKeyInput interface {
 }
 
 type KubernetesClusterLinuxProfileSshKeyArgs struct {
+	// The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
 	KeyData pulumi.StringInput `pulumi:"keyData"`
 }
 
@@ -2955,7 +3284,7 @@ func (i KubernetesClusterLinuxProfileSshKeyArgs) ToKubernetesClusterLinuxProfile
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterLinuxProfileSshKeyOutput)
 }
 
-type KubernetesClusterLinuxProfileSshKeyOutput struct { *pulumi.OutputState }
+type KubernetesClusterLinuxProfileSshKeyOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterLinuxProfileSshKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterLinuxProfileSshKey)(nil)).Elem()
@@ -2969,18 +3298,27 @@ func (o KubernetesClusterLinuxProfileSshKeyOutput) ToKubernetesClusterLinuxProfi
 	return o
 }
 
+// The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
 func (o KubernetesClusterLinuxProfileSshKeyOutput) KeyData() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterLinuxProfileSshKey) string { return v.KeyData }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterLinuxProfileSshKey) string { return v.KeyData }).(pulumi.StringOutput)
 }
 
 type KubernetesClusterNetworkProfile struct {
+	// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
 	DnsServiceIp *string `pulumi:"dnsServiceIp"`
+	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
+	// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.
 	LoadBalancerProfile *KubernetesClusterNetworkProfileLoadBalancerProfile `pulumi:"loadBalancerProfile"`
+	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
 	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
+	// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
 	NetworkPlugin string `pulumi:"networkPlugin"`
+	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
+	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
 	PodCidr *string `pulumi:"podCidr"`
+	// The Network Range used by the Kubernetes service. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
 	ServiceCidr *string `pulumi:"serviceCidr"`
 }
 
@@ -2992,13 +3330,21 @@ type KubernetesClusterNetworkProfileInput interface {
 }
 
 type KubernetesClusterNetworkProfileArgs struct {
+	// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
 	DnsServiceIp pulumi.StringPtrInput `pulumi:"dnsServiceIp"`
+	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
 	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
+	// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.
 	LoadBalancerProfile KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput `pulumi:"loadBalancerProfile"`
+	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
 	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
+	// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
 	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
+	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
+	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
 	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
+	// The Network Range used by the Kubernetes service. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
 	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
 }
 
@@ -3031,7 +3377,8 @@ type KubernetesClusterNetworkProfilePtrInput interface {
 
 type kubernetesClusterNetworkProfilePtrType KubernetesClusterNetworkProfileArgs
 
-func KubernetesClusterNetworkProfilePtr(v *KubernetesClusterNetworkProfileArgs) KubernetesClusterNetworkProfilePtrInput {	return (*kubernetesClusterNetworkProfilePtrType)(v)
+func KubernetesClusterNetworkProfilePtr(v *KubernetesClusterNetworkProfileArgs) KubernetesClusterNetworkProfilePtrInput {
+	return (*kubernetesClusterNetworkProfilePtrType)(v)
 }
 
 func (*kubernetesClusterNetworkProfilePtrType) ElementType() reflect.Type {
@@ -3046,7 +3393,7 @@ func (i *kubernetesClusterNetworkProfilePtrType) ToKubernetesClusterNetworkProfi
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNetworkProfilePtrOutput)
 }
 
-type KubernetesClusterNetworkProfileOutput struct { *pulumi.OutputState }
+type KubernetesClusterNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNetworkProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterNetworkProfile)(nil)).Elem()
@@ -3069,39 +3416,50 @@ func (o KubernetesClusterNetworkProfileOutput) ToKubernetesClusterNetworkProfile
 		return &v
 	}).(KubernetesClusterNetworkProfilePtrOutput)
 }
+
+// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) DnsServiceIp() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.DnsServiceIp }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DnsServiceIp }).(pulumi.StringPtrOutput)
 }
 
+// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
 }
 
+// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.
 func (o KubernetesClusterNetworkProfileOutput) LoadBalancerProfile() KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile { return v.LoadBalancerProfile }).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile {
+		return v.LoadBalancerProfile
+	}).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
 }
 
+// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
 func (o KubernetesClusterNetworkProfileOutput) LoadBalancerSku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
+// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPlugin() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
 }
 
+// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
 
+// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) PodCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
 }
 
+// The Network Range used by the Kubernetes service. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) ServiceCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterNetworkProfilePtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterNetworkProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNetworkProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterNetworkProfile)(nil)).Elem()
@@ -3116,46 +3474,59 @@ func (o KubernetesClusterNetworkProfilePtrOutput) ToKubernetesClusterNetworkProf
 }
 
 func (o KubernetesClusterNetworkProfilePtrOutput) Elem() KubernetesClusterNetworkProfileOutput {
-	return o.ApplyT(func (v *KubernetesClusterNetworkProfile) KubernetesClusterNetworkProfile { return *v }).(KubernetesClusterNetworkProfileOutput)
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) KubernetesClusterNetworkProfile { return *v }).(KubernetesClusterNetworkProfileOutput)
 }
 
+// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) DnsServiceIp() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.DnsServiceIp }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DnsServiceIp }).(pulumi.StringPtrOutput)
 }
 
+// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
 }
 
+// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.
 func (o KubernetesClusterNetworkProfilePtrOutput) LoadBalancerProfile() KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile { return v.LoadBalancerProfile }).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile {
+		return v.LoadBalancerProfile
+	}).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
 }
 
+// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
 func (o KubernetesClusterNetworkProfilePtrOutput) LoadBalancerSku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
+// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPlugin() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
 }
 
+// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
 
+// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) PodCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
 }
 
+// The Network Range used by the Kubernetes service. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfile) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterNetworkProfileLoadBalancerProfile struct {
 	// The outcome (resource IDs) of the specified arguments.
 	EffectiveOutboundIps []string `pulumi:"effectiveOutboundIps"`
+	// Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
 	ManagedOutboundIpCount *int `pulumi:"managedOutboundIpCount"`
+	// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
 	OutboundIpAddressIds []string `pulumi:"outboundIpAddressIds"`
+	// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
 	OutboundIpPrefixIds []string `pulumi:"outboundIpPrefixIds"`
 }
 
@@ -3169,8 +3540,11 @@ type KubernetesClusterNetworkProfileLoadBalancerProfileInput interface {
 type KubernetesClusterNetworkProfileLoadBalancerProfileArgs struct {
 	// The outcome (resource IDs) of the specified arguments.
 	EffectiveOutboundIps pulumi.StringArrayInput `pulumi:"effectiveOutboundIps"`
+	// Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
 	ManagedOutboundIpCount pulumi.IntPtrInput `pulumi:"managedOutboundIpCount"`
+	// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
 	OutboundIpAddressIds pulumi.StringArrayInput `pulumi:"outboundIpAddressIds"`
+	// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
 	OutboundIpPrefixIds pulumi.StringArrayInput `pulumi:"outboundIpPrefixIds"`
 }
 
@@ -3203,7 +3577,8 @@ type KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput interface {
 
 type kubernetesClusterNetworkProfileLoadBalancerProfilePtrType KubernetesClusterNetworkProfileLoadBalancerProfileArgs
 
-func KubernetesClusterNetworkProfileLoadBalancerProfilePtr(v *KubernetesClusterNetworkProfileLoadBalancerProfileArgs) KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput {	return (*kubernetesClusterNetworkProfileLoadBalancerProfilePtrType)(v)
+func KubernetesClusterNetworkProfileLoadBalancerProfilePtr(v *KubernetesClusterNetworkProfileLoadBalancerProfileArgs) KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput {
+	return (*kubernetesClusterNetworkProfileLoadBalancerProfilePtrType)(v)
 }
 
 func (*kubernetesClusterNetworkProfileLoadBalancerProfilePtrType) ElementType() reflect.Type {
@@ -3218,7 +3593,7 @@ func (i *kubernetesClusterNetworkProfileLoadBalancerProfilePtrType) ToKubernetes
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
 }
 
-type KubernetesClusterNetworkProfileLoadBalancerProfileOutput struct { *pulumi.OutputState }
+type KubernetesClusterNetworkProfileLoadBalancerProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterNetworkProfileLoadBalancerProfile)(nil)).Elem()
@@ -3241,24 +3616,28 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ToKubernetesCl
 		return &v
 	}).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
 }
+
 // The outcome (resource IDs) of the specified arguments.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) EffectiveOutboundIps() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.EffectiveOutboundIps }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.EffectiveOutboundIps }).(pulumi.StringArrayOutput)
 }
 
+// Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ManagedOutboundIpCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfileLoadBalancerProfile) *int { return v.ManagedOutboundIpCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) *int { return v.ManagedOutboundIpCount }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) OutboundIpAddressIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpAddressIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpAddressIds }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) OutboundIpPrefixIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpPrefixIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpPrefixIds }).(pulumi.StringArrayOutput)
 }
 
-type KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterNetworkProfileLoadBalancerProfile)(nil)).Elem()
@@ -3273,28 +3652,35 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ToKubernete
 }
 
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) Elem() KubernetesClusterNetworkProfileLoadBalancerProfileOutput {
-	return o.ApplyT(func (v *KubernetesClusterNetworkProfileLoadBalancerProfile) KubernetesClusterNetworkProfileLoadBalancerProfile { return *v }).(KubernetesClusterNetworkProfileLoadBalancerProfileOutput)
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfileLoadBalancerProfile) KubernetesClusterNetworkProfileLoadBalancerProfile {
+		return *v
+	}).(KubernetesClusterNetworkProfileLoadBalancerProfileOutput)
 }
 
 // The outcome (resource IDs) of the specified arguments.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) EffectiveOutboundIps() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.EffectiveOutboundIps }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.EffectiveOutboundIps }).(pulumi.StringArrayOutput)
 }
 
+// Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ManagedOutboundIpCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfileLoadBalancerProfile) *int { return v.ManagedOutboundIpCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) *int { return v.ManagedOutboundIpCount }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) OutboundIpAddressIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpAddressIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpAddressIds }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) OutboundIpPrefixIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpPrefixIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpPrefixIds }).(pulumi.StringArrayOutput)
 }
 
 type KubernetesClusterRoleBasedAccessControl struct {
+	// An `azureActiveDirectory` block.
 	AzureActiveDirectory *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory `pulumi:"azureActiveDirectory"`
+	// Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -3306,7 +3692,9 @@ type KubernetesClusterRoleBasedAccessControlInput interface {
 }
 
 type KubernetesClusterRoleBasedAccessControlArgs struct {
+	// An `azureActiveDirectory` block.
 	AzureActiveDirectory KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrInput `pulumi:"azureActiveDirectory"`
+	// Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -3339,7 +3727,8 @@ type KubernetesClusterRoleBasedAccessControlPtrInput interface {
 
 type kubernetesClusterRoleBasedAccessControlPtrType KubernetesClusterRoleBasedAccessControlArgs
 
-func KubernetesClusterRoleBasedAccessControlPtr(v *KubernetesClusterRoleBasedAccessControlArgs) KubernetesClusterRoleBasedAccessControlPtrInput {	return (*kubernetesClusterRoleBasedAccessControlPtrType)(v)
+func KubernetesClusterRoleBasedAccessControlPtr(v *KubernetesClusterRoleBasedAccessControlArgs) KubernetesClusterRoleBasedAccessControlPtrInput {
+	return (*kubernetesClusterRoleBasedAccessControlPtrType)(v)
 }
 
 func (*kubernetesClusterRoleBasedAccessControlPtrType) ElementType() reflect.Type {
@@ -3354,7 +3743,7 @@ func (i *kubernetesClusterRoleBasedAccessControlPtrType) ToKubernetesClusterRole
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterRoleBasedAccessControlPtrOutput)
 }
 
-type KubernetesClusterRoleBasedAccessControlOutput struct { *pulumi.OutputState }
+type KubernetesClusterRoleBasedAccessControlOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterRoleBasedAccessControlOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterRoleBasedAccessControl)(nil)).Elem()
@@ -3377,15 +3766,20 @@ func (o KubernetesClusterRoleBasedAccessControlOutput) ToKubernetesClusterRoleBa
 		return &v
 	}).(KubernetesClusterRoleBasedAccessControlPtrOutput)
 }
+
+// An `azureActiveDirectory` block.
 func (o KubernetesClusterRoleBasedAccessControlOutput) AzureActiveDirectory() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControl) *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory { return v.AzureActiveDirectory }).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControl) *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
+		return v.AzureActiveDirectory
+	}).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
 }
 
+// Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
 func (o KubernetesClusterRoleBasedAccessControlOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControl) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControl) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type KubernetesClusterRoleBasedAccessControlPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterRoleBasedAccessControlPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterRoleBasedAccessControlPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterRoleBasedAccessControl)(nil)).Elem()
@@ -3400,22 +3794,29 @@ func (o KubernetesClusterRoleBasedAccessControlPtrOutput) ToKubernetesClusterRol
 }
 
 func (o KubernetesClusterRoleBasedAccessControlPtrOutput) Elem() KubernetesClusterRoleBasedAccessControlOutput {
-	return o.ApplyT(func (v *KubernetesClusterRoleBasedAccessControl) KubernetesClusterRoleBasedAccessControl { return *v }).(KubernetesClusterRoleBasedAccessControlOutput)
+	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControl) KubernetesClusterRoleBasedAccessControl { return *v }).(KubernetesClusterRoleBasedAccessControlOutput)
 }
 
+// An `azureActiveDirectory` block.
 func (o KubernetesClusterRoleBasedAccessControlPtrOutput) AzureActiveDirectory() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControl) *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory { return v.AzureActiveDirectory }).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControl) *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
+		return v.AzureActiveDirectory
+	}).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
 }
 
+// Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
 func (o KubernetesClusterRoleBasedAccessControlPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControl) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControl) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 type KubernetesClusterRoleBasedAccessControlAzureActiveDirectory struct {
+	// The Client ID of an Azure Active Directory Application.
 	ClientAppId string `pulumi:"clientAppId"`
+	// The Server ID of an Azure Active Directory Application.
 	ServerAppId string `pulumi:"serverAppId"`
+	// The Server Secret of an Azure Active Directory Application.
 	ServerAppSecret string `pulumi:"serverAppSecret"`
-	// The tenant id of the system assigned identity which is used by master components.
+	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -3427,10 +3828,13 @@ type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput interface 
 }
 
 type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs struct {
+	// The Client ID of an Azure Active Directory Application.
 	ClientAppId pulumi.StringInput `pulumi:"clientAppId"`
+	// The Server ID of an Azure Active Directory Application.
 	ServerAppId pulumi.StringInput `pulumi:"serverAppId"`
+	// The Server Secret of an Azure Active Directory Application.
 	ServerAppSecret pulumi.StringInput `pulumi:"serverAppSecret"`
-	// The tenant id of the system assigned identity which is used by master components.
+	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
@@ -3463,7 +3867,8 @@ type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrInput interfa
 
 type kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrType KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs
 
-func KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtr(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrInput {	return (*kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrType)(v)
+func KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtr(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrInput {
+	return (*kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrType)(v)
 }
 
 func (*kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrType) ElementType() reflect.Type {
@@ -3478,7 +3883,7 @@ func (i *kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrType) ToK
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
 }
 
-type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput struct { *pulumi.OutputState }
+type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterRoleBasedAccessControlAzureActiveDirectory)(nil)).Elem()
@@ -3501,24 +3906,28 @@ func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ToKub
 		return &v
 	}).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
 }
+
+// The Client ID of an Azure Active Directory Application.
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ClientAppId() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ClientAppId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ClientAppId }).(pulumi.StringOutput)
 }
 
+// The Server ID of an Azure Active Directory Application.
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ServerAppId() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppId }).(pulumi.StringOutput)
 }
 
+// The Server Secret of an Azure Active Directory Application.
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ServerAppSecret() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppSecret }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppSecret }).(pulumi.StringOutput)
 }
 
-// The tenant id of the system assigned identity which is used by master components.
+// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterRoleBasedAccessControlAzureActiveDirectory)(nil)).Elem()
@@ -3533,28 +3942,35 @@ func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) To
 }
 
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) Elem() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
-	return o.ApplyT(func (v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) KubernetesClusterRoleBasedAccessControlAzureActiveDirectory { return *v }).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput)
+	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
+		return *v
+	}).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput)
 }
 
+// The Client ID of an Azure Active Directory Application.
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) ClientAppId() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ClientAppId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ClientAppId }).(pulumi.StringOutput)
 }
 
+// The Server ID of an Azure Active Directory Application.
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) ServerAppId() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppId }).(pulumi.StringOutput)
 }
 
+// The Server Secret of an Azure Active Directory Application.
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) ServerAppSecret() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppSecret }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppSecret }).(pulumi.StringOutput)
 }
 
-// The tenant id of the system assigned identity which is used by master components.
+// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterServicePrincipal struct {
+	// The Client ID for the Service Principal.
 	ClientId string `pulumi:"clientId"`
+	// The Client Secret for the Service Principal.
 	ClientSecret string `pulumi:"clientSecret"`
 }
 
@@ -3566,7 +3982,9 @@ type KubernetesClusterServicePrincipalInput interface {
 }
 
 type KubernetesClusterServicePrincipalArgs struct {
+	// The Client ID for the Service Principal.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The Client Secret for the Service Principal.
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
 }
 
@@ -3599,7 +4017,8 @@ type KubernetesClusterServicePrincipalPtrInput interface {
 
 type kubernetesClusterServicePrincipalPtrType KubernetesClusterServicePrincipalArgs
 
-func KubernetesClusterServicePrincipalPtr(v *KubernetesClusterServicePrincipalArgs) KubernetesClusterServicePrincipalPtrInput {	return (*kubernetesClusterServicePrincipalPtrType)(v)
+func KubernetesClusterServicePrincipalPtr(v *KubernetesClusterServicePrincipalArgs) KubernetesClusterServicePrincipalPtrInput {
+	return (*kubernetesClusterServicePrincipalPtrType)(v)
 }
 
 func (*kubernetesClusterServicePrincipalPtrType) ElementType() reflect.Type {
@@ -3614,7 +4033,7 @@ func (i *kubernetesClusterServicePrincipalPtrType) ToKubernetesClusterServicePri
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterServicePrincipalPtrOutput)
 }
 
-type KubernetesClusterServicePrincipalOutput struct { *pulumi.OutputState }
+type KubernetesClusterServicePrincipalOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterServicePrincipalOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterServicePrincipal)(nil)).Elem()
@@ -3637,15 +4056,18 @@ func (o KubernetesClusterServicePrincipalOutput) ToKubernetesClusterServicePrinc
 		return &v
 	}).(KubernetesClusterServicePrincipalPtrOutput)
 }
+
+// The Client ID for the Service Principal.
 func (o KubernetesClusterServicePrincipalOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterServicePrincipal) string { return v.ClientId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterServicePrincipal) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The Client Secret for the Service Principal.
 func (o KubernetesClusterServicePrincipalOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterServicePrincipal) string { return v.ClientSecret }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterServicePrincipal) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
-type KubernetesClusterServicePrincipalPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterServicePrincipalPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterServicePrincipalPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterServicePrincipal)(nil)).Elem()
@@ -3660,19 +4082,23 @@ func (o KubernetesClusterServicePrincipalPtrOutput) ToKubernetesClusterServicePr
 }
 
 func (o KubernetesClusterServicePrincipalPtrOutput) Elem() KubernetesClusterServicePrincipalOutput {
-	return o.ApplyT(func (v *KubernetesClusterServicePrincipal) KubernetesClusterServicePrincipal { return *v }).(KubernetesClusterServicePrincipalOutput)
+	return o.ApplyT(func(v *KubernetesClusterServicePrincipal) KubernetesClusterServicePrincipal { return *v }).(KubernetesClusterServicePrincipalOutput)
 }
 
+// The Client ID for the Service Principal.
 func (o KubernetesClusterServicePrincipalPtrOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterServicePrincipal) string { return v.ClientId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterServicePrincipal) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The Client Secret for the Service Principal.
 func (o KubernetesClusterServicePrincipalPtrOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterServicePrincipal) string { return v.ClientSecret }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterServicePrincipal) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
 type KubernetesClusterWindowsProfile struct {
+	// The Admin Password for Windows VMs.
 	AdminPassword *string `pulumi:"adminPassword"`
+	// The Admin Username for Windows VMs.
 	AdminUsername string `pulumi:"adminUsername"`
 }
 
@@ -3684,7 +4110,9 @@ type KubernetesClusterWindowsProfileInput interface {
 }
 
 type KubernetesClusterWindowsProfileArgs struct {
+	// The Admin Password for Windows VMs.
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
+	// The Admin Username for Windows VMs.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
 }
 
@@ -3717,7 +4145,8 @@ type KubernetesClusterWindowsProfilePtrInput interface {
 
 type kubernetesClusterWindowsProfilePtrType KubernetesClusterWindowsProfileArgs
 
-func KubernetesClusterWindowsProfilePtr(v *KubernetesClusterWindowsProfileArgs) KubernetesClusterWindowsProfilePtrInput {	return (*kubernetesClusterWindowsProfilePtrType)(v)
+func KubernetesClusterWindowsProfilePtr(v *KubernetesClusterWindowsProfileArgs) KubernetesClusterWindowsProfilePtrInput {
+	return (*kubernetesClusterWindowsProfilePtrType)(v)
 }
 
 func (*kubernetesClusterWindowsProfilePtrType) ElementType() reflect.Type {
@@ -3732,7 +4161,7 @@ func (i *kubernetesClusterWindowsProfilePtrType) ToKubernetesClusterWindowsProfi
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWindowsProfilePtrOutput)
 }
 
-type KubernetesClusterWindowsProfileOutput struct { *pulumi.OutputState }
+type KubernetesClusterWindowsProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterWindowsProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesClusterWindowsProfile)(nil)).Elem()
@@ -3755,15 +4184,18 @@ func (o KubernetesClusterWindowsProfileOutput) ToKubernetesClusterWindowsProfile
 		return &v
 	}).(KubernetesClusterWindowsProfilePtrOutput)
 }
+
+// The Admin Password for Windows VMs.
 func (o KubernetesClusterWindowsProfileOutput) AdminPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterWindowsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterWindowsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
+// The Admin Username for Windows VMs.
 func (o KubernetesClusterWindowsProfileOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-type KubernetesClusterWindowsProfilePtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterWindowsProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterWindowsProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KubernetesClusterWindowsProfile)(nil)).Elem()
@@ -3778,15 +4210,17 @@ func (o KubernetesClusterWindowsProfilePtrOutput) ToKubernetesClusterWindowsProf
 }
 
 func (o KubernetesClusterWindowsProfilePtrOutput) Elem() KubernetesClusterWindowsProfileOutput {
-	return o.ApplyT(func (v *KubernetesClusterWindowsProfile) KubernetesClusterWindowsProfile { return *v }).(KubernetesClusterWindowsProfileOutput)
+	return o.ApplyT(func(v *KubernetesClusterWindowsProfile) KubernetesClusterWindowsProfile { return *v }).(KubernetesClusterWindowsProfileOutput)
 }
 
+// The Admin Password for Windows VMs.
 func (o KubernetesClusterWindowsProfilePtrOutput) AdminPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterWindowsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterWindowsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
+// The Admin Username for Windows VMs.
 func (o KubernetesClusterWindowsProfilePtrOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v KubernetesClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v KubernetesClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
 type RegistryNetworkRuleSet struct {
@@ -3843,7 +4277,8 @@ type RegistryNetworkRuleSetPtrInput interface {
 
 type registryNetworkRuleSetPtrType RegistryNetworkRuleSetArgs
 
-func RegistryNetworkRuleSetPtr(v *RegistryNetworkRuleSetArgs) RegistryNetworkRuleSetPtrInput {	return (*registryNetworkRuleSetPtrType)(v)
+func RegistryNetworkRuleSetPtr(v *RegistryNetworkRuleSetArgs) RegistryNetworkRuleSetPtrInput {
+	return (*registryNetworkRuleSetPtrType)(v)
 }
 
 func (*registryNetworkRuleSetPtrType) ElementType() reflect.Type {
@@ -3858,7 +4293,7 @@ func (i *registryNetworkRuleSetPtrType) ToRegistryNetworkRuleSetPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryNetworkRuleSetPtrOutput)
 }
 
-type RegistryNetworkRuleSetOutput struct { *pulumi.OutputState }
+type RegistryNetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (RegistryNetworkRuleSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegistryNetworkRuleSet)(nil)).Elem()
@@ -3881,22 +4316,23 @@ func (o RegistryNetworkRuleSetOutput) ToRegistryNetworkRuleSetPtrOutputWithConte
 		return &v
 	}).(RegistryNetworkRuleSetPtrOutput)
 }
+
 // The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
 func (o RegistryNetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
 // One or more `ipRule` blocks as defined below.
 func (o RegistryNetworkRuleSetOutput) IpRules() RegistryNetworkRuleSetIpRuleArrayOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule { return v.IpRules }).(RegistryNetworkRuleSetIpRuleArrayOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule { return v.IpRules }).(RegistryNetworkRuleSetIpRuleArrayOutput)
 }
 
 // One or more `virtualNetwork` blocks as defined below.
 func (o RegistryNetworkRuleSetOutput) VirtualNetworks() RegistryNetworkRuleSetVirtualNetworkArrayOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSet) []RegistryNetworkRuleSetVirtualNetwork { return v.VirtualNetworks }).(RegistryNetworkRuleSetVirtualNetworkArrayOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetVirtualNetwork { return v.VirtualNetworks }).(RegistryNetworkRuleSetVirtualNetworkArrayOutput)
 }
 
-type RegistryNetworkRuleSetPtrOutput struct { *pulumi.OutputState}
+type RegistryNetworkRuleSetPtrOutput struct{ *pulumi.OutputState }
 
 func (RegistryNetworkRuleSetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RegistryNetworkRuleSet)(nil)).Elem()
@@ -3911,22 +4347,22 @@ func (o RegistryNetworkRuleSetPtrOutput) ToRegistryNetworkRuleSetPtrOutputWithCo
 }
 
 func (o RegistryNetworkRuleSetPtrOutput) Elem() RegistryNetworkRuleSetOutput {
-	return o.ApplyT(func (v *RegistryNetworkRuleSet) RegistryNetworkRuleSet { return *v }).(RegistryNetworkRuleSetOutput)
+	return o.ApplyT(func(v *RegistryNetworkRuleSet) RegistryNetworkRuleSet { return *v }).(RegistryNetworkRuleSetOutput)
 }
 
 // The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
 func (o RegistryNetworkRuleSetPtrOutput) DefaultAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
 // One or more `ipRule` blocks as defined below.
 func (o RegistryNetworkRuleSetPtrOutput) IpRules() RegistryNetworkRuleSetIpRuleArrayOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule { return v.IpRules }).(RegistryNetworkRuleSetIpRuleArrayOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule { return v.IpRules }).(RegistryNetworkRuleSetIpRuleArrayOutput)
 }
 
 // One or more `virtualNetwork` blocks as defined below.
 func (o RegistryNetworkRuleSetPtrOutput) VirtualNetworks() RegistryNetworkRuleSetVirtualNetworkArrayOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSet) []RegistryNetworkRuleSetVirtualNetwork { return v.VirtualNetworks }).(RegistryNetworkRuleSetVirtualNetworkArrayOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetVirtualNetwork { return v.VirtualNetworks }).(RegistryNetworkRuleSetVirtualNetworkArrayOutput)
 }
 
 type RegistryNetworkRuleSetIpRule struct {
@@ -3983,7 +4419,7 @@ func (i RegistryNetworkRuleSetIpRuleArray) ToRegistryNetworkRuleSetIpRuleArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryNetworkRuleSetIpRuleArrayOutput)
 }
 
-type RegistryNetworkRuleSetIpRuleOutput struct { *pulumi.OutputState }
+type RegistryNetworkRuleSetIpRuleOutput struct{ *pulumi.OutputState }
 
 func (RegistryNetworkRuleSetIpRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegistryNetworkRuleSetIpRule)(nil)).Elem()
@@ -3999,15 +4435,15 @@ func (o RegistryNetworkRuleSetIpRuleOutput) ToRegistryNetworkRuleSetIpRuleOutput
 
 // The behaviour for requests matching this rule. At this time the only supported value is `Allow`
 func (o RegistryNetworkRuleSetIpRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSetIpRule) string { return v.Action }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSetIpRule) string { return v.Action }).(pulumi.StringOutput)
 }
 
 // The CIDR block from which requests will match the rule.
 func (o RegistryNetworkRuleSetIpRuleOutput) IpRange() pulumi.StringOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSetIpRule) string { return v.IpRange }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSetIpRule) string { return v.IpRange }).(pulumi.StringOutput)
 }
 
-type RegistryNetworkRuleSetIpRuleArrayOutput struct { *pulumi.OutputState}
+type RegistryNetworkRuleSetIpRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (RegistryNetworkRuleSetIpRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]RegistryNetworkRuleSetIpRule)(nil)).Elem()
@@ -4022,7 +4458,7 @@ func (o RegistryNetworkRuleSetIpRuleArrayOutput) ToRegistryNetworkRuleSetIpRuleA
 }
 
 func (o RegistryNetworkRuleSetIpRuleArrayOutput) Index(i pulumi.IntInput) RegistryNetworkRuleSetIpRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) RegistryNetworkRuleSetIpRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryNetworkRuleSetIpRule {
 		return vs[0].([]RegistryNetworkRuleSetIpRule)[vs[1].(int)]
 	}).(RegistryNetworkRuleSetIpRuleOutput)
 }
@@ -4081,7 +4517,7 @@ func (i RegistryNetworkRuleSetVirtualNetworkArray) ToRegistryNetworkRuleSetVirtu
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryNetworkRuleSetVirtualNetworkArrayOutput)
 }
 
-type RegistryNetworkRuleSetVirtualNetworkOutput struct { *pulumi.OutputState }
+type RegistryNetworkRuleSetVirtualNetworkOutput struct{ *pulumi.OutputState }
 
 func (RegistryNetworkRuleSetVirtualNetworkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegistryNetworkRuleSetVirtualNetwork)(nil)).Elem()
@@ -4097,15 +4533,15 @@ func (o RegistryNetworkRuleSetVirtualNetworkOutput) ToRegistryNetworkRuleSetVirt
 
 // The behaviour for requests matching this rule. At this time the only supported value is `Allow`
 func (o RegistryNetworkRuleSetVirtualNetworkOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSetVirtualNetwork) string { return v.Action }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSetVirtualNetwork) string { return v.Action }).(pulumi.StringOutput)
 }
 
 // The subnet id from which requests will match the rule.
 func (o RegistryNetworkRuleSetVirtualNetworkOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v RegistryNetworkRuleSetVirtualNetwork) string { return v.SubnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RegistryNetworkRuleSetVirtualNetwork) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-type RegistryNetworkRuleSetVirtualNetworkArrayOutput struct { *pulumi.OutputState}
+type RegistryNetworkRuleSetVirtualNetworkArrayOutput struct{ *pulumi.OutputState }
 
 func (RegistryNetworkRuleSetVirtualNetworkArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]RegistryNetworkRuleSetVirtualNetwork)(nil)).Elem()
@@ -4120,7 +4556,7 @@ func (o RegistryNetworkRuleSetVirtualNetworkArrayOutput) ToRegistryNetworkRuleSe
 }
 
 func (o RegistryNetworkRuleSetVirtualNetworkArrayOutput) Index(i pulumi.IntInput) RegistryNetworkRuleSetVirtualNetworkOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) RegistryNetworkRuleSetVirtualNetwork {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryNetworkRuleSetVirtualNetwork {
 		return vs[0].([]RegistryNetworkRuleSetVirtualNetwork)[vs[1].(int)]
 	}).(RegistryNetworkRuleSetVirtualNetworkOutput)
 }
@@ -4187,7 +4623,7 @@ func (i GetKubernetesClusterAddonProfileArray) ToGetKubernetesClusterAddonProfil
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileArrayOutput)
 }
 
-type GetKubernetesClusterAddonProfileOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterAddonProfileOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterAddonProfile)(nil)).Elem()
@@ -4203,25 +4639,33 @@ func (o GetKubernetesClusterAddonProfileOutput) ToGetKubernetesClusterAddonProfi
 
 // A `azurePolicy` block.
 func (o GetKubernetesClusterAddonProfileOutput) AzurePolicies() GetKubernetesClusterAddonProfileAzurePolicyArrayOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileAzurePolicy { return v.AzurePolicies }).(GetKubernetesClusterAddonProfileAzurePolicyArrayOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileAzurePolicy {
+		return v.AzurePolicies
+	}).(GetKubernetesClusterAddonProfileAzurePolicyArrayOutput)
 }
 
 // A `httpApplicationRouting` block.
 func (o GetKubernetesClusterAddonProfileOutput) HttpApplicationRoutings() GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileHttpApplicationRouting { return v.HttpApplicationRoutings }).(GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileHttpApplicationRouting {
+		return v.HttpApplicationRoutings
+	}).(GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput)
 }
 
 // A `kubeDashboard` block.
 func (o GetKubernetesClusterAddonProfileOutput) KubeDashboards() GetKubernetesClusterAddonProfileKubeDashboardArrayOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileKubeDashboard { return v.KubeDashboards }).(GetKubernetesClusterAddonProfileKubeDashboardArrayOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileKubeDashboard {
+		return v.KubeDashboards
+	}).(GetKubernetesClusterAddonProfileKubeDashboardArrayOutput)
 }
 
 // A `omsAgent` block.
 func (o GetKubernetesClusterAddonProfileOutput) OmsAgents() GetKubernetesClusterAddonProfileOmsAgentArrayOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileOmsAgent { return v.OmsAgents }).(GetKubernetesClusterAddonProfileOmsAgentArrayOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileOmsAgent {
+		return v.OmsAgents
+	}).(GetKubernetesClusterAddonProfileOmsAgentArrayOutput)
 }
 
-type GetKubernetesClusterAddonProfileArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterAddonProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfile)(nil)).Elem()
@@ -4236,7 +4680,7 @@ func (o GetKubernetesClusterAddonProfileArrayOutput) ToGetKubernetesClusterAddon
 }
 
 func (o GetKubernetesClusterAddonProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterAddonProfile {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfile {
 		return vs[0].([]GetKubernetesClusterAddonProfile)[vs[1].(int)]
 	}).(GetKubernetesClusterAddonProfileOutput)
 }
@@ -4291,7 +4735,7 @@ func (i GetKubernetesClusterAddonProfileAzurePolicyArray) ToGetKubernetesCluster
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileAzurePolicyArrayOutput)
 }
 
-type GetKubernetesClusterAddonProfileAzurePolicyOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterAddonProfileAzurePolicyOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileAzurePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterAddonProfileAzurePolicy)(nil)).Elem()
@@ -4307,10 +4751,10 @@ func (o GetKubernetesClusterAddonProfileAzurePolicyOutput) ToGetKubernetesCluste
 
 // Is Role Based Access Control enabled?
 func (o GetKubernetesClusterAddonProfileAzurePolicyOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfileAzurePolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileAzurePolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type GetKubernetesClusterAddonProfileAzurePolicyArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterAddonProfileAzurePolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileAzurePolicyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileAzurePolicy)(nil)).Elem()
@@ -4325,7 +4769,7 @@ func (o GetKubernetesClusterAddonProfileAzurePolicyArrayOutput) ToGetKubernetesC
 }
 
 func (o GetKubernetesClusterAddonProfileAzurePolicyArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileAzurePolicyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterAddonProfileAzurePolicy {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileAzurePolicy {
 		return vs[0].([]GetKubernetesClusterAddonProfileAzurePolicy)[vs[1].(int)]
 	}).(GetKubernetesClusterAddonProfileAzurePolicyOutput)
 }
@@ -4384,7 +4828,7 @@ func (i GetKubernetesClusterAddonProfileHttpApplicationRoutingArray) ToGetKubern
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput)
 }
 
-type GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterAddonProfileHttpApplicationRouting)(nil)).Elem()
@@ -4400,15 +4844,17 @@ func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput) ToGetKuber
 
 // Is Role Based Access Control enabled?
 func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfileHttpApplicationRouting) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileHttpApplicationRouting) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // The Zone Name of the HTTP Application Routing.
 func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput) HttpApplicationRoutingZoneName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfileHttpApplicationRouting) string { return v.HttpApplicationRoutingZoneName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileHttpApplicationRouting) string {
+		return v.HttpApplicationRoutingZoneName
+	}).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileHttpApplicationRouting)(nil)).Elem()
@@ -4423,7 +4869,7 @@ func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput) ToGet
 }
 
 func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterAddonProfileHttpApplicationRouting {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileHttpApplicationRouting {
 		return vs[0].([]GetKubernetesClusterAddonProfileHttpApplicationRouting)[vs[1].(int)]
 	}).(GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput)
 }
@@ -4478,7 +4924,7 @@ func (i GetKubernetesClusterAddonProfileKubeDashboardArray) ToGetKubernetesClust
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileKubeDashboardArrayOutput)
 }
 
-type GetKubernetesClusterAddonProfileKubeDashboardOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterAddonProfileKubeDashboardOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileKubeDashboardOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterAddonProfileKubeDashboard)(nil)).Elem()
@@ -4494,10 +4940,10 @@ func (o GetKubernetesClusterAddonProfileKubeDashboardOutput) ToGetKubernetesClus
 
 // Is Role Based Access Control enabled?
 func (o GetKubernetesClusterAddonProfileKubeDashboardOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfileKubeDashboard) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileKubeDashboard) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type GetKubernetesClusterAddonProfileKubeDashboardArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterAddonProfileKubeDashboardArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileKubeDashboardArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileKubeDashboard)(nil)).Elem()
@@ -4512,7 +4958,7 @@ func (o GetKubernetesClusterAddonProfileKubeDashboardArrayOutput) ToGetKubernete
 }
 
 func (o GetKubernetesClusterAddonProfileKubeDashboardArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileKubeDashboardOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterAddonProfileKubeDashboard {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileKubeDashboard {
 		return vs[0].([]GetKubernetesClusterAddonProfileKubeDashboard)[vs[1].(int)]
 	}).(GetKubernetesClusterAddonProfileKubeDashboardOutput)
 }
@@ -4571,7 +5017,7 @@ func (i GetKubernetesClusterAddonProfileOmsAgentArray) ToGetKubernetesClusterAdd
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileOmsAgentArrayOutput)
 }
 
-type GetKubernetesClusterAddonProfileOmsAgentOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterAddonProfileOmsAgentOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileOmsAgentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterAddonProfileOmsAgent)(nil)).Elem()
@@ -4587,15 +5033,15 @@ func (o GetKubernetesClusterAddonProfileOmsAgentOutput) ToGetKubernetesClusterAd
 
 // Is Role Based Access Control enabled?
 func (o GetKubernetesClusterAddonProfileOmsAgentOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfileOmsAgent) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileOmsAgent) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // The ID of the Log Analytics Workspace which the OMS Agent should send data to.
 func (o GetKubernetesClusterAddonProfileOmsAgentOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAddonProfileOmsAgent) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileOmsAgent) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterAddonProfileOmsAgentArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterAddonProfileOmsAgentArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileOmsAgentArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileOmsAgent)(nil)).Elem()
@@ -4610,7 +5056,7 @@ func (o GetKubernetesClusterAddonProfileOmsAgentArrayOutput) ToGetKubernetesClus
 }
 
 func (o GetKubernetesClusterAddonProfileOmsAgentArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileOmsAgentOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterAddonProfileOmsAgent {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileOmsAgent {
 		return vs[0].([]GetKubernetesClusterAddonProfileOmsAgent)[vs[1].(int)]
 	}).(GetKubernetesClusterAddonProfileOmsAgentOutput)
 }
@@ -4621,7 +5067,7 @@ type GetKubernetesClusterAgentPoolProfile struct {
 	// The number of Agents (VM's) in the Pool.
 	Count int `pulumi:"count"`
 	// If the auto-scaler is enabled.
-	EnableAutoScaling bool `pulumi:"enableAutoScaling"`
+	EnableAutoScaling  bool  `pulumi:"enableAutoScaling"`
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount int `pulumi:"maxCount"`
@@ -4630,7 +5076,7 @@ type GetKubernetesClusterAgentPoolProfile struct {
 	// Minimum number of nodes for auto-scaling
 	MinCount int `pulumi:"minCount"`
 	// The name of the managed Kubernetes Cluster.
-	Name string `pulumi:"name"`
+	Name       string            `pulumi:"name"`
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// The list of Kubernetes taints which are applied to nodes in the agent pool
 	NodeTaints []string `pulumi:"nodeTaints"`
@@ -4661,7 +5107,7 @@ type GetKubernetesClusterAgentPoolProfileArgs struct {
 	// The number of Agents (VM's) in the Pool.
 	Count pulumi.IntInput `pulumi:"count"`
 	// If the auto-scaler is enabled.
-	EnableAutoScaling pulumi.BoolInput `pulumi:"enableAutoScaling"`
+	EnableAutoScaling  pulumi.BoolInput    `pulumi:"enableAutoScaling"`
 	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount pulumi.IntInput `pulumi:"maxCount"`
@@ -4670,7 +5116,7 @@ type GetKubernetesClusterAgentPoolProfileArgs struct {
 	// Minimum number of nodes for auto-scaling
 	MinCount pulumi.IntInput `pulumi:"minCount"`
 	// The name of the managed Kubernetes Cluster.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name       pulumi.StringInput    `pulumi:"name"`
 	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
 	// The list of Kubernetes taints which are applied to nodes in the agent pool
 	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
@@ -4721,7 +5167,7 @@ func (i GetKubernetesClusterAgentPoolProfileArray) ToGetKubernetesClusterAgentPo
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAgentPoolProfileArrayOutput)
 }
 
-type GetKubernetesClusterAgentPoolProfileOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterAgentPoolProfileOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAgentPoolProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterAgentPoolProfile)(nil)).Elem()
@@ -4737,83 +5183,83 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) ToGetKubernetesClusterAgentP
 
 // The availability zones used for the nodes.
 func (o GetKubernetesClusterAgentPoolProfileOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
 // The number of Agents (VM's) in the Pool.
 func (o GetKubernetesClusterAgentPoolProfileOutput) Count() pulumi.IntOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) int { return v.Count }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) int { return v.Count }).(pulumi.IntOutput)
 }
 
 // If the auto-scaler is enabled.
 func (o GetKubernetesClusterAgentPoolProfileOutput) EnableAutoScaling() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) bool { return v.EnableAutoScaling }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) bool { return v.EnableAutoScaling }).(pulumi.BoolOutput)
 }
 
 func (o GetKubernetesClusterAgentPoolProfileOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
 }
 
 // Maximum number of nodes for auto-scaling
 func (o GetKubernetesClusterAgentPoolProfileOutput) MaxCount() pulumi.IntOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) int { return v.MaxCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) int { return v.MaxCount }).(pulumi.IntOutput)
 }
 
 // The maximum number of pods that can run on each agent.
 func (o GetKubernetesClusterAgentPoolProfileOutput) MaxPods() pulumi.IntOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) int { return v.MaxPods }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) int { return v.MaxPods }).(pulumi.IntOutput)
 }
 
 // Minimum number of nodes for auto-scaling
 func (o GetKubernetesClusterAgentPoolProfileOutput) MinCount() pulumi.IntOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) int { return v.MinCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) int { return v.MinCount }).(pulumi.IntOutput)
 }
 
 // The name of the managed Kubernetes Cluster.
 func (o GetKubernetesClusterAgentPoolProfileOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o GetKubernetesClusterAgentPoolProfileOutput) NodeLabels() pulumi.StringMapOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
 
 // The list of Kubernetes taints which are applied to nodes in the agent pool
 func (o GetKubernetesClusterAgentPoolProfileOutput) NodeTaints() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
 
 // The size of the Agent VM's Operating System Disk in GB.
 func (o GetKubernetesClusterAgentPoolProfileOutput) OsDiskSizeGb() pulumi.IntOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) int { return v.OsDiskSizeGb }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) int { return v.OsDiskSizeGb }).(pulumi.IntOutput)
 }
 
 // The Operating System used for the Agents.
 func (o GetKubernetesClusterAgentPoolProfileOutput) OsType() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) string { return v.OsType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.OsType }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assign to the resource.
 func (o GetKubernetesClusterAgentPoolProfileOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The type of the Agent Pool.
 func (o GetKubernetesClusterAgentPoolProfileOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The size of each VM in the Agent Pool (e.g. `Standard_F1`).
 func (o GetKubernetesClusterAgentPoolProfileOutput) VmSize() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) string { return v.VmSize }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 // The ID of the Subnet where the Agents in the Pool are provisioned.
 func (o GetKubernetesClusterAgentPoolProfileOutput) VnetSubnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterAgentPoolProfile) string { return v.VnetSubnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.VnetSubnetId }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterAgentPoolProfileArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterAgentPoolProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAgentPoolProfileArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterAgentPoolProfile)(nil)).Elem()
@@ -4828,7 +5274,7 @@ func (o GetKubernetesClusterAgentPoolProfileArrayOutput) ToGetKubernetesClusterA
 }
 
 func (o GetKubernetesClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAgentPoolProfileOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterAgentPoolProfile {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAgentPoolProfile {
 		return vs[0].([]GetKubernetesClusterAgentPoolProfile)[vs[1].(int)]
 	}).(GetKubernetesClusterAgentPoolProfileOutput)
 }
@@ -4903,7 +5349,7 @@ func (i GetKubernetesClusterKubeAdminConfigArray) ToGetKubernetesClusterKubeAdmi
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKubeAdminConfigArrayOutput)
 }
 
-type GetKubernetesClusterKubeAdminConfigOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterKubeAdminConfigOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterKubeAdminConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterKubeAdminConfig)(nil)).Elem()
@@ -4919,35 +5365,35 @@ func (o GetKubernetesClusterKubeAdminConfigOutput) ToGetKubernetesClusterKubeAdm
 
 // Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
 func (o GetKubernetesClusterKubeAdminConfigOutput) ClientCertificate() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeAdminConfig) string { return v.ClientCertificate }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeAdminConfig) string { return v.ClientCertificate }).(pulumi.StringOutput)
 }
 
 // Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
 func (o GetKubernetesClusterKubeAdminConfigOutput) ClientKey() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeAdminConfig) string { return v.ClientKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeAdminConfig) string { return v.ClientKey }).(pulumi.StringOutput)
 }
 
 // Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
 func (o GetKubernetesClusterKubeAdminConfigOutput) ClusterCaCertificate() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeAdminConfig) string { return v.ClusterCaCertificate }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeAdminConfig) string { return v.ClusterCaCertificate }).(pulumi.StringOutput)
 }
 
 // The Kubernetes cluster server host.
 func (o GetKubernetesClusterKubeAdminConfigOutput) Host() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeAdminConfig) string { return v.Host }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeAdminConfig) string { return v.Host }).(pulumi.StringOutput)
 }
 
 // A password or token used to authenticate to the Kubernetes cluster.
 func (o GetKubernetesClusterKubeAdminConfigOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeAdminConfig) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeAdminConfig) string { return v.Password }).(pulumi.StringOutput)
 }
 
 // A username used to authenticate to the Kubernetes cluster.
 func (o GetKubernetesClusterKubeAdminConfigOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeAdminConfig) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeAdminConfig) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterKubeAdminConfigArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterKubeAdminConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterKubeAdminConfigArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterKubeAdminConfig)(nil)).Elem()
@@ -4962,7 +5408,7 @@ func (o GetKubernetesClusterKubeAdminConfigArrayOutput) ToGetKubernetesClusterKu
 }
 
 func (o GetKubernetesClusterKubeAdminConfigArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterKubeAdminConfigOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterKubeAdminConfig {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterKubeAdminConfig {
 		return vs[0].([]GetKubernetesClusterKubeAdminConfig)[vs[1].(int)]
 	}).(GetKubernetesClusterKubeAdminConfigOutput)
 }
@@ -5037,7 +5483,7 @@ func (i GetKubernetesClusterKubeConfigArray) ToGetKubernetesClusterKubeConfigArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKubeConfigArrayOutput)
 }
 
-type GetKubernetesClusterKubeConfigOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterKubeConfigOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterKubeConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterKubeConfig)(nil)).Elem()
@@ -5053,35 +5499,35 @@ func (o GetKubernetesClusterKubeConfigOutput) ToGetKubernetesClusterKubeConfigOu
 
 // Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
 func (o GetKubernetesClusterKubeConfigOutput) ClientCertificate() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeConfig) string { return v.ClientCertificate }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeConfig) string { return v.ClientCertificate }).(pulumi.StringOutput)
 }
 
 // Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
 func (o GetKubernetesClusterKubeConfigOutput) ClientKey() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeConfig) string { return v.ClientKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeConfig) string { return v.ClientKey }).(pulumi.StringOutput)
 }
 
 // Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
 func (o GetKubernetesClusterKubeConfigOutput) ClusterCaCertificate() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeConfig) string { return v.ClusterCaCertificate }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeConfig) string { return v.ClusterCaCertificate }).(pulumi.StringOutput)
 }
 
 // The Kubernetes cluster server host.
 func (o GetKubernetesClusterKubeConfigOutput) Host() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeConfig) string { return v.Host }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeConfig) string { return v.Host }).(pulumi.StringOutput)
 }
 
 // A password or token used to authenticate to the Kubernetes cluster.
 func (o GetKubernetesClusterKubeConfigOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeConfig) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeConfig) string { return v.Password }).(pulumi.StringOutput)
 }
 
 // A username used to authenticate to the Kubernetes cluster.
 func (o GetKubernetesClusterKubeConfigOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterKubeConfig) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterKubeConfig) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterKubeConfigArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterKubeConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterKubeConfigArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterKubeConfig)(nil)).Elem()
@@ -5096,7 +5542,7 @@ func (o GetKubernetesClusterKubeConfigArrayOutput) ToGetKubernetesClusterKubeCon
 }
 
 func (o GetKubernetesClusterKubeConfigArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterKubeConfigOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterKubeConfig {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterKubeConfig {
 		return vs[0].([]GetKubernetesClusterKubeConfig)[vs[1].(int)]
 	}).(GetKubernetesClusterKubeConfigOutput)
 }
@@ -5155,7 +5601,7 @@ func (i GetKubernetesClusterLinuxProfileArray) ToGetKubernetesClusterLinuxProfil
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterLinuxProfileArrayOutput)
 }
 
-type GetKubernetesClusterLinuxProfileOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterLinuxProfileOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterLinuxProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterLinuxProfile)(nil)).Elem()
@@ -5171,15 +5617,15 @@ func (o GetKubernetesClusterLinuxProfileOutput) ToGetKubernetesClusterLinuxProfi
 
 // The username associated with the administrator account of the Windows VMs.
 func (o GetKubernetesClusterLinuxProfileOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
 // An `sshKey` block as defined below.
 func (o GetKubernetesClusterLinuxProfileOutput) SshKeys() GetKubernetesClusterLinuxProfileSshKeyArrayOutput {
-	return o.ApplyT(func (v GetKubernetesClusterLinuxProfile) []GetKubernetesClusterLinuxProfileSshKey { return v.SshKeys }).(GetKubernetesClusterLinuxProfileSshKeyArrayOutput)
+	return o.ApplyT(func(v GetKubernetesClusterLinuxProfile) []GetKubernetesClusterLinuxProfileSshKey { return v.SshKeys }).(GetKubernetesClusterLinuxProfileSshKeyArrayOutput)
 }
 
-type GetKubernetesClusterLinuxProfileArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterLinuxProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterLinuxProfileArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterLinuxProfile)(nil)).Elem()
@@ -5194,7 +5640,7 @@ func (o GetKubernetesClusterLinuxProfileArrayOutput) ToGetKubernetesClusterLinux
 }
 
 func (o GetKubernetesClusterLinuxProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterLinuxProfileOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterLinuxProfile {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterLinuxProfile {
 		return vs[0].([]GetKubernetesClusterLinuxProfile)[vs[1].(int)]
 	}).(GetKubernetesClusterLinuxProfileOutput)
 }
@@ -5249,7 +5695,7 @@ func (i GetKubernetesClusterLinuxProfileSshKeyArray) ToGetKubernetesClusterLinux
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterLinuxProfileSshKeyArrayOutput)
 }
 
-type GetKubernetesClusterLinuxProfileSshKeyOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterLinuxProfileSshKeyOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterLinuxProfileSshKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterLinuxProfileSshKey)(nil)).Elem()
@@ -5265,10 +5711,10 @@ func (o GetKubernetesClusterLinuxProfileSshKeyOutput) ToGetKubernetesClusterLinu
 
 // The Public SSH Key used to access the cluster.
 func (o GetKubernetesClusterLinuxProfileSshKeyOutput) KeyData() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterLinuxProfileSshKey) string { return v.KeyData }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterLinuxProfileSshKey) string { return v.KeyData }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterLinuxProfileSshKeyArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterLinuxProfileSshKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterLinuxProfileSshKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterLinuxProfileSshKey)(nil)).Elem()
@@ -5283,7 +5729,7 @@ func (o GetKubernetesClusterLinuxProfileSshKeyArrayOutput) ToGetKubernetesCluste
 }
 
 func (o GetKubernetesClusterLinuxProfileSshKeyArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterLinuxProfileSshKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterLinuxProfileSshKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterLinuxProfileSshKey {
 		return vs[0].([]GetKubernetesClusterLinuxProfileSshKey)[vs[1].(int)]
 	}).(GetKubernetesClusterLinuxProfileSshKeyOutput)
 }
@@ -5293,7 +5739,7 @@ type GetKubernetesClusterNetworkProfile struct {
 	DnsServiceIp string `pulumi:"dnsServiceIp"`
 	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes.
 	DockerBridgeCidr string `pulumi:"dockerBridgeCidr"`
-	LoadBalancerSku string `pulumi:"loadBalancerSku"`
+	LoadBalancerSku  string `pulumi:"loadBalancerSku"`
 	// Network plugin used such as `azure` or `kubenet`.
 	NetworkPlugin string `pulumi:"networkPlugin"`
 	// Network policy to be used with Azure CNI. Eg: `calico` or `azure`
@@ -5316,7 +5762,7 @@ type GetKubernetesClusterNetworkProfileArgs struct {
 	DnsServiceIp pulumi.StringInput `pulumi:"dnsServiceIp"`
 	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes.
 	DockerBridgeCidr pulumi.StringInput `pulumi:"dockerBridgeCidr"`
-	LoadBalancerSku pulumi.StringInput `pulumi:"loadBalancerSku"`
+	LoadBalancerSku  pulumi.StringInput `pulumi:"loadBalancerSku"`
 	// Network plugin used such as `azure` or `kubenet`.
 	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
 	// Network policy to be used with Azure CNI. Eg: `calico` or `azure`
@@ -5360,7 +5806,7 @@ func (i GetKubernetesClusterNetworkProfileArray) ToGetKubernetesClusterNetworkPr
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterNetworkProfileArrayOutput)
 }
 
-type GetKubernetesClusterNetworkProfileOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterNetworkProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterNetworkProfile)(nil)).Elem()
@@ -5376,39 +5822,39 @@ func (o GetKubernetesClusterNetworkProfileOutput) ToGetKubernetesClusterNetworkP
 
 // IP address within the Kubernetes service address range used by cluster service discovery (kube-dns).
 func (o GetKubernetesClusterNetworkProfileOutput) DnsServiceIp() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterNetworkProfile) string { return v.DnsServiceIp }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.DnsServiceIp }).(pulumi.StringOutput)
 }
 
 // IP address (in CIDR notation) used as the Docker bridge IP address on nodes.
 func (o GetKubernetesClusterNetworkProfileOutput) DockerBridgeCidr() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterNetworkProfile) string { return v.DockerBridgeCidr }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.DockerBridgeCidr }).(pulumi.StringOutput)
 }
 
 func (o GetKubernetesClusterNetworkProfileOutput) LoadBalancerSku() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterNetworkProfile) string { return v.LoadBalancerSku }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.LoadBalancerSku }).(pulumi.StringOutput)
 }
 
 // Network plugin used such as `azure` or `kubenet`.
 func (o GetKubernetesClusterNetworkProfileOutput) NetworkPlugin() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
 }
 
 // Network policy to be used with Azure CNI. Eg: `calico` or `azure`
 func (o GetKubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterNetworkProfile) string { return v.NetworkPolicy }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.NetworkPolicy }).(pulumi.StringOutput)
 }
 
 // The CIDR used for pod IP addresses.
 func (o GetKubernetesClusterNetworkProfileOutput) PodCidr() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterNetworkProfile) string { return v.PodCidr }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.PodCidr }).(pulumi.StringOutput)
 }
 
 // Network range used by the Kubernetes service.
 func (o GetKubernetesClusterNetworkProfileOutput) ServiceCidr() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterNetworkProfile) string { return v.ServiceCidr }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.ServiceCidr }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterNetworkProfileArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterNetworkProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterNetworkProfileArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterNetworkProfile)(nil)).Elem()
@@ -5423,7 +5869,7 @@ func (o GetKubernetesClusterNetworkProfileArrayOutput) ToGetKubernetesClusterNet
 }
 
 func (o GetKubernetesClusterNetworkProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterNetworkProfileOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterNetworkProfile {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterNetworkProfile {
 		return vs[0].([]GetKubernetesClusterNetworkProfile)[vs[1].(int)]
 	}).(GetKubernetesClusterNetworkProfileOutput)
 }
@@ -5482,7 +5928,7 @@ func (i GetKubernetesClusterRoleBasedAccessControlArray) ToGetKubernetesClusterR
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterRoleBasedAccessControlArrayOutput)
 }
 
-type GetKubernetesClusterRoleBasedAccessControlOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterRoleBasedAccessControlOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterRoleBasedAccessControlOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterRoleBasedAccessControl)(nil)).Elem()
@@ -5498,15 +5944,17 @@ func (o GetKubernetesClusterRoleBasedAccessControlOutput) ToGetKubernetesCluster
 
 // A `azureActiveDirectory` block as documented above.
 func (o GetKubernetesClusterRoleBasedAccessControlOutput) AzureActiveDirectories() GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput {
-	return o.ApplyT(func (v GetKubernetesClusterRoleBasedAccessControl) []GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory { return v.AzureActiveDirectories }).(GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput)
+	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControl) []GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
+		return v.AzureActiveDirectories
+	}).(GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput)
 }
 
 // Is Role Based Access Control enabled?
 func (o GetKubernetesClusterRoleBasedAccessControlOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetKubernetesClusterRoleBasedAccessControl) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControl) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type GetKubernetesClusterRoleBasedAccessControlArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterRoleBasedAccessControlArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterRoleBasedAccessControlArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterRoleBasedAccessControl)(nil)).Elem()
@@ -5521,7 +5969,7 @@ func (o GetKubernetesClusterRoleBasedAccessControlArrayOutput) ToGetKubernetesCl
 }
 
 func (o GetKubernetesClusterRoleBasedAccessControlArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterRoleBasedAccessControlOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterRoleBasedAccessControl {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterRoleBasedAccessControl {
 		return vs[0].([]GetKubernetesClusterRoleBasedAccessControl)[vs[1].(int)]
 	}).(GetKubernetesClusterRoleBasedAccessControlOutput)
 }
@@ -5584,7 +6032,7 @@ func (i GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArray) ToG
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput)
 }
 
-type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory)(nil)).Elem()
@@ -5600,20 +6048,20 @@ func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) To
 
 // The Client ID of an Azure Active Directory Application.
 func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ClientAppId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ClientAppId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ClientAppId }).(pulumi.StringOutput)
 }
 
 // The Server ID of an Azure Active Directory Application.
 func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ServerAppId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppId }).(pulumi.StringOutput)
 }
 
 // The Tenant ID used for Azure Active Directory Application.
 func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.TenantId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory)(nil)).Elem()
@@ -5628,7 +6076,7 @@ func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutpu
 }
 
 func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
 		return vs[0].([]GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory)[vs[1].(int)]
 	}).(GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput)
 }
@@ -5683,7 +6131,7 @@ func (i GetKubernetesClusterServicePrincipalArray) ToGetKubernetesClusterService
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterServicePrincipalArrayOutput)
 }
 
-type GetKubernetesClusterServicePrincipalOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterServicePrincipalOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterServicePrincipalOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterServicePrincipal)(nil)).Elem()
@@ -5699,10 +6147,10 @@ func (o GetKubernetesClusterServicePrincipalOutput) ToGetKubernetesClusterServic
 
 // The Client ID of the Service Principal used by this Managed Kubernetes Cluster.
 func (o GetKubernetesClusterServicePrincipalOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterServicePrincipal) string { return v.ClientId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterServicePrincipal) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterServicePrincipalArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterServicePrincipalArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterServicePrincipalArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterServicePrincipal)(nil)).Elem()
@@ -5717,7 +6165,7 @@ func (o GetKubernetesClusterServicePrincipalArrayOutput) ToGetKubernetesClusterS
 }
 
 func (o GetKubernetesClusterServicePrincipalArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterServicePrincipalOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterServicePrincipal {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterServicePrincipal {
 		return vs[0].([]GetKubernetesClusterServicePrincipal)[vs[1].(int)]
 	}).(GetKubernetesClusterServicePrincipalOutput)
 }
@@ -5772,7 +6220,7 @@ func (i GetKubernetesClusterWindowsProfileArray) ToGetKubernetesClusterWindowsPr
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterWindowsProfileArrayOutput)
 }
 
-type GetKubernetesClusterWindowsProfileOutput struct { *pulumi.OutputState }
+type GetKubernetesClusterWindowsProfileOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterWindowsProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetKubernetesClusterWindowsProfile)(nil)).Elem()
@@ -5788,10 +6236,10 @@ func (o GetKubernetesClusterWindowsProfileOutput) ToGetKubernetesClusterWindowsP
 
 // The username associated with the administrator account of the Windows VMs.
 func (o GetKubernetesClusterWindowsProfileOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKubernetesClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetKubernetesClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-type GetKubernetesClusterWindowsProfileArrayOutput struct { *pulumi.OutputState}
+type GetKubernetesClusterWindowsProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterWindowsProfileArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetKubernetesClusterWindowsProfile)(nil)).Elem()
@@ -5806,7 +6254,7 @@ func (o GetKubernetesClusterWindowsProfileArrayOutput) ToGetKubernetesClusterWin
 }
 
 func (o GetKubernetesClusterWindowsProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterWindowsProfileOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetKubernetesClusterWindowsProfile {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterWindowsProfile {
 		return vs[0].([]GetKubernetesClusterWindowsProfile)[vs[1].(int)]
 	}).(GetKubernetesClusterWindowsProfileOutput)
 }

@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip.html.markdown.
         /// </summary>
+        [Obsolete("Use GetPublicIP.InvokeAsync() instead")]
         public static Task<GetPublicIPResult> GetPublicIP(GetPublicIPArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetPublicIP
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Public IP Address.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip.html.markdown.
+        /// </summary>
+        public static Task<GetPublicIPResult> InvokeAsync(GetPublicIPArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -36,6 +47,10 @@ namespace Pulumi.Azure.Network
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assigned to the resource.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());

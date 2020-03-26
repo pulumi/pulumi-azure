@@ -131,4 +131,3 @@ type ActiveDirectoryAdministratorArgs struct {
 func (ActiveDirectoryAdministratorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*activeDirectoryAdministratorArgs)(nil)).Elem()
 }
-

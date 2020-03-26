@@ -116,4 +116,3 @@ type BackendAddressPoolArgs struct {
 func (BackendAddressPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*backendAddressPoolArgs)(nil)).Elem()
 }
-

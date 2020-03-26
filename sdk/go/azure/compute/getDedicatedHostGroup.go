@@ -28,20 +28,18 @@ type LookupDedicatedHostGroupArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getDedicatedHostGroup.
 type LookupDedicatedHostGroupResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure location where the Dedicated Host Group exists.
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// The number of fault domains that the Dedicated Host Group spans.
-	PlatformFaultDomainCount int `pulumi:"platformFaultDomainCount"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PlatformFaultDomainCount int    `pulumi:"platformFaultDomainCount"`
+	ResourceGroupName        string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Availability Zones in which this Dedicated Host Group is located.
 	Zones []string `pulumi:"zones"`
 }
-

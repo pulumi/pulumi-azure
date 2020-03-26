@@ -107,12 +107,12 @@ def get_account_blob_container_sas(cache_control=None,connection_string=None,con
 
     The **permissions** object supports the following:
 
-      * `add` (`bool`)
-      * `create` (`bool`)
-      * `delete` (`bool`)
-      * `list` (`bool`)
-      * `read` (`bool`)
-      * `write` (`bool`)
+      * `add` (`bool`) - Should Add permissions be enabled for this SAS?
+      * `create` (`bool`) - Should Create permissions be enabled for this SAS?
+      * `delete` (`bool`) - Should Delete permissions be enabled for this SAS?
+      * `list` (`bool`) - Should List permissions be enabled for this SAS?
+      * `read` (`bool`) - Should Read permissions be enabled for this SAS?
+      * `write` (`bool`) - Should Write permissions be enabled for this SAS?
     """
     __args__ = dict()
 

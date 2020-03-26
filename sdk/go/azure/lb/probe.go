@@ -20,7 +20,7 @@ type Probe struct {
 	pulumi.CustomResourceState
 
 	// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
-	IntervalInSeconds pulumi.IntPtrOutput `pulumi:"intervalInSeconds"`
+	IntervalInSeconds pulumi.IntPtrOutput      `pulumi:"intervalInSeconds"`
 	LoadBalancerRules pulumi.StringArrayOutput `pulumi:"loadBalancerRules"`
 	// The ID of the LoadBalancer in which to create the NAT Rule.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
@@ -76,7 +76,7 @@ func GetProbe(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Probe resources.
 type probeState struct {
 	// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
-	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
+	IntervalInSeconds *int     `pulumi:"intervalInSeconds"`
 	LoadBalancerRules []string `pulumi:"loadBalancerRules"`
 	// The ID of the LoadBalancer in which to create the NAT Rule.
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
@@ -160,4 +160,3 @@ type ProbeArgs struct {
 func (ProbeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*probeArgs)(nil)).Elem()
 }
-

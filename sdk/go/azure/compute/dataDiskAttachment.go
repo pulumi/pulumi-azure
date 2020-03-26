@@ -142,4 +142,3 @@ type DataDiskAttachmentArgs struct {
 func (DataDiskAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataDiskAttachmentArgs)(nil)).Elem()
 }
-

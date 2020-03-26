@@ -14,7 +14,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     """
     A `additional_capabilities` block as defined below.
 
-      * `ultraSsdEnabled` (`bool`)
+      * `ultraSsdEnabled` (`bool`) - Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
     """
     admin_password: pulumi.Output[str]
     """
@@ -24,8 +24,8 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     """
     One or more `admin_ssh_key` blocks as defined below.
 
-      * `publicKey` (`str`)
-      * `username` (`str`)
+      * `publicKey` (`str`) - The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
+      * `username` (`str`) - The Username for which this Public SSH Key should be configured.
     """
     admin_username: pulumi.Output[str]
     """
@@ -35,14 +35,14 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     """
     A `automatic_os_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic`.
 
-      * `disableAutomaticRollback` (`bool`)
-      * `enableAutomaticOsUpgrade` (`bool`)
+      * `disableAutomaticRollback` (`bool`) - Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+      * `enableAutomaticOsUpgrade` (`bool`) - Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
     """
     boot_diagnostics: pulumi.Output[dict]
     """
     A `boot_diagnostics` block as defined below.
 
-      * `storageAccountUri` (`str`)
+      * `storageAccountUri` (`str`) - The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
     """
     computer_name_prefix: pulumi.Output[str]
     """
@@ -56,12 +56,12 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     """
     One or more `data_disk` blocks as defined below.
 
-      * `caching` (`str`)
-      * `disk_encryption_set_id` (`str`)
-      * `disk_size_gb` (`float`)
-      * `lun` (`float`)
-      * `storage_account_type` (`str`)
-      * `write_accelerator_enabled` (`bool`)
+      * `caching` (`str`) - The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+      * `disk_encryption_set_id` (`str`) - The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+      * `disk_size_gb` (`float`) - The size of the Data Disk which should be created.
+      * `lun` (`float`) - The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+      * `storage_account_type` (`str`) - The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+      * `write_accelerator_enabled` (`bool`) - Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
     """
     disable_password_authentication: pulumi.Output[bool]
     """
@@ -83,9 +83,9 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     """
     A `identity` block as defined below.
 
-      * `identityIds` (`list`)
+      * `identityIds` (`list`) - A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
       * `principal_id` (`str`) - The ID of the System Managed Service Principal.
-      * `type` (`str`)
+      * `type` (`str`) - The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
     """
     instances: pulumi.Output[float]
     """
@@ -107,45 +107,45 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     """
     One or more `network_interface` blocks as defined below.
 
-      * `dns_servers` (`list`)
-      * `enable_accelerated_networking` (`bool`)
-      * `enable_ip_forwarding` (`bool`)
-      * `ip_configurations` (`list`)
-        * `applicationGatewayBackendAddressPoolIds` (`list`)
-        * `applicationSecurityGroupIds` (`list`)
-        * `loadBalancerBackendAddressPoolIds` (`list`)
-        * `loadBalancerInboundNatRulesIds` (`list`)
-        * `name` (`str`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-        * `primary` (`bool`)
-        * `public_ip_addresses` (`list`)
-          * `domain_name_label` (`str`)
-          * `idle_timeout_in_minutes` (`float`)
-          * `ipTags` (`list`)
-            * `tag` (`str`)
-            * `type` (`str`)
+      * `dns_servers` (`list`) - A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+      * `enable_accelerated_networking` (`bool`) - Does this Network Interface support Accelerated Networking? Defaults to `false`.
+      * `enable_ip_forwarding` (`bool`) - Does this Network Interface support IP Forwarding? Defaults to `false`.
+      * `ip_configurations` (`list`) - One or more `ip_configuration` blocks as defined above.
+        * `applicationGatewayBackendAddressPoolIds` (`list`) - A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
+        * `applicationSecurityGroupIds` (`list`) - A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
+        * `loadBalancerBackendAddressPoolIds` (`list`) - A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+        * `loadBalancerInboundNatRulesIds` (`list`) - A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+        * `name` (`str`) - The Name which should be used for this IP Configuration.
+        * `primary` (`bool`) - Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
+        * `public_ip_addresses` (`list`) - A `public_ip_address` block as defined below.
+          * `domain_name_label` (`str`) - The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
+          * `idle_timeout_in_minutes` (`float`) - The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+          * `ipTags` (`list`) - One or more `ip_tag` blocks as defined above.
+            * `tag` (`str`) - The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+            * `type` (`str`) - The Type of IP Tag, such as `FirstPartyUsage`.
 
-          * `name` (`str`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-          * `public_ip_prefix_id` (`str`)
+          * `name` (`str`) - The Name of the Public IP Address Configuration.
+          * `public_ip_prefix_id` (`str`) - The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 
-        * `subnet_id` (`str`)
-        * `version` (`str`)
+        * `subnet_id` (`str`) - The ID of the Subnet which this IP Configuration should be connected to.
+        * `version` (`str`) - The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 
-      * `name` (`str`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-      * `network_security_group_id` (`str`)
-      * `primary` (`bool`)
+      * `name` (`str`) - The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
+      * `network_security_group_id` (`str`) - The ID of a Network Security Group which should be assigned to this Network Interface.
+      * `primary` (`bool`) - Is this the Primary IP Configuration?
     """
     os_disk: pulumi.Output[dict]
     """
     An `os_disk` block as defined below.
 
-      * `caching` (`str`)
-      * `diffDiskSettings` (`dict`)
+      * `caching` (`str`) - The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+      * `diffDiskSettings` (`dict`) - A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         * `option` (`str`)
 
-      * `disk_encryption_set_id` (`str`)
-      * `disk_size_gb` (`float`)
-      * `storage_account_type` (`str`)
-      * `write_accelerator_enabled` (`bool`)
+      * `disk_encryption_set_id` (`str`) - The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+      * `disk_size_gb` (`float`) - The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+      * `storage_account_type` (`str`) - The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+      * `write_accelerator_enabled` (`bool`) - Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
     """
     overprovision: pulumi.Output[bool]
     """
@@ -172,10 +172,10 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     """
     A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
 
-      * `maxBatchInstancePercent` (`float`)
-      * `maxUnhealthyInstancePercent` (`float`)
-      * `maxUnhealthyUpgradedInstancePercent` (`float`)
-      * `pauseTimeBetweenBatches` (`str`)
+      * `maxBatchInstancePercent` (`float`) - The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+      * `maxUnhealthyInstancePercent` (`float`) - The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+      * `maxUnhealthyUpgradedInstancePercent` (`float`) - The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+      * `pauseTimeBetweenBatches` (`str`) - The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
     """
     scale_in_policy: pulumi.Output[str]
     """
@@ -185,10 +185,10 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     """
     One or more `secret` blocks as defined below.
 
-      * `certificates` (`list`)
-        * `url` (`str`)
+      * `certificates` (`list`) - One or more `certificate` blocks as defined above.
+        * `url` (`str`) - The Secret URL of a Key Vault Certificate.
 
-      * `key_vault_id` (`str`)
+      * `key_vault_id` (`str`) - The ID of the Key Vault from which all Secrets should be sourced.
     """
     single_placement_group: pulumi.Output[bool]
     """
@@ -209,7 +209,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
       * `offer` (`str`)
       * `publisher` (`str`)
       * `sku` (`str`) - The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
-      * `version` (`str`)
+      * `version` (`str`) - The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
     """
     tags: pulumi.Output[dict]
     """
@@ -219,8 +219,8 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     """
     A `terminate_notification` block as defined below.
 
-      * `enabled` (`bool`)
-      * `timeout` (`str`)
+      * `enabled` (`bool`) - Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+      * `timeout` (`str`) - Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
     """
     unique_id: pulumi.Output[str]
     """
@@ -292,76 +292,76 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
         The **additional_capabilities** object supports the following:
 
-          * `ultraSsdEnabled` (`pulumi.Input[bool]`)
+          * `ultraSsdEnabled` (`pulumi.Input[bool]`) - Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
 
         The **admin_ssh_keys** object supports the following:
 
-          * `publicKey` (`pulumi.Input[str]`)
-          * `username` (`pulumi.Input[str]`)
+          * `publicKey` (`pulumi.Input[str]`) - The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
+          * `username` (`pulumi.Input[str]`) - The Username for which this Public SSH Key should be configured.
 
         The **automatic_os_upgrade_policy** object supports the following:
 
-          * `disableAutomaticRollback` (`pulumi.Input[bool]`)
-          * `enableAutomaticOsUpgrade` (`pulumi.Input[bool]`)
+          * `disableAutomaticRollback` (`pulumi.Input[bool]`) - Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+          * `enableAutomaticOsUpgrade` (`pulumi.Input[bool]`) - Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
 
         The **boot_diagnostics** object supports the following:
 
-          * `storageAccountUri` (`pulumi.Input[str]`)
+          * `storageAccountUri` (`pulumi.Input[str]`) - The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 
         The **data_disks** object supports the following:
 
-          * `caching` (`pulumi.Input[str]`)
-          * `disk_encryption_set_id` (`pulumi.Input[str]`)
-          * `disk_size_gb` (`pulumi.Input[float]`)
-          * `lun` (`pulumi.Input[float]`)
-          * `storage_account_type` (`pulumi.Input[str]`)
-          * `write_accelerator_enabled` (`pulumi.Input[bool]`)
+          * `caching` (`pulumi.Input[str]`) - The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+          * `disk_encryption_set_id` (`pulumi.Input[str]`) - The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+          * `disk_size_gb` (`pulumi.Input[float]`) - The size of the Data Disk which should be created.
+          * `lun` (`pulumi.Input[float]`) - The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+          * `storage_account_type` (`pulumi.Input[str]`) - The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+          * `write_accelerator_enabled` (`pulumi.Input[bool]`) - Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 
         The **identity** object supports the following:
 
-          * `identityIds` (`pulumi.Input[list]`)
+          * `identityIds` (`pulumi.Input[list]`) - A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
           * `principal_id` (`pulumi.Input[str]`) - The ID of the System Managed Service Principal.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 
         The **network_interfaces** object supports the following:
 
-          * `dns_servers` (`pulumi.Input[list]`)
-          * `enable_accelerated_networking` (`pulumi.Input[bool]`)
-          * `enable_ip_forwarding` (`pulumi.Input[bool]`)
-          * `ip_configurations` (`pulumi.Input[list]`)
-            * `applicationGatewayBackendAddressPoolIds` (`pulumi.Input[list]`)
-            * `applicationSecurityGroupIds` (`pulumi.Input[list]`)
-            * `loadBalancerBackendAddressPoolIds` (`pulumi.Input[list]`)
-            * `loadBalancerInboundNatRulesIds` (`pulumi.Input[list]`)
-            * `name` (`pulumi.Input[str]`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-            * `primary` (`pulumi.Input[bool]`)
-            * `public_ip_addresses` (`pulumi.Input[list]`)
-              * `domain_name_label` (`pulumi.Input[str]`)
-              * `idle_timeout_in_minutes` (`pulumi.Input[float]`)
-              * `ipTags` (`pulumi.Input[list]`)
-                * `tag` (`pulumi.Input[str]`)
-                * `type` (`pulumi.Input[str]`)
+          * `dns_servers` (`pulumi.Input[list]`) - A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+          * `enable_accelerated_networking` (`pulumi.Input[bool]`) - Does this Network Interface support Accelerated Networking? Defaults to `false`.
+          * `enable_ip_forwarding` (`pulumi.Input[bool]`) - Does this Network Interface support IP Forwarding? Defaults to `false`.
+          * `ip_configurations` (`pulumi.Input[list]`) - One or more `ip_configuration` blocks as defined above.
+            * `applicationGatewayBackendAddressPoolIds` (`pulumi.Input[list]`) - A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
+            * `applicationSecurityGroupIds` (`pulumi.Input[list]`) - A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
+            * `loadBalancerBackendAddressPoolIds` (`pulumi.Input[list]`) - A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+            * `loadBalancerInboundNatRulesIds` (`pulumi.Input[list]`) - A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+            * `name` (`pulumi.Input[str]`) - The Name which should be used for this IP Configuration.
+            * `primary` (`pulumi.Input[bool]`) - Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
+            * `public_ip_addresses` (`pulumi.Input[list]`) - A `public_ip_address` block as defined below.
+              * `domain_name_label` (`pulumi.Input[str]`) - The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
+              * `idle_timeout_in_minutes` (`pulumi.Input[float]`) - The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+              * `ipTags` (`pulumi.Input[list]`) - One or more `ip_tag` blocks as defined above.
+                * `tag` (`pulumi.Input[str]`) - The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+                * `type` (`pulumi.Input[str]`) - The Type of IP Tag, such as `FirstPartyUsage`.
 
-              * `name` (`pulumi.Input[str]`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-              * `public_ip_prefix_id` (`pulumi.Input[str]`)
+              * `name` (`pulumi.Input[str]`) - The Name of the Public IP Address Configuration.
+              * `public_ip_prefix_id` (`pulumi.Input[str]`) - The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 
-            * `subnet_id` (`pulumi.Input[str]`)
-            * `version` (`pulumi.Input[str]`)
+            * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet which this IP Configuration should be connected to.
+            * `version` (`pulumi.Input[str]`) - The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 
-          * `name` (`pulumi.Input[str]`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-          * `network_security_group_id` (`pulumi.Input[str]`)
-          * `primary` (`pulumi.Input[bool]`)
+          * `name` (`pulumi.Input[str]`) - The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
+          * `network_security_group_id` (`pulumi.Input[str]`) - The ID of a Network Security Group which should be assigned to this Network Interface.
+          * `primary` (`pulumi.Input[bool]`) - Is this the Primary IP Configuration?
 
         The **os_disk** object supports the following:
 
-          * `caching` (`pulumi.Input[str]`)
-          * `diffDiskSettings` (`pulumi.Input[dict]`)
+          * `caching` (`pulumi.Input[str]`) - The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+          * `diffDiskSettings` (`pulumi.Input[dict]`) - A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
             * `option` (`pulumi.Input[str]`)
 
-          * `disk_encryption_set_id` (`pulumi.Input[str]`)
-          * `disk_size_gb` (`pulumi.Input[float]`)
-          * `storage_account_type` (`pulumi.Input[str]`)
-          * `write_accelerator_enabled` (`pulumi.Input[bool]`)
+          * `disk_encryption_set_id` (`pulumi.Input[str]`) - The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+          * `disk_size_gb` (`pulumi.Input[float]`) - The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+          * `storage_account_type` (`pulumi.Input[str]`) - The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+          * `write_accelerator_enabled` (`pulumi.Input[bool]`) - Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 
         The **plan** object supports the following:
 
@@ -371,29 +371,29 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
         The **rolling_upgrade_policy** object supports the following:
 
-          * `maxBatchInstancePercent` (`pulumi.Input[float]`)
-          * `maxUnhealthyInstancePercent` (`pulumi.Input[float]`)
-          * `maxUnhealthyUpgradedInstancePercent` (`pulumi.Input[float]`)
-          * `pauseTimeBetweenBatches` (`pulumi.Input[str]`)
+          * `maxBatchInstancePercent` (`pulumi.Input[float]`) - The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+          * `maxUnhealthyInstancePercent` (`pulumi.Input[float]`) - The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+          * `maxUnhealthyUpgradedInstancePercent` (`pulumi.Input[float]`) - The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+          * `pauseTimeBetweenBatches` (`pulumi.Input[str]`) - The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
 
         The **secrets** object supports the following:
 
-          * `certificates` (`pulumi.Input[list]`)
-            * `url` (`pulumi.Input[str]`)
+          * `certificates` (`pulumi.Input[list]`) - One or more `certificate` blocks as defined above.
+            * `url` (`pulumi.Input[str]`) - The Secret URL of a Key Vault Certificate.
 
-          * `key_vault_id` (`pulumi.Input[str]`)
+          * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault from which all Secrets should be sourced.
 
         The **source_image_reference** object supports the following:
 
           * `offer` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
           * `sku` (`pulumi.Input[str]`) - The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
-          * `version` (`pulumi.Input[str]`)
+          * `version` (`pulumi.Input[str]`) - The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 
         The **terminate_notification** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`)
-          * `timeout` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+          * `timeout` (`pulumi.Input[str]`) - Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -519,76 +519,76 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
         The **additional_capabilities** object supports the following:
 
-          * `ultraSsdEnabled` (`pulumi.Input[bool]`)
+          * `ultraSsdEnabled` (`pulumi.Input[bool]`) - Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
 
         The **admin_ssh_keys** object supports the following:
 
-          * `publicKey` (`pulumi.Input[str]`)
-          * `username` (`pulumi.Input[str]`)
+          * `publicKey` (`pulumi.Input[str]`) - The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
+          * `username` (`pulumi.Input[str]`) - The Username for which this Public SSH Key should be configured.
 
         The **automatic_os_upgrade_policy** object supports the following:
 
-          * `disableAutomaticRollback` (`pulumi.Input[bool]`)
-          * `enableAutomaticOsUpgrade` (`pulumi.Input[bool]`)
+          * `disableAutomaticRollback` (`pulumi.Input[bool]`) - Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+          * `enableAutomaticOsUpgrade` (`pulumi.Input[bool]`) - Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
 
         The **boot_diagnostics** object supports the following:
 
-          * `storageAccountUri` (`pulumi.Input[str]`)
+          * `storageAccountUri` (`pulumi.Input[str]`) - The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 
         The **data_disks** object supports the following:
 
-          * `caching` (`pulumi.Input[str]`)
-          * `disk_encryption_set_id` (`pulumi.Input[str]`)
-          * `disk_size_gb` (`pulumi.Input[float]`)
-          * `lun` (`pulumi.Input[float]`)
-          * `storage_account_type` (`pulumi.Input[str]`)
-          * `write_accelerator_enabled` (`pulumi.Input[bool]`)
+          * `caching` (`pulumi.Input[str]`) - The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+          * `disk_encryption_set_id` (`pulumi.Input[str]`) - The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+          * `disk_size_gb` (`pulumi.Input[float]`) - The size of the Data Disk which should be created.
+          * `lun` (`pulumi.Input[float]`) - The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+          * `storage_account_type` (`pulumi.Input[str]`) - The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+          * `write_accelerator_enabled` (`pulumi.Input[bool]`) - Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 
         The **identity** object supports the following:
 
-          * `identityIds` (`pulumi.Input[list]`)
+          * `identityIds` (`pulumi.Input[list]`) - A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
           * `principal_id` (`pulumi.Input[str]`) - The ID of the System Managed Service Principal.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 
         The **network_interfaces** object supports the following:
 
-          * `dns_servers` (`pulumi.Input[list]`)
-          * `enable_accelerated_networking` (`pulumi.Input[bool]`)
-          * `enable_ip_forwarding` (`pulumi.Input[bool]`)
-          * `ip_configurations` (`pulumi.Input[list]`)
-            * `applicationGatewayBackendAddressPoolIds` (`pulumi.Input[list]`)
-            * `applicationSecurityGroupIds` (`pulumi.Input[list]`)
-            * `loadBalancerBackendAddressPoolIds` (`pulumi.Input[list]`)
-            * `loadBalancerInboundNatRulesIds` (`pulumi.Input[list]`)
-            * `name` (`pulumi.Input[str]`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-            * `primary` (`pulumi.Input[bool]`)
-            * `public_ip_addresses` (`pulumi.Input[list]`)
-              * `domain_name_label` (`pulumi.Input[str]`)
-              * `idle_timeout_in_minutes` (`pulumi.Input[float]`)
-              * `ipTags` (`pulumi.Input[list]`)
-                * `tag` (`pulumi.Input[str]`)
-                * `type` (`pulumi.Input[str]`)
+          * `dns_servers` (`pulumi.Input[list]`) - A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+          * `enable_accelerated_networking` (`pulumi.Input[bool]`) - Does this Network Interface support Accelerated Networking? Defaults to `false`.
+          * `enable_ip_forwarding` (`pulumi.Input[bool]`) - Does this Network Interface support IP Forwarding? Defaults to `false`.
+          * `ip_configurations` (`pulumi.Input[list]`) - One or more `ip_configuration` blocks as defined above.
+            * `applicationGatewayBackendAddressPoolIds` (`pulumi.Input[list]`) - A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
+            * `applicationSecurityGroupIds` (`pulumi.Input[list]`) - A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
+            * `loadBalancerBackendAddressPoolIds` (`pulumi.Input[list]`) - A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+            * `loadBalancerInboundNatRulesIds` (`pulumi.Input[list]`) - A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+            * `name` (`pulumi.Input[str]`) - The Name which should be used for this IP Configuration.
+            * `primary` (`pulumi.Input[bool]`) - Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
+            * `public_ip_addresses` (`pulumi.Input[list]`) - A `public_ip_address` block as defined below.
+              * `domain_name_label` (`pulumi.Input[str]`) - The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
+              * `idle_timeout_in_minutes` (`pulumi.Input[float]`) - The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+              * `ipTags` (`pulumi.Input[list]`) - One or more `ip_tag` blocks as defined above.
+                * `tag` (`pulumi.Input[str]`) - The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+                * `type` (`pulumi.Input[str]`) - The Type of IP Tag, such as `FirstPartyUsage`.
 
-              * `name` (`pulumi.Input[str]`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-              * `public_ip_prefix_id` (`pulumi.Input[str]`)
+              * `name` (`pulumi.Input[str]`) - The Name of the Public IP Address Configuration.
+              * `public_ip_prefix_id` (`pulumi.Input[str]`) - The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 
-            * `subnet_id` (`pulumi.Input[str]`)
-            * `version` (`pulumi.Input[str]`)
+            * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet which this IP Configuration should be connected to.
+            * `version` (`pulumi.Input[str]`) - The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 
-          * `name` (`pulumi.Input[str]`) - The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-          * `network_security_group_id` (`pulumi.Input[str]`)
-          * `primary` (`pulumi.Input[bool]`)
+          * `name` (`pulumi.Input[str]`) - The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
+          * `network_security_group_id` (`pulumi.Input[str]`) - The ID of a Network Security Group which should be assigned to this Network Interface.
+          * `primary` (`pulumi.Input[bool]`) - Is this the Primary IP Configuration?
 
         The **os_disk** object supports the following:
 
-          * `caching` (`pulumi.Input[str]`)
-          * `diffDiskSettings` (`pulumi.Input[dict]`)
+          * `caching` (`pulumi.Input[str]`) - The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+          * `diffDiskSettings` (`pulumi.Input[dict]`) - A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
             * `option` (`pulumi.Input[str]`)
 
-          * `disk_encryption_set_id` (`pulumi.Input[str]`)
-          * `disk_size_gb` (`pulumi.Input[float]`)
-          * `storage_account_type` (`pulumi.Input[str]`)
-          * `write_accelerator_enabled` (`pulumi.Input[bool]`)
+          * `disk_encryption_set_id` (`pulumi.Input[str]`) - The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+          * `disk_size_gb` (`pulumi.Input[float]`) - The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+          * `storage_account_type` (`pulumi.Input[str]`) - The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+          * `write_accelerator_enabled` (`pulumi.Input[bool]`) - Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 
         The **plan** object supports the following:
 
@@ -598,29 +598,29 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
         The **rolling_upgrade_policy** object supports the following:
 
-          * `maxBatchInstancePercent` (`pulumi.Input[float]`)
-          * `maxUnhealthyInstancePercent` (`pulumi.Input[float]`)
-          * `maxUnhealthyUpgradedInstancePercent` (`pulumi.Input[float]`)
-          * `pauseTimeBetweenBatches` (`pulumi.Input[str]`)
+          * `maxBatchInstancePercent` (`pulumi.Input[float]`) - The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+          * `maxUnhealthyInstancePercent` (`pulumi.Input[float]`) - The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+          * `maxUnhealthyUpgradedInstancePercent` (`pulumi.Input[float]`) - The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+          * `pauseTimeBetweenBatches` (`pulumi.Input[str]`) - The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
 
         The **secrets** object supports the following:
 
-          * `certificates` (`pulumi.Input[list]`)
-            * `url` (`pulumi.Input[str]`)
+          * `certificates` (`pulumi.Input[list]`) - One or more `certificate` blocks as defined above.
+            * `url` (`pulumi.Input[str]`) - The Secret URL of a Key Vault Certificate.
 
-          * `key_vault_id` (`pulumi.Input[str]`)
+          * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault from which all Secrets should be sourced.
 
         The **source_image_reference** object supports the following:
 
           * `offer` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
           * `sku` (`pulumi.Input[str]`) - The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
-          * `version` (`pulumi.Input[str]`)
+          * `version` (`pulumi.Input[str]`) - The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 
         The **terminate_notification** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`)
-          * `timeout` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+          * `timeout` (`pulumi.Input[str]`) - Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

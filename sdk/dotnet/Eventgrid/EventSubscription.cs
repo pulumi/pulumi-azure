@@ -472,7 +472,7 @@ namespace Pulumi.Azure.EventGrid
         public Input<string> QueueName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the id of the storage account id where the storage blob is located.
+        /// Specifies the id of the storage account id where the storage queue is located.
         /// </summary>
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
@@ -491,7 +491,7 @@ namespace Pulumi.Azure.EventGrid
         public Input<string> QueueName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the id of the storage account id where the storage blob is located.
+        /// Specifies the id of the storage account id where the storage queue is located.
         /// </summary>
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
@@ -663,7 +663,7 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         public readonly string QueueName;
         /// <summary>
-        /// Specifies the id of the storage account id where the storage blob is located.
+        /// Specifies the id of the storage account id where the storage queue is located.
         /// </summary>
         public readonly string StorageAccountId;
 

@@ -45,6 +45,12 @@ func NewAssignment(ctx *pulumi.Context,
 	if args == nil {
 		args = &AssignmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:role/assignment:Assignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Assignment
 	err := ctx.RegisterResource("azure:authorization/assignment:Assignment", name, args, &resource, opts...)
 	if err != nil {
@@ -138,4 +144,3 @@ type AssignmentArgs struct {
 func (AssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*assignmentArgs)(nil)).Elem()
 }
-

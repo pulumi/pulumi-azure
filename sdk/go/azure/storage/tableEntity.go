@@ -141,4 +141,3 @@ type TableEntityArgs struct {
 func (TableEntityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableEntityArgs)(nil)).Elem()
 }
-

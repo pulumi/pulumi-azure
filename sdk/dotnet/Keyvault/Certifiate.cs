@@ -41,7 +41,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> KeyVaultId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+        /// Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string> KeyVaultId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+        /// Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
-        /// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+        /// Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

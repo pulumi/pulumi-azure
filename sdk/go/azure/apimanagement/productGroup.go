@@ -118,4 +118,3 @@ type ProductGroupArgs struct {
 func (ProductGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*productGroupArgs)(nil)).Elem()
 }
-

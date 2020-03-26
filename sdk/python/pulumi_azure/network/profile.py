@@ -14,11 +14,11 @@ class Profile(pulumi.CustomResource):
     """
     A `container_network_interface` block as documented below.
 
-      * `ip_configurations` (`list`)
-        * `name` (`str`) - Specifies the name of the Network Profile. Changing this forces a new resource to be created.
-        * `subnet_id` (`str`)
+      * `ip_configurations` (`list`) - One or more `ip_configuration` blocks as documented below.
+        * `name` (`str`) - Specifies the name of the IP Configuration.
+        * `subnet_id` (`str`) - Reference to the subnet associated with the IP Configuration.
 
-      * `name` (`str`) - Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+      * `name` (`str`) - Specifies the name of the IP Configuration.
     """
     container_network_interface_ids: pulumi.Output[list]
     """
@@ -56,11 +56,11 @@ class Profile(pulumi.CustomResource):
 
         The **container_network_interface** object supports the following:
 
-          * `ip_configurations` (`pulumi.Input[list]`)
-            * `name` (`pulumi.Input[str]`) - Specifies the name of the Network Profile. Changing this forces a new resource to be created.
-            * `subnet_id` (`pulumi.Input[str]`)
+          * `ip_configurations` (`pulumi.Input[list]`) - One or more `ip_configuration` blocks as documented below.
+            * `name` (`pulumi.Input[str]`) - Specifies the name of the IP Configuration.
+            * `subnet_id` (`pulumi.Input[str]`) - Reference to the subnet associated with the IP Configuration.
 
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the IP Configuration.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -113,11 +113,11 @@ class Profile(pulumi.CustomResource):
 
         The **container_network_interface** object supports the following:
 
-          * `ip_configurations` (`pulumi.Input[list]`)
-            * `name` (`pulumi.Input[str]`) - Specifies the name of the Network Profile. Changing this forces a new resource to be created.
-            * `subnet_id` (`pulumi.Input[str]`)
+          * `ip_configurations` (`pulumi.Input[list]`) - One or more `ip_configuration` blocks as documented below.
+            * `name` (`pulumi.Input[str]`) - Specifies the name of the IP Configuration.
+            * `subnet_id` (`pulumi.Input[str]`) - Reference to the subnet associated with the IP Configuration.
 
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the IP Configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

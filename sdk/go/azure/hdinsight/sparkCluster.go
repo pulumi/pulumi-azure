@@ -206,4 +206,3 @@ type SparkClusterArgs struct {
 func (SparkClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sparkClusterArgs)(nil)).Elem()
 }
-

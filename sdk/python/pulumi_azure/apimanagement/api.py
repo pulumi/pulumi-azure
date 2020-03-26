@@ -26,11 +26,11 @@ class Api(pulumi.CustomResource):
     """
     A `import` block as documented below.
 
-      * `contentFormat` (`str`)
-      * `contentValue` (`str`)
-      * `wsdlSelector` (`dict`)
-        * `endpointName` (`str`)
-        * `service_name` (`str`)
+      * `contentFormat` (`str`) - The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
+      * `contentValue` (`str`) - The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+      * `wsdlSelector` (`dict`) - A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
+        * `endpointName` (`str`) - The name of endpoint (port) to import from WSDL.
+        * `service_name` (`str`) - The name of service to import from WSDL.
     """
     is_current: pulumi.Output[bool]
     """
@@ -72,8 +72,8 @@ class Api(pulumi.CustomResource):
     """
     A `subscription_key_parameter_names` block as documented below.
 
-      * `header` (`str`)
-      * `query` (`str`)
+      * `header` (`str`) - The name of the HTTP Header which should be used for the Subscription Key.
+      * `query` (`str`) - The name of the QueryString parameter which should be used for the Subscription Key.
     """
     version: pulumi.Output[str]
     """
@@ -108,16 +108,16 @@ class Api(pulumi.CustomResource):
 
         The **import_** object supports the following:
 
-          * `contentFormat` (`pulumi.Input[str]`)
-          * `contentValue` (`pulumi.Input[str]`)
-          * `wsdlSelector` (`pulumi.Input[dict]`)
-            * `endpointName` (`pulumi.Input[str]`)
-            * `service_name` (`pulumi.Input[str]`)
+          * `contentFormat` (`pulumi.Input[str]`) - The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
+          * `contentValue` (`pulumi.Input[str]`) - The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+          * `wsdlSelector` (`pulumi.Input[dict]`) - A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
+            * `endpointName` (`pulumi.Input[str]`) - The name of endpoint (port) to import from WSDL.
+            * `service_name` (`pulumi.Input[str]`) - The name of service to import from WSDL.
 
         The **subscription_key_parameter_names** object supports the following:
 
-          * `header` (`pulumi.Input[str]`)
-          * `query` (`pulumi.Input[str]`)
+          * `header` (`pulumi.Input[str]`) - The name of the HTTP Header which should be used for the Subscription Key.
+          * `query` (`pulumi.Input[str]`) - The name of the QueryString parameter which should be used for the Subscription Key.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -198,16 +198,16 @@ class Api(pulumi.CustomResource):
 
         The **import_** object supports the following:
 
-          * `contentFormat` (`pulumi.Input[str]`)
-          * `contentValue` (`pulumi.Input[str]`)
-          * `wsdlSelector` (`pulumi.Input[dict]`)
-            * `endpointName` (`pulumi.Input[str]`)
-            * `service_name` (`pulumi.Input[str]`)
+          * `contentFormat` (`pulumi.Input[str]`) - The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
+          * `contentValue` (`pulumi.Input[str]`) - The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+          * `wsdlSelector` (`pulumi.Input[dict]`) - A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
+            * `endpointName` (`pulumi.Input[str]`) - The name of endpoint (port) to import from WSDL.
+            * `service_name` (`pulumi.Input[str]`) - The name of service to import from WSDL.
 
         The **subscription_key_parameter_names** object supports the following:
 
-          * `header` (`pulumi.Input[str]`)
-          * `query` (`pulumi.Input[str]`)
+          * `header` (`pulumi.Input[str]`) - The name of the HTTP Header which should be used for the Subscription Key.
+          * `query` (`pulumi.Input[str]`) - The name of the QueryString parameter which should be used for the Subscription Key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

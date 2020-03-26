@@ -164,4 +164,3 @@ type OpenIdConnectProviderArgs struct {
 func (OpenIdConnectProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*openIdConnectProviderArgs)(nil)).Elem()
 }
-

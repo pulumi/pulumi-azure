@@ -37,7 +37,7 @@ class SqlServer(pulumi.CustomResource):
 
       * `principal_id` (`str`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
       * `tenant_id` (`str`) - The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
-      * `type` (`str`)
+      * `type` (`str`) - Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
     """
     location: pulumi.Output[str]
     """
@@ -88,7 +88,7 @@ class SqlServer(pulumi.CustomResource):
 
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
           * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -162,7 +162,7 @@ class SqlServer(pulumi.CustomResource):
 
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
           * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

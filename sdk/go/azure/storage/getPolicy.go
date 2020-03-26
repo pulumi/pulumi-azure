@@ -26,13 +26,11 @@ type GetPolicyArgs struct {
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
-
 // A collection of values returned by getPolicy.
 type GetPolicyResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A `rule` block as documented below.
-	Rules []GetPolicyRule `pulumi:"rules"`
-	StorageAccountId string `pulumi:"storageAccountId"`
+	Rules            []GetPolicyRule `pulumi:"rules"`
+	StorageAccountId string          `pulumi:"storageAccountId"`
 }
-

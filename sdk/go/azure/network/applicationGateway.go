@@ -353,4 +353,3 @@ type ApplicationGatewayArgs struct {
 func (ApplicationGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationGatewayArgs)(nil)).Elem()
 }
-

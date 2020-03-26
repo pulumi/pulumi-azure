@@ -159,4 +159,3 @@ type VirtualWanArgs struct {
 func (VirtualWanArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualWanArgs)(nil)).Elem()
 }
-

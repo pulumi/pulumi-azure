@@ -155,4 +155,3 @@ type DedicatedHostArgs struct {
 func (DedicatedHostArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dedicatedHostArgs)(nil)).Elem()
 }
-

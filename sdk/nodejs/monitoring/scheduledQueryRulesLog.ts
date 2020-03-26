@@ -57,7 +57,7 @@ export class ScheduledQueryRulesLog extends pulumi.CustomResource {
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public readonly location!: pulumi.Output<string>;
     /**
-     * Name of the dimension.
+     * The name of the scheduled query rule. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -142,7 +142,7 @@ export interface ScheduledQueryRulesLogState {
     readonly enabled?: pulumi.Input<boolean>;
     readonly location?: pulumi.Input<string>;
     /**
-     * Name of the dimension.
+     * The name of the scheduled query rule. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -175,7 +175,7 @@ export interface ScheduledQueryRulesLogArgs {
     readonly enabled?: pulumi.Input<boolean>;
     readonly location?: pulumi.Input<string>;
     /**
-     * Name of the dimension.
+     * The name of the scheduled query rule. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

@@ -148,4 +148,3 @@ type SnapshotArgs struct {
 func (SnapshotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotArgs)(nil)).Elem()
 }
-

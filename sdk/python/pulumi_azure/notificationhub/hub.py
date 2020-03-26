@@ -14,17 +14,17 @@ class Hub(pulumi.CustomResource):
     """
     A `apns_credential` block as defined below.
 
-      * `applicationMode` (`str`)
-      * `bundleId` (`str`)
-      * `keyId` (`str`)
-      * `teamId` (`str`)
-      * `token` (`str`)
+      * `applicationMode` (`str`) - The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
+      * `bundleId` (`str`) - The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
+      * `keyId` (`str`) - The Apple Push Notifications Service (APNS) Key.
+      * `teamId` (`str`) - The ID of the team the Token.
+      * `token` (`str`) - The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
     """
     gcm_credential: pulumi.Output[dict]
     """
     A `gcm_credential` block as defined below.
 
-      * `api_key` (`str`)
+      * `api_key` (`str`) - The API Key associated with the Google Cloud Messaging service.
     """
     location: pulumi.Output[str]
     """
@@ -59,15 +59,15 @@ class Hub(pulumi.CustomResource):
 
         The **apns_credential** object supports the following:
 
-          * `applicationMode` (`pulumi.Input[str]`)
-          * `bundleId` (`pulumi.Input[str]`)
-          * `keyId` (`pulumi.Input[str]`)
-          * `teamId` (`pulumi.Input[str]`)
-          * `token` (`pulumi.Input[str]`)
+          * `applicationMode` (`pulumi.Input[str]`) - The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
+          * `bundleId` (`pulumi.Input[str]`) - The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
+          * `keyId` (`pulumi.Input[str]`) - The Apple Push Notifications Service (APNS) Key.
+          * `teamId` (`pulumi.Input[str]`) - The ID of the team the Token.
+          * `token` (`pulumi.Input[str]`) - The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
 
         The **gcm_credential** object supports the following:
 
-          * `api_key` (`pulumi.Input[str]`)
+          * `api_key` (`pulumi.Input[str]`) - The API Key associated with the Google Cloud Messaging service.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -120,15 +120,15 @@ class Hub(pulumi.CustomResource):
 
         The **apns_credential** object supports the following:
 
-          * `applicationMode` (`pulumi.Input[str]`)
-          * `bundleId` (`pulumi.Input[str]`)
-          * `keyId` (`pulumi.Input[str]`)
-          * `teamId` (`pulumi.Input[str]`)
-          * `token` (`pulumi.Input[str]`)
+          * `applicationMode` (`pulumi.Input[str]`) - The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
+          * `bundleId` (`pulumi.Input[str]`) - The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
+          * `keyId` (`pulumi.Input[str]`) - The Apple Push Notifications Service (APNS) Key.
+          * `teamId` (`pulumi.Input[str]`) - The ID of the team the Token.
+          * `token` (`pulumi.Input[str]`) - The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
 
         The **gcm_credential** object supports the following:
 
-          * `api_key` (`pulumi.Input[str]`)
+          * `api_key` (`pulumi.Input[str]`) - The API Key associated with the Google Cloud Messaging service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

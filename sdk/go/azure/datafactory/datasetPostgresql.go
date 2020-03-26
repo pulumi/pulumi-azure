@@ -185,4 +185,3 @@ type DatasetPostgresqlArgs struct {
 func (DatasetPostgresqlArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetPostgresqlArgs)(nil)).Elem()
 }
-

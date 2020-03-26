@@ -28,19 +28,17 @@ type LookupSharedImageGalleryArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getSharedImageGallery.
 type LookupSharedImageGalleryResult struct {
 	// A description for the Shared Image Gallery.
 	Description string `pulumi:"description"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Id                string `pulumi:"id"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags which are assigned to the Shared Image Gallery.
 	Tags map[string]string `pulumi:"tags"`
 	// The unique name assigned to the Shared Image Gallery.
 	UniqueName string `pulumi:"uniqueName"`
 }
-

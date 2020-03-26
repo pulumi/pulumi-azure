@@ -345,12 +345,21 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class InteractiveQueryClusterGatewayArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is the Ambari portal enabled? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
+        /// <summary>
+        /// The username used for the Ambari Portal. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -361,12 +370,21 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class InteractiveQueryClusterGatewayGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is the Ambari portal enabled? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
+        /// <summary>
+        /// The username used for the Ambari Portal. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -377,12 +395,21 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class InteractiveQueryClusterRolesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `head_node` block as defined above.
+        /// </summary>
         [Input("headNode", required: true)]
         public Input<InteractiveQueryClusterRolesHeadNodeArgs> HeadNode { get; set; } = null!;
 
+        /// <summary>
+        /// A `worker_node` block as defined below.
+        /// </summary>
         [Input("workerNode", required: true)]
         public Input<InteractiveQueryClusterRolesWorkerNodeArgs> WorkerNode { get; set; } = null!;
 
+        /// <summary>
+        /// A `zookeeper_node` block as defined below.
+        /// </summary>
         [Input("zookeeperNode", required: true)]
         public Input<InteractiveQueryClusterRolesZookeeperNodeArgs> ZookeeperNode { get; set; } = null!;
 
@@ -393,12 +420,21 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class InteractiveQueryClusterRolesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `head_node` block as defined above.
+        /// </summary>
         [Input("headNode", required: true)]
         public Input<InteractiveQueryClusterRolesHeadNodeGetArgs> HeadNode { get; set; } = null!;
 
+        /// <summary>
+        /// A `worker_node` block as defined below.
+        /// </summary>
         [Input("workerNode", required: true)]
         public Input<InteractiveQueryClusterRolesWorkerNodeGetArgs> WorkerNode { get; set; } = null!;
 
+        /// <summary>
+        /// A `zookeeper_node` block as defined below.
+        /// </summary>
         [Input("zookeeperNode", required: true)]
         public Input<InteractiveQueryClusterRolesZookeeperNodeGetArgs> ZookeeperNode { get; set; } = null!;
 
@@ -409,26 +445,45 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class InteractiveQueryClusterRolesHeadNodeArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
+
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());
             set => _sshKeys = value;
         }
 
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        /// <summary>
+        /// The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }
 
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
 
@@ -439,26 +494,45 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class InteractiveQueryClusterRolesHeadNodeGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
+
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());
             set => _sshKeys = value;
         }
 
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        /// <summary>
+        /// The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }
 
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
 
@@ -469,32 +543,57 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class InteractiveQueryClusterRolesWorkerNodeArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("minInstanceCount")]
         public Input<int>? MinInstanceCount { get; set; }
 
+        /// <summary>
+        /// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
+
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());
             set => _sshKeys = value;
         }
 
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        /// <summary>
+        /// The number of instances which should be run for the Worker Nodes.
+        /// </summary>
         [Input("targetInstanceCount", required: true)]
         public Input<int> TargetInstanceCount { get; set; } = null!;
 
+        /// <summary>
+        /// The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }
 
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
 
@@ -505,32 +604,57 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class InteractiveQueryClusterRolesWorkerNodeGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("minInstanceCount")]
         public Input<int>? MinInstanceCount { get; set; }
 
+        /// <summary>
+        /// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
+
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());
             set => _sshKeys = value;
         }
 
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        /// <summary>
+        /// The number of instances which should be run for the Worker Nodes.
+        /// </summary>
         [Input("targetInstanceCount", required: true)]
         public Input<int> TargetInstanceCount { get; set; } = null!;
 
+        /// <summary>
+        /// The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }
 
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
 
@@ -541,26 +665,45 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class InteractiveQueryClusterRolesZookeeperNodeArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
+
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());
             set => _sshKeys = value;
         }
 
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        /// <summary>
+        /// The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }
 
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
 
@@ -571,26 +714,45 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class InteractiveQueryClusterRolesZookeeperNodeGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
+
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());
             set => _sshKeys = value;
         }
 
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        /// <summary>
+        /// The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }
 
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
 
@@ -601,15 +763,27 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class InteractiveQueryClusterStorageAccountGen2Args : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("filesystemId", required: true)]
         public Input<string> FilesystemId { get; set; } = null!;
 
+        /// <summary>
+        /// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("isDefault", required: true)]
         public Input<bool> IsDefault { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("managedIdentityResourceId", required: true)]
         public Input<string> ManagedIdentityResourceId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Storage Account. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("storageResourceId", required: true)]
         public Input<string> StorageResourceId { get; set; } = null!;
 
@@ -620,15 +794,27 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class InteractiveQueryClusterStorageAccountGen2GetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("filesystemId", required: true)]
         public Input<string> FilesystemId { get; set; } = null!;
 
+        /// <summary>
+        /// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("isDefault", required: true)]
         public Input<bool> IsDefault { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("managedIdentityResourceId", required: true)]
         public Input<string> ManagedIdentityResourceId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Storage Account. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("storageResourceId", required: true)]
         public Input<string> StorageResourceId { get; set; } = null!;
 
@@ -639,12 +825,21 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class InteractiveQueryClusterStorageAccountsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("isDefault", required: true)]
         public Input<bool> IsDefault { get; set; } = null!;
 
+        /// <summary>
+        /// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("storageAccountKey", required: true)]
         public Input<string> StorageAccountKey { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Storage Container. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("storageContainerId", required: true)]
         public Input<string> StorageContainerId { get; set; } = null!;
 
@@ -655,12 +850,21 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class InteractiveQueryClusterStorageAccountsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("isDefault", required: true)]
         public Input<bool> IsDefault { get; set; } = null!;
 
+        /// <summary>
+        /// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("storageAccountKey", required: true)]
         public Input<string> StorageAccountKey { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Storage Container. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("storageContainerId", required: true)]
         public Input<string> StorageContainerId { get; set; } = null!;
 
@@ -688,8 +892,17 @@ namespace Pulumi.Azure.HDInsight
     [OutputType]
     public sealed class InteractiveQueryClusterGateway
     {
+        /// <summary>
+        /// Is the Ambari portal enabled? Changing this forces a new resource to be created.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// The username used for the Ambari Portal. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]
@@ -707,8 +920,17 @@ namespace Pulumi.Azure.HDInsight
     [OutputType]
     public sealed class InteractiveQueryClusterRoles
     {
+        /// <summary>
+        /// A `head_node` block as defined above.
+        /// </summary>
         public readonly InteractiveQueryClusterRolesHeadNode HeadNode;
+        /// <summary>
+        /// A `worker_node` block as defined below.
+        /// </summary>
         public readonly InteractiveQueryClusterRolesWorkerNode WorkerNode;
+        /// <summary>
+        /// A `zookeeper_node` block as defined below.
+        /// </summary>
         public readonly InteractiveQueryClusterRolesZookeeperNode ZookeeperNode;
 
         [OutputConstructor]
@@ -726,11 +948,29 @@ namespace Pulumi.Azure.HDInsight
     [OutputType]
     public sealed class InteractiveQueryClusterRolesHeadNode
     {
+        /// <summary>
+        /// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Password;
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableArray<string> SshKeys;
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? SubnetId;
+        /// <summary>
+        /// The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Username;
+        /// <summary>
+        /// The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? VirtualNetworkId;
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string VmSize;
 
         [OutputConstructor]
@@ -754,13 +994,37 @@ namespace Pulumi.Azure.HDInsight
     [OutputType]
     public sealed class InteractiveQueryClusterRolesWorkerNode
     {
+        /// <summary>
+        /// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? MinInstanceCount;
+        /// <summary>
+        /// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Password;
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableArray<string> SshKeys;
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? SubnetId;
+        /// <summary>
+        /// The number of instances which should be run for the Worker Nodes.
+        /// </summary>
         public readonly int TargetInstanceCount;
+        /// <summary>
+        /// The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Username;
+        /// <summary>
+        /// The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? VirtualNetworkId;
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string VmSize;
 
         [OutputConstructor]
@@ -788,11 +1052,29 @@ namespace Pulumi.Azure.HDInsight
     [OutputType]
     public sealed class InteractiveQueryClusterRolesZookeeperNode
     {
+        /// <summary>
+        /// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Password;
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableArray<string> SshKeys;
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? SubnetId;
+        /// <summary>
+        /// The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Username;
+        /// <summary>
+        /// The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? VirtualNetworkId;
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string VmSize;
 
         [OutputConstructor]
@@ -816,9 +1098,21 @@ namespace Pulumi.Azure.HDInsight
     [OutputType]
     public sealed class InteractiveQueryClusterStorageAccountGen2
     {
+        /// <summary>
+        /// The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string FilesystemId;
+        /// <summary>
+        /// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+        /// </summary>
         public readonly bool IsDefault;
+        /// <summary>
+        /// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string ManagedIdentityResourceId;
+        /// <summary>
+        /// The ID of the Storage Account. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string StorageResourceId;
 
         [OutputConstructor]
@@ -838,8 +1132,17 @@ namespace Pulumi.Azure.HDInsight
     [OutputType]
     public sealed class InteractiveQueryClusterStorageAccounts
     {
+        /// <summary>
+        /// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+        /// </summary>
         public readonly bool IsDefault;
+        /// <summary>
+        /// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string StorageAccountKey;
+        /// <summary>
+        /// The ID of the Storage Container. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string StorageContainerId;
 
         [OutputConstructor]

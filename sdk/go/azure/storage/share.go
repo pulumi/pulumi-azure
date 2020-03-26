@@ -130,4 +130,3 @@ type ShareArgs struct {
 func (ShareArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*shareArgs)(nil)).Elem()
 }
-

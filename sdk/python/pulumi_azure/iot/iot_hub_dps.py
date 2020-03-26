@@ -26,11 +26,11 @@ class IotHubDps(pulumi.CustomResource):
     """
     A `linked_hub` block as defined below.
 
-      * `allocationWeight` (`float`)
+      * `allocationWeight` (`float`) - The weight applied to the IoT Hub. Defaults to 0.
       * `applyAllocationPolicy` (`bool`)
-      * `connection_string` (`str`)
-      * `hostname` (`str`)
-      * `location` (`str`) - Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+      * `connection_string` (`str`) - The connection string to connect to the IoT Hub. Changing this forces a new resource.
+      * `hostname` (`str`) - The IoT Hub hostname.
+      * `location` (`str`) - The location of the IoT hub. Changing this forces a new resource.
     """
     location: pulumi.Output[str]
     """
@@ -52,8 +52,8 @@ class IotHubDps(pulumi.CustomResource):
     """
     A `sku` block as defined below.
 
-      * `capacity` (`float`)
-      * `name` (`str`) - Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+      * `capacity` (`float`) - The number of provisioned IoT Device Provisioning Service units.
+      * `name` (`str`) - The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
     """
     tags: pulumi.Output[dict]
     """
@@ -76,16 +76,16 @@ class IotHubDps(pulumi.CustomResource):
 
         The **linked_hubs** object supports the following:
 
-          * `allocationWeight` (`pulumi.Input[float]`)
+          * `allocationWeight` (`pulumi.Input[float]`) - The weight applied to the IoT Hub. Defaults to 0.
           * `applyAllocationPolicy` (`pulumi.Input[bool]`)
-          * `connection_string` (`pulumi.Input[str]`)
-          * `hostname` (`pulumi.Input[str]`)
-          * `location` (`pulumi.Input[str]`) - Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+          * `connection_string` (`pulumi.Input[str]`) - The connection string to connect to the IoT Hub. Changing this forces a new resource.
+          * `hostname` (`pulumi.Input[str]`) - The IoT Hub hostname.
+          * `location` (`pulumi.Input[str]`) - The location of the IoT hub. Changing this forces a new resource.
 
         The **sku** object supports the following:
 
-          * `capacity` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+          * `capacity` (`pulumi.Input[float]`) - The number of provisioned IoT Device Provisioning Service units.
+          * `name` (`pulumi.Input[str]`) - The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -146,16 +146,16 @@ class IotHubDps(pulumi.CustomResource):
 
         The **linked_hubs** object supports the following:
 
-          * `allocationWeight` (`pulumi.Input[float]`)
+          * `allocationWeight` (`pulumi.Input[float]`) - The weight applied to the IoT Hub. Defaults to 0.
           * `applyAllocationPolicy` (`pulumi.Input[bool]`)
-          * `connection_string` (`pulumi.Input[str]`)
-          * `hostname` (`pulumi.Input[str]`)
-          * `location` (`pulumi.Input[str]`) - Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+          * `connection_string` (`pulumi.Input[str]`) - The connection string to connect to the IoT Hub. Changing this forces a new resource.
+          * `hostname` (`pulumi.Input[str]`) - The IoT Hub hostname.
+          * `location` (`pulumi.Input[str]`) - The location of the IoT hub. Changing this forces a new resource.
 
         The **sku** object supports the following:
 
-          * `capacity` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+          * `capacity` (`pulumi.Input[float]`) - The number of provisioned IoT Device Provisioning Service units.
+          * `name` (`pulumi.Input[str]`) - The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

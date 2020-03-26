@@ -92,4 +92,3 @@ type SubnetNetworkSecurityGroupAssociationArgs struct {
 func (SubnetNetworkSecurityGroupAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetNetworkSecurityGroupAssociationArgs)(nil)).Elem()
 }
-

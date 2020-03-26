@@ -23,8 +23,8 @@ type VirtualNetworkGateway struct {
 	// will be created. An active-active gateway requires a `HighPerformance` or an
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
-	ActiveActive pulumi.BoolOutput `pulumi:"activeActive"`
-	BgpSettings VirtualNetworkGatewayBgpSettingsOutput `pulumi:"bgpSettings"`
+	ActiveActive pulumi.BoolOutput                      `pulumi:"activeActive"`
+	BgpSettings  VirtualNetworkGatewayBgpSettingsOutput `pulumi:"bgpSettings"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunneling*). Refer to the
@@ -43,8 +43,7 @@ type VirtualNetworkGateway struct {
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the Virtual Network Gateway. Changing the name
-	// forces a new resource to be created.
+	// A user-defined name of the revoked certificate.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces
@@ -116,8 +115,8 @@ type virtualNetworkGatewayState struct {
 	// will be created. An active-active gateway requires a `HighPerformance` or an
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
-	ActiveActive *bool `pulumi:"activeActive"`
-	BgpSettings *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
+	ActiveActive *bool                             `pulumi:"activeActive"`
+	BgpSettings  *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunneling*). Refer to the
@@ -136,8 +135,7 @@ type virtualNetworkGatewayState struct {
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Virtual Network Gateway. Changing the name
-	// forces a new resource to be created.
+	// A user-defined name of the revoked certificate.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces
@@ -171,7 +169,7 @@ type VirtualNetworkGatewayState struct {
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
 	ActiveActive pulumi.BoolPtrInput
-	BgpSettings VirtualNetworkGatewayBgpSettingsPtrInput
+	BgpSettings  VirtualNetworkGatewayBgpSettingsPtrInput
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunneling*). Refer to the
@@ -190,8 +188,7 @@ type VirtualNetworkGatewayState struct {
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Virtual Network Gateway. Changing the name
-	// forces a new resource to be created.
+	// A user-defined name of the revoked certificate.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces
@@ -228,8 +225,8 @@ type virtualNetworkGatewayArgs struct {
 	// will be created. An active-active gateway requires a `HighPerformance` or an
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
-	ActiveActive *bool `pulumi:"activeActive"`
-	BgpSettings *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
+	ActiveActive *bool                             `pulumi:"activeActive"`
+	BgpSettings  *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunneling*). Refer to the
@@ -248,8 +245,7 @@ type virtualNetworkGatewayArgs struct {
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Virtual Network Gateway. Changing the name
-	// forces a new resource to be created.
+	// A user-defined name of the revoked certificate.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces
@@ -284,7 +280,7 @@ type VirtualNetworkGatewayArgs struct {
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
 	ActiveActive pulumi.BoolPtrInput
-	BgpSettings VirtualNetworkGatewayBgpSettingsPtrInput
+	BgpSettings  VirtualNetworkGatewayBgpSettingsPtrInput
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunneling*). Refer to the
@@ -303,8 +299,7 @@ type VirtualNetworkGatewayArgs struct {
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Virtual Network Gateway. Changing the name
-	// forces a new resource to be created.
+	// A user-defined name of the revoked certificate.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces
@@ -335,4 +330,3 @@ type VirtualNetworkGatewayArgs struct {
 func (VirtualNetworkGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkGatewayArgs)(nil)).Elem()
 }
-

@@ -28,7 +28,6 @@ type LookupKeyVaultArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getKeyVault.
 type LookupKeyVaultResult struct {
 	// One or more `accessPolicy` blocks as defined below.
@@ -42,15 +41,15 @@ type LookupKeyVaultResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region in which the Key Vault exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location    string                  `pulumi:"location"`
+	Name        string                  `pulumi:"name"`
 	NetworkAcls []GetKeyVaultNetworkAcl `pulumi:"networkAcls"`
 	// Is purge protection enabled on this Key Vault?
-	PurgeProtectionEnabled bool `pulumi:"purgeProtectionEnabled"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PurgeProtectionEnabled bool   `pulumi:"purgeProtectionEnabled"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 	// The Name of the SKU used for this Key Vault.
 	SkuName string `pulumi:"skuName"`
-	// Is soft delete enabled on this Key Vault? 
+	// Is soft delete enabled on this Key Vault?
 	SoftDeleteEnabled bool `pulumi:"softDeleteEnabled"`
 	// A mapping of tags assigned to the Key Vault.
 	Tags map[string]string `pulumi:"tags"`
@@ -59,4 +58,3 @@ type LookupKeyVaultResult struct {
 	// The URI of the vault for performing operations on keys and secrets.
 	VaultUri string `pulumi:"vaultUri"`
 }
-

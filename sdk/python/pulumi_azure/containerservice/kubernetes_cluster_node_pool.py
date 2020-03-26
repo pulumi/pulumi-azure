@@ -44,7 +44,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     """
     node_count: pulumi.Output[float]
     """
-    The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
+    The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `min_count` - `max_count`.
     """
     node_labels: pulumi.Output[dict]
     """
@@ -92,7 +92,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[float] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[float] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `max_count`.
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] node_count: The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
+        :param pulumi.Input[float] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `min_count` - `max_count`.
         :param pulumi.Input[dict] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input[list] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
         :param pulumi.Input[float] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
@@ -161,7 +161,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[float] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[float] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `max_count`.
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] node_count: The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
+        :param pulumi.Input[float] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `min_count` - `max_count`.
         :param pulumi.Input[dict] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input[list] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
         :param pulumi.Input[float] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this forces a new resource to be created.

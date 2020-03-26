@@ -16,7 +16,18 @@ namespace Pulumi.Azure.AppConfiguration
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_configuration.html.markdown.
         /// </summary>
+        [Obsolete("Use GetConfigurationStore.InvokeAsync() instead")]
         public static Task<GetConfigurationStoreResult> GetConfigurationStore(GetConfigurationStoreArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetConfigurationStore
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing App Configuration.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_configuration.html.markdown.
+        /// </summary>
+        public static Task<GetConfigurationStoreResult> InvokeAsync(GetConfigurationStoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

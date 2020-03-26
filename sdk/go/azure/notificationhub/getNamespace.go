@@ -28,7 +28,6 @@ type LookupNamespaceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getNamespace.
 type LookupNamespaceResult struct {
 	// Is this Notification Hub Namespace enabled?
@@ -40,10 +39,9 @@ type LookupNamespaceResult struct {
 	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard.`
 	Name string `pulumi:"name"`
 	// The Type of Namespace, such as `Messaging` or `NotificationHub`.
-	NamespaceType string `pulumi:"namespaceType"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	NamespaceType      string `pulumi:"namespaceType"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	ServicebusEndpoint string `pulumi:"servicebusEndpoint"`
 	// A `sku` block as defined below.
 	Sku GetNamespaceSku `pulumi:"sku"`
 }
-

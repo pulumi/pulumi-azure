@@ -35,7 +35,7 @@ type RegistryWebhook struct {
 	ServiceUri pulumi.StringOutput `pulumi:"serviceUri"`
 	// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags   pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewRegistryWebhook registers a new resource with the given unique name, arguments, and options.
@@ -56,6 +56,12 @@ func NewRegistryWebhook(ctx *pulumi.Context,
 	if args == nil {
 		args = &RegistryWebhookArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:containerservice/registryWebook:RegistryWebook"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RegistryWebhook
 	err := ctx.RegisterResource("azure:containerservice/registryWebhook:RegistryWebhook", name, args, &resource, opts...)
 	if err != nil {
@@ -95,8 +101,8 @@ type registryWebhookState struct {
 	// Specifies the service URI for the Webhook to post notifications.
 	ServiceUri *string `pulumi:"serviceUri"`
 	// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
-	Status *string `pulumi:"status"`
-	Tags map[string]string `pulumi:"tags"`
+	Status *string           `pulumi:"status"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 type RegistryWebhookState struct {
@@ -118,7 +124,7 @@ type RegistryWebhookState struct {
 	ServiceUri pulumi.StringPtrInput
 	// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
 	Status pulumi.StringPtrInput
-	Tags pulumi.StringMapInput
+	Tags   pulumi.StringMapInput
 }
 
 func (RegistryWebhookState) ElementType() reflect.Type {
@@ -143,8 +149,8 @@ type registryWebhookArgs struct {
 	// Specifies the service URI for the Webhook to post notifications.
 	ServiceUri string `pulumi:"serviceUri"`
 	// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
-	Status *string `pulumi:"status"`
-	Tags map[string]string `pulumi:"tags"`
+	Status *string           `pulumi:"status"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RegistryWebhook resource.
@@ -167,10 +173,9 @@ type RegistryWebhookArgs struct {
 	ServiceUri pulumi.StringInput
 	// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
 	Status pulumi.StringPtrInput
-	Tags pulumi.StringMapInput
+	Tags   pulumi.StringMapInput
 }
 
 func (RegistryWebhookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryWebhookArgs)(nil)).Elem()
 }
-

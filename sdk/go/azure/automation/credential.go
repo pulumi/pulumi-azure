@@ -138,4 +138,3 @@ type CredentialArgs struct {
 func (CredentialArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*credentialArgs)(nil)).Elem()
 }
-

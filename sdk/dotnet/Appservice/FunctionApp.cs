@@ -95,7 +95,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Connection String.
+        /// Specifies the name of the Function App. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Connection String.
+        /// Specifies the name of the Function App. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -424,7 +424,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Connection String.
+        /// Specifies the name of the Function App. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -507,15 +507,25 @@ namespace Pulumi.Azure.AppService
     {
         [Input("allowedAudiences")]
         private InputList<string>? _allowedAudiences;
+
+        /// <summary>
+        /// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        /// </summary>
         public InputList<string> AllowedAudiences
         {
             get => _allowedAudiences ?? (_allowedAudiences = new InputList<string>());
             set => _allowedAudiences = value;
         }
 
+        /// <summary>
+        /// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+        /// </summary>
         [Input("clientSecret")]
         public Input<string>? ClientSecret { get; set; }
 
@@ -528,15 +538,25 @@ namespace Pulumi.Azure.AppService
     {
         [Input("allowedAudiences")]
         private InputList<string>? _allowedAudiences;
+
+        /// <summary>
+        /// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        /// </summary>
         public InputList<string> AllowedAudiences
         {
             get => _allowedAudiences ?? (_allowedAudiences = new InputList<string>());
             set => _allowedAudiences = value;
         }
 
+        /// <summary>
+        /// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+        /// </summary>
         [Input("clientSecret")]
         public Input<string>? ClientSecret { get; set; }
 
@@ -547,11 +567,18 @@ namespace Pulumi.Azure.AppService
 
     public sealed class FunctionAppAuthSettingsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `active_directory` block as defined below.
+        /// </summary>
         [Input("activeDirectory")]
         public Input<FunctionAppAuthSettingsActiveDirectoryArgs>? ActiveDirectory { get; set; }
 
         [Input("additionalLoginParams")]
         private InputMap<string>? _additionalLoginParams;
+
+        /// <summary>
+        /// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+        /// </summary>
         public InputMap<string> AdditionalLoginParams
         {
             get => _additionalLoginParams ?? (_additionalLoginParams = new InputMap<string>());
@@ -560,45 +587,79 @@ namespace Pulumi.Azure.AppService
 
         [Input("allowedExternalRedirectUrls")]
         private InputList<string>? _allowedExternalRedirectUrls;
+
+        /// <summary>
+        /// External URLs that can be redirected to as part of logging in or logging out of the app.
+        /// </summary>
         public InputList<string> AllowedExternalRedirectUrls
         {
             get => _allowedExternalRedirectUrls ?? (_allowedExternalRedirectUrls = new InputList<string>());
             set => _allowedExternalRedirectUrls = value;
         }
 
+        /// <summary>
+        /// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+        /// </summary>
         [Input("defaultProvider")]
         public Input<string>? DefaultProvider { get; set; }
 
         /// <summary>
-        /// Is the Function App enabled?
+        /// Is Authentication enabled?
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// A `facebook` block as defined below.
+        /// </summary>
         [Input("facebook")]
         public Input<FunctionAppAuthSettingsFacebookArgs>? Facebook { get; set; }
 
+        /// <summary>
+        /// A `google` block as defined below.
+        /// </summary>
         [Input("google")]
         public Input<FunctionAppAuthSettingsGoogleArgs>? Google { get; set; }
 
+        /// <summary>
+        /// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }
 
+        /// <summary>
+        /// A `microsoft` block as defined below.
+        /// </summary>
         [Input("microsoft")]
         public Input<FunctionAppAuthSettingsMicrosoftArgs>? Microsoft { get; set; }
 
+        /// <summary>
+        /// The runtime version of the Authentication/Authorization module.
+        /// </summary>
         [Input("runtimeVersion")]
         public Input<string>? RuntimeVersion { get; set; }
 
+        /// <summary>
+        /// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+        /// </summary>
         [Input("tokenRefreshExtensionHours")]
         public Input<double>? TokenRefreshExtensionHours { get; set; }
 
+        /// <summary>
+        /// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+        /// </summary>
         [Input("tokenStoreEnabled")]
         public Input<bool>? TokenStoreEnabled { get; set; }
 
+        /// <summary>
+        /// A `twitter` block as defined below.
+        /// </summary>
         [Input("twitter")]
         public Input<FunctionAppAuthSettingsTwitterArgs>? Twitter { get; set; }
 
+        /// <summary>
+        /// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+        /// </summary>
         [Input("unauthenticatedClientAction")]
         public Input<string>? UnauthenticatedClientAction { get; set; }
 
@@ -609,14 +670,24 @@ namespace Pulumi.Azure.AppService
 
     public sealed class FunctionAppAuthSettingsFacebookArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The App ID of the Facebook app used for login
+        /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
+        /// <summary>
+        /// The App Secret of the Facebook app used for Facebook Login.
+        /// </summary>
         [Input("appSecret", required: true)]
         public Input<string> AppSecret { get; set; } = null!;
 
         [Input("oauthScopes")]
         private InputList<string>? _oauthScopes;
+
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        /// </summary>
         public InputList<string> OauthScopes
         {
             get => _oauthScopes ?? (_oauthScopes = new InputList<string>());
@@ -630,14 +701,24 @@ namespace Pulumi.Azure.AppService
 
     public sealed class FunctionAppAuthSettingsFacebookGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The App ID of the Facebook app used for login
+        /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
+        /// <summary>
+        /// The App Secret of the Facebook app used for Facebook Login.
+        /// </summary>
         [Input("appSecret", required: true)]
         public Input<string> AppSecret { get; set; } = null!;
 
         [Input("oauthScopes")]
         private InputList<string>? _oauthScopes;
+
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        /// </summary>
         public InputList<string> OauthScopes
         {
             get => _oauthScopes ?? (_oauthScopes = new InputList<string>());
@@ -651,11 +732,18 @@ namespace Pulumi.Azure.AppService
 
     public sealed class FunctionAppAuthSettingsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `active_directory` block as defined below.
+        /// </summary>
         [Input("activeDirectory")]
         public Input<FunctionAppAuthSettingsActiveDirectoryGetArgs>? ActiveDirectory { get; set; }
 
         [Input("additionalLoginParams")]
         private InputMap<string>? _additionalLoginParams;
+
+        /// <summary>
+        /// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+        /// </summary>
         public InputMap<string> AdditionalLoginParams
         {
             get => _additionalLoginParams ?? (_additionalLoginParams = new InputMap<string>());
@@ -664,45 +752,79 @@ namespace Pulumi.Azure.AppService
 
         [Input("allowedExternalRedirectUrls")]
         private InputList<string>? _allowedExternalRedirectUrls;
+
+        /// <summary>
+        /// External URLs that can be redirected to as part of logging in or logging out of the app.
+        /// </summary>
         public InputList<string> AllowedExternalRedirectUrls
         {
             get => _allowedExternalRedirectUrls ?? (_allowedExternalRedirectUrls = new InputList<string>());
             set => _allowedExternalRedirectUrls = value;
         }
 
+        /// <summary>
+        /// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+        /// </summary>
         [Input("defaultProvider")]
         public Input<string>? DefaultProvider { get; set; }
 
         /// <summary>
-        /// Is the Function App enabled?
+        /// Is Authentication enabled?
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// A `facebook` block as defined below.
+        /// </summary>
         [Input("facebook")]
         public Input<FunctionAppAuthSettingsFacebookGetArgs>? Facebook { get; set; }
 
+        /// <summary>
+        /// A `google` block as defined below.
+        /// </summary>
         [Input("google")]
         public Input<FunctionAppAuthSettingsGoogleGetArgs>? Google { get; set; }
 
+        /// <summary>
+        /// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }
 
+        /// <summary>
+        /// A `microsoft` block as defined below.
+        /// </summary>
         [Input("microsoft")]
         public Input<FunctionAppAuthSettingsMicrosoftGetArgs>? Microsoft { get; set; }
 
+        /// <summary>
+        /// The runtime version of the Authentication/Authorization module.
+        /// </summary>
         [Input("runtimeVersion")]
         public Input<string>? RuntimeVersion { get; set; }
 
+        /// <summary>
+        /// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+        /// </summary>
         [Input("tokenRefreshExtensionHours")]
         public Input<double>? TokenRefreshExtensionHours { get; set; }
 
+        /// <summary>
+        /// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+        /// </summary>
         [Input("tokenStoreEnabled")]
         public Input<bool>? TokenStoreEnabled { get; set; }
 
+        /// <summary>
+        /// A `twitter` block as defined below.
+        /// </summary>
         [Input("twitter")]
         public Input<FunctionAppAuthSettingsTwitterGetArgs>? Twitter { get; set; }
 
+        /// <summary>
+        /// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+        /// </summary>
         [Input("unauthenticatedClientAction")]
         public Input<string>? UnauthenticatedClientAction { get; set; }
 
@@ -713,14 +835,24 @@ namespace Pulumi.Azure.AppService
 
     public sealed class FunctionAppAuthSettingsGoogleArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The OpenID Connect Client ID for the Google web application.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The client secret associated with the Google web application.
+        /// </summary>
         [Input("clientSecret", required: true)]
         public Input<string> ClientSecret { get; set; } = null!;
 
         [Input("oauthScopes")]
         private InputList<string>? _oauthScopes;
+
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        /// </summary>
         public InputList<string> OauthScopes
         {
             get => _oauthScopes ?? (_oauthScopes = new InputList<string>());
@@ -734,14 +866,24 @@ namespace Pulumi.Azure.AppService
 
     public sealed class FunctionAppAuthSettingsGoogleGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The OpenID Connect Client ID for the Google web application.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The client secret associated with the Google web application.
+        /// </summary>
         [Input("clientSecret", required: true)]
         public Input<string> ClientSecret { get; set; } = null!;
 
         [Input("oauthScopes")]
         private InputList<string>? _oauthScopes;
+
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        /// </summary>
         public InputList<string> OauthScopes
         {
             get => _oauthScopes ?? (_oauthScopes = new InputList<string>());
@@ -755,14 +897,24 @@ namespace Pulumi.Azure.AppService
 
     public sealed class FunctionAppAuthSettingsMicrosoftArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The OAuth 2.0 client ID that was created for the app used for authentication.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The OAuth 2.0 client secret that was created for the app used for authentication.
+        /// </summary>
         [Input("clientSecret", required: true)]
         public Input<string> ClientSecret { get; set; } = null!;
 
         [Input("oauthScopes")]
         private InputList<string>? _oauthScopes;
+
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        /// </summary>
         public InputList<string> OauthScopes
         {
             get => _oauthScopes ?? (_oauthScopes = new InputList<string>());
@@ -776,14 +928,24 @@ namespace Pulumi.Azure.AppService
 
     public sealed class FunctionAppAuthSettingsMicrosoftGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The OAuth 2.0 client ID that was created for the app used for authentication.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The OAuth 2.0 client secret that was created for the app used for authentication.
+        /// </summary>
         [Input("clientSecret", required: true)]
         public Input<string> ClientSecret { get; set; } = null!;
 
         [Input("oauthScopes")]
         private InputList<string>? _oauthScopes;
+
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        /// </summary>
         public InputList<string> OauthScopes
         {
             get => _oauthScopes ?? (_oauthScopes = new InputList<string>());
@@ -875,6 +1037,10 @@ namespace Pulumi.Azure.AppService
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        /// </summary>
         public InputList<string> IdentityIds
         {
             get => _identityIds ?? (_identityIds = new InputList<string>());
@@ -894,7 +1060,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        /// Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -908,6 +1074,10 @@ namespace Pulumi.Azure.AppService
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        /// </summary>
         public InputList<string> IdentityIds
         {
             get => _identityIds ?? (_identityIds = new InputList<string>());
@@ -927,7 +1097,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        /// Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -1008,12 +1178,19 @@ namespace Pulumi.Azure.AppService
     {
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
+
+        /// <summary>
+        /// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        /// </summary>
         public InputList<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
             set => _allowedOrigins = value;
         }
 
+        /// <summary>
+        /// Are credentials supported?
+        /// </summary>
         [Input("supportCredentials")]
         public Input<bool>? SupportCredentials { get; set; }
 
@@ -1026,12 +1203,19 @@ namespace Pulumi.Azure.AppService
     {
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
+
+        /// <summary>
+        /// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        /// </summary>
         public InputList<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
             set => _allowedOrigins = value;
         }
 
+        /// <summary>
+        /// Are credentials supported?
+        /// </summary>
         [Input("supportCredentials")]
         public Input<bool>? SupportCredentials { get; set; }
 
@@ -1109,9 +1293,15 @@ namespace Pulumi.Azure.AppService
 
     public sealed class FunctionAppSiteConfigIpRestrictionsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IP Address CIDR notation used for this IP Restriction.
+        /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
+        /// <summary>
+        /// The Subnet ID used for this IP Restriction.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
@@ -1122,9 +1312,15 @@ namespace Pulumi.Azure.AppService
 
     public sealed class FunctionAppSiteConfigIpRestrictionsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IP Address CIDR notation used for this IP Restriction.
+        /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
+        /// <summary>
+        /// The Subnet ID used for this IP Restriction.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
@@ -1159,22 +1355,61 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class FunctionAppAuthSettings
     {
+        /// <summary>
+        /// A `active_directory` block as defined below.
+        /// </summary>
         public readonly FunctionAppAuthSettingsActiveDirectory? ActiveDirectory;
+        /// <summary>
+        /// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? AdditionalLoginParams;
+        /// <summary>
+        /// External URLs that can be redirected to as part of logging in or logging out of the app.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedExternalRedirectUrls;
+        /// <summary>
+        /// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+        /// </summary>
         public readonly string? DefaultProvider;
         /// <summary>
-        /// Is the Function App enabled?
+        /// Is Authentication enabled?
         /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// A `facebook` block as defined below.
+        /// </summary>
         public readonly FunctionAppAuthSettingsFacebook? Facebook;
+        /// <summary>
+        /// A `google` block as defined below.
+        /// </summary>
         public readonly FunctionAppAuthSettingsGoogle? Google;
+        /// <summary>
+        /// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        /// </summary>
         public readonly string? Issuer;
+        /// <summary>
+        /// A `microsoft` block as defined below.
+        /// </summary>
         public readonly FunctionAppAuthSettingsMicrosoft? Microsoft;
+        /// <summary>
+        /// The runtime version of the Authentication/Authorization module.
+        /// </summary>
         public readonly string? RuntimeVersion;
+        /// <summary>
+        /// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+        /// </summary>
         public readonly double? TokenRefreshExtensionHours;
+        /// <summary>
+        /// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+        /// </summary>
         public readonly bool? TokenStoreEnabled;
+        /// <summary>
+        /// A `twitter` block as defined below.
+        /// </summary>
         public readonly FunctionAppAuthSettingsTwitter? Twitter;
+        /// <summary>
+        /// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+        /// </summary>
         public readonly string? UnauthenticatedClientAction;
 
         [OutputConstructor]
@@ -1214,8 +1449,17 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class FunctionAppAuthSettingsActiveDirectory
     {
+        /// <summary>
+        /// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedAudiences;
+        /// <summary>
+        /// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+        /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+        /// </summary>
         public readonly string? ClientSecret;
 
         [OutputConstructor]
@@ -1233,8 +1477,17 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class FunctionAppAuthSettingsFacebook
     {
+        /// <summary>
+        /// The App ID of the Facebook app used for login
+        /// </summary>
         public readonly string AppId;
+        /// <summary>
+        /// The App Secret of the Facebook app used for Facebook Login.
+        /// </summary>
         public readonly string AppSecret;
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        /// </summary>
         public readonly ImmutableArray<string> OauthScopes;
 
         [OutputConstructor]
@@ -1252,8 +1505,17 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class FunctionAppAuthSettingsGoogle
     {
+        /// <summary>
+        /// The OpenID Connect Client ID for the Google web application.
+        /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// The client secret associated with the Google web application.
+        /// </summary>
         public readonly string ClientSecret;
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        /// </summary>
         public readonly ImmutableArray<string> OauthScopes;
 
         [OutputConstructor]
@@ -1271,8 +1533,17 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class FunctionAppAuthSettingsMicrosoft
     {
+        /// <summary>
+        /// The OAuth 2.0 client ID that was created for the app used for authentication.
+        /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// The OAuth 2.0 client secret that was created for the app used for authentication.
+        /// </summary>
         public readonly string ClientSecret;
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        /// </summary>
         public readonly ImmutableArray<string> OauthScopes;
 
         [OutputConstructor]
@@ -1334,6 +1605,9 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class FunctionAppIdentity
     {
+        /// <summary>
+        /// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
@@ -1344,7 +1618,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        /// Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
         /// </summary>
         public readonly string Type;
 
@@ -1429,7 +1703,13 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class FunctionAppSiteConfigCors
     {
+        /// <summary>
+        /// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedOrigins;
+        /// <summary>
+        /// Are credentials supported?
+        /// </summary>
         public readonly bool? SupportCredentials;
 
         [OutputConstructor]
@@ -1445,7 +1725,13 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class FunctionAppSiteConfigIpRestrictions
     {
+        /// <summary>
+        /// The IP Address CIDR notation used for this IP Restriction.
+        /// </summary>
         public readonly string? IpAddress;
+        /// <summary>
+        /// The Subnet ID used for this IP Restriction.
+        /// </summary>
         public readonly string? SubnetId;
 
         [OutputConstructor]

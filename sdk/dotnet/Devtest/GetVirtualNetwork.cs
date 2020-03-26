@@ -16,7 +16,18 @@ namespace Pulumi.Azure.DevTest
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_virtual_network.html.markdown.
         /// </summary>
+        [Obsolete("Use GetVirtualNetwork.InvokeAsync() instead")]
         public static Task<GetVirtualNetworkResult> GetVirtualNetwork(GetVirtualNetworkArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure:devtest/getVirtualNetwork:getVirtualNetwork", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetVirtualNetwork
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Dev Test Lab Virtual Network.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_virtual_network.html.markdown.
+        /// </summary>
+        public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure:devtest/getVirtualNetwork:getVirtualNetwork", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

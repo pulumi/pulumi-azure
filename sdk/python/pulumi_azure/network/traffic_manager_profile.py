@@ -14,8 +14,8 @@ class TrafficManagerProfile(pulumi.CustomResource):
     """
     This block specifies the DNS configuration of the Profile, it supports the fields documented below.
 
-      * `relativeName` (`str`)
-      * `ttl` (`float`)
+      * `relativeName` (`str`) - The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+      * `ttl` (`float`) - The TTL value of the Profile used by Local DNS resolvers and clients.
     """
     fqdn: pulumi.Output[str]
     """
@@ -25,13 +25,13 @@ class TrafficManagerProfile(pulumi.CustomResource):
     """
     This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
 
-      * `expectedStatusCodeRanges` (`list`)
-      * `interval_in_seconds` (`float`)
-      * `path` (`str`)
-      * `port` (`float`)
-      * `protocol` (`str`)
-      * `timeoutInSeconds` (`float`)
-      * `toleratedNumberOfFailures` (`float`)
+      * `expectedStatusCodeRanges` (`list`) - A list of status code ranges in the format of `100-101`.
+      * `interval_in_seconds` (`float`) - The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
+      * `path` (`str`) - The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
+      * `port` (`float`) - The port number used by the monitoring checks.
+      * `protocol` (`str`) - The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
+      * `timeoutInSeconds` (`float`) - The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
+      * `toleratedNumberOfFailures` (`float`) - The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
     """
     name: pulumi.Output[str]
     """
@@ -71,18 +71,18 @@ class TrafficManagerProfile(pulumi.CustomResource):
 
         The **dns_config** object supports the following:
 
-          * `relativeName` (`pulumi.Input[str]`)
-          * `ttl` (`pulumi.Input[float]`)
+          * `relativeName` (`pulumi.Input[str]`) - The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+          * `ttl` (`pulumi.Input[float]`) - The TTL value of the Profile used by Local DNS resolvers and clients.
 
         The **monitor_config** object supports the following:
 
-          * `expectedStatusCodeRanges` (`pulumi.Input[list]`)
-          * `interval_in_seconds` (`pulumi.Input[float]`)
-          * `path` (`pulumi.Input[str]`)
-          * `port` (`pulumi.Input[float]`)
-          * `protocol` (`pulumi.Input[str]`)
-          * `timeoutInSeconds` (`pulumi.Input[float]`)
-          * `toleratedNumberOfFailures` (`pulumi.Input[float]`)
+          * `expectedStatusCodeRanges` (`pulumi.Input[list]`) - A list of status code ranges in the format of `100-101`.
+          * `interval_in_seconds` (`pulumi.Input[float]`) - The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
+          * `path` (`pulumi.Input[str]`) - The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
+          * `port` (`pulumi.Input[float]`) - The port number used by the monitoring checks.
+          * `protocol` (`pulumi.Input[str]`) - The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
+          * `timeoutInSeconds` (`pulumi.Input[float]`) - The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
+          * `toleratedNumberOfFailures` (`pulumi.Input[float]`) - The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -145,18 +145,18 @@ class TrafficManagerProfile(pulumi.CustomResource):
 
         The **dns_config** object supports the following:
 
-          * `relativeName` (`pulumi.Input[str]`)
-          * `ttl` (`pulumi.Input[float]`)
+          * `relativeName` (`pulumi.Input[str]`) - The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+          * `ttl` (`pulumi.Input[float]`) - The TTL value of the Profile used by Local DNS resolvers and clients.
 
         The **monitor_config** object supports the following:
 
-          * `expectedStatusCodeRanges` (`pulumi.Input[list]`)
-          * `interval_in_seconds` (`pulumi.Input[float]`)
-          * `path` (`pulumi.Input[str]`)
-          * `port` (`pulumi.Input[float]`)
-          * `protocol` (`pulumi.Input[str]`)
-          * `timeoutInSeconds` (`pulumi.Input[float]`)
-          * `toleratedNumberOfFailures` (`pulumi.Input[float]`)
+          * `expectedStatusCodeRanges` (`pulumi.Input[list]`) - A list of status code ranges in the format of `100-101`.
+          * `interval_in_seconds` (`pulumi.Input[float]`) - The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
+          * `path` (`pulumi.Input[str]`) - The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
+          * `port` (`pulumi.Input[float]`) - The port number used by the monitoring checks.
+          * `protocol` (`pulumi.Input[str]`) - The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
+          * `timeoutInSeconds` (`pulumi.Input[float]`) - The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
+          * `toleratedNumberOfFailures` (`pulumi.Input[float]`) - The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

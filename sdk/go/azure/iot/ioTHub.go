@@ -59,6 +59,7 @@ type IoTHub struct {
 	Sku IoTHubSkuOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -132,6 +133,7 @@ type ioTHubState struct {
 	Sku *IoTHubSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 	Type *string `pulumi:"type"`
 }
 
@@ -172,6 +174,7 @@ type IoTHubState struct {
 	Sku IoTHubSkuPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 	Type pulumi.StringPtrInput
 }
 
@@ -237,4 +240,3 @@ type IoTHubArgs struct {
 func (IoTHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ioTHubArgs)(nil)).Elem()
 }
-

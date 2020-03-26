@@ -197,4 +197,3 @@ type ExpressRouteCircuitPeeringArgs struct {
 func (ExpressRouteCircuitPeeringArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteCircuitPeeringArgs)(nil)).Elem()
 }
-

@@ -30,7 +30,6 @@ type LookupUserArgs struct {
 	UserId string `pulumi:"userId"`
 }
 
-
 // A collection of values returned by getUser.
 type LookupUserResult struct {
 	ApiManagementName string `pulumi:"apiManagementName"`
@@ -43,10 +42,9 @@ type LookupUserResult struct {
 	// The Last Name for the User.
 	LastName string `pulumi:"lastName"`
 	// Any notes about this User.
-	Note string `pulumi:"note"`
+	Note              string `pulumi:"note"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The current state of this User, for example `active`, `blocked` or `pending`.
-	State string `pulumi:"state"`
+	State  string `pulumi:"state"`
 	UserId string `pulumi:"userId"`
 }
-

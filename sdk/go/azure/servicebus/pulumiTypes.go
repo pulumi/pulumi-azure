@@ -85,7 +85,8 @@ type SubscriptionRuleCorrelationFilterPtrInput interface {
 
 type subscriptionRuleCorrelationFilterPtrType SubscriptionRuleCorrelationFilterArgs
 
-func SubscriptionRuleCorrelationFilterPtr(v *SubscriptionRuleCorrelationFilterArgs) SubscriptionRuleCorrelationFilterPtrInput {	return (*subscriptionRuleCorrelationFilterPtrType)(v)
+func SubscriptionRuleCorrelationFilterPtr(v *SubscriptionRuleCorrelationFilterArgs) SubscriptionRuleCorrelationFilterPtrInput {
+	return (*subscriptionRuleCorrelationFilterPtrType)(v)
 }
 
 func (*subscriptionRuleCorrelationFilterPtrType) ElementType() reflect.Type {
@@ -100,7 +101,7 @@ func (i *subscriptionRuleCorrelationFilterPtrType) ToSubscriptionRuleCorrelation
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionRuleCorrelationFilterPtrOutput)
 }
 
-type SubscriptionRuleCorrelationFilterOutput struct { *pulumi.OutputState }
+type SubscriptionRuleCorrelationFilterOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionRuleCorrelationFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubscriptionRuleCorrelationFilter)(nil)).Elem()
@@ -123,47 +124,48 @@ func (o SubscriptionRuleCorrelationFilterOutput) ToSubscriptionRuleCorrelationFi
 		return &v
 	}).(SubscriptionRuleCorrelationFilterPtrOutput)
 }
+
 // Content type of the message.
 func (o SubscriptionRuleCorrelationFilterOutput) ContentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the correlation.
 func (o SubscriptionRuleCorrelationFilterOutput) CorrelationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
 }
 
 // Application specific label.
 func (o SubscriptionRuleCorrelationFilterOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.Label }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the message.
 func (o SubscriptionRuleCorrelationFilterOutput) MessageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.MessageId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.MessageId }).(pulumi.StringPtrOutput)
 }
 
 // Address of the queue to reply to.
 func (o SubscriptionRuleCorrelationFilterOutput) ReplyTo() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
 }
 
 // Session identifier to reply to.
 func (o SubscriptionRuleCorrelationFilterOutput) ReplyToSessionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.ReplyToSessionId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ReplyToSessionId }).(pulumi.StringPtrOutput)
 }
 
 // Session identifier.
 func (o SubscriptionRuleCorrelationFilterOutput) SessionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.SessionId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.SessionId }).(pulumi.StringPtrOutput)
 }
 
 // Address to send to.
 func (o SubscriptionRuleCorrelationFilterOutput) To() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.To }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.To }).(pulumi.StringPtrOutput)
 }
 
-type SubscriptionRuleCorrelationFilterPtrOutput struct { *pulumi.OutputState}
+type SubscriptionRuleCorrelationFilterPtrOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionRuleCorrelationFilterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SubscriptionRuleCorrelationFilter)(nil)).Elem()
@@ -178,47 +180,47 @@ func (o SubscriptionRuleCorrelationFilterPtrOutput) ToSubscriptionRuleCorrelatio
 }
 
 func (o SubscriptionRuleCorrelationFilterPtrOutput) Elem() SubscriptionRuleCorrelationFilterOutput {
-	return o.ApplyT(func (v *SubscriptionRuleCorrelationFilter) SubscriptionRuleCorrelationFilter { return *v }).(SubscriptionRuleCorrelationFilterOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) SubscriptionRuleCorrelationFilter { return *v }).(SubscriptionRuleCorrelationFilterOutput)
 }
 
 // Content type of the message.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) ContentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the correlation.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) CorrelationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
 }
 
 // Application specific label.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.Label }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the message.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) MessageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.MessageId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.MessageId }).(pulumi.StringPtrOutput)
 }
 
 // Address of the queue to reply to.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) ReplyTo() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
 }
 
 // Session identifier to reply to.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) ReplyToSessionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.ReplyToSessionId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ReplyToSessionId }).(pulumi.StringPtrOutput)
 }
 
 // Session identifier.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) SessionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.SessionId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.SessionId }).(pulumi.StringPtrOutput)
 }
 
 // Address to send to.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) To() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SubscriptionRuleCorrelationFilter) *string { return v.To }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.To }).(pulumi.StringPtrOutput)
 }
 
 func init() {

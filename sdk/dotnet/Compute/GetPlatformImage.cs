@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Compute
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/platform_image.html.markdown.
         /// </summary>
+        [Obsolete("Use GetPlatformImage.InvokeAsync() instead")]
         public static Task<GetPlatformImageResult> GetPlatformImage(GetPlatformImageArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPlatformImageResult>("azure:compute/getPlatformImage:getPlatformImage", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetPlatformImage
+    {
+        /// <summary>
+        /// Use this data source to access information about a Platform Image.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/platform_image.html.markdown.
+        /// </summary>
+        public static Task<GetPlatformImageResult> InvokeAsync(GetPlatformImageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPlatformImageResult>("azure:compute/getPlatformImage:getPlatformImage", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -104,4 +104,3 @@ type SourceCodeTokenArgs struct {
 func (SourceCodeTokenArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sourceCodeTokenArgs)(nil)).Elem()
 }
-

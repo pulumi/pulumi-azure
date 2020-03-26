@@ -139,4 +139,3 @@ type DiskEncryptionSetArgs struct {
 func (DiskEncryptionSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*diskEncryptionSetArgs)(nil)).Elem()
 }
-
