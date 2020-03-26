@@ -2,4 +2,4 @@ module github.com/pulumi/pulumi-azure/scripts
 
 go 1.13
 
-require github.com/pulumi/pulumi/pkg v0.0.0-20200323215703-1d4a75674b2e
+require github.com/pulumi/pulumi/pkg v0.0.0-20200325225746-80f1989600a3
