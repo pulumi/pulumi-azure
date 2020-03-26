@@ -17,7 +17,7 @@ namespace Pulumi.Azure.Network
     public partial class NetworkWatcherFlowLog : Pulumi.CustomResource
     {
         /// <summary>
-        /// Boolean flag to enable/disable traffic analytics.
+        /// Should Network Flow Logging be Enabled?
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkWatcherFlowLogArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean flag to enable/disable traffic analytics.
+        /// Should Network Flow Logging be Enabled?
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkWatcherFlowLogState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean flag to enable/disable traffic analytics.
+        /// Should Network Flow Logging be Enabled?
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.Network
         public Input<int> Days { get; set; } = null!;
 
         /// <summary>
-        /// Boolean flag to enable/disable traffic analytics.
+        /// Boolean flag to enable/disable retention.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.Network
         public Input<int> Days { get; set; } = null!;
 
         /// <summary>
-        /// Boolean flag to enable/disable traffic analytics.
+        /// Boolean flag to enable/disable retention.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -345,7 +345,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly int Days;
         /// <summary>
-        /// Boolean flag to enable/disable traffic analytics.
+        /// Boolean flag to enable/disable retention.
         /// </summary>
         public readonly bool Enabled;
 

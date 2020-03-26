@@ -99,4 +99,3 @@ type QueueArgs struct {
 func (QueueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueArgs)(nil)).Elem()
 }
-

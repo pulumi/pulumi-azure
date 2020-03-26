@@ -167,4 +167,3 @@ type ServerSecurityAlertPolicyArgs struct {
 func (ServerSecurityAlertPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverSecurityAlertPolicyArgs)(nil)).Elem()
 }
-

@@ -14,9 +14,9 @@ class PolicyVM(pulumi.CustomResource):
     """
     Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 
-      * `frequency` (`str`)
-      * `time` (`str`)
-      * `weekdays` (`list`)
+      * `frequency` (`str`) - Sets the backup frequency. Must be either `Daily` or`Weekly`.
+      * `time` (`str`) - The time of day to perform the backup in 24hour format.
+      * `weekdays` (`list`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
     """
     name: pulumi.Output[str]
     """
@@ -34,31 +34,31 @@ class PolicyVM(pulumi.CustomResource):
     """
     Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
 
-      * `count` (`float`)
+      * `count` (`float`) - The number of yearly backups to keep. Must be between `1` and `9999`
     """
     retention_monthly: pulumi.Output[dict]
     """
     Configures the policy monthly retention as documented in the `retention_monthly` block below.
 
-      * `count` (`float`)
-      * `weekdays` (`list`)
-      * `weeks` (`list`)
+      * `count` (`float`) - The number of yearly backups to keep. Must be between `1` and `9999`
+      * `weekdays` (`list`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+      * `weeks` (`list`) - The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
     """
     retention_weekly: pulumi.Output[dict]
     """
     Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
 
-      * `count` (`float`)
-      * `weekdays` (`list`)
+      * `count` (`float`) - The number of yearly backups to keep. Must be between `1` and `9999`
+      * `weekdays` (`list`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
     """
     retention_yearly: pulumi.Output[dict]
     """
     Configures the policy yearly retention as documented in the `retention_yearly` block below.
 
-      * `count` (`float`)
-      * `months` (`list`)
-      * `weekdays` (`list`)
-      * `weeks` (`list`)
+      * `count` (`float`) - The number of yearly backups to keep. Must be between `1` and `9999`
+      * `months` (`list`) - The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+      * `weekdays` (`list`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+      * `weeks` (`list`) - The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
     """
     tags: pulumi.Output[dict]
     """
@@ -89,31 +89,31 @@ class PolicyVM(pulumi.CustomResource):
 
         The **backup** object supports the following:
 
-          * `frequency` (`pulumi.Input[str]`)
-          * `time` (`pulumi.Input[str]`)
-          * `weekdays` (`pulumi.Input[list]`)
+          * `frequency` (`pulumi.Input[str]`) - Sets the backup frequency. Must be either `Daily` or`Weekly`.
+          * `time` (`pulumi.Input[str]`) - The time of day to perform the backup in 24hour format.
+          * `weekdays` (`pulumi.Input[list]`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 
         The **retention_daily** object supports the following:
 
-          * `count` (`pulumi.Input[float]`)
+          * `count` (`pulumi.Input[float]`) - The number of yearly backups to keep. Must be between `1` and `9999`
 
         The **retention_monthly** object supports the following:
 
-          * `count` (`pulumi.Input[float]`)
-          * `weekdays` (`pulumi.Input[list]`)
-          * `weeks` (`pulumi.Input[list]`)
+          * `count` (`pulumi.Input[float]`) - The number of yearly backups to keep. Must be between `1` and `9999`
+          * `weekdays` (`pulumi.Input[list]`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+          * `weeks` (`pulumi.Input[list]`) - The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
 
         The **retention_weekly** object supports the following:
 
-          * `count` (`pulumi.Input[float]`)
-          * `weekdays` (`pulumi.Input[list]`)
+          * `count` (`pulumi.Input[float]`) - The number of yearly backups to keep. Must be between `1` and `9999`
+          * `weekdays` (`pulumi.Input[list]`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 
         The **retention_yearly** object supports the following:
 
-          * `count` (`pulumi.Input[float]`)
-          * `months` (`pulumi.Input[list]`)
-          * `weekdays` (`pulumi.Input[list]`)
-          * `weeks` (`pulumi.Input[list]`)
+          * `count` (`pulumi.Input[float]`) - The number of yearly backups to keep. Must be between `1` and `9999`
+          * `months` (`pulumi.Input[list]`) - The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+          * `weekdays` (`pulumi.Input[list]`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+          * `weeks` (`pulumi.Input[list]`) - The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -176,31 +176,31 @@ class PolicyVM(pulumi.CustomResource):
 
         The **backup** object supports the following:
 
-          * `frequency` (`pulumi.Input[str]`)
-          * `time` (`pulumi.Input[str]`)
-          * `weekdays` (`pulumi.Input[list]`)
+          * `frequency` (`pulumi.Input[str]`) - Sets the backup frequency. Must be either `Daily` or`Weekly`.
+          * `time` (`pulumi.Input[str]`) - The time of day to perform the backup in 24hour format.
+          * `weekdays` (`pulumi.Input[list]`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 
         The **retention_daily** object supports the following:
 
-          * `count` (`pulumi.Input[float]`)
+          * `count` (`pulumi.Input[float]`) - The number of yearly backups to keep. Must be between `1` and `9999`
 
         The **retention_monthly** object supports the following:
 
-          * `count` (`pulumi.Input[float]`)
-          * `weekdays` (`pulumi.Input[list]`)
-          * `weeks` (`pulumi.Input[list]`)
+          * `count` (`pulumi.Input[float]`) - The number of yearly backups to keep. Must be between `1` and `9999`
+          * `weekdays` (`pulumi.Input[list]`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+          * `weeks` (`pulumi.Input[list]`) - The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
 
         The **retention_weekly** object supports the following:
 
-          * `count` (`pulumi.Input[float]`)
-          * `weekdays` (`pulumi.Input[list]`)
+          * `count` (`pulumi.Input[float]`) - The number of yearly backups to keep. Must be between `1` and `9999`
+          * `weekdays` (`pulumi.Input[list]`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 
         The **retention_yearly** object supports the following:
 
-          * `count` (`pulumi.Input[float]`)
-          * `months` (`pulumi.Input[list]`)
-          * `weekdays` (`pulumi.Input[list]`)
-          * `weeks` (`pulumi.Input[list]`)
+          * `count` (`pulumi.Input[float]`) - The number of yearly backups to keep. Must be between `1` and `9999`
+          * `months` (`pulumi.Input[list]`) - The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+          * `weekdays` (`pulumi.Input[list]`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+          * `weeks` (`pulumi.Input[list]`) - The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

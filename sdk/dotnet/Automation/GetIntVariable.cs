@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Automation
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_int.html.markdown.
         /// </summary>
+        [Obsolete("Use GetIntVariable.InvokeAsync() instead")]
         public static Task<GetIntVariableResult> GetIntVariable(GetIntVariableArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIntVariableResult>("azure:automation/getIntVariable:getIntVariable", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetIntVariable
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Automation Int Variable.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_int.html.markdown.
+        /// </summary>
+        public static Task<GetIntVariableResult> InvokeAsync(GetIntVariableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntVariableResult>("azure:automation/getIntVariable:getIntVariable", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

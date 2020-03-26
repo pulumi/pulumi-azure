@@ -326,17 +326,20 @@ namespace Pulumi.Azure.DataFactory
     public sealed class DatasetMysqlSchemaColumnsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description for the Data Factory Dataset MySQL.
+        /// The description of the column.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        /// The name of the column.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -348,17 +351,20 @@ namespace Pulumi.Azure.DataFactory
     public sealed class DatasetMysqlSchemaColumnsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description for the Data Factory Dataset MySQL.
+        /// The description of the column.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        /// The name of the column.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -375,13 +381,16 @@ namespace Pulumi.Azure.DataFactory
     public sealed class DatasetMysqlSchemaColumns
     {
         /// <summary>
-        /// The description for the Data Factory Dataset MySQL.
+        /// The description of the column.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        /// The name of the column.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

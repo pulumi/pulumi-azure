@@ -26,21 +26,20 @@ type GetNetworkDdosProtectionPlanArgs struct {
 	Name string `pulumi:"name"`
 	// The name of the resource group where the Network DDoS Protection Plan exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getNetworkDdosProtectionPlan.
 type GetNetworkDdosProtectionPlanResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Specifies the supported Azure location where the resource exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
 	VirtualNetworkIds []string `pulumi:"virtualNetworkIds"`
 }
-

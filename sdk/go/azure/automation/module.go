@@ -115,4 +115,3 @@ type ModuleArgs struct {
 func (ModuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*moduleArgs)(nil)).Elem()
 }
-

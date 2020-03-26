@@ -24,167 +24,371 @@ export namespace analysisservices {
 
 export namespace apimanagement {
     export interface ApiImport {
+        /**
+         * The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
+         */
         contentFormat: string;
+        /**
+         * The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+         */
         contentValue: string;
+        /**
+         * A `wsdlSelector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `contentFormat` is `wsdl` or `wsdl-link`.
+         */
         wsdlSelector?: outputs.apimanagement.ApiImportWsdlSelector;
     }
 
     export interface ApiImportWsdlSelector {
+        /**
+         * The name of endpoint (port) to import from WSDL.
+         */
         endpointName: string;
+        /**
+         * The name of service to import from WSDL.
+         */
         serviceName: string;
     }
 
     export interface ApiOperationRequest {
         /**
-         * A description for this API Operation, which may include HTML formatting tags.
+         * A description of the HTTP Request, which may include HTML tags.
          */
         description?: string;
+        /**
+         * One or more `header` blocks as defined above.
+         */
         headers?: outputs.apimanagement.ApiOperationRequestHeader[];
+        /**
+         * One or more `queryParameter` blocks as defined above.
+         */
         queryParameters?: outputs.apimanagement.ApiOperationRequestQueryParameter[];
+        /**
+         * One or more `representation` blocks as defined below.
+         */
         representations?: outputs.apimanagement.ApiOperationRequestRepresentation[];
     }
 
     export interface ApiOperationRequestHeader {
+        /**
+         * The default value for this Header.
+         */
         defaultValue?: string;
         /**
-         * A description for this API Operation, which may include HTML formatting tags.
+         * A description of this Header.
          */
         description?: string;
+        /**
+         * The Name of this Header.
+         */
         name: string;
+        /**
+         * Is this Header Required?
+         */
         required: boolean;
+        /**
+         * The Type of this Header, such as a `string`.
+         */
         type: string;
+        /**
+         * One or more acceptable values for this Header.
+         */
         values?: string[];
     }
 
     export interface ApiOperationRequestQueryParameter {
+        /**
+         * The default value for this Query Parameter.
+         */
         defaultValue?: string;
         /**
-         * A description for this API Operation, which may include HTML formatting tags.
+         * A description of this Query Parameter.
          */
         description?: string;
+        /**
+         * The Name of this Query Parameter.
+         */
         name: string;
+        /**
+         * Is this Query Parameter Required?
+         */
         required: boolean;
+        /**
+         * The Type of this Query Parameter, such as a `string`.
+         */
         type: string;
+        /**
+         * One or more acceptable values for this Query Parameter.
+         */
         values?: string[];
     }
 
     export interface ApiOperationRequestRepresentation {
+        /**
+         * The Content Type of this representation, such as `application/json`.
+         */
         contentType: string;
+        /**
+         * One or more `formParameter` block as defined above.
+         */
         formParameters?: outputs.apimanagement.ApiOperationRequestRepresentationFormParameter[];
+        /**
+         * An example of this representation.
+         */
         sample?: string;
+        /**
+         * The ID of an API Management Schema which represents this Response.
+         */
         schemaId?: string;
+        /**
+         * The Type Name defined by the Schema.
+         */
         typeName?: string;
     }
 
     export interface ApiOperationRequestRepresentationFormParameter {
+        /**
+         * The default value for this Form Parameter.
+         */
         defaultValue?: string;
         /**
-         * A description for this API Operation, which may include HTML formatting tags.
+         * A description of this Form Parameter.
          */
         description?: string;
+        /**
+         * The Name of this Form Parameter.
+         */
         name: string;
+        /**
+         * Is this Form Parameter Required?
+         */
         required: boolean;
+        /**
+         * The Type of this Form Parameter, such as a `string`.
+         */
         type: string;
+        /**
+         * One or more acceptable values for this Form Parameter.
+         */
         values?: string[];
     }
 
     export interface ApiOperationResponse {
         /**
-         * A description for this API Operation, which may include HTML formatting tags.
+         * A description of the HTTP Response, which may include HTML tags.
          */
         description?: string;
+        /**
+         * One or more `header` blocks as defined above.
+         */
         headers?: outputs.apimanagement.ApiOperationResponseHeader[];
+        /**
+         * One or more `representation` blocks as defined below.
+         */
         representations?: outputs.apimanagement.ApiOperationResponseRepresentation[];
+        /**
+         * The HTTP Status Code.
+         */
         statusCode: number;
     }
 
     export interface ApiOperationResponseHeader {
+        /**
+         * The default value for this Header.
+         */
         defaultValue?: string;
         /**
-         * A description for this API Operation, which may include HTML formatting tags.
+         * A description of this Header.
          */
         description?: string;
+        /**
+         * The Name of this Header.
+         */
         name: string;
+        /**
+         * Is this Header Required?
+         */
         required: boolean;
+        /**
+         * The Type of this Header, such as a `string`.
+         */
         type: string;
+        /**
+         * One or more acceptable values for this Header.
+         */
         values?: string[];
     }
 
     export interface ApiOperationResponseRepresentation {
+        /**
+         * The Content Type of this representation, such as `application/json`.
+         */
         contentType: string;
+        /**
+         * One or more `formParameter` block as defined above.
+         */
         formParameters?: outputs.apimanagement.ApiOperationResponseRepresentationFormParameter[];
+        /**
+         * An example of this representation.
+         */
         sample?: string;
+        /**
+         * The ID of an API Management Schema which represents this Response.
+         */
         schemaId?: string;
+        /**
+         * The Type Name defined by the Schema.
+         */
         typeName?: string;
     }
 
     export interface ApiOperationResponseRepresentationFormParameter {
+        /**
+         * The default value for this Form Parameter.
+         */
         defaultValue?: string;
         /**
-         * A description for this API Operation, which may include HTML formatting tags.
+         * A description of this Form Parameter.
          */
         description?: string;
+        /**
+         * The Name of this Form Parameter.
+         */
         name: string;
+        /**
+         * Is this Form Parameter Required?
+         */
         required: boolean;
+        /**
+         * The Type of this Form Parameter, such as a `string`.
+         */
         type: string;
+        /**
+         * One or more acceptable values for this Form Parameter.
+         */
         values?: string[];
     }
 
     export interface ApiOperationTemplateParameter {
+        /**
+         * The default value for this Template Parameter.
+         */
         defaultValue?: string;
         /**
-         * A description for this API Operation, which may include HTML formatting tags.
+         * A description of this Template Parameter.
          */
         description?: string;
+        /**
+         * The Name of this Template Parameter.
+         */
         name: string;
+        /**
+         * Is this Template Parameter Required?
+         */
         required: boolean;
+        /**
+         * The Type of this Template Parameter, such as a `string`.
+         */
         type: string;
+        /**
+         * One or more acceptable values for this Template Parameter.
+         */
         values?: string[];
     }
 
     export interface ApiSubscriptionKeyParameterNames {
+        /**
+         * The name of the HTTP Header which should be used for the Subscription Key.
+         */
         header: string;
+        /**
+         * The name of the QueryString parameter which should be used for the Subscription Key.
+         */
         query: string;
     }
 
     export interface AuthorizationServerTokenBodyParameter {
         /**
-         * The name of this Authorization Server. Changing this forces a new resource to be created.
+         * The Name of the Parameter.
          */
         name: string;
+        /**
+         * The Value of the Parameter.
+         */
         value: string;
     }
 
     export interface BackendCredentials {
+        /**
+         * An `authorization` block as defined below.
+         */
         authorization?: outputs.apimanagement.BackendCredentialsAuthorization;
+        /**
+         * A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
+         */
         certificates?: string[];
+        /**
+         * A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
+         */
         header?: {[key: string]: string};
+        /**
+         * A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
+         */
         query?: {[key: string]: string};
     }
 
     export interface BackendCredentialsAuthorization {
+        /**
+         * The authentication Parameter value.
+         */
         parameter?: string;
+        /**
+         * The authentication Scheme name.
+         */
         scheme?: string;
     }
 
     export interface BackendProxy {
+        /**
+         * The password to connect to the proxy server.
+         */
         password?: string;
         /**
-         * The URL of the backend host.
+         * The URL of the proxy server.
          */
         url: string;
+        /**
+         * The username to connect to the proxy server.
+         */
         username: string;
     }
 
     export interface BackendServiceFabricCluster {
+        /**
+         * The client certificate thumbprint for the management endpoint.
+         */
         clientCertificateThumbprint: string;
+        /**
+         * A list of cluster management endpoints.
+         */
         managementEndpoints: string[];
+        /**
+         * The maximum number of retries when attempting resolve the partition.
+         */
         maxPartitionResolutionRetries: number;
+        /**
+         * A list of thumbprints of the server certificates of the Service Fabric cluster.
+         */
         serverCertificateThumbprints?: string[];
+        /**
+         * One or more `serverX509Name` blocks as documented below.
+         */
         serverX509Names?: outputs.apimanagement.BackendServiceFabricClusterServerX509Name[];
     }
 
     export interface BackendServiceFabricClusterServerX509Name {
+        /**
+         * The thumbprint for the issuer of the certificate.
+         */
         issuerCertificateThumbprint: string;
         /**
          * The name of the API Management backend. Changing this forces a new resource to be created.
@@ -193,7 +397,13 @@ export namespace apimanagement {
     }
 
     export interface BackendTls {
+        /**
+         * Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
+         */
         validateCertificateChain?: boolean;
+        /**
+         * Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.
+         */
         validateCertificateName?: boolean;
     }
 
@@ -307,13 +517,19 @@ export namespace apimanagement {
     }
 
     export interface LoggerApplicationInsights {
+        /**
+         * The instrumentation key used to push data to Application Insights.
+         */
         instrumentationKey: string;
     }
 
     export interface LoggerEventhub {
+        /**
+         * The connection string of an EventHub Namespace.
+         */
         connectionString: string;
         /**
-         * The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+         * The name of an EventHub.
          */
         name: string;
     }
@@ -324,7 +540,7 @@ export namespace apimanagement {
          */
         gatewayRegionalUrl: string;
         /**
-         * The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+         * The name of the Azure Region in which the API Management Service should be expanded to.
          */
         location: string;
         /**
@@ -334,26 +550,59 @@ export namespace apimanagement {
     }
 
     export interface ServiceCertificate {
+        /**
+         * The password for the certificate.
+         */
         certificatePassword: string;
+        /**
+         * The Base64 Encoded PFX Certificate.
+         */
         encodedCertificate: string;
+        /**
+         * The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
+         */
         storeName: string;
     }
 
     export interface ServiceHostnameConfiguration {
+        /**
+         * One or more `management` blocks as documented below.
+         */
         managements?: outputs.apimanagement.ServiceHostnameConfigurationManagement[];
+        /**
+         * One or more `portal` blocks as documented below.
+         */
         portals?: outputs.apimanagement.ServiceHostnameConfigurationPortal[];
+        /**
+         * One or more `proxy` blocks as documented below.
+         */
         proxies?: outputs.apimanagement.ServiceHostnameConfigurationProxy[];
+        /**
+         * One or more `scm` blocks as documented below.
+         */
         scms?: outputs.apimanagement.ServiceHostnameConfigurationScm[];
     }
 
     export interface ServiceHostnameConfigurationManagement {
         /**
-         * One or more (up to 10) `certificate` blocks as defined below.
+         * The Base64 Encoded Certificate.
          */
         certificate?: string;
+        /**
+         * The password associated with the certificate provided above.
+         */
         certificatePassword?: string;
+        /**
+         * The Hostname to use for the Management API.
+         */
         hostName: string;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+         */
         keyVaultId?: string;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+         */
         negotiateClientCertificate?: boolean;
     }
 
@@ -362,21 +611,48 @@ export namespace apimanagement {
          * One or more (up to 10) `certificate` blocks as defined below.
          */
         certificate?: string;
+        /**
+         * The password for the certificate.
+         */
         certificatePassword?: string;
+        /**
+         * The Hostname to use for the Management API.
+         */
         hostName: string;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+         */
         keyVaultId?: string;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+         */
         negotiateClientCertificate?: boolean;
     }
 
     export interface ServiceHostnameConfigurationProxy {
         /**
-         * One or more (up to 10) `certificate` blocks as defined below.
+         * The Base64 Encoded Certificate.
          */
         certificate?: string;
+        /**
+         * The password associated with the certificate provided above.
+         */
         certificatePassword?: string;
+        /**
+         * Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
+         */
         defaultSslBinding: boolean;
+        /**
+         * The Hostname to use for the Management API.
+         */
         hostName: string;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+         */
         keyVaultId?: string;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+         */
         negotiateClientCertificate?: boolean;
     }
 
@@ -385,9 +661,21 @@ export namespace apimanagement {
          * One or more (up to 10) `certificate` blocks as defined below.
          */
         certificate?: string;
+        /**
+         * The password for the certificate.
+         */
         certificatePassword?: string;
+        /**
+         * The Hostname to use for the Management API.
+         */
         hostName: string;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+         */
         keyVaultId?: string;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+         */
         negotiateClientCertificate?: boolean;
     }
 
@@ -400,40 +688,91 @@ export namespace apimanagement {
          * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. At this time the only supported value is`SystemAssigned`.
+         */
         type: string;
     }
 
     export interface ServicePolicy {
+        /**
+         * The XML Content for this Policy.
+         */
         xmlContent: string;
+        /**
+         * A link to an API Management Policy XML Document, which must be publicly available.
+         */
         xmlLink?: string;
     }
 
     export interface ServiceProtocols {
+        /**
+         * Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
+         */
         enableHttp2?: boolean;
     }
 
     export interface ServiceSecurity {
+        /**
+         * Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
+         */
         enableBackendSsl30?: boolean;
+        /**
+         * Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
+         */
         enableBackendTls10?: boolean;
+        /**
+         * Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
+         */
         enableBackendTls11?: boolean;
+        /**
+         * Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
+         */
         enableFrontendSsl30?: boolean;
+        /**
+         * Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
+         */
         enableFrontendTls10?: boolean;
+        /**
+         * Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
+         */
         enableFrontendTls11?: boolean;
+        /**
+         * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+         */
         enableTripleDesCiphers?: boolean;
     }
 
     export interface ServiceSignIn {
+        /**
+         * Should anonymous users be redirected to the sign in page?
+         */
         enabled: boolean;
     }
 
     export interface ServiceSignUp {
+        /**
+         * Can users sign up on the development portal?
+         */
         enabled: boolean;
+        /**
+         * A `termsOfService` block as defined below.
+         */
         termsOfService: outputs.apimanagement.ServiceSignUpTermsOfService;
     }
 
     export interface ServiceSignUpTermsOfService {
+        /**
+         * Should the user be asked for consent during sign up?
+         */
         consentRequired: boolean;
+        /**
+         * Should Terms of Service be displayed during sign up?.
+         */
         enabled: boolean;
+        /**
+         * The Terms of Service which users are required to agree to in order to sign up.
+         */
         text?: string;
     }
 }
@@ -562,46 +901,121 @@ export namespace appconfiguration {
 
 export namespace appservice {
     export interface AppServiceAuthSettings {
+        /**
+         * A `activeDirectory` block as defined below.
+         */
         activeDirectory?: outputs.appservice.AppServiceAuthSettingsActiveDirectory;
+        /**
+         * Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+         */
         additionalLoginParams?: {[key: string]: string};
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app.
+         */
         allowedExternalRedirectUrls?: string[];
+        /**
+         * The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+         */
         defaultProvider?: string;
         /**
-         * Is the App Service Enabled?
+         * Is Authentication enabled?
          */
         enabled: boolean;
+        /**
+         * A `facebook` block as defined below.
+         */
         facebook?: outputs.appservice.AppServiceAuthSettingsFacebook;
+        /**
+         * A `google` block as defined below.
+         */
         google?: outputs.appservice.AppServiceAuthSettingsGoogle;
+        /**
+         * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+         */
         issuer?: string;
+        /**
+         * A `microsoft` block as defined below.
+         */
         microsoft?: outputs.appservice.AppServiceAuthSettingsMicrosoft;
+        /**
+         * The runtime version of the Authentication/Authorization module.
+         */
         runtimeVersion?: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+         */
         tokenRefreshExtensionHours?: number;
+        /**
+         * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+         */
         tokenStoreEnabled?: boolean;
+        /**
+         * A `twitter` block as defined below.
+         */
         twitter?: outputs.appservice.AppServiceAuthSettingsTwitter;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+         */
         unauthenticatedClientAction?: string;
     }
 
     export interface AppServiceAuthSettingsActiveDirectory {
+        /**
+         * Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
         allowedAudiences?: string[];
+        /**
+         * The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+         */
         clientId: string;
+        /**
+         * The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+         */
         clientSecret?: string;
     }
 
     export interface AppServiceAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login
+         */
         appId: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login.
+         */
         appSecret: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+         */
         oauthScopes?: string[];
     }
 
     export interface AppServiceAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
         clientId: string;
+        /**
+         * The client secret associated with the Google web application.
+         */
         clientSecret: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+         */
         oauthScopes?: string[];
     }
 
     export interface AppServiceAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
         clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication.
+         */
         clientSecret: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+         */
         oauthScopes?: string[];
     }
 
@@ -612,35 +1026,65 @@ export namespace appservice {
 
     export interface AppServiceBackup {
         /**
-         * Is the App Service Enabled?
+         * Is this Backup enabled?
          */
         enabled?: boolean;
         /**
-         * Specifies the name of the App Service. Changing this forces a new resource to be created.
+         * Specifies the name for this Backup.
          */
         name: string;
+        /**
+         * A `schedule` block as defined below.
+         */
         schedule: outputs.appservice.AppServiceBackupSchedule;
+        /**
+         * The SAS URL to a Storage Container where Backups should be saved.
+         */
         storageAccountUrl: string;
     }
 
     export interface AppServiceBackupSchedule {
+        /**
+         * Sets how often the backup should be executed.
+         */
         frequencyInterval: number;
+        /**
+         * Sets the unit of time for how often the backup should be executed. Possible values are `Day` or `Hour`.
+         */
         frequencyUnit: string;
+        /**
+         * Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is?
+         */
         keepAtLeastOneBackup?: boolean;
+        /**
+         * Specifies the number of days after which Backups should be deleted.
+         */
         retentionPeriodInDays?: number;
+        /**
+         * Sets when the schedule should start working.
+         */
         startTime?: string;
     }
 
     export interface AppServiceConnectionString {
         /**
-         * Specifies the name of the App Service. Changing this forces a new resource to be created.
+         * The name of the Connection String.
          */
         name: string;
+        /**
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+         */
         type: string;
+        /**
+         * The value for the Connection String.
+         */
         value: string;
     }
 
     export interface AppServiceIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         */
         identityIds?: string[];
         /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
@@ -650,73 +1094,193 @@ export namespace appservice {
          * The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
          */
         tenantId: string;
+        /**
+         * Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+         */
         type: string;
     }
 
     export interface AppServiceLogs {
+        /**
+         * An `applicationLogs` block as defined below.
+         */
         applicationLogs: outputs.appservice.AppServiceLogsApplicationLogs;
+        /**
+         * An `httpLogs` block as defined below.
+         */
         httpLogs: outputs.appservice.AppServiceLogsHttpLogs;
     }
 
     export interface AppServiceLogsApplicationLogs {
+        /**
+         * An `azureBlobStorage` block as defined below.
+         */
         azureBlobStorage?: outputs.appservice.AppServiceLogsApplicationLogsAzureBlobStorage;
     }
 
     export interface AppServiceLogsApplicationLogsAzureBlobStorage {
+        /**
+         * The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
+         */
         level: string;
+        /**
+         * The number of days to retain logs for.
+         */
         retentionInDays: number;
+        /**
+         * The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+         */
         sasUrl: string;
     }
 
     export interface AppServiceLogsHttpLogs {
+        /**
+         * An `azureBlobStorage` block as defined below.
+         */
         azureBlobStorage?: outputs.appservice.AppServiceLogsHttpLogsAzureBlobStorage;
+        /**
+         * A `fileSystem` block as defined below.
+         */
         fileSystem?: outputs.appservice.AppServiceLogsHttpLogsFileSystem;
     }
 
     export interface AppServiceLogsHttpLogsAzureBlobStorage {
+        /**
+         * The number of days to retain logs for.
+         */
         retentionInDays: number;
+        /**
+         * The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+         */
         sasUrl: string;
     }
 
     export interface AppServiceLogsHttpLogsFileSystem {
+        /**
+         * The number of days to retain logs for.
+         */
         retentionInDays: number;
+        /**
+         * The maximum size in megabytes that http log files can use before being removed.
+         */
         retentionInMb: number;
     }
 
     export interface AppServiceSiteConfig {
+        /**
+         * Should the app be loaded at all times? Defaults to `false`.
+         */
         alwaysOn?: boolean;
+        /**
+         * App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+         */
         appCommandLine?: string;
         autoSwapSlotName?: string;
+        /**
+         * A `cors` block as defined below.
+         */
         cors: outputs.appservice.AppServiceSiteConfigCors;
+        /**
+         * The ordering of default documents to load, if an address isn't specified.
+         */
         defaultDocuments?: string[];
+        /**
+         * The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+         */
         dotnetFrameworkVersion?: string;
+        /**
+         * State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+         */
         ftpsState: string;
+        /**
+         * Is HTTP2 Enabled on this App Service? Defaults to `false`.
+         */
         http2Enabled?: boolean;
+        /**
+         * A list of objects representing ip restrictions as defined below.
+         */
         ipRestrictions: outputs.appservice.AppServiceSiteConfigIpRestriction[];
+        /**
+         * The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+         */
         javaContainer?: string;
+        /**
+         * The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
+         */
         javaContainerVersion?: string;
+        /**
+         * The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+         */
         javaVersion?: string;
+        /**
+         * Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
+         */
         linuxFxVersion: string;
+        /**
+         * Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+         */
         localMysqlEnabled: boolean;
+        /**
+         * The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
+         */
         managedPipelineMode: string;
+        /**
+         * The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+         */
         minTlsVersion: string;
+        /**
+         * The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+         */
         phpVersion?: string;
+        /**
+         * The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
+         */
         pythonVersion?: string;
+        /**
+         * Is Remote Debugging Enabled? Defaults to `false`.
+         */
         remoteDebuggingEnabled?: boolean;
+        /**
+         * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+         */
         remoteDebuggingVersion: string;
+        /**
+         * The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+         */
         scmType?: string;
+        /**
+         * Should the App Service run in 32 bit mode, rather than 64 bit mode?
+         */
         use32BitWorkerProcess?: boolean;
+        /**
+         * Should WebSockets be enabled?
+         */
         websocketsEnabled: boolean;
+        /**
+         * The Windows Docker container image (`DOCKER|<user/image:tag>`)
+         */
         windowsFxVersion: string;
     }
 
     export interface AppServiceSiteConfigCors {
+        /**
+         * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+         */
         allowedOrigins: string[];
+        /**
+         * Are credentials supported?
+         */
         supportCredentials?: boolean;
     }
 
     export interface AppServiceSiteConfigIpRestriction {
+        /**
+         * The IP Address used for this IP Restriction in CIDR notation.
+         */
         ipAddress?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
         virtualNetworkSubnetId?: string;
     }
 
@@ -743,14 +1307,29 @@ export namespace appservice {
     }
 
     export interface AppServiceStorageAccount {
+        /**
+         * The access key for the storage account.
+         */
         accessKey: string;
+        /**
+         * The name of the storage account.
+         */
         accountName: string;
+        /**
+         * The path to mount the storage within the site's runtime environment.
+         */
         mountPath?: string;
         /**
-         * Specifies the name of the App Service. Changing this forces a new resource to be created.
+         * The name of the storage account identifier.
          */
         name: string;
+        /**
+         * The name of the file share (container name, for Blob storage).
+         */
         shareName: string;
+        /**
+         * The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
+         */
         type: string;
     }
 
@@ -774,46 +1353,121 @@ export namespace appservice {
     }
 
     export interface FunctionAppAuthSettings {
+        /**
+         * A `activeDirectory` block as defined below.
+         */
         activeDirectory?: outputs.appservice.FunctionAppAuthSettingsActiveDirectory;
+        /**
+         * Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+         */
         additionalLoginParams?: {[key: string]: string};
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app.
+         */
         allowedExternalRedirectUrls?: string[];
+        /**
+         * The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+         */
         defaultProvider?: string;
         /**
-         * Is the Function App enabled?
+         * Is Authentication enabled?
          */
         enabled: boolean;
+        /**
+         * A `facebook` block as defined below.
+         */
         facebook?: outputs.appservice.FunctionAppAuthSettingsFacebook;
+        /**
+         * A `google` block as defined below.
+         */
         google?: outputs.appservice.FunctionAppAuthSettingsGoogle;
+        /**
+         * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+         */
         issuer?: string;
+        /**
+         * A `microsoft` block as defined below.
+         */
         microsoft?: outputs.appservice.FunctionAppAuthSettingsMicrosoft;
+        /**
+         * The runtime version of the Authentication/Authorization module.
+         */
         runtimeVersion?: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+         */
         tokenRefreshExtensionHours?: number;
+        /**
+         * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+         */
         tokenStoreEnabled?: boolean;
+        /**
+         * A `twitter` block as defined below.
+         */
         twitter?: outputs.appservice.FunctionAppAuthSettingsTwitter;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+         */
         unauthenticatedClientAction?: string;
     }
 
     export interface FunctionAppAuthSettingsActiveDirectory {
+        /**
+         * Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
         allowedAudiences?: string[];
+        /**
+         * The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+         */
         clientId: string;
+        /**
+         * The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+         */
         clientSecret?: string;
     }
 
     export interface FunctionAppAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login
+         */
         appId: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login.
+         */
         appSecret: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+         */
         oauthScopes?: string[];
     }
 
     export interface FunctionAppAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
         clientId: string;
+        /**
+         * The client secret associated with the Google web application.
+         */
         clientSecret: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+         */
         oauthScopes?: string[];
     }
 
     export interface FunctionAppAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
         clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication.
+         */
         clientSecret: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+         */
         oauthScopes?: string[];
     }
 
@@ -838,6 +1492,9 @@ export namespace appservice {
     }
 
     export interface FunctionAppIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         */
         identityIds?: string[];
         /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
@@ -848,7 +1505,7 @@ export namespace appservice {
          */
         tenantId: string;
         /**
-         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+         * Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
          */
         type: string;
     }
@@ -893,12 +1550,24 @@ export namespace appservice {
     }
 
     export interface FunctionAppSiteConfigCors {
+        /**
+         * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+         */
         allowedOrigins: string[];
+        /**
+         * Are credentials supported?
+         */
         supportCredentials?: boolean;
     }
 
     export interface FunctionAppSiteConfigIpRestriction {
+        /**
+         * The IP Address CIDR notation used for this IP Restriction.
+         */
         ipAddress?: string;
+        /**
+         * The Subnet ID used for this IP Restriction.
+         */
         subnetId?: string;
     }
 
@@ -1128,46 +1797,121 @@ export namespace appservice {
     }
 
     export interface SlotAuthSettings {
+        /**
+         * A `activeDirectory` block as defined below.
+         */
         activeDirectory?: outputs.appservice.SlotAuthSettingsActiveDirectory;
+        /**
+         * Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+         */
         additionalLoginParams?: {[key: string]: string};
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app.
+         */
         allowedExternalRedirectUrls?: string[];
+        /**
+         * The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+         */
         defaultProvider?: string;
         /**
-         * Is the App Service Slot Enabled?
+         * Is Authentication enabled?
          */
         enabled: boolean;
+        /**
+         * A `facebook` block as defined below.
+         */
         facebook?: outputs.appservice.SlotAuthSettingsFacebook;
+        /**
+         * A `google` block as defined below.
+         */
         google?: outputs.appservice.SlotAuthSettingsGoogle;
+        /**
+         * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+         */
         issuer?: string;
+        /**
+         * A `microsoft` block as defined below.
+         */
         microsoft?: outputs.appservice.SlotAuthSettingsMicrosoft;
+        /**
+         * The runtime version of the Authentication/Authorization module.
+         */
         runtimeVersion?: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+         */
         tokenRefreshExtensionHours?: number;
+        /**
+         * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+         */
         tokenStoreEnabled?: boolean;
+        /**
+         * A `twitter` block as defined below.
+         */
         twitter?: outputs.appservice.SlotAuthSettingsTwitter;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+         */
         unauthenticatedClientAction?: string;
     }
 
     export interface SlotAuthSettingsActiveDirectory {
+        /**
+         * Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
         allowedAudiences?: string[];
+        /**
+         * The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+         */
         clientId: string;
+        /**
+         * The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+         */
         clientSecret?: string;
     }
 
     export interface SlotAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login
+         */
         appId: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login.
+         */
         appSecret: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+         */
         oauthScopes?: string[];
     }
 
     export interface SlotAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
         clientId: string;
+        /**
+         * The client secret associated with the Google web application.
+         */
         clientSecret: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+         */
         oauthScopes?: string[];
     }
 
     export interface SlotAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
         clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication.
+         */
         clientSecret: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+         */
         oauthScopes?: string[];
     }
 
@@ -1192,42 +1936,81 @@ export namespace appservice {
     }
 
     export interface SlotIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         */
         identityIds?: string[];
         principalId: string;
         tenantId: string;
         /**
-         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
+         * Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
          */
         type: string;
     }
 
     export interface SlotLogs {
+        /**
+         * An `applicationLogs` block as defined below.
+         */
         applicationLogs: outputs.appservice.SlotLogsApplicationLogs;
+        /**
+         * An `httpLogs` block as defined below.
+         */
         httpLogs: outputs.appservice.SlotLogsHttpLogs;
     }
 
     export interface SlotLogsApplicationLogs {
+        /**
+         * An `azureBlobStorage` block as defined below.
+         */
         azureBlobStorage?: outputs.appservice.SlotLogsApplicationLogsAzureBlobStorage;
     }
 
     export interface SlotLogsApplicationLogsAzureBlobStorage {
+        /**
+         * The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
+         */
         level: string;
+        /**
+         * The number of days to retain logs for.
+         */
         retentionInDays: number;
+        /**
+         * The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+         */
         sasUrl: string;
     }
 
     export interface SlotLogsHttpLogs {
+        /**
+         * An `azureBlobStorage` block as defined below.
+         */
         azureBlobStorage?: outputs.appservice.SlotLogsHttpLogsAzureBlobStorage;
+        /**
+         * A `fileSystem` block as defined below.
+         */
         fileSystem?: outputs.appservice.SlotLogsHttpLogsFileSystem;
     }
 
     export interface SlotLogsHttpLogsAzureBlobStorage {
+        /**
+         * The number of days to retain logs for.
+         */
         retentionInDays: number;
+        /**
+         * The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+         */
         sasUrl: string;
     }
 
     export interface SlotLogsHttpLogsFileSystem {
+        /**
+         * The number of days to retain logs for.
+         */
         retentionInDays: number;
+        /**
+         * The maximum size in megabytes that http log files can use before being removed.
+         */
         retentionInMb: number;
     }
 
@@ -1322,12 +2105,24 @@ export namespace appservice {
     }
 
     export interface SlotSiteConfigCors {
+        /**
+         * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+         */
         allowedOrigins: string[];
+        /**
+         * Are credentials supported?
+         */
         supportCredentials?: boolean;
     }
 
     export interface SlotSiteConfigIpRestriction {
+        /**
+         * The IP Address used for this IP Restriction.
+         */
         ipAddress?: string;
+        /**
+         * (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+         */
         virtualNetworkSubnetId?: string;
     }
 
@@ -1358,9 +2153,21 @@ export namespace authorization {
     }
 
     export interface RoleDefinitionPermission {
+        /**
+         * One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+         */
         actions?: string[];
+        /**
+         * One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+         */
         dataActions?: string[];
+        /**
+         * One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+         */
         notActions?: string[];
+        /**
+         * One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+         */
         notDataActions?: string[];
     }
 }
@@ -1394,46 +2201,97 @@ export namespace automation {
     }
 
     export interface ScheduleMonthlyOccurrence {
+        /**
+         * Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+         */
         day: string;
+        /**
+         * Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+         */
         occurrence: number;
     }
 }
 
 export namespace backup {
     export interface PolicyFileShareBackup {
+        /**
+         * Sets the backup frequency. Currently, only `Daily` is supported
+         */
         frequency: string;
         time: string;
     }
 
     export interface PolicyFileShareRetentionDaily {
+        /**
+         * The number of daily backups to keep. Must be between `1` and `180` (inclusive)
+         */
         count: number;
     }
 
     export interface PolicyVMBackup {
+        /**
+         * Sets the backup frequency. Must be either `Daily` or`Weekly`.
+         */
         frequency: string;
+        /**
+         * The time of day to perform the backup in 24hour format.
+         */
         time: string;
+        /**
+         * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         */
         weekdays?: string[];
     }
 
     export interface PolicyVMRetentionDaily {
+        /**
+         * The number of yearly backups to keep. Must be between `1` and `9999`
+         */
         count: number;
     }
 
     export interface PolicyVMRetentionMonthly {
+        /**
+         * The number of yearly backups to keep. Must be between `1` and `9999`
+         */
         count: number;
+        /**
+         * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         */
         weekdays: string[];
+        /**
+         * The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
+         */
         weeks: string[];
     }
 
     export interface PolicyVMRetentionWeekly {
+        /**
+         * The number of yearly backups to keep. Must be between `1` and `9999`
+         */
         count: number;
+        /**
+         * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         */
         weekdays: string[];
     }
 
     export interface PolicyVMRetentionYearly {
+        /**
+         * The number of yearly backups to keep. Must be between `1` and `9999`
+         */
         count: number;
+        /**
+         * The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+         */
         months: string[];
+        /**
+         * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         */
         weekdays: string[];
+        /**
+         * The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
+         */
         weeks: string[];
     }
 }
@@ -1441,9 +2299,12 @@ export namespace backup {
 export namespace batch {
     export interface AccountKeyVaultReference {
         /**
-         * The ID of the Batch Account.
+         * The Azure identifier of the Azure KeyVault to use.
          */
         id: string;
+        /**
+         * The HTTPS URL of the Azure KeyVault to use.
+         */
         url: string;
     }
 
@@ -1666,96 +2527,226 @@ export namespace batch {
     }
 
     export interface PoolAutoScale {
+        /**
+         * The interval to wait before evaluating if the pool needs to be scaled. Defaults to `PT15M`.
+         */
         evaluationInterval?: string;
+        /**
+         * The autoscale formula that needs to be used for scaling the Batch pool.
+         */
         formula: string;
     }
 
     export interface PoolCertificate {
         /**
-         * The ID of the Batch Pool.
+         * The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
          */
         id: string;
+        /**
+         * The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
+         */
         storeLocation: string;
+        /**
+         * The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
+         */
         storeName?: string;
+        /**
+         * Which user accounts on the compute node should have access to the private data of the certificate.
+         */
         visibilities?: string[];
     }
 
     export interface PoolContainerConfiguration {
+        /**
+         * Additional container registries from which container images can be pulled by the pool's VMs.
+         */
         containerRegistries?: outputs.batch.PoolContainerConfigurationContainerRegistry[];
+        /**
+         * The type of container configuration. Possible value is `DockerCompatible`.
+         */
         type?: string;
     }
 
     export interface PoolContainerConfigurationContainerRegistry {
+        /**
+         * The password to log into the registry server. Changing this forces a new resource to be created.
+         */
         password: string;
+        /**
+         * The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+         */
         registryServer: string;
+        /**
+         * The user name to log into the registry server. Changing this forces a new resource to be created.
+         */
         userName: string;
     }
 
     export interface PoolFixedScale {
+        /**
+         * The timeout for resize operations. Defaults to `PT15M`.
+         */
         resizeTimeout?: string;
+        /**
+         * The number of nodes in the Batch pool. Defaults to `1`.
+         */
         targetDedicatedNodes?: number;
+        /**
+         * The number of low priority nodes in the Batch pool. Defaults to `0`.
+         */
         targetLowPriorityNodes?: number;
     }
 
     export interface PoolNetworkConfiguration {
+        /**
+         * A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
+         */
         endpointConfigurations?: outputs.batch.PoolNetworkConfigurationEndpointConfiguration[];
+        /**
+         * A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
+         */
         publicIps?: string[];
+        /**
+         * The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
+         */
         subnetId: string;
     }
 
     export interface PoolNetworkConfigurationEndpointConfiguration {
+        /**
+         * The port number on the compute node. Acceptable values are between `1` and `65535` except for `29876`, `29877` as these are reserved. Changing this forces a new resource to be created.
+         */
         backendPort: number;
+        /**
+         * The range of external ports that will be used to provide inbound access to the backendPort on individual compute nodes in the format of `1000-1100`. Acceptable values range between `1` and `65534` except ports from `50000` to `55000` which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. Values must be a range of at least `100` nodes. Changing this forces a new resource to be created.
+         */
         frontendPortRange: string;
         /**
-         * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
+         * The name of the endpoint. The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the networkSecurityGroupRules block below. Changing this forces a new resource to be created.
+         */
         networkSecurityGroupRules?: outputs.batch.PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule[];
+        /**
+         * The protocol of the endpoint. Acceptable values are `TCP` and `UDP`. Changing this forces a new resource to be created.
+         */
         protocol: string;
     }
 
     export interface PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule {
+        /**
+         * The action that should be taken for a specified IP address, subnet range or tag. Acceptable values are `Allow` and `Deny`. Changing this forces a new resource to be created.
+         */
         access: string;
+        /**
+         * The priority for this rule. The value must be at least `150`. Changing this forces a new resource to be created.
+         */
         priority: number;
+        /**
+         * The source address prefix or tag to match for the rule. Changing this forces a new resource to be created.
+         */
         sourceAddressPrefix: string;
     }
 
     export interface PoolStartTask {
+        /**
+         * The command line executed by the start task.
+         */
         commandLine: string;
+        /**
+         * A map of strings (key,value) that represents the environment variables to set in the start task.
+         */
         environment?: {[key: string]: string};
+        /**
+         * The number of retry count. Defaults to `1`.
+         */
         maxTaskRetryCount?: number;
+        /**
+         * One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+         */
         resourceFiles?: outputs.batch.PoolStartTaskResourceFile[];
+        /**
+         * A `userIdentity` block that describes the user identity under which the start task runs.
+         */
         userIdentity: outputs.batch.PoolStartTaskUserIdentity;
+        /**
+         * A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
+         */
         waitForSuccess?: boolean;
     }
 
     export interface PoolStartTaskResourceFile {
+        /**
+         * The storage container name in the auto storage account.
+         */
         autoStorageContainerName?: string;
+        /**
+         * The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when `autoStorageContainerName` or `storageContainerUrl` is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
+         */
         blobPrefix?: string;
+        /**
+         * The file permission mode represented as a string in octal format (e.g. `"0644"`). This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a `resourceFile` which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
+         */
         fileMode?: string;
+        /**
+         * The location on the compute node to which to download the file, relative to the task's working directory. If the `httpUrl` property is specified, the `filePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `autoStorageContainerName` or `storageContainerUrl` property is specified, `filePath` is optional and is the directory to download the files to. In the case where `filePath` is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task's working directory (for example by using '..').
+         */
         filePath?: string;
+        /**
+         * The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
+         */
         httpUrl?: string;
+        /**
+         * The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
+         */
         storageContainerUrl?: string;
     }
 
     export interface PoolStartTaskUserIdentity {
+        /**
+         * A `autoUser` block that describes the user identity under which the start task runs.
+         */
         autoUser?: outputs.batch.PoolStartTaskUserIdentityAutoUser;
+        /**
+         * The username to be used by the Batch pool start task.
+         */
         userName?: string;
     }
 
     export interface PoolStartTaskUserIdentityAutoUser {
+        /**
+         * The elevation level of the user identity under which the start task runs. Possible values are `Admin` or `NonAdmin`. Defaults to `NonAdmin`.
+         */
         elevationLevel?: string;
+        /**
+         * The scope of the user identity under which the start task runs. Possible values are `Task` or `Pool`. Defaults to `Task`.
+         */
         scope?: string;
     }
 
     export interface PoolStorageImageReference {
         /**
-         * The ID of the Batch Pool.
+         * Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images) for more details.
+         * ---
          */
         id?: string;
+        /**
+         * Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+         */
         offer?: string;
+        /**
+         * Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
+         */
         publisher?: string;
+        /**
+         * Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
+         */
         sku?: string;
+        /**
+         * Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
+         */
         version?: string;
     }
 }
@@ -1776,17 +2767,35 @@ export namespace bot {
 
 export namespace cdn {
     export interface EndpointGeoFilter {
+        /**
+         * The Action of the Geo Filter. Possible values include `Allow` and `Block`.
+         */
         action: string;
+        /**
+         * A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
+         */
         countryCodes: string[];
+        /**
+         * The relative path applicable to geo filter.
+         */
         relativePath: string;
     }
 
     export interface EndpointOrigin {
+        /**
+         * A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+         */
         hostName: string;
+        /**
+         * The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
+         */
         httpPort?: number;
+        /**
+         * The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
+         */
         httpsPort?: number;
         /**
-         * Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+         * The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
          */
         name: string;
     }
@@ -1795,10 +2804,16 @@ export namespace cdn {
 export namespace compute {
     export interface BastionHostIpConfiguration {
         /**
-         * Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
+         * The name of the IP configuration.
          */
         name: string;
+        /**
+         * Reference to a Public IP Address to associate with this Bastion Host.
+         */
         publicIpAddressId: string;
+        /**
+         * Reference to a subnet in which this Bastion Host has been created.
+         */
         subnetId: string;
     }
 
@@ -1811,6 +2826,9 @@ export namespace compute {
          * The ID of the Tenant the Service Principal is assigned in.
          */
         tenantId: string;
+        /**
+         * The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+         */
         type: string;
     }
 
@@ -1961,139 +2979,304 @@ export namespace compute {
     }
 
     export interface LinuxVirtualMachineAdditionalCapabilities {
+        /**
+         * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
+         */
         ultraSsdEnabled?: boolean;
     }
 
     export interface LinuxVirtualMachineAdminSshKey {
+        /**
+         * The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
+         */
         publicKey: string;
+        /**
+         * The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
+         */
         username: string;
     }
 
     export interface LinuxVirtualMachineBootDiagnostics {
+        /**
+         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
+         */
         storageAccountUri: string;
     }
 
     export interface LinuxVirtualMachineIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
+         */
         identityIds?: string[];
         /**
          * The ID of the System Managed Service Principal.
          */
         principalId: string;
+        /**
+         * The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         */
         type: string;
     }
 
     export interface LinuxVirtualMachineOsDisk {
+        /**
+         * The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+         */
         caching: string;
+        /**
+         * A `diffDiskSettings` block as defined above.
+         */
         diffDiskSettings?: outputs.compute.LinuxVirtualMachineOsDiskDiffDiskSettings;
+        /**
+         * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+         */
         diskEncryptionSetId?: string;
+        /**
+         * The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
+         */
         diskSizeGb: number;
         /**
-         * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+         * The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+         */
         storageAccountType: string;
+        /**
+         * Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
+         */
         writeAcceleratorEnabled?: boolean;
     }
 
     export interface LinuxVirtualMachineOsDiskDiffDiskSettings {
+        /**
+         * Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+         */
         option: string;
     }
 
     export interface LinuxVirtualMachinePlan {
         /**
-         * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+         * Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+         */
         product: string;
+        /**
+         * Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+         */
         publisher: string;
     }
 
     export interface LinuxVirtualMachineScaleSetAdditionalCapabilities {
+        /**
+         * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+         */
         ultraSsdEnabled?: boolean;
     }
 
     export interface LinuxVirtualMachineScaleSetAdminSshKey {
+        /**
+         * The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
+         */
         publicKey: string;
+        /**
+         * The Username for which this Public SSH Key should be configured.
+         */
         username: string;
     }
 
     export interface LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+        /**
+         * Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+         */
         disableAutomaticRollback: boolean;
+        /**
+         * Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+         */
         enableAutomaticOsUpgrade: boolean;
     }
 
     export interface LinuxVirtualMachineScaleSetBootDiagnostics {
+        /**
+         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
+         */
         storageAccountUri: string;
     }
 
     export interface LinuxVirtualMachineScaleSetDataDisk {
+        /**
+         * The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+         */
         caching: string;
+        /**
+         * The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+         */
         diskEncryptionSetId?: string;
+        /**
+         * The size of the Data Disk which should be created.
+         */
         diskSizeGb: number;
+        /**
+         * The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+         */
         lun: number;
+        /**
+         * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+         */
         storageAccountType: string;
+        /**
+         * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
+         */
         writeAcceleratorEnabled?: boolean;
     }
 
     export interface LinuxVirtualMachineScaleSetIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
+         */
         identityIds?: string[];
         /**
          * The ID of the System Managed Service Principal.
          */
         principalId: string;
+        /**
+         * The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         */
         type: string;
     }
 
     export interface LinuxVirtualMachineScaleSetNetworkInterface {
+        /**
+         * A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+         */
         dnsServers?: string[];
+        /**
+         * Does this Network Interface support Accelerated Networking? Defaults to `false`.
+         */
         enableAcceleratedNetworking?: boolean;
+        /**
+         * Does this Network Interface support IP Forwarding? Defaults to `false`.
+         */
         enableIpForwarding?: boolean;
+        /**
+         * One or more `ipConfiguration` blocks as defined above.
+         */
         ipConfigurations: outputs.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration[];
         /**
-         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * The ID of a Network Security Group which should be assigned to this Network Interface.
+         */
         networkSecurityGroupId?: string;
+        /**
+         * Is this the Primary IP Configuration?
+         */
         primary?: boolean;
     }
 
     export interface LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+        /**
+         * A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
+         */
         applicationGatewayBackendAddressPoolIds?: string[];
+        /**
+         * A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
+         */
         applicationSecurityGroupIds?: string[];
+        /**
+         * A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+         */
         loadBalancerBackendAddressPoolIds?: string[];
+        /**
+         * A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+         */
         loadBalancerInboundNatRulesIds?: string[];
         /**
-         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * The Name which should be used for this IP Configuration.
          */
         name: string;
+        /**
+         * Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
+         */
         primary?: boolean;
+        /**
+         * A `publicIpAddress` block as defined below.
+         */
         publicIpAddresses?: outputs.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
+        /**
+         * The ID of the Subnet which this IP Configuration should be connected to.
+         */
         subnetId?: string;
+        /**
+         * The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         */
         version?: string;
     }
 
     export interface LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+        /**
+         * The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
+         */
         domainNameLabel?: string;
+        /**
+         * The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+         */
         idleTimeoutInMinutes: number;
+        /**
+         * One or more `ipTag` blocks as defined above.
+         */
         ipTags?: outputs.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag[];
         /**
-         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * The Name of the Public IP Address Configuration.
          */
         name: string;
+        /**
+         * The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
+         */
         publicIpPrefixId?: string;
     }
 
     export interface LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+        /**
+         * The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+         */
         tag: string;
+        /**
+         * The Type of IP Tag, such as `FirstPartyUsage`.
+         */
         type: string;
     }
 
     export interface LinuxVirtualMachineScaleSetOsDisk {
+        /**
+         * The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+         */
         caching: string;
+        /**
+         * A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
+         */
         diffDiskSettings?: outputs.compute.LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings;
+        /**
+         * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+         */
         diskEncryptionSetId?: string;
+        /**
+         * The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+         */
         diskSizeGb: number;
+        /**
+         * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+         */
         storageAccountType: string;
+        /**
+         * Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
+         */
         writeAcceleratorEnabled?: boolean;
     }
 
@@ -2111,18 +3294,39 @@ export namespace compute {
     }
 
     export interface LinuxVirtualMachineScaleSetRollingUpgradePolicy {
+        /**
+         * The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+         */
         maxBatchInstancePercent: number;
+        /**
+         * The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+         */
         maxUnhealthyInstancePercent: number;
+        /**
+         * The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+         */
         maxUnhealthyUpgradedInstancePercent: number;
+        /**
+         * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
+         */
         pauseTimeBetweenBatches: string;
     }
 
     export interface LinuxVirtualMachineScaleSetSecret {
+        /**
+         * One or more `certificate` blocks as defined above.
+         */
         certificates: outputs.compute.LinuxVirtualMachineScaleSetSecretCertificate[];
+        /**
+         * The ID of the Key Vault from which all Secrets should be sourced.
+         */
         keyVaultId: string;
     }
 
     export interface LinuxVirtualMachineScaleSetSecretCertificate {
+        /**
+         * The Secret URL of a Key Vault Certificate.
+         */
         url: string;
     }
 
@@ -2133,43 +3337,85 @@ export namespace compute {
          * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
          */
         sku: string;
+        /**
+         * The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         */
         version: string;
     }
 
     export interface LinuxVirtualMachineScaleSetTerminateNotification {
+        /**
+         * Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+         */
         enabled: boolean;
+        /**
+         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         */
         timeout?: string;
     }
 
     export interface LinuxVirtualMachineSecret {
+        /**
+         * One or more `certificate` blocks as defined above.
+         */
         certificates: outputs.compute.LinuxVirtualMachineSecretCertificate[];
+        /**
+         * The ID of the Key Vault from which all Secrets should be sourced.
+         */
         keyVaultId: string;
     }
 
     export interface LinuxVirtualMachineSecretCertificate {
+        /**
+         * The Secret URL of a Key Vault Certificate.
+         */
         url: string;
     }
 
     export interface LinuxVirtualMachineSourceImageReference {
         offer: string;
+        /**
+         * Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+         */
         publisher: string;
         sku: string;
         version: string;
     }
 
     export interface ManagedDiskEncryptionSettings {
+        /**
+         * A `diskEncryptionKey` block as defined above.
+         */
         diskEncryptionKey?: outputs.compute.ManagedDiskEncryptionSettingsDiskEncryptionKey;
+        /**
+         * Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+         */
         enabled: boolean;
+        /**
+         * A `keyEncryptionKey` block as defined below.
+         */
         keyEncryptionKey?: outputs.compute.ManagedDiskEncryptionSettingsKeyEncryptionKey;
     }
 
     export interface ManagedDiskEncryptionSettingsDiskEncryptionKey {
+        /**
+         * The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
+         */
         secretUrl: string;
+        /**
+         * The ID of the source Key Vault.
+         */
         sourceVaultId: string;
     }
 
     export interface ManagedDiskEncryptionSettingsKeyEncryptionKey {
+        /**
+         * The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
+         */
         keyUrl: string;
+        /**
+         * The ID of the source Key Vault.
+         */
         sourceVaultId: string;
     }
 
@@ -2184,7 +3430,7 @@ export namespace compute {
          */
         autoUpgradeMinorVersion?: boolean;
         /**
-         * Specifies the name of the image from the marketplace.
+         * Specifies the name of the extension.
          */
         name: string;
         /**
@@ -2196,7 +3442,7 @@ export namespace compute {
          */
         provisionAfterExtensions?: string[];
         /**
-         * Specifies the publisher of the image.
+         * The publisher of the extension, available publishers can be found by using the Azure CLI.
          */
         publisher: string;
         /**
@@ -2220,7 +3466,7 @@ export namespace compute {
         identityIds?: string[];
         principalId: string;
         /**
-         * The type of extension, available types for a publisher can be found using the Azure CLI.
+         * Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview) for more information.
          */
         type: string;
     }
@@ -2243,7 +3489,7 @@ export namespace compute {
          */
         ipForwarding?: boolean;
         /**
-         * Specifies the name of the image from the marketplace.
+         * Specifies the name of the network interface configuration.
          */
         name: string;
         /**
@@ -2251,7 +3497,7 @@ export namespace compute {
          */
         networkSecurityGroupId?: string;
         /**
-         * Specifies if this ipConfiguration is the primary one.
+         * Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
          */
         primary: boolean;
     }
@@ -2281,7 +3527,7 @@ export namespace compute {
          */
         loadBalancerInboundNatRulesIds: string[];
         /**
-         * Specifies the name of the image from the marketplace.
+         * Specifies name of the IP configuration.
          */
         name: string;
         /**
@@ -2308,7 +3554,7 @@ export namespace compute {
          */
         idleTimeout: number;
         /**
-         * Specifies the name of the image from the marketplace.
+         * The name of the public ip address configuration
          */
         name: string;
     }
@@ -2365,7 +3611,7 @@ export namespace compute {
          */
         certificateStore?: string;
         /**
-         * Specifies URL of the certificate with which new Virtual Machines is provisioned.
+         * It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `data`, `dataType` and `password`.
          */
         certificateUrl: string;
     }
@@ -2459,7 +3705,7 @@ export namespace compute {
          */
         capacity: number;
         /**
-         * Specifies the name of the image from the marketplace.
+         * Specifies the size of virtual machines in a scale set.
          */
         name: string;
         /**
@@ -2502,7 +3748,7 @@ export namespace compute {
          */
         offer?: string;
         /**
-         * Specifies the publisher of the image.
+         * Specifies the publisher of the image used to create the virtual machines.
          */
         publisher?: string;
         /**
@@ -2521,7 +3767,7 @@ export namespace compute {
          */
         caching: string;
         /**
-         * Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
+         * Specifies how the virtual machine should be created. The only possible option is `FromImage`.
          */
         createOption: string;
         /**
@@ -2531,11 +3777,11 @@ export namespace compute {
          */
         image?: string;
         /**
-         * Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+         * Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhdContainers` or `image` is specified.
          */
         managedDiskType: string;
         /**
-         * Specifies the name of the image from the marketplace.
+         * Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
          */
         name?: string;
         /**
@@ -2549,17 +3795,32 @@ export namespace compute {
     }
 
     export interface SharedImageIdentifier {
+        /**
+         * The Offer Name for this Shared Image.
+         */
         offer: string;
+        /**
+         * The Publisher Name for this Gallery Image.
+         */
         publisher: string;
+        /**
+         * The Name of the SKU for this Gallery Image.
+         */
         sku: string;
     }
 
     export interface SharedImageVersionTargetRegion {
         /**
-         * The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
+         * The Azure Region in which this Image Version should exist.
          */
         name: string;
+        /**
+         * The number of replicas of the Image Version to be created per region.
+         */
         regionalReplicaCount: number;
+        /**
+         * The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+         */
         storageAccountType: string;
     }
 
@@ -2580,255 +3841,573 @@ export namespace compute {
     }
 
     export interface VirtualMachineAdditionalCapabilities {
+        /**
+         * Should Ultra SSD disk be enabled for this Virtual Machine?
+         */
         ultraSsdEnabled: boolean;
     }
 
     export interface VirtualMachineBootDiagnostics {
+        /**
+         * Should Boot Diagnostics be enabled for this Virtual Machine?
+         */
         enabled: boolean;
+        /**
+         * The Storage Account's Blob Endpoint which should hold the virtual machine's diagnostic files.
+         */
         storageUri: string;
     }
 
     export interface VirtualMachineIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
+         */
         identityIds?: string[];
         /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
          */
         principalId: string;
+        /**
+         * The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+         */
         type: string;
     }
 
     export interface VirtualMachineOsProfile {
+        /**
+         * The password associated with the local administrator account.
+         */
         adminPassword?: string;
+        /**
+         * Specifies the name of the local administrator account.
+         */
         adminUsername: string;
+        /**
+         * Specifies the name of the Virtual Machine.
+         */
         computerName: string;
+        /**
+         * Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+         */
         customData: string;
     }
 
     export interface VirtualMachineOsProfileLinuxConfig {
+        /**
+         * Specifies whether password authentication should be disabled. If set to `false`, an `adminPassword` must be specified.
+         */
         disablePasswordAuthentication: boolean;
+        /**
+         * One or more `sshKeys` blocks. This field is required if `disablePasswordAuthentication` is set to `true`.
+         */
         sshKeys?: outputs.compute.VirtualMachineOsProfileLinuxConfigSshKey[];
     }
 
     export interface VirtualMachineOsProfileLinuxConfigSshKey {
+        /**
+         * The Public SSH Key which should be written to the `path` defined above.
+         */
         keyData: string;
+        /**
+         * The path of the destination file on the virtual machine
+         */
         path: string;
     }
 
     export interface VirtualMachineOsProfileSecret {
+        /**
+         * Specifies the ID of the Key Vault to use.
+         */
         sourceVaultId: string;
+        /**
+         * One or more `vaultCertificates` blocks.
+         */
         vaultCertificates?: outputs.compute.VirtualMachineOsProfileSecretVaultCertificate[];
     }
 
     export interface VirtualMachineOsProfileSecretVaultCertificate {
+        /**
+         * Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+         */
         certificateStore?: string;
+        /**
+         * The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
+         */
         certificateUrl: string;
     }
 
     export interface VirtualMachineOsProfileWindowsConfig {
+        /**
+         * A `additionalUnattendConfig` block.
+         */
         additionalUnattendConfigs?: outputs.compute.VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig[];
+        /**
+         * Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+         */
         enableAutomaticUpgrades?: boolean;
+        /**
+         * Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
+         */
         provisionVmAgent?: boolean;
+        /**
+         * Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+         */
         timezone?: string;
+        /**
+         * One or more `winrm` block.
+         */
         winrms?: outputs.compute.VirtualMachineOsProfileWindowsConfigWinrm[];
     }
 
     export interface VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig {
+        /**
+         * Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
+         */
         component: string;
+        /**
+         * Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
+         */
         content: string;
+        /**
+         * Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
+         */
         pass: string;
+        /**
+         * Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
+         */
         settingName: string;
     }
 
     export interface VirtualMachineOsProfileWindowsConfigWinrm {
+        /**
+         * The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vaultCertificates` block within the `osProfileSecrets` block.
+         */
         certificateUrl?: string;
+        /**
+         * Specifies the protocol of listener. Possible values are `HTTP` or `HTTPS`.
+         */
         protocol: string;
     }
 
     export interface VirtualMachinePlan {
         /**
-         * Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+         * Specifies the name of the image from the marketplace.
          */
         name: string;
+        /**
+         * Specifies the product of the image from the marketplace.
+         */
         product: string;
+        /**
+         * Specifies the publisher of the image.
+         */
         publisher: string;
     }
 
     export interface VirtualMachineStorageDataDisk {
+        /**
+         * Specifies the caching requirements for the Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+         */
         caching: string;
+        /**
+         * Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
+         */
         createOption: string;
+        /**
+         * Specifies the size of the data disk in gigabytes.
+         */
         diskSizeGb: number;
+        /**
+         * Specifies the logical unit number of the data disk. This needs to be unique within all the Data Disks on the Virtual Machine.
+         */
         lun: number;
+        /**
+         * Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `createOption` must be set to `Attach`.
+         */
         managedDiskId: string;
+        /**
+         * Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
+         */
         managedDiskType: string;
         /**
-         * Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+         * The name of the Data Disk.
          */
         name: string;
+        /**
+         * Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+         */
         vhdUri?: string;
+        /**
+         * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+         */
         writeAcceleratorEnabled?: boolean;
     }
 
     export interface VirtualMachineStorageImageReference {
         /**
-         * The ID of the Virtual Machine.
+         * Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
          */
         id?: string;
+        /**
+         * Specifies the offer of the image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
         offer?: string;
+        /**
+         * Specifies the publisher of the image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
         publisher?: string;
+        /**
+         * Specifies the SKU of the image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
         sku?: string;
+        /**
+         * Specifies the version of the image used to create the virtual machine. Changing this forces a new resource to be created.
+         */
         version: string;
     }
 
     export interface VirtualMachineStorageOsDisk {
+        /**
+         * Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+         */
         caching: string;
+        /**
+         * Specifies how the OS Disk should be created. Possible values are `Attach` (managed disks only) and `FromImage`.
+         */
         createOption: string;
+        /**
+         * Specifies the size of the OS Disk in gigabytes.
+         */
         diskSizeGb: number;
+        /**
+         * Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
+         */
         imageUri?: string;
+        /**
+         * Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`.
+         */
         managedDiskId: string;
+        /**
+         * Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+         */
         managedDiskType: string;
         /**
-         * Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+         * Specifies the name of the OS Disk.
          */
         name: string;
+        /**
+         * Specifies the Operating System on the OS Disk. Possible values are `Linux` and `Windows`.
+         */
         osType: string;
+        /**
+         * Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created.
+         */
         vhdUri?: string;
+        /**
+         * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+         */
         writeAcceleratorEnabled?: boolean;
     }
 
     export interface WindowsVirtualMachineAdditionalCapabilities {
+        /**
+         * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
+         */
         ultraSsdEnabled?: boolean;
     }
 
     export interface WindowsVirtualMachineAdditionalUnattendContent {
+        /**
+         * The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
+         */
         content: string;
+        /**
+         * The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
+         */
         setting: string;
     }
 
     export interface WindowsVirtualMachineBootDiagnostics {
+        /**
+         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
+         */
         storageAccountUri: string;
     }
 
     export interface WindowsVirtualMachineIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
+         */
         identityIds?: string[];
         /**
          * The ID of the System Managed Service Principal.
          */
         principalId: string;
+        /**
+         * The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         */
         type: string;
     }
 
     export interface WindowsVirtualMachineOsDisk {
+        /**
+         * The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+         */
         caching: string;
+        /**
+         * A `diffDiskSettings` block as defined above.
+         */
         diffDiskSettings?: outputs.compute.WindowsVirtualMachineOsDiskDiffDiskSettings;
+        /**
+         * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+         */
         diskEncryptionSetId?: string;
+        /**
+         * The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
+         */
         diskSizeGb: number;
         /**
-         * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+         * The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+         */
         storageAccountType: string;
+        /**
+         * Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
+         */
         writeAcceleratorEnabled?: boolean;
     }
 
     export interface WindowsVirtualMachineOsDiskDiffDiskSettings {
+        /**
+         * Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+         */
         option: string;
     }
 
     export interface WindowsVirtualMachinePlan {
         /**
-         * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+         * Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+         */
         product: string;
+        /**
+         * Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+         */
         publisher: string;
     }
 
     export interface WindowsVirtualMachineScaleSetAdditionalCapabilities {
+        /**
+         * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+         */
         ultraSsdEnabled?: boolean;
     }
 
     export interface WindowsVirtualMachineScaleSetAdditionalUnattendContent {
+        /**
+         * The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
+         */
         content: string;
+        /**
+         * The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
+         */
         setting: string;
     }
 
     export interface WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+        /**
+         * Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+         */
         disableAutomaticRollback: boolean;
+        /**
+         * Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+         */
         enableAutomaticOsUpgrade: boolean;
     }
 
     export interface WindowsVirtualMachineScaleSetBootDiagnostics {
+        /**
+         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
+         */
         storageAccountUri: string;
     }
 
     export interface WindowsVirtualMachineScaleSetDataDisk {
+        /**
+         * The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+         */
         caching: string;
+        /**
+         * The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+         */
         diskEncryptionSetId?: string;
+        /**
+         * The size of the Data Disk which should be created.
+         */
         diskSizeGb: number;
+        /**
+         * The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+         */
         lun: number;
+        /**
+         * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+         */
         storageAccountType: string;
+        /**
+         * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
+         */
         writeAcceleratorEnabled?: boolean;
     }
 
     export interface WindowsVirtualMachineScaleSetIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
+         */
         identityIds?: string[];
         /**
          * The ID of the System Managed Service Principal.
          */
         principalId: string;
+        /**
+         * The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         */
         type: string;
     }
 
     export interface WindowsVirtualMachineScaleSetNetworkInterface {
+        /**
+         * A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+         */
         dnsServers?: string[];
+        /**
+         * Does this Network Interface support Accelerated Networking? Defaults to `false`.
+         */
         enableAcceleratedNetworking?: boolean;
+        /**
+         * Does this Network Interface support IP Forwarding? Defaults to `false`.
+         */
         enableIpForwarding?: boolean;
+        /**
+         * One or more `ipConfiguration` blocks as defined above.
+         */
         ipConfigurations: outputs.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration[];
         /**
-         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * The ID of a Network Security Group which should be assigned to this Network Interface.
+         */
         networkSecurityGroupId?: string;
+        /**
+         * Is this the Primary IP Configuration?
+         */
         primary?: boolean;
     }
 
     export interface WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+        /**
+         * A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
+         */
         applicationGatewayBackendAddressPoolIds?: string[];
+        /**
+         * A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
+         */
         applicationSecurityGroupIds?: string[];
+        /**
+         * A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+         */
         loadBalancerBackendAddressPoolIds?: string[];
+        /**
+         * A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+         */
         loadBalancerInboundNatRulesIds?: string[];
         /**
-         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * The Name which should be used for this IP Configuration.
          */
         name: string;
+        /**
+         * Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
+         */
         primary?: boolean;
+        /**
+         * A `publicIpAddress` block as defined below.
+         */
         publicIpAddresses?: outputs.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
+        /**
+         * The ID of the Subnet which this IP Configuration should be connected to.
+         */
         subnetId?: string;
+        /**
+         * The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         */
         version?: string;
     }
 
     export interface WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+        /**
+         * The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
+         */
         domainNameLabel?: string;
+        /**
+         * The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+         */
         idleTimeoutInMinutes: number;
+        /**
+         * One or more `ipTag` blocks as defined above.
+         */
         ipTags?: outputs.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag[];
         /**
-         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * The Name of the Public IP Address Configuration.
          */
         name: string;
+        /**
+         * The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
+         */
         publicIpPrefixId?: string;
     }
 
     export interface WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+        /**
+         * The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+         */
         tag: string;
+        /**
+         * The Type of IP Tag, such as `FirstPartyUsage`.
+         */
         type: string;
     }
 
     export interface WindowsVirtualMachineScaleSetOsDisk {
+        /**
+         * The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+         */
         caching: string;
+        /**
+         * A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
+         */
         diffDiskSettings?: outputs.compute.WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings;
+        /**
+         * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+         */
         diskEncryptionSetId?: string;
+        /**
+         * The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+         */
         diskSizeGb: number;
+        /**
+         * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+         */
         storageAccountType: string;
+        /**
+         * Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
+         */
         writeAcceleratorEnabled?: boolean;
     }
 
@@ -2846,19 +4425,43 @@ export namespace compute {
     }
 
     export interface WindowsVirtualMachineScaleSetRollingUpgradePolicy {
+        /**
+         * The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+         */
         maxBatchInstancePercent: number;
+        /**
+         * The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+         */
         maxUnhealthyInstancePercent: number;
+        /**
+         * The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+         */
         maxUnhealthyUpgradedInstancePercent: number;
+        /**
+         * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
+         */
         pauseTimeBetweenBatches: string;
     }
 
     export interface WindowsVirtualMachineScaleSetSecret {
+        /**
+         * One or more `certificate` blocks as defined above.
+         */
         certificates: outputs.compute.WindowsVirtualMachineScaleSetSecretCertificate[];
+        /**
+         * The ID of the Key Vault from which all Secrets should be sourced.
+         */
         keyVaultId: string;
     }
 
     export interface WindowsVirtualMachineScaleSetSecretCertificate {
+        /**
+         * The certificate store on the Virtual Machine where the certificate should be added.
+         */
         store: string;
+        /**
+         * The Secret URL of a Key Vault Certificate.
+         */
         url: string;
     }
 
@@ -2869,37 +4472,70 @@ export namespace compute {
          * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
          */
         sku: string;
+        /**
+         * The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         */
         version: string;
     }
 
     export interface WindowsVirtualMachineScaleSetTerminateNotification {
+        /**
+         * Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+         */
         enabled: boolean;
+        /**
+         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         */
         timeout?: string;
     }
 
     export interface WindowsVirtualMachineScaleSetWinrmListener {
+        /**
+         * The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+         */
         certificateUrl?: string;
+        /**
+         * The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
+         */
         protocol: string;
     }
 
     export interface WindowsVirtualMachineSecret {
+        /**
+         * One or more `certificate` blocks as defined above.
+         */
         certificates: outputs.compute.WindowsVirtualMachineSecretCertificate[];
+        /**
+         * The ID of the Key Vault from which all Secrets should be sourced.
+         */
         keyVaultId: string;
     }
 
     export interface WindowsVirtualMachineSecretCertificate {
+        /**
+         * The certificate store on the Virtual Machine where the certificate should be added.
+         */
         store: string;
+        /**
+         * The Secret URL of a Key Vault Certificate.
+         */
         url: string;
     }
 
     export interface WindowsVirtualMachineSourceImageReference {
         offer: string;
+        /**
+         * Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+         */
         publisher: string;
         sku: string;
         version: string;
     }
 
     export interface WindowsVirtualMachineWinrmListener {
+        /**
+         * The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+         */
         certificateUrl?: string;
         protocol: string;
     }
@@ -3163,121 +4799,295 @@ export namespace containerservice {
     }
 
     export interface GroupContainer {
+        /**
+         * A list of commands which should be run on the container. Changing this forces a new resource to be created.
+         */
         commands: string[];
+        /**
+         * The required number of CPU cores of the containers. Changing this forces a new resource to be created.
+         */
         cpu: number;
+        /**
+         * A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+         */
         environmentVariables?: {[key: string]: string};
+        /**
+         * A `gpu` block as defined below. Changing this forces a new resource to be created.
+         */
         gpu?: outputs.containerservice.GroupContainerGpu;
+        /**
+         * The container image name. Changing this forces a new resource to be created.
+         */
         image: string;
+        /**
+         * The definition of a readiness probe for this container as documented in the `livenessProbe` block below. Changing this forces a new resource to be created.
+         */
         livenessProbe?: outputs.containerservice.GroupContainerLivenessProbe;
+        /**
+         * The required memory of the containers in GB. Changing this forces a new resource to be created.
+         */
         memory: number;
         /**
          * Specifies the name of the Container Group. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
+         */
         ports?: outputs.containerservice.GroupContainerPort[];
+        /**
+         * The definition of a readiness probe for this container as documented in the `readinessProbe` block below. Changing this forces a new resource to be created.
+         */
         readinessProbe?: outputs.containerservice.GroupContainerReadinessProbe;
+        /**
+         * A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+         */
         secureEnvironmentVariables?: {[key: string]: string};
+        /**
+         * The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+         */
         volumes?: outputs.containerservice.GroupContainerVolume[];
     }
 
     export interface GroupContainerGpu {
+        /**
+         * The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+         */
         count?: number;
+        /**
+         * The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+         */
         sku?: string;
     }
 
     export interface GroupContainerLivenessProbe {
+        /**
+         * Commands to be run to validate container readiness. Changing this forces a new resource to be created.
+         */
         execs?: string[];
+        /**
+         * How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+         */
         failureThreshold?: number;
+        /**
+         * The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+         */
         httpGets?: outputs.containerservice.GroupContainerLivenessProbeHttpGet[];
+        /**
+         * Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
+         */
         initialDelaySeconds?: number;
+        /**
+         * How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+         */
         periodSeconds?: number;
+        /**
+         * Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+         */
         successThreshold?: number;
+        /**
+         * Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+         */
         timeoutSeconds?: number;
     }
 
     export interface GroupContainerLivenessProbeHttpGet {
+        /**
+         * Path to access on the HTTP server. Changing this forces a new resource to be created.
+         */
         path?: string;
+        /**
+         * The port number the container will expose. Changing this forces a new resource to be created.
+         */
         port?: number;
+        /**
+         * Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
+         */
         scheme?: string;
     }
 
     export interface GroupContainerPort {
+        /**
+         * The port number the container will expose. Changing this forces a new resource to be created.
+         */
         port?: number;
+        /**
+         * The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+         */
         protocol?: string;
     }
 
     export interface GroupContainerReadinessProbe {
+        /**
+         * Commands to be run to validate container readiness. Changing this forces a new resource to be created.
+         */
         execs?: string[];
+        /**
+         * How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+         */
         failureThreshold?: number;
+        /**
+         * The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+         */
         httpGets?: outputs.containerservice.GroupContainerReadinessProbeHttpGet[];
+        /**
+         * Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
+         */
         initialDelaySeconds?: number;
+        /**
+         * How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+         */
         periodSeconds?: number;
+        /**
+         * Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+         */
         successThreshold?: number;
+        /**
+         * Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+         */
         timeoutSeconds?: number;
     }
 
     export interface GroupContainerReadinessProbeHttpGet {
+        /**
+         * Path to access on the HTTP server. Changing this forces a new resource to be created.
+         */
         path?: string;
+        /**
+         * The port number the container will expose. Changing this forces a new resource to be created.
+         */
         port?: number;
+        /**
+         * Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
+         */
         scheme?: string;
     }
 
     export interface GroupContainerVolume {
+        /**
+         * The path on which this volume is to be mounted. Changing this forces a new resource to be created.
+         */
         mountPath: string;
         /**
          * Specifies the name of the Container Group. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
+         */
         readOnly?: boolean;
+        /**
+         * The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
+         */
         shareName: string;
+        /**
+         * The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
+         */
         storageAccountKey: string;
+        /**
+         * The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
+         */
         storageAccountName: string;
     }
 
     export interface GroupDiagnostics {
+        /**
+         * A `logAnalytics` block as defined below. Changing this forces a new resource to be created.
+         */
         logAnalytics: outputs.containerservice.GroupDiagnosticsLogAnalytics;
     }
 
     export interface GroupDiagnosticsLogAnalytics {
+        /**
+         * The log type which should be used. Possible values are `ContainerInsights` and `ContainerInstanceLogs`. Changing this forces a new resource to be created.
+         */
         logType?: string;
+        /**
+         * Any metadata required for Log Analytics. Changing this forces a new resource to be created.
+         */
         metadata?: {[key: string]: string};
+        /**
+         * The Workspace ID of the Log Analytics Workspace. Changing this forces a new resource to be created.
+         */
         workspaceId: string;
+        /**
+         * The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created.
+         */
         workspaceKey: string;
     }
 
     export interface GroupIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
+         */
         identityIds?: string[];
         principalId: string;
+        /**
+         * The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
+         */
         type: string;
     }
 
     export interface GroupImageRegistryCredential {
+        /**
+         * The password with which to connect to the registry. Changing this forces a new resource to be created.
+         */
         password: string;
+        /**
+         * The address to use to connect to the registry without protocol ("https"/"http"). For example: "myacr.acr.io". Changing this forces a new resource to be created.
+         */
         server: string;
+        /**
+         * The username with which to connect to the registry. Changing this forces a new resource to be created.
+         */
         username: string;
     }
 
     export interface KubernetesClusterAddonProfile {
+        /**
+         * A `aciConnectorLinux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+         */
         aciConnectorLinux?: outputs.containerservice.KubernetesClusterAddonProfileAciConnectorLinux;
+        /**
+         * A `azurePolicy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+         */
         azurePolicy?: outputs.containerservice.KubernetesClusterAddonProfileAzurePolicy;
         /**
          * A `httpApplicationRouting` block as defined below.
          */
         httpApplicationRouting?: outputs.containerservice.KubernetesClusterAddonProfileHttpApplicationRouting;
+        /**
+         * A `kubeDashboard` block as defined below.
+         */
         kubeDashboard?: outputs.containerservice.KubernetesClusterAddonProfileKubeDashboard;
+        /**
+         * A `omsAgent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+         */
         omsAgent?: outputs.containerservice.KubernetesClusterAddonProfileOmsAgent;
     }
 
     export interface KubernetesClusterAddonProfileAciConnectorLinux {
+        /**
+         * Is the virtual node addon enabled?
+         */
         enabled: boolean;
+        /**
+         * The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
+         */
         subnetName?: string;
     }
 
     export interface KubernetesClusterAddonProfileAzurePolicy {
+        /**
+         * Is the Azure Policy for Kubernetes Add On enabled?
+         */
         enabled: boolean;
     }
 
     export interface KubernetesClusterAddonProfileHttpApplicationRouting {
+        /**
+         * Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
+         */
         enabled: boolean;
         /**
          * The Zone Name of the HTTP Application Routing.
@@ -3286,35 +5096,83 @@ export namespace containerservice {
     }
 
     export interface KubernetesClusterAddonProfileKubeDashboard {
+        /**
+         * Is the Kubernetes Dashboard enabled?
+         */
         enabled: boolean;
     }
 
     export interface KubernetesClusterAddonProfileOmsAgent {
+        /**
+         * Is the OMS Agent Enabled?
+         */
         enabled: boolean;
+        /**
+         * The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+         */
         logAnalyticsWorkspaceId?: string;
     }
 
     export interface KubernetesClusterDefaultNodePool {
+        /**
+         * A list of Availability Zones across which the Node Pool should be spread.
+         */
         availabilityZones?: string[];
+        /**
+         * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+         */
         enableAutoScaling?: boolean;
+        /**
+         * Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+         */
         enableNodePublicIp?: boolean;
+        /**
+         * The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+         */
         maxCount?: number;
+        /**
+         * The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+         */
         maxPods: number;
+        /**
+         * The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+         */
         minCount?: number;
         /**
-         * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+         * The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `minCount` and `maxCount`.
+         */
         nodeCount: number;
+        /**
+         * A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
+         */
         nodeLabels?: {[key: string]: string};
+        /**
+         * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+         */
         nodeTaints?: string[];
+        /**
+         * The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
+         */
         osDiskSizeGb: number;
         /**
          * A mapping of tags to assign to the resource.
          */
         tags?: {[key: string]: string};
+        /**
+         * The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+         */
         type?: string;
+        /**
+         * The size of the Virtual Machine, such as `Standard_DS2_v2`.
+         */
         vmSize: string;
+        /**
+         * The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+         */
         vnetSubnetId?: string;
     }
 
@@ -3324,9 +5182,12 @@ export namespace containerservice {
          */
         principalId: string;
         /**
-         * The tenant id of the system assigned identity which is used by master components.
+         * The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
          */
         tenantId: string;
+        /**
+         * The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
+         */
         type: string;
     }
 
@@ -3385,22 +5246,55 @@ export namespace containerservice {
     }
 
     export interface KubernetesClusterLinuxProfile {
+        /**
+         * The Admin Username for the Cluster. Changing this forces a new resource to be created.
+         */
         adminUsername: string;
+        /**
+         * An `sshKey` block. Only one is currently allowed. Changing this forces a new resource to be created.
+         */
         sshKey: outputs.containerservice.KubernetesClusterLinuxProfileSshKey;
     }
 
     export interface KubernetesClusterLinuxProfileSshKey {
+        /**
+         * The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
+         */
         keyData: string;
     }
 
     export interface KubernetesClusterNetworkProfile {
+        /**
+         * IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+         */
         dnsServiceIp: string;
+        /**
+         * IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+         */
         dockerBridgeCidr: string;
+        /**
+         * A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.
+         */
         loadBalancerProfile: outputs.containerservice.KubernetesClusterNetworkProfileLoadBalancerProfile;
+        /**
+         * Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
+         */
         loadBalancerSku?: string;
+        /**
+         * Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
+         */
         networkPlugin: string;
+        /**
+         * Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created. 
+         */
         networkPolicy: string;
+        /**
+         * The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
+         */
         podCidr: string;
+        /**
+         * The Network Range used by the Kubernetes service. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+         */
         serviceCidr: string;
     }
 
@@ -3409,33 +5303,69 @@ export namespace containerservice {
          * The outcome (resource IDs) of the specified arguments.
          */
         effectiveOutboundIps: string[];
+        /**
+         * Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+         */
         managedOutboundIpCount: number;
+        /**
+         * The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+         */
         outboundIpAddressIds: string[];
+        /**
+         * The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+         */
         outboundIpPrefixIds: string[];
     }
 
     export interface KubernetesClusterRoleBasedAccessControl {
+        /**
+         * An `azureActiveDirectory` block.
+         */
         azureActiveDirectory?: outputs.containerservice.KubernetesClusterRoleBasedAccessControlAzureActiveDirectory;
+        /**
+         * Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
+         */
         enabled: boolean;
     }
 
     export interface KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
+        /**
+         * The Client ID of an Azure Active Directory Application.
+         */
         clientAppId: string;
+        /**
+         * The Server ID of an Azure Active Directory Application.
+         */
         serverAppId: string;
+        /**
+         * The Server Secret of an Azure Active Directory Application.
+         */
         serverAppSecret: string;
         /**
-         * The tenant id of the system assigned identity which is used by master components.
+         * The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
          */
         tenantId: string;
     }
 
     export interface KubernetesClusterServicePrincipal {
+        /**
+         * The Client ID for the Service Principal.
+         */
         clientId: string;
+        /**
+         * The Client Secret for the Service Principal.
+         */
         clientSecret: string;
     }
 
     export interface KubernetesClusterWindowsProfile {
+        /**
+         * The Admin Password for Windows VMs.
+         */
         adminPassword?: string;
+        /**
+         * The Admin Username for Windows VMs.
+         */
         adminUsername: string;
     }
 
@@ -3536,7 +5466,7 @@ export namespace core {
 export namespace cosmosdb {
     export interface AccountCapability {
         /**
-         * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+         * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
          */
         name: string;
     }
@@ -3624,36 +5554,78 @@ export namespace cosmosdb {
     }
 
     export interface GremlinGraphConflictResolutionPolicy {
+        /**
+         * The conflict resolution path in the case of LastWriterWins mode.
+         */
         conflictResolutionPath?: string;
+        /**
+         * The procedure to resolve conflicts in the case of custom mode.
+         */
         conflictResolutionProcedure?: string;
+        /**
+         * Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
+         */
         mode: string;
     }
 
     export interface GremlinGraphIndexPolicy {
+        /**
+         * Indicates if the indexing policy is automatic. Defaults to `true`.
+         */
         automatic?: boolean;
+        /**
+         * List of paths to exclude from indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
+         */
         excludedPaths?: string[];
+        /**
+         * List of paths to include in the indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
+         */
         includedPaths?: string[];
+        /**
+         * Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
+         */
         indexingMode: string;
     }
 
     export interface GremlinGraphUniqueKey {
+        /**
+         * A list of paths to use for this unique key.
+         */
         paths: string[];
     }
 
     export interface SqlContainerUniqueKey {
+        /**
+         * A list of paths to use for this unique key.
+         */
         paths: string[];
     }
 }
 
 export namespace costmanagement {
     export interface ResourceGroupExportDeliveryInfo {
+        /**
+         * The name of the container where exports will be uploaded.
+         */
         containerName: string;
+        /**
+         * The path of the directory where exports will be uploaded.
+         */
         rootFolderPath: string;
+        /**
+         * The storage account id where exports will be delivered.
+         */
         storageAccountId: string;
     }
 
     export interface ResourceGroupExportQuery {
+        /**
+         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
+         */
         timeFrame: string;
+        /**
+         * The type of the query.
+         */
         type: string;
     }
 }
@@ -3682,45 +5654,69 @@ export namespace databricks {
 export namespace datafactory {
     export interface DatasetMysqlSchemaColumn {
         /**
-         * The description for the Data Factory Dataset MySQL.
+         * The description of the column.
          */
         description?: string;
         /**
-         * Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+         * The name of the column.
          */
         name: string;
+        /**
+         * Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+         */
         type?: string;
     }
 
     export interface DatasetPostgresqlSchemaColumn {
         /**
-         * The description for the Data Factory Dataset PostgreSQL.
+         * The description of the column.
          */
         description?: string;
         /**
-         * Specifies the name of the Data Factory Dataset PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+         * The name of the column.
          */
         name: string;
+        /**
+         * Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+         */
         type?: string;
     }
 
     export interface DatasetSqlServerTableSchemaColumn {
         /**
-         * The description for the Data Factory Dataset SQL Server Table.
+         * The description of the column.
          */
         description?: string;
         /**
-         * Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+         * The name of the column.
          */
         name: string;
+        /**
+         * Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+         */
         type?: string;
     }
 
     export interface FactoryGithubConfiguration {
+        /**
+         * Specifies the GitHub account name.
+         */
         accountName: string;
+        /**
+         * Specifies the branch of the repository to get code from.
+         */
         branchName: string;
+        /**
+         * Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com. Use https://github.com for open source repositories.
+         */
         gitUrl: string;
+        /**
+         * Specifies the name of the git repository.
+         */
         repositoryName: string;
+        /**
+         * Specifies the root folder within the repository. Set to `/` for the top level.
+         */
         rootFolder: string;
     }
 
@@ -3730,20 +5726,38 @@ export namespace datafactory {
          */
         principalId: string;
         /**
-         * The ID of the Azure Active Directory Tenant.
+         * Specifies the Tenant ID associated with the VSTS account.
          */
         tenantId: string;
+        /**
+         * Specifies the identity type of the Data Factory. At this time the only allowed value is `SystemAssigned`.
+         */
         type: string;
     }
 
     export interface FactoryVstsConfiguration {
+        /**
+         * Specifies the VSTS account name.
+         */
         accountName: string;
+        /**
+         * Specifies the branch of the repository to get code from.
+         */
         branchName: string;
+        /**
+         * Specifies the name of the VSTS project.
+         */
         projectName: string;
+        /**
+         * Specifies the name of the git repository.
+         */
         repositoryName: string;
+        /**
+         * Specifies the root folder within the repository. Set to `/` for the top level.
+         */
         rootFolder: string;
         /**
-         * The ID of the Azure Active Directory Tenant.
+         * Specifies the Tenant ID associated with the VSTS account.
          */
         tenantId: string;
     }
@@ -3814,19 +5828,43 @@ export namespace datafactory {
     }
 
     export interface IntegrationRuntimeManagedCatalogInfo {
+        /**
+         * Administrator login name for the SQL Server.
+         */
         administratorLogin: string;
+        /**
+         * Administrator login password for the SQL Server.
+         */
         administratorPassword: string;
+        /**
+         * Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+         */
         pricingTier?: string;
+        /**
+         * The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
+         */
         serverEndpoint: string;
     }
 
     export interface IntegrationRuntimeManagedCustomSetupScript {
+        /**
+         * The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+         */
         blobContainerUri: string;
+        /**
+         * A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+         */
         sasToken: string;
     }
 
     export interface IntegrationRuntimeManagedVnetIntegration {
+        /**
+         * Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
+         */
         subnetName: string;
+        /**
+         * ID of the virtual network to which the nodes of the Managed Integration Runtime will be added.
+         */
         vnetId: string;
     }
 }
@@ -3868,18 +5906,36 @@ export namespace devtest {
     }
 
     export interface LinuxVirtualMachineGalleryImageReference {
+        /**
+         * The Offer of the Gallery Image. Changing this forces a new resource to be created.
+         */
         offer: string;
+        /**
+         * The Publisher of the Gallery Image. Changing this forces a new resource to be created.
+         */
         publisher: string;
+        /**
+         * The SKU of the Gallery Image. Changing this forces a new resource to be created.
+         */
         sku: string;
+        /**
+         * The Version of the Gallery Image. Changing this forces a new resource to be created.
+         */
         version: string;
     }
 
     export interface LinuxVirtualMachineInboundNatRule {
+        /**
+         * The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
+         */
         backendPort: number;
         /**
          * The frontend port associated with this Inbound NAT Rule.
          */
         frontendPort: number;
+        /**
+         * The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+         */
         protocol: string;
     }
 
@@ -3911,7 +5967,7 @@ export namespace devtest {
 
     export interface ScheduleWeeklyRecurrence {
         /**
-         * The time each day when the schedule takes effect.
+         * The time when the schedule takes effect.
          */
         time: string;
         /**
@@ -3925,47 +5981,101 @@ export namespace devtest {
          * Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
+         */
         useInVirtualMachineCreation?: string;
+        /**
+         * Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
+         */
         usePublicIpAddress?: string;
     }
 
     export interface WindowsVirtualMachineGalleryImageReference {
+        /**
+         * The Offer of the Gallery Image. Changing this forces a new resource to be created.
+         */
         offer: string;
+        /**
+         * The Publisher of the Gallery Image. Changing this forces a new resource to be created.
+         */
         publisher: string;
+        /**
+         * The SKU of the Gallery Image. Changing this forces a new resource to be created.
+         */
         sku: string;
+        /**
+         * The Version of the Gallery Image. Changing this forces a new resource to be created.
+         */
         version: string;
     }
 
     export interface WindowsVirtualMachineInboundNatRule {
+        /**
+         * The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
+         */
         backendPort: number;
         /**
          * The frontend port associated with this Inbound NAT Rule.
          */
         frontendPort: number;
+        /**
+         * The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+         */
         protocol: string;
     }
 }
 
 export namespace dns {
     export interface CaaRecordRecord {
+        /**
+         * Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
+         */
         flags: number;
+        /**
+         * A property tag, options are issue, issuewild and iodef.
+         */
         tag: string;
+        /**
+         * A property value such as a registrar domain.
+         */
         value: string;
     }
 
     export interface MxRecordRecord {
+        /**
+         * The mail server responsible for the domain covered by the MX record.
+         */
         exchange: string;
+        /**
+         * String representing the "preference” value of the MX records. Records with lower preference value take priority.
+         */
         preference: string;
     }
 
     export interface SrvRecordRecord {
+        /**
+         * Port the service is listening on.
+         */
         port: number;
+        /**
+         * Priority of the SRV record.
+         */
         priority: number;
+        /**
+         * FQDN of the service.
+         */
         target: string;
+        /**
+         * Weight of the SRV record.
+         */
         weight: number;
     }
 
     export interface TxtRecordRecord {
+        /**
+         * The value of the record. Max length: 1024 characters
+         */
         value: string;
     }
 }
@@ -3988,7 +6098,7 @@ export namespace eventgrid {
 
     export interface DomainInputMappingFields {
         /**
-         * Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         * Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
          */
         dataVersion?: string;
         /**
@@ -3996,7 +6106,7 @@ export namespace eventgrid {
          */
         eventTime?: string;
         /**
-         * Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         * Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
          */
         eventType?: string;
         /**
@@ -4004,7 +6114,7 @@ export namespace eventgrid {
          */
         id?: string;
         /**
-         * Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         * Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
          */
         subject?: string;
         /**
@@ -4055,7 +6165,7 @@ export namespace eventgrid {
          */
         queueName: string;
         /**
-         * Specifies the id of the storage account id where the storage blob is located.
+         * Specifies the id of the storage account id where the storage queue is located.
          */
         storageAccountId: string;
     }
@@ -4101,7 +6211,7 @@ export namespace eventhub {
 
     export interface DomainInputMappingFields {
         /**
-         * Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         * Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
          */
         dataVersion?: string;
         /**
@@ -4109,7 +6219,7 @@ export namespace eventhub {
          */
         eventTime?: string;
         /**
-         * Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         * Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
          */
         eventType?: string;
         /**
@@ -4117,7 +6227,7 @@ export namespace eventhub {
          */
         id?: string;
         /**
-         * Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         * Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
          */
         subject?: string;
         /**
@@ -4127,37 +6237,85 @@ export namespace eventhub {
     }
 
     export interface EventHubCaptureDescription {
+        /**
+         * A `destination` block as defined below.
+         */
         destination: outputs.eventhub.EventHubCaptureDescriptionDestination;
+        /**
+         * Specifies if the Capture Description is Enabled.
+         */
         enabled: boolean;
+        /**
+         * Specifies the Encoding used for the Capture Description. Possible values are `Avro` and `AvroDeflate`.
+         */
         encoding: string;
+        /**
+         * Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
+         */
         intervalInSeconds?: number;
+        /**
+         * Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+         */
         sizeLimitInBytes?: number;
+        /**
+         * Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
+         */
         skipEmptyArchives?: boolean;
     }
 
     export interface EventHubCaptureDescriptionDestination {
+        /**
+         * The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+         */
         archiveNameFormat: string;
+        /**
+         * The name of the Container within the Blob Storage Account where messages should be archived.
+         */
         blobContainerName: string;
         /**
-         * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+         * The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
          */
         name: string;
+        /**
+         * The ID of the Blob Storage Account where messages should be archived.
+         */
         storageAccountId: string;
     }
 
     export interface EventHubNamespaceNetworkRulesets {
+        /**
+         * The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+         */
         defaultAction: string;
+        /**
+         * One or more `ipRule` blocks as defined below.
+         */
         ipRules?: outputs.eventhub.EventHubNamespaceNetworkRulesetsIpRule[];
+        /**
+         * One or more `virtualNetworkRule` blocks as defined below.
+         */
         virtualNetworkRules?: outputs.eventhub.EventHubNamespaceNetworkRulesetsVirtualNetworkRule[];
     }
 
     export interface EventHubNamespaceNetworkRulesetsIpRule {
+        /**
+         * The action to take when the rule is  matched. Possible values are `Allow`.
+         */
         action?: string;
+        /**
+         * The ip mask to match on.
+         */
         ipMask: string;
     }
 
     export interface EventHubNamespaceNetworkRulesetsVirtualNetworkRule {
+        /**
+         * Are missing virtual network service endpoints ignored? Defaults to `false`.
+         */
         ignoreMissingVirtualNetworkServiceEndpoint?: boolean;
+        /**
+         * The id of the subnet to match on.
+         */
         subnetId: string;
     }
 
@@ -4203,7 +6361,7 @@ export namespace eventhub {
          */
         queueName: string;
         /**
-         * Specifies the id of the storage account id where the storage blob is located.
+         * Specifies the id of the storage account id where the storage queue is located.
          */
         storageAccountId: string;
     }
@@ -4268,150 +6426,324 @@ export namespace eventhub {
 
 export namespace frontdoor {
     export interface FirewallPolicyCustomRule {
+        /**
+         * The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+         */
         action: string;
         /**
-         * Is the policy a enabled state or disabled state. Defaults to `true`.
+         * Is the rule is enabled or disabled? Defaults to `true`.
          */
         enabled?: boolean;
+        /**
+         * One or more `matchCondition` block defined below.
+         */
         matchConditions?: outputs.frontdoor.FirewallPolicyCustomRuleMatchCondition[];
         /**
-         * The name of the policy. Changing this forces a new resource to be created.
+         * Gets name of the resource that is unique within a policy. This name can be used to access the resource.
          */
         name: string;
+        /**
+         * The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
+         */
         priority?: number;
+        /**
+         * The rate limit duration in minutes. Defaults to `1`.
+         */
         rateLimitDurationInMinutes?: number;
+        /**
+         * The rate limit threshold. Defaults to `10`.
+         */
         rateLimitThreshold?: number;
+        /**
+         * The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
+         */
         type: string;
     }
 
     export interface FirewallPolicyCustomRuleMatchCondition {
+        /**
+         * Up to `100` possible values to match.
+         */
         matchValues: string[];
+        /**
+         * The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
+         */
         matchVariable: string;
+        /**
+         * Should the result of the condition be negated.
+         */
         negationCondition?: boolean;
+        /**
+         * Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+         */
         operator: string;
+        /**
+         * Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+         */
         selector?: string;
+        /**
+         * Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or`URLEncode`.
+         */
         transforms?: string[];
     }
 
     export interface FirewallPolicyManagedRule {
+        /**
+         * One or more `exclusion` blocks as defined below.
+         */
         exclusions?: outputs.frontdoor.FirewallPolicyManagedRuleExclusion[];
+        /**
+         * One or more `override` blocks as defined below.
+         */
         overrides?: outputs.frontdoor.FirewallPolicyManagedRuleOverride[];
+        /**
+         * The name of the managed rule to use with this resource.
+         */
         type: string;
+        /**
+         * The version on the managed rule to use with this resource.
+         */
         version: string;
     }
 
     export interface FirewallPolicyManagedRuleExclusion {
+        /**
+         * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         */
         matchVariable: string;
+        /**
+         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+         */
         operator: string;
+        /**
+         * Selector for the value in the `matchVariable` attribute this exclusion applies to.
+         */
         selector: string;
     }
 
     export interface FirewallPolicyManagedRuleOverride {
+        /**
+         * One or more `exclusion` blocks as defined below.
+         */
         exclusions?: outputs.frontdoor.FirewallPolicyManagedRuleOverrideExclusion[];
+        /**
+         * One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+         */
         rules?: outputs.frontdoor.FirewallPolicyManagedRuleOverrideRule[];
+        /**
+         * The managed rule group to override.
+         */
         ruleGroupName: string;
     }
 
     export interface FirewallPolicyManagedRuleOverrideExclusion {
+        /**
+         * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         */
         matchVariable: string;
+        /**
+         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+         */
         operator: string;
+        /**
+         * Selector for the value in the `matchVariable` attribute this exclusion applies to.
+         */
         selector: string;
     }
 
     export interface FirewallPolicyManagedRuleOverrideRule {
+        /**
+         * The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+         */
         action: string;
         /**
-         * Is the policy a enabled state or disabled state. Defaults to `true`.
+         * Is the managed rule override enabled or disabled. Defaults to `false`
          */
         enabled?: boolean;
+        /**
+         * One or more `exclusion` blocks as defined below.
+         */
         exclusions?: outputs.frontdoor.FirewallPolicyManagedRuleOverrideRuleExclusion[];
+        /**
+         * Identifier for the managed rule.
+         */
         ruleId: string;
     }
 
     export interface FirewallPolicyManagedRuleOverrideRuleExclusion {
+        /**
+         * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         */
         matchVariable: string;
+        /**
+         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+         */
         operator: string;
+        /**
+         * Selector for the value in the `matchVariable` attribute this exclusion applies to.
+         */
         selector: string;
     }
 
     export interface FrontdoorBackendPool {
+        /**
+         * A `backend` block as defined below.
+         */
         backends: outputs.frontdoor.FrontdoorBackendPoolBackend[];
+        /**
+         * Specifies the name of the `backendPoolHealthProbe` block whithin this resource to use for this `Backend Pool`.
+         */
         healthProbeName: string;
         /**
          * The ID of the FrontDoor.
          */
         id: string;
+        /**
+         * Specifies the name of the `backendPoolLoadBalancing` block within this resource to use for this `Backend Pool`.
+         */
         loadBalancingName: string;
         /**
-         * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+         * Specifies the name of the Backend Pool.
          */
         name: string;
     }
 
     export interface FrontdoorBackendPoolBackend {
+        /**
+         * Location of the backend (IP address or FQDN)
+         */
         address: string;
+        /**
+         * Specifies if the backend is enabled or not. Valid options are `true` or `false`. Defaults to `true`.
+         */
         enabled?: boolean;
+        /**
+         * The value to use as the host header sent to the backend.
+         */
         hostHeader: string;
+        /**
+         * The HTTP TCP port number. Possible values are between `1` - `65535`.
+         */
         httpPort: number;
+        /**
+         * The HTTPS TCP port number. Possible values are between `1` - `65535`.
+         */
         httpsPort: number;
+        /**
+         * Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to `1`.
+         */
         priority?: number;
+        /**
+         * Weight of this endpoint for load balancing purposes. Defaults to `50`.
+         */
         weight?: number;
     }
 
     export interface FrontdoorBackendPoolHealthProbe {
+        /**
+         * Is this health probe enabled? Dafaults to `true`.
+         */
         enabled?: boolean;
         /**
          * The ID of the FrontDoor.
          */
         id: string;
+        /**
+         * The number of seconds between each Health Probe. Defaults to `120`.
+         */
         intervalInSeconds?: number;
         /**
-         * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+         * Specifies the name of the Health Probe.
          */
         name: string;
+        /**
+         * The path to use for the Health Probe. Default is `/`.
+         */
         path?: string;
+        /**
+         * Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+         */
         probeMethod?: string;
+        /**
+         * Protocol scheme to use for the Health Probe. Defaults to `Http`.
+         */
         protocol?: string;
     }
 
     export interface FrontdoorBackendPoolLoadBalancing {
+        /**
+         * The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
+         */
         additionalLatencyMilliseconds?: number;
         /**
          * The ID of the FrontDoor.
          */
         id: string;
         /**
-         * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+         * Specifies the name of the Load Balancer.
          */
         name: string;
+        /**
+         * The number of samples to consider for load balancing decisions. Defaults to `4`.
+         */
         sampleSize?: number;
+        /**
+         * The number of samples within the sample period that must succeed. Defaults to `2`.
+         */
         successfulSamplesRequired?: number;
     }
 
     export interface FrontdoorFrontendEndpoint {
+        /**
+         * A `customHttpsConfiguration` block as defined below.
+         */
         customHttpsConfiguration?: outputs.frontdoor.FrontdoorFrontendEndpointCustomHttpsConfiguration;
+        /**
+         * Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
+         */
         customHttpsProvisioningEnabled: boolean;
+        /**
+         * Specifies the host name of the `frontendEndpoint`. Must be a domain name.
+         */
         hostName: string;
         /**
          * The ID of the FrontDoor.
          */
         id: string;
         /**
-         * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+         * Specifies the name of the `frontendEndpoint`.
          */
         name: string;
+        /**
+         * Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
+         */
         sessionAffinityEnabled?: boolean;
+        /**
+         * The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
+         */
         sessionAffinityTtlSeconds?: number;
         /**
-         * (Optional) The `id` of the `webApplicationFirewallPolicyLink` to use for this Frontend Endpoint."
+         * Defines the Web Application Firewall policy `ID` for each host.
          */
         webApplicationFirewallPolicyLinkId?: string;
     }
 
     export interface FrontdoorFrontendEndpointCustomHttpsConfiguration {
+        /**
+         * The name of the Key Vault secret representing the full certificate PFX.
+         */
         azureKeyVaultCertificateSecretName?: string;
+        /**
+         * The version of the Key Vault secret representing the full certificate PFX.
+         */
         azureKeyVaultCertificateSecretVersion?: string;
+        /**
+         * The ID of the Key Vault containing the SSL certificate.
+         */
         azureKeyVaultCertificateVaultId?: string;
+        /**
+         * Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+         */
         certificateSource?: string;
         /**
          * Minimum client TLS version supported.
@@ -4428,37 +6760,91 @@ export namespace frontdoor {
     }
 
     export interface FrontdoorRoutingRule {
+        /**
+         * Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+         */
         acceptedProtocols: string[];
+        /**
+         * `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
+         */
         enabled?: boolean;
+        /**
+         * A `forwardingConfiguration` block as defined below.
+         */
         forwardingConfiguration?: outputs.frontdoor.FrontdoorRoutingRuleForwardingConfiguration;
+        /**
+         * The names of the `frontendEndpoint` blocks whithin this resource to associate with this `routingRule`.
+         */
         frontendEndpoints: string[];
         /**
          * The ID of the FrontDoor.
          */
         id: string;
         /**
-         * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+         * Specifies the name of the Routing Rule.
          */
         name: string;
+        /**
+         * The route patterns for the Backend Routing Rule. Defaults to `/*`.
+         */
         patternsToMatches: string[];
+        /**
+         * A `redirectConfiguration` block as defined below.
+         */
         redirectConfiguration?: outputs.frontdoor.FrontdoorRoutingRuleRedirectConfiguration;
     }
 
     export interface FrontdoorRoutingRuleForwardingConfiguration {
+        /**
+         * Specifies the name of the Backend Pool to forward the incoming traffic to.
+         */
         backendPoolName: string;
+        /**
+         * Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
+         */
         cacheEnabled?: boolean;
+        /**
+         * Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+         */
         cacheQueryParameterStripDirective?: string;
+        /**
+         * Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
+         */
         cacheUseDynamicCompression?: boolean;
+        /**
+         * Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
+         */
         customForwardingPath?: string;
+        /**
+         * Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
+         */
         forwardingProtocol?: string;
     }
 
     export interface FrontdoorRoutingRuleRedirectConfiguration {
+        /**
+         * The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
+         */
         customFragment?: string;
+        /**
+         * Set this to change the URL for the redirection.
+         */
         customHost?: string;
+        /**
+         * The path to retain as per the incoming request, or update in the URL for the redirection.
+         */
         customPath?: string;
+        /**
+         * Replace any existing query string from the incoming request URL.
+         */
         customQueryString?: string;
+        /**
+         * Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+         */
         redirectProtocol: string;
+        /**
+         * Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
+         */
         redirectType: string;
     }
 }
@@ -4480,133 +6866,352 @@ export namespace hdinsight {
     }
 
     export interface HBaseClusterComponentVersion {
+        /**
+         * The version of HBase which should be used for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+         */
         hbase: string;
     }
 
     export interface HBaseClusterGateway {
+        /**
+         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         */
         enabled: boolean;
+        /**
+         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
         password: string;
+        /**
+         * The username used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
         username: string;
     }
 
     export interface HBaseClusterRoles {
+        /**
+         * A `headNode` block as defined above.
+         */
         headNode: outputs.hdinsight.HBaseClusterRolesHeadNode;
+        /**
+         * A `workerNode` block as defined below.
+         */
         workerNode: outputs.hdinsight.HBaseClusterRolesWorkerNode;
+        /**
+         * A `zookeeperNode` block as defined below.
+         */
         zookeeperNode: outputs.hdinsight.HBaseClusterRolesZookeeperNode;
     }
 
     export interface HBaseClusterRolesHeadNode {
+        /**
+         * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface HBaseClusterRolesWorkerNode {
+        /**
+         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         minInstanceCount?: number;
+        /**
+         * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The number of instances which should be run for the Worker Nodes.
+         */
         targetInstanceCount: number;
+        /**
+         * The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface HBaseClusterRolesZookeeperNode {
+        /**
+         * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface HBaseClusterStorageAccount {
+        /**
+         * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+         */
         isDefault: boolean;
+        /**
+         * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+         */
         storageAccountKey: string;
+        /**
+         * The ID of the Storage Container. Changing this forces a new resource to be created.
+         */
         storageContainerId: string;
     }
 
     export interface HBaseClusterStorageAccountGen2 {
+        /**
+         * The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
+         */
         filesystemId: string;
+        /**
+         * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+         */
         isDefault: boolean;
+        /**
+         * The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+         */
         managedIdentityResourceId: string;
+        /**
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
         storageResourceId: string;
     }
 
     export interface HadoopClusterComponentVersion {
+        /**
+         * The version of Hadoop which should be used for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+         */
         hadoop: string;
     }
 
     export interface HadoopClusterGateway {
+        /**
+         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         */
         enabled: boolean;
+        /**
+         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
         password: string;
+        /**
+         * The username used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
         username: string;
     }
 
     export interface HadoopClusterRoles {
+        /**
+         * A `edgeNode` block as defined below.
+         */
         edgeNode?: outputs.hdinsight.HadoopClusterRolesEdgeNode;
+        /**
+         * A `headNode` block as defined above.
+         */
         headNode: outputs.hdinsight.HadoopClusterRolesHeadNode;
+        /**
+         * A `workerNode` block as defined below.
+         */
         workerNode: outputs.hdinsight.HadoopClusterRolesWorkerNode;
+        /**
+         * A `zookeeperNode` block as defined below.
+         */
         zookeeperNode: outputs.hdinsight.HadoopClusterRolesZookeeperNode;
     }
 
     export interface HadoopClusterRolesEdgeNode {
+        /**
+         * A `installScriptAction` block as defined below.
+         */
         installScriptActions: outputs.hdinsight.HadoopClusterRolesEdgeNodeInstallScriptAction[];
+        /**
+         * The number of instances which should be run for the Worker Nodes.
+         */
         targetInstanceCount: number;
+        /**
+         * The Size of the Virtual Machine which should be used as the Edge Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface HadoopClusterRolesEdgeNodeInstallScriptAction {
         /**
-         * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+         * The name of the install script action. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+         */
         uri: string;
     }
 
     export interface HadoopClusterRolesHeadNode {
+        /**
+         * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface HadoopClusterRolesWorkerNode {
+        /**
+         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         minInstanceCount?: number;
+        /**
+         * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The number of instances which should be run for the Worker Nodes.
+         */
         targetInstanceCount: number;
+        /**
+         * The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface HadoopClusterRolesZookeeperNode {
+        /**
+         * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface HadoopClusterStorageAccount {
+        /**
+         * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+         */
         isDefault: boolean;
+        /**
+         * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+         */
         storageAccountKey: string;
+        /**
+         * The ID of the Storage Container. Changing this forces a new resource to be created.
+         */
         storageContainerId: string;
     }
 
     export interface HadoopClusterStorageAccountGen2 {
+        /**
+         * The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
+         */
         filesystemId: string;
+        /**
+         * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+         */
         isDefault: boolean;
+        /**
+         * The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+         */
         managedIdentityResourceId: string;
+        /**
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
         storageResourceId: string;
     }
 
@@ -4615,338 +7220,950 @@ export namespace hdinsight {
     }
 
     export interface InteractiveQueryClusterGateway {
+        /**
+         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         */
         enabled: boolean;
+        /**
+         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
         password: string;
+        /**
+         * The username used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
         username: string;
     }
 
     export interface InteractiveQueryClusterRoles {
+        /**
+         * A `headNode` block as defined above.
+         */
         headNode: outputs.hdinsight.InteractiveQueryClusterRolesHeadNode;
+        /**
+         * A `workerNode` block as defined below.
+         */
         workerNode: outputs.hdinsight.InteractiveQueryClusterRolesWorkerNode;
+        /**
+         * A `zookeeperNode` block as defined below.
+         */
         zookeeperNode: outputs.hdinsight.InteractiveQueryClusterRolesZookeeperNode;
     }
 
     export interface InteractiveQueryClusterRolesHeadNode {
+        /**
+         * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface InteractiveQueryClusterRolesWorkerNode {
+        /**
+         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         minInstanceCount?: number;
+        /**
+         * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The number of instances which should be run for the Worker Nodes.
+         */
         targetInstanceCount: number;
+        /**
+         * The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface InteractiveQueryClusterRolesZookeeperNode {
+        /**
+         * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface InteractiveQueryClusterStorageAccount {
+        /**
+         * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+         */
         isDefault: boolean;
+        /**
+         * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+         */
         storageAccountKey: string;
+        /**
+         * The ID of the Storage Container. Changing this forces a new resource to be created.
+         */
         storageContainerId: string;
     }
 
     export interface InteractiveQueryClusterStorageAccountGen2 {
+        /**
+         * The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
+         */
         filesystemId: string;
+        /**
+         * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+         */
         isDefault: boolean;
+        /**
+         * The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+         */
         managedIdentityResourceId: string;
+        /**
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
         storageResourceId: string;
     }
 
     export interface KafkaClusterComponentVersion {
+        /**
+         * The version of Kafka which should be used for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+         */
         kafka: string;
     }
 
     export interface KafkaClusterGateway {
+        /**
+         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         */
         enabled: boolean;
+        /**
+         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
         password: string;
+        /**
+         * The username used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
         username: string;
     }
 
     export interface KafkaClusterRoles {
+        /**
+         * A `headNode` block as defined above.
+         */
         headNode: outputs.hdinsight.KafkaClusterRolesHeadNode;
+        /**
+         * A `workerNode` block as defined below.
+         */
         workerNode: outputs.hdinsight.KafkaClusterRolesWorkerNode;
+        /**
+         * A `zookeeperNode` block as defined below.
+         */
         zookeeperNode: outputs.hdinsight.KafkaClusterRolesZookeeperNode;
     }
 
     export interface KafkaClusterRolesHeadNode {
+        /**
+         * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface KafkaClusterRolesWorkerNode {
+        /**
+         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         minInstanceCount?: number;
+        /**
+         * The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
+         */
         numberOfDisksPerNode: number;
+        /**
+         * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The number of instances which should be run for the Worker Nodes.
+         */
         targetInstanceCount: number;
+        /**
+         * The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface KafkaClusterRolesZookeeperNode {
+        /**
+         * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface KafkaClusterStorageAccount {
+        /**
+         * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+         */
         isDefault: boolean;
+        /**
+         * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+         */
         storageAccountKey: string;
+        /**
+         * The ID of the Storage Container. Changing this forces a new resource to be created.
+         */
         storageContainerId: string;
     }
 
     export interface KafkaClusterStorageAccountGen2 {
+        /**
+         * The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
+         */
         filesystemId: string;
+        /**
+         * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+         */
         isDefault: boolean;
+        /**
+         * The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+         */
         managedIdentityResourceId: string;
+        /**
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
         storageResourceId: string;
     }
 
     export interface MLServicesClusterGateway {
+        /**
+         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         */
         enabled: boolean;
+        /**
+         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
         password: string;
+        /**
+         * The username used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
         username: string;
     }
 
     export interface MLServicesClusterRoles {
+        /**
+         * A `edgeNode` block as defined above.
+         */
         edgeNode: outputs.hdinsight.MLServicesClusterRolesEdgeNode;
+        /**
+         * A `headNode` block as defined above.
+         */
         headNode: outputs.hdinsight.MLServicesClusterRolesHeadNode;
+        /**
+         * A `workerNode` block as defined below.
+         */
         workerNode: outputs.hdinsight.MLServicesClusterRolesWorkerNode;
+        /**
+         * A `zookeeperNode` block as defined below.
+         */
         zookeeperNode: outputs.hdinsight.MLServicesClusterRolesZookeeperNode;
     }
 
     export interface MLServicesClusterRolesEdgeNode {
+        /**
+         * The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Edge Node. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Edge Node. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface MLServicesClusterRolesHeadNode {
+        /**
+         * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface MLServicesClusterRolesWorkerNode {
+        /**
+         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         minInstanceCount?: number;
+        /**
+         * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The number of instances which should be run for the Worker Nodes.
+         */
         targetInstanceCount: number;
+        /**
+         * The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface MLServicesClusterRolesZookeeperNode {
+        /**
+         * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface MLServicesClusterStorageAccount {
+        /**
+         * Is this the Default Storage Account for the HDInsight ML Services Cluster? Changing this forces a new resource to be created.
+         */
         isDefault: boolean;
+        /**
+         * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+         */
         storageAccountKey: string;
+        /**
+         * The ID of the Storage Container. Changing this forces a new resource to be created.
+         */
         storageContainerId: string;
     }
 
     export interface RServerClusterGateway {
+        /**
+         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         */
         enabled: boolean;
+        /**
+         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
         password: string;
+        /**
+         * The username used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
         username: string;
     }
 
     export interface RServerClusterRoles {
+        /**
+         * A `edgeNode` block as defined above.
+         */
         edgeNode: outputs.hdinsight.RServerClusterRolesEdgeNode;
+        /**
+         * A `headNode` block as defined above.
+         */
         headNode: outputs.hdinsight.RServerClusterRolesHeadNode;
+        /**
+         * A `workerNode` block as defined below.
+         */
         workerNode: outputs.hdinsight.RServerClusterRolesWorkerNode;
+        /**
+         * A `zookeeperNode` block as defined below.
+         */
         zookeeperNode: outputs.hdinsight.RServerClusterRolesZookeeperNode;
     }
 
     export interface RServerClusterRolesEdgeNode {
+        /**
+         * The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Edge Node. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Edge Node. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface RServerClusterRolesHeadNode {
+        /**
+         * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface RServerClusterRolesWorkerNode {
+        /**
+         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         minInstanceCount?: number;
+        /**
+         * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The number of instances which should be run for the Worker Nodes.
+         */
         targetInstanceCount: number;
+        /**
+         * The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface RServerClusterRolesZookeeperNode {
+        /**
+         * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface RServerClusterStorageAccount {
+        /**
+         * Is this the Default Storage Account for the HDInsight RServer Cluster? Changing this forces a new resource to be created.
+         */
         isDefault: boolean;
+        /**
+         * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+         */
         storageAccountKey: string;
+        /**
+         * The ID of the Storage Container. Changing this forces a new resource to be created.
+         */
         storageContainerId: string;
     }
 
     export interface SparkClusterComponentVersion {
+        /**
+         * The version of Spark which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+         */
         spark: string;
     }
 
     export interface SparkClusterGateway {
+        /**
+         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         */
         enabled: boolean;
+        /**
+         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
         password: string;
+        /**
+         * The username used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
         username: string;
     }
 
     export interface SparkClusterRoles {
+        /**
+         * A `headNode` block as defined above.
+         */
         headNode: outputs.hdinsight.SparkClusterRolesHeadNode;
+        /**
+         * A `workerNode` block as defined below.
+         */
         workerNode: outputs.hdinsight.SparkClusterRolesWorkerNode;
+        /**
+         * A `zookeeperNode` block as defined below.
+         */
         zookeeperNode: outputs.hdinsight.SparkClusterRolesZookeeperNode;
     }
 
     export interface SparkClusterRolesHeadNode {
+        /**
+         * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface SparkClusterRolesWorkerNode {
+        /**
+         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         minInstanceCount?: number;
+        /**
+         * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The number of instances which should be run for the Worker Nodes.
+         */
         targetInstanceCount: number;
+        /**
+         * The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface SparkClusterRolesZookeeperNode {
+        /**
+         * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface SparkClusterStorageAccount {
+        /**
+         * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+         */
         isDefault: boolean;
+        /**
+         * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+         */
         storageAccountKey: string;
+        /**
+         * The ID of the Storage Container. Changing this forces a new resource to be created.
+         */
         storageContainerId: string;
     }
 
     export interface SparkClusterStorageAccountGen2 {
+        /**
+         * The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
+         */
         filesystemId: string;
+        /**
+         * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+         */
         isDefault: boolean;
+        /**
+         * The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+         */
         managedIdentityResourceId: string;
+        /**
+         * The ID of the Storage Account. Changing this forces a new resource to be created.
+         */
         storageResourceId: string;
     }
 
     export interface StormClusterComponentVersion {
+        /**
+         * The version of Storm which should be used for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
+         */
         storm: string;
     }
 
     export interface StormClusterGateway {
+        /**
+         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         */
         enabled: boolean;
+        /**
+         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
         password: string;
+        /**
+         * The username used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
         username: string;
     }
 
     export interface StormClusterRoles {
+        /**
+         * A `headNode` block as defined above.
+         */
         headNode: outputs.hdinsight.StormClusterRolesHeadNode;
+        /**
+         * A `workerNode` block as defined below.
+         */
         workerNode: outputs.hdinsight.StormClusterRolesWorkerNode;
+        /**
+         * A `zookeeperNode` block as defined below.
+         */
         zookeeperNode: outputs.hdinsight.StormClusterRolesZookeeperNode;
     }
 
     export interface StormClusterRolesHeadNode {
+        /**
+         * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface StormClusterRolesWorkerNode {
+        /**
+         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         minInstanceCount?: number;
+        /**
+         * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The number of instances which should be run for the Worker Nodes.
+         */
         targetInstanceCount: number;
+        /**
+         * The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface StormClusterRolesZookeeperNode {
+        /**
+         * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         password?: string;
+        /**
+         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         sshKeys?: string[];
+        /**
+         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         subnetId?: string;
+        /**
+         * The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         username: string;
+        /**
+         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         */
         virtualNetworkId?: string;
+        /**
+         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+         */
         vmSize: string;
     }
 
     export interface StormClusterStorageAccount {
+        /**
+         * Is this the Default Storage Account for the HDInsight Storm Cluster? Changing this forces a new resource to be created.
+         */
         isDefault: boolean;
+        /**
+         * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+         */
         storageAccountKey: string;
+        /**
+         * The ID of the Storage Container. Changing this forces a new resource to be created.
+         */
         storageContainerId: string;
     }
 }
@@ -5007,63 +8224,150 @@ export namespace healthcare {
     }
 
     export interface ServiceCorsConfiguration {
+        /**
+         * If credentials are allowed via CORS.
+         */
         allowCredentials?: boolean;
+        /**
+         * A set of headers to be allowed via CORS.
+         */
         allowedHeaders?: string[];
+        /**
+         * The methods to be allowed via CORS.
+         */
         allowedMethods?: string[];
+        /**
+         * A set of origins to be allowed via CORS.
+         */
         allowedOrigins?: string[];
+        /**
+         * The max age to be allowed via CORS.
+         */
         maxAgeInSeconds?: number;
     }
 }
 
 export namespace iot {
     export interface IoTHubEndpoint {
+        /**
+         * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+         */
         batchFrequencyInSeconds?: number;
+        /**
+         * The connection string for the endpoint.
+         */
         connectionString: string;
+        /**
+         * The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+         */
         containerName?: string;
+        /**
+         * Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+         */
         encoding?: string;
+        /**
+         * File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+         */
         fileNameFormat?: string;
+        /**
+         * Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+         */
         maxChunkSizeInBytes?: number;
         /**
-         * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+         * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
          */
         name: string;
+        /**
+         * The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+         */
         type: string;
     }
 
     export interface IoTHubFallbackRoute {
+        /**
+         * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+         */
         condition?: string;
+        /**
+         * Used to specify whether the fallback route is enabled.
+         */
         enabled: boolean;
+        /**
+         * The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
+         */
         endpointNames: string[];
+        /**
+         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+         */
         source?: string;
     }
 
     export interface IoTHubFileUpload {
+        /**
+         * The connection string for the Azure Storage account to which files are uploaded.
+         */
         connectionString: string;
+        /**
+         * The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+         */
         containerName: string;
+        /**
+         * The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
+         */
         defaultTtl: string;
+        /**
+         * The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
+         */
         lockDuration: string;
+        /**
+         * The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
+         */
         maxDeliveryCount?: number;
+        /**
+         * Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
+         */
         notifications?: boolean;
+        /**
+         * The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
+         */
         sasTtl: string;
     }
 
     export interface IoTHubIpFilterRule {
+        /**
+         * The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+         */
         action: string;
+        /**
+         * The IP address range in CIDR notation for the rule.
+         */
         ipMask: string;
         /**
-         * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+         * The name of the filter.
          */
         name: string;
     }
 
     export interface IoTHubRoute {
+        /**
+         * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+         */
         condition?: string;
+        /**
+         * Used to specify whether a route is enabled.
+         */
         enabled: boolean;
+        /**
+         * The list of endpoints to which messages that satisfy the condition are routed.
+         */
         endpointNames: string[];
         /**
-         * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+         * The name of the route.
          */
         name: string;
+        /**
+         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+         */
         source: string;
     }
 
@@ -5087,28 +8391,43 @@ export namespace iot {
     }
 
     export interface IoTHubSku {
+        /**
+         * The number of provisioned IoT Hub units.
+         */
         capacity: number;
         /**
-         * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+         * The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
          */
         name: string;
     }
 
     export interface IotHubDpsLinkedHub {
+        /**
+         * The weight applied to the IoT Hub. Defaults to 0.
+         */
         allocationWeight?: number;
         applyAllocationPolicy?: boolean;
+        /**
+         * The connection string to connect to the IoT Hub. Changing this forces a new resource.
+         */
         connectionString: string;
+        /**
+         * The IoT Hub hostname.
+         */
         hostname: string;
         /**
-         * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+         * The location of the IoT hub. Changing this forces a new resource.
          */
         location: string;
     }
 
     export interface IotHubDpsSku {
+        /**
+         * The number of provisioned IoT Device Provisioning Service units.
+         */
         capacity: number;
         /**
-         * Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+         * The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
          */
         name: string;
     }
@@ -5422,31 +8741,64 @@ export namespace keyvault {
     }
 
     export interface KeyVaultAccessPolicy {
+        /**
+         * The object ID of an Application in Azure Active Directory.
+         */
         applicationId?: string;
+        /**
+         * List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
+         */
         certificatePermissions?: string[];
+        /**
+         * List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
+         */
         keyPermissions?: string[];
+        /**
+         * The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
+         */
         objectId: string;
+        /**
+         * List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+         */
         secretPermissions?: string[];
+        /**
+         * List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+         */
         storagePermissions?: string[];
         /**
-         * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+         * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenantId` used above.
          */
         tenantId: string;
     }
 
     export interface KeyVaultNetworkAcls {
+        /**
+         * Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
+         */
         bypass: string;
+        /**
+         * The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
+         */
         defaultAction: string;
+        /**
+         * One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
+         */
         ipRules?: string[];
+        /**
+         * One or more Subnet ID's which should be able to access this Key Vault.
+         */
         virtualNetworkSubnetIds?: string[];
     }
 }
 
 export namespace kusto {
     export interface ClusterSku {
+        /**
+         * Specifies the node count for the cluster. Boundaries depend on the sku name.
+         */
         capacity: number;
         /**
-         * The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+         * The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
          */
         name: string;
     }
@@ -5543,7 +8895,7 @@ export namespace lb {
          */
         id: string;
         /**
-         * Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+         * The name of the Frontend IP Configuration.
          */
         name: string;
     }
@@ -5570,9 +8922,21 @@ export namespace mariadb {
     }
 
     export interface ServerStorageProfile {
+        /**
+         * Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
+         */
         autoGrow?: string;
+        /**
+         * Backup retention days for the server, supported values are between `7` and `35` days.
+         */
         backupRetentionDays?: number;
+        /**
+         * Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`. Changing this forces a new resource to be created.
+         */
         geoRedundantBackup?: string;
+        /**
+         * Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
+         */
         storageMb: number;
     }
 }
@@ -5580,9 +8944,12 @@ export namespace mariadb {
 export namespace mediaservices {
     export interface AccountStorageAccount {
         /**
-         * The ID of the Media Services Account.
+         * Specifies the ID of the Storage Account that will be associated with the Media Services instance.
          */
         id: string;
+        /**
+         * Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+         */
         isPrimary?: boolean;
     }
 }
@@ -5590,7 +8957,7 @@ export namespace mediaservices {
 export namespace monitoring {
     export interface ActionGroupArmRoleReceiver {
         /**
-         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         * The name of the ARM role receiver.
          */
         name: string;
         /**
@@ -5613,7 +8980,7 @@ export namespace monitoring {
          */
         isGlobalRunbook: boolean;
         /**
-         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         * The name of the automation runbook receiver.
          */
         name: string;
         /**
@@ -5636,11 +9003,11 @@ export namespace monitoring {
 
     export interface ActionGroupAzureAppPushReceiver {
         /**
-         * The email address of this receiver.
+         * The email address of the user signed into the mobile app who will receive push notifications from this receiver.
          */
         emailAddress: string;
         /**
-         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         * The name of the Azure app push receiver.
          */
         name: string;
     }
@@ -5656,7 +9023,7 @@ export namespace monitoring {
          */
         httpTriggerUrl: string;
         /**
-         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         * The name of the Azure Function receiver.
          */
         name: string;
         /**
@@ -5671,7 +9038,7 @@ export namespace monitoring {
          */
         emailAddress: string;
         /**
-         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         * The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
          */
         name: string;
         /**
@@ -5686,7 +9053,7 @@ export namespace monitoring {
          */
         connectionId: string;
         /**
-         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         * The name of the ITSM receiver.
          */
         name: string;
         /**
@@ -5709,7 +9076,7 @@ export namespace monitoring {
          */
         callbackUrl: string;
         /**
-         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         * The name of the logic app receiver.
          */
         name: string;
         /**
@@ -5724,15 +9091,15 @@ export namespace monitoring {
 
     export interface ActionGroupSmsReceiver {
         /**
-         * The country code of the voice receiver.
+         * The country code of the SMS receiver.
          */
         countryCode: string;
         /**
-         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         * The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
          */
         name: string;
         /**
-         * The phone number of the voice receiver.
+         * The phone number of the SMS receiver.
          */
         phoneNumber: string;
     }
@@ -5743,7 +9110,7 @@ export namespace monitoring {
          */
         countryCode: string;
         /**
-         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         * The name of the voice receiver.
          */
         name: string;
         /**
@@ -5768,111 +9135,282 @@ export namespace monitoring {
     }
 
     export interface ActivityLogAlertAction {
+        /**
+         * The ID of the Action Group can be sourced from the `azure.monitoring.ActionGroup` resource.
+         */
         actionGroupId: string;
+        /**
+         * The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
+         */
         webhookProperties?: {[key: string]: string};
     }
 
     export interface ActivityLogAlertCriteria {
+        /**
+         * The email address or Azure Active Directory identifier of the user who performed the operation.
+         */
         caller?: string;
+        /**
+         * The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
+         */
         category: string;
+        /**
+         * The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+         */
         level?: string;
+        /**
+         * The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
+         */
         operationName?: string;
+        /**
+         * The name of resource group monitored by the activity log alert.
+         */
         resourceGroup?: string;
+        /**
+         * The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
+         */
         resourceId?: string;
+        /**
+         * The name of the resource provider monitored by the activity log alert.
+         */
         resourceProvider?: string;
+        /**
+         * The resource type monitored by the activity log alert.
+         */
         resourceType?: string;
+        /**
+         * The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+         */
         status?: string;
+        /**
+         * The sub status of the event.
+         */
         subStatus?: string;
     }
 
     export interface AutoscaleSettingNotification {
+        /**
+         * A `email` block as defined below.
+         */
         email?: outputs.monitoring.AutoscaleSettingNotificationEmail;
+        /**
+         * One or more `webhook` blocks as defined below.
+         */
         webhooks?: outputs.monitoring.AutoscaleSettingNotificationWebhook[];
     }
 
     export interface AutoscaleSettingNotificationEmail {
+        /**
+         * Specifies a list of custom email addresses to which the email notifications will be sent.
+         */
         customEmails?: string[];
+        /**
+         * Should email notifications be sent to the subscription administrator? Defaults to `false`.
+         */
         sendToSubscriptionAdministrator?: boolean;
+        /**
+         * Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
+         */
         sendToSubscriptionCoAdministrator?: boolean;
     }
 
     export interface AutoscaleSettingNotificationWebhook {
+        /**
+         * A map of settings.
+         */
         properties?: {[key: string]: string};
+        /**
+         * The HTTPS URI which should receive scale notifications.
+         */
         serviceUri: string;
     }
 
     export interface AutoscaleSettingProfile {
+        /**
+         * A `capacity` block as defined below.
+         */
         capacity: outputs.monitoring.AutoscaleSettingProfileCapacity;
+        /**
+         * A `fixedDate` block as defined below. This cannot be specified if a `recurrence` block is specified.
+         */
         fixedDate?: outputs.monitoring.AutoscaleSettingProfileFixedDate;
         /**
-         * The name of the AutoScale Setting. Changing this forces a new resource to be created.
+         * Specifies the name of the profile.
          */
         name: string;
+        /**
+         * A `recurrence` block as defined below. This cannot be specified if a `fixedDate` block is specified.
+         */
         recurrence?: outputs.monitoring.AutoscaleSettingProfileRecurrence;
+        /**
+         * One or more (up to 10) `rule` blocks as defined below.
+         */
         rules?: outputs.monitoring.AutoscaleSettingProfileRule[];
     }
 
     export interface AutoscaleSettingProfileCapacity {
+        /**
+         * The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
+         */
         default: number;
+        /**
+         * The maximum number of instances for this resource. Valid values are between `0` and `1000`.
+         */
         maximum: number;
+        /**
+         * The minimum number of instances for this resource. Valid values are between `0` and `1000`.
+         */
         minimum: number;
     }
 
     export interface AutoscaleSettingProfileFixedDate {
+        /**
+         * Specifies the end date for the profile, formatted as an RFC3339 date string.
+         */
         end: string;
+        /**
+         * Specifies the start date for the profile, formatted as an RFC3339 date string.
+         */
         start: string;
+        /**
+         * The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+         */
         timezone?: string;
     }
 
     export interface AutoscaleSettingProfileRecurrence {
+        /**
+         * A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+         */
         days: string[];
+        /**
+         * A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
+         */
         hours: number;
+        /**
+         * A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+         */
         minutes: number;
+        /**
+         * The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+         */
         timezone?: string;
     }
 
     export interface AutoscaleSettingProfileRule {
+        /**
+         * A `metricTrigger` block as defined below.
+         */
         metricTrigger: outputs.monitoring.AutoscaleSettingProfileRuleMetricTrigger;
+        /**
+         * A `scaleAction` block as defined below.
+         */
         scaleAction: outputs.monitoring.AutoscaleSettingProfileRuleScaleAction;
     }
 
     export interface AutoscaleSettingProfileRuleMetricTrigger {
+        /**
+         * The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
+         */
         metricName: string;
+        /**
+         * The ID of the Resource which the Rule monitors.
+         */
         metricResourceId: string;
+        /**
+         * Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
+         */
         operator: string;
+        /**
+         * Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+         */
         statistic: string;
+        /**
+         * Specifies the threshold of the metric that triggers the scale action.
+         */
         threshold: number;
+        /**
+         * Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+         */
         timeAggregation: string;
+        /**
+         * Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
+         */
         timeGrain: string;
+        /**
+         * Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
+         */
         timeWindow: string;
     }
 
     export interface AutoscaleSettingProfileRuleScaleAction {
+        /**
+         * The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
+         */
         cooldown: string;
+        /**
+         * The scale direction. Possible values are `Increase` and `Decrease`.
+         */
         direction: string;
+        /**
+         * The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+         */
         type: string;
+        /**
+         * The number of instances involved in the scaling action. Defaults to `1`.
+         */
         value: number;
     }
 
     export interface DiagnosticSettingLog {
+        /**
+         * The name of a Diagnostic Log Category for this Resource.
+         */
         category: string;
+        /**
+         * Is this Diagnostic Log enabled? Defaults to `true`.
+         */
         enabled?: boolean;
+        /**
+         * A `retentionPolicy` block as defined below.
+         */
         retentionPolicy: outputs.monitoring.DiagnosticSettingLogRetentionPolicy;
     }
 
     export interface DiagnosticSettingLogRetentionPolicy {
+        /**
+         * The number of days for which this Retention Policy should apply.
+         */
         days?: number;
+        /**
+         * Is this Retention Policy enabled?
+         */
         enabled: boolean;
     }
 
     export interface DiagnosticSettingMetric {
+        /**
+         * The name of a Diagnostic Metric Category for this Resource.
+         */
         category: string;
+        /**
+         * Is this Diagnostic Metric enabled? Defaults to `true`.
+         */
         enabled?: boolean;
+        /**
+         * A `retentionPolicy` block as defined below.
+         */
         retentionPolicy: outputs.monitoring.DiagnosticSettingMetricRetentionPolicy;
     }
 
     export interface DiagnosticSettingMetricRetentionPolicy {
+        /**
+         * The number of days for which this Retention Policy should apply.
+         */
         days?: number;
+        /**
+         * Is this Retention Policy enabled?
+         */
         enabled: boolean;
     }
 
@@ -6133,30 +9671,66 @@ export namespace monitoring {
     }
 
     export interface LogProfileRetentionPolicy {
+        /**
+         * The number of days for the retention policy. Defaults to 0.
+         */
         days?: number;
+        /**
+         * A boolean value to indicate whether the retention policy is enabled.
+         */
         enabled: boolean;
     }
 
     export interface MetricAlertAction {
+        /**
+         * The ID of the Action Group can be sourced from the `azure.monitoring.ActionGroup` resource
+         */
         actionGroupId: string;
+        /**
+         * The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
+         */
         webhookProperties?: {[key: string]: string};
     }
 
     export interface MetricAlertCriteria {
+        /**
+         * The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
+         */
         aggregation: string;
+        /**
+         * One or more `dimension` blocks as defined below.
+         */
         dimensions?: outputs.monitoring.MetricAlertCriteriaDimension[];
+        /**
+         * One of the metric names to be monitored.
+         */
         metricName: string;
+        /**
+         * One of the metric namespaces to be monitored.
+         */
         metricNamespace: string;
+        /**
+         * The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
         operator: string;
+        /**
+         * The criteria threshold value that activates the alert.
+         */
         threshold: number;
     }
 
     export interface MetricAlertCriteriaDimension {
         /**
-         * The name of the Metric Alert. Changing this forces a new resource to be created.
+         * One of the dimension names.
          */
         name: string;
+        /**
+         * The dimension operator. Possible values are `Include` and `Exclude`.
+         */
         operator: string;
+        /**
+         * The list of dimension values.
+         */
         values: string[];
     }
 
@@ -6195,7 +9769,7 @@ export namespace monitoring {
          */
         operator: string;
         /**
-         * Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+         * The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
          */
         threshold: number;
     }
@@ -6229,6 +9803,9 @@ export namespace monitoring {
 
 export namespace mssql {
     export interface DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult {
+        /**
+         * A list representing a result of the baseline.
+         */
         results: string[];
     }
 
@@ -6301,84 +9878,174 @@ export namespace mysql {
 
 export namespace netapp {
     export interface AccountActiveDirectory {
+        /**
+         * A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
+         */
         dnsServers: string[];
+        /**
+         * The name of the Active Directory domain.
+         */
         domain: string;
+        /**
+         * The Organizational Unit (OU) within the Active Directory Domain.
+         */
         organizationalUnit?: string;
+        /**
+         * The password associated with the `username`.
+         */
         password: string;
+        /**
+         * The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
+         */
         smbServerName: string;
+        /**
+         * The Username of Active Directory Domain Administrator.
+         */
         username: string;
     }
 
     export interface VolumeExportPolicyRule {
+        /**
+         * A list of allowed clients IPv4 addresses.
+         */
         allowedClients: string[];
+        /**
+         * Is the CIFS protocol allowed?
+         */
         cifsEnabled: boolean;
+        /**
+         * Is the NFSv3 protocol allowed?
+         */
         nfsv3Enabled: boolean;
+        /**
+         * Is the NFSv4 protocol allowed?
+         */
         nfsv4Enabled: boolean;
+        /**
+         * A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
+         */
         protocolsEnabled: string;
+        /**
+         * The index number of the rule.
+         */
         ruleIndex: number;
+        /**
+         * Is the file system on unix read only?
+         */
         unixReadOnly?: boolean;
+        /**
+         * Is the file system on unix read and write?
+         */
         unixReadWrite?: boolean;
     }
 }
 
 export namespace network {
     export interface ApplicationGatewayAuthenticationCertificate {
+        /**
+         * The contents of the Authentication Certificate which should be used.
+         */
         data: string;
         /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * The name of the Authentication Certificate.
          */
         name: string;
     }
 
     export interface ApplicationGatewayAutoscaleConfiguration {
+        /**
+         * Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
+         */
         maxCapacity?: number;
+        /**
+         * Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
+         */
         minCapacity: number;
     }
 
     export interface ApplicationGatewayBackendAddressPool {
+        /**
+         * A list of FQDN's which should be part of the Backend Address Pool.
+         */
         fqdns?: string[];
         /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
+        /**
+         * A list of IP Addresses which should be part of the Backend Address Pool.
+         */
         ipAddresses?: string[];
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * The name of the Backend Address Pool.
          */
         name: string;
     }
 
     export interface ApplicationGatewayBackendHttpSetting {
+        /**
+         * The name of the affinity cookie.
+         */
         affinityCookieName?: string;
         /**
-         * One or more `authenticationCertificate` blocks as defined below.
+         * One or more `authenticationCertificate` blocks.
          */
         authenticationCertificates?: outputs.network.ApplicationGatewayBackendHttpSettingAuthenticationCertificate[];
+        /**
+         * A `connectionDraining` block as defined below.
+         */
         connectionDraining?: outputs.network.ApplicationGatewayBackendHttpSettingConnectionDraining;
+        /**
+         * Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
+         */
         cookieBasedAffinity: string;
+        /**
+         * Host header to be sent to the backend servers. Cannot be set if `pickHostNameFromBackendAddress` is set to `true`.
+         */
         hostName?: string;
         /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * The name of the Backend HTTP Settings Collection.
          */
         name: string;
+        /**
+         * The Path which should be used as a prefix for all HTTP requests.
+         */
         path?: string;
+        /**
+         * Whether host header should be picked from the host name of the backend server. Defaults to `false`.
+         */
         pickHostNameFromBackendAddress?: boolean;
+        /**
+         * The port used for this Frontend Port.
+         */
         port: number;
         /**
          * The ID of the associated Probe.
          */
         probeId: string;
+        /**
+         * The name of an associated HTTP Probe.
+         */
         probeName?: string;
+        /**
+         * The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+         */
         protocol: string;
+        /**
+         * The request timeout in seconds, which must be between 1 and 86400 seconds.
+         */
         requestTimeout?: number;
+        /**
+         * A list of `trustedRootCertificate` names.
+         */
         trustedRootCertificateNames?: string[];
     }
 
@@ -6388,22 +10055,34 @@ export namespace network {
          */
         id: string;
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * The name of the Authentication Certificate.
          */
         name: string;
     }
 
     export interface ApplicationGatewayBackendHttpSettingConnectionDraining {
+        /**
+         * The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
+         */
         drainTimeoutSec: number;
+        /**
+         * If connection draining is enabled or not.
+         */
         enabled: boolean;
     }
 
     export interface ApplicationGatewayCustomErrorConfiguration {
+        /**
+         * Error page URL of the application gateway customer error.
+         */
         customErrorPageUrl: string;
         /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
+        /**
+         * Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+         */
         statusCode: string;
     }
 
@@ -6413,12 +10092,24 @@ export namespace network {
          */
         id: string;
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * The name of the Frontend IP Configuration.
          */
         name: string;
+        /**
+         * The Private IP Address to use for the Application Gateway.
+         */
         privateIpAddress: string;
+        /**
+         * The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+         */
         privateIpAddressAllocation: string;
+        /**
+         * The ID of a Public IP Address which the Application Gateway should use.
+         */
         publicIpAddressId: string;
+        /**
+         * The ID of the Subnet which the Application Gateway should be connected to.
+         */
         subnetId: string;
     }
 
@@ -6428,9 +10119,12 @@ export namespace network {
          */
         id: string;
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * The name of the Frontend Port.
          */
         name: string;
+        /**
+         * The port used for this Frontend Port.
+         */
         port: number;
     }
 
@@ -6440,9 +10134,12 @@ export namespace network {
          */
         id: string;
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * The Name of this Gateway IP Configuration.
          */
         name: string;
+        /**
+         * The ID of a Subnet.
+         */
         subnetId: string;
     }
 
@@ -6455,66 +10152,129 @@ export namespace network {
          * The ID of the associated Frontend Configuration.
          */
         frontendIpConfigurationId: string;
+        /**
+         * The Name of the Frontend IP Configuration used for this HTTP Listener.
+         */
         frontendIpConfigurationName: string;
         /**
          * The ID of the associated Frontend Port.
          */
         frontendPortId: string;
+        /**
+         * The Name of the Frontend Port use for this HTTP Listener.
+         */
         frontendPortName: string;
+        /**
+         * The Hostname which should be used for this HTTP Listener.
+         */
         hostName?: string;
         /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * The Name of the HTTP Listener.
          */
         name: string;
+        /**
+         * The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+         */
         protocol: string;
+        /**
+         * Should Server Name Indication be Required? Defaults to `false`.
+         */
         requireSni?: boolean;
         /**
          * The ID of the associated SSL Certificate.
          */
         sslCertificateId: string;
+        /**
+         * The name of the associated SSL Certificate which should be used for this HTTP Listener.
+         */
         sslCertificateName?: string;
     }
 
     export interface ApplicationGatewayHttpListenerCustomErrorConfiguration {
+        /**
+         * Error page URL of the application gateway customer error.
+         */
         customErrorPageUrl: string;
         /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
+        /**
+         * Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+         */
         statusCode: string;
     }
 
     export interface ApplicationGatewayIdentity {
+        /**
+         * Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
+         */
         identityIds: string;
+        /**
+         * The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
+         */
         type?: string;
     }
 
     export interface ApplicationGatewayProbe {
+        /**
+         * The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
+         */
         host?: string;
         /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
+        /**
+         * The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+         */
         interval: number;
+        /**
+         * A `match` block as defined above.
+         */
         match: outputs.network.ApplicationGatewayProbeMatch;
+        /**
+         * The minimum number of servers that are always marked as healthy. Defaults to `0`.
+         */
         minimumServers?: number;
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * The Name of the Probe.
          */
         name: string;
+        /**
+         * The Path used for this Probe.
+         */
         path: string;
+        /**
+         * Whether the host header should be picked from the backend http settings. Defaults to `false`.
+         */
         pickHostNameFromBackendHttpSettings?: boolean;
+        /**
+         * The Protocol used for this Probe. Possible values are `Http` and `Https`.
+         */
         protocol: string;
+        /**
+         * The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+         */
         timeout: number;
+        /**
+         * The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+         */
         unhealthyThreshold: number;
     }
 
     export interface ApplicationGatewayProbeMatch {
+        /**
+         * A snippet from the Response Body which must be present in the Response..
+         */
         body?: string;
+        /**
+         * A list of allowed status codes for this Health Probe.
+         */
         statusCodes?: string[];
     }
 
@@ -6523,15 +10283,30 @@ export namespace network {
          * The ID of the Rewrite Rule Set
          */
         id: string;
+        /**
+         * Whether or not to include the path in the redirected Url. Defaults to `false`
+         */
         includePath?: boolean;
+        /**
+         * Whether or not to include the query string in the redirected Url. Default to `false`
+         */
         includeQueryString?: boolean;
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * Unique name of the redirect configuration block
          */
         name: string;
+        /**
+         * The type of redirect. Possible values are `Permanent`, `Temporary`, `Found` and `SeeOther`
+         */
         redirectType: string;
         targetListenerId: string;
+        /**
+         * The name of the listener to redirect to. Cannot be set if `targetUrl` is set.
+         */
         targetListenerName?: string;
+        /**
+         * The Url to redirect the request to. Cannot be set if `targetListenerName` is set.
+         */
         targetUrl?: string;
     }
 
@@ -6540,40 +10315,61 @@ export namespace network {
          * The ID of the associated Backend Address Pool.
          */
         backendAddressPoolId: string;
+        /**
+         * The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirectConfigurationName` is set.
+         */
         backendAddressPoolName?: string;
         /**
          * The ID of the associated Backend HTTP Settings Configuration.
          */
         backendHttpSettingsId: string;
+        /**
+         * The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirectConfigurationName` is set.
+         */
         backendHttpSettingsName?: string;
         /**
          * The ID of the associated HTTP Listener.
          */
         httpListenerId: string;
+        /**
+         * The Name of the HTTP Listener which should be used for this Routing Rule.
+         */
         httpListenerName: string;
         /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * The Name of this Request Routing Rule.
          */
         name: string;
         /**
          * The ID of the associated Redirect Configuration.
          */
         redirectConfigurationId: string;
+        /**
+         * The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backendAddressPoolName` or `backendHttpSettingsName` is set.
+         */
         redirectConfigurationName?: string;
         /**
          * The ID of the associated Rewrite Rule Set.
          */
         rewriteRuleSetId: string;
+        /**
+         * The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+         */
         rewriteRuleSetName?: string;
+        /**
+         * The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
+         */
         ruleType: string;
         /**
          * The ID of the associated URL Path Map.
          */
         urlPathMapId: string;
+        /**
+         * The Name of the URL Path Map which should be associated with this Routing Rule.
+         */
         urlPathMapName?: string;
     }
 
@@ -6583,60 +10379,114 @@ export namespace network {
          */
         id: string;
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * Unique name of the rewrite rule set block
          */
         name: string;
+        /**
+         * One or more `rewriteRule` blocks as defined above.
+         */
         rewriteRules?: outputs.network.ApplicationGatewayRewriteRuleSetRewriteRule[];
     }
 
     export interface ApplicationGatewayRewriteRuleSetRewriteRule {
+        /**
+         * One or more `condition` blocks as defined above.
+         */
         conditions?: outputs.network.ApplicationGatewayRewriteRuleSetRewriteRuleCondition[];
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * Unique name of the rewrite rule block
          */
         name: string;
+        /**
+         * One or more `requestHeaderConfiguration` blocks as defined above.
+         */
         requestHeaderConfigurations?: outputs.network.ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration[];
+        /**
+         * One or more `responseHeaderConfiguration` blocks as defined above.
+         */
         responseHeaderConfigurations?: outputs.network.ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration[];
+        /**
+         * Rule sequence of the rewrite rule that determines the order of execution in a set.
+         */
         ruleSequence: number;
     }
 
     export interface ApplicationGatewayRewriteRuleSetRewriteRuleCondition {
+        /**
+         * Perform a case in-sensitive comparison. Defaults to `false`
+         */
         ignoreCase?: boolean;
+        /**
+         * Negate the result of the condition evaluation. Defaults to `false`
+         */
         negate?: boolean;
+        /**
+         * The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
+         */
         pattern: string;
+        /**
+         * The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
+         */
         variable: string;
     }
 
     export interface ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration {
+        /**
+         * Header name of the header configuration.
+         */
         headerName: string;
+        /**
+         * Header value of the header configuration. To delete a request header set this property to an empty string.
+         */
         headerValue: string;
     }
 
     export interface ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration {
+        /**
+         * Header name of the header configuration.
+         */
         headerName: string;
+        /**
+         * Header value of the header configuration. To delete a response header set this property to an empty string.
+         */
         headerValue: string;
     }
 
     export interface ApplicationGatewaySku {
+        /**
+         * The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscaleConfiguration` is set.
+         */
         capacity?: number;
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
          */
         name: string;
+        /**
+         * The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
+         */
         tier: string;
     }
 
     export interface ApplicationGatewaySslCertificate {
+        /**
+         * PFX certificate. Required if `keyVaultSecretId` is not set.
+         */
         data?: string;
         /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
+        /**
+         * Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+         */
         keyVaultSecretId?: string;
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * The Name of the SSL certificate that is unique within this Application Gateway
          */
         name: string;
+        /**
+         * Password for the pfx file specified in data.  Required if `data` is set.
+         */
         password?: string;
         /**
          * The Public Certificate Data associated with the SSL Certificate.
@@ -6645,21 +10495,40 @@ export namespace network {
     }
 
     export interface ApplicationGatewaySslPolicy {
+        /**
+         * A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+         */
         cipherSuites?: string[];
+        /**
+         * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+         */
         disabledProtocols?: string[];
+        /**
+         * The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+         */
         minProtocolVersion?: string;
+        /**
+         * The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
+         * are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+         */
         policyName?: string;
+        /**
+         * The Type of the Policy. Possible values are `Predefined` and `Custom`.
+         */
         policyType?: string;
     }
 
     export interface ApplicationGatewayTrustedRootCertificate {
+        /**
+         * The contents of the Trusted Root Certificate which should be used.
+         */
         data: string;
         /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * The Name of the Trusted Root Certificate to use.
          */
         name: string;
     }
@@ -6669,29 +10538,41 @@ export namespace network {
          * The ID of the Default Backend Address Pool.
          */
         defaultBackendAddressPoolId: string;
+        /**
+         * The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `defaultRedirectConfigurationName` is set.
+         */
         defaultBackendAddressPoolName?: string;
         /**
          * The ID of the Default Backend HTTP Settings Collection.
          */
         defaultBackendHttpSettingsId: string;
+        /**
+         * The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `defaultRedirectConfigurationName` is set.
+         */
         defaultBackendHttpSettingsName?: string;
         /**
          * The ID of the Default Redirect Configuration.
          */
         defaultRedirectConfigurationId: string;
+        /**
+         * The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `defaultBackendAddressPoolName` or `defaultBackendHttpSettingsName` is set.
+         */
         defaultRedirectConfigurationName?: string;
         defaultRewriteRuleSetId: string;
+        /**
+         * The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
+         */
         defaultRewriteRuleSetName?: string;
         /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * The Name of the URL Path Map.
          */
         name: string;
         /**
-         * A list of `pathRule` blocks as defined above.
+         * One or more `pathRule` blocks as defined above.
          */
         pathRules: outputs.network.ApplicationGatewayUrlPathMapPathRule[];
     }
@@ -6701,57 +10582,117 @@ export namespace network {
          * The ID of the associated Backend Address Pool.
          */
         backendAddressPoolId: string;
+        /**
+         * The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirectConfigurationName` is set.
+         */
         backendAddressPoolName?: string;
         /**
          * The ID of the associated Backend HTTP Settings Configuration.
          */
         backendHttpSettingsId: string;
+        /**
+         * The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirectConfigurationName` is set.
+         */
         backendHttpSettingsName?: string;
         /**
          * The ID of the Rewrite Rule Set
          */
         id: string;
         /**
-         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         * The Name of the Path Rule.
          */
         name: string;
+        /**
+         * A list of Paths used in this Path Rule.
+         */
         paths: string[];
         /**
          * The ID of the associated Redirect Configuration.
          */
         redirectConfigurationId: string;
+        /**
+         * The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backendAddressPoolName` or `backendHttpSettingsName` is set.
+         */
         redirectConfigurationName?: string;
         /**
          * The ID of the associated Rewrite Rule Set.
          */
         rewriteRuleSetId: string;
+        /**
+         * The Name of the Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
+         */
         rewriteRuleSetName?: string;
     }
 
     export interface ApplicationGatewayWafConfiguration {
+        /**
+         * one or more `disabledRuleGroup` blocks as defined below.
+         */
         disabledRuleGroups?: outputs.network.ApplicationGatewayWafConfigurationDisabledRuleGroup[];
+        /**
+         * Is the Web Application Firewall be enabled?
+         */
         enabled: boolean;
+        /**
+         * one or more `exclusion` blocks as defined below.
+         */
         exclusions?: outputs.network.ApplicationGatewayWafConfigurationExclusion[];
+        /**
+         * The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
+         */
         fileUploadLimitMb?: number;
+        /**
+         * The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
+         */
         firewallMode: string;
+        /**
+         * The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
+         */
         maxRequestBodySizeKb?: number;
+        /**
+         * Is Request Body Inspection enabled?  Defaults to `true`.
+         */
         requestBodyCheck?: boolean;
+        /**
+         * The Type of the Rule Set used for this Web Application Firewall.
+         */
         ruleSetType?: string;
+        /**
+         * The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
+         */
         ruleSetVersion: string;
     }
 
     export interface ApplicationGatewayWafConfigurationDisabledRuleGroup {
+        /**
+         * The rule group where specific rules should be disabled. Accepted values are:  `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
+         */
         ruleGroupName: string;
+        /**
+         * A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
+         */
         rules?: number[];
     }
 
     export interface ApplicationGatewayWafConfigurationExclusion {
+        /**
+         * Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
+         */
         matchVariable: string;
+        /**
+         * String value which will be used for the filter operation. If empty will exclude all traffic on this `matchVariable`
+         */
         selector?: string;
+        /**
+         * Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `matchVariable`
+         */
         selectorMatchOperator?: string;
     }
 
     export interface ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
+        /**
+         * A list of Advertised Public Prefixes
+         */
         advertisedPublicPrefixes: string[];
     }
 
@@ -6767,58 +10708,121 @@ export namespace network {
     }
 
     export interface FirewallApplicationRuleCollectionRule {
+        /**
+         * Specifies a description for the rule.
+         */
         description?: string;
+        /**
+         * A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics` and `WindowsUpdate`
+         */
         fqdnTags?: string[];
         /**
-         * Specifies the name of the Application Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+         * Specifies the name of the rule.
          */
         name: string;
+        /**
+         * One or more `protocol` blocks as defined below.
+         */
         protocols?: outputs.network.FirewallApplicationRuleCollectionRuleProtocol[];
+        /**
+         * A list of source IP addresses and/or IP ranges.
+         */
         sourceAddresses: string[];
+        /**
+         * A list of FQDNs.
+         */
         targetFqdns?: string[];
     }
 
     export interface FirewallApplicationRuleCollectionRuleProtocol {
+        /**
+         * Specify a port for the connection.
+         */
         port?: number;
+        /**
+         * Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
+         */
         type: string;
     }
 
     export interface FirewallIpConfiguration {
         /**
-         * Specifies the name of the Firewall. Changing this forces a new resource to be created.
+         * Specifies the name of the IP Configuration.
          */
         name: string;
         /**
          * The private IP address of the Azure Firewall.
          */
         privateIpAddress: string;
+        /**
+         * The Resource ID of the Public IP Address associated with the firewall.
+         */
         publicIpAddressId: string;
+        /**
+         * Reference to the subnet associated with the IP Configuration.
+         */
         subnetId?: string;
     }
 
     export interface FirewallNatRuleCollectionRule {
+        /**
+         * Specifies a description for the rule.
+         */
         description?: string;
+        /**
+         * A list of destination IP addresses and/or IP ranges.
+         */
         destinationAddresses: string[];
+        /**
+         * A list of destination ports.
+         */
         destinationPorts: string[];
         /**
-         * Specifies the name of the NAT Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+         * Specifies the name of the rule.
          */
         name: string;
+        /**
+         * A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.  If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
+         */
         protocols: string[];
+        /**
+         * A list of source IP addresses and/or IP ranges.
+         */
         sourceAddresses: string[];
+        /**
+         * The address of the service behind the Firewall.
+         */
         translatedAddress: string;
+        /**
+         * The port of the service behind the Firewall.
+         */
         translatedPort: string;
     }
 
     export interface FirewallNetworkRuleCollectionRule {
+        /**
+         * Specifies a description for the rule.
+         */
         description?: string;
+        /**
+         * A list of destination IP addresses and/or IP ranges.
+         */
         destinationAddresses: string[];
+        /**
+         * A list of destination ports.
+         */
         destinationPorts: string[];
         /**
-         * Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+         * Specifies the name of the rule.
          */
         name: string;
+        /**
+         * A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
+         */
         protocols: string[];
+        /**
+         * A list of source IP addresses and/or IP ranges.
+         */
         sourceAddresses: string[];
     }
 
@@ -7196,42 +11200,93 @@ export namespace network {
     }
 
     export interface NetworkConnectionMonitorDestination {
+        /**
+         * IP address or domain name to monitor connectivity to.
+         */
         address?: string;
+        /**
+         * The port on the destination to monitor connectivity to.
+         */
         port: number;
+        /**
+         * The ID of the Virtual Machine to monitor connectivity to.
+         */
         virtualMachineId?: string;
     }
 
     export interface NetworkConnectionMonitorSource {
+        /**
+         * The port on the destination to monitor connectivity to.
+         */
         port?: number;
+        /**
+         * The ID of the Virtual Machine to monitor connectivity to.
+         */
         virtualMachineId: string;
     }
 
     export interface NetworkInterfaceIpConfiguration {
         /**
-         * The name of the Network Interface. Changing this forces a new resource to be created.
+         * A name used for this IP Configuration.
          */
         name: string;
+        /**
+         * Is this the Primary IP Configuration? Must be `true` for the first `ipConfiguration` when multiple are specified. Defaults to `false`.
+         */
         primary: boolean;
         /**
-         * The first private IP address of the network interface.
+         * The Static IP Address which should be used.
          */
         privateIpAddress: string;
+        /**
+         * The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+         */
         privateIpAddressAllocation: string;
+        /**
+         * The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
+         */
         privateIpAddressVersion?: string;
+        /**
+         * Reference to a Public IP Address to associate with this NIC
+         */
         publicIpAddressId?: string;
+        /**
+         * The ID of the Subnet where this Network Interface should be located in.
+         */
         subnetId?: string;
     }
 
     export interface NetworkPacketCaptureFilter {
+        /**
+         * The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+         */
         localIpAddress?: string;
+        /**
+         * The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+         */
         localPort?: string;
+        /**
+         * The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
+         */
         protocol: string;
+        /**
+         * The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
+         */
         remoteIpAddress?: string;
+        /**
+         * The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+         */
         remotePort?: string;
     }
 
     export interface NetworkPacketCaptureStorageLocation {
+        /**
+         * A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+         */
         filePath?: string;
+        /**
+         * The ID of the storage account to save the packet capture session
+         */
         storageAccountId?: string;
         /**
          * The URI of the storage path to save the packet capture.
@@ -7312,7 +11367,7 @@ export namespace network {
          */
         days: number;
         /**
-         * Boolean flag to enable/disable traffic analytics.
+         * Boolean flag to enable/disable retention.
          */
         enabled: boolean;
     }
@@ -7341,15 +11396,36 @@ export namespace network {
     }
 
     export interface PacketCaptureFilter {
+        /**
+         * The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+         */
         localIpAddress?: string;
+        /**
+         * The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+         */
         localPort?: string;
+        /**
+         * The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
+         */
         protocol: string;
+        /**
+         * The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
+         */
         remoteIpAddress?: string;
+        /**
+         * The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+         */
         remotePort?: string;
     }
 
     export interface PacketCaptureStorageLocation {
+        /**
+         * A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+         */
         filePath?: string;
+        /**
+         * The ID of the storage account to save the packet capture session
+         */
         storageAccountId?: string;
         /**
          * The URI of the storage path to save the packet capture.
@@ -7359,29 +11435,41 @@ export namespace network {
 
     export interface PointToPointVpnGatewayConnectionConfiguration {
         /**
-         * Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
+         * The Name which should be used for this Connection Configuration.
          */
         name: string;
+        /**
+         * A `vpnClientAddressPool` block as defined below.
+         */
         vpnClientAddressPool: outputs.network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool;
     }
 
     export interface PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool {
+        /**
+         * A list of CIDR Ranges which should be used as Address Prefixes.
+         */
         addressPrefixes: string[];
     }
 
     export interface ProfileContainerNetworkInterface {
+        /**
+         * One or more `ipConfiguration` blocks as documented below.
+         */
         ipConfigurations: outputs.network.ProfileContainerNetworkInterfaceIpConfiguration[];
         /**
-         * Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+         * Specifies the name of the IP Configuration.
          */
         name: string;
     }
 
     export interface ProfileContainerNetworkInterfaceIpConfiguration {
         /**
-         * Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+         * Specifies the name of the IP Configuration.
          */
         name: string;
+        /**
+         * Reference to the subnet associated with the IP Configuration.
+         */
         subnetId: string;
     }
 
@@ -7406,104 +11494,245 @@ export namespace network {
 
     export interface SubnetDelegation {
         /**
-         * The name of the subnet. Changing this forces a new resource to be created.
+         * A name for this delegation.
          */
         name: string;
+        /**
+         * A `serviceDelegation` block as defined below.
+         */
         serviceDelegation: outputs.network.SubnetDelegationServiceDelegation;
     }
 
     export interface SubnetDelegationServiceDelegation {
+        /**
+         * A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+         */
         actions?: string[];
         /**
-         * The name of the subnet. Changing this forces a new resource to be created.
+         * The name of service to delegate to. Possible values include `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.Netapp/volumes`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Web/hostingEnvironments` and `Microsoft.Web/serverFarms`.
          */
         name: string;
     }
 
     export interface TrafficManagerEndpointCustomHeader {
         /**
-         * The name of the Traffic Manager endpoint. Changing this forces a
-         * new resource to be created.
+         * The name of the custom header.
          */
         name: string;
+        /**
+         * The value of custom header. Applicable for Http and Https protocol.
+         */
         value: string;
     }
 
     export interface TrafficManagerEndpointSubnet {
+        /**
+         * The First IP....
+         */
         first: string;
+        /**
+         * The Last IP...
+         */
         last?: string;
+        /**
+         * The Scope...
+         */
         scope?: number;
     }
 
     export interface TrafficManagerProfileDnsConfig {
+        /**
+         * The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+         */
         relativeName: string;
+        /**
+         * The TTL value of the Profile used by Local DNS resolvers and clients.
+         */
         ttl: number;
     }
 
     export interface TrafficManagerProfileMonitorConfig {
+        /**
+         * A list of status code ranges in the format of `100-101`.
+         */
         expectedStatusCodeRanges?: string[];
+        /**
+         * The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
+         */
         intervalInSeconds?: number;
+        /**
+         * The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
+         */
         path?: string;
+        /**
+         * The port number used by the monitoring checks.
+         */
         port: number;
+        /**
+         * The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
+         */
         protocol: string;
+        /**
+         * The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `intervalInSeconds` is set to `30`, then `timeoutInSeconds` can be between `5` and `10`. The default value is `10`. If `intervalInSeconds` is set to `10`, then valid values are between `5` and `9` and `timeoutInSeconds` is required.
+         */
         timeoutInSeconds?: number;
+        /**
+         * The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
+         */
         toleratedNumberOfFailures?: number;
     }
 
     export interface VirtualHubRoute {
+        /**
+         * A list of Address Prefixes.
+         */
         addressPrefixes: string[];
+        /**
+         * The IP Address that Packets should be forwarded to as the Next Hop.
+         */
         nextHopIpAddress: string;
     }
 
     export interface VirtualNetworkDdosProtectionPlan {
+        /**
+         * Enable/disable DDoS Protection Plan on Virtual Network.
+         */
         enable: boolean;
         /**
-         * The ID of this subnet.
+         * The Resource ID of DDoS Protection Plan.
          */
         id: string;
     }
 
     export interface VirtualNetworkGatewayBgpSettings {
+        /**
+         * The Autonomous System Number (ASN) to use as part of the BGP.
+         */
         asn?: number;
+        /**
+         * The weight added to routes which have been learned
+         * through BGP peering. Valid values can be between `0` and `100`.
+         */
         peerWeight?: number;
+        /**
+         * The BGP peer IP address of the virtual network
+         * gateway. This address is needed to configure the created gateway as a BGP Peer
+         * on the on-premises VPN devices. The IP address must be part of the subnet of
+         * the Virtual Network Gateway. Changing this forces a new resource to be created.
+         */
         peeringAddress: string;
     }
 
     export interface VirtualNetworkGatewayConnectionIpsecPolicy {
+        /**
+         * The DH group used in IKE phase 1 for initial SA. Valid
+         * options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
+         * `ECP256`, `ECP384`, or `None`.
+         */
         dhGroup: string;
+        /**
+         * The IKE encryption algorithm. Valid
+         * options are `AES128`, `AES192`, `AES256`, `DES`, or `DES3`.
+         */
         ikeEncryption: string;
+        /**
+         * The IKE integrity algorithm. Valid
+         * options are `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+         */
         ikeIntegrity: string;
+        /**
+         * The IPSec encryption algorithm. Valid
+         * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
+         */
         ipsecEncryption: string;
+        /**
+         * The IPSec integrity algorithm. Valid
+         * options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
+         */
         ipsecIntegrity: string;
+        /**
+         * The DH group used in IKE phase 2 for new child SA.
+         * Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
+         * or `None`.
+         */
         pfsGroup: string;
+        /**
+         * The IPSec SA payload size in KB. Must be at least
+         * `1024` KB. Defaults to `102400000` KB.
+         */
         saDatasize: number;
+        /**
+         * The IPSec SA lifetime in seconds. Must be at least
+         * `300` seconds. Defaults to `27000` seconds.
+         */
         saLifetime: number;
     }
 
     export interface VirtualNetworkGatewayIpConfiguration {
         /**
-         * The name of the Virtual Network Gateway. Changing the name
-         * forces a new resource to be created.
+         * A user-defined name of the revoked certificate.
          */
         name?: string;
+        /**
+         * Defines how the private IP address
+         * of the gateways virtual interface is assigned. Valid options are `Static` or
+         * `Dynamic`. Defaults to `Dynamic`.
+         */
         privateIpAddressAllocation?: string;
+        /**
+         * The ID of the public ip address to associate
+         * with the Virtual Network Gateway.
+         */
         publicIpAddressId?: string;
+        /**
+         * The ID of the gateway subnet of a virtual network in
+         * which the virtual network gateway will be created. It is mandatory that
+         * the associated subnet is named `GatewaySubnet`. Therefore, each virtual
+         * network can contain at most a single Virtual Network Gateway.
+         */
         subnetId: string;
     }
 
     export interface VirtualNetworkGatewayVpnClientConfiguration {
+        /**
+         * The address space out of which ip addresses for
+         * vpn clients will be taken. You can provide more than one address space, e.g.
+         * in CIDR notation.
+         */
         addressSpaces: string[];
+        /**
+         * The address of the Radius server.
+         * This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+         */
         radiusServerAddress?: string;
+        /**
+         * The secret used by the Radius server.
+         * This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+         */
         radiusServerSecret?: string;
+        /**
+         * One or more `revokedCertificate` blocks which
+         * are defined below.
+         * This setting is incompatible with the use of `radiusServerAddress` and `radiusServerSecret`.
+         */
         revokedCertificates?: outputs.network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate[];
+        /**
+         * One or more `rootCertificate` blocks which are
+         * defined below. These root certificates are used to sign the client certificate
+         * used by the VPN clients to connect to the gateway.
+         * This setting is incompatible with the use of `radiusServerAddress` and `radiusServerSecret`.
+         */
         rootCertificates?: outputs.network.VirtualNetworkGatewayVpnClientConfigurationRootCertificate[];
+        /**
+         * List of the protocols supported by the vpn client.
+         * The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
+         */
         vpnClientProtocols?: string[];
     }
 
     export interface VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
         /**
-         * The name of the Virtual Network Gateway. Changing the name
-         * forces a new resource to be created.
+         * A user-defined name of the revoked certificate.
          */
         name: string;
         thumbprint: string;
@@ -7511,17 +11740,23 @@ export namespace network {
 
     export interface VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
         /**
-         * The name of the Virtual Network Gateway. Changing the name
-         * forces a new resource to be created.
+         * A user-defined name of the revoked certificate.
          */
         name: string;
+        /**
+         * The SHA1 thumbprint of the certificate to be
+         * revoked.
+         */
         publicCertData: string;
     }
 
     export interface VirtualNetworkSubnet {
+        /**
+         * The address prefix to use for the subnet.
+         */
         addressPrefix: string;
         /**
-         * The ID of this subnet.
+         * The Resource ID of DDoS Protection Plan.
          */
         id: string;
         /**
@@ -7529,74 +11764,138 @@ export namespace network {
          * new resource to be created.
          */
         name: string;
+        /**
+         * The Network Security Group to associate with
+         * the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+         */
         securityGroup?: string;
     }
 
     export interface VpnGatewayBgpSetting {
+        /**
+         * The ASN of the BGP Speaker. Changing this forces a new resource to be created.
+         */
         asn: number;
         /**
          * The Address which should be used for the BGP Peering.
          */
         bgpPeeringAddress: string;
+        /**
+         * The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
+         */
         peerWeight: number;
     }
 
     export interface VpnServerConfigurationAzureActiveDirectoryAuthentication {
+        /**
+         * The Audience which should be used for authentication.
+         */
         audience: string;
+        /**
+         * The Issuer which should be used for authentication.
+         */
         issuer: string;
+        /**
+         * The Tenant which should be used for authentication.
+         */
         tenant: string;
     }
 
     export interface VpnServerConfigurationClientRevokedCertificate {
         /**
-         * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+         * A name used to uniquely identify this certificate.
          */
         name: string;
+        /**
+         * The Thumbprint of the Certificate.
+         */
         thumbprint: string;
     }
 
     export interface VpnServerConfigurationClientRootCertificate {
         /**
-         * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+         * A name used to uniquely identify this certificate.
          */
         name: string;
+        /**
+         * The Public Key Data associated with the Certificate.
+         */
         publicCertData: string;
     }
 
     export interface VpnServerConfigurationIpsecPolicy {
+        /**
+         * The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
+         */
         dhGroup: string;
+        /**
+         * The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
+         */
         ikeEncryption: string;
+        /**
+         * The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values include `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
+         */
         ikeIntegrity: string;
+        /**
+         * The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
+         */
         ipsecEncryption: string;
+        /**
+         * The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
+         */
         ipsecIntegrity: string;
+        /**
+         * The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
+         */
         pfsGroup: string;
+        /**
+         * The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
+         */
         saDataSizeKilobytes: number;
+        /**
+         * The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
+         */
         saLifetimeSeconds: number;
     }
 
     export interface VpnServerConfigurationRadiusServer {
+        /**
+         * The Address of the Radius Server.
+         */
         address: string;
         /**
-         * One or more `clientRootCertificate` blocks as defined below.
+         * One or more `clientRootCertificate` blocks as defined above.
          */
         clientRootCertificates?: outputs.network.VpnServerConfigurationRadiusServerClientRootCertificate[];
+        /**
+         * The Secret used to communicate with the Radius Server.
+         */
         secret: string;
+        /**
+         * One or more `serverRootCertificate` blocks as defined below.
+         */
         serverRootCertificates: outputs.network.VpnServerConfigurationRadiusServerServerRootCertificate[];
     }
 
     export interface VpnServerConfigurationRadiusServerClientRootCertificate {
         /**
-         * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+         * A name used to uniquely identify this certificate.
          */
         name: string;
+        /**
+         * The Thumbprint of the Certificate.
+         */
         thumbprint: string;
     }
 
     export interface VpnServerConfigurationRadiusServerServerRootCertificate {
         /**
-         * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+         * A name used to uniquely identify this certificate.
          */
         name: string;
+        /**
+         * The Public Key Data associated with the Certificate.
+         */
         publicCertData: string;
     }
 }
@@ -7640,14 +11939,32 @@ export namespace notificationhub {
     }
 
     export interface HubApnsCredential {
+        /**
+         * The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
+         */
         applicationMode: string;
+        /**
+         * The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
+         */
         bundleId: string;
+        /**
+         * The Apple Push Notifications Service (APNS) Key.
+         */
         keyId: string;
+        /**
+         * The ID of the team the Token.
+         */
         teamId: string;
+        /**
+         * The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
+         */
         token: string;
     }
 
     export interface HubGcmCredential {
+        /**
+         * The API Key associated with the Google Cloud Messaging service.
+         */
         apiKey: string;
     }
 }
@@ -7655,8 +11972,17 @@ export namespace notificationhub {
 export namespace operationalinsights {
     export interface AnalyticsSolutionPlan {
         name: string;
+        /**
+         * The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
+         */
         product: string;
+        /**
+         * A promotion code to be used with the solution.
+         */
         promotionCode?: string;
+        /**
+         * The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
+         */
         publisher: string;
     }
 }
@@ -7671,6 +11997,9 @@ export namespace policy {
          * The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
          */
         tenantId: string;
+        /**
+         * The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
+         */
         type?: string;
     }
 }
@@ -7699,24 +12028,54 @@ export namespace postgresql {
 export namespace privatedns {
     export interface LinkServiceNatIpConfiguration {
         /**
-         * Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
+         * Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+         */
         primary: boolean;
+        /**
+         * Specifies a Private Static IP Address for this IP Configuration.
+         */
         privateIpAddress?: string;
+        /**
+         * The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
+         */
         privateIpAddressVersion?: string;
+        /**
+         * Specifies the ID of the Subnet which should be used for the Private Link Service.
+         */
         subnetId: string;
     }
 
     export interface MxRecordRecord {
+        /**
+         * The FQDN of the exchange to MX record points to.
+         */
         exchange: string;
+        /**
+         * The preference of the MX record.
+         */
         preference: number;
     }
 
     export interface SRVRecordRecord {
+        /**
+         * The Port the service is listening on.
+         */
         port: number;
+        /**
+         * The priority of the SRV record.
+         */
         priority: number;
+        /**
+         * The FQDN of the service.
+         */
         target: string;
+        /**
+         * The Weight of the SRV record.
+         */
         weight: number;
     }
 }
@@ -7838,19 +12197,49 @@ export namespace redis {
         aofBackupEnabled?: boolean;
         aofStorageConnectionString0?: string;
         aofStorageConnectionString1?: string;
+        /**
+         * If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+         */
         enableAuthentication?: boolean;
         /**
          * Returns the max number of connected clients at the same time.
          */
         maxclients: number;
+        /**
+         * Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
+         */
         maxfragmentationmemoryReserved: number;
+        /**
+         * The max-memory delta for this Redis instance. Defaults are shown below.
+         */
         maxmemoryDelta: number;
+        /**
+         * How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
+         */
         maxmemoryPolicy?: string;
+        /**
+         * Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
+         */
         maxmemoryReserved: number;
+        /**
+         * Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+         */
         notifyKeyspaceEvents?: string;
+        /**
+         * Is Backup Enabled? Only supported on Premium SKU's.
+         */
         rdbBackupEnabled?: boolean;
+        /**
+         * The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
+         */
         rdbBackupFrequency?: number;
+        /**
+         * The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
+         */
         rdbBackupMaxSnapshotCount?: number;
+        /**
+         * The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+         */
         rdbStorageConnectionString?: string;
     }
 
@@ -7912,9 +12301,21 @@ export namespace redis {
 
 export namespace role {
     export interface DefinitionPermission {
+        /**
+         * One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+         */
         actions?: string[];
+        /**
+         * One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+         */
         dataActions?: string[];
+        /**
+         * One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+         */
         notActions?: string[];
+        /**
+         * One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+         */
         notDataActions?: string[];
     }
 
@@ -7978,96 +12379,213 @@ export namespace servicebus {
 
 export namespace servicefabric {
     export interface ClusterAzureActiveDirectory {
+        /**
+         * The Azure Active Directory Client ID which should be used for the Client Application.
+         */
         clientApplicationId: string;
+        /**
+         * The Azure Active Directory Cluster Application ID.
+         */
         clusterApplicationId: string;
+        /**
+         * The Azure Active Directory Tenant ID.
+         */
         tenantId: string;
     }
 
     export interface ClusterCertificate {
+        /**
+         * The Thumbprint of the Certificate.
+         */
         thumbprint: string;
+        /**
+         * The Secondary Thumbprint of the Certificate.
+         */
         thumbprintSecondary?: string;
+        /**
+         * The X509 Store where the Certificate Exists, such as `My`.
+         */
         x509StoreName: string;
     }
 
     export interface ClusterCertificateCommonNames {
+        /**
+         * A `commonNames` block as defined below.
+         */
         commonNames: outputs.servicefabric.ClusterCertificateCommonNamesCommonName[];
+        /**
+         * The X509 Store where the Certificate Exists, such as `My`.
+         */
         x509StoreName: string;
     }
 
     export interface ClusterCertificateCommonNamesCommonName {
+        /**
+         * The common or subject name of the certificate.
+         */
         certificateCommonName: string;
+        /**
+         * The Issuer Thumbprint of the Certificate.
+         */
         certificateIssuerThumbprint?: string;
     }
 
     export interface ClusterClientCertificateThumbprint {
+        /**
+         * Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
+         */
         isAdmin: boolean;
+        /**
+         * The Thumbprint associated with the Client Certificate.
+         */
         thumbprint: string;
     }
 
     export interface ClusterDiagnosticsConfig {
+        /**
+         * The Blob Endpoint of the Storage Account.
+         */
         blobEndpoint: string;
+        /**
+         * The protected diagnostics storage key name, such as `StorageAccountKey1`.
+         */
         protectedAccountKeyName: string;
+        /**
+         * The Queue Endpoint of the Storage Account.
+         */
         queueEndpoint: string;
+        /**
+         * The name of the Storage Account where the Diagnostics should be sent to.
+         */
         storageAccountName: string;
+        /**
+         * The Table Endpoint of the Storage Account.
+         */
         tableEndpoint: string;
     }
 
     export interface ClusterFabricSetting {
         /**
-         * The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+         * The name of the Fabric Setting, such as `Security` or `Federation`.
          */
         name: string;
+        /**
+         * A map containing settings for the specified Fabric Setting.
+         */
         parameters?: {[key: string]: string};
     }
 
     export interface ClusterNodeType {
+        /**
+         * A `applicationPorts` block as defined below.
+         */
         applicationPorts: outputs.servicefabric.ClusterNodeTypeApplicationPorts;
+        /**
+         * The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
+         */
         capacities?: {[key: string]: string};
+        /**
+         * The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+         */
         clientEndpointPort: number;
+        /**
+         * The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+         */
         durabilityLevel?: string;
+        /**
+         * A `ephemeralPorts` block as defined below.
+         */
         ephemeralPorts: outputs.servicefabric.ClusterNodeTypeEphemeralPorts;
+        /**
+         * The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+         */
         httpEndpointPort: number;
+        /**
+         * The number of nodes for this Node Type.
+         */
         instanceCount: number;
+        /**
+         * Is this the Primary Node Type? Changing this forces a new resource to be created.
+         */
         isPrimary: boolean;
         /**
-         * The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+         * The name of the Node Type. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
+         */
         placementProperties?: {[key: string]: string};
+        /**
+         * The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+         */
         reverseProxyEndpointPort?: number;
     }
 
     export interface ClusterNodeTypeApplicationPorts {
+        /**
+         * The end of the Application Port Range on this Node Type.
+         */
         endPort: number;
+        /**
+         * The start of the Application Port Range on this Node Type.
+         */
         startPort: number;
     }
 
     export interface ClusterNodeTypeEphemeralPorts {
+        /**
+         * The end of the Ephemeral Port Range on this Node Type.
+         */
         endPort: number;
+        /**
+         * The start of the Ephemeral Port Range on this Node Type.
+         */
         startPort: number;
     }
 
     export interface ClusterReverseProxyCertificate {
+        /**
+         * The Thumbprint of the Certificate.
+         */
         thumbprint: string;
+        /**
+         * The Secondary Thumbprint of the Certificate.
+         */
         thumbprintSecondary?: string;
+        /**
+         * The X509 Store where the Certificate Exists, such as `My`.
+         */
         x509StoreName: string;
     }
 }
 
 export namespace signalr {
     export interface ServiceCor {
+        /**
+         * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+         */
         allowedOrigins: string[];
     }
 
     export interface ServiceFeature {
+        /**
+         * The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
+         */
         flag: string;
+        /**
+         * A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
+         */
         value: string;
     }
 
     export interface ServiceSku {
+        /**
+         * Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+         */
         capacity: number;
         /**
-         * The name of the SignalR service. Changing this forces a new resource to be created.
+         * Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
          */
         name: string;
     }
@@ -8075,12 +12593,24 @@ export namespace signalr {
 
 export namespace siterecovery {
     export interface ReplicatedVMManagedDisk {
+        /**
+         * Id of disk that should be replicated.
+         */
         diskId: string;
+        /**
+         * Storage account that should be used for caching.
+         */
         stagingStorageAccountId: string;
+        /**
+         * What type should the disk be when a failover is done.
+         */
         targetDiskType: string;
+        /**
+         * What type should the disk be that holds the replication data.
+         */
         targetReplicaDiskType: string;
         /**
-         * Id of resource group where the VM should be created when a failover is done.
+         * Resource group disk should belong to when a failover is done.
          */
         targetResourceGroupId: string;
     }
@@ -8088,14 +12618,20 @@ export namespace siterecovery {
 
 export namespace sql {
     export interface DatabaseExtendedAuditingPolicy {
+        /**
+         * Specifies the number of days to retain logs for in the storage account.
+         */
         retentionInDays?: number;
         /**
-         * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+         * Specifies the access key to use for the auditing storage account.
          */
         storageAccountAccessKey: string;
+        /**
+         * Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+         */
         storageAccountAccessKeyIsSecondary?: boolean;
         /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
          */
         storageEndpoint: string;
     }
@@ -8187,7 +12723,7 @@ export namespace sql {
          */
         graceMinutes?: number;
         /**
-         * Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
+         * the failover mode. Possible values are `Manual`, `Automatic`
          */
         mode: string;
     }
@@ -8242,33 +12778,64 @@ export namespace sql {
          * The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
          */
         tenantId: string;
+        /**
+         * Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
+         */
         type: string;
     }
 }
 
 export namespace storage {
     export interface AccountBlobProperties {
+        /**
+         * A `corsRule` block as defined below.
+         */
         corsRules?: outputs.storage.AccountBlobPropertiesCorsRule[];
+        /**
+         * A `deleteRetentionPolicy` block as defined below.
+         */
         deleteRetentionPolicy?: outputs.storage.AccountBlobPropertiesDeleteRetentionPolicy;
     }
 
     export interface AccountBlobPropertiesCorsRule {
+        /**
+         * A list of headers that are allowed to be a part of the cross-origin request.
+         */
         allowedHeaders: string[];
+        /**
+         * A list of http headers that are allowed to be executed by the origin. Valid options are
+         * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+         */
         allowedMethods: string[];
+        /**
+         * A list of origin domains that will be allowed by CORS.
+         */
         allowedOrigins: string[];
+        /**
+         * A list of response headers that are exposed to CORS clients.
+         */
         exposedHeaders: string[];
+        /**
+         * The number of seconds the client should cache a preflight response.
+         */
         maxAgeInSeconds: number;
     }
 
     export interface AccountBlobPropertiesDeleteRetentionPolicy {
+        /**
+         * Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+         */
         days?: number;
     }
 
     export interface AccountCustomDomain {
         /**
-         * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+         * The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
          */
         name: string;
+        /**
+         * Should the Custom Domain Name be validated by using indirect CNAME validation?
+         */
         useSubdomain?: boolean;
     }
 
@@ -8281,64 +12848,171 @@ export namespace storage {
          * The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
          */
         tenantId: string;
+        /**
+         * Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+         */
         type: string;
     }
 
     export interface AccountNetworkRules {
+        /**
+         * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
+         * any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+         */
         bypasses: string[];
+        /**
+         * Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
+         */
         defaultAction: string;
+        /**
+         * List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+         */
         ipRules: string[];
+        /**
+         * A list of resource ids for subnets.
+         */
         virtualNetworkSubnetIds: string[];
     }
 
     export interface AccountQueueProperties {
+        /**
+         * A `corsRule` block as defined above.
+         */
         corsRules?: outputs.storage.AccountQueuePropertiesCorsRule[];
+        /**
+         * A `hourMetrics` block as defined below.
+         */
         hourMetrics?: outputs.storage.AccountQueuePropertiesHourMetrics;
+        /**
+         * A `logging` block as defined below.
+         */
         logging?: outputs.storage.AccountQueuePropertiesLogging;
+        /**
+         * A `minuteMetrics` block as defined below.
+         */
         minuteMetrics?: outputs.storage.AccountQueuePropertiesMinuteMetrics;
     }
 
     export interface AccountQueuePropertiesCorsRule {
+        /**
+         * A list of headers that are allowed to be a part of the cross-origin request.
+         */
         allowedHeaders: string[];
+        /**
+         * A list of http headers that are allowed to be executed by the origin. Valid options are
+         * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+         */
         allowedMethods: string[];
+        /**
+         * A list of origin domains that will be allowed by CORS.
+         */
         allowedOrigins: string[];
+        /**
+         * A list of response headers that are exposed to CORS clients.
+         */
         exposedHeaders: string[];
+        /**
+         * The number of seconds the client should cache a preflight response.
+         */
         maxAgeInSeconds: number;
     }
 
     export interface AccountQueuePropertiesHourMetrics {
+        /**
+         * Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+         */
         enabled: boolean;
+        /**
+         * Indicates whether metrics should generate summary statistics for called API operations.
+         */
         includeApis?: boolean;
+        /**
+         * Specifies the number of days that logs will be retained. Changing this forces a new resource.
+         */
         retentionPolicyDays?: number;
+        /**
+         * The version of storage analytics to configure. Changing this forces a new resource.
+         */
         version: string;
     }
 
     export interface AccountQueuePropertiesLogging {
+        /**
+         * Indicates whether all delete requests should be logged. Changing this forces a new resource.
+         */
         delete: boolean;
+        /**
+         * Indicates whether all read requests should be logged. Changing this forces a new resource.
+         */
         read: boolean;
+        /**
+         * Specifies the number of days that logs will be retained. Changing this forces a new resource.
+         */
         retentionPolicyDays?: number;
+        /**
+         * The version of storage analytics to configure. Changing this forces a new resource.
+         */
         version: string;
+        /**
+         * Indicates whether all write requests should be logged. Changing this forces a new resource.
+         */
         write: boolean;
     }
 
     export interface AccountQueuePropertiesMinuteMetrics {
+        /**
+         * Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+         */
         enabled: boolean;
+        /**
+         * Indicates whether metrics should generate summary statistics for called API operations.
+         */
         includeApis?: boolean;
+        /**
+         * Specifies the number of days that logs will be retained. Changing this forces a new resource.
+         */
         retentionPolicyDays?: number;
+        /**
+         * The version of storage analytics to configure. Changing this forces a new resource.
+         */
         version: string;
     }
 
     export interface AccountStaticWebsite {
+        /**
+         * The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
+         */
         error404Document?: string;
+        /**
+         * The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
+         */
         indexDocument?: string;
     }
 
     export interface GetAccountBlobContainerSASPermissions {
+        /**
+         * Should Add permissions be enabled for this SAS?
+         */
         add: boolean;
+        /**
+         * Should Create permissions be enabled for this SAS?
+         */
         create: boolean;
+        /**
+         * Should Delete permissions be enabled for this SAS?
+         */
         delete: boolean;
+        /**
+         * Should List permissions be enabled for this SAS?
+         */
         list: boolean;
+        /**
+         * Should Read permissions be enabled for this SAS?
+         */
         read: boolean;
+        /**
+         * Should Write permissions be enabled for this SAS?
+         */
         write: boolean;
     }
 
@@ -8350,26 +13024,71 @@ export namespace storage {
     }
 
     export interface GetAccountSASPermissions {
+        /**
+         * Should Add permissions be enabled for this SAS?
+         */
         add: boolean;
+        /**
+         * Should Create permissions be enabled for this SAS?
+         */
         create: boolean;
+        /**
+         * Should Delete permissions be enabled for this SAS?
+         */
         delete: boolean;
+        /**
+         * Should List permissions be enabled for this SAS?
+         */
         list: boolean;
+        /**
+         * Should Process permissions be enabled for this SAS?
+         */
         process: boolean;
+        /**
+         * Should Read permissions be enabled for this SAS?
+         */
         read: boolean;
+        /**
+         * Should Update permissions be enabled for this SAS?
+         */
         update: boolean;
+        /**
+         * Should Write permissions be enabled for this SAS?
+         */
         write: boolean;
     }
 
     export interface GetAccountSASResourceTypes {
+        /**
+         * Should permission be granted to the container?
+         */
         container: boolean;
+        /**
+         * Should permission be granted only to a specific object?
+         */
         object: boolean;
+        /**
+         * Should permission be granted to the entire service?
+         */
         service: boolean;
     }
 
     export interface GetAccountSASServices {
+        /**
+         * Should permission be granted to `blob` services within this storage account?
+         */
         blob: boolean;
+        /**
+         * Should permission be granted to `file` services within this storage account?
+         */
         file: boolean;
+        /**
+         * Should permission be granted to `queue` services within this storage account?
+         */
         queue: boolean;
+        /**
+         * Should permission be granted to `table` services within this storage account?
+         */
         table: boolean;
     }
 
@@ -8500,92 +13219,206 @@ export namespace storage {
     }
 
     export interface ShareAcl {
+        /**
+         * An `accessPolicy` block as defined below.
+         */
         accessPolicies?: outputs.storage.ShareAclAccessPolicy[];
         /**
-         * The ID of the File Share.
+         * The ID which should be used for this Shared Identifier.
          */
         id: string;
     }
 
     export interface ShareAclAccessPolicy {
+        /**
+         * The ISO8061 UTC time at which this Access Policy should be valid until.
+         */
         expiry: string;
+        /**
+         * The permissions which should associated with this Shared Identifier.
+         */
         permissions: string;
+        /**
+         * The ISO8061 UTC time at which this Access Policy should be valid from.
+         */
         start: string;
     }
 
     export interface TableAcl {
+        /**
+         * An `accessPolicy` block as defined below.
+         */
         accessPolicies?: outputs.storage.TableAclAccessPolicy[];
         /**
-         * The ID of the Table within the Storage Account.
+         * The ID which should be used for this Shared Identifier.
          */
         id: string;
     }
 
     export interface TableAclAccessPolicy {
+        /**
+         * The ISO8061 UTC time at which this Access Policy should be valid until.
+         */
         expiry: string;
+        /**
+         * The permissions which should associated with this Shared Identifier.
+         */
         permissions: string;
+        /**
+         * The ISO8061 UTC time at which this Access Policy should be valid from.
+         */
         start: string;
     }
 }
 
 export namespace streamanalytics {
     export interface FunctionJavaScriptUDFInput {
+        /**
+         * The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+         */
         type: string;
     }
 
     export interface FunctionJavaScriptUDFOutput {
+        /**
+         * The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+         */
         type: string;
     }
 
     export interface OutputBlobSerialization {
+        /**
+         * The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+         */
         encoding?: string;
+        /**
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+         */
         fieldDelimiter?: string;
+        /**
+         * Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
+         */
         format?: string;
+        /**
+         * The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+         */
         type: string;
     }
 
     export interface OutputEventHubSerialization {
+        /**
+         * The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+         */
         encoding?: string;
+        /**
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+         */
         fieldDelimiter?: string;
+        /**
+         * Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
+         */
         format?: string;
+        /**
+         * The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+         */
         type: string;
     }
 
     export interface OutputServiceBusQueueSerialization {
+        /**
+         * The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+         */
         encoding?: string;
+        /**
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+         */
         fieldDelimiter?: string;
+        /**
+         * Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
+         */
         format?: string;
+        /**
+         * The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+         */
         type: string;
     }
 
     export interface OutputServicebusTopicSerialization {
+        /**
+         * The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+         */
         encoding?: string;
+        /**
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+         */
         fieldDelimiter?: string;
+        /**
+         * Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
+         */
         format?: string;
+        /**
+         * The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
+         */
         type: string;
     }
 
     export interface ReferenceInputBlobSerialization {
+        /**
+         * The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+         */
         encoding?: string;
+        /**
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+         */
         fieldDelimiter?: string;
+        /**
+         * The serialization format used for the reference data. Possible values are `Avro`, `Csv` and `Json`.
+         */
         type: string;
     }
 
     export interface StreamInputBlobSerialization {
+        /**
+         * The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+         */
         encoding?: string;
+        /**
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+         */
         fieldDelimiter?: string;
+        /**
+         * The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
+         */
         type: string;
     }
 
     export interface StreamInputEventHubSerialization {
+        /**
+         * The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+         */
         encoding?: string;
+        /**
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+         */
         fieldDelimiter?: string;
+        /**
+         * The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
+         */
         type: string;
     }
 
     export interface StreamInputIotHubSerialization {
+        /**
+         * The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+         */
         encoding?: string;
+        /**
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
+         */
         fieldDelimiter?: string;
+        /**
+         * The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
+         */
         type: string;
     }
 }
@@ -8593,61 +13426,135 @@ export namespace streamanalytics {
 export namespace trafficmanager {
     export interface EndpointCustomHeader {
         /**
-         * The name of the Traffic Manager endpoint. Changing this forces a
-         * new resource to be created.
+         * The name of the custom header.
          */
         name: string;
+        /**
+         * The value of custom header. Applicable for Http and Https protocol.
+         */
         value: string;
     }
 
     export interface EndpointSubnet {
+        /**
+         * The First IP....
+         */
         first: string;
+        /**
+         * The Last IP...
+         */
         last?: string;
+        /**
+         * The Scope...
+         */
         scope?: number;
     }
 
     export interface ProfileDnsConfig {
+        /**
+         * The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+         */
         relativeName: string;
+        /**
+         * The TTL value of the Profile used by Local DNS resolvers and clients.
+         */
         ttl: number;
     }
 
     export interface ProfileMonitorConfig {
+        /**
+         * A list of status code ranges in the format of `100-101`.
+         */
         expectedStatusCodeRanges?: string[];
+        /**
+         * The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
+         */
         intervalInSeconds?: number;
+        /**
+         * The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
+         */
         path?: string;
+        /**
+         * The port number used by the monitoring checks.
+         */
         port: number;
+        /**
+         * The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
+         */
         protocol: string;
+        /**
+         * The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `intervalInSeconds` is set to `30`, then `timeoutInSeconds` can be between `5` and `10`. The default value is `10`. If `intervalInSeconds` is set to `10`, then valid values are between `5` and `9` and `timeoutInSeconds` is required.
+         */
         timeoutInSeconds?: number;
+        /**
+         * The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
+         */
         toleratedNumberOfFailures?: number;
     }
 }
 
 export namespace waf {
     export interface PolicyCustomRule {
+        /**
+         * Type of Actions
+         */
         action: string;
+        /**
+         * One or more `matchCondition` block defined below.
+         */
         matchConditions: outputs.waf.PolicyCustomRuleMatchCondition[];
         /**
          * The name of the policy. Changing this forces a new resource to be created.
          */
         name?: string;
+        /**
+         * Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
+         */
         priority: number;
+        /**
+         * Describes the type of rule
+         */
         ruleType: string;
     }
 
     export interface PolicyCustomRuleMatchCondition {
+        /**
+         * Match value
+         */
         matchValues: string[];
+        /**
+         * One or more `matchVariable` block defined below.
+         */
         matchVariables: outputs.waf.PolicyCustomRuleMatchConditionMatchVariable[];
+        /**
+         * Describes if this is negate condition or not
+         */
         negationCondition?: boolean;
+        /**
+         * Describes operator to be matched
+         */
         operator: string;
     }
 
     export interface PolicyCustomRuleMatchConditionMatchVariable {
+        /**
+         * Describes field of the matchVariable collection
+         */
         selector?: string;
+        /**
+         * The name of the Match Variable
+         */
         variableName: string;
     }
 
     export interface PolicyPolicySettings {
+        /**
+         * Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
+         */
         enabled?: boolean;
+        /**
+         * Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
+         */
         mode?: string;
     }
 }

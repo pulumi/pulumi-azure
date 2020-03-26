@@ -181,4 +181,3 @@ type DatabasePrincipalArgs struct {
 func (DatabasePrincipalArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*databasePrincipalArgs)(nil)).Elem()
 }
-

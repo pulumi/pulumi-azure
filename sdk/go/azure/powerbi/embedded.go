@@ -135,4 +135,3 @@ type EmbeddedArgs struct {
 func (EmbeddedArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*embeddedArgs)(nil)).Elem()
 }
-

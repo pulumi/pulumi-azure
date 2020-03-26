@@ -30,21 +30,19 @@ type LookupDpsSharedAccessPolicyArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getDpsSharedAccessPolicy.
 type LookupDpsSharedAccessPolicyResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id            string `pulumi:"id"`
 	IothubDpsName string `pulumi:"iothubDpsName"`
-	Name string `pulumi:"name"`
+	Name          string `pulumi:"name"`
 	// The primary connection string of the Shared Access Policy.
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
 	// The primary key used to create the authentication token.
-	PrimaryKey string `pulumi:"primaryKey"`
+	PrimaryKey        string `pulumi:"primaryKey"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The secondary connection string of the Shared Access Policy.
 	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
 	// The secondary key used to create the authentication token.
 	SecondaryKey string `pulumi:"secondaryKey"`
 }
-

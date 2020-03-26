@@ -12,9 +12,11 @@ import (
 )
 
 type BastionHostIpConfiguration struct {
-	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
+	// The name of the IP configuration.
 	Name string `pulumi:"name"`
+	// Reference to a Public IP Address to associate with this Bastion Host.
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
+	// Reference to a subnet in which this Bastion Host has been created.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -26,9 +28,11 @@ type BastionHostIpConfigurationInput interface {
 }
 
 type BastionHostIpConfigurationArgs struct {
-	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
+	// The name of the IP configuration.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Reference to a Public IP Address to associate with this Bastion Host.
 	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
+	// Reference to a subnet in which this Bastion Host has been created.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -61,7 +65,8 @@ type BastionHostIpConfigurationPtrInput interface {
 
 type bastionHostIpConfigurationPtrType BastionHostIpConfigurationArgs
 
-func BastionHostIpConfigurationPtr(v *BastionHostIpConfigurationArgs) BastionHostIpConfigurationPtrInput {	return (*bastionHostIpConfigurationPtrType)(v)
+func BastionHostIpConfigurationPtr(v *BastionHostIpConfigurationArgs) BastionHostIpConfigurationPtrInput {
+	return (*bastionHostIpConfigurationPtrType)(v)
 }
 
 func (*bastionHostIpConfigurationPtrType) ElementType() reflect.Type {
@@ -76,7 +81,7 @@ func (i *bastionHostIpConfigurationPtrType) ToBastionHostIpConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BastionHostIpConfigurationPtrOutput)
 }
 
-type BastionHostIpConfigurationOutput struct { *pulumi.OutputState }
+type BastionHostIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BastionHostIpConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BastionHostIpConfiguration)(nil)).Elem()
@@ -99,20 +104,23 @@ func (o BastionHostIpConfigurationOutput) ToBastionHostIpConfigurationPtrOutputW
 		return &v
 	}).(BastionHostIpConfigurationPtrOutput)
 }
-// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
+
+// The name of the IP configuration.
 func (o BastionHostIpConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v BastionHostIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BastionHostIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Reference to a Public IP Address to associate with this Bastion Host.
 func (o BastionHostIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
-	return o.ApplyT(func (v BastionHostIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BastionHostIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
 }
 
+// Reference to a subnet in which this Bastion Host has been created.
 func (o BastionHostIpConfigurationOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v BastionHostIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BastionHostIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-type BastionHostIpConfigurationPtrOutput struct { *pulumi.OutputState}
+type BastionHostIpConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (BastionHostIpConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BastionHostIpConfiguration)(nil)).Elem()
@@ -127,20 +135,22 @@ func (o BastionHostIpConfigurationPtrOutput) ToBastionHostIpConfigurationPtrOutp
 }
 
 func (o BastionHostIpConfigurationPtrOutput) Elem() BastionHostIpConfigurationOutput {
-	return o.ApplyT(func (v *BastionHostIpConfiguration) BastionHostIpConfiguration { return *v }).(BastionHostIpConfigurationOutput)
+	return o.ApplyT(func(v *BastionHostIpConfiguration) BastionHostIpConfiguration { return *v }).(BastionHostIpConfigurationOutput)
 }
 
-// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
+// The name of the IP configuration.
 func (o BastionHostIpConfigurationPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v BastionHostIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BastionHostIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Reference to a Public IP Address to associate with this Bastion Host.
 func (o BastionHostIpConfigurationPtrOutput) PublicIpAddressId() pulumi.StringOutput {
-	return o.ApplyT(func (v BastionHostIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BastionHostIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
 }
 
+// Reference to a subnet in which this Bastion Host has been created.
 func (o BastionHostIpConfigurationPtrOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v BastionHostIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BastionHostIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
 type DiskEncryptionSetIdentity struct {
@@ -148,6 +158,7 @@ type DiskEncryptionSetIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The ID of the Tenant the Service Principal is assigned in.
 	TenantId *string `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -163,6 +174,7 @@ type DiskEncryptionSetIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The ID of the Tenant the Service Principal is assigned in.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -195,7 +207,8 @@ type DiskEncryptionSetIdentityPtrInput interface {
 
 type diskEncryptionSetIdentityPtrType DiskEncryptionSetIdentityArgs
 
-func DiskEncryptionSetIdentityPtr(v *DiskEncryptionSetIdentityArgs) DiskEncryptionSetIdentityPtrInput {	return (*diskEncryptionSetIdentityPtrType)(v)
+func DiskEncryptionSetIdentityPtr(v *DiskEncryptionSetIdentityArgs) DiskEncryptionSetIdentityPtrInput {
+	return (*diskEncryptionSetIdentityPtrType)(v)
 }
 
 func (*diskEncryptionSetIdentityPtrType) ElementType() reflect.Type {
@@ -210,7 +223,7 @@ func (i *diskEncryptionSetIdentityPtrType) ToDiskEncryptionSetIdentityPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetIdentityPtrOutput)
 }
 
-type DiskEncryptionSetIdentityOutput struct { *pulumi.OutputState }
+type DiskEncryptionSetIdentityOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionSetIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiskEncryptionSetIdentity)(nil)).Elem()
@@ -233,21 +246,23 @@ func (o DiskEncryptionSetIdentityOutput) ToDiskEncryptionSetIdentityPtrOutputWit
 		return &v
 	}).(DiskEncryptionSetIdentityPtrOutput)
 }
+
 // The (Client) ID of the Service Principal.
 func (o DiskEncryptionSetIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DiskEncryptionSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DiskEncryptionSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Tenant the Service Principal is assigned in.
 func (o DiskEncryptionSetIdentityOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DiskEncryptionSetIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DiskEncryptionSetIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
+// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
 func (o DiskEncryptionSetIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v DiskEncryptionSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DiskEncryptionSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type DiskEncryptionSetIdentityPtrOutput struct { *pulumi.OutputState}
+type DiskEncryptionSetIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionSetIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DiskEncryptionSetIdentity)(nil)).Elem()
@@ -262,21 +277,22 @@ func (o DiskEncryptionSetIdentityPtrOutput) ToDiskEncryptionSetIdentityPtrOutput
 }
 
 func (o DiskEncryptionSetIdentityPtrOutput) Elem() DiskEncryptionSetIdentityOutput {
-	return o.ApplyT(func (v *DiskEncryptionSetIdentity) DiskEncryptionSetIdentity { return *v }).(DiskEncryptionSetIdentityOutput)
+	return o.ApplyT(func(v *DiskEncryptionSetIdentity) DiskEncryptionSetIdentity { return *v }).(DiskEncryptionSetIdentityOutput)
 }
 
 // The (Client) ID of the Service Principal.
 func (o DiskEncryptionSetIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DiskEncryptionSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DiskEncryptionSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Tenant the Service Principal is assigned in.
 func (o DiskEncryptionSetIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DiskEncryptionSetIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DiskEncryptionSetIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
+// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
 func (o DiskEncryptionSetIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v DiskEncryptionSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DiskEncryptionSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ImageDataDisk struct {
@@ -345,7 +361,7 @@ func (i ImageDataDiskArray) ToImageDataDiskArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ImageDataDiskArrayOutput)
 }
 
-type ImageDataDiskOutput struct { *pulumi.OutputState }
+type ImageDataDiskOutput struct{ *pulumi.OutputState }
 
 func (ImageDataDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ImageDataDisk)(nil)).Elem()
@@ -361,30 +377,30 @@ func (o ImageDataDiskOutput) ToImageDataDiskOutputWithContext(ctx context.Contex
 
 // Specifies the URI in Azure storage of the blob that you want to use to create the image.
 func (o ImageDataDiskOutput) BlobUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageDataDisk) *string { return v.BlobUri }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageDataDisk) *string { return v.BlobUri }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
 func (o ImageDataDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the logical unit number of the data disk.
 func (o ImageDataDiskOutput) Lun() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ImageDataDisk) *int { return v.Lun }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ImageDataDisk) *int { return v.Lun }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the ID of the managed disk resource that you want to use to create the image.
 func (o ImageDataDiskOutput) ManagedDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageDataDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageDataDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the size of the image to be created. The target size can't be smaller than the source size.
 func (o ImageDataDiskOutput) SizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ImageDataDisk) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ImageDataDisk) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
 }
 
-type ImageDataDiskArrayOutput struct { *pulumi.OutputState}
+type ImageDataDiskArrayOutput struct{ *pulumi.OutputState }
 
 func (ImageDataDiskArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ImageDataDisk)(nil)).Elem()
@@ -399,7 +415,7 @@ func (o ImageDataDiskArrayOutput) ToImageDataDiskArrayOutputWithContext(ctx cont
 }
 
 func (o ImageDataDiskArrayOutput) Index(i pulumi.IntInput) ImageDataDiskOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ImageDataDisk {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageDataDisk {
 		return vs[0].([]ImageDataDisk)[vs[1].(int)]
 	}).(ImageDataDiskOutput)
 }
@@ -470,7 +486,8 @@ type ImageOsDiskPtrInput interface {
 
 type imageOsDiskPtrType ImageOsDiskArgs
 
-func ImageOsDiskPtr(v *ImageOsDiskArgs) ImageOsDiskPtrInput {	return (*imageOsDiskPtrType)(v)
+func ImageOsDiskPtr(v *ImageOsDiskArgs) ImageOsDiskPtrInput {
+	return (*imageOsDiskPtrType)(v)
 }
 
 func (*imageOsDiskPtrType) ElementType() reflect.Type {
@@ -485,7 +502,7 @@ func (i *imageOsDiskPtrType) ToImageOsDiskPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ImageOsDiskPtrOutput)
 }
 
-type ImageOsDiskOutput struct { *pulumi.OutputState }
+type ImageOsDiskOutput struct{ *pulumi.OutputState }
 
 func (ImageOsDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ImageOsDisk)(nil)).Elem()
@@ -508,37 +525,38 @@ func (o ImageOsDiskOutput) ToImageOsDiskPtrOutputWithContext(ctx context.Context
 		return &v
 	}).(ImageOsDiskPtrOutput)
 }
+
 // Specifies the URI in Azure storage of the blob that you want to use to create the image.
 func (o ImageOsDiskOutput) BlobUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.BlobUri }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.BlobUri }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
 func (o ImageOsDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the ID of the managed disk resource that you want to use to create the image.
 func (o ImageOsDiskOutput) ManagedDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
 func (o ImageOsDiskOutput) OsState() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.OsState }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.OsState }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
 func (o ImageOsDiskOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the size of the image to be created. The target size can't be smaller than the source size.
 func (o ImageOsDiskOutput) SizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
 }
 
-type ImageOsDiskPtrOutput struct { *pulumi.OutputState}
+type ImageOsDiskPtrOutput struct{ *pulumi.OutputState }
 
 func (ImageOsDiskPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ImageOsDisk)(nil)).Elem()
@@ -553,40 +571,41 @@ func (o ImageOsDiskPtrOutput) ToImageOsDiskPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ImageOsDiskPtrOutput) Elem() ImageOsDiskOutput {
-	return o.ApplyT(func (v *ImageOsDisk) ImageOsDisk { return *v }).(ImageOsDiskOutput)
+	return o.ApplyT(func(v *ImageOsDisk) ImageOsDisk { return *v }).(ImageOsDiskOutput)
 }
 
 // Specifies the URI in Azure storage of the blob that you want to use to create the image.
 func (o ImageOsDiskPtrOutput) BlobUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.BlobUri }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.BlobUri }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
 func (o ImageOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the ID of the managed disk resource that you want to use to create the image.
 func (o ImageOsDiskPtrOutput) ManagedDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
 func (o ImageOsDiskPtrOutput) OsState() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.OsState }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.OsState }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
 func (o ImageOsDiskPtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the size of the image to be created. The target size can't be smaller than the source size.
 func (o ImageOsDiskPtrOutput) SizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ImageOsDisk) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ImageOsDisk) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
 }
 
 type LinuxVirtualMachineAdditionalCapabilities struct {
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 }
 
@@ -598,6 +617,7 @@ type LinuxVirtualMachineAdditionalCapabilitiesInput interface {
 }
 
 type LinuxVirtualMachineAdditionalCapabilitiesArgs struct {
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
 }
 
@@ -630,7 +650,8 @@ type LinuxVirtualMachineAdditionalCapabilitiesPtrInput interface {
 
 type linuxVirtualMachineAdditionalCapabilitiesPtrType LinuxVirtualMachineAdditionalCapabilitiesArgs
 
-func LinuxVirtualMachineAdditionalCapabilitiesPtr(v *LinuxVirtualMachineAdditionalCapabilitiesArgs) LinuxVirtualMachineAdditionalCapabilitiesPtrInput {	return (*linuxVirtualMachineAdditionalCapabilitiesPtrType)(v)
+func LinuxVirtualMachineAdditionalCapabilitiesPtr(v *LinuxVirtualMachineAdditionalCapabilitiesArgs) LinuxVirtualMachineAdditionalCapabilitiesPtrInput {
+	return (*linuxVirtualMachineAdditionalCapabilitiesPtrType)(v)
 }
 
 func (*linuxVirtualMachineAdditionalCapabilitiesPtrType) ElementType() reflect.Type {
@@ -645,7 +666,7 @@ func (i *linuxVirtualMachineAdditionalCapabilitiesPtrType) ToLinuxVirtualMachine
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineAdditionalCapabilitiesPtrOutput)
 }
 
-type LinuxVirtualMachineAdditionalCapabilitiesOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineAdditionalCapabilitiesOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineAdditionalCapabilitiesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineAdditionalCapabilities)(nil)).Elem()
@@ -668,11 +689,13 @@ func (o LinuxVirtualMachineAdditionalCapabilitiesOutput) ToLinuxVirtualMachineAd
 		return &v
 	}).(LinuxVirtualMachineAdditionalCapabilitiesPtrOutput)
 }
+
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type LinuxVirtualMachineAdditionalCapabilitiesPtrOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineAdditionalCapabilitiesPtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinuxVirtualMachineAdditionalCapabilities)(nil)).Elem()
@@ -687,15 +710,20 @@ func (o LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) ToLinuxVirtualMachin
 }
 
 func (o LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) Elem() LinuxVirtualMachineAdditionalCapabilitiesOutput {
-	return o.ApplyT(func (v *LinuxVirtualMachineAdditionalCapabilities) LinuxVirtualMachineAdditionalCapabilities { return *v }).(LinuxVirtualMachineAdditionalCapabilitiesOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineAdditionalCapabilities) LinuxVirtualMachineAdditionalCapabilities {
+		return *v
+	}).(LinuxVirtualMachineAdditionalCapabilitiesOutput)
 }
 
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type LinuxVirtualMachineAdminSshKey struct {
+	// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
 	PublicKey string `pulumi:"publicKey"`
+	// The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
 }
 
@@ -707,7 +735,9 @@ type LinuxVirtualMachineAdminSshKeyInput interface {
 }
 
 type LinuxVirtualMachineAdminSshKeyArgs struct {
+	// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
 	PublicKey pulumi.StringInput `pulumi:"publicKey"`
+	// The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -744,7 +774,7 @@ func (i LinuxVirtualMachineAdminSshKeyArray) ToLinuxVirtualMachineAdminSshKeyArr
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineAdminSshKeyArrayOutput)
 }
 
-type LinuxVirtualMachineAdminSshKeyOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineAdminSshKeyOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineAdminSshKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineAdminSshKey)(nil)).Elem()
@@ -758,15 +788,17 @@ func (o LinuxVirtualMachineAdminSshKeyOutput) ToLinuxVirtualMachineAdminSshKeyOu
 	return o
 }
 
+// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineAdminSshKeyOutput) PublicKey() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineAdminSshKey) string { return v.PublicKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineAdminSshKey) string { return v.PublicKey }).(pulumi.StringOutput)
 }
 
+// The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineAdminSshKeyOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineAdminSshKey) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineAdminSshKey) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachineAdminSshKeyArrayOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineAdminSshKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineAdminSshKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]LinuxVirtualMachineAdminSshKey)(nil)).Elem()
@@ -781,12 +813,13 @@ func (o LinuxVirtualMachineAdminSshKeyArrayOutput) ToLinuxVirtualMachineAdminSsh
 }
 
 func (o LinuxVirtualMachineAdminSshKeyArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineAdminSshKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) LinuxVirtualMachineAdminSshKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineAdminSshKey {
 		return vs[0].([]LinuxVirtualMachineAdminSshKey)[vs[1].(int)]
 	}).(LinuxVirtualMachineAdminSshKeyOutput)
 }
 
 type LinuxVirtualMachineBootDiagnostics struct {
+	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 	StorageAccountUri string `pulumi:"storageAccountUri"`
 }
 
@@ -798,6 +831,7 @@ type LinuxVirtualMachineBootDiagnosticsInput interface {
 }
 
 type LinuxVirtualMachineBootDiagnosticsArgs struct {
+	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 	StorageAccountUri pulumi.StringInput `pulumi:"storageAccountUri"`
 }
 
@@ -830,7 +864,8 @@ type LinuxVirtualMachineBootDiagnosticsPtrInput interface {
 
 type linuxVirtualMachineBootDiagnosticsPtrType LinuxVirtualMachineBootDiagnosticsArgs
 
-func LinuxVirtualMachineBootDiagnosticsPtr(v *LinuxVirtualMachineBootDiagnosticsArgs) LinuxVirtualMachineBootDiagnosticsPtrInput {	return (*linuxVirtualMachineBootDiagnosticsPtrType)(v)
+func LinuxVirtualMachineBootDiagnosticsPtr(v *LinuxVirtualMachineBootDiagnosticsArgs) LinuxVirtualMachineBootDiagnosticsPtrInput {
+	return (*linuxVirtualMachineBootDiagnosticsPtrType)(v)
 }
 
 func (*linuxVirtualMachineBootDiagnosticsPtrType) ElementType() reflect.Type {
@@ -845,7 +880,7 @@ func (i *linuxVirtualMachineBootDiagnosticsPtrType) ToLinuxVirtualMachineBootDia
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineBootDiagnosticsPtrOutput)
 }
 
-type LinuxVirtualMachineBootDiagnosticsOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineBootDiagnosticsOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineBootDiagnosticsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineBootDiagnostics)(nil)).Elem()
@@ -868,11 +903,13 @@ func (o LinuxVirtualMachineBootDiagnosticsOutput) ToLinuxVirtualMachineBootDiagn
 		return &v
 	}).(LinuxVirtualMachineBootDiagnosticsPtrOutput)
 }
+
+// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 func (o LinuxVirtualMachineBootDiagnosticsOutput) StorageAccountUri() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachineBootDiagnosticsPtrOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineBootDiagnosticsPtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineBootDiagnosticsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinuxVirtualMachineBootDiagnostics)(nil)).Elem()
@@ -887,17 +924,20 @@ func (o LinuxVirtualMachineBootDiagnosticsPtrOutput) ToLinuxVirtualMachineBootDi
 }
 
 func (o LinuxVirtualMachineBootDiagnosticsPtrOutput) Elem() LinuxVirtualMachineBootDiagnosticsOutput {
-	return o.ApplyT(func (v *LinuxVirtualMachineBootDiagnostics) LinuxVirtualMachineBootDiagnostics { return *v }).(LinuxVirtualMachineBootDiagnosticsOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineBootDiagnostics) LinuxVirtualMachineBootDiagnostics { return *v }).(LinuxVirtualMachineBootDiagnosticsOutput)
 }
 
+// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 func (o LinuxVirtualMachineBootDiagnosticsPtrOutput) StorageAccountUri() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
 }
 
 type LinuxVirtualMachineIdentity struct {
+	// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal.
 	PrincipalId *string `pulumi:"principalId"`
+	// The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -909,9 +949,11 @@ type LinuxVirtualMachineIdentityInput interface {
 }
 
 type LinuxVirtualMachineIdentityArgs struct {
+	// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -944,7 +986,8 @@ type LinuxVirtualMachineIdentityPtrInput interface {
 
 type linuxVirtualMachineIdentityPtrType LinuxVirtualMachineIdentityArgs
 
-func LinuxVirtualMachineIdentityPtr(v *LinuxVirtualMachineIdentityArgs) LinuxVirtualMachineIdentityPtrInput {	return (*linuxVirtualMachineIdentityPtrType)(v)
+func LinuxVirtualMachineIdentityPtr(v *LinuxVirtualMachineIdentityArgs) LinuxVirtualMachineIdentityPtrInput {
+	return (*linuxVirtualMachineIdentityPtrType)(v)
 }
 
 func (*linuxVirtualMachineIdentityPtrType) ElementType() reflect.Type {
@@ -959,7 +1002,7 @@ func (i *linuxVirtualMachineIdentityPtrType) ToLinuxVirtualMachineIdentityPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineIdentityPtrOutput)
 }
 
-type LinuxVirtualMachineIdentityOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineIdentityOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineIdentity)(nil)).Elem()
@@ -982,20 +1025,23 @@ func (o LinuxVirtualMachineIdentityOutput) ToLinuxVirtualMachineIdentityPtrOutpu
 		return &v
 	}).(LinuxVirtualMachineIdentityPtrOutput)
 }
+
+// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
 func (o LinuxVirtualMachineIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the System Managed Service Principal.
 func (o LinuxVirtualMachineIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 func (o LinuxVirtualMachineIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachineIdentityPtrOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinuxVirtualMachineIdentity)(nil)).Elem()
@@ -1010,30 +1056,38 @@ func (o LinuxVirtualMachineIdentityPtrOutput) ToLinuxVirtualMachineIdentityPtrOu
 }
 
 func (o LinuxVirtualMachineIdentityPtrOutput) Elem() LinuxVirtualMachineIdentityOutput {
-	return o.ApplyT(func (v *LinuxVirtualMachineIdentity) LinuxVirtualMachineIdentity { return *v }).(LinuxVirtualMachineIdentityOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineIdentity) LinuxVirtualMachineIdentity { return *v }).(LinuxVirtualMachineIdentityOutput)
 }
 
+// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
 func (o LinuxVirtualMachineIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the System Managed Service Principal.
 func (o LinuxVirtualMachineIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 func (o LinuxVirtualMachineIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type LinuxVirtualMachineOsDisk struct {
+	// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching string `pulumi:"caching"`
+	// A `diffDiskSettings` block as defined above.
 	DiffDiskSettings *LinuxVirtualMachineOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
+	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
-	// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
 	StorageAccountType string `pulumi:"storageAccountType"`
+	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -1045,13 +1099,19 @@ type LinuxVirtualMachineOsDiskInput interface {
 }
 
 type LinuxVirtualMachineOsDiskArgs struct {
+	// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching pulumi.StringInput `pulumi:"caching"`
+	// A `diffDiskSettings` block as defined above.
 	DiffDiskSettings LinuxVirtualMachineOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
+	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
-	// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -1084,7 +1144,8 @@ type LinuxVirtualMachineOsDiskPtrInput interface {
 
 type linuxVirtualMachineOsDiskPtrType LinuxVirtualMachineOsDiskArgs
 
-func LinuxVirtualMachineOsDiskPtr(v *LinuxVirtualMachineOsDiskArgs) LinuxVirtualMachineOsDiskPtrInput {	return (*linuxVirtualMachineOsDiskPtrType)(v)
+func LinuxVirtualMachineOsDiskPtr(v *LinuxVirtualMachineOsDiskArgs) LinuxVirtualMachineOsDiskPtrInput {
+	return (*linuxVirtualMachineOsDiskPtrType)(v)
 }
 
 func (*linuxVirtualMachineOsDiskPtrType) ElementType() reflect.Type {
@@ -1099,7 +1160,7 @@ func (i *linuxVirtualMachineOsDiskPtrType) ToLinuxVirtualMachineOsDiskPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOsDiskPtrOutput)
 }
 
-type LinuxVirtualMachineOsDiskOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineOsDiskOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineOsDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineOsDisk)(nil)).Elem()
@@ -1122,36 +1183,45 @@ func (o LinuxVirtualMachineOsDiskOutput) ToLinuxVirtualMachineOsDiskPtrOutputWit
 		return &v
 	}).(LinuxVirtualMachineOsDiskPtrOutput)
 }
+
+// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 func (o LinuxVirtualMachineOsDiskOutput) Caching() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
+// A `diffDiskSettings` block as defined above.
 func (o LinuxVirtualMachineOsDiskOutput) DiffDiskSettings() LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineOsDisk) *LinuxVirtualMachineOsDiskDiffDiskSettings { return v.DiffDiskSettings }).(LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *LinuxVirtualMachineOsDiskDiffDiskSettings {
+		return v.DiffDiskSettings
+	}).(LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
 }
 
+// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
 func (o LinuxVirtualMachineOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
+// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
 func (o LinuxVirtualMachineOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
-// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineOsDiskOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineOsDiskOutput) StorageAccountType() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
+// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 func (o LinuxVirtualMachineOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type LinuxVirtualMachineOsDiskPtrOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineOsDiskPtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineOsDiskPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinuxVirtualMachineOsDisk)(nil)).Elem()
@@ -1166,39 +1236,48 @@ func (o LinuxVirtualMachineOsDiskPtrOutput) ToLinuxVirtualMachineOsDiskPtrOutput
 }
 
 func (o LinuxVirtualMachineOsDiskPtrOutput) Elem() LinuxVirtualMachineOsDiskOutput {
-	return o.ApplyT(func (v *LinuxVirtualMachineOsDisk) LinuxVirtualMachineOsDisk { return *v }).(LinuxVirtualMachineOsDiskOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) LinuxVirtualMachineOsDisk { return *v }).(LinuxVirtualMachineOsDiskOutput)
 }
 
+// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 func (o LinuxVirtualMachineOsDiskPtrOutput) Caching() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
+// A `diffDiskSettings` block as defined above.
 func (o LinuxVirtualMachineOsDiskPtrOutput) DiffDiskSettings() LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineOsDisk) *LinuxVirtualMachineOsDiskDiffDiskSettings { return v.DiffDiskSettings }).(LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *LinuxVirtualMachineOsDiskDiffDiskSettings {
+		return v.DiffDiskSettings
+	}).(LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
 }
 
+// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
 func (o LinuxVirtualMachineOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
+// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
 func (o LinuxVirtualMachineOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
-// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineOsDiskPtrOutput) StorageAccountType() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
+// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 func (o LinuxVirtualMachineOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type LinuxVirtualMachineOsDiskDiffDiskSettings struct {
+	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option string `pulumi:"option"`
 }
 
@@ -1210,6 +1289,7 @@ type LinuxVirtualMachineOsDiskDiffDiskSettingsInput interface {
 }
 
 type LinuxVirtualMachineOsDiskDiffDiskSettingsArgs struct {
+	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option pulumi.StringInput `pulumi:"option"`
 }
 
@@ -1242,7 +1322,8 @@ type LinuxVirtualMachineOsDiskDiffDiskSettingsPtrInput interface {
 
 type linuxVirtualMachineOsDiskDiffDiskSettingsPtrType LinuxVirtualMachineOsDiskDiffDiskSettingsArgs
 
-func LinuxVirtualMachineOsDiskDiffDiskSettingsPtr(v *LinuxVirtualMachineOsDiskDiffDiskSettingsArgs) LinuxVirtualMachineOsDiskDiffDiskSettingsPtrInput {	return (*linuxVirtualMachineOsDiskDiffDiskSettingsPtrType)(v)
+func LinuxVirtualMachineOsDiskDiffDiskSettingsPtr(v *LinuxVirtualMachineOsDiskDiffDiskSettingsArgs) LinuxVirtualMachineOsDiskDiffDiskSettingsPtrInput {
+	return (*linuxVirtualMachineOsDiskDiffDiskSettingsPtrType)(v)
 }
 
 func (*linuxVirtualMachineOsDiskDiffDiskSettingsPtrType) ElementType() reflect.Type {
@@ -1257,7 +1338,7 @@ func (i *linuxVirtualMachineOsDiskDiffDiskSettingsPtrType) ToLinuxVirtualMachine
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
 }
 
-type LinuxVirtualMachineOsDiskDiffDiskSettingsOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineOsDiskDiffDiskSettingsOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineOsDiskDiffDiskSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineOsDiskDiffDiskSettings)(nil)).Elem()
@@ -1280,11 +1361,13 @@ func (o LinuxVirtualMachineOsDiskDiffDiskSettingsOutput) ToLinuxVirtualMachineOs
 		return &v
 	}).(LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
 }
+
+// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineOsDiskDiffDiskSettingsOutput) Option() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinuxVirtualMachineOsDiskDiffDiskSettings)(nil)).Elem()
@@ -1299,17 +1382,22 @@ func (o LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) ToLinuxVirtualMachin
 }
 
 func (o LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Elem() LinuxVirtualMachineOsDiskDiffDiskSettingsOutput {
-	return o.ApplyT(func (v *LinuxVirtualMachineOsDiskDiffDiskSettings) LinuxVirtualMachineOsDiskDiffDiskSettings { return *v }).(LinuxVirtualMachineOsDiskDiffDiskSettingsOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineOsDiskDiffDiskSettings) LinuxVirtualMachineOsDiskDiffDiskSettings {
+		return *v
+	}).(LinuxVirtualMachineOsDiskDiffDiskSettingsOutput)
 }
 
+// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
 type LinuxVirtualMachinePlan struct {
-	// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
+	// Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Product string `pulumi:"product"`
+	// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
 }
 
@@ -1321,9 +1409,11 @@ type LinuxVirtualMachinePlanInput interface {
 }
 
 type LinuxVirtualMachinePlanArgs struct {
-	// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Product pulumi.StringInput `pulumi:"product"`
+	// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 }
 
@@ -1356,7 +1446,8 @@ type LinuxVirtualMachinePlanPtrInput interface {
 
 type linuxVirtualMachinePlanPtrType LinuxVirtualMachinePlanArgs
 
-func LinuxVirtualMachinePlanPtr(v *LinuxVirtualMachinePlanArgs) LinuxVirtualMachinePlanPtrInput {	return (*linuxVirtualMachinePlanPtrType)(v)
+func LinuxVirtualMachinePlanPtr(v *LinuxVirtualMachinePlanArgs) LinuxVirtualMachinePlanPtrInput {
+	return (*linuxVirtualMachinePlanPtrType)(v)
 }
 
 func (*linuxVirtualMachinePlanPtrType) ElementType() reflect.Type {
@@ -1371,7 +1462,7 @@ func (i *linuxVirtualMachinePlanPtrType) ToLinuxVirtualMachinePlanPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachinePlanPtrOutput)
 }
 
-type LinuxVirtualMachinePlanOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachinePlanOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachinePlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachinePlan)(nil)).Elem()
@@ -1394,20 +1485,23 @@ func (o LinuxVirtualMachinePlanOutput) ToLinuxVirtualMachinePlanPtrOutputWithCon
 		return &v
 	}).(LinuxVirtualMachinePlanPtrOutput)
 }
-// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+
+// Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachinePlanOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachinePlanOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
+// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachinePlanOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachinePlanPtrOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachinePlanPtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachinePlanPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinuxVirtualMachinePlan)(nil)).Elem()
@@ -1422,23 +1516,26 @@ func (o LinuxVirtualMachinePlanPtrOutput) ToLinuxVirtualMachinePlanPtrOutputWith
 }
 
 func (o LinuxVirtualMachinePlanPtrOutput) Elem() LinuxVirtualMachinePlanOutput {
-	return o.ApplyT(func (v *LinuxVirtualMachinePlan) LinuxVirtualMachinePlan { return *v }).(LinuxVirtualMachinePlanOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachinePlan) LinuxVirtualMachinePlan { return *v }).(LinuxVirtualMachinePlanOutput)
 }
 
-// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+// Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachinePlanPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachinePlanPtrOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
+// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachinePlanPtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 type LinuxVirtualMachineScaleSetAdditionalCapabilities struct {
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 }
 
@@ -1450,6 +1547,7 @@ type LinuxVirtualMachineScaleSetAdditionalCapabilitiesInput interface {
 }
 
 type LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs struct {
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
 }
 
@@ -1482,7 +1580,8 @@ type LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrInput interface {
 
 type linuxVirtualMachineScaleSetAdditionalCapabilitiesPtrType LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs
 
-func LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtr(v *LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs) LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrInput {	return (*linuxVirtualMachineScaleSetAdditionalCapabilitiesPtrType)(v)
+func LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtr(v *LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs) LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrInput {
+	return (*linuxVirtualMachineScaleSetAdditionalCapabilitiesPtrType)(v)
 }
 
 func (*linuxVirtualMachineScaleSetAdditionalCapabilitiesPtrType) ElementType() reflect.Type {
@@ -1497,7 +1596,7 @@ func (i *linuxVirtualMachineScaleSetAdditionalCapabilitiesPtrType) ToLinuxVirtua
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetAdditionalCapabilities)(nil)).Elem()
@@ -1520,11 +1619,13 @@ func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToLinuxVirtualM
 		return &v
 	}).(LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput)
 }
+
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinuxVirtualMachineScaleSetAdditionalCapabilities)(nil)).Elem()
@@ -1539,15 +1640,20 @@ func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) ToLinuxVirtu
 }
 
 func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) Elem() LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput {
-	return o.ApplyT(func (v *LinuxVirtualMachineScaleSetAdditionalCapabilities) LinuxVirtualMachineScaleSetAdditionalCapabilities { return *v }).(LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetAdditionalCapabilities) LinuxVirtualMachineScaleSetAdditionalCapabilities {
+		return *v
+	}).(LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput)
 }
 
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type LinuxVirtualMachineScaleSetAdminSshKey struct {
+	// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
 	PublicKey string `pulumi:"publicKey"`
+	// The Username for which this Public SSH Key should be configured.
 	Username string `pulumi:"username"`
 }
 
@@ -1559,7 +1665,9 @@ type LinuxVirtualMachineScaleSetAdminSshKeyInput interface {
 }
 
 type LinuxVirtualMachineScaleSetAdminSshKeyArgs struct {
+	// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
 	PublicKey pulumi.StringInput `pulumi:"publicKey"`
+	// The Username for which this Public SSH Key should be configured.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -1596,7 +1704,7 @@ func (i LinuxVirtualMachineScaleSetAdminSshKeyArray) ToLinuxVirtualMachineScaleS
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput)
 }
 
-type LinuxVirtualMachineScaleSetAdminSshKeyOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetAdminSshKeyOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetAdminSshKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetAdminSshKey)(nil)).Elem()
@@ -1610,15 +1718,17 @@ func (o LinuxVirtualMachineScaleSetAdminSshKeyOutput) ToLinuxVirtualMachineScale
 	return o
 }
 
+// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
 func (o LinuxVirtualMachineScaleSetAdminSshKeyOutput) PublicKey() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetAdminSshKey) string { return v.PublicKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAdminSshKey) string { return v.PublicKey }).(pulumi.StringOutput)
 }
 
+// The Username for which this Public SSH Key should be configured.
 func (o LinuxVirtualMachineScaleSetAdminSshKeyOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetAdminSshKey) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAdminSshKey) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetAdminSshKey)(nil)).Elem()
@@ -1633,13 +1743,15 @@ func (o LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput) ToLinuxVirtualMachine
 }
 
 func (o LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetAdminSshKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) LinuxVirtualMachineScaleSetAdminSshKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetAdminSshKey {
 		return vs[0].([]LinuxVirtualMachineScaleSetAdminSshKey)[vs[1].(int)]
 	}).(LinuxVirtualMachineScaleSetAdminSshKeyOutput)
 }
 
 type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy struct {
+	// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
 	DisableAutomaticRollback bool `pulumi:"disableAutomaticRollback"`
+	// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
 	EnableAutomaticOsUpgrade bool `pulumi:"enableAutomaticOsUpgrade"`
 }
 
@@ -1651,7 +1763,9 @@ type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyInput interface {
 }
 
 type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs struct {
+	// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
 	DisableAutomaticRollback pulumi.BoolInput `pulumi:"disableAutomaticRollback"`
+	// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
 	EnableAutomaticOsUpgrade pulumi.BoolInput `pulumi:"enableAutomaticOsUpgrade"`
 }
 
@@ -1684,7 +1798,8 @@ type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput interface {
 
 type linuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs
 
-func LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtr(v *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput {	return (*linuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType)(v)
+func LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtr(v *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput {
+	return (*linuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType)(v)
 }
 
 func (*linuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType) ElementType() reflect.Type {
@@ -1699,7 +1814,7 @@ func (i *linuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType) ToLinuxVirt
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy)(nil)).Elem()
@@ -1722,15 +1837,18 @@ func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToLinuxVirtua
 		return &v
 	}).(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput)
 }
+
+// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) DisableAutomaticRollback() pulumi.BoolOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.DisableAutomaticRollback }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.DisableAutomaticRollback }).(pulumi.BoolOutput)
 }
 
+// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) EnableAutomaticOsUpgrade() pulumi.BoolOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.EnableAutomaticOsUpgrade }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.EnableAutomaticOsUpgrade }).(pulumi.BoolOutput)
 }
 
-type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy)(nil)).Elem()
@@ -1745,18 +1863,23 @@ func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) ToLinuxVir
 }
 
 func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) Elem() LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput {
-	return o.ApplyT(func (v *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy { return *v }).(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+		return *v
+	}).(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput)
 }
 
+// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) DisableAutomaticRollback() pulumi.BoolOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.DisableAutomaticRollback }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.DisableAutomaticRollback }).(pulumi.BoolOutput)
 }
 
+// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) EnableAutomaticOsUpgrade() pulumi.BoolOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.EnableAutomaticOsUpgrade }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.EnableAutomaticOsUpgrade }).(pulumi.BoolOutput)
 }
 
 type LinuxVirtualMachineScaleSetBootDiagnostics struct {
+	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 	StorageAccountUri string `pulumi:"storageAccountUri"`
 }
 
@@ -1768,6 +1891,7 @@ type LinuxVirtualMachineScaleSetBootDiagnosticsInput interface {
 }
 
 type LinuxVirtualMachineScaleSetBootDiagnosticsArgs struct {
+	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 	StorageAccountUri pulumi.StringInput `pulumi:"storageAccountUri"`
 }
 
@@ -1800,7 +1924,8 @@ type LinuxVirtualMachineScaleSetBootDiagnosticsPtrInput interface {
 
 type linuxVirtualMachineScaleSetBootDiagnosticsPtrType LinuxVirtualMachineScaleSetBootDiagnosticsArgs
 
-func LinuxVirtualMachineScaleSetBootDiagnosticsPtr(v *LinuxVirtualMachineScaleSetBootDiagnosticsArgs) LinuxVirtualMachineScaleSetBootDiagnosticsPtrInput {	return (*linuxVirtualMachineScaleSetBootDiagnosticsPtrType)(v)
+func LinuxVirtualMachineScaleSetBootDiagnosticsPtr(v *LinuxVirtualMachineScaleSetBootDiagnosticsArgs) LinuxVirtualMachineScaleSetBootDiagnosticsPtrInput {
+	return (*linuxVirtualMachineScaleSetBootDiagnosticsPtrType)(v)
 }
 
 func (*linuxVirtualMachineScaleSetBootDiagnosticsPtrType) ElementType() reflect.Type {
@@ -1815,7 +1940,7 @@ func (i *linuxVirtualMachineScaleSetBootDiagnosticsPtrType) ToLinuxVirtualMachin
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetBootDiagnosticsOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetBootDiagnosticsOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetBootDiagnosticsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetBootDiagnostics)(nil)).Elem()
@@ -1838,11 +1963,13 @@ func (o LinuxVirtualMachineScaleSetBootDiagnosticsOutput) ToLinuxVirtualMachineS
 		return &v
 	}).(LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput)
 }
+
+// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 func (o LinuxVirtualMachineScaleSetBootDiagnosticsOutput) StorageAccountUri() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinuxVirtualMachineScaleSetBootDiagnostics)(nil)).Elem()
@@ -1857,19 +1984,28 @@ func (o LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput) ToLinuxVirtualMachi
 }
 
 func (o LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput) Elem() LinuxVirtualMachineScaleSetBootDiagnosticsOutput {
-	return o.ApplyT(func (v *LinuxVirtualMachineScaleSetBootDiagnostics) LinuxVirtualMachineScaleSetBootDiagnostics { return *v }).(LinuxVirtualMachineScaleSetBootDiagnosticsOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetBootDiagnostics) LinuxVirtualMachineScaleSetBootDiagnostics {
+		return *v
+	}).(LinuxVirtualMachineScaleSetBootDiagnosticsOutput)
 }
 
+// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 func (o LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput) StorageAccountUri() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
 }
 
 type LinuxVirtualMachineScaleSetDataDisk struct {
+	// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching string `pulumi:"caching"`
+	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// The size of the Data Disk which should be created.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
+	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 	Lun int `pulumi:"lun"`
+	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
 	StorageAccountType string `pulumi:"storageAccountType"`
+	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -1881,11 +2017,17 @@ type LinuxVirtualMachineScaleSetDataDiskInput interface {
 }
 
 type LinuxVirtualMachineScaleSetDataDiskArgs struct {
+	// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching pulumi.StringInput `pulumi:"caching"`
+	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// The size of the Data Disk which should be created.
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
+	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 	Lun pulumi.IntInput `pulumi:"lun"`
+	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -1922,7 +2064,7 @@ func (i LinuxVirtualMachineScaleSetDataDiskArray) ToLinuxVirtualMachineScaleSetD
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetDataDiskArrayOutput)
 }
 
-type LinuxVirtualMachineScaleSetDataDiskOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetDataDiskOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetDataDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetDataDisk)(nil)).Elem()
@@ -1936,31 +2078,37 @@ func (o LinuxVirtualMachineScaleSetDataDiskOutput) ToLinuxVirtualMachineScaleSet
 	return o
 }
 
+// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) Caching() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetDataDisk) string { return v.Caching }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
+// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
+// The size of the Data Disk which should be created.
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskSizeGb() pulumi.IntOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetDataDisk) int { return v.DiskSizeGb }).(pulumi.IntOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) int { return v.DiskSizeGb }).(pulumi.IntOutput)
 }
 
+// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) Lun() pulumi.IntOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) int { return v.Lun }).(pulumi.IntOutput)
 }
 
+// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
+// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetDataDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetDataDiskArrayOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetDataDiskArrayOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetDataDiskArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetDataDisk)(nil)).Elem()
@@ -1975,15 +2123,17 @@ func (o LinuxVirtualMachineScaleSetDataDiskArrayOutput) ToLinuxVirtualMachineSca
 }
 
 func (o LinuxVirtualMachineScaleSetDataDiskArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetDataDiskOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) LinuxVirtualMachineScaleSetDataDisk {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetDataDisk {
 		return vs[0].([]LinuxVirtualMachineScaleSetDataDisk)[vs[1].(int)]
 	}).(LinuxVirtualMachineScaleSetDataDiskOutput)
 }
 
 type LinuxVirtualMachineScaleSetIdentity struct {
+	// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal.
 	PrincipalId *string `pulumi:"principalId"`
+	// The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -1995,9 +2145,11 @@ type LinuxVirtualMachineScaleSetIdentityInput interface {
 }
 
 type LinuxVirtualMachineScaleSetIdentityArgs struct {
+	// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2030,7 +2182,8 @@ type LinuxVirtualMachineScaleSetIdentityPtrInput interface {
 
 type linuxVirtualMachineScaleSetIdentityPtrType LinuxVirtualMachineScaleSetIdentityArgs
 
-func LinuxVirtualMachineScaleSetIdentityPtr(v *LinuxVirtualMachineScaleSetIdentityArgs) LinuxVirtualMachineScaleSetIdentityPtrInput {	return (*linuxVirtualMachineScaleSetIdentityPtrType)(v)
+func LinuxVirtualMachineScaleSetIdentityPtr(v *LinuxVirtualMachineScaleSetIdentityArgs) LinuxVirtualMachineScaleSetIdentityPtrInput {
+	return (*linuxVirtualMachineScaleSetIdentityPtrType)(v)
 }
 
 func (*linuxVirtualMachineScaleSetIdentityPtrType) ElementType() reflect.Type {
@@ -2045,7 +2198,7 @@ func (i *linuxVirtualMachineScaleSetIdentityPtrType) ToLinuxVirtualMachineScaleS
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetIdentityPtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetIdentityOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetIdentityOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetIdentity)(nil)).Elem()
@@ -2068,20 +2221,23 @@ func (o LinuxVirtualMachineScaleSetIdentityOutput) ToLinuxVirtualMachineScaleSet
 		return &v
 	}).(LinuxVirtualMachineScaleSetIdentityPtrOutput)
 }
+
+// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
 func (o LinuxVirtualMachineScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the System Managed Service Principal.
 func (o LinuxVirtualMachineScaleSetIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 func (o LinuxVirtualMachineScaleSetIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachineScaleSetIdentityPtrOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinuxVirtualMachineScaleSetIdentity)(nil)).Elem()
@@ -2096,30 +2252,38 @@ func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) ToLinuxVirtualMachineScale
 }
 
 func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) Elem() LinuxVirtualMachineScaleSetIdentityOutput {
-	return o.ApplyT(func (v *LinuxVirtualMachineScaleSetIdentity) LinuxVirtualMachineScaleSetIdentity { return *v }).(LinuxVirtualMachineScaleSetIdentityOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetIdentity) LinuxVirtualMachineScaleSetIdentity { return *v }).(LinuxVirtualMachineScaleSetIdentityOutput)
 }
 
+// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
 func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the System Managed Service Principal.
 func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type LinuxVirtualMachineScaleSetNetworkInterface struct {
+	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers []string `pulumi:"dnsServers"`
+	// Does this Network Interface support Accelerated Networking? Defaults to `false`.
 	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
+	// Does this Network Interface support IP Forwarding? Defaults to `false`.
 	EnableIpForwarding *bool `pulumi:"enableIpForwarding"`
+	// One or more `ipConfiguration` blocks as defined above.
 	IpConfigurations []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
-	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
+	// The ID of a Network Security Group which should be assigned to this Network Interface.
 	NetworkSecurityGroupId *string `pulumi:"networkSecurityGroupId"`
+	// Is this the Primary IP Configuration?
 	Primary *bool `pulumi:"primary"`
 }
 
@@ -2131,13 +2295,19 @@ type LinuxVirtualMachineScaleSetNetworkInterfaceInput interface {
 }
 
 type LinuxVirtualMachineScaleSetNetworkInterfaceArgs struct {
+	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
+	// Does this Network Interface support Accelerated Networking? Defaults to `false`.
 	EnableAcceleratedNetworking pulumi.BoolPtrInput `pulumi:"enableAcceleratedNetworking"`
+	// Does this Network Interface support IP Forwarding? Defaults to `false`.
 	EnableIpForwarding pulumi.BoolPtrInput `pulumi:"enableIpForwarding"`
+	// One or more `ipConfiguration` blocks as defined above.
 	IpConfigurations LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput `pulumi:"ipConfigurations"`
-	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of a Network Security Group which should be assigned to this Network Interface.
 	NetworkSecurityGroupId pulumi.StringPtrInput `pulumi:"networkSecurityGroupId"`
+	// Is this the Primary IP Configuration?
 	Primary pulumi.BoolPtrInput `pulumi:"primary"`
 }
 
@@ -2174,7 +2344,7 @@ func (i LinuxVirtualMachineScaleSetNetworkInterfaceArray) ToLinuxVirtualMachineS
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput)
 }
 
-type LinuxVirtualMachineScaleSetNetworkInterfaceOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetNetworkInterfaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
@@ -2188,36 +2358,44 @@ func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) ToLinuxVirtualMachine
 	return o
 }
 
+// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) DnsServers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterface) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
+// Does this Network Interface support Accelerated Networking? Defaults to `false`.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
 }
 
+// Does this Network Interface support IP Forwarding? Defaults to `false`.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) EnableIpForwarding() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableIpForwarding }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableIpForwarding }).(pulumi.BoolPtrOutput)
 }
 
+// One or more `ipConfiguration` blocks as defined above.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) IpConfigurations() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterface) []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration { return v.IpConfigurations }).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+		return v.IpConfigurations
+	}).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
 }
 
-// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterface) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ID of a Network Security Group which should be assigned to this Network Interface.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) NetworkSecurityGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterface) *string { return v.NetworkSecurityGroupId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) *string { return v.NetworkSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
+// Is this the Primary IP Configuration?
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceOutput) Primary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterface) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterface) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
@@ -2232,21 +2410,29 @@ func (o LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput) ToLinuxVirtualMa
 }
 
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetNetworkInterfaceOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) LinuxVirtualMachineScaleSetNetworkInterface {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetNetworkInterface {
 		return vs[0].([]LinuxVirtualMachineScaleSetNetworkInterface)[vs[1].(int)]
 	}).(LinuxVirtualMachineScaleSetNetworkInterfaceOutput)
 }
 
 type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
+	// A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
 	ApplicationGatewayBackendAddressPoolIds []string `pulumi:"applicationGatewayBackendAddressPoolIds"`
+	// A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
 	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
+	// A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 	LoadBalancerBackendAddressPoolIds []string `pulumi:"loadBalancerBackendAddressPoolIds"`
+	// A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 	LoadBalancerInboundNatRulesIds []string `pulumi:"loadBalancerInboundNatRulesIds"`
-	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	// The Name which should be used for this IP Configuration.
 	Name string `pulumi:"name"`
+	// Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
 	Primary *bool `pulumi:"primary"`
+	// A `publicIpAddress` block as defined below.
 	PublicIpAddresses []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress `pulumi:"publicIpAddresses"`
+	// The ID of the Subnet which this IP Configuration should be connected to.
 	SubnetId *string `pulumi:"subnetId"`
+	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 	Version *string `pulumi:"version"`
 }
 
@@ -2258,15 +2444,23 @@ type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput interface {
 }
 
 type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struct {
+	// A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
 	ApplicationGatewayBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"applicationGatewayBackendAddressPoolIds"`
+	// A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
 	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
+	// A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 	LoadBalancerBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolIds"`
+	// A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 	LoadBalancerInboundNatRulesIds pulumi.StringArrayInput `pulumi:"loadBalancerInboundNatRulesIds"`
-	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	// The Name which should be used for this IP Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
 	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// A `publicIpAddress` block as defined below.
 	PublicIpAddresses LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput `pulumi:"publicIpAddresses"`
+	// The ID of the Subnet which this IP Configuration should be connected to.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -2303,7 +2497,7 @@ func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray) ToLinux
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
 }
 
-type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
@@ -2317,44 +2511,62 @@ func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ToLinu
 	return o
 }
 
+// A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ApplicationGatewayBackendAddressPoolIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string { return v.ApplicationGatewayBackendAddressPoolIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.ApplicationGatewayBackendAddressPoolIds
+	}).(pulumi.StringArrayOutput)
 }
 
+// A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string { return v.ApplicationSecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.ApplicationSecurityGroupIds
+	}).(pulumi.StringArrayOutput)
 }
 
+// A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) LoadBalancerBackendAddressPoolIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string { return v.LoadBalancerBackendAddressPoolIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.LoadBalancerBackendAddressPoolIds
+	}).(pulumi.StringArrayOutput)
 }
 
+// A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) LoadBalancerInboundNatRulesIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string { return v.LoadBalancerInboundNatRulesIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.LoadBalancerInboundNatRulesIds
+	}).(pulumi.StringArrayOutput)
 }
 
-// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+// The Name which should be used for this IP Configuration.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Primary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
+// A `publicIpAddress` block as defined below.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) PublicIpAddresses() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress { return v.PublicIpAddresses }).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+		return v.PublicIpAddresses
+	}).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
 }
 
+// The ID of the Subnet which this IP Configuration should be connected to.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
+// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
@@ -2369,17 +2581,21 @@ func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) T
 }
 
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
 		return vs[0].([]LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration)[vs[1].(int)]
 	}).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput)
 }
 
 type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress struct {
+	// The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
+	// The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+	// One or more `ipTag` blocks as defined above.
 	IpTags []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag `pulumi:"ipTags"`
-	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	// The Name of the Public IP Address Configuration.
 	Name string `pulumi:"name"`
+	// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
 }
 
@@ -2391,11 +2607,15 @@ type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIn
 }
 
 type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs struct {
+	// The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
 	DomainNameLabel pulumi.StringPtrInput `pulumi:"domainNameLabel"`
+	// The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
 	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
+	// One or more `ipTag` blocks as defined above.
 	IpTags LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput `pulumi:"ipTags"`
-	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	// The Name of the Public IP Address Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 	PublicIpPrefixId pulumi.StringPtrInput `pulumi:"publicIpPrefixId"`
 }
 
@@ -2432,7 +2652,7 @@ func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
 }
 
-type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
@@ -2446,28 +2666,42 @@ func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
 	return o
 }
 
+// The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) DomainNameLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string { return v.DomainNameLabel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
+		return v.DomainNameLabel
+	}).(pulumi.StringPtrOutput)
 }
 
+// The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *int {
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
+// One or more `ipTag` blocks as defined above.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) IpTags() LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag { return v.IpTags }).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) []LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+		return v.IpTags
+	}).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput)
 }
 
-// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+// The Name of the Public IP Address Configuration.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string {
+		return v.Name
+	}).(pulumi.StringOutput)
 }
 
+// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) PublicIpPrefixId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string { return v.PublicIpPrefixId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
+		return v.PublicIpPrefixId
+	}).(pulumi.StringPtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
@@ -2482,13 +2716,15 @@ func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
 }
 
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
 		return vs[0].([]LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)[vs[1].(int)]
 	}).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput)
 }
 
 type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag struct {
+	// The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
 	Tag string `pulumi:"tag"`
+	// The Type of IP Tag, such as `FirstPartyUsage`.
 	Type string `pulumi:"type"`
 }
 
@@ -2500,7 +2736,9 @@ type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIp
 }
 
 type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs struct {
+	// The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
 	Tag pulumi.StringInput `pulumi:"tag"`
+	// The Type of IP Tag, such as `FirstPartyUsage`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2537,7 +2775,7 @@ func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput)
 }
 
-type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
@@ -2551,15 +2789,21 @@ func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
 	return o
 }
 
+// The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) Tag() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string { return v.Tag }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string {
+		return v.Tag
+	}).(pulumi.StringOutput)
 }
 
+// The Type of IP Tag, such as `FirstPartyUsage`.
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string {
+		return v.Type
+	}).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
@@ -2574,17 +2818,23 @@ func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
 }
 
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
 		return vs[0].([]LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)[vs[1].(int)]
 	}).(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput)
 }
 
 type LinuxVirtualMachineScaleSetOsDisk struct {
+	// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching string `pulumi:"caching"`
+	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
+	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
 	StorageAccountType string `pulumi:"storageAccountType"`
+	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -2596,11 +2846,17 @@ type LinuxVirtualMachineScaleSetOsDiskInput interface {
 }
 
 type LinuxVirtualMachineScaleSetOsDiskArgs struct {
+	// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching pulumi.StringInput `pulumi:"caching"`
+	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
+	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -2633,7 +2889,8 @@ type LinuxVirtualMachineScaleSetOsDiskPtrInput interface {
 
 type linuxVirtualMachineScaleSetOsDiskPtrType LinuxVirtualMachineScaleSetOsDiskArgs
 
-func LinuxVirtualMachineScaleSetOsDiskPtr(v *LinuxVirtualMachineScaleSetOsDiskArgs) LinuxVirtualMachineScaleSetOsDiskPtrInput {	return (*linuxVirtualMachineScaleSetOsDiskPtrType)(v)
+func LinuxVirtualMachineScaleSetOsDiskPtr(v *LinuxVirtualMachineScaleSetOsDiskArgs) LinuxVirtualMachineScaleSetOsDiskPtrInput {
+	return (*linuxVirtualMachineScaleSetOsDiskPtrType)(v)
 }
 
 func (*linuxVirtualMachineScaleSetOsDiskPtrType) ElementType() reflect.Type {
@@ -2648,7 +2905,7 @@ func (i *linuxVirtualMachineScaleSetOsDiskPtrType) ToLinuxVirtualMachineScaleSet
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetOsDiskPtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetOsDiskOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetOsDiskOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetOsDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetOsDisk)(nil)).Elem()
@@ -2671,31 +2928,40 @@ func (o LinuxVirtualMachineScaleSetOsDiskOutput) ToLinuxVirtualMachineScaleSetOs
 		return &v
 	}).(LinuxVirtualMachineScaleSetOsDiskPtrOutput)
 }
+
+// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 func (o LinuxVirtualMachineScaleSetOsDiskOutput) Caching() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
+// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOsDiskOutput) DiffDiskSettings() LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetOsDisk) *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings { return v.DiffDiskSettings }).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		return v.DiffDiskSettings
+	}).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 
+// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
 func (o LinuxVirtualMachineScaleSetOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
+// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 func (o LinuxVirtualMachineScaleSetOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
 func (o LinuxVirtualMachineScaleSetOsDiskOutput) StorageAccountType() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
+// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 func (o LinuxVirtualMachineScaleSetOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetOsDiskPtrOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetOsDiskPtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetOsDiskPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinuxVirtualMachineScaleSetOsDisk)(nil)).Elem()
@@ -2710,31 +2976,39 @@ func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) ToLinuxVirtualMachineScaleSe
 }
 
 func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) Elem() LinuxVirtualMachineScaleSetOsDiskOutput {
-	return o.ApplyT(func (v *LinuxVirtualMachineScaleSetOsDisk) LinuxVirtualMachineScaleSetOsDisk { return *v }).(LinuxVirtualMachineScaleSetOsDiskOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) LinuxVirtualMachineScaleSetOsDisk { return *v }).(LinuxVirtualMachineScaleSetOsDiskOutput)
 }
 
+// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) Caching() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
+// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) DiffDiskSettings() LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetOsDisk) *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings { return v.DiffDiskSettings }).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		return v.DiffDiskSettings
+	}).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 
+// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
 func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
+// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
 func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) StorageAccountType() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
+// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
@@ -2781,7 +3055,8 @@ type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput interface {
 
 type linuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs
 
-func LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtr(v *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput {	return (*linuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType)(v)
+func LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtr(v *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput {
+	return (*linuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType)(v)
 }
 
 func (*linuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType) ElementType() reflect.Type {
@@ -2796,7 +3071,7 @@ func (i *linuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType) ToLinuxVirtua
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings)(nil)).Elem()
@@ -2820,10 +3095,10 @@ func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToLinuxVirtualM
 	}).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Option() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings)(nil)).Elem()
@@ -2838,17 +3113,19 @@ func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) ToLinuxVirtu
 }
 
 func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Elem() LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
-	return o.ApplyT(func (v *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings { return *v }).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		return *v
+	}).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput)
 }
 
 func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
 type LinuxVirtualMachineScaleSetPlan struct {
 	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	Product string `pulumi:"product"`
+	Name      string `pulumi:"name"`
+	Product   string `pulumi:"product"`
 	Publisher string `pulumi:"publisher"`
 }
 
@@ -2861,8 +3138,8 @@ type LinuxVirtualMachineScaleSetPlanInput interface {
 
 type LinuxVirtualMachineScaleSetPlanArgs struct {
 	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	Product pulumi.StringInput `pulumi:"product"`
+	Name      pulumi.StringInput `pulumi:"name"`
+	Product   pulumi.StringInput `pulumi:"product"`
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 }
 
@@ -2895,7 +3172,8 @@ type LinuxVirtualMachineScaleSetPlanPtrInput interface {
 
 type linuxVirtualMachineScaleSetPlanPtrType LinuxVirtualMachineScaleSetPlanArgs
 
-func LinuxVirtualMachineScaleSetPlanPtr(v *LinuxVirtualMachineScaleSetPlanArgs) LinuxVirtualMachineScaleSetPlanPtrInput {	return (*linuxVirtualMachineScaleSetPlanPtrType)(v)
+func LinuxVirtualMachineScaleSetPlanPtr(v *LinuxVirtualMachineScaleSetPlanArgs) LinuxVirtualMachineScaleSetPlanPtrInput {
+	return (*linuxVirtualMachineScaleSetPlanPtrType)(v)
 }
 
 func (*linuxVirtualMachineScaleSetPlanPtrType) ElementType() reflect.Type {
@@ -2910,7 +3188,7 @@ func (i *linuxVirtualMachineScaleSetPlanPtrType) ToLinuxVirtualMachineScaleSetPl
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetPlanPtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetPlanOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetPlanOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetPlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetPlan)(nil)).Elem()
@@ -2933,20 +3211,21 @@ func (o LinuxVirtualMachineScaleSetPlanOutput) ToLinuxVirtualMachineScaleSetPlan
 		return &v
 	}).(LinuxVirtualMachineScaleSetPlanPtrOutput)
 }
+
 // The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetPlanOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o LinuxVirtualMachineScaleSetPlanOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
 func (o LinuxVirtualMachineScaleSetPlanOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachineScaleSetPlanPtrOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetPlanPtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetPlanPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinuxVirtualMachineScaleSetPlan)(nil)).Elem()
@@ -2961,26 +3240,30 @@ func (o LinuxVirtualMachineScaleSetPlanPtrOutput) ToLinuxVirtualMachineScaleSetP
 }
 
 func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Elem() LinuxVirtualMachineScaleSetPlanOutput {
-	return o.ApplyT(func (v *LinuxVirtualMachineScaleSetPlan) LinuxVirtualMachineScaleSetPlan { return *v }).(LinuxVirtualMachineScaleSetPlanOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetPlan) LinuxVirtualMachineScaleSetPlan { return *v }).(LinuxVirtualMachineScaleSetPlanOutput)
 }
 
 // The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
 func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 type LinuxVirtualMachineScaleSetRollingUpgradePolicy struct {
+	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
 	MaxBatchInstancePercent int `pulumi:"maxBatchInstancePercent"`
+	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
 	MaxUnhealthyInstancePercent int `pulumi:"maxUnhealthyInstancePercent"`
+	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
 	MaxUnhealthyUpgradedInstancePercent int `pulumi:"maxUnhealthyUpgradedInstancePercent"`
+	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
 	PauseTimeBetweenBatches string `pulumi:"pauseTimeBetweenBatches"`
 }
 
@@ -2992,9 +3275,13 @@ type LinuxVirtualMachineScaleSetRollingUpgradePolicyInput interface {
 }
 
 type LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
+	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
 	MaxBatchInstancePercent pulumi.IntInput `pulumi:"maxBatchInstancePercent"`
+	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
 	MaxUnhealthyInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyInstancePercent"`
+	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
 	MaxUnhealthyUpgradedInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyUpgradedInstancePercent"`
+	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
 	PauseTimeBetweenBatches pulumi.StringInput `pulumi:"pauseTimeBetweenBatches"`
 }
 
@@ -3027,7 +3314,8 @@ type LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput interface {
 
 type linuxVirtualMachineScaleSetRollingUpgradePolicyPtrType LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs
 
-func LinuxVirtualMachineScaleSetRollingUpgradePolicyPtr(v *LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs) LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput {	return (*linuxVirtualMachineScaleSetRollingUpgradePolicyPtrType)(v)
+func LinuxVirtualMachineScaleSetRollingUpgradePolicyPtr(v *LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs) LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput {
+	return (*linuxVirtualMachineScaleSetRollingUpgradePolicyPtrType)(v)
 }
 
 func (*linuxVirtualMachineScaleSetRollingUpgradePolicyPtrType) ElementType() reflect.Type {
@@ -3042,7 +3330,7 @@ func (i *linuxVirtualMachineScaleSetRollingUpgradePolicyPtrType) ToLinuxVirtualM
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetRollingUpgradePolicy)(nil)).Elem()
@@ -3065,23 +3353,30 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) ToLinuxVirtualMac
 		return &v
 	}).(LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
 }
+
+// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxBatchInstancePercent() pulumi.IntOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxBatchInstancePercent }).(pulumi.IntOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxBatchInstancePercent }).(pulumi.IntOutput)
 }
 
+// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyInstancePercent() pulumi.IntOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntOutput)
 }
 
+// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyUpgradedInstancePercent }).(pulumi.IntOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int {
+		return v.MaxUnhealthyUpgradedInstancePercent
+	}).(pulumi.IntOutput)
 }
 
+// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) PauseTimeBetweenBatches() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinuxVirtualMachineScaleSetRollingUpgradePolicy)(nil)).Elem()
@@ -3096,27 +3391,37 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) ToLinuxVirtual
 }
 
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) Elem() LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput {
-	return o.ApplyT(func (v *LinuxVirtualMachineScaleSetRollingUpgradePolicy) LinuxVirtualMachineScaleSetRollingUpgradePolicy { return *v }).(LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetRollingUpgradePolicy) LinuxVirtualMachineScaleSetRollingUpgradePolicy {
+		return *v
+	}).(LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput)
 }
 
+// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxBatchInstancePercent() pulumi.IntOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxBatchInstancePercent }).(pulumi.IntOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxBatchInstancePercent }).(pulumi.IntOutput)
 }
 
+// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyInstancePercent() pulumi.IntOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntOutput)
 }
 
+// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyUpgradedInstancePercent }).(pulumi.IntOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int {
+		return v.MaxUnhealthyUpgradedInstancePercent
+	}).(pulumi.IntOutput)
 }
 
+// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PauseTimeBetweenBatches() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
 }
 
 type LinuxVirtualMachineScaleSetSecret struct {
+	// One or more `certificate` blocks as defined above.
 	Certificates []LinuxVirtualMachineScaleSetSecretCertificate `pulumi:"certificates"`
+	// The ID of the Key Vault from which all Secrets should be sourced.
 	KeyVaultId string `pulumi:"keyVaultId"`
 }
 
@@ -3128,7 +3433,9 @@ type LinuxVirtualMachineScaleSetSecretInput interface {
 }
 
 type LinuxVirtualMachineScaleSetSecretArgs struct {
+	// One or more `certificate` blocks as defined above.
 	Certificates LinuxVirtualMachineScaleSetSecretCertificateArrayInput `pulumi:"certificates"`
+	// The ID of the Key Vault from which all Secrets should be sourced.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
 }
 
@@ -3165,7 +3472,7 @@ func (i LinuxVirtualMachineScaleSetSecretArray) ToLinuxVirtualMachineScaleSetSec
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetSecretArrayOutput)
 }
 
-type LinuxVirtualMachineScaleSetSecretOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetSecretOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetSecretOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetSecret)(nil)).Elem()
@@ -3179,15 +3486,19 @@ func (o LinuxVirtualMachineScaleSetSecretOutput) ToLinuxVirtualMachineScaleSetSe
 	return o
 }
 
+// One or more `certificate` blocks as defined above.
 func (o LinuxVirtualMachineScaleSetSecretOutput) Certificates() LinuxVirtualMachineScaleSetSecretCertificateArrayOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetSecret) []LinuxVirtualMachineScaleSetSecretCertificate { return v.Certificates }).(LinuxVirtualMachineScaleSetSecretCertificateArrayOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSecret) []LinuxVirtualMachineScaleSetSecretCertificate {
+		return v.Certificates
+	}).(LinuxVirtualMachineScaleSetSecretCertificateArrayOutput)
 }
 
+// The ID of the Key Vault from which all Secrets should be sourced.
 func (o LinuxVirtualMachineScaleSetSecretOutput) KeyVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetSecret) string { return v.KeyVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSecret) string { return v.KeyVaultId }).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachineScaleSetSecretArrayOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetSecretArrayOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetSecretArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetSecret)(nil)).Elem()
@@ -3202,12 +3513,13 @@ func (o LinuxVirtualMachineScaleSetSecretArrayOutput) ToLinuxVirtualMachineScale
 }
 
 func (o LinuxVirtualMachineScaleSetSecretArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetSecretOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) LinuxVirtualMachineScaleSetSecret {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetSecret {
 		return vs[0].([]LinuxVirtualMachineScaleSetSecret)[vs[1].(int)]
 	}).(LinuxVirtualMachineScaleSetSecretOutput)
 }
 
 type LinuxVirtualMachineScaleSetSecretCertificate struct {
+	// The Secret URL of a Key Vault Certificate.
 	Url string `pulumi:"url"`
 }
 
@@ -3219,6 +3531,7 @@ type LinuxVirtualMachineScaleSetSecretCertificateInput interface {
 }
 
 type LinuxVirtualMachineScaleSetSecretCertificateArgs struct {
+	// The Secret URL of a Key Vault Certificate.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -3255,7 +3568,7 @@ func (i LinuxVirtualMachineScaleSetSecretCertificateArray) ToLinuxVirtualMachine
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetSecretCertificateArrayOutput)
 }
 
-type LinuxVirtualMachineScaleSetSecretCertificateOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetSecretCertificateOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetSecretCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetSecretCertificate)(nil)).Elem()
@@ -3269,11 +3582,12 @@ func (o LinuxVirtualMachineScaleSetSecretCertificateOutput) ToLinuxVirtualMachin
 	return o
 }
 
+// The Secret URL of a Key Vault Certificate.
 func (o LinuxVirtualMachineScaleSetSecretCertificateOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetSecretCertificate) string { return v.Url }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSecretCertificate) string { return v.Url }).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachineScaleSetSecretCertificateArrayOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetSecretCertificateArrayOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetSecretCertificateArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetSecretCertificate)(nil)).Elem()
@@ -3288,16 +3602,17 @@ func (o LinuxVirtualMachineScaleSetSecretCertificateArrayOutput) ToLinuxVirtualM
 }
 
 func (o LinuxVirtualMachineScaleSetSecretCertificateArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetSecretCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) LinuxVirtualMachineScaleSetSecretCertificate {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetSecretCertificate {
 		return vs[0].([]LinuxVirtualMachineScaleSetSecretCertificate)[vs[1].(int)]
 	}).(LinuxVirtualMachineScaleSetSecretCertificateOutput)
 }
 
 type LinuxVirtualMachineScaleSetSourceImageReference struct {
-	Offer string `pulumi:"offer"`
+	Offer     string `pulumi:"offer"`
 	Publisher string `pulumi:"publisher"`
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
 	Sku string `pulumi:"sku"`
+	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 	Version string `pulumi:"version"`
 }
 
@@ -3309,10 +3624,11 @@ type LinuxVirtualMachineScaleSetSourceImageReferenceInput interface {
 }
 
 type LinuxVirtualMachineScaleSetSourceImageReferenceArgs struct {
-	Offer pulumi.StringInput `pulumi:"offer"`
+	Offer     pulumi.StringInput `pulumi:"offer"`
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
 	Sku pulumi.StringInput `pulumi:"sku"`
+	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -3345,7 +3661,8 @@ type LinuxVirtualMachineScaleSetSourceImageReferencePtrInput interface {
 
 type linuxVirtualMachineScaleSetSourceImageReferencePtrType LinuxVirtualMachineScaleSetSourceImageReferenceArgs
 
-func LinuxVirtualMachineScaleSetSourceImageReferencePtr(v *LinuxVirtualMachineScaleSetSourceImageReferenceArgs) LinuxVirtualMachineScaleSetSourceImageReferencePtrInput {	return (*linuxVirtualMachineScaleSetSourceImageReferencePtrType)(v)
+func LinuxVirtualMachineScaleSetSourceImageReferencePtr(v *LinuxVirtualMachineScaleSetSourceImageReferenceArgs) LinuxVirtualMachineScaleSetSourceImageReferencePtrInput {
+	return (*linuxVirtualMachineScaleSetSourceImageReferencePtrType)(v)
 }
 
 func (*linuxVirtualMachineScaleSetSourceImageReferencePtrType) ElementType() reflect.Type {
@@ -3360,7 +3677,7 @@ func (i *linuxVirtualMachineScaleSetSourceImageReferencePtrType) ToLinuxVirtualM
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetSourceImageReferenceOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetSourceImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetSourceImageReferenceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetSourceImageReference)(nil)).Elem()
@@ -3384,23 +3701,24 @@ func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) ToLinuxVirtualMac
 	}).(LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput)
 }
 func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
 func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 // The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
 func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) Sku() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
+// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinuxVirtualMachineScaleSetSourceImageReference)(nil)).Elem()
@@ -3415,28 +3733,33 @@ func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) ToLinuxVirtual
 }
 
 func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Elem() LinuxVirtualMachineScaleSetSourceImageReferenceOutput {
-	return o.ApplyT(func (v *LinuxVirtualMachineScaleSetSourceImageReference) LinuxVirtualMachineScaleSetSourceImageReference { return *v }).(LinuxVirtualMachineScaleSetSourceImageReferenceOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetSourceImageReference) LinuxVirtualMachineScaleSetSourceImageReference {
+		return *v
+	}).(LinuxVirtualMachineScaleSetSourceImageReferenceOutput)
 }
 
 func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
 func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 // The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
 func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Sku() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
+// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
 
 type LinuxVirtualMachineScaleSetTerminateNotification struct {
+	// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
 	Enabled bool `pulumi:"enabled"`
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
 	Timeout *string `pulumi:"timeout"`
 }
 
@@ -3448,7 +3771,9 @@ type LinuxVirtualMachineScaleSetTerminateNotificationInput interface {
 }
 
 type LinuxVirtualMachineScaleSetTerminateNotificationArgs struct {
+	// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
 	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
 }
 
@@ -3481,7 +3806,8 @@ type LinuxVirtualMachineScaleSetTerminateNotificationPtrInput interface {
 
 type linuxVirtualMachineScaleSetTerminateNotificationPtrType LinuxVirtualMachineScaleSetTerminateNotificationArgs
 
-func LinuxVirtualMachineScaleSetTerminateNotificationPtr(v *LinuxVirtualMachineScaleSetTerminateNotificationArgs) LinuxVirtualMachineScaleSetTerminateNotificationPtrInput {	return (*linuxVirtualMachineScaleSetTerminateNotificationPtrType)(v)
+func LinuxVirtualMachineScaleSetTerminateNotificationPtr(v *LinuxVirtualMachineScaleSetTerminateNotificationArgs) LinuxVirtualMachineScaleSetTerminateNotificationPtrInput {
+	return (*linuxVirtualMachineScaleSetTerminateNotificationPtrType)(v)
 }
 
 func (*linuxVirtualMachineScaleSetTerminateNotificationPtrType) ElementType() reflect.Type {
@@ -3496,7 +3822,7 @@ func (i *linuxVirtualMachineScaleSetTerminateNotificationPtrType) ToLinuxVirtual
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetTerminateNotificationOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineScaleSetTerminateNotificationOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetTerminateNotificationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
@@ -3519,15 +3845,18 @@ func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) ToLinuxVirtualMa
 		return &v
 	}).(LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput)
 }
+
+// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
 func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetTerminateNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetTerminateNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
 func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) Timeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetTerminateNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetTerminateNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinuxVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
@@ -3542,19 +3871,25 @@ func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) ToLinuxVirtua
 }
 
 func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) Elem() LinuxVirtualMachineScaleSetTerminateNotificationOutput {
-	return o.ApplyT(func (v *LinuxVirtualMachineScaleSetTerminateNotification) LinuxVirtualMachineScaleSetTerminateNotification { return *v }).(LinuxVirtualMachineScaleSetTerminateNotificationOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetTerminateNotification) LinuxVirtualMachineScaleSetTerminateNotification {
+		return *v
+	}).(LinuxVirtualMachineScaleSetTerminateNotificationOutput)
 }
 
+// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
 func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetTerminateNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetTerminateNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
 func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineScaleSetTerminateNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetTerminateNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
 
 type LinuxVirtualMachineSecret struct {
+	// One or more `certificate` blocks as defined above.
 	Certificates []LinuxVirtualMachineSecretCertificate `pulumi:"certificates"`
+	// The ID of the Key Vault from which all Secrets should be sourced.
 	KeyVaultId string `pulumi:"keyVaultId"`
 }
 
@@ -3566,7 +3901,9 @@ type LinuxVirtualMachineSecretInput interface {
 }
 
 type LinuxVirtualMachineSecretArgs struct {
+	// One or more `certificate` blocks as defined above.
 	Certificates LinuxVirtualMachineSecretCertificateArrayInput `pulumi:"certificates"`
+	// The ID of the Key Vault from which all Secrets should be sourced.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
 }
 
@@ -3603,7 +3940,7 @@ func (i LinuxVirtualMachineSecretArray) ToLinuxVirtualMachineSecretArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineSecretArrayOutput)
 }
 
-type LinuxVirtualMachineSecretOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineSecretOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineSecretOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineSecret)(nil)).Elem()
@@ -3617,15 +3954,17 @@ func (o LinuxVirtualMachineSecretOutput) ToLinuxVirtualMachineSecretOutputWithCo
 	return o
 }
 
+// One or more `certificate` blocks as defined above.
 func (o LinuxVirtualMachineSecretOutput) Certificates() LinuxVirtualMachineSecretCertificateArrayOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineSecret) []LinuxVirtualMachineSecretCertificate { return v.Certificates }).(LinuxVirtualMachineSecretCertificateArrayOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineSecret) []LinuxVirtualMachineSecretCertificate { return v.Certificates }).(LinuxVirtualMachineSecretCertificateArrayOutput)
 }
 
+// The ID of the Key Vault from which all Secrets should be sourced.
 func (o LinuxVirtualMachineSecretOutput) KeyVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineSecret) string { return v.KeyVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineSecret) string { return v.KeyVaultId }).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachineSecretArrayOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineSecretArrayOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineSecretArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]LinuxVirtualMachineSecret)(nil)).Elem()
@@ -3640,12 +3979,13 @@ func (o LinuxVirtualMachineSecretArrayOutput) ToLinuxVirtualMachineSecretArrayOu
 }
 
 func (o LinuxVirtualMachineSecretArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineSecretOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) LinuxVirtualMachineSecret {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineSecret {
 		return vs[0].([]LinuxVirtualMachineSecret)[vs[1].(int)]
 	}).(LinuxVirtualMachineSecretOutput)
 }
 
 type LinuxVirtualMachineSecretCertificate struct {
+	// The Secret URL of a Key Vault Certificate.
 	Url string `pulumi:"url"`
 }
 
@@ -3657,6 +3997,7 @@ type LinuxVirtualMachineSecretCertificateInput interface {
 }
 
 type LinuxVirtualMachineSecretCertificateArgs struct {
+	// The Secret URL of a Key Vault Certificate.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -3693,7 +4034,7 @@ func (i LinuxVirtualMachineSecretCertificateArray) ToLinuxVirtualMachineSecretCe
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineSecretCertificateArrayOutput)
 }
 
-type LinuxVirtualMachineSecretCertificateOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineSecretCertificateOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineSecretCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineSecretCertificate)(nil)).Elem()
@@ -3707,11 +4048,12 @@ func (o LinuxVirtualMachineSecretCertificateOutput) ToLinuxVirtualMachineSecretC
 	return o
 }
 
+// The Secret URL of a Key Vault Certificate.
 func (o LinuxVirtualMachineSecretCertificateOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineSecretCertificate) string { return v.Url }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineSecretCertificate) string { return v.Url }).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachineSecretCertificateArrayOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineSecretCertificateArrayOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineSecretCertificateArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]LinuxVirtualMachineSecretCertificate)(nil)).Elem()
@@ -3726,16 +4068,17 @@ func (o LinuxVirtualMachineSecretCertificateArrayOutput) ToLinuxVirtualMachineSe
 }
 
 func (o LinuxVirtualMachineSecretCertificateArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineSecretCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) LinuxVirtualMachineSecretCertificate {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineSecretCertificate {
 		return vs[0].([]LinuxVirtualMachineSecretCertificate)[vs[1].(int)]
 	}).(LinuxVirtualMachineSecretCertificateOutput)
 }
 
 type LinuxVirtualMachineSourceImageReference struct {
 	Offer string `pulumi:"offer"`
+	// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
-	Sku string `pulumi:"sku"`
-	Version string `pulumi:"version"`
+	Sku       string `pulumi:"sku"`
+	Version   string `pulumi:"version"`
 }
 
 type LinuxVirtualMachineSourceImageReferenceInput interface {
@@ -3747,9 +4090,10 @@ type LinuxVirtualMachineSourceImageReferenceInput interface {
 
 type LinuxVirtualMachineSourceImageReferenceArgs struct {
 	Offer pulumi.StringInput `pulumi:"offer"`
+	// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	Sku pulumi.StringInput `pulumi:"sku"`
-	Version pulumi.StringInput `pulumi:"version"`
+	Sku       pulumi.StringInput `pulumi:"sku"`
+	Version   pulumi.StringInput `pulumi:"version"`
 }
 
 func (LinuxVirtualMachineSourceImageReferenceArgs) ElementType() reflect.Type {
@@ -3781,7 +4125,8 @@ type LinuxVirtualMachineSourceImageReferencePtrInput interface {
 
 type linuxVirtualMachineSourceImageReferencePtrType LinuxVirtualMachineSourceImageReferenceArgs
 
-func LinuxVirtualMachineSourceImageReferencePtr(v *LinuxVirtualMachineSourceImageReferenceArgs) LinuxVirtualMachineSourceImageReferencePtrInput {	return (*linuxVirtualMachineSourceImageReferencePtrType)(v)
+func LinuxVirtualMachineSourceImageReferencePtr(v *LinuxVirtualMachineSourceImageReferenceArgs) LinuxVirtualMachineSourceImageReferencePtrInput {
+	return (*linuxVirtualMachineSourceImageReferencePtrType)(v)
 }
 
 func (*linuxVirtualMachineSourceImageReferencePtrType) ElementType() reflect.Type {
@@ -3796,7 +4141,7 @@ func (i *linuxVirtualMachineSourceImageReferencePtrType) ToLinuxVirtualMachineSo
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineSourceImageReferencePtrOutput)
 }
 
-type LinuxVirtualMachineSourceImageReferenceOutput struct { *pulumi.OutputState }
+type LinuxVirtualMachineSourceImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineSourceImageReferenceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinuxVirtualMachineSourceImageReference)(nil)).Elem()
@@ -3820,22 +4165,23 @@ func (o LinuxVirtualMachineSourceImageReferenceOutput) ToLinuxVirtualMachineSour
 	}).(LinuxVirtualMachineSourceImageReferencePtrOutput)
 }
 func (o LinuxVirtualMachineSourceImageReferenceOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
+// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineSourceImageReferenceOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 func (o LinuxVirtualMachineSourceImageReferenceOutput) Sku() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
 func (o LinuxVirtualMachineSourceImageReferenceOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
 
-type LinuxVirtualMachineSourceImageReferencePtrOutput struct { *pulumi.OutputState}
+type LinuxVirtualMachineSourceImageReferencePtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineSourceImageReferencePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinuxVirtualMachineSourceImageReference)(nil)).Elem()
@@ -3850,28 +4196,32 @@ func (o LinuxVirtualMachineSourceImageReferencePtrOutput) ToLinuxVirtualMachineS
 }
 
 func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Elem() LinuxVirtualMachineSourceImageReferenceOutput {
-	return o.ApplyT(func (v *LinuxVirtualMachineSourceImageReference) LinuxVirtualMachineSourceImageReference { return *v }).(LinuxVirtualMachineSourceImageReferenceOutput)
+	return o.ApplyT(func(v *LinuxVirtualMachineSourceImageReference) LinuxVirtualMachineSourceImageReference { return *v }).(LinuxVirtualMachineSourceImageReferenceOutput)
 }
 
 func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
+// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Sku() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
 func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v LinuxVirtualMachineSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
 
 type ManagedDiskEncryptionSettings struct {
+	// A `diskEncryptionKey` block as defined above.
 	DiskEncryptionKey *ManagedDiskEncryptionSettingsDiskEncryptionKey `pulumi:"diskEncryptionKey"`
+	// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
 	Enabled bool `pulumi:"enabled"`
+	// A `keyEncryptionKey` block as defined below.
 	KeyEncryptionKey *ManagedDiskEncryptionSettingsKeyEncryptionKey `pulumi:"keyEncryptionKey"`
 }
 
@@ -3883,8 +4233,11 @@ type ManagedDiskEncryptionSettingsInput interface {
 }
 
 type ManagedDiskEncryptionSettingsArgs struct {
+	// A `diskEncryptionKey` block as defined above.
 	DiskEncryptionKey ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrInput `pulumi:"diskEncryptionKey"`
+	// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A `keyEncryptionKey` block as defined below.
 	KeyEncryptionKey ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrInput `pulumi:"keyEncryptionKey"`
 }
 
@@ -3917,7 +4270,8 @@ type ManagedDiskEncryptionSettingsPtrInput interface {
 
 type managedDiskEncryptionSettingsPtrType ManagedDiskEncryptionSettingsArgs
 
-func ManagedDiskEncryptionSettingsPtr(v *ManagedDiskEncryptionSettingsArgs) ManagedDiskEncryptionSettingsPtrInput {	return (*managedDiskEncryptionSettingsPtrType)(v)
+func ManagedDiskEncryptionSettingsPtr(v *ManagedDiskEncryptionSettingsArgs) ManagedDiskEncryptionSettingsPtrInput {
+	return (*managedDiskEncryptionSettingsPtrType)(v)
 }
 
 func (*managedDiskEncryptionSettingsPtrType) ElementType() reflect.Type {
@@ -3932,7 +4286,7 @@ func (i *managedDiskEncryptionSettingsPtrType) ToManagedDiskEncryptionSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskEncryptionSettingsPtrOutput)
 }
 
-type ManagedDiskEncryptionSettingsOutput struct { *pulumi.OutputState }
+type ManagedDiskEncryptionSettingsOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskEncryptionSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedDiskEncryptionSettings)(nil)).Elem()
@@ -3955,19 +4309,27 @@ func (o ManagedDiskEncryptionSettingsOutput) ToManagedDiskEncryptionSettingsPtrO
 		return &v
 	}).(ManagedDiskEncryptionSettingsPtrOutput)
 }
+
+// A `diskEncryptionKey` block as defined above.
 func (o ManagedDiskEncryptionSettingsOutput) DiskEncryptionKey() ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettingsDiskEncryptionKey { return v.DiskEncryptionKey }).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettingsDiskEncryptionKey {
+		return v.DiskEncryptionKey
+	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
+// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
 func (o ManagedDiskEncryptionSettingsOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// A `keyEncryptionKey` block as defined below.
 func (o ManagedDiskEncryptionSettingsOutput) KeyEncryptionKey() ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettingsKeyEncryptionKey { return v.KeyEncryptionKey }).(ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettingsKeyEncryptionKey {
+		return v.KeyEncryptionKey
+	}).(ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
 
-type ManagedDiskEncryptionSettingsPtrOutput struct { *pulumi.OutputState}
+type ManagedDiskEncryptionSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskEncryptionSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ManagedDiskEncryptionSettings)(nil)).Elem()
@@ -3982,23 +4344,32 @@ func (o ManagedDiskEncryptionSettingsPtrOutput) ToManagedDiskEncryptionSettingsP
 }
 
 func (o ManagedDiskEncryptionSettingsPtrOutput) Elem() ManagedDiskEncryptionSettingsOutput {
-	return o.ApplyT(func (v *ManagedDiskEncryptionSettings) ManagedDiskEncryptionSettings { return *v }).(ManagedDiskEncryptionSettingsOutput)
+	return o.ApplyT(func(v *ManagedDiskEncryptionSettings) ManagedDiskEncryptionSettings { return *v }).(ManagedDiskEncryptionSettingsOutput)
 }
 
+// A `diskEncryptionKey` block as defined above.
 func (o ManagedDiskEncryptionSettingsPtrOutput) DiskEncryptionKey() ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettingsDiskEncryptionKey { return v.DiskEncryptionKey }).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettingsDiskEncryptionKey {
+		return v.DiskEncryptionKey
+	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
+// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
 func (o ManagedDiskEncryptionSettingsPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// A `keyEncryptionKey` block as defined below.
 func (o ManagedDiskEncryptionSettingsPtrOutput) KeyEncryptionKey() ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettingsKeyEncryptionKey { return v.KeyEncryptionKey }).(ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettingsKeyEncryptionKey {
+		return v.KeyEncryptionKey
+	}).(ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
 
 type ManagedDiskEncryptionSettingsDiskEncryptionKey struct {
+	// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
 	SecretUrl string `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
 	SourceVaultId string `pulumi:"sourceVaultId"`
 }
 
@@ -4010,7 +4381,9 @@ type ManagedDiskEncryptionSettingsDiskEncryptionKeyInput interface {
 }
 
 type ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs struct {
+	// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
 	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
 	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
 }
 
@@ -4043,7 +4416,8 @@ type ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrInput interface {
 
 type managedDiskEncryptionSettingsDiskEncryptionKeyPtrType ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs
 
-func ManagedDiskEncryptionSettingsDiskEncryptionKeyPtr(v *ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs) ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrInput {	return (*managedDiskEncryptionSettingsDiskEncryptionKeyPtrType)(v)
+func ManagedDiskEncryptionSettingsDiskEncryptionKeyPtr(v *ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs) ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrInput {
+	return (*managedDiskEncryptionSettingsDiskEncryptionKeyPtrType)(v)
 }
 
 func (*managedDiskEncryptionSettingsDiskEncryptionKeyPtrType) ElementType() reflect.Type {
@@ -4058,7 +4432,7 @@ func (i *managedDiskEncryptionSettingsDiskEncryptionKeyPtrType) ToManagedDiskEnc
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
-type ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput struct { *pulumi.OutputState }
+type ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedDiskEncryptionSettingsDiskEncryptionKey)(nil)).Elem()
@@ -4081,15 +4455,18 @@ func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput) ToManagedDiskEncry
 		return &v
 	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
+
+// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
 func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput) SecretUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
 }
 
+// The ID of the source Key Vault.
 func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
-type ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput struct { *pulumi.OutputState}
+type ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ManagedDiskEncryptionSettingsDiskEncryptionKey)(nil)).Elem()
@@ -4104,19 +4481,25 @@ func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput) ToManagedDiskEn
 }
 
 func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput) Elem() ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput {
-	return o.ApplyT(func (v *ManagedDiskEncryptionSettingsDiskEncryptionKey) ManagedDiskEncryptionSettingsDiskEncryptionKey { return *v }).(ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput)
+	return o.ApplyT(func(v *ManagedDiskEncryptionSettingsDiskEncryptionKey) ManagedDiskEncryptionSettingsDiskEncryptionKey {
+		return *v
+	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput)
 }
 
+// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
 func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput) SecretUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
 }
 
+// The ID of the source Key Vault.
 func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
 type ManagedDiskEncryptionSettingsKeyEncryptionKey struct {
+	// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
 	KeyUrl string `pulumi:"keyUrl"`
+	// The ID of the source Key Vault.
 	SourceVaultId string `pulumi:"sourceVaultId"`
 }
 
@@ -4128,7 +4511,9 @@ type ManagedDiskEncryptionSettingsKeyEncryptionKeyInput interface {
 }
 
 type ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs struct {
+	// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
 	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	// The ID of the source Key Vault.
 	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
 }
 
@@ -4161,7 +4546,8 @@ type ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrInput interface {
 
 type managedDiskEncryptionSettingsKeyEncryptionKeyPtrType ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs
 
-func ManagedDiskEncryptionSettingsKeyEncryptionKeyPtr(v *ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs) ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrInput {	return (*managedDiskEncryptionSettingsKeyEncryptionKeyPtrType)(v)
+func ManagedDiskEncryptionSettingsKeyEncryptionKeyPtr(v *ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs) ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrInput {
+	return (*managedDiskEncryptionSettingsKeyEncryptionKeyPtrType)(v)
 }
 
 func (*managedDiskEncryptionSettingsKeyEncryptionKeyPtrType) ElementType() reflect.Type {
@@ -4176,7 +4562,7 @@ func (i *managedDiskEncryptionSettingsKeyEncryptionKeyPtrType) ToManagedDiskEncr
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
 
-type ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput struct { *pulumi.OutputState }
+type ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedDiskEncryptionSettingsKeyEncryptionKey)(nil)).Elem()
@@ -4199,15 +4585,18 @@ func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput) ToManagedDiskEncryp
 		return &v
 	}).(ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
+
+// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
 func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput) KeyUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
+// The ID of the source Key Vault.
 func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
-type ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput struct { *pulumi.OutputState}
+type ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ManagedDiskEncryptionSettingsKeyEncryptionKey)(nil)).Elem()
@@ -4222,19 +4611,23 @@ func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput) ToManagedDiskEnc
 }
 
 func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput) Elem() ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput {
-	return o.ApplyT(func (v *ManagedDiskEncryptionSettingsKeyEncryptionKey) ManagedDiskEncryptionSettingsKeyEncryptionKey { return *v }).(ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput)
+	return o.ApplyT(func(v *ManagedDiskEncryptionSettingsKeyEncryptionKey) ManagedDiskEncryptionSettingsKeyEncryptionKey {
+		return *v
+	}).(ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput)
 }
 
+// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
 func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput) KeyUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
+// The ID of the source Key Vault.
 func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ManagedDiskEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
 type ScaleSetBootDiagnostics struct {
-	Enabled *bool `pulumi:"enabled"`
+	Enabled    *bool  `pulumi:"enabled"`
 	StorageUri string `pulumi:"storageUri"`
 }
 
@@ -4246,8 +4639,8 @@ type ScaleSetBootDiagnosticsInput interface {
 }
 
 type ScaleSetBootDiagnosticsArgs struct {
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	StorageUri pulumi.StringInput `pulumi:"storageUri"`
+	Enabled    pulumi.BoolPtrInput `pulumi:"enabled"`
+	StorageUri pulumi.StringInput  `pulumi:"storageUri"`
 }
 
 func (ScaleSetBootDiagnosticsArgs) ElementType() reflect.Type {
@@ -4279,7 +4672,8 @@ type ScaleSetBootDiagnosticsPtrInput interface {
 
 type scaleSetBootDiagnosticsPtrType ScaleSetBootDiagnosticsArgs
 
-func ScaleSetBootDiagnosticsPtr(v *ScaleSetBootDiagnosticsArgs) ScaleSetBootDiagnosticsPtrInput {	return (*scaleSetBootDiagnosticsPtrType)(v)
+func ScaleSetBootDiagnosticsPtr(v *ScaleSetBootDiagnosticsArgs) ScaleSetBootDiagnosticsPtrInput {
+	return (*scaleSetBootDiagnosticsPtrType)(v)
 }
 
 func (*scaleSetBootDiagnosticsPtrType) ElementType() reflect.Type {
@@ -4294,7 +4688,7 @@ func (i *scaleSetBootDiagnosticsPtrType) ToScaleSetBootDiagnosticsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetBootDiagnosticsPtrOutput)
 }
 
-type ScaleSetBootDiagnosticsOutput struct { *pulumi.OutputState }
+type ScaleSetBootDiagnosticsOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetBootDiagnosticsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetBootDiagnostics)(nil)).Elem()
@@ -4318,14 +4712,14 @@ func (o ScaleSetBootDiagnosticsOutput) ToScaleSetBootDiagnosticsPtrOutputWithCon
 	}).(ScaleSetBootDiagnosticsPtrOutput)
 }
 func (o ScaleSetBootDiagnosticsOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetBootDiagnostics) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetBootDiagnostics) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o ScaleSetBootDiagnosticsOutput) StorageUri() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetBootDiagnostics) string { return v.StorageUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetBootDiagnostics) string { return v.StorageUri }).(pulumi.StringOutput)
 }
 
-type ScaleSetBootDiagnosticsPtrOutput struct { *pulumi.OutputState}
+type ScaleSetBootDiagnosticsPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetBootDiagnosticsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetBootDiagnostics)(nil)).Elem()
@@ -4340,27 +4734,27 @@ func (o ScaleSetBootDiagnosticsPtrOutput) ToScaleSetBootDiagnosticsPtrOutputWith
 }
 
 func (o ScaleSetBootDiagnosticsPtrOutput) Elem() ScaleSetBootDiagnosticsOutput {
-	return o.ApplyT(func (v *ScaleSetBootDiagnostics) ScaleSetBootDiagnostics { return *v }).(ScaleSetBootDiagnosticsOutput)
+	return o.ApplyT(func(v *ScaleSetBootDiagnostics) ScaleSetBootDiagnostics { return *v }).(ScaleSetBootDiagnosticsOutput)
 }
 
 func (o ScaleSetBootDiagnosticsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetBootDiagnostics) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetBootDiagnostics) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o ScaleSetBootDiagnosticsPtrOutput) StorageUri() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetBootDiagnostics) string { return v.StorageUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetBootDiagnostics) string { return v.StorageUri }).(pulumi.StringOutput)
 }
 
 type ScaleSetExtension struct {
 	// Specifies whether or not to use the latest minor version available.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
-	// Specifies the name of the image from the marketplace.
+	// Specifies the name of the extension.
 	Name string `pulumi:"name"`
 	// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings *string `pulumi:"protectedSettings"`
 	// Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
 	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
-	// Specifies the publisher of the image.
+	// The publisher of the extension, available publishers can be found by using the Azure CLI.
 	Publisher string `pulumi:"publisher"`
 	// The settings passed to the extension, these are specified as a JSON object in a string.
 	Settings *string `pulumi:"settings"`
@@ -4380,13 +4774,13 @@ type ScaleSetExtensionInput interface {
 type ScaleSetExtensionArgs struct {
 	// Specifies whether or not to use the latest minor version available.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
-	// Specifies the name of the image from the marketplace.
+	// Specifies the name of the extension.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings pulumi.StringPtrInput `pulumi:"protectedSettings"`
 	// Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
 	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
-	// Specifies the publisher of the image.
+	// The publisher of the extension, available publishers can be found by using the Azure CLI.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 	// The settings passed to the extension, these are specified as a JSON object in a string.
 	Settings pulumi.StringPtrInput `pulumi:"settings"`
@@ -4429,7 +4823,7 @@ func (i ScaleSetExtensionArray) ToScaleSetExtensionArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetExtensionArrayOutput)
 }
 
-type ScaleSetExtensionOutput struct { *pulumi.OutputState }
+type ScaleSetExtensionOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetExtensionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetExtension)(nil)).Elem()
@@ -4445,45 +4839,45 @@ func (o ScaleSetExtensionOutput) ToScaleSetExtensionOutputWithContext(ctx contex
 
 // Specifies whether or not to use the latest minor version available.
 func (o ScaleSetExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetExtension) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetExtension) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the name of the image from the marketplace.
+// Specifies the name of the extension.
 func (o ScaleSetExtensionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetExtension) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetExtension) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
 func (o ScaleSetExtensionOutput) ProtectedSettings() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetExtension) *string { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetExtension) *string { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
 }
 
 // Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
 func (o ScaleSetExtensionOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetExtension) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetExtension) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the publisher of the image.
+// The publisher of the extension, available publishers can be found by using the Azure CLI.
 func (o ScaleSetExtensionOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetExtension) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetExtension) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 // The settings passed to the extension, these are specified as a JSON object in a string.
 func (o ScaleSetExtensionOutput) Settings() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetExtension) *string { return v.Settings }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetExtension) *string { return v.Settings }).(pulumi.StringPtrOutput)
 }
 
 // The type of extension, available types for a publisher can be found using the Azure CLI.
 func (o ScaleSetExtensionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetExtension) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetExtension) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 func (o ScaleSetExtensionOutput) TypeHandlerVersion() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetExtension) string { return v.TypeHandlerVersion }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetExtension) string { return v.TypeHandlerVersion }).(pulumi.StringOutput)
 }
 
-type ScaleSetExtensionArrayOutput struct { *pulumi.OutputState}
+type ScaleSetExtensionArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetExtensionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetExtension)(nil)).Elem()
@@ -4498,7 +4892,7 @@ func (o ScaleSetExtensionArrayOutput) ToScaleSetExtensionArrayOutputWithContext(
 }
 
 func (o ScaleSetExtensionArrayOutput) Index(i pulumi.IntInput) ScaleSetExtensionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetExtension {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetExtension {
 		return vs[0].([]ScaleSetExtension)[vs[1].(int)]
 	}).(ScaleSetExtensionOutput)
 }
@@ -4506,8 +4900,8 @@ func (o ScaleSetExtensionArrayOutput) Index(i pulumi.IntInput) ScaleSetExtension
 type ScaleSetIdentity struct {
 	// Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
-	PrincipalId *string `pulumi:"principalId"`
-	// The type of extension, available types for a publisher can be found using the Azure CLI.
+	PrincipalId *string  `pulumi:"principalId"`
+	// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview) for more information.
 	Type string `pulumi:"type"`
 }
 
@@ -4521,8 +4915,8 @@ type ScaleSetIdentityInput interface {
 type ScaleSetIdentityArgs struct {
 	// Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The type of extension, available types for a publisher can be found using the Azure CLI.
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview) for more information.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4555,7 +4949,8 @@ type ScaleSetIdentityPtrInput interface {
 
 type scaleSetIdentityPtrType ScaleSetIdentityArgs
 
-func ScaleSetIdentityPtr(v *ScaleSetIdentityArgs) ScaleSetIdentityPtrInput {	return (*scaleSetIdentityPtrType)(v)
+func ScaleSetIdentityPtr(v *ScaleSetIdentityArgs) ScaleSetIdentityPtrInput {
+	return (*scaleSetIdentityPtrType)(v)
 }
 
 func (*scaleSetIdentityPtrType) ElementType() reflect.Type {
@@ -4570,7 +4965,7 @@ func (i *scaleSetIdentityPtrType) ToScaleSetIdentityPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetIdentityPtrOutput)
 }
 
-type ScaleSetIdentityOutput struct { *pulumi.OutputState }
+type ScaleSetIdentityOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetIdentity)(nil)).Elem()
@@ -4593,21 +4988,22 @@ func (o ScaleSetIdentityOutput) ToScaleSetIdentityPtrOutputWithContext(ctx conte
 		return &v
 	}).(ScaleSetIdentityPtrOutput)
 }
+
 // Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
 func (o ScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 func (o ScaleSetIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The type of extension, available types for a publisher can be found using the Azure CLI.
+// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview) for more information.
 func (o ScaleSetIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type ScaleSetIdentityPtrOutput struct { *pulumi.OutputState}
+type ScaleSetIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetIdentity)(nil)).Elem()
@@ -4622,21 +5018,21 @@ func (o ScaleSetIdentityPtrOutput) ToScaleSetIdentityPtrOutputWithContext(ctx co
 }
 
 func (o ScaleSetIdentityPtrOutput) Elem() ScaleSetIdentityOutput {
-	return o.ApplyT(func (v *ScaleSetIdentity) ScaleSetIdentity { return *v }).(ScaleSetIdentityOutput)
+	return o.ApplyT(func(v *ScaleSetIdentity) ScaleSetIdentity { return *v }).(ScaleSetIdentityOutput)
 }
 
 // Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
 func (o ScaleSetIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 func (o ScaleSetIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The type of extension, available types for a publisher can be found using the Azure CLI.
+// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview) for more information.
 func (o ScaleSetIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ScaleSetNetworkProfile struct {
@@ -4648,11 +5044,11 @@ type ScaleSetNetworkProfile struct {
 	IpConfigurations []ScaleSetNetworkProfileIpConfiguration `pulumi:"ipConfigurations"`
 	// Whether IP forwarding is enabled on this NIC. Defaults to `false`.
 	IpForwarding *bool `pulumi:"ipForwarding"`
-	// Specifies the name of the image from the marketplace.
+	// Specifies the name of the network interface configuration.
 	Name string `pulumi:"name"`
 	// Specifies the identifier for the network security group.
 	NetworkSecurityGroupId *string `pulumi:"networkSecurityGroupId"`
-	// Specifies if this ipConfiguration is the primary one.
+	// Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
 	Primary bool `pulumi:"primary"`
 }
 
@@ -4672,11 +5068,11 @@ type ScaleSetNetworkProfileArgs struct {
 	IpConfigurations ScaleSetNetworkProfileIpConfigurationArrayInput `pulumi:"ipConfigurations"`
 	// Whether IP forwarding is enabled on this NIC. Defaults to `false`.
 	IpForwarding pulumi.BoolPtrInput `pulumi:"ipForwarding"`
-	// Specifies the name of the image from the marketplace.
+	// Specifies the name of the network interface configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the identifier for the network security group.
 	NetworkSecurityGroupId pulumi.StringPtrInput `pulumi:"networkSecurityGroupId"`
-	// Specifies if this ipConfiguration is the primary one.
+	// Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
 	Primary pulumi.BoolInput `pulumi:"primary"`
 }
 
@@ -4713,7 +5109,7 @@ func (i ScaleSetNetworkProfileArray) ToScaleSetNetworkProfileArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetNetworkProfileArrayOutput)
 }
 
-type ScaleSetNetworkProfileOutput struct { *pulumi.OutputState }
+type ScaleSetNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetNetworkProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetNetworkProfile)(nil)).Elem()
@@ -4729,40 +5125,40 @@ func (o ScaleSetNetworkProfileOutput) ToScaleSetNetworkProfileOutputWithContext(
 
 // Specifies whether to enable accelerated networking or not. Defaults to `false`.
 func (o ScaleSetNetworkProfileOutput) AcceleratedNetworking() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfile) *bool { return v.AcceleratedNetworking }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfile) *bool { return v.AcceleratedNetworking }).(pulumi.BoolPtrOutput)
 }
 
 // A dnsSettings block as documented below.
 func (o ScaleSetNetworkProfileOutput) DnsSettings() ScaleSetNetworkProfileDnsSettingsPtrOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfile) *ScaleSetNetworkProfileDnsSettings { return v.DnsSettings }).(ScaleSetNetworkProfileDnsSettingsPtrOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfile) *ScaleSetNetworkProfileDnsSettings { return v.DnsSettings }).(ScaleSetNetworkProfileDnsSettingsPtrOutput)
 }
 
 // An ipConfiguration block as documented below.
 func (o ScaleSetNetworkProfileOutput) IpConfigurations() ScaleSetNetworkProfileIpConfigurationArrayOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfile) []ScaleSetNetworkProfileIpConfiguration { return v.IpConfigurations }).(ScaleSetNetworkProfileIpConfigurationArrayOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfile) []ScaleSetNetworkProfileIpConfiguration { return v.IpConfigurations }).(ScaleSetNetworkProfileIpConfigurationArrayOutput)
 }
 
 // Whether IP forwarding is enabled on this NIC. Defaults to `false`.
 func (o ScaleSetNetworkProfileOutput) IpForwarding() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfile) *bool { return v.IpForwarding }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfile) *bool { return v.IpForwarding }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the name of the image from the marketplace.
+// Specifies the name of the network interface configuration.
 func (o ScaleSetNetworkProfileOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfile) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Specifies the identifier for the network security group.
 func (o ScaleSetNetworkProfileOutput) NetworkSecurityGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfile) *string { return v.NetworkSecurityGroupId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfile) *string { return v.NetworkSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies if this ipConfiguration is the primary one.
+// Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
 func (o ScaleSetNetworkProfileOutput) Primary() pulumi.BoolOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfile) bool { return v.Primary }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfile) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
-type ScaleSetNetworkProfileArrayOutput struct { *pulumi.OutputState}
+type ScaleSetNetworkProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetNetworkProfileArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetNetworkProfile)(nil)).Elem()
@@ -4777,7 +5173,7 @@ func (o ScaleSetNetworkProfileArrayOutput) ToScaleSetNetworkProfileArrayOutputWi
 }
 
 func (o ScaleSetNetworkProfileArrayOutput) Index(i pulumi.IntInput) ScaleSetNetworkProfileOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetNetworkProfile {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetNetworkProfile {
 		return vs[0].([]ScaleSetNetworkProfile)[vs[1].(int)]
 	}).(ScaleSetNetworkProfileOutput)
 }
@@ -4828,7 +5224,8 @@ type ScaleSetNetworkProfileDnsSettingsPtrInput interface {
 
 type scaleSetNetworkProfileDnsSettingsPtrType ScaleSetNetworkProfileDnsSettingsArgs
 
-func ScaleSetNetworkProfileDnsSettingsPtr(v *ScaleSetNetworkProfileDnsSettingsArgs) ScaleSetNetworkProfileDnsSettingsPtrInput {	return (*scaleSetNetworkProfileDnsSettingsPtrType)(v)
+func ScaleSetNetworkProfileDnsSettingsPtr(v *ScaleSetNetworkProfileDnsSettingsArgs) ScaleSetNetworkProfileDnsSettingsPtrInput {
+	return (*scaleSetNetworkProfileDnsSettingsPtrType)(v)
 }
 
 func (*scaleSetNetworkProfileDnsSettingsPtrType) ElementType() reflect.Type {
@@ -4843,7 +5240,7 @@ func (i *scaleSetNetworkProfileDnsSettingsPtrType) ToScaleSetNetworkProfileDnsSe
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetNetworkProfileDnsSettingsPtrOutput)
 }
 
-type ScaleSetNetworkProfileDnsSettingsOutput struct { *pulumi.OutputState }
+type ScaleSetNetworkProfileDnsSettingsOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetNetworkProfileDnsSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetNetworkProfileDnsSettings)(nil)).Elem()
@@ -4866,12 +5263,13 @@ func (o ScaleSetNetworkProfileDnsSettingsOutput) ToScaleSetNetworkProfileDnsSett
 		return &v
 	}).(ScaleSetNetworkProfileDnsSettingsPtrOutput)
 }
+
 // Specifies an array of dns servers.
 func (o ScaleSetNetworkProfileDnsSettingsOutput) DnsServers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileDnsSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileDnsSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-type ScaleSetNetworkProfileDnsSettingsPtrOutput struct { *pulumi.OutputState}
+type ScaleSetNetworkProfileDnsSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetNetworkProfileDnsSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetNetworkProfileDnsSettings)(nil)).Elem()
@@ -4886,12 +5284,12 @@ func (o ScaleSetNetworkProfileDnsSettingsPtrOutput) ToScaleSetNetworkProfileDnsS
 }
 
 func (o ScaleSetNetworkProfileDnsSettingsPtrOutput) Elem() ScaleSetNetworkProfileDnsSettingsOutput {
-	return o.ApplyT(func (v *ScaleSetNetworkProfileDnsSettings) ScaleSetNetworkProfileDnsSettings { return *v }).(ScaleSetNetworkProfileDnsSettingsOutput)
+	return o.ApplyT(func(v *ScaleSetNetworkProfileDnsSettings) ScaleSetNetworkProfileDnsSettings { return *v }).(ScaleSetNetworkProfileDnsSettingsOutput)
 }
 
 // Specifies an array of dns servers.
 func (o ScaleSetNetworkProfileDnsSettingsPtrOutput) DnsServers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileDnsSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileDnsSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
 type ScaleSetNetworkProfileIpConfiguration struct {
@@ -4903,7 +5301,7 @@ type ScaleSetNetworkProfileIpConfiguration struct {
 	LoadBalancerBackendAddressPoolIds []string `pulumi:"loadBalancerBackendAddressPoolIds"`
 	// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
 	LoadBalancerInboundNatRulesIds []string `pulumi:"loadBalancerInboundNatRulesIds"`
-	// Specifies the name of the image from the marketplace.
+	// Specifies name of the IP configuration.
 	Name string `pulumi:"name"`
 	// Specifies if this ipConfiguration is the primary one.
 	Primary bool `pulumi:"primary"`
@@ -4929,7 +5327,7 @@ type ScaleSetNetworkProfileIpConfigurationArgs struct {
 	LoadBalancerBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolIds"`
 	// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
 	LoadBalancerInboundNatRulesIds pulumi.StringArrayInput `pulumi:"loadBalancerInboundNatRulesIds"`
-	// Specifies the name of the image from the marketplace.
+	// Specifies name of the IP configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies if this ipConfiguration is the primary one.
 	Primary pulumi.BoolInput `pulumi:"primary"`
@@ -4972,7 +5370,7 @@ func (i ScaleSetNetworkProfileIpConfigurationArray) ToScaleSetNetworkProfileIpCo
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetNetworkProfileIpConfigurationArrayOutput)
 }
 
-type ScaleSetNetworkProfileIpConfigurationOutput struct { *pulumi.OutputState }
+type ScaleSetNetworkProfileIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetNetworkProfileIpConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetNetworkProfileIpConfiguration)(nil)).Elem()
@@ -4988,45 +5386,49 @@ func (o ScaleSetNetworkProfileIpConfigurationOutput) ToScaleSetNetworkProfileIpC
 
 // Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) ApplicationGatewayBackendAddressPoolIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfiguration) []string { return v.ApplicationGatewayBackendAddressPoolIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) []string {
+		return v.ApplicationGatewayBackendAddressPoolIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // Specifies up to `20` application security group IDs.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfiguration) []string { return v.ApplicationSecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) []string { return v.ApplicationSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
 // Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) LoadBalancerBackendAddressPoolIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfiguration) []string { return v.LoadBalancerBackendAddressPoolIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) []string { return v.LoadBalancerBackendAddressPoolIds }).(pulumi.StringArrayOutput)
 }
 
 // Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) LoadBalancerInboundNatRulesIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfiguration) []string { return v.LoadBalancerInboundNatRulesIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) []string { return v.LoadBalancerInboundNatRulesIds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the name of the image from the marketplace.
+// Specifies name of the IP configuration.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Specifies if this ipConfiguration is the primary one.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) Primary() pulumi.BoolOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfiguration) bool { return v.Primary }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
 // Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The publicIpAddressConfiguration is documented below.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) PublicIpAddressConfiguration() ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfiguration) *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration { return v.PublicIpAddressConfiguration }).(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration {
+		return v.PublicIpAddressConfiguration
+	}).(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput)
 }
 
 // Specifies the identifier of the subnet.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-type ScaleSetNetworkProfileIpConfigurationArrayOutput struct { *pulumi.OutputState}
+type ScaleSetNetworkProfileIpConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetNetworkProfileIpConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetNetworkProfileIpConfiguration)(nil)).Elem()
@@ -5041,7 +5443,7 @@ func (o ScaleSetNetworkProfileIpConfigurationArrayOutput) ToScaleSetNetworkProfi
 }
 
 func (o ScaleSetNetworkProfileIpConfigurationArrayOutput) Index(i pulumi.IntInput) ScaleSetNetworkProfileIpConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetNetworkProfileIpConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetNetworkProfileIpConfiguration {
 		return vs[0].([]ScaleSetNetworkProfileIpConfiguration)[vs[1].(int)]
 	}).(ScaleSetNetworkProfileIpConfigurationOutput)
 }
@@ -5051,7 +5453,7 @@ type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration struct {
 	DomainNameLabel string `pulumi:"domainNameLabel"`
 	// The idle timeout in minutes. This value must be between 4 and 30.
 	IdleTimeout int `pulumi:"idleTimeout"`
-	// Specifies the name of the image from the marketplace.
+	// The name of the public ip address configuration
 	Name string `pulumi:"name"`
 }
 
@@ -5067,7 +5469,7 @@ type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs struc
 	DomainNameLabel pulumi.StringInput `pulumi:"domainNameLabel"`
 	// The idle timeout in minutes. This value must be between 4 and 30.
 	IdleTimeout pulumi.IntInput `pulumi:"idleTimeout"`
-	// Specifies the name of the image from the marketplace.
+	// The name of the public ip address configuration
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -5100,7 +5502,8 @@ type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrInput i
 
 type scaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrType ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs
 
-func ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtr(v *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs) ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrInput {	return (*scaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrType)(v)
+func ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtr(v *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs) ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrInput {
+	return (*scaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrType)(v)
 }
 
 func (*scaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrType) ElementType() reflect.Type {
@@ -5115,7 +5518,7 @@ func (i *scaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput)
 }
 
-type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput struct { *pulumi.OutputState }
+type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration)(nil)).Elem()
@@ -5138,22 +5541,25 @@ func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput)
 		return &v
 	}).(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput)
 }
+
 // The domain name label for the dns settings.
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput) DomainNameLabel() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string { return v.DomainNameLabel }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string {
+		return v.DomainNameLabel
+	}).(pulumi.StringOutput)
 }
 
 // The idle timeout in minutes. This value must be between 4 and 30.
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput) IdleTimeout() pulumi.IntOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) int { return v.IdleTimeout }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) int { return v.IdleTimeout }).(pulumi.IntOutput)
 }
 
-// Specifies the name of the image from the marketplace.
+// The name of the public ip address configuration
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput struct { *pulumi.OutputState}
+type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration)(nil)).Elem()
@@ -5168,22 +5574,26 @@ func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutp
 }
 
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput) Elem() ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput {
-	return o.ApplyT(func (v *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration { return *v }).(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput)
+	return o.ApplyT(func(v *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration {
+		return *v
+	}).(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput)
 }
 
 // The domain name label for the dns settings.
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput) DomainNameLabel() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string { return v.DomainNameLabel }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string {
+		return v.DomainNameLabel
+	}).(pulumi.StringOutput)
 }
 
 // The idle timeout in minutes. This value must be between 4 and 30.
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput) IdleTimeout() pulumi.IntOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) int { return v.IdleTimeout }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) int { return v.IdleTimeout }).(pulumi.IntOutput)
 }
 
-// Specifies the name of the image from the marketplace.
+// The name of the public ip address configuration
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type ScaleSetOsProfile struct {
@@ -5244,7 +5654,8 @@ type ScaleSetOsProfilePtrInput interface {
 
 type scaleSetOsProfilePtrType ScaleSetOsProfileArgs
 
-func ScaleSetOsProfilePtr(v *ScaleSetOsProfileArgs) ScaleSetOsProfilePtrInput {	return (*scaleSetOsProfilePtrType)(v)
+func ScaleSetOsProfilePtr(v *ScaleSetOsProfileArgs) ScaleSetOsProfilePtrInput {
+	return (*scaleSetOsProfilePtrType)(v)
 }
 
 func (*scaleSetOsProfilePtrType) ElementType() reflect.Type {
@@ -5259,7 +5670,7 @@ func (i *scaleSetOsProfilePtrType) ToScaleSetOsProfilePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfilePtrOutput)
 }
 
-type ScaleSetOsProfileOutput struct { *pulumi.OutputState }
+type ScaleSetOsProfileOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetOsProfile)(nil)).Elem()
@@ -5282,27 +5693,28 @@ func (o ScaleSetOsProfileOutput) ToScaleSetOsProfilePtrOutputWithContext(ctx con
 		return &v
 	}).(ScaleSetOsProfilePtrOutput)
 }
+
 // Specifies the administrator password to use for all the instances of virtual machines in a scale set.
 func (o ScaleSetOsProfileOutput) AdminPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
 func (o ScaleSetOsProfileOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
 // Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
 func (o ScaleSetOsProfileOutput) ComputerNamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfile) string { return v.ComputerNamePrefix }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfile) string { return v.ComputerNamePrefix }).(pulumi.StringOutput)
 }
 
 // Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
 func (o ScaleSetOsProfileOutput) CustomData() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
 
-type ScaleSetOsProfilePtrOutput struct { *pulumi.OutputState}
+type ScaleSetOsProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetOsProfile)(nil)).Elem()
@@ -5317,27 +5729,27 @@ func (o ScaleSetOsProfilePtrOutput) ToScaleSetOsProfilePtrOutputWithContext(ctx 
 }
 
 func (o ScaleSetOsProfilePtrOutput) Elem() ScaleSetOsProfileOutput {
-	return o.ApplyT(func (v *ScaleSetOsProfile) ScaleSetOsProfile { return *v }).(ScaleSetOsProfileOutput)
+	return o.ApplyT(func(v *ScaleSetOsProfile) ScaleSetOsProfile { return *v }).(ScaleSetOsProfileOutput)
 }
 
 // Specifies the administrator password to use for all the instances of virtual machines in a scale set.
 func (o ScaleSetOsProfilePtrOutput) AdminPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
 func (o ScaleSetOsProfilePtrOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
 // Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
 func (o ScaleSetOsProfilePtrOutput) ComputerNamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfile) string { return v.ComputerNamePrefix }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfile) string { return v.ComputerNamePrefix }).(pulumi.StringOutput)
 }
 
 // Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
 func (o ScaleSetOsProfilePtrOutput) CustomData() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
 
 type ScaleSetOsProfileLinuxConfig struct {
@@ -5390,7 +5802,8 @@ type ScaleSetOsProfileLinuxConfigPtrInput interface {
 
 type scaleSetOsProfileLinuxConfigPtrType ScaleSetOsProfileLinuxConfigArgs
 
-func ScaleSetOsProfileLinuxConfigPtr(v *ScaleSetOsProfileLinuxConfigArgs) ScaleSetOsProfileLinuxConfigPtrInput {	return (*scaleSetOsProfileLinuxConfigPtrType)(v)
+func ScaleSetOsProfileLinuxConfigPtr(v *ScaleSetOsProfileLinuxConfigArgs) ScaleSetOsProfileLinuxConfigPtrInput {
+	return (*scaleSetOsProfileLinuxConfigPtrType)(v)
 }
 
 func (*scaleSetOsProfileLinuxConfigPtrType) ElementType() reflect.Type {
@@ -5405,7 +5818,7 @@ func (i *scaleSetOsProfileLinuxConfigPtrType) ToScaleSetOsProfileLinuxConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfileLinuxConfigPtrOutput)
 }
 
-type ScaleSetOsProfileLinuxConfigOutput struct { *pulumi.OutputState }
+type ScaleSetOsProfileLinuxConfigOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileLinuxConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetOsProfileLinuxConfig)(nil)).Elem()
@@ -5428,17 +5841,18 @@ func (o ScaleSetOsProfileLinuxConfigOutput) ToScaleSetOsProfileLinuxConfigPtrOut
 		return &v
 	}).(ScaleSetOsProfileLinuxConfigPtrOutput)
 }
+
 // Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
 func (o ScaleSetOsProfileLinuxConfigOutput) DisablePasswordAuthentication() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileLinuxConfig) *bool { return v.DisablePasswordAuthentication }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileLinuxConfig) *bool { return v.DisablePasswordAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies a collection of `path` and `keyData` to be placed on the virtual machine.
 func (o ScaleSetOsProfileLinuxConfigOutput) SshKeys() ScaleSetOsProfileLinuxConfigSshKeyArrayOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileLinuxConfig) []ScaleSetOsProfileLinuxConfigSshKey { return v.SshKeys }).(ScaleSetOsProfileLinuxConfigSshKeyArrayOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileLinuxConfig) []ScaleSetOsProfileLinuxConfigSshKey { return v.SshKeys }).(ScaleSetOsProfileLinuxConfigSshKeyArrayOutput)
 }
 
-type ScaleSetOsProfileLinuxConfigPtrOutput struct { *pulumi.OutputState}
+type ScaleSetOsProfileLinuxConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileLinuxConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetOsProfileLinuxConfig)(nil)).Elem()
@@ -5453,22 +5867,22 @@ func (o ScaleSetOsProfileLinuxConfigPtrOutput) ToScaleSetOsProfileLinuxConfigPtr
 }
 
 func (o ScaleSetOsProfileLinuxConfigPtrOutput) Elem() ScaleSetOsProfileLinuxConfigOutput {
-	return o.ApplyT(func (v *ScaleSetOsProfileLinuxConfig) ScaleSetOsProfileLinuxConfig { return *v }).(ScaleSetOsProfileLinuxConfigOutput)
+	return o.ApplyT(func(v *ScaleSetOsProfileLinuxConfig) ScaleSetOsProfileLinuxConfig { return *v }).(ScaleSetOsProfileLinuxConfigOutput)
 }
 
 // Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
 func (o ScaleSetOsProfileLinuxConfigPtrOutput) DisablePasswordAuthentication() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileLinuxConfig) *bool { return v.DisablePasswordAuthentication }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileLinuxConfig) *bool { return v.DisablePasswordAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies a collection of `path` and `keyData` to be placed on the virtual machine.
 func (o ScaleSetOsProfileLinuxConfigPtrOutput) SshKeys() ScaleSetOsProfileLinuxConfigSshKeyArrayOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileLinuxConfig) []ScaleSetOsProfileLinuxConfigSshKey { return v.SshKeys }).(ScaleSetOsProfileLinuxConfigSshKeyArrayOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileLinuxConfig) []ScaleSetOsProfileLinuxConfigSshKey { return v.SshKeys }).(ScaleSetOsProfileLinuxConfigSshKeyArrayOutput)
 }
 
 type ScaleSetOsProfileLinuxConfigSshKey struct {
 	KeyData *string `pulumi:"keyData"`
-	Path string `pulumi:"path"`
+	Path    string  `pulumi:"path"`
 }
 
 type ScaleSetOsProfileLinuxConfigSshKeyInput interface {
@@ -5480,7 +5894,7 @@ type ScaleSetOsProfileLinuxConfigSshKeyInput interface {
 
 type ScaleSetOsProfileLinuxConfigSshKeyArgs struct {
 	KeyData pulumi.StringPtrInput `pulumi:"keyData"`
-	Path pulumi.StringInput `pulumi:"path"`
+	Path    pulumi.StringInput    `pulumi:"path"`
 }
 
 func (ScaleSetOsProfileLinuxConfigSshKeyArgs) ElementType() reflect.Type {
@@ -5516,7 +5930,7 @@ func (i ScaleSetOsProfileLinuxConfigSshKeyArray) ToScaleSetOsProfileLinuxConfigS
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfileLinuxConfigSshKeyArrayOutput)
 }
 
-type ScaleSetOsProfileLinuxConfigSshKeyOutput struct { *pulumi.OutputState }
+type ScaleSetOsProfileLinuxConfigSshKeyOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileLinuxConfigSshKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetOsProfileLinuxConfigSshKey)(nil)).Elem()
@@ -5531,14 +5945,14 @@ func (o ScaleSetOsProfileLinuxConfigSshKeyOutput) ToScaleSetOsProfileLinuxConfig
 }
 
 func (o ScaleSetOsProfileLinuxConfigSshKeyOutput) KeyData() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileLinuxConfigSshKey) *string { return v.KeyData }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileLinuxConfigSshKey) *string { return v.KeyData }).(pulumi.StringPtrOutput)
 }
 
 func (o ScaleSetOsProfileLinuxConfigSshKeyOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileLinuxConfigSshKey) string { return v.Path }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileLinuxConfigSshKey) string { return v.Path }).(pulumi.StringOutput)
 }
 
-type ScaleSetOsProfileLinuxConfigSshKeyArrayOutput struct { *pulumi.OutputState}
+type ScaleSetOsProfileLinuxConfigSshKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileLinuxConfigSshKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetOsProfileLinuxConfigSshKey)(nil)).Elem()
@@ -5553,7 +5967,7 @@ func (o ScaleSetOsProfileLinuxConfigSshKeyArrayOutput) ToScaleSetOsProfileLinuxC
 }
 
 func (o ScaleSetOsProfileLinuxConfigSshKeyArrayOutput) Index(i pulumi.IntInput) ScaleSetOsProfileLinuxConfigSshKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetOsProfileLinuxConfigSshKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetOsProfileLinuxConfigSshKey {
 		return vs[0].([]ScaleSetOsProfileLinuxConfigSshKey)[vs[1].(int)]
 	}).(ScaleSetOsProfileLinuxConfigSshKeyOutput)
 }
@@ -5612,7 +6026,7 @@ func (i ScaleSetOsProfileSecretArray) ToScaleSetOsProfileSecretArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfileSecretArrayOutput)
 }
 
-type ScaleSetOsProfileSecretOutput struct { *pulumi.OutputState }
+type ScaleSetOsProfileSecretOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileSecretOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetOsProfileSecret)(nil)).Elem()
@@ -5628,15 +6042,15 @@ func (o ScaleSetOsProfileSecretOutput) ToScaleSetOsProfileSecretOutputWithContex
 
 // Specifies the key vault to use.
 func (o ScaleSetOsProfileSecretOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileSecret) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileSecret) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
 // A collection of Vault Certificates as documented below
 func (o ScaleSetOsProfileSecretOutput) VaultCertificates() ScaleSetOsProfileSecretVaultCertificateArrayOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileSecret) []ScaleSetOsProfileSecretVaultCertificate { return v.VaultCertificates }).(ScaleSetOsProfileSecretVaultCertificateArrayOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileSecret) []ScaleSetOsProfileSecretVaultCertificate { return v.VaultCertificates }).(ScaleSetOsProfileSecretVaultCertificateArrayOutput)
 }
 
-type ScaleSetOsProfileSecretArrayOutput struct { *pulumi.OutputState}
+type ScaleSetOsProfileSecretArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileSecretArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetOsProfileSecret)(nil)).Elem()
@@ -5651,7 +6065,7 @@ func (o ScaleSetOsProfileSecretArrayOutput) ToScaleSetOsProfileSecretArrayOutput
 }
 
 func (o ScaleSetOsProfileSecretArrayOutput) Index(i pulumi.IntInput) ScaleSetOsProfileSecretOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetOsProfileSecret {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetOsProfileSecret {
 		return vs[0].([]ScaleSetOsProfileSecret)[vs[1].(int)]
 	}).(ScaleSetOsProfileSecretOutput)
 }
@@ -5659,7 +6073,7 @@ func (o ScaleSetOsProfileSecretArrayOutput) Index(i pulumi.IntInput) ScaleSetOsP
 type ScaleSetOsProfileSecretVaultCertificate struct {
 	// Specifies the certificate store on the Virtual Machine where the certificate should be added to.
 	CertificateStore *string `pulumi:"certificateStore"`
-	// Specifies URL of the certificate with which new Virtual Machines is provisioned.
+	// It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `data`, `dataType` and `password`.
 	CertificateUrl string `pulumi:"certificateUrl"`
 }
 
@@ -5673,7 +6087,7 @@ type ScaleSetOsProfileSecretVaultCertificateInput interface {
 type ScaleSetOsProfileSecretVaultCertificateArgs struct {
 	// Specifies the certificate store on the Virtual Machine where the certificate should be added to.
 	CertificateStore pulumi.StringPtrInput `pulumi:"certificateStore"`
-	// Specifies URL of the certificate with which new Virtual Machines is provisioned.
+	// It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `data`, `dataType` and `password`.
 	CertificateUrl pulumi.StringInput `pulumi:"certificateUrl"`
 }
 
@@ -5710,7 +6124,7 @@ func (i ScaleSetOsProfileSecretVaultCertificateArray) ToScaleSetOsProfileSecretV
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfileSecretVaultCertificateArrayOutput)
 }
 
-type ScaleSetOsProfileSecretVaultCertificateOutput struct { *pulumi.OutputState }
+type ScaleSetOsProfileSecretVaultCertificateOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileSecretVaultCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetOsProfileSecretVaultCertificate)(nil)).Elem()
@@ -5726,15 +6140,15 @@ func (o ScaleSetOsProfileSecretVaultCertificateOutput) ToScaleSetOsProfileSecret
 
 // Specifies the certificate store on the Virtual Machine where the certificate should be added to.
 func (o ScaleSetOsProfileSecretVaultCertificateOutput) CertificateStore() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileSecretVaultCertificate) *string { return v.CertificateStore }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileSecretVaultCertificate) *string { return v.CertificateStore }).(pulumi.StringPtrOutput)
 }
 
-// Specifies URL of the certificate with which new Virtual Machines is provisioned.
+// It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `data`, `dataType` and `password`.
 func (o ScaleSetOsProfileSecretVaultCertificateOutput) CertificateUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileSecretVaultCertificate) string { return v.CertificateUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileSecretVaultCertificate) string { return v.CertificateUrl }).(pulumi.StringOutput)
 }
 
-type ScaleSetOsProfileSecretVaultCertificateArrayOutput struct { *pulumi.OutputState}
+type ScaleSetOsProfileSecretVaultCertificateArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileSecretVaultCertificateArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetOsProfileSecretVaultCertificate)(nil)).Elem()
@@ -5749,7 +6163,7 @@ func (o ScaleSetOsProfileSecretVaultCertificateArrayOutput) ToScaleSetOsProfileS
 }
 
 func (o ScaleSetOsProfileSecretVaultCertificateArrayOutput) Index(i pulumi.IntInput) ScaleSetOsProfileSecretVaultCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetOsProfileSecretVaultCertificate {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetOsProfileSecretVaultCertificate {
 		return vs[0].([]ScaleSetOsProfileSecretVaultCertificate)[vs[1].(int)]
 	}).(ScaleSetOsProfileSecretVaultCertificateOutput)
 }
@@ -5812,7 +6226,8 @@ type ScaleSetOsProfileWindowsConfigPtrInput interface {
 
 type scaleSetOsProfileWindowsConfigPtrType ScaleSetOsProfileWindowsConfigArgs
 
-func ScaleSetOsProfileWindowsConfigPtr(v *ScaleSetOsProfileWindowsConfigArgs) ScaleSetOsProfileWindowsConfigPtrInput {	return (*scaleSetOsProfileWindowsConfigPtrType)(v)
+func ScaleSetOsProfileWindowsConfigPtr(v *ScaleSetOsProfileWindowsConfigArgs) ScaleSetOsProfileWindowsConfigPtrInput {
+	return (*scaleSetOsProfileWindowsConfigPtrType)(v)
 }
 
 func (*scaleSetOsProfileWindowsConfigPtrType) ElementType() reflect.Type {
@@ -5827,7 +6242,7 @@ func (i *scaleSetOsProfileWindowsConfigPtrType) ToScaleSetOsProfileWindowsConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfileWindowsConfigPtrOutput)
 }
 
-type ScaleSetOsProfileWindowsConfigOutput struct { *pulumi.OutputState }
+type ScaleSetOsProfileWindowsConfigOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileWindowsConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetOsProfileWindowsConfig)(nil)).Elem()
@@ -5850,27 +6265,30 @@ func (o ScaleSetOsProfileWindowsConfigOutput) ToScaleSetOsProfileWindowsConfigPt
 		return &v
 	}).(ScaleSetOsProfileWindowsConfigPtrOutput)
 }
+
 // An Additional Unattended Config block as documented below.
 func (o ScaleSetOsProfileWindowsConfigOutput) AdditionalUnattendConfigs() ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig { return v.AdditionalUnattendConfigs }).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig {
+		return v.AdditionalUnattendConfigs
+	}).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
 }
 
 // Indicates whether virtual machines in the scale set are enabled for automatic updates.
 func (o ScaleSetOsProfileWindowsConfigOutput) EnableAutomaticUpgrades() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfig) *bool { return v.EnableAutomaticUpgrades }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) *bool { return v.EnableAutomaticUpgrades }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
 func (o ScaleSetOsProfileWindowsConfigOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
 }
 
 // A collection of WinRM configuration blocks as documented below.
 func (o ScaleSetOsProfileWindowsConfigOutput) Winrms() ScaleSetOsProfileWindowsConfigWinrmArrayOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigWinrm { return v.Winrms }).(ScaleSetOsProfileWindowsConfigWinrmArrayOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigWinrm { return v.Winrms }).(ScaleSetOsProfileWindowsConfigWinrmArrayOutput)
 }
 
-type ScaleSetOsProfileWindowsConfigPtrOutput struct { *pulumi.OutputState}
+type ScaleSetOsProfileWindowsConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileWindowsConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetOsProfileWindowsConfig)(nil)).Elem()
@@ -5885,27 +6303,29 @@ func (o ScaleSetOsProfileWindowsConfigPtrOutput) ToScaleSetOsProfileWindowsConfi
 }
 
 func (o ScaleSetOsProfileWindowsConfigPtrOutput) Elem() ScaleSetOsProfileWindowsConfigOutput {
-	return o.ApplyT(func (v *ScaleSetOsProfileWindowsConfig) ScaleSetOsProfileWindowsConfig { return *v }).(ScaleSetOsProfileWindowsConfigOutput)
+	return o.ApplyT(func(v *ScaleSetOsProfileWindowsConfig) ScaleSetOsProfileWindowsConfig { return *v }).(ScaleSetOsProfileWindowsConfigOutput)
 }
 
 // An Additional Unattended Config block as documented below.
 func (o ScaleSetOsProfileWindowsConfigPtrOutput) AdditionalUnattendConfigs() ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig { return v.AdditionalUnattendConfigs }).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig {
+		return v.AdditionalUnattendConfigs
+	}).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
 }
 
 // Indicates whether virtual machines in the scale set are enabled for automatic updates.
 func (o ScaleSetOsProfileWindowsConfigPtrOutput) EnableAutomaticUpgrades() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfig) *bool { return v.EnableAutomaticUpgrades }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) *bool { return v.EnableAutomaticUpgrades }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
 func (o ScaleSetOsProfileWindowsConfigPtrOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
 }
 
 // A collection of WinRM configuration blocks as documented below.
 func (o ScaleSetOsProfileWindowsConfigPtrOutput) Winrms() ScaleSetOsProfileWindowsConfigWinrmArrayOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigWinrm { return v.Winrms }).(ScaleSetOsProfileWindowsConfigWinrmArrayOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigWinrm { return v.Winrms }).(ScaleSetOsProfileWindowsConfigWinrmArrayOutput)
 }
 
 type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig struct {
@@ -5970,7 +6390,7 @@ func (i ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArray) ToScaleSetO
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
 }
 
-type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput struct { *pulumi.OutputState }
+type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig)(nil)).Elem()
@@ -5986,25 +6406,25 @@ func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput) ToScaleSet
 
 // Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
 func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput) Component() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Component }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Component }).(pulumi.StringOutput)
 }
 
 // Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
 func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Content }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Content }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
 func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput) Pass() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Pass }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Pass }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
 func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput) SettingName() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.SettingName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.SettingName }).(pulumi.StringOutput)
 }
 
-type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput struct { *pulumi.OutputState}
+type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig)(nil)).Elem()
@@ -6019,7 +6439,7 @@ func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput) ToSca
 }
 
 func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput) Index(i pulumi.IntInput) ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig {
 		return vs[0].([]ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig)[vs[1].(int)]
 	}).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput)
 }
@@ -6078,7 +6498,7 @@ func (i ScaleSetOsProfileWindowsConfigWinrmArray) ToScaleSetOsProfileWindowsConf
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfileWindowsConfigWinrmArrayOutput)
 }
 
-type ScaleSetOsProfileWindowsConfigWinrmOutput struct { *pulumi.OutputState }
+type ScaleSetOsProfileWindowsConfigWinrmOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileWindowsConfigWinrmOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetOsProfileWindowsConfigWinrm)(nil)).Elem()
@@ -6094,15 +6514,15 @@ func (o ScaleSetOsProfileWindowsConfigWinrmOutput) ToScaleSetOsProfileWindowsCon
 
 // Specifies URL of the certificate with which new Virtual Machines is provisioned.
 func (o ScaleSetOsProfileWindowsConfigWinrmOutput) CertificateUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfigWinrm) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfigWinrm) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the protocol of listener
 func (o ScaleSetOsProfileWindowsConfigWinrmOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetOsProfileWindowsConfigWinrm) string { return v.Protocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfigWinrm) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-type ScaleSetOsProfileWindowsConfigWinrmArrayOutput struct { *pulumi.OutputState}
+type ScaleSetOsProfileWindowsConfigWinrmArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileWindowsConfigWinrmArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetOsProfileWindowsConfigWinrm)(nil)).Elem()
@@ -6117,7 +6537,7 @@ func (o ScaleSetOsProfileWindowsConfigWinrmArrayOutput) ToScaleSetOsProfileWindo
 }
 
 func (o ScaleSetOsProfileWindowsConfigWinrmArrayOutput) Index(i pulumi.IntInput) ScaleSetOsProfileWindowsConfigWinrmOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetOsProfileWindowsConfigWinrm {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetOsProfileWindowsConfigWinrm {
 		return vs[0].([]ScaleSetOsProfileWindowsConfigWinrm)[vs[1].(int)]
 	}).(ScaleSetOsProfileWindowsConfigWinrmOutput)
 }
@@ -6176,7 +6596,8 @@ type ScaleSetPlanPtrInput interface {
 
 type scaleSetPlanPtrType ScaleSetPlanArgs
 
-func ScaleSetPlanPtr(v *ScaleSetPlanArgs) ScaleSetPlanPtrInput {	return (*scaleSetPlanPtrType)(v)
+func ScaleSetPlanPtr(v *ScaleSetPlanArgs) ScaleSetPlanPtrInput {
+	return (*scaleSetPlanPtrType)(v)
 }
 
 func (*scaleSetPlanPtrType) ElementType() reflect.Type {
@@ -6191,7 +6612,7 @@ func (i *scaleSetPlanPtrType) ToScaleSetPlanPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetPlanPtrOutput)
 }
 
-type ScaleSetPlanOutput struct { *pulumi.OutputState }
+type ScaleSetPlanOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetPlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetPlan)(nil)).Elem()
@@ -6214,22 +6635,23 @@ func (o ScaleSetPlanOutput) ToScaleSetPlanPtrOutputWithContext(ctx context.Conte
 		return &v
 	}).(ScaleSetPlanPtrOutput)
 }
+
 // Specifies the name of the image from the marketplace.
 func (o ScaleSetPlanOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Specifies the product of the image from the marketplace.
 func (o ScaleSetPlanOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
 // Specifies the publisher of the image.
 func (o ScaleSetPlanOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-type ScaleSetPlanPtrOutput struct { *pulumi.OutputState}
+type ScaleSetPlanPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetPlanPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetPlan)(nil)).Elem()
@@ -6244,22 +6666,22 @@ func (o ScaleSetPlanPtrOutput) ToScaleSetPlanPtrOutputWithContext(ctx context.Co
 }
 
 func (o ScaleSetPlanPtrOutput) Elem() ScaleSetPlanOutput {
-	return o.ApplyT(func (v *ScaleSetPlan) ScaleSetPlan { return *v }).(ScaleSetPlanOutput)
+	return o.ApplyT(func(v *ScaleSetPlan) ScaleSetPlan { return *v }).(ScaleSetPlanOutput)
 }
 
 // Specifies the name of the image from the marketplace.
 func (o ScaleSetPlanPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Specifies the product of the image from the marketplace.
 func (o ScaleSetPlanPtrOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
 // Specifies the publisher of the image.
 func (o ScaleSetPlanPtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 type ScaleSetRollingUpgradePolicy struct {
@@ -6320,7 +6742,8 @@ type ScaleSetRollingUpgradePolicyPtrInput interface {
 
 type scaleSetRollingUpgradePolicyPtrType ScaleSetRollingUpgradePolicyArgs
 
-func ScaleSetRollingUpgradePolicyPtr(v *ScaleSetRollingUpgradePolicyArgs) ScaleSetRollingUpgradePolicyPtrInput {	return (*scaleSetRollingUpgradePolicyPtrType)(v)
+func ScaleSetRollingUpgradePolicyPtr(v *ScaleSetRollingUpgradePolicyArgs) ScaleSetRollingUpgradePolicyPtrInput {
+	return (*scaleSetRollingUpgradePolicyPtrType)(v)
 }
 
 func (*scaleSetRollingUpgradePolicyPtrType) ElementType() reflect.Type {
@@ -6335,7 +6758,7 @@ func (i *scaleSetRollingUpgradePolicyPtrType) ToScaleSetRollingUpgradePolicyPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetRollingUpgradePolicyPtrOutput)
 }
 
-type ScaleSetRollingUpgradePolicyOutput struct { *pulumi.OutputState }
+type ScaleSetRollingUpgradePolicyOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetRollingUpgradePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetRollingUpgradePolicy)(nil)).Elem()
@@ -6358,27 +6781,28 @@ func (o ScaleSetRollingUpgradePolicyOutput) ToScaleSetRollingUpgradePolicyPtrOut
 		return &v
 	}).(ScaleSetRollingUpgradePolicyPtrOutput)
 }
+
 // The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
 func (o ScaleSetRollingUpgradePolicyOutput) MaxBatchInstancePercent() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ScaleSetRollingUpgradePolicy) *int { return v.MaxBatchInstancePercent }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *int { return v.MaxBatchInstancePercent }).(pulumi.IntPtrOutput)
 }
 
 // The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Defaults to `20`.
 func (o ScaleSetRollingUpgradePolicyOutput) MaxUnhealthyInstancePercent() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntPtrOutput)
 }
 
 // The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
 func (o ScaleSetRollingUpgradePolicyOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyUpgradedInstancePercent }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyUpgradedInstancePercent }).(pulumi.IntPtrOutput)
 }
 
 // The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `0` seconds represented as `PT0S`.
 func (o ScaleSetRollingUpgradePolicyOutput) PauseTimeBetweenBatches() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetRollingUpgradePolicy) *string { return v.PauseTimeBetweenBatches }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *string { return v.PauseTimeBetweenBatches }).(pulumi.StringPtrOutput)
 }
 
-type ScaleSetRollingUpgradePolicyPtrOutput struct { *pulumi.OutputState}
+type ScaleSetRollingUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetRollingUpgradePolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetRollingUpgradePolicy)(nil)).Elem()
@@ -6393,33 +6817,33 @@ func (o ScaleSetRollingUpgradePolicyPtrOutput) ToScaleSetRollingUpgradePolicyPtr
 }
 
 func (o ScaleSetRollingUpgradePolicyPtrOutput) Elem() ScaleSetRollingUpgradePolicyOutput {
-	return o.ApplyT(func (v *ScaleSetRollingUpgradePolicy) ScaleSetRollingUpgradePolicy { return *v }).(ScaleSetRollingUpgradePolicyOutput)
+	return o.ApplyT(func(v *ScaleSetRollingUpgradePolicy) ScaleSetRollingUpgradePolicy { return *v }).(ScaleSetRollingUpgradePolicyOutput)
 }
 
 // The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
 func (o ScaleSetRollingUpgradePolicyPtrOutput) MaxBatchInstancePercent() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ScaleSetRollingUpgradePolicy) *int { return v.MaxBatchInstancePercent }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *int { return v.MaxBatchInstancePercent }).(pulumi.IntPtrOutput)
 }
 
 // The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Defaults to `20`.
 func (o ScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyInstancePercent() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntPtrOutput)
 }
 
 // The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
 func (o ScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyUpgradedInstancePercent }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyUpgradedInstancePercent }).(pulumi.IntPtrOutput)
 }
 
 // The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `0` seconds represented as `PT0S`.
 func (o ScaleSetRollingUpgradePolicyPtrOutput) PauseTimeBetweenBatches() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetRollingUpgradePolicy) *string { return v.PauseTimeBetweenBatches }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *string { return v.PauseTimeBetweenBatches }).(pulumi.StringPtrOutput)
 }
 
 type ScaleSetSku struct {
 	// Specifies the number of virtual machines in the scale set.
 	Capacity int `pulumi:"capacity"`
-	// Specifies the name of the image from the marketplace.
+	// Specifies the size of virtual machines in a scale set.
 	Name string `pulumi:"name"`
 	// Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
 	Tier *string `pulumi:"tier"`
@@ -6435,7 +6859,7 @@ type ScaleSetSkuInput interface {
 type ScaleSetSkuArgs struct {
 	// Specifies the number of virtual machines in the scale set.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// Specifies the name of the image from the marketplace.
+	// Specifies the size of virtual machines in a scale set.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
@@ -6470,7 +6894,8 @@ type ScaleSetSkuPtrInput interface {
 
 type scaleSetSkuPtrType ScaleSetSkuArgs
 
-func ScaleSetSkuPtr(v *ScaleSetSkuArgs) ScaleSetSkuPtrInput {	return (*scaleSetSkuPtrType)(v)
+func ScaleSetSkuPtr(v *ScaleSetSkuArgs) ScaleSetSkuPtrInput {
+	return (*scaleSetSkuPtrType)(v)
 }
 
 func (*scaleSetSkuPtrType) ElementType() reflect.Type {
@@ -6485,7 +6910,7 @@ func (i *scaleSetSkuPtrType) ToScaleSetSkuPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetSkuPtrOutput)
 }
 
-type ScaleSetSkuOutput struct { *pulumi.OutputState }
+type ScaleSetSkuOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetSkuOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetSku)(nil)).Elem()
@@ -6508,22 +6933,23 @@ func (o ScaleSetSkuOutput) ToScaleSetSkuPtrOutputWithContext(ctx context.Context
 		return &v
 	}).(ScaleSetSkuPtrOutput)
 }
+
 // Specifies the number of virtual machines in the scale set.
 func (o ScaleSetSkuOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func (v ScaleSetSku) int { return v.Capacity }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ScaleSetSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Specifies the name of the image from the marketplace.
+// Specifies the size of virtual machines in a scale set.
 func (o ScaleSetSkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetSku) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
 func (o ScaleSetSkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
-type ScaleSetSkuPtrOutput struct { *pulumi.OutputState}
+type ScaleSetSkuPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetSkuPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetSku)(nil)).Elem()
@@ -6538,22 +6964,22 @@ func (o ScaleSetSkuPtrOutput) ToScaleSetSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ScaleSetSkuPtrOutput) Elem() ScaleSetSkuOutput {
-	return o.ApplyT(func (v *ScaleSetSku) ScaleSetSku { return *v }).(ScaleSetSkuOutput)
+	return o.ApplyT(func(v *ScaleSetSku) ScaleSetSku { return *v }).(ScaleSetSkuOutput)
 }
 
 // Specifies the number of virtual machines in the scale set.
 func (o ScaleSetSkuPtrOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func (v ScaleSetSku) int { return v.Capacity }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ScaleSetSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Specifies the name of the image from the marketplace.
+// Specifies the size of virtual machines in a scale set.
 func (o ScaleSetSkuPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetSku) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
 func (o ScaleSetSkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 type ScaleSetStorageProfileDataDisk struct {
@@ -6622,7 +7048,7 @@ func (i ScaleSetStorageProfileDataDiskArray) ToScaleSetStorageProfileDataDiskArr
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetStorageProfileDataDiskArrayOutput)
 }
 
-type ScaleSetStorageProfileDataDiskOutput struct { *pulumi.OutputState }
+type ScaleSetStorageProfileDataDiskOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetStorageProfileDataDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetStorageProfileDataDisk)(nil)).Elem()
@@ -6638,30 +7064,30 @@ func (o ScaleSetStorageProfileDataDiskOutput) ToScaleSetStorageProfileDataDiskOu
 
 // Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
 func (o ScaleSetStorageProfileDataDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
 // Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
 func (o ScaleSetStorageProfileDataDiskOutput) CreateOption() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileDataDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileDataDisk) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
 // Specifies the size of the disk in GB. This element is required when creating an empty disk.
 func (o ScaleSetStorageProfileDataDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileDataDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileDataDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the Logical Unit Number of the disk in each virtual machine in the scale set.
 func (o ScaleSetStorageProfileDataDiskOutput) Lun() pulumi.IntOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileDataDisk) int { return v.Lun }).(pulumi.IntOutput)
 }
 
 // Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
 func (o ScaleSetStorageProfileDataDiskOutput) ManagedDiskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileDataDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileDataDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
 }
 
-type ScaleSetStorageProfileDataDiskArrayOutput struct { *pulumi.OutputState}
+type ScaleSetStorageProfileDataDiskArrayOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetStorageProfileDataDiskArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScaleSetStorageProfileDataDisk)(nil)).Elem()
@@ -6676,7 +7102,7 @@ func (o ScaleSetStorageProfileDataDiskArrayOutput) ToScaleSetStorageProfileDataD
 }
 
 func (o ScaleSetStorageProfileDataDiskArrayOutput) Index(i pulumi.IntInput) ScaleSetStorageProfileDataDiskOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScaleSetStorageProfileDataDisk {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleSetStorageProfileDataDisk {
 		return vs[0].([]ScaleSetStorageProfileDataDisk)[vs[1].(int)]
 	}).(ScaleSetStorageProfileDataDiskOutput)
 }
@@ -6687,7 +7113,7 @@ type ScaleSetStorageProfileImageReference struct {
 	Id *string `pulumi:"id"`
 	// Specifies the offer of the image used to create the virtual machines.
 	Offer *string `pulumi:"offer"`
-	// Specifies the publisher of the image.
+	// Specifies the publisher of the image used to create the virtual machines.
 	Publisher *string `pulumi:"publisher"`
 	// Specifies the SKU of the image used to create the virtual machines.
 	Sku *string `pulumi:"sku"`
@@ -6708,7 +7134,7 @@ type ScaleSetStorageProfileImageReferenceArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Specifies the offer of the image used to create the virtual machines.
 	Offer pulumi.StringPtrInput `pulumi:"offer"`
-	// Specifies the publisher of the image.
+	// Specifies the publisher of the image used to create the virtual machines.
 	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
 	// Specifies the SKU of the image used to create the virtual machines.
 	Sku pulumi.StringPtrInput `pulumi:"sku"`
@@ -6745,7 +7171,8 @@ type ScaleSetStorageProfileImageReferencePtrInput interface {
 
 type scaleSetStorageProfileImageReferencePtrType ScaleSetStorageProfileImageReferenceArgs
 
-func ScaleSetStorageProfileImageReferencePtr(v *ScaleSetStorageProfileImageReferenceArgs) ScaleSetStorageProfileImageReferencePtrInput {	return (*scaleSetStorageProfileImageReferencePtrType)(v)
+func ScaleSetStorageProfileImageReferencePtr(v *ScaleSetStorageProfileImageReferenceArgs) ScaleSetStorageProfileImageReferencePtrInput {
+	return (*scaleSetStorageProfileImageReferencePtrType)(v)
 }
 
 func (*scaleSetStorageProfileImageReferencePtrType) ElementType() reflect.Type {
@@ -6760,7 +7187,7 @@ func (i *scaleSetStorageProfileImageReferencePtrType) ToScaleSetStorageProfileIm
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetStorageProfileImageReferencePtrOutput)
 }
 
-type ScaleSetStorageProfileImageReferenceOutput struct { *pulumi.OutputState }
+type ScaleSetStorageProfileImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetStorageProfileImageReferenceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetStorageProfileImageReference)(nil)).Elem()
@@ -6783,33 +7210,34 @@ func (o ScaleSetStorageProfileImageReferenceOutput) ToScaleSetStorageProfileImag
 		return &v
 	}).(ScaleSetStorageProfileImageReferencePtrOutput)
 }
+
 // Specifies the ID of the (custom) image to use to create the virtual
 // machine scale set, as in the example below.
 func (o ScaleSetStorageProfileImageReferenceOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the offer of the image used to create the virtual machines.
 func (o ScaleSetStorageProfileImageReferenceOutput) Offer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the publisher of the image.
+// Specifies the publisher of the image used to create the virtual machines.
 func (o ScaleSetStorageProfileImageReferenceOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the SKU of the image used to create the virtual machines.
 func (o ScaleSetStorageProfileImageReferenceOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the version of the image used to create the virtual machines.
 func (o ScaleSetStorageProfileImageReferenceOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-type ScaleSetStorageProfileImageReferencePtrOutput struct { *pulumi.OutputState}
+type ScaleSetStorageProfileImageReferencePtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetStorageProfileImageReferencePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetStorageProfileImageReference)(nil)).Elem()
@@ -6824,47 +7252,47 @@ func (o ScaleSetStorageProfileImageReferencePtrOutput) ToScaleSetStorageProfileI
 }
 
 func (o ScaleSetStorageProfileImageReferencePtrOutput) Elem() ScaleSetStorageProfileImageReferenceOutput {
-	return o.ApplyT(func (v *ScaleSetStorageProfileImageReference) ScaleSetStorageProfileImageReference { return *v }).(ScaleSetStorageProfileImageReferenceOutput)
+	return o.ApplyT(func(v *ScaleSetStorageProfileImageReference) ScaleSetStorageProfileImageReference { return *v }).(ScaleSetStorageProfileImageReferenceOutput)
 }
 
 // Specifies the ID of the (custom) image to use to create the virtual
 // machine scale set, as in the example below.
 func (o ScaleSetStorageProfileImageReferencePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the offer of the image used to create the virtual machines.
 func (o ScaleSetStorageProfileImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the publisher of the image.
+// Specifies the publisher of the image used to create the virtual machines.
 func (o ScaleSetStorageProfileImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the SKU of the image used to create the virtual machines.
 func (o ScaleSetStorageProfileImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the version of the image used to create the virtual machines.
 func (o ScaleSetStorageProfileImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type ScaleSetStorageProfileOsDisk struct {
 	// Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
 	Caching *string `pulumi:"caching"`
-	// Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
+	// Specifies how the virtual machine should be created. The only possible option is `FromImage`.
 	CreateOption string `pulumi:"createOption"`
 	// Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
 	// Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
 	// When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
 	Image *string `pulumi:"image"`
-	// Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+	// Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhdContainers` or `image` is specified.
 	ManagedDiskType *string `pulumi:"managedDiskType"`
-	// Specifies the name of the image from the marketplace.
+	// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
 	Name *string `pulumi:"name"`
 	// Specifies the operating system Type, valid values are windows, linux.
 	OsType *string `pulumi:"osType"`
@@ -6882,15 +7310,15 @@ type ScaleSetStorageProfileOsDiskInput interface {
 type ScaleSetStorageProfileOsDiskArgs struct {
 	// Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
-	// Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
+	// Specifies how the virtual machine should be created. The only possible option is `FromImage`.
 	CreateOption pulumi.StringInput `pulumi:"createOption"`
 	// Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
 	// Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
 	// When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
 	Image pulumi.StringPtrInput `pulumi:"image"`
-	// Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+	// Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhdContainers` or `image` is specified.
 	ManagedDiskType pulumi.StringPtrInput `pulumi:"managedDiskType"`
-	// Specifies the name of the image from the marketplace.
+	// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Specifies the operating system Type, valid values are windows, linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
@@ -6927,7 +7355,8 @@ type ScaleSetStorageProfileOsDiskPtrInput interface {
 
 type scaleSetStorageProfileOsDiskPtrType ScaleSetStorageProfileOsDiskArgs
 
-func ScaleSetStorageProfileOsDiskPtr(v *ScaleSetStorageProfileOsDiskArgs) ScaleSetStorageProfileOsDiskPtrInput {	return (*scaleSetStorageProfileOsDiskPtrType)(v)
+func ScaleSetStorageProfileOsDiskPtr(v *ScaleSetStorageProfileOsDiskArgs) ScaleSetStorageProfileOsDiskPtrInput {
+	return (*scaleSetStorageProfileOsDiskPtrType)(v)
 }
 
 func (*scaleSetStorageProfileOsDiskPtrType) ElementType() reflect.Type {
@@ -6942,7 +7371,7 @@ func (i *scaleSetStorageProfileOsDiskPtrType) ToScaleSetStorageProfileOsDiskPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetStorageProfileOsDiskPtrOutput)
 }
 
-type ScaleSetStorageProfileOsDiskOutput struct { *pulumi.OutputState }
+type ScaleSetStorageProfileOsDiskOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetStorageProfileOsDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleSetStorageProfileOsDisk)(nil)).Elem()
@@ -6965,44 +7394,45 @@ func (o ScaleSetStorageProfileOsDiskOutput) ToScaleSetStorageProfileOsDiskPtrOut
 		return &v
 	}).(ScaleSetStorageProfileOsDiskPtrOutput)
 }
+
 // Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
 func (o ScaleSetStorageProfileOsDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
-// Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
+// Specifies how the virtual machine should be created. The only possible option is `FromImage`.
 func (o ScaleSetStorageProfileOsDiskOutput) CreateOption() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
 // Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
 // Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
 // When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
 func (o ScaleSetStorageProfileOsDiskOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+// Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhdContainers` or `image` is specified.
 func (o ScaleSetStorageProfileOsDiskOutput) ManagedDiskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the image from the marketplace.
+// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
 func (o ScaleSetStorageProfileOsDiskOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the operating system Type, valid values are windows, linux.
 func (o ScaleSetStorageProfileOsDiskOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the vhd uri. Cannot be used when `image` or `managedDiskType` is specified.
 func (o ScaleSetStorageProfileOsDiskOutput) VhdContainers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) []string { return v.VhdContainers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) []string { return v.VhdContainers }).(pulumi.StringArrayOutput)
 }
 
-type ScaleSetStorageProfileOsDiskPtrOutput struct { *pulumi.OutputState}
+type ScaleSetStorageProfileOsDiskPtrOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetStorageProfileOsDiskPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScaleSetStorageProfileOsDisk)(nil)).Elem()
@@ -7017,49 +7447,52 @@ func (o ScaleSetStorageProfileOsDiskPtrOutput) ToScaleSetStorageProfileOsDiskPtr
 }
 
 func (o ScaleSetStorageProfileOsDiskPtrOutput) Elem() ScaleSetStorageProfileOsDiskOutput {
-	return o.ApplyT(func (v *ScaleSetStorageProfileOsDisk) ScaleSetStorageProfileOsDisk { return *v }).(ScaleSetStorageProfileOsDiskOutput)
+	return o.ApplyT(func(v *ScaleSetStorageProfileOsDisk) ScaleSetStorageProfileOsDisk { return *v }).(ScaleSetStorageProfileOsDiskOutput)
 }
 
 // Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
 func (o ScaleSetStorageProfileOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
-// Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
+// Specifies how the virtual machine should be created. The only possible option is `FromImage`.
 func (o ScaleSetStorageProfileOsDiskPtrOutput) CreateOption() pulumi.StringOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
 // Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
 // Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
 // When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
 func (o ScaleSetStorageProfileOsDiskPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.Image }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+// Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhdContainers` or `image` is specified.
 func (o ScaleSetStorageProfileOsDiskPtrOutput) ManagedDiskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the image from the marketplace.
+// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
 func (o ScaleSetStorageProfileOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the operating system Type, valid values are windows, linux.
 func (o ScaleSetStorageProfileOsDiskPtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the vhd uri. Cannot be used when `image` or `managedDiskType` is specified.
 func (o ScaleSetStorageProfileOsDiskPtrOutput) VhdContainers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ScaleSetStorageProfileOsDisk) []string { return v.VhdContainers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) []string { return v.VhdContainers }).(pulumi.StringArrayOutput)
 }
 
 type SharedImageIdentifier struct {
+	// The Offer Name for this Shared Image.
 	Offer string `pulumi:"offer"`
+	// The Publisher Name for this Gallery Image.
 	Publisher string `pulumi:"publisher"`
+	// The Name of the SKU for this Gallery Image.
 	Sku string `pulumi:"sku"`
 }
 
@@ -7071,8 +7504,11 @@ type SharedImageIdentifierInput interface {
 }
 
 type SharedImageIdentifierArgs struct {
+	// The Offer Name for this Shared Image.
 	Offer pulumi.StringInput `pulumi:"offer"`
+	// The Publisher Name for this Gallery Image.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// The Name of the SKU for this Gallery Image.
 	Sku pulumi.StringInput `pulumi:"sku"`
 }
 
@@ -7105,7 +7541,8 @@ type SharedImageIdentifierPtrInput interface {
 
 type sharedImageIdentifierPtrType SharedImageIdentifierArgs
 
-func SharedImageIdentifierPtr(v *SharedImageIdentifierArgs) SharedImageIdentifierPtrInput {	return (*sharedImageIdentifierPtrType)(v)
+func SharedImageIdentifierPtr(v *SharedImageIdentifierArgs) SharedImageIdentifierPtrInput {
+	return (*sharedImageIdentifierPtrType)(v)
 }
 
 func (*sharedImageIdentifierPtrType) ElementType() reflect.Type {
@@ -7120,7 +7557,7 @@ func (i *sharedImageIdentifierPtrType) ToSharedImageIdentifierPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageIdentifierPtrOutput)
 }
 
-type SharedImageIdentifierOutput struct { *pulumi.OutputState }
+type SharedImageIdentifierOutput struct{ *pulumi.OutputState }
 
 func (SharedImageIdentifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SharedImageIdentifier)(nil)).Elem()
@@ -7143,19 +7580,23 @@ func (o SharedImageIdentifierOutput) ToSharedImageIdentifierPtrOutputWithContext
 		return &v
 	}).(SharedImageIdentifierPtrOutput)
 }
+
+// The Offer Name for this Shared Image.
 func (o SharedImageIdentifierOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func (v SharedImageIdentifier) string { return v.Offer }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SharedImageIdentifier) string { return v.Offer }).(pulumi.StringOutput)
 }
 
+// The Publisher Name for this Gallery Image.
 func (o SharedImageIdentifierOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v SharedImageIdentifier) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SharedImageIdentifier) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
+// The Name of the SKU for this Gallery Image.
 func (o SharedImageIdentifierOutput) Sku() pulumi.StringOutput {
-	return o.ApplyT(func (v SharedImageIdentifier) string { return v.Sku }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SharedImageIdentifier) string { return v.Sku }).(pulumi.StringOutput)
 }
 
-type SharedImageIdentifierPtrOutput struct { *pulumi.OutputState}
+type SharedImageIdentifierPtrOutput struct{ *pulumi.OutputState }
 
 func (SharedImageIdentifierPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SharedImageIdentifier)(nil)).Elem()
@@ -7170,25 +7611,30 @@ func (o SharedImageIdentifierPtrOutput) ToSharedImageIdentifierPtrOutputWithCont
 }
 
 func (o SharedImageIdentifierPtrOutput) Elem() SharedImageIdentifierOutput {
-	return o.ApplyT(func (v *SharedImageIdentifier) SharedImageIdentifier { return *v }).(SharedImageIdentifierOutput)
+	return o.ApplyT(func(v *SharedImageIdentifier) SharedImageIdentifier { return *v }).(SharedImageIdentifierOutput)
 }
 
+// The Offer Name for this Shared Image.
 func (o SharedImageIdentifierPtrOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func (v SharedImageIdentifier) string { return v.Offer }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SharedImageIdentifier) string { return v.Offer }).(pulumi.StringOutput)
 }
 
+// The Publisher Name for this Gallery Image.
 func (o SharedImageIdentifierPtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v SharedImageIdentifier) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SharedImageIdentifier) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
+// The Name of the SKU for this Gallery Image.
 func (o SharedImageIdentifierPtrOutput) Sku() pulumi.StringOutput {
-	return o.ApplyT(func (v SharedImageIdentifier) string { return v.Sku }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SharedImageIdentifier) string { return v.Sku }).(pulumi.StringOutput)
 }
 
 type SharedImageVersionTargetRegion struct {
-	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
+	// The Azure Region in which this Image Version should exist.
 	Name string `pulumi:"name"`
+	// The number of replicas of the Image Version to be created per region.
 	RegionalReplicaCount int `pulumi:"regionalReplicaCount"`
+	// The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 }
 
@@ -7200,9 +7646,11 @@ type SharedImageVersionTargetRegionInput interface {
 }
 
 type SharedImageVersionTargetRegionArgs struct {
-	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
+	// The Azure Region in which this Image Version should exist.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The number of replicas of the Image Version to be created per region.
 	RegionalReplicaCount pulumi.IntInput `pulumi:"regionalReplicaCount"`
+	// The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
 	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
 }
 
@@ -7239,7 +7687,7 @@ func (i SharedImageVersionTargetRegionArray) ToSharedImageVersionTargetRegionArr
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionTargetRegionArrayOutput)
 }
 
-type SharedImageVersionTargetRegionOutput struct { *pulumi.OutputState }
+type SharedImageVersionTargetRegionOutput struct{ *pulumi.OutputState }
 
 func (SharedImageVersionTargetRegionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SharedImageVersionTargetRegion)(nil)).Elem()
@@ -7253,20 +7701,22 @@ func (o SharedImageVersionTargetRegionOutput) ToSharedImageVersionTargetRegionOu
 	return o
 }
 
-// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
+// The Azure Region in which this Image Version should exist.
 func (o SharedImageVersionTargetRegionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v SharedImageVersionTargetRegion) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SharedImageVersionTargetRegion) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The number of replicas of the Image Version to be created per region.
 func (o SharedImageVersionTargetRegionOutput) RegionalReplicaCount() pulumi.IntOutput {
-	return o.ApplyT(func (v SharedImageVersionTargetRegion) int { return v.RegionalReplicaCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v SharedImageVersionTargetRegion) int { return v.RegionalReplicaCount }).(pulumi.IntOutput)
 }
 
+// The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
 func (o SharedImageVersionTargetRegionOutput) StorageAccountType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SharedImageVersionTargetRegion) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SharedImageVersionTargetRegion) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
 
-type SharedImageVersionTargetRegionArrayOutput struct { *pulumi.OutputState}
+type SharedImageVersionTargetRegionArrayOutput struct{ *pulumi.OutputState }
 
 func (SharedImageVersionTargetRegionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SharedImageVersionTargetRegion)(nil)).Elem()
@@ -7281,15 +7731,15 @@ func (o SharedImageVersionTargetRegionArrayOutput) ToSharedImageVersionTargetReg
 }
 
 func (o SharedImageVersionTargetRegionArrayOutput) Index(i pulumi.IntInput) SharedImageVersionTargetRegionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SharedImageVersionTargetRegion {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedImageVersionTargetRegion {
 		return vs[0].([]SharedImageVersionTargetRegion)[vs[1].(int)]
 	}).(SharedImageVersionTargetRegionOutput)
 }
 
 type SnapshotEncryptionSettings struct {
 	DiskEncryptionKey *SnapshotEncryptionSettingsDiskEncryptionKey `pulumi:"diskEncryptionKey"`
-	Enabled bool `pulumi:"enabled"`
-	KeyEncryptionKey *SnapshotEncryptionSettingsKeyEncryptionKey `pulumi:"keyEncryptionKey"`
+	Enabled           bool                                         `pulumi:"enabled"`
+	KeyEncryptionKey  *SnapshotEncryptionSettingsKeyEncryptionKey  `pulumi:"keyEncryptionKey"`
 }
 
 type SnapshotEncryptionSettingsInput interface {
@@ -7301,8 +7751,8 @@ type SnapshotEncryptionSettingsInput interface {
 
 type SnapshotEncryptionSettingsArgs struct {
 	DiskEncryptionKey SnapshotEncryptionSettingsDiskEncryptionKeyPtrInput `pulumi:"diskEncryptionKey"`
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	KeyEncryptionKey SnapshotEncryptionSettingsKeyEncryptionKeyPtrInput `pulumi:"keyEncryptionKey"`
+	Enabled           pulumi.BoolInput                                    `pulumi:"enabled"`
+	KeyEncryptionKey  SnapshotEncryptionSettingsKeyEncryptionKeyPtrInput  `pulumi:"keyEncryptionKey"`
 }
 
 func (SnapshotEncryptionSettingsArgs) ElementType() reflect.Type {
@@ -7334,7 +7784,8 @@ type SnapshotEncryptionSettingsPtrInput interface {
 
 type snapshotEncryptionSettingsPtrType SnapshotEncryptionSettingsArgs
 
-func SnapshotEncryptionSettingsPtr(v *SnapshotEncryptionSettingsArgs) SnapshotEncryptionSettingsPtrInput {	return (*snapshotEncryptionSettingsPtrType)(v)
+func SnapshotEncryptionSettingsPtr(v *SnapshotEncryptionSettingsArgs) SnapshotEncryptionSettingsPtrInput {
+	return (*snapshotEncryptionSettingsPtrType)(v)
 }
 
 func (*snapshotEncryptionSettingsPtrType) ElementType() reflect.Type {
@@ -7349,7 +7800,7 @@ func (i *snapshotEncryptionSettingsPtrType) ToSnapshotEncryptionSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotEncryptionSettingsPtrOutput)
 }
 
-type SnapshotEncryptionSettingsOutput struct { *pulumi.OutputState }
+type SnapshotEncryptionSettingsOutput struct{ *pulumi.OutputState }
 
 func (SnapshotEncryptionSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SnapshotEncryptionSettings)(nil)).Elem()
@@ -7373,18 +7824,22 @@ func (o SnapshotEncryptionSettingsOutput) ToSnapshotEncryptionSettingsPtrOutputW
 	}).(SnapshotEncryptionSettingsPtrOutput)
 }
 func (o SnapshotEncryptionSettingsOutput) DiskEncryptionKey() SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsDiskEncryptionKey { return v.DiskEncryptionKey }).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsDiskEncryptionKey {
+		return v.DiskEncryptionKey
+	}).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
 func (o SnapshotEncryptionSettingsOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o SnapshotEncryptionSettingsOutput) KeyEncryptionKey() SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsKeyEncryptionKey { return v.KeyEncryptionKey }).(SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsKeyEncryptionKey {
+		return v.KeyEncryptionKey
+	}).(SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
 
-type SnapshotEncryptionSettingsPtrOutput struct { *pulumi.OutputState}
+type SnapshotEncryptionSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (SnapshotEncryptionSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SnapshotEncryptionSettings)(nil)).Elem()
@@ -7399,23 +7854,27 @@ func (o SnapshotEncryptionSettingsPtrOutput) ToSnapshotEncryptionSettingsPtrOutp
 }
 
 func (o SnapshotEncryptionSettingsPtrOutput) Elem() SnapshotEncryptionSettingsOutput {
-	return o.ApplyT(func (v *SnapshotEncryptionSettings) SnapshotEncryptionSettings { return *v }).(SnapshotEncryptionSettingsOutput)
+	return o.ApplyT(func(v *SnapshotEncryptionSettings) SnapshotEncryptionSettings { return *v }).(SnapshotEncryptionSettingsOutput)
 }
 
 func (o SnapshotEncryptionSettingsPtrOutput) DiskEncryptionKey() SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsDiskEncryptionKey { return v.DiskEncryptionKey }).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsDiskEncryptionKey {
+		return v.DiskEncryptionKey
+	}).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
 func (o SnapshotEncryptionSettingsPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o SnapshotEncryptionSettingsPtrOutput) KeyEncryptionKey() SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsKeyEncryptionKey { return v.KeyEncryptionKey }).(SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsKeyEncryptionKey {
+		return v.KeyEncryptionKey
+	}).(SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
 
 type SnapshotEncryptionSettingsDiskEncryptionKey struct {
-	SecretUrl string `pulumi:"secretUrl"`
+	SecretUrl     string `pulumi:"secretUrl"`
 	SourceVaultId string `pulumi:"sourceVaultId"`
 }
 
@@ -7427,7 +7886,7 @@ type SnapshotEncryptionSettingsDiskEncryptionKeyInput interface {
 }
 
 type SnapshotEncryptionSettingsDiskEncryptionKeyArgs struct {
-	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	SecretUrl     pulumi.StringInput `pulumi:"secretUrl"`
 	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
 }
 
@@ -7460,7 +7919,8 @@ type SnapshotEncryptionSettingsDiskEncryptionKeyPtrInput interface {
 
 type snapshotEncryptionSettingsDiskEncryptionKeyPtrType SnapshotEncryptionSettingsDiskEncryptionKeyArgs
 
-func SnapshotEncryptionSettingsDiskEncryptionKeyPtr(v *SnapshotEncryptionSettingsDiskEncryptionKeyArgs) SnapshotEncryptionSettingsDiskEncryptionKeyPtrInput {	return (*snapshotEncryptionSettingsDiskEncryptionKeyPtrType)(v)
+func SnapshotEncryptionSettingsDiskEncryptionKeyPtr(v *SnapshotEncryptionSettingsDiskEncryptionKeyArgs) SnapshotEncryptionSettingsDiskEncryptionKeyPtrInput {
+	return (*snapshotEncryptionSettingsDiskEncryptionKeyPtrType)(v)
 }
 
 func (*snapshotEncryptionSettingsDiskEncryptionKeyPtrType) ElementType() reflect.Type {
@@ -7475,7 +7935,7 @@ func (i *snapshotEncryptionSettingsDiskEncryptionKeyPtrType) ToSnapshotEncryptio
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 
-type SnapshotEncryptionSettingsDiskEncryptionKeyOutput struct { *pulumi.OutputState }
+type SnapshotEncryptionSettingsDiskEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (SnapshotEncryptionSettingsDiskEncryptionKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SnapshotEncryptionSettingsDiskEncryptionKey)(nil)).Elem()
@@ -7499,14 +7959,14 @@ func (o SnapshotEncryptionSettingsDiskEncryptionKeyOutput) ToSnapshotEncryptionS
 	}).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
 }
 func (o SnapshotEncryptionSettingsDiskEncryptionKeyOutput) SecretUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
 }
 
 func (o SnapshotEncryptionSettingsDiskEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
-type SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput struct { *pulumi.OutputState}
+type SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SnapshotEncryptionSettingsDiskEncryptionKey)(nil)).Elem()
@@ -7521,19 +7981,21 @@ func (o SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput) ToSnapshotEncrypti
 }
 
 func (o SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput) Elem() SnapshotEncryptionSettingsDiskEncryptionKeyOutput {
-	return o.ApplyT(func (v *SnapshotEncryptionSettingsDiskEncryptionKey) SnapshotEncryptionSettingsDiskEncryptionKey { return *v }).(SnapshotEncryptionSettingsDiskEncryptionKeyOutput)
+	return o.ApplyT(func(v *SnapshotEncryptionSettingsDiskEncryptionKey) SnapshotEncryptionSettingsDiskEncryptionKey {
+		return *v
+	}).(SnapshotEncryptionSettingsDiskEncryptionKeyOutput)
 }
 
 func (o SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput) SecretUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
 }
 
 func (o SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettingsDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
 type SnapshotEncryptionSettingsKeyEncryptionKey struct {
-	KeyUrl string `pulumi:"keyUrl"`
+	KeyUrl        string `pulumi:"keyUrl"`
 	SourceVaultId string `pulumi:"sourceVaultId"`
 }
 
@@ -7545,7 +8007,7 @@ type SnapshotEncryptionSettingsKeyEncryptionKeyInput interface {
 }
 
 type SnapshotEncryptionSettingsKeyEncryptionKeyArgs struct {
-	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	KeyUrl        pulumi.StringInput `pulumi:"keyUrl"`
 	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
 }
 
@@ -7578,7 +8040,8 @@ type SnapshotEncryptionSettingsKeyEncryptionKeyPtrInput interface {
 
 type snapshotEncryptionSettingsKeyEncryptionKeyPtrType SnapshotEncryptionSettingsKeyEncryptionKeyArgs
 
-func SnapshotEncryptionSettingsKeyEncryptionKeyPtr(v *SnapshotEncryptionSettingsKeyEncryptionKeyArgs) SnapshotEncryptionSettingsKeyEncryptionKeyPtrInput {	return (*snapshotEncryptionSettingsKeyEncryptionKeyPtrType)(v)
+func SnapshotEncryptionSettingsKeyEncryptionKeyPtr(v *SnapshotEncryptionSettingsKeyEncryptionKeyArgs) SnapshotEncryptionSettingsKeyEncryptionKeyPtrInput {
+	return (*snapshotEncryptionSettingsKeyEncryptionKeyPtrType)(v)
 }
 
 func (*snapshotEncryptionSettingsKeyEncryptionKeyPtrType) ElementType() reflect.Type {
@@ -7593,7 +8056,7 @@ func (i *snapshotEncryptionSettingsKeyEncryptionKeyPtrType) ToSnapshotEncryption
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
 
-type SnapshotEncryptionSettingsKeyEncryptionKeyOutput struct { *pulumi.OutputState }
+type SnapshotEncryptionSettingsKeyEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (SnapshotEncryptionSettingsKeyEncryptionKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SnapshotEncryptionSettingsKeyEncryptionKey)(nil)).Elem()
@@ -7617,14 +8080,14 @@ func (o SnapshotEncryptionSettingsKeyEncryptionKeyOutput) ToSnapshotEncryptionSe
 	}).(SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput)
 }
 func (o SnapshotEncryptionSettingsKeyEncryptionKeyOutput) KeyUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
 func (o SnapshotEncryptionSettingsKeyEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
-type SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput struct { *pulumi.OutputState}
+type SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SnapshotEncryptionSettingsKeyEncryptionKey)(nil)).Elem()
@@ -7639,18 +8102,21 @@ func (o SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput) ToSnapshotEncryptio
 }
 
 func (o SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput) Elem() SnapshotEncryptionSettingsKeyEncryptionKeyOutput {
-	return o.ApplyT(func (v *SnapshotEncryptionSettingsKeyEncryptionKey) SnapshotEncryptionSettingsKeyEncryptionKey { return *v }).(SnapshotEncryptionSettingsKeyEncryptionKeyOutput)
+	return o.ApplyT(func(v *SnapshotEncryptionSettingsKeyEncryptionKey) SnapshotEncryptionSettingsKeyEncryptionKey {
+		return *v
+	}).(SnapshotEncryptionSettingsKeyEncryptionKeyOutput)
 }
 
 func (o SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput) KeyUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
 func (o SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SnapshotEncryptionSettingsKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
 type VirtualMachineAdditionalCapabilities struct {
+	// Should Ultra SSD disk be enabled for this Virtual Machine?
 	UltraSsdEnabled bool `pulumi:"ultraSsdEnabled"`
 }
 
@@ -7662,6 +8128,7 @@ type VirtualMachineAdditionalCapabilitiesInput interface {
 }
 
 type VirtualMachineAdditionalCapabilitiesArgs struct {
+	// Should Ultra SSD disk be enabled for this Virtual Machine?
 	UltraSsdEnabled pulumi.BoolInput `pulumi:"ultraSsdEnabled"`
 }
 
@@ -7694,7 +8161,8 @@ type VirtualMachineAdditionalCapabilitiesPtrInput interface {
 
 type virtualMachineAdditionalCapabilitiesPtrType VirtualMachineAdditionalCapabilitiesArgs
 
-func VirtualMachineAdditionalCapabilitiesPtr(v *VirtualMachineAdditionalCapabilitiesArgs) VirtualMachineAdditionalCapabilitiesPtrInput {	return (*virtualMachineAdditionalCapabilitiesPtrType)(v)
+func VirtualMachineAdditionalCapabilitiesPtr(v *VirtualMachineAdditionalCapabilitiesArgs) VirtualMachineAdditionalCapabilitiesPtrInput {
+	return (*virtualMachineAdditionalCapabilitiesPtrType)(v)
 }
 
 func (*virtualMachineAdditionalCapabilitiesPtrType) ElementType() reflect.Type {
@@ -7709,7 +8177,7 @@ func (i *virtualMachineAdditionalCapabilitiesPtrType) ToVirtualMachineAdditional
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAdditionalCapabilitiesPtrOutput)
 }
 
-type VirtualMachineAdditionalCapabilitiesOutput struct { *pulumi.OutputState }
+type VirtualMachineAdditionalCapabilitiesOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineAdditionalCapabilitiesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineAdditionalCapabilities)(nil)).Elem()
@@ -7732,11 +8200,13 @@ func (o VirtualMachineAdditionalCapabilitiesOutput) ToVirtualMachineAdditionalCa
 		return &v
 	}).(VirtualMachineAdditionalCapabilitiesPtrOutput)
 }
+
+// Should Ultra SSD disk be enabled for this Virtual Machine?
 func (o VirtualMachineAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v VirtualMachineAdditionalCapabilities) bool { return v.UltraSsdEnabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v VirtualMachineAdditionalCapabilities) bool { return v.UltraSsdEnabled }).(pulumi.BoolOutput)
 }
 
-type VirtualMachineAdditionalCapabilitiesPtrOutput struct { *pulumi.OutputState}
+type VirtualMachineAdditionalCapabilitiesPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineAdditionalCapabilitiesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachineAdditionalCapabilities)(nil)).Elem()
@@ -7751,15 +8221,18 @@ func (o VirtualMachineAdditionalCapabilitiesPtrOutput) ToVirtualMachineAdditiona
 }
 
 func (o VirtualMachineAdditionalCapabilitiesPtrOutput) Elem() VirtualMachineAdditionalCapabilitiesOutput {
-	return o.ApplyT(func (v *VirtualMachineAdditionalCapabilities) VirtualMachineAdditionalCapabilities { return *v }).(VirtualMachineAdditionalCapabilitiesOutput)
+	return o.ApplyT(func(v *VirtualMachineAdditionalCapabilities) VirtualMachineAdditionalCapabilities { return *v }).(VirtualMachineAdditionalCapabilitiesOutput)
 }
 
+// Should Ultra SSD disk be enabled for this Virtual Machine?
 func (o VirtualMachineAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v VirtualMachineAdditionalCapabilities) bool { return v.UltraSsdEnabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v VirtualMachineAdditionalCapabilities) bool { return v.UltraSsdEnabled }).(pulumi.BoolOutput)
 }
 
 type VirtualMachineBootDiagnostics struct {
+	// Should Boot Diagnostics be enabled for this Virtual Machine?
 	Enabled bool `pulumi:"enabled"`
+	// The Storage Account's Blob Endpoint which should hold the virtual machine's diagnostic files.
 	StorageUri string `pulumi:"storageUri"`
 }
 
@@ -7771,7 +8244,9 @@ type VirtualMachineBootDiagnosticsInput interface {
 }
 
 type VirtualMachineBootDiagnosticsArgs struct {
+	// Should Boot Diagnostics be enabled for this Virtual Machine?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The Storage Account's Blob Endpoint which should hold the virtual machine's diagnostic files.
 	StorageUri pulumi.StringInput `pulumi:"storageUri"`
 }
 
@@ -7804,7 +8279,8 @@ type VirtualMachineBootDiagnosticsPtrInput interface {
 
 type virtualMachineBootDiagnosticsPtrType VirtualMachineBootDiagnosticsArgs
 
-func VirtualMachineBootDiagnosticsPtr(v *VirtualMachineBootDiagnosticsArgs) VirtualMachineBootDiagnosticsPtrInput {	return (*virtualMachineBootDiagnosticsPtrType)(v)
+func VirtualMachineBootDiagnosticsPtr(v *VirtualMachineBootDiagnosticsArgs) VirtualMachineBootDiagnosticsPtrInput {
+	return (*virtualMachineBootDiagnosticsPtrType)(v)
 }
 
 func (*virtualMachineBootDiagnosticsPtrType) ElementType() reflect.Type {
@@ -7819,7 +8295,7 @@ func (i *virtualMachineBootDiagnosticsPtrType) ToVirtualMachineBootDiagnosticsPt
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineBootDiagnosticsPtrOutput)
 }
 
-type VirtualMachineBootDiagnosticsOutput struct { *pulumi.OutputState }
+type VirtualMachineBootDiagnosticsOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineBootDiagnosticsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineBootDiagnostics)(nil)).Elem()
@@ -7842,15 +8318,18 @@ func (o VirtualMachineBootDiagnosticsOutput) ToVirtualMachineBootDiagnosticsPtrO
 		return &v
 	}).(VirtualMachineBootDiagnosticsPtrOutput)
 }
+
+// Should Boot Diagnostics be enabled for this Virtual Machine?
 func (o VirtualMachineBootDiagnosticsOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v VirtualMachineBootDiagnostics) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v VirtualMachineBootDiagnostics) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// The Storage Account's Blob Endpoint which should hold the virtual machine's diagnostic files.
 func (o VirtualMachineBootDiagnosticsOutput) StorageUri() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineBootDiagnostics) string { return v.StorageUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineBootDiagnostics) string { return v.StorageUri }).(pulumi.StringOutput)
 }
 
-type VirtualMachineBootDiagnosticsPtrOutput struct { *pulumi.OutputState}
+type VirtualMachineBootDiagnosticsPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineBootDiagnosticsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachineBootDiagnostics)(nil)).Elem()
@@ -7865,21 +8344,25 @@ func (o VirtualMachineBootDiagnosticsPtrOutput) ToVirtualMachineBootDiagnosticsP
 }
 
 func (o VirtualMachineBootDiagnosticsPtrOutput) Elem() VirtualMachineBootDiagnosticsOutput {
-	return o.ApplyT(func (v *VirtualMachineBootDiagnostics) VirtualMachineBootDiagnostics { return *v }).(VirtualMachineBootDiagnosticsOutput)
+	return o.ApplyT(func(v *VirtualMachineBootDiagnostics) VirtualMachineBootDiagnostics { return *v }).(VirtualMachineBootDiagnosticsOutput)
 }
 
+// Should Boot Diagnostics be enabled for this Virtual Machine?
 func (o VirtualMachineBootDiagnosticsPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v VirtualMachineBootDiagnostics) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v VirtualMachineBootDiagnostics) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// The Storage Account's Blob Endpoint which should hold the virtual machine's diagnostic files.
 func (o VirtualMachineBootDiagnosticsPtrOutput) StorageUri() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineBootDiagnostics) string { return v.StorageUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineBootDiagnostics) string { return v.StorageUri }).(pulumi.StringOutput)
 }
 
 type VirtualMachineIdentity struct {
+	// Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
 	PrincipalId *string `pulumi:"principalId"`
+	// The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 	Type string `pulumi:"type"`
 }
 
@@ -7891,9 +8374,11 @@ type VirtualMachineIdentityInput interface {
 }
 
 type VirtualMachineIdentityArgs struct {
+	// Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -7926,7 +8411,8 @@ type VirtualMachineIdentityPtrInput interface {
 
 type virtualMachineIdentityPtrType VirtualMachineIdentityArgs
 
-func VirtualMachineIdentityPtr(v *VirtualMachineIdentityArgs) VirtualMachineIdentityPtrInput {	return (*virtualMachineIdentityPtrType)(v)
+func VirtualMachineIdentityPtr(v *VirtualMachineIdentityArgs) VirtualMachineIdentityPtrInput {
+	return (*virtualMachineIdentityPtrType)(v)
 }
 
 func (*virtualMachineIdentityPtrType) ElementType() reflect.Type {
@@ -7941,7 +8427,7 @@ func (i *virtualMachineIdentityPtrType) ToVirtualMachineIdentityPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineIdentityPtrOutput)
 }
 
-type VirtualMachineIdentityOutput struct { *pulumi.OutputState }
+type VirtualMachineIdentityOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineIdentity)(nil)).Elem()
@@ -7964,20 +8450,23 @@ func (o VirtualMachineIdentityOutput) ToVirtualMachineIdentityPtrOutputWithConte
 		return &v
 	}).(VirtualMachineIdentityPtrOutput)
 }
+
+// Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
 func (o VirtualMachineIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v VirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v VirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
 func (o VirtualMachineIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 func (o VirtualMachineIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type VirtualMachineIdentityPtrOutput struct { *pulumi.OutputState}
+type VirtualMachineIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachineIdentity)(nil)).Elem()
@@ -7992,26 +8481,32 @@ func (o VirtualMachineIdentityPtrOutput) ToVirtualMachineIdentityPtrOutputWithCo
 }
 
 func (o VirtualMachineIdentityPtrOutput) Elem() VirtualMachineIdentityOutput {
-	return o.ApplyT(func (v *VirtualMachineIdentity) VirtualMachineIdentity { return *v }).(VirtualMachineIdentityOutput)
+	return o.ApplyT(func(v *VirtualMachineIdentity) VirtualMachineIdentity { return *v }).(VirtualMachineIdentityOutput)
 }
 
+// Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
 func (o VirtualMachineIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v VirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v VirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
 func (o VirtualMachineIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 func (o VirtualMachineIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type VirtualMachineOsProfile struct {
+	// The password associated with the local administrator account.
 	AdminPassword *string `pulumi:"adminPassword"`
+	// Specifies the name of the local administrator account.
 	AdminUsername string `pulumi:"adminUsername"`
+	// Specifies the name of the Virtual Machine.
 	ComputerName string `pulumi:"computerName"`
+	// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
 	CustomData *string `pulumi:"customData"`
 }
 
@@ -8023,9 +8518,13 @@ type VirtualMachineOsProfileInput interface {
 }
 
 type VirtualMachineOsProfileArgs struct {
+	// The password associated with the local administrator account.
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
+	// Specifies the name of the local administrator account.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+	// Specifies the name of the Virtual Machine.
 	ComputerName pulumi.StringInput `pulumi:"computerName"`
+	// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
 	CustomData pulumi.StringPtrInput `pulumi:"customData"`
 }
 
@@ -8058,7 +8557,8 @@ type VirtualMachineOsProfilePtrInput interface {
 
 type virtualMachineOsProfilePtrType VirtualMachineOsProfileArgs
 
-func VirtualMachineOsProfilePtr(v *VirtualMachineOsProfileArgs) VirtualMachineOsProfilePtrInput {	return (*virtualMachineOsProfilePtrType)(v)
+func VirtualMachineOsProfilePtr(v *VirtualMachineOsProfileArgs) VirtualMachineOsProfilePtrInput {
+	return (*virtualMachineOsProfilePtrType)(v)
 }
 
 func (*virtualMachineOsProfilePtrType) ElementType() reflect.Type {
@@ -8073,7 +8573,7 @@ func (i *virtualMachineOsProfilePtrType) ToVirtualMachineOsProfilePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOsProfilePtrOutput)
 }
 
-type VirtualMachineOsProfileOutput struct { *pulumi.OutputState }
+type VirtualMachineOsProfileOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineOsProfile)(nil)).Elem()
@@ -8096,23 +8596,28 @@ func (o VirtualMachineOsProfileOutput) ToVirtualMachineOsProfilePtrOutputWithCon
 		return &v
 	}).(VirtualMachineOsProfilePtrOutput)
 }
+
+// The password associated with the local administrator account.
 func (o VirtualMachineOsProfileOutput) AdminPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the name of the local administrator account.
 func (o VirtualMachineOsProfileOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
+// Specifies the name of the Virtual Machine.
 func (o VirtualMachineOsProfileOutput) ComputerName() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfile) string { return v.ComputerName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfile) string { return v.ComputerName }).(pulumi.StringOutput)
 }
 
+// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
 func (o VirtualMachineOsProfileOutput) CustomData() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
 
-type VirtualMachineOsProfilePtrOutput struct { *pulumi.OutputState}
+type VirtualMachineOsProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachineOsProfile)(nil)).Elem()
@@ -8127,27 +8632,33 @@ func (o VirtualMachineOsProfilePtrOutput) ToVirtualMachineOsProfilePtrOutputWith
 }
 
 func (o VirtualMachineOsProfilePtrOutput) Elem() VirtualMachineOsProfileOutput {
-	return o.ApplyT(func (v *VirtualMachineOsProfile) VirtualMachineOsProfile { return *v }).(VirtualMachineOsProfileOutput)
+	return o.ApplyT(func(v *VirtualMachineOsProfile) VirtualMachineOsProfile { return *v }).(VirtualMachineOsProfileOutput)
 }
 
+// The password associated with the local administrator account.
 func (o VirtualMachineOsProfilePtrOutput) AdminPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the name of the local administrator account.
 func (o VirtualMachineOsProfilePtrOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
+// Specifies the name of the Virtual Machine.
 func (o VirtualMachineOsProfilePtrOutput) ComputerName() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfile) string { return v.ComputerName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfile) string { return v.ComputerName }).(pulumi.StringOutput)
 }
 
+// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
 func (o VirtualMachineOsProfilePtrOutput) CustomData() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
 
 type VirtualMachineOsProfileLinuxConfig struct {
+	// Specifies whether password authentication should be disabled. If set to `false`, an `adminPassword` must be specified.
 	DisablePasswordAuthentication bool `pulumi:"disablePasswordAuthentication"`
+	// One or more `sshKeys` blocks. This field is required if `disablePasswordAuthentication` is set to `true`.
 	SshKeys []VirtualMachineOsProfileLinuxConfigSshKey `pulumi:"sshKeys"`
 }
 
@@ -8159,7 +8670,9 @@ type VirtualMachineOsProfileLinuxConfigInput interface {
 }
 
 type VirtualMachineOsProfileLinuxConfigArgs struct {
+	// Specifies whether password authentication should be disabled. If set to `false`, an `adminPassword` must be specified.
 	DisablePasswordAuthentication pulumi.BoolInput `pulumi:"disablePasswordAuthentication"`
+	// One or more `sshKeys` blocks. This field is required if `disablePasswordAuthentication` is set to `true`.
 	SshKeys VirtualMachineOsProfileLinuxConfigSshKeyArrayInput `pulumi:"sshKeys"`
 }
 
@@ -8192,7 +8705,8 @@ type VirtualMachineOsProfileLinuxConfigPtrInput interface {
 
 type virtualMachineOsProfileLinuxConfigPtrType VirtualMachineOsProfileLinuxConfigArgs
 
-func VirtualMachineOsProfileLinuxConfigPtr(v *VirtualMachineOsProfileLinuxConfigArgs) VirtualMachineOsProfileLinuxConfigPtrInput {	return (*virtualMachineOsProfileLinuxConfigPtrType)(v)
+func VirtualMachineOsProfileLinuxConfigPtr(v *VirtualMachineOsProfileLinuxConfigArgs) VirtualMachineOsProfileLinuxConfigPtrInput {
+	return (*virtualMachineOsProfileLinuxConfigPtrType)(v)
 }
 
 func (*virtualMachineOsProfileLinuxConfigPtrType) ElementType() reflect.Type {
@@ -8207,7 +8721,7 @@ func (i *virtualMachineOsProfileLinuxConfigPtrType) ToVirtualMachineOsProfileLin
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOsProfileLinuxConfigPtrOutput)
 }
 
-type VirtualMachineOsProfileLinuxConfigOutput struct { *pulumi.OutputState }
+type VirtualMachineOsProfileLinuxConfigOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileLinuxConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineOsProfileLinuxConfig)(nil)).Elem()
@@ -8230,15 +8744,20 @@ func (o VirtualMachineOsProfileLinuxConfigOutput) ToVirtualMachineOsProfileLinux
 		return &v
 	}).(VirtualMachineOsProfileLinuxConfigPtrOutput)
 }
+
+// Specifies whether password authentication should be disabled. If set to `false`, an `adminPassword` must be specified.
 func (o VirtualMachineOsProfileLinuxConfigOutput) DisablePasswordAuthentication() pulumi.BoolOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileLinuxConfig) bool { return v.DisablePasswordAuthentication }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileLinuxConfig) bool { return v.DisablePasswordAuthentication }).(pulumi.BoolOutput)
 }
 
+// One or more `sshKeys` blocks. This field is required if `disablePasswordAuthentication` is set to `true`.
 func (o VirtualMachineOsProfileLinuxConfigOutput) SshKeys() VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileLinuxConfig) []VirtualMachineOsProfileLinuxConfigSshKey { return v.SshKeys }).(VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileLinuxConfig) []VirtualMachineOsProfileLinuxConfigSshKey {
+		return v.SshKeys
+	}).(VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput)
 }
 
-type VirtualMachineOsProfileLinuxConfigPtrOutput struct { *pulumi.OutputState}
+type VirtualMachineOsProfileLinuxConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileLinuxConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachineOsProfileLinuxConfig)(nil)).Elem()
@@ -8253,19 +8772,25 @@ func (o VirtualMachineOsProfileLinuxConfigPtrOutput) ToVirtualMachineOsProfileLi
 }
 
 func (o VirtualMachineOsProfileLinuxConfigPtrOutput) Elem() VirtualMachineOsProfileLinuxConfigOutput {
-	return o.ApplyT(func (v *VirtualMachineOsProfileLinuxConfig) VirtualMachineOsProfileLinuxConfig { return *v }).(VirtualMachineOsProfileLinuxConfigOutput)
+	return o.ApplyT(func(v *VirtualMachineOsProfileLinuxConfig) VirtualMachineOsProfileLinuxConfig { return *v }).(VirtualMachineOsProfileLinuxConfigOutput)
 }
 
+// Specifies whether password authentication should be disabled. If set to `false`, an `adminPassword` must be specified.
 func (o VirtualMachineOsProfileLinuxConfigPtrOutput) DisablePasswordAuthentication() pulumi.BoolOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileLinuxConfig) bool { return v.DisablePasswordAuthentication }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileLinuxConfig) bool { return v.DisablePasswordAuthentication }).(pulumi.BoolOutput)
 }
 
+// One or more `sshKeys` blocks. This field is required if `disablePasswordAuthentication` is set to `true`.
 func (o VirtualMachineOsProfileLinuxConfigPtrOutput) SshKeys() VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileLinuxConfig) []VirtualMachineOsProfileLinuxConfigSshKey { return v.SshKeys }).(VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileLinuxConfig) []VirtualMachineOsProfileLinuxConfigSshKey {
+		return v.SshKeys
+	}).(VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput)
 }
 
 type VirtualMachineOsProfileLinuxConfigSshKey struct {
+	// The Public SSH Key which should be written to the `path` defined above.
 	KeyData string `pulumi:"keyData"`
+	// The path of the destination file on the virtual machine
 	Path string `pulumi:"path"`
 }
 
@@ -8277,7 +8802,9 @@ type VirtualMachineOsProfileLinuxConfigSshKeyInput interface {
 }
 
 type VirtualMachineOsProfileLinuxConfigSshKeyArgs struct {
+	// The Public SSH Key which should be written to the `path` defined above.
 	KeyData pulumi.StringInput `pulumi:"keyData"`
+	// The path of the destination file on the virtual machine
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -8314,7 +8841,7 @@ func (i VirtualMachineOsProfileLinuxConfigSshKeyArray) ToVirtualMachineOsProfile
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput)
 }
 
-type VirtualMachineOsProfileLinuxConfigSshKeyOutput struct { *pulumi.OutputState }
+type VirtualMachineOsProfileLinuxConfigSshKeyOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileLinuxConfigSshKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineOsProfileLinuxConfigSshKey)(nil)).Elem()
@@ -8328,15 +8855,17 @@ func (o VirtualMachineOsProfileLinuxConfigSshKeyOutput) ToVirtualMachineOsProfil
 	return o
 }
 
+// The Public SSH Key which should be written to the `path` defined above.
 func (o VirtualMachineOsProfileLinuxConfigSshKeyOutput) KeyData() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileLinuxConfigSshKey) string { return v.KeyData }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileLinuxConfigSshKey) string { return v.KeyData }).(pulumi.StringOutput)
 }
 
+// The path of the destination file on the virtual machine
 func (o VirtualMachineOsProfileLinuxConfigSshKeyOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileLinuxConfigSshKey) string { return v.Path }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileLinuxConfigSshKey) string { return v.Path }).(pulumi.StringOutput)
 }
 
-type VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput struct { *pulumi.OutputState}
+type VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]VirtualMachineOsProfileLinuxConfigSshKey)(nil)).Elem()
@@ -8351,13 +8880,15 @@ func (o VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput) ToVirtualMachineOsP
 }
 
 func (o VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput) Index(i pulumi.IntInput) VirtualMachineOsProfileLinuxConfigSshKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) VirtualMachineOsProfileLinuxConfigSshKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineOsProfileLinuxConfigSshKey {
 		return vs[0].([]VirtualMachineOsProfileLinuxConfigSshKey)[vs[1].(int)]
 	}).(VirtualMachineOsProfileLinuxConfigSshKeyOutput)
 }
 
 type VirtualMachineOsProfileSecret struct {
+	// Specifies the ID of the Key Vault to use.
 	SourceVaultId string `pulumi:"sourceVaultId"`
+	// One or more `vaultCertificates` blocks.
 	VaultCertificates []VirtualMachineOsProfileSecretVaultCertificate `pulumi:"vaultCertificates"`
 }
 
@@ -8369,7 +8900,9 @@ type VirtualMachineOsProfileSecretInput interface {
 }
 
 type VirtualMachineOsProfileSecretArgs struct {
+	// Specifies the ID of the Key Vault to use.
 	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+	// One or more `vaultCertificates` blocks.
 	VaultCertificates VirtualMachineOsProfileSecretVaultCertificateArrayInput `pulumi:"vaultCertificates"`
 }
 
@@ -8406,7 +8939,7 @@ func (i VirtualMachineOsProfileSecretArray) ToVirtualMachineOsProfileSecretArray
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOsProfileSecretArrayOutput)
 }
 
-type VirtualMachineOsProfileSecretOutput struct { *pulumi.OutputState }
+type VirtualMachineOsProfileSecretOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileSecretOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineOsProfileSecret)(nil)).Elem()
@@ -8420,15 +8953,19 @@ func (o VirtualMachineOsProfileSecretOutput) ToVirtualMachineOsProfileSecretOutp
 	return o
 }
 
+// Specifies the ID of the Key Vault to use.
 func (o VirtualMachineOsProfileSecretOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileSecret) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileSecret) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
+// One or more `vaultCertificates` blocks.
 func (o VirtualMachineOsProfileSecretOutput) VaultCertificates() VirtualMachineOsProfileSecretVaultCertificateArrayOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileSecret) []VirtualMachineOsProfileSecretVaultCertificate { return v.VaultCertificates }).(VirtualMachineOsProfileSecretVaultCertificateArrayOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileSecret) []VirtualMachineOsProfileSecretVaultCertificate {
+		return v.VaultCertificates
+	}).(VirtualMachineOsProfileSecretVaultCertificateArrayOutput)
 }
 
-type VirtualMachineOsProfileSecretArrayOutput struct { *pulumi.OutputState}
+type VirtualMachineOsProfileSecretArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileSecretArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]VirtualMachineOsProfileSecret)(nil)).Elem()
@@ -8443,13 +8980,15 @@ func (o VirtualMachineOsProfileSecretArrayOutput) ToVirtualMachineOsProfileSecre
 }
 
 func (o VirtualMachineOsProfileSecretArrayOutput) Index(i pulumi.IntInput) VirtualMachineOsProfileSecretOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) VirtualMachineOsProfileSecret {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineOsProfileSecret {
 		return vs[0].([]VirtualMachineOsProfileSecret)[vs[1].(int)]
 	}).(VirtualMachineOsProfileSecretOutput)
 }
 
 type VirtualMachineOsProfileSecretVaultCertificate struct {
+	// Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
 	CertificateStore *string `pulumi:"certificateStore"`
+	// The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
 	CertificateUrl string `pulumi:"certificateUrl"`
 }
 
@@ -8461,7 +9000,9 @@ type VirtualMachineOsProfileSecretVaultCertificateInput interface {
 }
 
 type VirtualMachineOsProfileSecretVaultCertificateArgs struct {
+	// Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
 	CertificateStore pulumi.StringPtrInput `pulumi:"certificateStore"`
+	// The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
 	CertificateUrl pulumi.StringInput `pulumi:"certificateUrl"`
 }
 
@@ -8498,7 +9039,7 @@ func (i VirtualMachineOsProfileSecretVaultCertificateArray) ToVirtualMachineOsPr
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOsProfileSecretVaultCertificateArrayOutput)
 }
 
-type VirtualMachineOsProfileSecretVaultCertificateOutput struct { *pulumi.OutputState }
+type VirtualMachineOsProfileSecretVaultCertificateOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileSecretVaultCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineOsProfileSecretVaultCertificate)(nil)).Elem()
@@ -8512,15 +9053,17 @@ func (o VirtualMachineOsProfileSecretVaultCertificateOutput) ToVirtualMachineOsP
 	return o
 }
 
+// Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
 func (o VirtualMachineOsProfileSecretVaultCertificateOutput) CertificateStore() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileSecretVaultCertificate) *string { return v.CertificateStore }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileSecretVaultCertificate) *string { return v.CertificateStore }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
 func (o VirtualMachineOsProfileSecretVaultCertificateOutput) CertificateUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileSecretVaultCertificate) string { return v.CertificateUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileSecretVaultCertificate) string { return v.CertificateUrl }).(pulumi.StringOutput)
 }
 
-type VirtualMachineOsProfileSecretVaultCertificateArrayOutput struct { *pulumi.OutputState}
+type VirtualMachineOsProfileSecretVaultCertificateArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileSecretVaultCertificateArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]VirtualMachineOsProfileSecretVaultCertificate)(nil)).Elem()
@@ -8535,16 +9078,21 @@ func (o VirtualMachineOsProfileSecretVaultCertificateArrayOutput) ToVirtualMachi
 }
 
 func (o VirtualMachineOsProfileSecretVaultCertificateArrayOutput) Index(i pulumi.IntInput) VirtualMachineOsProfileSecretVaultCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) VirtualMachineOsProfileSecretVaultCertificate {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineOsProfileSecretVaultCertificate {
 		return vs[0].([]VirtualMachineOsProfileSecretVaultCertificate)[vs[1].(int)]
 	}).(VirtualMachineOsProfileSecretVaultCertificateOutput)
 }
 
 type VirtualMachineOsProfileWindowsConfig struct {
+	// A `additionalUnattendConfig` block.
 	AdditionalUnattendConfigs []VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig `pulumi:"additionalUnattendConfigs"`
+	// Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
 	EnableAutomaticUpgrades *bool `pulumi:"enableAutomaticUpgrades"`
+	// Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
+	// Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone *string `pulumi:"timezone"`
+	// One or more `winrm` block.
 	Winrms []VirtualMachineOsProfileWindowsConfigWinrm `pulumi:"winrms"`
 }
 
@@ -8556,10 +9104,15 @@ type VirtualMachineOsProfileWindowsConfigInput interface {
 }
 
 type VirtualMachineOsProfileWindowsConfigArgs struct {
+	// A `additionalUnattendConfig` block.
 	AdditionalUnattendConfigs VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayInput `pulumi:"additionalUnattendConfigs"`
+	// Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
 	EnableAutomaticUpgrades pulumi.BoolPtrInput `pulumi:"enableAutomaticUpgrades"`
+	// Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
 	ProvisionVmAgent pulumi.BoolPtrInput `pulumi:"provisionVmAgent"`
+	// Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+	// One or more `winrm` block.
 	Winrms VirtualMachineOsProfileWindowsConfigWinrmArrayInput `pulumi:"winrms"`
 }
 
@@ -8592,7 +9145,8 @@ type VirtualMachineOsProfileWindowsConfigPtrInput interface {
 
 type virtualMachineOsProfileWindowsConfigPtrType VirtualMachineOsProfileWindowsConfigArgs
 
-func VirtualMachineOsProfileWindowsConfigPtr(v *VirtualMachineOsProfileWindowsConfigArgs) VirtualMachineOsProfileWindowsConfigPtrInput {	return (*virtualMachineOsProfileWindowsConfigPtrType)(v)
+func VirtualMachineOsProfileWindowsConfigPtr(v *VirtualMachineOsProfileWindowsConfigArgs) VirtualMachineOsProfileWindowsConfigPtrInput {
+	return (*virtualMachineOsProfileWindowsConfigPtrType)(v)
 }
 
 func (*virtualMachineOsProfileWindowsConfigPtrType) ElementType() reflect.Type {
@@ -8607,7 +9161,7 @@ func (i *virtualMachineOsProfileWindowsConfigPtrType) ToVirtualMachineOsProfileW
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOsProfileWindowsConfigPtrOutput)
 }
 
-type VirtualMachineOsProfileWindowsConfigOutput struct { *pulumi.OutputState }
+type VirtualMachineOsProfileWindowsConfigOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileWindowsConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineOsProfileWindowsConfig)(nil)).Elem()
@@ -8630,27 +9184,37 @@ func (o VirtualMachineOsProfileWindowsConfigOutput) ToVirtualMachineOsProfileWin
 		return &v
 	}).(VirtualMachineOsProfileWindowsConfigPtrOutput)
 }
+
+// A `additionalUnattendConfig` block.
 func (o VirtualMachineOsProfileWindowsConfigOutput) AdditionalUnattendConfigs() VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig { return v.AdditionalUnattendConfigs }).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig {
+		return v.AdditionalUnattendConfigs
+	}).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
 }
 
+// Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
 func (o VirtualMachineOsProfileWindowsConfigOutput) EnableAutomaticUpgrades() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) *bool { return v.EnableAutomaticUpgrades }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) *bool { return v.EnableAutomaticUpgrades }).(pulumi.BoolPtrOutput)
 }
 
+// Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
 func (o VirtualMachineOsProfileWindowsConfigOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 func (o VirtualMachineOsProfileWindowsConfigOutput) Timezone() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
+// One or more `winrm` block.
 func (o VirtualMachineOsProfileWindowsConfigOutput) Winrms() VirtualMachineOsProfileWindowsConfigWinrmArrayOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigWinrm { return v.Winrms }).(VirtualMachineOsProfileWindowsConfigWinrmArrayOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigWinrm {
+		return v.Winrms
+	}).(VirtualMachineOsProfileWindowsConfigWinrmArrayOutput)
 }
 
-type VirtualMachineOsProfileWindowsConfigPtrOutput struct { *pulumi.OutputState}
+type VirtualMachineOsProfileWindowsConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileWindowsConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachineOsProfileWindowsConfig)(nil)).Elem()
@@ -8665,33 +9229,46 @@ func (o VirtualMachineOsProfileWindowsConfigPtrOutput) ToVirtualMachineOsProfile
 }
 
 func (o VirtualMachineOsProfileWindowsConfigPtrOutput) Elem() VirtualMachineOsProfileWindowsConfigOutput {
-	return o.ApplyT(func (v *VirtualMachineOsProfileWindowsConfig) VirtualMachineOsProfileWindowsConfig { return *v }).(VirtualMachineOsProfileWindowsConfigOutput)
+	return o.ApplyT(func(v *VirtualMachineOsProfileWindowsConfig) VirtualMachineOsProfileWindowsConfig { return *v }).(VirtualMachineOsProfileWindowsConfigOutput)
 }
 
+// A `additionalUnattendConfig` block.
 func (o VirtualMachineOsProfileWindowsConfigPtrOutput) AdditionalUnattendConfigs() VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig { return v.AdditionalUnattendConfigs }).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig {
+		return v.AdditionalUnattendConfigs
+	}).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
 }
 
+// Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
 func (o VirtualMachineOsProfileWindowsConfigPtrOutput) EnableAutomaticUpgrades() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) *bool { return v.EnableAutomaticUpgrades }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) *bool { return v.EnableAutomaticUpgrades }).(pulumi.BoolPtrOutput)
 }
 
+// Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
 func (o VirtualMachineOsProfileWindowsConfigPtrOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 func (o VirtualMachineOsProfileWindowsConfigPtrOutput) Timezone() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
+// One or more `winrm` block.
 func (o VirtualMachineOsProfileWindowsConfigPtrOutput) Winrms() VirtualMachineOsProfileWindowsConfigWinrmArrayOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigWinrm { return v.Winrms }).(VirtualMachineOsProfileWindowsConfigWinrmArrayOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigWinrm {
+		return v.Winrms
+	}).(VirtualMachineOsProfileWindowsConfigWinrmArrayOutput)
 }
 
 type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig struct {
+	// Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
 	Component string `pulumi:"component"`
+	// Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
 	Content string `pulumi:"content"`
+	// Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
 	Pass string `pulumi:"pass"`
+	// Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
 	SettingName string `pulumi:"settingName"`
 }
 
@@ -8703,9 +9280,13 @@ type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigInput interface
 }
 
 type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs struct {
+	// Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
 	Component pulumi.StringInput `pulumi:"component"`
+	// Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
 	Content pulumi.StringInput `pulumi:"content"`
+	// Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
 	Pass pulumi.StringInput `pulumi:"pass"`
+	// Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
 	SettingName pulumi.StringInput `pulumi:"settingName"`
 }
 
@@ -8742,7 +9323,7 @@ func (i VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArray) ToVir
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
 }
 
-type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput struct { *pulumi.OutputState }
+type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig)(nil)).Elem()
@@ -8756,23 +9337,27 @@ func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput) ToVi
 	return o
 }
 
+// Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
 func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput) Component() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Component }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Component }).(pulumi.StringOutput)
 }
 
+// Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
 func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Content }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Content }).(pulumi.StringOutput)
 }
 
+// Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
 func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput) Pass() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Pass }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.Pass }).(pulumi.StringOutput)
 }
 
+// Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
 func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput) SettingName() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.SettingName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig) string { return v.SettingName }).(pulumi.StringOutput)
 }
 
-type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput struct { *pulumi.OutputState}
+type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig)(nil)).Elem()
@@ -8787,13 +9372,15 @@ func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
 }
 
 func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput) Index(i pulumi.IntInput) VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig {
 		return vs[0].([]VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig)[vs[1].(int)]
 	}).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput)
 }
 
 type VirtualMachineOsProfileWindowsConfigWinrm struct {
+	// The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vaultCertificates` block within the `osProfileSecrets` block.
 	CertificateUrl *string `pulumi:"certificateUrl"`
+	// Specifies the protocol of listener. Possible values are `HTTP` or `HTTPS`.
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -8805,7 +9392,9 @@ type VirtualMachineOsProfileWindowsConfigWinrmInput interface {
 }
 
 type VirtualMachineOsProfileWindowsConfigWinrmArgs struct {
+	// The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vaultCertificates` block within the `osProfileSecrets` block.
 	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
+	// Specifies the protocol of listener. Possible values are `HTTP` or `HTTPS`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
@@ -8842,7 +9431,7 @@ func (i VirtualMachineOsProfileWindowsConfigWinrmArray) ToVirtualMachineOsProfil
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOsProfileWindowsConfigWinrmArrayOutput)
 }
 
-type VirtualMachineOsProfileWindowsConfigWinrmOutput struct { *pulumi.OutputState }
+type VirtualMachineOsProfileWindowsConfigWinrmOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileWindowsConfigWinrmOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineOsProfileWindowsConfigWinrm)(nil)).Elem()
@@ -8856,15 +9445,17 @@ func (o VirtualMachineOsProfileWindowsConfigWinrmOutput) ToVirtualMachineOsProfi
 	return o
 }
 
+// The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vaultCertificates` block within the `osProfileSecrets` block.
 func (o VirtualMachineOsProfileWindowsConfigWinrmOutput) CertificateUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfigWinrm) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfigWinrm) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the protocol of listener. Possible values are `HTTP` or `HTTPS`.
 func (o VirtualMachineOsProfileWindowsConfigWinrmOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineOsProfileWindowsConfigWinrm) string { return v.Protocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfigWinrm) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-type VirtualMachineOsProfileWindowsConfigWinrmArrayOutput struct { *pulumi.OutputState}
+type VirtualMachineOsProfileWindowsConfigWinrmArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOsProfileWindowsConfigWinrmArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]VirtualMachineOsProfileWindowsConfigWinrm)(nil)).Elem()
@@ -8879,15 +9470,17 @@ func (o VirtualMachineOsProfileWindowsConfigWinrmArrayOutput) ToVirtualMachineOs
 }
 
 func (o VirtualMachineOsProfileWindowsConfigWinrmArrayOutput) Index(i pulumi.IntInput) VirtualMachineOsProfileWindowsConfigWinrmOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) VirtualMachineOsProfileWindowsConfigWinrm {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineOsProfileWindowsConfigWinrm {
 		return vs[0].([]VirtualMachineOsProfileWindowsConfigWinrm)[vs[1].(int)]
 	}).(VirtualMachineOsProfileWindowsConfigWinrmOutput)
 }
 
 type VirtualMachinePlan struct {
-	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies the name of the image from the marketplace.
 	Name string `pulumi:"name"`
+	// Specifies the product of the image from the marketplace.
 	Product string `pulumi:"product"`
+	// Specifies the publisher of the image.
 	Publisher string `pulumi:"publisher"`
 }
 
@@ -8899,9 +9492,11 @@ type VirtualMachinePlanInput interface {
 }
 
 type VirtualMachinePlanArgs struct {
-	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies the name of the image from the marketplace.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the product of the image from the marketplace.
 	Product pulumi.StringInput `pulumi:"product"`
+	// Specifies the publisher of the image.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 }
 
@@ -8934,7 +9529,8 @@ type VirtualMachinePlanPtrInput interface {
 
 type virtualMachinePlanPtrType VirtualMachinePlanArgs
 
-func VirtualMachinePlanPtr(v *VirtualMachinePlanArgs) VirtualMachinePlanPtrInput {	return (*virtualMachinePlanPtrType)(v)
+func VirtualMachinePlanPtr(v *VirtualMachinePlanArgs) VirtualMachinePlanPtrInput {
+	return (*virtualMachinePlanPtrType)(v)
 }
 
 func (*virtualMachinePlanPtrType) ElementType() reflect.Type {
@@ -8949,7 +9545,7 @@ func (i *virtualMachinePlanPtrType) ToVirtualMachinePlanPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachinePlanPtrOutput)
 }
 
-type VirtualMachinePlanOutput struct { *pulumi.OutputState }
+type VirtualMachinePlanOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachinePlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachinePlan)(nil)).Elem()
@@ -8972,20 +9568,23 @@ func (o VirtualMachinePlanOutput) ToVirtualMachinePlanPtrOutputWithContext(ctx c
 		return &v
 	}).(VirtualMachinePlanPtrOutput)
 }
-// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+
+// Specifies the name of the image from the marketplace.
 func (o VirtualMachinePlanOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the product of the image from the marketplace.
 func (o VirtualMachinePlanOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
+// Specifies the publisher of the image.
 func (o VirtualMachinePlanOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-type VirtualMachinePlanPtrOutput struct { *pulumi.OutputState}
+type VirtualMachinePlanPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachinePlanPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachinePlan)(nil)).Elem()
@@ -9000,32 +9599,42 @@ func (o VirtualMachinePlanPtrOutput) ToVirtualMachinePlanPtrOutputWithContext(ct
 }
 
 func (o VirtualMachinePlanPtrOutput) Elem() VirtualMachinePlanOutput {
-	return o.ApplyT(func (v *VirtualMachinePlan) VirtualMachinePlan { return *v }).(VirtualMachinePlanOutput)
+	return o.ApplyT(func(v *VirtualMachinePlan) VirtualMachinePlan { return *v }).(VirtualMachinePlanOutput)
 }
 
-// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+// Specifies the name of the image from the marketplace.
 func (o VirtualMachinePlanPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the product of the image from the marketplace.
 func (o VirtualMachinePlanPtrOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
+// Specifies the publisher of the image.
 func (o VirtualMachinePlanPtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 type VirtualMachineStorageDataDisk struct {
+	// Specifies the caching requirements for the Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
 	Caching *string `pulumi:"caching"`
+	// Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
 	CreateOption string `pulumi:"createOption"`
+	// Specifies the size of the data disk in gigabytes.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	// Specifies the logical unit number of the data disk. This needs to be unique within all the Data Disks on the Virtual Machine.
 	Lun int `pulumi:"lun"`
+	// Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `createOption` must be set to `Attach`.
 	ManagedDiskId *string `pulumi:"managedDiskId"`
+	// Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
 	ManagedDiskType *string `pulumi:"managedDiskType"`
-	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+	// The name of the Data Disk.
 	Name string `pulumi:"name"`
+	// Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
 	VhdUri *string `pulumi:"vhdUri"`
+	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -9037,15 +9646,23 @@ type VirtualMachineStorageDataDiskInput interface {
 }
 
 type VirtualMachineStorageDataDiskArgs struct {
+	// Specifies the caching requirements for the Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
+	// Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
 	CreateOption pulumi.StringInput `pulumi:"createOption"`
+	// Specifies the size of the data disk in gigabytes.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
+	// Specifies the logical unit number of the data disk. This needs to be unique within all the Data Disks on the Virtual Machine.
 	Lun pulumi.IntInput `pulumi:"lun"`
+	// Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `createOption` must be set to `Attach`.
 	ManagedDiskId pulumi.StringPtrInput `pulumi:"managedDiskId"`
+	// Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
 	ManagedDiskType pulumi.StringPtrInput `pulumi:"managedDiskType"`
-	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+	// The name of the Data Disk.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
 	VhdUri pulumi.StringPtrInput `pulumi:"vhdUri"`
+	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -9082,7 +9699,7 @@ func (i VirtualMachineStorageDataDiskArray) ToVirtualMachineStorageDataDiskArray
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageDataDiskArrayOutput)
 }
 
-type VirtualMachineStorageDataDiskOutput struct { *pulumi.OutputState }
+type VirtualMachineStorageDataDiskOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineStorageDataDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineStorageDataDisk)(nil)).Elem()
@@ -9096,44 +9713,52 @@ func (o VirtualMachineStorageDataDiskOutput) ToVirtualMachineStorageDataDiskOutp
 	return o
 }
 
+// Specifies the caching requirements for the Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
 func (o VirtualMachineStorageDataDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
+// Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
 func (o VirtualMachineStorageDataDiskOutput) CreateOption() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
+// Specifies the size of the data disk in gigabytes.
 func (o VirtualMachineStorageDataDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the logical unit number of the data disk. This needs to be unique within all the Data Disks on the Virtual Machine.
 func (o VirtualMachineStorageDataDiskOutput) Lun() pulumi.IntOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) int { return v.Lun }).(pulumi.IntOutput)
 }
 
+// Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `createOption` must be set to `Attach`.
 func (o VirtualMachineStorageDataDiskOutput) ManagedDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
 func (o VirtualMachineStorageDataDiskOutput) ManagedDiskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+// The name of the Data Disk.
 func (o VirtualMachineStorageDataDiskOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageDataDiskOutput) VhdUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) *string { return v.VhdUri }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) *string { return v.VhdUri }).(pulumi.StringPtrOutput)
 }
 
+// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 func (o VirtualMachineStorageDataDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageDataDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageDataDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type VirtualMachineStorageDataDiskArrayOutput struct { *pulumi.OutputState}
+type VirtualMachineStorageDataDiskArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineStorageDataDiskArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]VirtualMachineStorageDataDisk)(nil)).Elem()
@@ -9148,17 +9773,21 @@ func (o VirtualMachineStorageDataDiskArrayOutput) ToVirtualMachineStorageDataDis
 }
 
 func (o VirtualMachineStorageDataDiskArrayOutput) Index(i pulumi.IntInput) VirtualMachineStorageDataDiskOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) VirtualMachineStorageDataDisk {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineStorageDataDisk {
 		return vs[0].([]VirtualMachineStorageDataDisk)[vs[1].(int)]
 	}).(VirtualMachineStorageDataDiskOutput)
 }
 
 type VirtualMachineStorageImageReference struct {
-	// The ID of the Virtual Machine.
+	// Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Id *string `pulumi:"id"`
+	// Specifies the offer of the image used to create the virtual machine. Changing this forces a new resource to be created.
 	Offer *string `pulumi:"offer"`
+	// Specifies the publisher of the image used to create the virtual machine. Changing this forces a new resource to be created.
 	Publisher *string `pulumi:"publisher"`
+	// Specifies the SKU of the image used to create the virtual machine. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
+	// Specifies the version of the image used to create the virtual machine. Changing this forces a new resource to be created.
 	Version *string `pulumi:"version"`
 }
 
@@ -9170,11 +9799,15 @@ type VirtualMachineStorageImageReferenceInput interface {
 }
 
 type VirtualMachineStorageImageReferenceArgs struct {
-	// The ID of the Virtual Machine.
+	// Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Specifies the offer of the image used to create the virtual machine. Changing this forces a new resource to be created.
 	Offer pulumi.StringPtrInput `pulumi:"offer"`
+	// Specifies the publisher of the image used to create the virtual machine. Changing this forces a new resource to be created.
 	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	// Specifies the SKU of the image used to create the virtual machine. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput `pulumi:"sku"`
+	// Specifies the version of the image used to create the virtual machine. Changing this forces a new resource to be created.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -9207,7 +9840,8 @@ type VirtualMachineStorageImageReferencePtrInput interface {
 
 type virtualMachineStorageImageReferencePtrType VirtualMachineStorageImageReferenceArgs
 
-func VirtualMachineStorageImageReferencePtr(v *VirtualMachineStorageImageReferenceArgs) VirtualMachineStorageImageReferencePtrInput {	return (*virtualMachineStorageImageReferencePtrType)(v)
+func VirtualMachineStorageImageReferencePtr(v *VirtualMachineStorageImageReferenceArgs) VirtualMachineStorageImageReferencePtrInput {
+	return (*virtualMachineStorageImageReferencePtrType)(v)
 }
 
 func (*virtualMachineStorageImageReferencePtrType) ElementType() reflect.Type {
@@ -9222,7 +9856,7 @@ func (i *virtualMachineStorageImageReferencePtrType) ToVirtualMachineStorageImag
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageImageReferencePtrOutput)
 }
 
-type VirtualMachineStorageImageReferenceOutput struct { *pulumi.OutputState }
+type VirtualMachineStorageImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineStorageImageReferenceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineStorageImageReference)(nil)).Elem()
@@ -9245,28 +9879,33 @@ func (o VirtualMachineStorageImageReferenceOutput) ToVirtualMachineStorageImageR
 		return &v
 	}).(VirtualMachineStorageImageReferencePtrOutput)
 }
-// The ID of the Virtual Machine.
+
+// Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageImageReferenceOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the offer of the image used to create the virtual machine. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageImageReferenceOutput) Offer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the publisher of the image used to create the virtual machine. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageImageReferenceOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the SKU of the image used to create the virtual machine. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageImageReferenceOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the version of the image used to create the virtual machine. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageImageReferenceOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-type VirtualMachineStorageImageReferencePtrOutput struct { *pulumi.OutputState}
+type VirtualMachineStorageImageReferencePtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineStorageImageReferencePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachineStorageImageReference)(nil)).Elem()
@@ -9281,41 +9920,54 @@ func (o VirtualMachineStorageImageReferencePtrOutput) ToVirtualMachineStorageIma
 }
 
 func (o VirtualMachineStorageImageReferencePtrOutput) Elem() VirtualMachineStorageImageReferenceOutput {
-	return o.ApplyT(func (v *VirtualMachineStorageImageReference) VirtualMachineStorageImageReference { return *v }).(VirtualMachineStorageImageReferenceOutput)
+	return o.ApplyT(func(v *VirtualMachineStorageImageReference) VirtualMachineStorageImageReference { return *v }).(VirtualMachineStorageImageReferenceOutput)
 }
 
-// The ID of the Virtual Machine.
+// Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageImageReferencePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the offer of the image used to create the virtual machine. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the publisher of the image used to create the virtual machine. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the SKU of the image used to create the virtual machine. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the version of the image used to create the virtual machine. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type VirtualMachineStorageOsDisk struct {
+	// Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
 	Caching *string `pulumi:"caching"`
+	// Specifies how the OS Disk should be created. Possible values are `Attach` (managed disks only) and `FromImage`.
 	CreateOption string `pulumi:"createOption"`
+	// Specifies the size of the OS Disk in gigabytes.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
 	ImageUri *string `pulumi:"imageUri"`
+	// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`.
 	ManagedDiskId *string `pulumi:"managedDiskId"`
+	// Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
 	ManagedDiskType *string `pulumi:"managedDiskType"`
-	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies the name of the OS Disk.
 	Name string `pulumi:"name"`
+	// Specifies the Operating System on the OS Disk. Possible values are `Linux` and `Windows`.
 	OsType *string `pulumi:"osType"`
+	// Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created.
 	VhdUri *string `pulumi:"vhdUri"`
+	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -9327,16 +9979,25 @@ type VirtualMachineStorageOsDiskInput interface {
 }
 
 type VirtualMachineStorageOsDiskArgs struct {
+	// Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
+	// Specifies how the OS Disk should be created. Possible values are `Attach` (managed disks only) and `FromImage`.
 	CreateOption pulumi.StringInput `pulumi:"createOption"`
+	// Specifies the size of the OS Disk in gigabytes.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
+	// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
 	ImageUri pulumi.StringPtrInput `pulumi:"imageUri"`
+	// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`.
 	ManagedDiskId pulumi.StringPtrInput `pulumi:"managedDiskId"`
+	// Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
 	ManagedDiskType pulumi.StringPtrInput `pulumi:"managedDiskType"`
-	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies the name of the OS Disk.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the Operating System on the OS Disk. Possible values are `Linux` and `Windows`.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created.
 	VhdUri pulumi.StringPtrInput `pulumi:"vhdUri"`
+	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -9369,7 +10030,8 @@ type VirtualMachineStorageOsDiskPtrInput interface {
 
 type virtualMachineStorageOsDiskPtrType VirtualMachineStorageOsDiskArgs
 
-func VirtualMachineStorageOsDiskPtr(v *VirtualMachineStorageOsDiskArgs) VirtualMachineStorageOsDiskPtrInput {	return (*virtualMachineStorageOsDiskPtrType)(v)
+func VirtualMachineStorageOsDiskPtr(v *VirtualMachineStorageOsDiskArgs) VirtualMachineStorageOsDiskPtrInput {
+	return (*virtualMachineStorageOsDiskPtrType)(v)
 }
 
 func (*virtualMachineStorageOsDiskPtrType) ElementType() reflect.Type {
@@ -9384,7 +10046,7 @@ func (i *virtualMachineStorageOsDiskPtrType) ToVirtualMachineStorageOsDiskPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageOsDiskPtrOutput)
 }
 
-type VirtualMachineStorageOsDiskOutput struct { *pulumi.OutputState }
+type VirtualMachineStorageOsDiskOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineStorageOsDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineStorageOsDisk)(nil)).Elem()
@@ -9407,48 +10069,58 @@ func (o VirtualMachineStorageOsDiskOutput) ToVirtualMachineStorageOsDiskPtrOutpu
 		return &v
 	}).(VirtualMachineStorageOsDiskPtrOutput)
 }
+
+// Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
 func (o VirtualMachineStorageOsDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
+// Specifies how the OS Disk should be created. Possible values are `Attach` (managed disks only) and `FromImage`.
 func (o VirtualMachineStorageOsDiskOutput) CreateOption() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
+// Specifies the size of the OS Disk in gigabytes.
 func (o VirtualMachineStorageOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
 func (o VirtualMachineStorageOsDiskOutput) ImageUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`.
 func (o VirtualMachineStorageOsDiskOutput) ManagedDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
 func (o VirtualMachineStorageOsDiskOutput) ManagedDiskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+// Specifies the name of the OS Disk.
 func (o VirtualMachineStorageOsDiskOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the Operating System on the OS Disk. Possible values are `Linux` and `Windows`.
 func (o VirtualMachineStorageOsDiskOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageOsDiskOutput) VhdUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.VhdUri }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.VhdUri }).(pulumi.StringPtrOutput)
 }
 
+// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 func (o VirtualMachineStorageOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type VirtualMachineStorageOsDiskPtrOutput struct { *pulumi.OutputState}
+type VirtualMachineStorageOsDiskPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineStorageOsDiskPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualMachineStorageOsDisk)(nil)).Elem()
@@ -9463,51 +10135,61 @@ func (o VirtualMachineStorageOsDiskPtrOutput) ToVirtualMachineStorageOsDiskPtrOu
 }
 
 func (o VirtualMachineStorageOsDiskPtrOutput) Elem() VirtualMachineStorageOsDiskOutput {
-	return o.ApplyT(func (v *VirtualMachineStorageOsDisk) VirtualMachineStorageOsDisk { return *v }).(VirtualMachineStorageOsDiskOutput)
+	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) VirtualMachineStorageOsDisk { return *v }).(VirtualMachineStorageOsDiskOutput)
 }
 
+// Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
 func (o VirtualMachineStorageOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
+// Specifies how the OS Disk should be created. Possible values are `Attach` (managed disks only) and `FromImage`.
 func (o VirtualMachineStorageOsDiskPtrOutput) CreateOption() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
+// Specifies the size of the OS Disk in gigabytes.
 func (o VirtualMachineStorageOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
 func (o VirtualMachineStorageOsDiskPtrOutput) ImageUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`.
 func (o VirtualMachineStorageOsDiskPtrOutput) ManagedDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
 func (o VirtualMachineStorageOsDiskPtrOutput) ManagedDiskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+// Specifies the name of the OS Disk.
 func (o VirtualMachineStorageOsDiskPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the Operating System on the OS Disk. Possible values are `Linux` and `Windows`.
 func (o VirtualMachineStorageOsDiskPtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageOsDiskPtrOutput) VhdUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *string { return v.VhdUri }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.VhdUri }).(pulumi.StringPtrOutput)
 }
 
+// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 func (o VirtualMachineStorageOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VirtualMachineStorageOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type WindowsVirtualMachineAdditionalCapabilities struct {
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 }
 
@@ -9519,6 +10201,7 @@ type WindowsVirtualMachineAdditionalCapabilitiesInput interface {
 }
 
 type WindowsVirtualMachineAdditionalCapabilitiesArgs struct {
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
 }
 
@@ -9551,7 +10234,8 @@ type WindowsVirtualMachineAdditionalCapabilitiesPtrInput interface {
 
 type windowsVirtualMachineAdditionalCapabilitiesPtrType WindowsVirtualMachineAdditionalCapabilitiesArgs
 
-func WindowsVirtualMachineAdditionalCapabilitiesPtr(v *WindowsVirtualMachineAdditionalCapabilitiesArgs) WindowsVirtualMachineAdditionalCapabilitiesPtrInput {	return (*windowsVirtualMachineAdditionalCapabilitiesPtrType)(v)
+func WindowsVirtualMachineAdditionalCapabilitiesPtr(v *WindowsVirtualMachineAdditionalCapabilitiesArgs) WindowsVirtualMachineAdditionalCapabilitiesPtrInput {
+	return (*windowsVirtualMachineAdditionalCapabilitiesPtrType)(v)
 }
 
 func (*windowsVirtualMachineAdditionalCapabilitiesPtrType) ElementType() reflect.Type {
@@ -9566,7 +10250,7 @@ func (i *windowsVirtualMachineAdditionalCapabilitiesPtrType) ToWindowsVirtualMac
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineAdditionalCapabilitiesPtrOutput)
 }
 
-type WindowsVirtualMachineAdditionalCapabilitiesOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineAdditionalCapabilitiesOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineAdditionalCapabilitiesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineAdditionalCapabilities)(nil)).Elem()
@@ -9589,11 +10273,13 @@ func (o WindowsVirtualMachineAdditionalCapabilitiesOutput) ToWindowsVirtualMachi
 		return &v
 	}).(WindowsVirtualMachineAdditionalCapabilitiesPtrOutput)
 }
+
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type WindowsVirtualMachineAdditionalCapabilitiesPtrOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineAdditionalCapabilitiesPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineAdditionalCapabilitiesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachineAdditionalCapabilities)(nil)).Elem()
@@ -9608,15 +10294,20 @@ func (o WindowsVirtualMachineAdditionalCapabilitiesPtrOutput) ToWindowsVirtualMa
 }
 
 func (o WindowsVirtualMachineAdditionalCapabilitiesPtrOutput) Elem() WindowsVirtualMachineAdditionalCapabilitiesOutput {
-	return o.ApplyT(func (v *WindowsVirtualMachineAdditionalCapabilities) WindowsVirtualMachineAdditionalCapabilities { return *v }).(WindowsVirtualMachineAdditionalCapabilitiesOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineAdditionalCapabilities) WindowsVirtualMachineAdditionalCapabilities {
+		return *v
+	}).(WindowsVirtualMachineAdditionalCapabilitiesOutput)
 }
 
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type WindowsVirtualMachineAdditionalUnattendContent struct {
+	// The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
 	Content string `pulumi:"content"`
+	// The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
 	Setting string `pulumi:"setting"`
 }
 
@@ -9628,7 +10319,9 @@ type WindowsVirtualMachineAdditionalUnattendContentInput interface {
 }
 
 type WindowsVirtualMachineAdditionalUnattendContentArgs struct {
+	// The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
 	Content pulumi.StringInput `pulumi:"content"`
+	// The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
 	Setting pulumi.StringInput `pulumi:"setting"`
 }
 
@@ -9665,7 +10358,7 @@ func (i WindowsVirtualMachineAdditionalUnattendContentArray) ToWindowsVirtualMac
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineAdditionalUnattendContentArrayOutput)
 }
 
-type WindowsVirtualMachineAdditionalUnattendContentOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineAdditionalUnattendContentOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineAdditionalUnattendContentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineAdditionalUnattendContent)(nil)).Elem()
@@ -9679,15 +10372,17 @@ func (o WindowsVirtualMachineAdditionalUnattendContentOutput) ToWindowsVirtualMa
 	return o
 }
 
+// The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineAdditionalUnattendContentOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineAdditionalUnattendContent) string { return v.Content }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineAdditionalUnattendContent) string { return v.Content }).(pulumi.StringOutput)
 }
 
+// The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineAdditionalUnattendContentOutput) Setting() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineAdditionalUnattendContent) string { return v.Setting }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineAdditionalUnattendContent) string { return v.Setting }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineAdditionalUnattendContentArrayOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineAdditionalUnattendContentArrayOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineAdditionalUnattendContentArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]WindowsVirtualMachineAdditionalUnattendContent)(nil)).Elem()
@@ -9702,12 +10397,13 @@ func (o WindowsVirtualMachineAdditionalUnattendContentArrayOutput) ToWindowsVirt
 }
 
 func (o WindowsVirtualMachineAdditionalUnattendContentArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineAdditionalUnattendContentOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) WindowsVirtualMachineAdditionalUnattendContent {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineAdditionalUnattendContent {
 		return vs[0].([]WindowsVirtualMachineAdditionalUnattendContent)[vs[1].(int)]
 	}).(WindowsVirtualMachineAdditionalUnattendContentOutput)
 }
 
 type WindowsVirtualMachineBootDiagnostics struct {
+	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 	StorageAccountUri string `pulumi:"storageAccountUri"`
 }
 
@@ -9719,6 +10415,7 @@ type WindowsVirtualMachineBootDiagnosticsInput interface {
 }
 
 type WindowsVirtualMachineBootDiagnosticsArgs struct {
+	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 	StorageAccountUri pulumi.StringInput `pulumi:"storageAccountUri"`
 }
 
@@ -9751,7 +10448,8 @@ type WindowsVirtualMachineBootDiagnosticsPtrInput interface {
 
 type windowsVirtualMachineBootDiagnosticsPtrType WindowsVirtualMachineBootDiagnosticsArgs
 
-func WindowsVirtualMachineBootDiagnosticsPtr(v *WindowsVirtualMachineBootDiagnosticsArgs) WindowsVirtualMachineBootDiagnosticsPtrInput {	return (*windowsVirtualMachineBootDiagnosticsPtrType)(v)
+func WindowsVirtualMachineBootDiagnosticsPtr(v *WindowsVirtualMachineBootDiagnosticsArgs) WindowsVirtualMachineBootDiagnosticsPtrInput {
+	return (*windowsVirtualMachineBootDiagnosticsPtrType)(v)
 }
 
 func (*windowsVirtualMachineBootDiagnosticsPtrType) ElementType() reflect.Type {
@@ -9766,7 +10464,7 @@ func (i *windowsVirtualMachineBootDiagnosticsPtrType) ToWindowsVirtualMachineBoo
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineBootDiagnosticsPtrOutput)
 }
 
-type WindowsVirtualMachineBootDiagnosticsOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineBootDiagnosticsOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineBootDiagnosticsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineBootDiagnostics)(nil)).Elem()
@@ -9789,11 +10487,13 @@ func (o WindowsVirtualMachineBootDiagnosticsOutput) ToWindowsVirtualMachineBootD
 		return &v
 	}).(WindowsVirtualMachineBootDiagnosticsPtrOutput)
 }
+
+// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 func (o WindowsVirtualMachineBootDiagnosticsOutput) StorageAccountUri() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineBootDiagnosticsPtrOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineBootDiagnosticsPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineBootDiagnosticsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachineBootDiagnostics)(nil)).Elem()
@@ -9808,17 +10508,20 @@ func (o WindowsVirtualMachineBootDiagnosticsPtrOutput) ToWindowsVirtualMachineBo
 }
 
 func (o WindowsVirtualMachineBootDiagnosticsPtrOutput) Elem() WindowsVirtualMachineBootDiagnosticsOutput {
-	return o.ApplyT(func (v *WindowsVirtualMachineBootDiagnostics) WindowsVirtualMachineBootDiagnostics { return *v }).(WindowsVirtualMachineBootDiagnosticsOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineBootDiagnostics) WindowsVirtualMachineBootDiagnostics { return *v }).(WindowsVirtualMachineBootDiagnosticsOutput)
 }
 
+// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 func (o WindowsVirtualMachineBootDiagnosticsPtrOutput) StorageAccountUri() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
 }
 
 type WindowsVirtualMachineIdentity struct {
+	// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal.
 	PrincipalId *string `pulumi:"principalId"`
+	// The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -9830,9 +10533,11 @@ type WindowsVirtualMachineIdentityInput interface {
 }
 
 type WindowsVirtualMachineIdentityArgs struct {
+	// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9865,7 +10570,8 @@ type WindowsVirtualMachineIdentityPtrInput interface {
 
 type windowsVirtualMachineIdentityPtrType WindowsVirtualMachineIdentityArgs
 
-func WindowsVirtualMachineIdentityPtr(v *WindowsVirtualMachineIdentityArgs) WindowsVirtualMachineIdentityPtrInput {	return (*windowsVirtualMachineIdentityPtrType)(v)
+func WindowsVirtualMachineIdentityPtr(v *WindowsVirtualMachineIdentityArgs) WindowsVirtualMachineIdentityPtrInput {
+	return (*windowsVirtualMachineIdentityPtrType)(v)
 }
 
 func (*windowsVirtualMachineIdentityPtrType) ElementType() reflect.Type {
@@ -9880,7 +10586,7 @@ func (i *windowsVirtualMachineIdentityPtrType) ToWindowsVirtualMachineIdentityPt
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineIdentityPtrOutput)
 }
 
-type WindowsVirtualMachineIdentityOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineIdentityOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineIdentity)(nil)).Elem()
@@ -9903,20 +10609,23 @@ func (o WindowsVirtualMachineIdentityOutput) ToWindowsVirtualMachineIdentityPtrO
 		return &v
 	}).(WindowsVirtualMachineIdentityPtrOutput)
 }
+
+// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
 func (o WindowsVirtualMachineIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the System Managed Service Principal.
 func (o WindowsVirtualMachineIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 func (o WindowsVirtualMachineIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineIdentityPtrOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachineIdentity)(nil)).Elem()
@@ -9931,30 +10640,38 @@ func (o WindowsVirtualMachineIdentityPtrOutput) ToWindowsVirtualMachineIdentityP
 }
 
 func (o WindowsVirtualMachineIdentityPtrOutput) Elem() WindowsVirtualMachineIdentityOutput {
-	return o.ApplyT(func (v *WindowsVirtualMachineIdentity) WindowsVirtualMachineIdentity { return *v }).(WindowsVirtualMachineIdentityOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineIdentity) WindowsVirtualMachineIdentity { return *v }).(WindowsVirtualMachineIdentityOutput)
 }
 
+// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
 func (o WindowsVirtualMachineIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the System Managed Service Principal.
 func (o WindowsVirtualMachineIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 func (o WindowsVirtualMachineIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type WindowsVirtualMachineOsDisk struct {
+	// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching string `pulumi:"caching"`
+	// A `diffDiskSettings` block as defined above.
 	DiffDiskSettings *WindowsVirtualMachineOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
+	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
-	// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
 	StorageAccountType string `pulumi:"storageAccountType"`
+	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -9966,13 +10683,19 @@ type WindowsVirtualMachineOsDiskInput interface {
 }
 
 type WindowsVirtualMachineOsDiskArgs struct {
+	// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching pulumi.StringInput `pulumi:"caching"`
+	// A `diffDiskSettings` block as defined above.
 	DiffDiskSettings WindowsVirtualMachineOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
+	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
-	// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -10005,7 +10728,8 @@ type WindowsVirtualMachineOsDiskPtrInput interface {
 
 type windowsVirtualMachineOsDiskPtrType WindowsVirtualMachineOsDiskArgs
 
-func WindowsVirtualMachineOsDiskPtr(v *WindowsVirtualMachineOsDiskArgs) WindowsVirtualMachineOsDiskPtrInput {	return (*windowsVirtualMachineOsDiskPtrType)(v)
+func WindowsVirtualMachineOsDiskPtr(v *WindowsVirtualMachineOsDiskArgs) WindowsVirtualMachineOsDiskPtrInput {
+	return (*windowsVirtualMachineOsDiskPtrType)(v)
 }
 
 func (*windowsVirtualMachineOsDiskPtrType) ElementType() reflect.Type {
@@ -10020,7 +10744,7 @@ func (i *windowsVirtualMachineOsDiskPtrType) ToWindowsVirtualMachineOsDiskPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOsDiskPtrOutput)
 }
 
-type WindowsVirtualMachineOsDiskOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineOsDiskOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineOsDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineOsDisk)(nil)).Elem()
@@ -10043,36 +10767,45 @@ func (o WindowsVirtualMachineOsDiskOutput) ToWindowsVirtualMachineOsDiskPtrOutpu
 		return &v
 	}).(WindowsVirtualMachineOsDiskPtrOutput)
 }
+
+// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 func (o WindowsVirtualMachineOsDiskOutput) Caching() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
+// A `diffDiskSettings` block as defined above.
 func (o WindowsVirtualMachineOsDiskOutput) DiffDiskSettings() WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineOsDisk) *WindowsVirtualMachineOsDiskDiffDiskSettings { return v.DiffDiskSettings }).(WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *WindowsVirtualMachineOsDiskDiffDiskSettings {
+		return v.DiffDiskSettings
+	}).(WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
 }
 
+// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
 func (o WindowsVirtualMachineOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
+// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
 func (o WindowsVirtualMachineOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
-// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineOsDiskOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineOsDiskOutput) StorageAccountType() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
+// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 func (o WindowsVirtualMachineOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type WindowsVirtualMachineOsDiskPtrOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineOsDiskPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineOsDiskPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachineOsDisk)(nil)).Elem()
@@ -10087,39 +10820,48 @@ func (o WindowsVirtualMachineOsDiskPtrOutput) ToWindowsVirtualMachineOsDiskPtrOu
 }
 
 func (o WindowsVirtualMachineOsDiskPtrOutput) Elem() WindowsVirtualMachineOsDiskOutput {
-	return o.ApplyT(func (v *WindowsVirtualMachineOsDisk) WindowsVirtualMachineOsDisk { return *v }).(WindowsVirtualMachineOsDiskOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) WindowsVirtualMachineOsDisk { return *v }).(WindowsVirtualMachineOsDiskOutput)
 }
 
+// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 func (o WindowsVirtualMachineOsDiskPtrOutput) Caching() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
+// A `diffDiskSettings` block as defined above.
 func (o WindowsVirtualMachineOsDiskPtrOutput) DiffDiskSettings() WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineOsDisk) *WindowsVirtualMachineOsDiskDiffDiskSettings { return v.DiffDiskSettings }).(WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *WindowsVirtualMachineOsDiskDiffDiskSettings {
+		return v.DiffDiskSettings
+	}).(WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
 }
 
+// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
 func (o WindowsVirtualMachineOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
+// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
 func (o WindowsVirtualMachineOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
-// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineOsDiskPtrOutput) StorageAccountType() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
+// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 func (o WindowsVirtualMachineOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type WindowsVirtualMachineOsDiskDiffDiskSettings struct {
+	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option string `pulumi:"option"`
 }
 
@@ -10131,6 +10873,7 @@ type WindowsVirtualMachineOsDiskDiffDiskSettingsInput interface {
 }
 
 type WindowsVirtualMachineOsDiskDiffDiskSettingsArgs struct {
+	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option pulumi.StringInput `pulumi:"option"`
 }
 
@@ -10163,7 +10906,8 @@ type WindowsVirtualMachineOsDiskDiffDiskSettingsPtrInput interface {
 
 type windowsVirtualMachineOsDiskDiffDiskSettingsPtrType WindowsVirtualMachineOsDiskDiffDiskSettingsArgs
 
-func WindowsVirtualMachineOsDiskDiffDiskSettingsPtr(v *WindowsVirtualMachineOsDiskDiffDiskSettingsArgs) WindowsVirtualMachineOsDiskDiffDiskSettingsPtrInput {	return (*windowsVirtualMachineOsDiskDiffDiskSettingsPtrType)(v)
+func WindowsVirtualMachineOsDiskDiffDiskSettingsPtr(v *WindowsVirtualMachineOsDiskDiffDiskSettingsArgs) WindowsVirtualMachineOsDiskDiffDiskSettingsPtrInput {
+	return (*windowsVirtualMachineOsDiskDiffDiskSettingsPtrType)(v)
 }
 
 func (*windowsVirtualMachineOsDiskDiffDiskSettingsPtrType) ElementType() reflect.Type {
@@ -10178,7 +10922,7 @@ func (i *windowsVirtualMachineOsDiskDiffDiskSettingsPtrType) ToWindowsVirtualMac
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
 }
 
-type WindowsVirtualMachineOsDiskDiffDiskSettingsOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineOsDiskDiffDiskSettingsOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineOsDiskDiffDiskSettings)(nil)).Elem()
@@ -10201,11 +10945,13 @@ func (o WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) ToWindowsVirtualMachi
 		return &v
 	}).(WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
 }
+
+// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) Option() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachineOsDiskDiffDiskSettings)(nil)).Elem()
@@ -10220,17 +10966,22 @@ func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) ToWindowsVirtualMa
 }
 
 func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Elem() WindowsVirtualMachineOsDiskDiffDiskSettingsOutput {
-	return o.ApplyT(func (v *WindowsVirtualMachineOsDiskDiffDiskSettings) WindowsVirtualMachineOsDiskDiffDiskSettings { return *v }).(WindowsVirtualMachineOsDiskDiffDiskSettingsOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineOsDiskDiffDiskSettings) WindowsVirtualMachineOsDiskDiffDiskSettings {
+		return *v
+	}).(WindowsVirtualMachineOsDiskDiffDiskSettingsOutput)
 }
 
+// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
 type WindowsVirtualMachinePlan struct {
-	// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
+	// Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Product string `pulumi:"product"`
+	// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
 }
 
@@ -10242,9 +10993,11 @@ type WindowsVirtualMachinePlanInput interface {
 }
 
 type WindowsVirtualMachinePlanArgs struct {
-	// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Product pulumi.StringInput `pulumi:"product"`
+	// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 }
 
@@ -10277,7 +11030,8 @@ type WindowsVirtualMachinePlanPtrInput interface {
 
 type windowsVirtualMachinePlanPtrType WindowsVirtualMachinePlanArgs
 
-func WindowsVirtualMachinePlanPtr(v *WindowsVirtualMachinePlanArgs) WindowsVirtualMachinePlanPtrInput {	return (*windowsVirtualMachinePlanPtrType)(v)
+func WindowsVirtualMachinePlanPtr(v *WindowsVirtualMachinePlanArgs) WindowsVirtualMachinePlanPtrInput {
+	return (*windowsVirtualMachinePlanPtrType)(v)
 }
 
 func (*windowsVirtualMachinePlanPtrType) ElementType() reflect.Type {
@@ -10292,7 +11046,7 @@ func (i *windowsVirtualMachinePlanPtrType) ToWindowsVirtualMachinePlanPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachinePlanPtrOutput)
 }
 
-type WindowsVirtualMachinePlanOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachinePlanOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachinePlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachinePlan)(nil)).Elem()
@@ -10315,20 +11069,23 @@ func (o WindowsVirtualMachinePlanOutput) ToWindowsVirtualMachinePlanPtrOutputWit
 		return &v
 	}).(WindowsVirtualMachinePlanPtrOutput)
 }
-// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+
+// Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachinePlanOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachinePlanOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
+// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachinePlanOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachinePlanPtrOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachinePlanPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachinePlanPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachinePlan)(nil)).Elem()
@@ -10343,23 +11100,26 @@ func (o WindowsVirtualMachinePlanPtrOutput) ToWindowsVirtualMachinePlanPtrOutput
 }
 
 func (o WindowsVirtualMachinePlanPtrOutput) Elem() WindowsVirtualMachinePlanOutput {
-	return o.ApplyT(func (v *WindowsVirtualMachinePlan) WindowsVirtualMachinePlan { return *v }).(WindowsVirtualMachinePlanOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachinePlan) WindowsVirtualMachinePlan { return *v }).(WindowsVirtualMachinePlanOutput)
 }
 
-// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+// Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachinePlanPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachinePlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachinePlanPtrOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachinePlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
+// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachinePlanPtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachinePlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 type WindowsVirtualMachineScaleSetAdditionalCapabilities struct {
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 }
 
@@ -10371,6 +11131,7 @@ type WindowsVirtualMachineScaleSetAdditionalCapabilitiesInput interface {
 }
 
 type WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs struct {
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
 }
 
@@ -10403,7 +11164,8 @@ type WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrInput interface {
 
 type windowsVirtualMachineScaleSetAdditionalCapabilitiesPtrType WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs
 
-func WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtr(v *WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs) WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrInput {	return (*windowsVirtualMachineScaleSetAdditionalCapabilitiesPtrType)(v)
+func WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtr(v *WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs) WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrInput {
+	return (*windowsVirtualMachineScaleSetAdditionalCapabilitiesPtrType)(v)
 }
 
 func (*windowsVirtualMachineScaleSetAdditionalCapabilitiesPtrType) ElementType() reflect.Type {
@@ -10418,7 +11180,7 @@ func (i *windowsVirtualMachineScaleSetAdditionalCapabilitiesPtrType) ToWindowsVi
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetAdditionalCapabilities)(nil)).Elem()
@@ -10441,11 +11203,13 @@ func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToWindowsVirt
 		return &v
 	}).(WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput)
 }
+
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachineScaleSetAdditionalCapabilities)(nil)).Elem()
@@ -10460,15 +11224,20 @@ func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) ToWindowsV
 }
 
 func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) Elem() WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput {
-	return o.ApplyT(func (v *WindowsVirtualMachineScaleSetAdditionalCapabilities) WindowsVirtualMachineScaleSetAdditionalCapabilities { return *v }).(WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetAdditionalCapabilities) WindowsVirtualMachineScaleSetAdditionalCapabilities {
+		return *v
+	}).(WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput)
 }
 
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type WindowsVirtualMachineScaleSetAdditionalUnattendContent struct {
+	// The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
 	Content string `pulumi:"content"`
+	// The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
 	Setting string `pulumi:"setting"`
 }
 
@@ -10480,7 +11249,9 @@ type WindowsVirtualMachineScaleSetAdditionalUnattendContentInput interface {
 }
 
 type WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs struct {
+	// The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
 	Content pulumi.StringInput `pulumi:"content"`
+	// The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
 	Setting pulumi.StringInput `pulumi:"setting"`
 }
 
@@ -10517,7 +11288,7 @@ func (i WindowsVirtualMachineScaleSetAdditionalUnattendContentArray) ToWindowsVi
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput)
 }
 
-type WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetAdditionalUnattendContent)(nil)).Elem()
@@ -10531,15 +11302,17 @@ func (o WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput) ToWindowsV
 	return o
 }
 
+// The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetAdditionalUnattendContent) string { return v.Content }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAdditionalUnattendContent) string { return v.Content }).(pulumi.StringOutput)
 }
 
+// The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput) Setting() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetAdditionalUnattendContent) string { return v.Setting }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAdditionalUnattendContent) string { return v.Setting }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetAdditionalUnattendContent)(nil)).Elem()
@@ -10554,13 +11327,15 @@ func (o WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput) ToWin
 }
 
 func (o WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) WindowsVirtualMachineScaleSetAdditionalUnattendContent {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetAdditionalUnattendContent {
 		return vs[0].([]WindowsVirtualMachineScaleSetAdditionalUnattendContent)[vs[1].(int)]
 	}).(WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput)
 }
 
 type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy struct {
+	// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
 	DisableAutomaticRollback bool `pulumi:"disableAutomaticRollback"`
+	// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
 	EnableAutomaticOsUpgrade bool `pulumi:"enableAutomaticOsUpgrade"`
 }
 
@@ -10572,7 +11347,9 @@ type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyInput interface {
 }
 
 type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs struct {
+	// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
 	DisableAutomaticRollback pulumi.BoolInput `pulumi:"disableAutomaticRollback"`
+	// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
 	EnableAutomaticOsUpgrade pulumi.BoolInput `pulumi:"enableAutomaticOsUpgrade"`
 }
 
@@ -10605,7 +11382,8 @@ type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput interface {
 
 type windowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs
 
-func WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtr(v *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput {	return (*windowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType)(v)
+func WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtr(v *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput {
+	return (*windowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType)(v)
 }
 
 func (*windowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType) ElementType() reflect.Type {
@@ -10620,7 +11398,7 @@ func (i *windowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrType) ToWindows
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy)(nil)).Elem()
@@ -10643,15 +11421,18 @@ func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToWindowsVi
 		return &v
 	}).(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput)
 }
+
+// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) DisableAutomaticRollback() pulumi.BoolOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.DisableAutomaticRollback }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.DisableAutomaticRollback }).(pulumi.BoolOutput)
 }
 
+// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) EnableAutomaticOsUpgrade() pulumi.BoolOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.EnableAutomaticOsUpgrade }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.EnableAutomaticOsUpgrade }).(pulumi.BoolOutput)
 }
 
-type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy)(nil)).Elem()
@@ -10666,18 +11447,23 @@ func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) ToWindow
 }
 
 func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) Elem() WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput {
-	return o.ApplyT(func (v *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy { return *v }).(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+		return *v
+	}).(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput)
 }
 
+// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) DisableAutomaticRollback() pulumi.BoolOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.DisableAutomaticRollback }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.DisableAutomaticRollback }).(pulumi.BoolOutput)
 }
 
+// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) EnableAutomaticOsUpgrade() pulumi.BoolOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.EnableAutomaticOsUpgrade }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.EnableAutomaticOsUpgrade }).(pulumi.BoolOutput)
 }
 
 type WindowsVirtualMachineScaleSetBootDiagnostics struct {
+	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 	StorageAccountUri string `pulumi:"storageAccountUri"`
 }
 
@@ -10689,6 +11475,7 @@ type WindowsVirtualMachineScaleSetBootDiagnosticsInput interface {
 }
 
 type WindowsVirtualMachineScaleSetBootDiagnosticsArgs struct {
+	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 	StorageAccountUri pulumi.StringInput `pulumi:"storageAccountUri"`
 }
 
@@ -10721,7 +11508,8 @@ type WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput interface {
 
 type windowsVirtualMachineScaleSetBootDiagnosticsPtrType WindowsVirtualMachineScaleSetBootDiagnosticsArgs
 
-func WindowsVirtualMachineScaleSetBootDiagnosticsPtr(v *WindowsVirtualMachineScaleSetBootDiagnosticsArgs) WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput {	return (*windowsVirtualMachineScaleSetBootDiagnosticsPtrType)(v)
+func WindowsVirtualMachineScaleSetBootDiagnosticsPtr(v *WindowsVirtualMachineScaleSetBootDiagnosticsArgs) WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput {
+	return (*windowsVirtualMachineScaleSetBootDiagnosticsPtrType)(v)
 }
 
 func (*windowsVirtualMachineScaleSetBootDiagnosticsPtrType) ElementType() reflect.Type {
@@ -10736,7 +11524,7 @@ func (i *windowsVirtualMachineScaleSetBootDiagnosticsPtrType) ToWindowsVirtualMa
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetBootDiagnosticsOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetBootDiagnosticsOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetBootDiagnosticsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetBootDiagnostics)(nil)).Elem()
@@ -10759,11 +11547,13 @@ func (o WindowsVirtualMachineScaleSetBootDiagnosticsOutput) ToWindowsVirtualMach
 		return &v
 	}).(WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput)
 }
+
+// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 func (o WindowsVirtualMachineScaleSetBootDiagnosticsOutput) StorageAccountUri() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachineScaleSetBootDiagnostics)(nil)).Elem()
@@ -10778,19 +11568,28 @@ func (o WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput) ToWindowsVirtualM
 }
 
 func (o WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput) Elem() WindowsVirtualMachineScaleSetBootDiagnosticsOutput {
-	return o.ApplyT(func (v *WindowsVirtualMachineScaleSetBootDiagnostics) WindowsVirtualMachineScaleSetBootDiagnostics { return *v }).(WindowsVirtualMachineScaleSetBootDiagnosticsOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetBootDiagnostics) WindowsVirtualMachineScaleSetBootDiagnostics {
+		return *v
+	}).(WindowsVirtualMachineScaleSetBootDiagnosticsOutput)
 }
 
+// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 func (o WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput) StorageAccountUri() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetBootDiagnostics) string { return v.StorageAccountUri }).(pulumi.StringOutput)
 }
 
 type WindowsVirtualMachineScaleSetDataDisk struct {
+	// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching string `pulumi:"caching"`
+	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// The size of the Data Disk which should be created.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
+	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 	Lun int `pulumi:"lun"`
+	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
 	StorageAccountType string `pulumi:"storageAccountType"`
+	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -10802,11 +11601,17 @@ type WindowsVirtualMachineScaleSetDataDiskInput interface {
 }
 
 type WindowsVirtualMachineScaleSetDataDiskArgs struct {
+	// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching pulumi.StringInput `pulumi:"caching"`
+	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// The size of the Data Disk which should be created.
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
+	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 	Lun pulumi.IntInput `pulumi:"lun"`
+	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -10843,7 +11648,7 @@ func (i WindowsVirtualMachineScaleSetDataDiskArray) ToWindowsVirtualMachineScale
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetDataDiskArrayOutput)
 }
 
-type WindowsVirtualMachineScaleSetDataDiskOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetDataDiskOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetDataDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetDataDisk)(nil)).Elem()
@@ -10857,31 +11662,37 @@ func (o WindowsVirtualMachineScaleSetDataDiskOutput) ToWindowsVirtualMachineScal
 	return o
 }
 
+// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) Caching() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetDataDisk) string { return v.Caching }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
+// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
+// The size of the Data Disk which should be created.
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskSizeGb() pulumi.IntOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetDataDisk) int { return v.DiskSizeGb }).(pulumi.IntOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) int { return v.DiskSizeGb }).(pulumi.IntOutput)
 }
 
+// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) Lun() pulumi.IntOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) int { return v.Lun }).(pulumi.IntOutput)
 }
 
+// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
+// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetDataDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetDataDiskArrayOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetDataDiskArrayOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetDataDiskArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetDataDisk)(nil)).Elem()
@@ -10896,15 +11707,17 @@ func (o WindowsVirtualMachineScaleSetDataDiskArrayOutput) ToWindowsVirtualMachin
 }
 
 func (o WindowsVirtualMachineScaleSetDataDiskArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetDataDiskOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) WindowsVirtualMachineScaleSetDataDisk {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetDataDisk {
 		return vs[0].([]WindowsVirtualMachineScaleSetDataDisk)[vs[1].(int)]
 	}).(WindowsVirtualMachineScaleSetDataDiskOutput)
 }
 
 type WindowsVirtualMachineScaleSetIdentity struct {
+	// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal.
 	PrincipalId *string `pulumi:"principalId"`
+	// The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -10916,9 +11729,11 @@ type WindowsVirtualMachineScaleSetIdentityInput interface {
 }
 
 type WindowsVirtualMachineScaleSetIdentityArgs struct {
+	// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10951,7 +11766,8 @@ type WindowsVirtualMachineScaleSetIdentityPtrInput interface {
 
 type windowsVirtualMachineScaleSetIdentityPtrType WindowsVirtualMachineScaleSetIdentityArgs
 
-func WindowsVirtualMachineScaleSetIdentityPtr(v *WindowsVirtualMachineScaleSetIdentityArgs) WindowsVirtualMachineScaleSetIdentityPtrInput {	return (*windowsVirtualMachineScaleSetIdentityPtrType)(v)
+func WindowsVirtualMachineScaleSetIdentityPtr(v *WindowsVirtualMachineScaleSetIdentityArgs) WindowsVirtualMachineScaleSetIdentityPtrInput {
+	return (*windowsVirtualMachineScaleSetIdentityPtrType)(v)
 }
 
 func (*windowsVirtualMachineScaleSetIdentityPtrType) ElementType() reflect.Type {
@@ -10966,7 +11782,7 @@ func (i *windowsVirtualMachineScaleSetIdentityPtrType) ToWindowsVirtualMachineSc
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetIdentityPtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetIdentityOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetIdentityOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetIdentity)(nil)).Elem()
@@ -10989,20 +11805,23 @@ func (o WindowsVirtualMachineScaleSetIdentityOutput) ToWindowsVirtualMachineScal
 		return &v
 	}).(WindowsVirtualMachineScaleSetIdentityPtrOutput)
 }
+
+// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
 func (o WindowsVirtualMachineScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the System Managed Service Principal.
 func (o WindowsVirtualMachineScaleSetIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 func (o WindowsVirtualMachineScaleSetIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineScaleSetIdentityPtrOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachineScaleSetIdentity)(nil)).Elem()
@@ -11017,30 +11836,38 @@ func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) ToWindowsVirtualMachineS
 }
 
 func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) Elem() WindowsVirtualMachineScaleSetIdentityOutput {
-	return o.ApplyT(func (v *WindowsVirtualMachineScaleSetIdentity) WindowsVirtualMachineScaleSetIdentity { return *v }).(WindowsVirtualMachineScaleSetIdentityOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetIdentity) WindowsVirtualMachineScaleSetIdentity { return *v }).(WindowsVirtualMachineScaleSetIdentityOutput)
 }
 
+// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
 func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the System Managed Service Principal.
 func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type WindowsVirtualMachineScaleSetNetworkInterface struct {
+	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers []string `pulumi:"dnsServers"`
+	// Does this Network Interface support Accelerated Networking? Defaults to `false`.
 	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
+	// Does this Network Interface support IP Forwarding? Defaults to `false`.
 	EnableIpForwarding *bool `pulumi:"enableIpForwarding"`
+	// One or more `ipConfiguration` blocks as defined above.
 	IpConfigurations []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
-	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
+	// The ID of a Network Security Group which should be assigned to this Network Interface.
 	NetworkSecurityGroupId *string `pulumi:"networkSecurityGroupId"`
+	// Is this the Primary IP Configuration?
 	Primary *bool `pulumi:"primary"`
 }
 
@@ -11052,13 +11879,19 @@ type WindowsVirtualMachineScaleSetNetworkInterfaceInput interface {
 }
 
 type WindowsVirtualMachineScaleSetNetworkInterfaceArgs struct {
+	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
+	// Does this Network Interface support Accelerated Networking? Defaults to `false`.
 	EnableAcceleratedNetworking pulumi.BoolPtrInput `pulumi:"enableAcceleratedNetworking"`
+	// Does this Network Interface support IP Forwarding? Defaults to `false`.
 	EnableIpForwarding pulumi.BoolPtrInput `pulumi:"enableIpForwarding"`
+	// One or more `ipConfiguration` blocks as defined above.
 	IpConfigurations WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput `pulumi:"ipConfigurations"`
-	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of a Network Security Group which should be assigned to this Network Interface.
 	NetworkSecurityGroupId pulumi.StringPtrInput `pulumi:"networkSecurityGroupId"`
+	// Is this the Primary IP Configuration?
 	Primary pulumi.BoolPtrInput `pulumi:"primary"`
 }
 
@@ -11095,7 +11928,7 @@ func (i WindowsVirtualMachineScaleSetNetworkInterfaceArray) ToWindowsVirtualMach
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput)
 }
 
-type WindowsVirtualMachineScaleSetNetworkInterfaceOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetNetworkInterfaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
@@ -11109,36 +11942,44 @@ func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) ToWindowsVirtualMac
 	return o
 }
 
+// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) DnsServers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterface) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
+// Does this Network Interface support Accelerated Networking? Defaults to `false`.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
 }
 
+// Does this Network Interface support IP Forwarding? Defaults to `false`.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) EnableIpForwarding() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableIpForwarding }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableIpForwarding }).(pulumi.BoolPtrOutput)
 }
 
+// One or more `ipConfiguration` blocks as defined above.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) IpConfigurations() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterface) []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration { return v.IpConfigurations }).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+		return v.IpConfigurations
+	}).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
 }
 
-// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterface) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ID of a Network Security Group which should be assigned to this Network Interface.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) NetworkSecurityGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterface) *string { return v.NetworkSecurityGroupId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) *string { return v.NetworkSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
+// Is this the Primary IP Configuration?
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceOutput) Primary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterface) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterface) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
@@ -11153,21 +11994,29 @@ func (o WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput) ToWindowsVirtu
 }
 
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetNetworkInterfaceOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) WindowsVirtualMachineScaleSetNetworkInterface {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetNetworkInterface {
 		return vs[0].([]WindowsVirtualMachineScaleSetNetworkInterface)[vs[1].(int)]
 	}).(WindowsVirtualMachineScaleSetNetworkInterfaceOutput)
 }
 
 type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
+	// A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
 	ApplicationGatewayBackendAddressPoolIds []string `pulumi:"applicationGatewayBackendAddressPoolIds"`
+	// A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
 	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
+	// A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 	LoadBalancerBackendAddressPoolIds []string `pulumi:"loadBalancerBackendAddressPoolIds"`
+	// A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 	LoadBalancerInboundNatRulesIds []string `pulumi:"loadBalancerInboundNatRulesIds"`
-	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	// The Name which should be used for this IP Configuration.
 	Name string `pulumi:"name"`
+	// Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
 	Primary *bool `pulumi:"primary"`
+	// A `publicIpAddress` block as defined below.
 	PublicIpAddresses []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress `pulumi:"publicIpAddresses"`
+	// The ID of the Subnet which this IP Configuration should be connected to.
 	SubnetId *string `pulumi:"subnetId"`
+	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 	Version *string `pulumi:"version"`
 }
 
@@ -11179,15 +12028,23 @@ type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput interface
 }
 
 type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struct {
+	// A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
 	ApplicationGatewayBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"applicationGatewayBackendAddressPoolIds"`
+	// A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
 	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
+	// A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 	LoadBalancerBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolIds"`
+	// A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 	LoadBalancerInboundNatRulesIds pulumi.StringArrayInput `pulumi:"loadBalancerInboundNatRulesIds"`
-	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	// The Name which should be used for this IP Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
 	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// A `publicIpAddress` block as defined below.
 	PublicIpAddresses WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput `pulumi:"publicIpAddresses"`
+	// The ID of the Subnet which this IP Configuration should be connected to.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -11224,7 +12081,7 @@ func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray) ToWin
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
 }
 
-type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
@@ -11238,44 +12095,62 @@ func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ToWi
 	return o
 }
 
+// A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ApplicationGatewayBackendAddressPoolIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string { return v.ApplicationGatewayBackendAddressPoolIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.ApplicationGatewayBackendAddressPoolIds
+	}).(pulumi.StringArrayOutput)
 }
 
+// A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string { return v.ApplicationSecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.ApplicationSecurityGroupIds
+	}).(pulumi.StringArrayOutput)
 }
 
+// A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) LoadBalancerBackendAddressPoolIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string { return v.LoadBalancerBackendAddressPoolIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.LoadBalancerBackendAddressPoolIds
+	}).(pulumi.StringArrayOutput)
 }
 
+// A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) LoadBalancerInboundNatRulesIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string { return v.LoadBalancerInboundNatRulesIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.LoadBalancerInboundNatRulesIds
+	}).(pulumi.StringArrayOutput)
 }
 
-// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+// The Name which should be used for this IP Configuration.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Primary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
+// A `publicIpAddress` block as defined below.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) PublicIpAddresses() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress { return v.PublicIpAddresses }).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+		return v.PublicIpAddresses
+	}).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
 }
 
+// The ID of the Subnet which this IP Configuration should be connected to.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
+// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
@@ -11290,17 +12165,21 @@ func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
 }
 
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
 		return vs[0].([]WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration)[vs[1].(int)]
 	}).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput)
 }
 
 type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress struct {
+	// The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
+	// The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+	// One or more `ipTag` blocks as defined above.
 	IpTags []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag `pulumi:"ipTags"`
-	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	// The Name of the Public IP Address Configuration.
 	Name string `pulumi:"name"`
+	// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
 }
 
@@ -11312,11 +12191,15 @@ type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress
 }
 
 type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs struct {
+	// The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
 	DomainNameLabel pulumi.StringPtrInput `pulumi:"domainNameLabel"`
+	// The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
 	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
+	// One or more `ipTag` blocks as defined above.
 	IpTags WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput `pulumi:"ipTags"`
-	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	// The Name of the Public IP Address Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 	PublicIpPrefixId pulumi.StringPtrInput `pulumi:"publicIpPrefixId"`
 }
 
@@ -11353,7 +12236,7 @@ func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddr
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
 }
 
-type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
@@ -11367,28 +12250,42 @@ func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddr
 	return o
 }
 
+// The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) DomainNameLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string { return v.DomainNameLabel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
+		return v.DomainNameLabel
+	}).(pulumi.StringPtrOutput)
 }
 
+// The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *int {
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
+// One or more `ipTag` blocks as defined above.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) IpTags() WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag { return v.IpTags }).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) []WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+		return v.IpTags
+	}).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput)
 }
 
-// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+// The Name of the Public IP Address Configuration.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string {
+		return v.Name
+	}).(pulumi.StringOutput)
 }
 
+// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) PublicIpPrefixId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string { return v.PublicIpPrefixId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
+		return v.PublicIpPrefixId
+	}).(pulumi.StringPtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
@@ -11403,13 +12300,15 @@ func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddr
 }
 
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
 		return vs[0].([]WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)[vs[1].(int)]
 	}).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput)
 }
 
 type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag struct {
+	// The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
 	Tag string `pulumi:"tag"`
+	// The Type of IP Tag, such as `FirstPartyUsage`.
 	Type string `pulumi:"type"`
 }
 
@@ -11421,7 +12320,9 @@ type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress
 }
 
 type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs struct {
+	// The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
 	Tag pulumi.StringInput `pulumi:"tag"`
+	// The Type of IP Tag, such as `FirstPartyUsage`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -11458,7 +12359,7 @@ func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddr
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput)
 }
 
-type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
@@ -11472,15 +12373,21 @@ func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddr
 	return o
 }
 
+// The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) Tag() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string { return v.Tag }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string {
+		return v.Tag
+	}).(pulumi.StringOutput)
 }
 
+// The Type of IP Tag, such as `FirstPartyUsage`.
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string {
+		return v.Type
+	}).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
@@ -11495,17 +12402,23 @@ func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddr
 }
 
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
 		return vs[0].([]WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)[vs[1].(int)]
 	}).(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput)
 }
 
 type WindowsVirtualMachineScaleSetOsDisk struct {
+	// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching string `pulumi:"caching"`
+	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
+	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
 	StorageAccountType string `pulumi:"storageAccountType"`
+	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -11517,11 +12430,17 @@ type WindowsVirtualMachineScaleSetOsDiskInput interface {
 }
 
 type WindowsVirtualMachineScaleSetOsDiskArgs struct {
+	// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching pulumi.StringInput `pulumi:"caching"`
+	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
+	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -11554,7 +12473,8 @@ type WindowsVirtualMachineScaleSetOsDiskPtrInput interface {
 
 type windowsVirtualMachineScaleSetOsDiskPtrType WindowsVirtualMachineScaleSetOsDiskArgs
 
-func WindowsVirtualMachineScaleSetOsDiskPtr(v *WindowsVirtualMachineScaleSetOsDiskArgs) WindowsVirtualMachineScaleSetOsDiskPtrInput {	return (*windowsVirtualMachineScaleSetOsDiskPtrType)(v)
+func WindowsVirtualMachineScaleSetOsDiskPtr(v *WindowsVirtualMachineScaleSetOsDiskArgs) WindowsVirtualMachineScaleSetOsDiskPtrInput {
+	return (*windowsVirtualMachineScaleSetOsDiskPtrType)(v)
 }
 
 func (*windowsVirtualMachineScaleSetOsDiskPtrType) ElementType() reflect.Type {
@@ -11569,7 +12489,7 @@ func (i *windowsVirtualMachineScaleSetOsDiskPtrType) ToWindowsVirtualMachineScal
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetOsDiskPtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetOsDiskOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetOsDiskOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetOsDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetOsDisk)(nil)).Elem()
@@ -11592,31 +12512,40 @@ func (o WindowsVirtualMachineScaleSetOsDiskOutput) ToWindowsVirtualMachineScaleS
 		return &v
 	}).(WindowsVirtualMachineScaleSetOsDiskPtrOutput)
 }
+
+// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 func (o WindowsVirtualMachineScaleSetOsDiskOutput) Caching() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
+// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOsDiskOutput) DiffDiskSettings() WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetOsDisk) *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings { return v.DiffDiskSettings }).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		return v.DiffDiskSettings
+	}).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 
+// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
 func (o WindowsVirtualMachineScaleSetOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
+// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 func (o WindowsVirtualMachineScaleSetOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
 func (o WindowsVirtualMachineScaleSetOsDiskOutput) StorageAccountType() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
+// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 func (o WindowsVirtualMachineScaleSetOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetOsDiskPtrOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetOsDiskPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetOsDiskPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachineScaleSetOsDisk)(nil)).Elem()
@@ -11631,31 +12560,39 @@ func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) ToWindowsVirtualMachineSca
 }
 
 func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) Elem() WindowsVirtualMachineScaleSetOsDiskOutput {
-	return o.ApplyT(func (v *WindowsVirtualMachineScaleSetOsDisk) WindowsVirtualMachineScaleSetOsDisk { return *v }).(WindowsVirtualMachineScaleSetOsDiskOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) WindowsVirtualMachineScaleSetOsDisk { return *v }).(WindowsVirtualMachineScaleSetOsDiskOutput)
 }
 
+// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) Caching() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
+// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) DiffDiskSettings() WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetOsDisk) *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings { return v.DiffDiskSettings }).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		return v.DiffDiskSettings
+	}).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 
+// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
 func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
+// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
 func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) StorageAccountType() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
+// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
@@ -11702,7 +12639,8 @@ type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput interface {
 
 type windowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs
 
-func WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtr(v *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput {	return (*windowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType)(v)
+func WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtr(v *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput {
+	return (*windowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType)(v)
 }
 
 func (*windowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType) ElementType() reflect.Type {
@@ -11717,7 +12655,7 @@ func (i *windowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType) ToWindowsVi
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings)(nil)).Elem()
@@ -11741,10 +12679,10 @@ func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToWindowsVirt
 	}).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Option() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings)(nil)).Elem()
@@ -11759,17 +12697,19 @@ func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) ToWindowsV
 }
 
 func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Elem() WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
-	return o.ApplyT(func (v *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings { return *v }).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		return *v
+	}).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput)
 }
 
 func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
 type WindowsVirtualMachineScaleSetPlan struct {
 	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	Product string `pulumi:"product"`
+	Name      string `pulumi:"name"`
+	Product   string `pulumi:"product"`
 	Publisher string `pulumi:"publisher"`
 }
 
@@ -11782,8 +12722,8 @@ type WindowsVirtualMachineScaleSetPlanInput interface {
 
 type WindowsVirtualMachineScaleSetPlanArgs struct {
 	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	Product pulumi.StringInput `pulumi:"product"`
+	Name      pulumi.StringInput `pulumi:"name"`
+	Product   pulumi.StringInput `pulumi:"product"`
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 }
 
@@ -11816,7 +12756,8 @@ type WindowsVirtualMachineScaleSetPlanPtrInput interface {
 
 type windowsVirtualMachineScaleSetPlanPtrType WindowsVirtualMachineScaleSetPlanArgs
 
-func WindowsVirtualMachineScaleSetPlanPtr(v *WindowsVirtualMachineScaleSetPlanArgs) WindowsVirtualMachineScaleSetPlanPtrInput {	return (*windowsVirtualMachineScaleSetPlanPtrType)(v)
+func WindowsVirtualMachineScaleSetPlanPtr(v *WindowsVirtualMachineScaleSetPlanArgs) WindowsVirtualMachineScaleSetPlanPtrInput {
+	return (*windowsVirtualMachineScaleSetPlanPtrType)(v)
 }
 
 func (*windowsVirtualMachineScaleSetPlanPtrType) ElementType() reflect.Type {
@@ -11831,7 +12772,7 @@ func (i *windowsVirtualMachineScaleSetPlanPtrType) ToWindowsVirtualMachineScaleS
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetPlanPtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetPlanOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetPlanOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetPlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetPlan)(nil)).Elem()
@@ -11854,20 +12795,21 @@ func (o WindowsVirtualMachineScaleSetPlanOutput) ToWindowsVirtualMachineScaleSet
 		return &v
 	}).(WindowsVirtualMachineScaleSetPlanPtrOutput)
 }
+
 // The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetPlanOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o WindowsVirtualMachineScaleSetPlanOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
 func (o WindowsVirtualMachineScaleSetPlanOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineScaleSetPlanPtrOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetPlanPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetPlanPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachineScaleSetPlan)(nil)).Elem()
@@ -11882,26 +12824,30 @@ func (o WindowsVirtualMachineScaleSetPlanPtrOutput) ToWindowsVirtualMachineScale
 }
 
 func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Elem() WindowsVirtualMachineScaleSetPlanOutput {
-	return o.ApplyT(func (v *WindowsVirtualMachineScaleSetPlan) WindowsVirtualMachineScaleSetPlan { return *v }).(WindowsVirtualMachineScaleSetPlanOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetPlan) WindowsVirtualMachineScaleSetPlan { return *v }).(WindowsVirtualMachineScaleSetPlanOutput)
 }
 
 // The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
 func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 type WindowsVirtualMachineScaleSetRollingUpgradePolicy struct {
+	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
 	MaxBatchInstancePercent int `pulumi:"maxBatchInstancePercent"`
+	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
 	MaxUnhealthyInstancePercent int `pulumi:"maxUnhealthyInstancePercent"`
+	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
 	MaxUnhealthyUpgradedInstancePercent int `pulumi:"maxUnhealthyUpgradedInstancePercent"`
+	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
 	PauseTimeBetweenBatches string `pulumi:"pauseTimeBetweenBatches"`
 }
 
@@ -11913,9 +12859,13 @@ type WindowsVirtualMachineScaleSetRollingUpgradePolicyInput interface {
 }
 
 type WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
+	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
 	MaxBatchInstancePercent pulumi.IntInput `pulumi:"maxBatchInstancePercent"`
+	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
 	MaxUnhealthyInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyInstancePercent"`
+	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
 	MaxUnhealthyUpgradedInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyUpgradedInstancePercent"`
+	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
 	PauseTimeBetweenBatches pulumi.StringInput `pulumi:"pauseTimeBetweenBatches"`
 }
 
@@ -11948,7 +12898,8 @@ type WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrInput interface {
 
 type windowsVirtualMachineScaleSetRollingUpgradePolicyPtrType WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs
 
-func WindowsVirtualMachineScaleSetRollingUpgradePolicyPtr(v *WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs) WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrInput {	return (*windowsVirtualMachineScaleSetRollingUpgradePolicyPtrType)(v)
+func WindowsVirtualMachineScaleSetRollingUpgradePolicyPtr(v *WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs) WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrInput {
+	return (*windowsVirtualMachineScaleSetRollingUpgradePolicyPtrType)(v)
 }
 
 func (*windowsVirtualMachineScaleSetRollingUpgradePolicyPtrType) ElementType() reflect.Type {
@@ -11963,7 +12914,7 @@ func (i *windowsVirtualMachineScaleSetRollingUpgradePolicyPtrType) ToWindowsVirt
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetRollingUpgradePolicy)(nil)).Elem()
@@ -11986,23 +12937,30 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) ToWindowsVirtua
 		return &v
 	}).(WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
 }
+
+// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxBatchInstancePercent() pulumi.IntOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxBatchInstancePercent }).(pulumi.IntOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxBatchInstancePercent }).(pulumi.IntOutput)
 }
 
+// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyInstancePercent() pulumi.IntOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntOutput)
 }
 
+// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyUpgradedInstancePercent }).(pulumi.IntOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int {
+		return v.MaxUnhealthyUpgradedInstancePercent
+	}).(pulumi.IntOutput)
 }
 
+// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) PauseTimeBetweenBatches() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachineScaleSetRollingUpgradePolicy)(nil)).Elem()
@@ -12017,27 +12975,37 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) ToWindowsVir
 }
 
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) Elem() WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput {
-	return o.ApplyT(func (v *WindowsVirtualMachineScaleSetRollingUpgradePolicy) WindowsVirtualMachineScaleSetRollingUpgradePolicy { return *v }).(WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetRollingUpgradePolicy) WindowsVirtualMachineScaleSetRollingUpgradePolicy {
+		return *v
+	}).(WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput)
 }
 
+// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxBatchInstancePercent() pulumi.IntOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxBatchInstancePercent }).(pulumi.IntOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxBatchInstancePercent }).(pulumi.IntOutput)
 }
 
+// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyInstancePercent() pulumi.IntOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyInstancePercent }).(pulumi.IntOutput)
 }
 
+// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxUnhealthyUpgradedInstancePercent }).(pulumi.IntOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int {
+		return v.MaxUnhealthyUpgradedInstancePercent
+	}).(pulumi.IntOutput)
 }
 
+// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PauseTimeBetweenBatches() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
 }
 
 type WindowsVirtualMachineScaleSetSecret struct {
+	// One or more `certificate` blocks as defined above.
 	Certificates []WindowsVirtualMachineScaleSetSecretCertificate `pulumi:"certificates"`
+	// The ID of the Key Vault from which all Secrets should be sourced.
 	KeyVaultId string `pulumi:"keyVaultId"`
 }
 
@@ -12049,7 +13017,9 @@ type WindowsVirtualMachineScaleSetSecretInput interface {
 }
 
 type WindowsVirtualMachineScaleSetSecretArgs struct {
+	// One or more `certificate` blocks as defined above.
 	Certificates WindowsVirtualMachineScaleSetSecretCertificateArrayInput `pulumi:"certificates"`
+	// The ID of the Key Vault from which all Secrets should be sourced.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
 }
 
@@ -12086,7 +13056,7 @@ func (i WindowsVirtualMachineScaleSetSecretArray) ToWindowsVirtualMachineScaleSe
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetSecretArrayOutput)
 }
 
-type WindowsVirtualMachineScaleSetSecretOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetSecretOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetSecretOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetSecret)(nil)).Elem()
@@ -12100,15 +13070,19 @@ func (o WindowsVirtualMachineScaleSetSecretOutput) ToWindowsVirtualMachineScaleS
 	return o
 }
 
+// One or more `certificate` blocks as defined above.
 func (o WindowsVirtualMachineScaleSetSecretOutput) Certificates() WindowsVirtualMachineScaleSetSecretCertificateArrayOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetSecret) []WindowsVirtualMachineScaleSetSecretCertificate { return v.Certificates }).(WindowsVirtualMachineScaleSetSecretCertificateArrayOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSecret) []WindowsVirtualMachineScaleSetSecretCertificate {
+		return v.Certificates
+	}).(WindowsVirtualMachineScaleSetSecretCertificateArrayOutput)
 }
 
+// The ID of the Key Vault from which all Secrets should be sourced.
 func (o WindowsVirtualMachineScaleSetSecretOutput) KeyVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetSecret) string { return v.KeyVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSecret) string { return v.KeyVaultId }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineScaleSetSecretArrayOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetSecretArrayOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetSecretArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetSecret)(nil)).Elem()
@@ -12123,13 +13097,15 @@ func (o WindowsVirtualMachineScaleSetSecretArrayOutput) ToWindowsVirtualMachineS
 }
 
 func (o WindowsVirtualMachineScaleSetSecretArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetSecretOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) WindowsVirtualMachineScaleSetSecret {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetSecret {
 		return vs[0].([]WindowsVirtualMachineScaleSetSecret)[vs[1].(int)]
 	}).(WindowsVirtualMachineScaleSetSecretOutput)
 }
 
 type WindowsVirtualMachineScaleSetSecretCertificate struct {
+	// The certificate store on the Virtual Machine where the certificate should be added.
 	Store string `pulumi:"store"`
+	// The Secret URL of a Key Vault Certificate.
 	Url string `pulumi:"url"`
 }
 
@@ -12141,7 +13117,9 @@ type WindowsVirtualMachineScaleSetSecretCertificateInput interface {
 }
 
 type WindowsVirtualMachineScaleSetSecretCertificateArgs struct {
+	// The certificate store on the Virtual Machine where the certificate should be added.
 	Store pulumi.StringInput `pulumi:"store"`
+	// The Secret URL of a Key Vault Certificate.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -12178,7 +13156,7 @@ func (i WindowsVirtualMachineScaleSetSecretCertificateArray) ToWindowsVirtualMac
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetSecretCertificateArrayOutput)
 }
 
-type WindowsVirtualMachineScaleSetSecretCertificateOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetSecretCertificateOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetSecretCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetSecretCertificate)(nil)).Elem()
@@ -12192,15 +13170,17 @@ func (o WindowsVirtualMachineScaleSetSecretCertificateOutput) ToWindowsVirtualMa
 	return o
 }
 
+// The certificate store on the Virtual Machine where the certificate should be added.
 func (o WindowsVirtualMachineScaleSetSecretCertificateOutput) Store() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetSecretCertificate) string { return v.Store }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSecretCertificate) string { return v.Store }).(pulumi.StringOutput)
 }
 
+// The Secret URL of a Key Vault Certificate.
 func (o WindowsVirtualMachineScaleSetSecretCertificateOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetSecretCertificate) string { return v.Url }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSecretCertificate) string { return v.Url }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineScaleSetSecretCertificateArrayOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetSecretCertificateArrayOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetSecretCertificateArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetSecretCertificate)(nil)).Elem()
@@ -12215,16 +13195,17 @@ func (o WindowsVirtualMachineScaleSetSecretCertificateArrayOutput) ToWindowsVirt
 }
 
 func (o WindowsVirtualMachineScaleSetSecretCertificateArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetSecretCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) WindowsVirtualMachineScaleSetSecretCertificate {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetSecretCertificate {
 		return vs[0].([]WindowsVirtualMachineScaleSetSecretCertificate)[vs[1].(int)]
 	}).(WindowsVirtualMachineScaleSetSecretCertificateOutput)
 }
 
 type WindowsVirtualMachineScaleSetSourceImageReference struct {
-	Offer string `pulumi:"offer"`
+	Offer     string `pulumi:"offer"`
 	Publisher string `pulumi:"publisher"`
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
 	Sku string `pulumi:"sku"`
+	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 	Version string `pulumi:"version"`
 }
 
@@ -12236,10 +13217,11 @@ type WindowsVirtualMachineScaleSetSourceImageReferenceInput interface {
 }
 
 type WindowsVirtualMachineScaleSetSourceImageReferenceArgs struct {
-	Offer pulumi.StringInput `pulumi:"offer"`
+	Offer     pulumi.StringInput `pulumi:"offer"`
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
 	Sku pulumi.StringInput `pulumi:"sku"`
+	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -12272,7 +13254,8 @@ type WindowsVirtualMachineScaleSetSourceImageReferencePtrInput interface {
 
 type windowsVirtualMachineScaleSetSourceImageReferencePtrType WindowsVirtualMachineScaleSetSourceImageReferenceArgs
 
-func WindowsVirtualMachineScaleSetSourceImageReferencePtr(v *WindowsVirtualMachineScaleSetSourceImageReferenceArgs) WindowsVirtualMachineScaleSetSourceImageReferencePtrInput {	return (*windowsVirtualMachineScaleSetSourceImageReferencePtrType)(v)
+func WindowsVirtualMachineScaleSetSourceImageReferencePtr(v *WindowsVirtualMachineScaleSetSourceImageReferenceArgs) WindowsVirtualMachineScaleSetSourceImageReferencePtrInput {
+	return (*windowsVirtualMachineScaleSetSourceImageReferencePtrType)(v)
 }
 
 func (*windowsVirtualMachineScaleSetSourceImageReferencePtrType) ElementType() reflect.Type {
@@ -12287,7 +13270,7 @@ func (i *windowsVirtualMachineScaleSetSourceImageReferencePtrType) ToWindowsVirt
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetSourceImageReferenceOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetSourceImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetSourceImageReferenceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetSourceImageReference)(nil)).Elem()
@@ -12311,23 +13294,24 @@ func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) ToWindowsVirtua
 	}).(WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput)
 }
 func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
 func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 // The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
 func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) Sku() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
+// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachineScaleSetSourceImageReference)(nil)).Elem()
@@ -12342,28 +13326,33 @@ func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) ToWindowsVir
 }
 
 func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Elem() WindowsVirtualMachineScaleSetSourceImageReferenceOutput {
-	return o.ApplyT(func (v *WindowsVirtualMachineScaleSetSourceImageReference) WindowsVirtualMachineScaleSetSourceImageReference { return *v }).(WindowsVirtualMachineScaleSetSourceImageReferenceOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetSourceImageReference) WindowsVirtualMachineScaleSetSourceImageReference {
+		return *v
+	}).(WindowsVirtualMachineScaleSetSourceImageReferenceOutput)
 }
 
 func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
 func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 // The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
 func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Sku() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
+// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
 
 type WindowsVirtualMachineScaleSetTerminateNotification struct {
+	// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
 	Enabled bool `pulumi:"enabled"`
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
 	Timeout *string `pulumi:"timeout"`
 }
 
@@ -12375,7 +13364,9 @@ type WindowsVirtualMachineScaleSetTerminateNotificationInput interface {
 }
 
 type WindowsVirtualMachineScaleSetTerminateNotificationArgs struct {
+	// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
 	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
 }
 
@@ -12408,7 +13399,8 @@ type WindowsVirtualMachineScaleSetTerminateNotificationPtrInput interface {
 
 type windowsVirtualMachineScaleSetTerminateNotificationPtrType WindowsVirtualMachineScaleSetTerminateNotificationArgs
 
-func WindowsVirtualMachineScaleSetTerminateNotificationPtr(v *WindowsVirtualMachineScaleSetTerminateNotificationArgs) WindowsVirtualMachineScaleSetTerminateNotificationPtrInput {	return (*windowsVirtualMachineScaleSetTerminateNotificationPtrType)(v)
+func WindowsVirtualMachineScaleSetTerminateNotificationPtr(v *WindowsVirtualMachineScaleSetTerminateNotificationArgs) WindowsVirtualMachineScaleSetTerminateNotificationPtrInput {
+	return (*windowsVirtualMachineScaleSetTerminateNotificationPtrType)(v)
 }
 
 func (*windowsVirtualMachineScaleSetTerminateNotificationPtrType) ElementType() reflect.Type {
@@ -12423,7 +13415,7 @@ func (i *windowsVirtualMachineScaleSetTerminateNotificationPtrType) ToWindowsVir
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetTerminateNotificationOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetTerminateNotificationOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetTerminateNotificationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
@@ -12446,15 +13438,18 @@ func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) ToWindowsVirtu
 		return &v
 	}).(WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput)
 }
+
+// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
 func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetTerminateNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetTerminateNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
 func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) Timeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetTerminateNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetTerminateNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
 
-type WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
@@ -12469,19 +13464,25 @@ func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) ToWindowsVi
 }
 
 func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) Elem() WindowsVirtualMachineScaleSetTerminateNotificationOutput {
-	return o.ApplyT(func (v *WindowsVirtualMachineScaleSetTerminateNotification) WindowsVirtualMachineScaleSetTerminateNotification { return *v }).(WindowsVirtualMachineScaleSetTerminateNotificationOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetTerminateNotification) WindowsVirtualMachineScaleSetTerminateNotification {
+		return *v
+	}).(WindowsVirtualMachineScaleSetTerminateNotificationOutput)
 }
 
+// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
 func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetTerminateNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetTerminateNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
 func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetTerminateNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetTerminateNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
 
 type WindowsVirtualMachineScaleSetWinrmListener struct {
+	// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
 	CertificateUrl *string `pulumi:"certificateUrl"`
+	// The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -12493,7 +13494,9 @@ type WindowsVirtualMachineScaleSetWinrmListenerInput interface {
 }
 
 type WindowsVirtualMachineScaleSetWinrmListenerArgs struct {
+	// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
 	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
+	// The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
@@ -12530,7 +13533,7 @@ func (i WindowsVirtualMachineScaleSetWinrmListenerArray) ToWindowsVirtualMachine
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetWinrmListenerArrayOutput)
 }
 
-type WindowsVirtualMachineScaleSetWinrmListenerOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineScaleSetWinrmListenerOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetWinrmListenerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineScaleSetWinrmListener)(nil)).Elem()
@@ -12544,15 +13547,17 @@ func (o WindowsVirtualMachineScaleSetWinrmListenerOutput) ToWindowsVirtualMachin
 	return o
 }
 
+// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
 func (o WindowsVirtualMachineScaleSetWinrmListenerOutput) CertificateUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetWinrmListener) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetWinrmListener) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
 }
 
+// The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
 func (o WindowsVirtualMachineScaleSetWinrmListenerOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineScaleSetWinrmListener) string { return v.Protocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetWinrmListener) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineScaleSetWinrmListenerArrayOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineScaleSetWinrmListenerArrayOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetWinrmListenerArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetWinrmListener)(nil)).Elem()
@@ -12567,13 +13572,15 @@ func (o WindowsVirtualMachineScaleSetWinrmListenerArrayOutput) ToWindowsVirtualM
 }
 
 func (o WindowsVirtualMachineScaleSetWinrmListenerArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetWinrmListenerOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) WindowsVirtualMachineScaleSetWinrmListener {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetWinrmListener {
 		return vs[0].([]WindowsVirtualMachineScaleSetWinrmListener)[vs[1].(int)]
 	}).(WindowsVirtualMachineScaleSetWinrmListenerOutput)
 }
 
 type WindowsVirtualMachineSecret struct {
+	// One or more `certificate` blocks as defined above.
 	Certificates []WindowsVirtualMachineSecretCertificate `pulumi:"certificates"`
+	// The ID of the Key Vault from which all Secrets should be sourced.
 	KeyVaultId string `pulumi:"keyVaultId"`
 }
 
@@ -12585,7 +13592,9 @@ type WindowsVirtualMachineSecretInput interface {
 }
 
 type WindowsVirtualMachineSecretArgs struct {
+	// One or more `certificate` blocks as defined above.
 	Certificates WindowsVirtualMachineSecretCertificateArrayInput `pulumi:"certificates"`
+	// The ID of the Key Vault from which all Secrets should be sourced.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
 }
 
@@ -12622,7 +13631,7 @@ func (i WindowsVirtualMachineSecretArray) ToWindowsVirtualMachineSecretArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineSecretArrayOutput)
 }
 
-type WindowsVirtualMachineSecretOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineSecretOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineSecretOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineSecret)(nil)).Elem()
@@ -12636,15 +13645,17 @@ func (o WindowsVirtualMachineSecretOutput) ToWindowsVirtualMachineSecretOutputWi
 	return o
 }
 
+// One or more `certificate` blocks as defined above.
 func (o WindowsVirtualMachineSecretOutput) Certificates() WindowsVirtualMachineSecretCertificateArrayOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineSecret) []WindowsVirtualMachineSecretCertificate { return v.Certificates }).(WindowsVirtualMachineSecretCertificateArrayOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineSecret) []WindowsVirtualMachineSecretCertificate { return v.Certificates }).(WindowsVirtualMachineSecretCertificateArrayOutput)
 }
 
+// The ID of the Key Vault from which all Secrets should be sourced.
 func (o WindowsVirtualMachineSecretOutput) KeyVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineSecret) string { return v.KeyVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineSecret) string { return v.KeyVaultId }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineSecretArrayOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineSecretArrayOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineSecretArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]WindowsVirtualMachineSecret)(nil)).Elem()
@@ -12659,13 +13670,15 @@ func (o WindowsVirtualMachineSecretArrayOutput) ToWindowsVirtualMachineSecretArr
 }
 
 func (o WindowsVirtualMachineSecretArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineSecretOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) WindowsVirtualMachineSecret {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineSecret {
 		return vs[0].([]WindowsVirtualMachineSecret)[vs[1].(int)]
 	}).(WindowsVirtualMachineSecretOutput)
 }
 
 type WindowsVirtualMachineSecretCertificate struct {
+	// The certificate store on the Virtual Machine where the certificate should be added.
 	Store string `pulumi:"store"`
+	// The Secret URL of a Key Vault Certificate.
 	Url string `pulumi:"url"`
 }
 
@@ -12677,7 +13690,9 @@ type WindowsVirtualMachineSecretCertificateInput interface {
 }
 
 type WindowsVirtualMachineSecretCertificateArgs struct {
+	// The certificate store on the Virtual Machine where the certificate should be added.
 	Store pulumi.StringInput `pulumi:"store"`
+	// The Secret URL of a Key Vault Certificate.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -12714,7 +13729,7 @@ func (i WindowsVirtualMachineSecretCertificateArray) ToWindowsVirtualMachineSecr
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineSecretCertificateArrayOutput)
 }
 
-type WindowsVirtualMachineSecretCertificateOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineSecretCertificateOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineSecretCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineSecretCertificate)(nil)).Elem()
@@ -12728,15 +13743,17 @@ func (o WindowsVirtualMachineSecretCertificateOutput) ToWindowsVirtualMachineSec
 	return o
 }
 
+// The certificate store on the Virtual Machine where the certificate should be added.
 func (o WindowsVirtualMachineSecretCertificateOutput) Store() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineSecretCertificate) string { return v.Store }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineSecretCertificate) string { return v.Store }).(pulumi.StringOutput)
 }
 
+// The Secret URL of a Key Vault Certificate.
 func (o WindowsVirtualMachineSecretCertificateOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineSecretCertificate) string { return v.Url }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineSecretCertificate) string { return v.Url }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineSecretCertificateArrayOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineSecretCertificateArrayOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineSecretCertificateArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]WindowsVirtualMachineSecretCertificate)(nil)).Elem()
@@ -12751,16 +13768,17 @@ func (o WindowsVirtualMachineSecretCertificateArrayOutput) ToWindowsVirtualMachi
 }
 
 func (o WindowsVirtualMachineSecretCertificateArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineSecretCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) WindowsVirtualMachineSecretCertificate {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineSecretCertificate {
 		return vs[0].([]WindowsVirtualMachineSecretCertificate)[vs[1].(int)]
 	}).(WindowsVirtualMachineSecretCertificateOutput)
 }
 
 type WindowsVirtualMachineSourceImageReference struct {
 	Offer string `pulumi:"offer"`
+	// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
-	Sku string `pulumi:"sku"`
-	Version string `pulumi:"version"`
+	Sku       string `pulumi:"sku"`
+	Version   string `pulumi:"version"`
 }
 
 type WindowsVirtualMachineSourceImageReferenceInput interface {
@@ -12772,9 +13790,10 @@ type WindowsVirtualMachineSourceImageReferenceInput interface {
 
 type WindowsVirtualMachineSourceImageReferenceArgs struct {
 	Offer pulumi.StringInput `pulumi:"offer"`
+	// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	Sku pulumi.StringInput `pulumi:"sku"`
-	Version pulumi.StringInput `pulumi:"version"`
+	Sku       pulumi.StringInput `pulumi:"sku"`
+	Version   pulumi.StringInput `pulumi:"version"`
 }
 
 func (WindowsVirtualMachineSourceImageReferenceArgs) ElementType() reflect.Type {
@@ -12806,7 +13825,8 @@ type WindowsVirtualMachineSourceImageReferencePtrInput interface {
 
 type windowsVirtualMachineSourceImageReferencePtrType WindowsVirtualMachineSourceImageReferenceArgs
 
-func WindowsVirtualMachineSourceImageReferencePtr(v *WindowsVirtualMachineSourceImageReferenceArgs) WindowsVirtualMachineSourceImageReferencePtrInput {	return (*windowsVirtualMachineSourceImageReferencePtrType)(v)
+func WindowsVirtualMachineSourceImageReferencePtr(v *WindowsVirtualMachineSourceImageReferenceArgs) WindowsVirtualMachineSourceImageReferencePtrInput {
+	return (*windowsVirtualMachineSourceImageReferencePtrType)(v)
 }
 
 func (*windowsVirtualMachineSourceImageReferencePtrType) ElementType() reflect.Type {
@@ -12821,7 +13841,7 @@ func (i *windowsVirtualMachineSourceImageReferencePtrType) ToWindowsVirtualMachi
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineSourceImageReferencePtrOutput)
 }
 
-type WindowsVirtualMachineSourceImageReferenceOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineSourceImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineSourceImageReferenceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineSourceImageReference)(nil)).Elem()
@@ -12845,22 +13865,23 @@ func (o WindowsVirtualMachineSourceImageReferenceOutput) ToWindowsVirtualMachine
 	}).(WindowsVirtualMachineSourceImageReferencePtrOutput)
 }
 func (o WindowsVirtualMachineSourceImageReferenceOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
+// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineSourceImageReferenceOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 func (o WindowsVirtualMachineSourceImageReferenceOutput) Sku() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
 func (o WindowsVirtualMachineSourceImageReferenceOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineSourceImageReferencePtrOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineSourceImageReferencePtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineSourceImageReferencePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsVirtualMachineSourceImageReference)(nil)).Elem()
@@ -12875,28 +13896,32 @@ func (o WindowsVirtualMachineSourceImageReferencePtrOutput) ToWindowsVirtualMach
 }
 
 func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Elem() WindowsVirtualMachineSourceImageReferenceOutput {
-	return o.ApplyT(func (v *WindowsVirtualMachineSourceImageReference) WindowsVirtualMachineSourceImageReference { return *v }).(WindowsVirtualMachineSourceImageReferenceOutput)
+	return o.ApplyT(func(v *WindowsVirtualMachineSourceImageReference) WindowsVirtualMachineSourceImageReference {
+		return *v
+	}).(WindowsVirtualMachineSourceImageReferenceOutput)
 }
 
 func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
+// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Sku() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
 func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
 
 type WindowsVirtualMachineWinrmListener struct {
+	// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
 	CertificateUrl *string `pulumi:"certificateUrl"`
-	Protocol string `pulumi:"protocol"`
+	Protocol       string  `pulumi:"protocol"`
 }
 
 type WindowsVirtualMachineWinrmListenerInput interface {
@@ -12907,8 +13932,9 @@ type WindowsVirtualMachineWinrmListenerInput interface {
 }
 
 type WindowsVirtualMachineWinrmListenerArgs struct {
+	// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
 	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
-	Protocol pulumi.StringInput `pulumi:"protocol"`
+	Protocol       pulumi.StringInput    `pulumi:"protocol"`
 }
 
 func (WindowsVirtualMachineWinrmListenerArgs) ElementType() reflect.Type {
@@ -12944,7 +13970,7 @@ func (i WindowsVirtualMachineWinrmListenerArray) ToWindowsVirtualMachineWinrmLis
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineWinrmListenerArrayOutput)
 }
 
-type WindowsVirtualMachineWinrmListenerOutput struct { *pulumi.OutputState }
+type WindowsVirtualMachineWinrmListenerOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineWinrmListenerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsVirtualMachineWinrmListener)(nil)).Elem()
@@ -12958,15 +13984,16 @@ func (o WindowsVirtualMachineWinrmListenerOutput) ToWindowsVirtualMachineWinrmLi
 	return o
 }
 
+// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
 func (o WindowsVirtualMachineWinrmListenerOutput) CertificateUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineWinrmListener) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineWinrmListener) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
 }
 
 func (o WindowsVirtualMachineWinrmListenerOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func (v WindowsVirtualMachineWinrmListener) string { return v.Protocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WindowsVirtualMachineWinrmListener) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-type WindowsVirtualMachineWinrmListenerArrayOutput struct { *pulumi.OutputState}
+type WindowsVirtualMachineWinrmListenerArrayOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineWinrmListenerArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]WindowsVirtualMachineWinrmListener)(nil)).Elem()
@@ -12981,7 +14008,7 @@ func (o WindowsVirtualMachineWinrmListenerArrayOutput) ToWindowsVirtualMachineWi
 }
 
 func (o WindowsVirtualMachineWinrmListenerArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineWinrmListenerOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) WindowsVirtualMachineWinrmListener {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineWinrmListener {
 		return vs[0].([]WindowsVirtualMachineWinrmListener)[vs[1].(int)]
 	}).(WindowsVirtualMachineWinrmListenerOutput)
 }
@@ -13052,7 +14079,7 @@ func (i GetImageDataDiskArray) ToGetImageDataDiskArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageDataDiskArrayOutput)
 }
 
-type GetImageDataDiskOutput struct { *pulumi.OutputState }
+type GetImageDataDiskOutput struct{ *pulumi.OutputState }
 
 func (GetImageDataDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetImageDataDisk)(nil)).Elem()
@@ -13068,30 +14095,30 @@ func (o GetImageDataDiskOutput) ToGetImageDataDiskOutputWithContext(ctx context.
 
 // the URI in Azure storage of the blob used to create the image.
 func (o GetImageDataDiskOutput) BlobUri() pulumi.StringOutput {
-	return o.ApplyT(func (v GetImageDataDisk) string { return v.BlobUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetImageDataDisk) string { return v.BlobUri }).(pulumi.StringOutput)
 }
 
 // the caching mode for the Data Disk, such as `ReadWrite`, `ReadOnly`, or `None`.
 func (o GetImageDataDiskOutput) Caching() pulumi.StringOutput {
-	return o.ApplyT(func (v GetImageDataDisk) string { return v.Caching }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetImageDataDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
 // the logical unit number of the data disk.
 func (o GetImageDataDiskOutput) Lun() pulumi.IntOutput {
-	return o.ApplyT(func (v GetImageDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetImageDataDisk) int { return v.Lun }).(pulumi.IntOutput)
 }
 
 // the ID of the Managed Disk used as the Data Disk Image.
 func (o GetImageDataDiskOutput) ManagedDiskId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetImageDataDisk) string { return v.ManagedDiskId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetImageDataDisk) string { return v.ManagedDiskId }).(pulumi.StringOutput)
 }
 
 // the size of this Data Disk in GB.
 func (o GetImageDataDiskOutput) SizeGb() pulumi.IntOutput {
-	return o.ApplyT(func (v GetImageDataDisk) int { return v.SizeGb }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetImageDataDisk) int { return v.SizeGb }).(pulumi.IntOutput)
 }
 
-type GetImageDataDiskArrayOutput struct { *pulumi.OutputState}
+type GetImageDataDiskArrayOutput struct{ *pulumi.OutputState }
 
 func (GetImageDataDiskArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetImageDataDisk)(nil)).Elem()
@@ -13106,7 +14133,7 @@ func (o GetImageDataDiskArrayOutput) ToGetImageDataDiskArrayOutputWithContext(ct
 }
 
 func (o GetImageDataDiskArrayOutput) Index(i pulumi.IntInput) GetImageDataDiskOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetImageDataDisk {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageDataDisk {
 		return vs[0].([]GetImageDataDisk)[vs[1].(int)]
 	}).(GetImageDataDiskOutput)
 }
@@ -13181,7 +14208,7 @@ func (i GetImageOsDiskArray) ToGetImageOsDiskArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageOsDiskArrayOutput)
 }
 
-type GetImageOsDiskOutput struct { *pulumi.OutputState }
+type GetImageOsDiskOutput struct{ *pulumi.OutputState }
 
 func (GetImageOsDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetImageOsDisk)(nil)).Elem()
@@ -13197,35 +14224,35 @@ func (o GetImageOsDiskOutput) ToGetImageOsDiskOutputWithContext(ctx context.Cont
 
 // the URI in Azure storage of the blob used to create the image.
 func (o GetImageOsDiskOutput) BlobUri() pulumi.StringOutput {
-	return o.ApplyT(func (v GetImageOsDisk) string { return v.BlobUri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetImageOsDisk) string { return v.BlobUri }).(pulumi.StringOutput)
 }
 
 // the caching mode for the Data Disk, such as `ReadWrite`, `ReadOnly`, or `None`.
 func (o GetImageOsDiskOutput) Caching() pulumi.StringOutput {
-	return o.ApplyT(func (v GetImageOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetImageOsDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
 // the ID of the Managed Disk used as the Data Disk Image.
 func (o GetImageOsDiskOutput) ManagedDiskId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetImageOsDisk) string { return v.ManagedDiskId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetImageOsDisk) string { return v.ManagedDiskId }).(pulumi.StringOutput)
 }
 
 // the State of the OS used in the Image, such as `Generalized`.
 func (o GetImageOsDiskOutput) OsState() pulumi.StringOutput {
-	return o.ApplyT(func (v GetImageOsDisk) string { return v.OsState }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetImageOsDisk) string { return v.OsState }).(pulumi.StringOutput)
 }
 
 // the type of Operating System used on the OS Disk. such as `Linux` or `Windows`.
 func (o GetImageOsDiskOutput) OsType() pulumi.StringOutput {
-	return o.ApplyT(func (v GetImageOsDisk) string { return v.OsType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetImageOsDisk) string { return v.OsType }).(pulumi.StringOutput)
 }
 
 // the size of this Data Disk in GB.
 func (o GetImageOsDiskOutput) SizeGb() pulumi.IntOutput {
-	return o.ApplyT(func (v GetImageOsDisk) int { return v.SizeGb }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetImageOsDisk) int { return v.SizeGb }).(pulumi.IntOutput)
 }
 
-type GetImageOsDiskArrayOutput struct { *pulumi.OutputState}
+type GetImageOsDiskArrayOutput struct{ *pulumi.OutputState }
 
 func (GetImageOsDiskArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetImageOsDisk)(nil)).Elem()
@@ -13240,7 +14267,7 @@ func (o GetImageOsDiskArrayOutput) ToGetImageOsDiskArrayOutputWithContext(ctx co
 }
 
 func (o GetImageOsDiskArrayOutput) Index(i pulumi.IntInput) GetImageOsDiskOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetImageOsDisk {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageOsDisk {
 		return vs[0].([]GetImageOsDisk)[vs[1].(int)]
 	}).(GetImageOsDiskOutput)
 }
@@ -13303,7 +14330,7 @@ func (i GetSharedImageIdentifierArray) ToGetSharedImageIdentifierArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetSharedImageIdentifierArrayOutput)
 }
 
-type GetSharedImageIdentifierOutput struct { *pulumi.OutputState }
+type GetSharedImageIdentifierOutput struct{ *pulumi.OutputState }
 
 func (GetSharedImageIdentifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetSharedImageIdentifier)(nil)).Elem()
@@ -13319,20 +14346,20 @@ func (o GetSharedImageIdentifierOutput) ToGetSharedImageIdentifierOutputWithCont
 
 // The Offer Name for this Shared Image.
 func (o GetSharedImageIdentifierOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSharedImageIdentifier) string { return v.Offer }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSharedImageIdentifier) string { return v.Offer }).(pulumi.StringOutput)
 }
 
 // The Publisher Name for this Gallery Image.
 func (o GetSharedImageIdentifierOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSharedImageIdentifier) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSharedImageIdentifier) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 // The Name of the SKU for this Gallery Image.
 func (o GetSharedImageIdentifierOutput) Sku() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSharedImageIdentifier) string { return v.Sku }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSharedImageIdentifier) string { return v.Sku }).(pulumi.StringOutput)
 }
 
-type GetSharedImageIdentifierArrayOutput struct { *pulumi.OutputState}
+type GetSharedImageIdentifierArrayOutput struct{ *pulumi.OutputState }
 
 func (GetSharedImageIdentifierArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetSharedImageIdentifier)(nil)).Elem()
@@ -13347,7 +14374,7 @@ func (o GetSharedImageIdentifierArrayOutput) ToGetSharedImageIdentifierArrayOutp
 }
 
 func (o GetSharedImageIdentifierArrayOutput) Index(i pulumi.IntInput) GetSharedImageIdentifierOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetSharedImageIdentifier {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSharedImageIdentifier {
 		return vs[0].([]GetSharedImageIdentifier)[vs[1].(int)]
 	}).(GetSharedImageIdentifierOutput)
 }
@@ -13410,7 +14437,7 @@ func (i GetSharedImageVersionTargetRegionArray) ToGetSharedImageVersionTargetReg
 	return pulumi.ToOutputWithContext(ctx, i).(GetSharedImageVersionTargetRegionArrayOutput)
 }
 
-type GetSharedImageVersionTargetRegionOutput struct { *pulumi.OutputState }
+type GetSharedImageVersionTargetRegionOutput struct{ *pulumi.OutputState }
 
 func (GetSharedImageVersionTargetRegionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetSharedImageVersionTargetRegion)(nil)).Elem()
@@ -13426,20 +14453,20 @@ func (o GetSharedImageVersionTargetRegionOutput) ToGetSharedImageVersionTargetRe
 
 // The name of the Image Version.
 func (o GetSharedImageVersionTargetRegionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSharedImageVersionTargetRegion) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSharedImageVersionTargetRegion) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The number of replicas of the Image Version to be created per region.
 func (o GetSharedImageVersionTargetRegionOutput) RegionalReplicaCount() pulumi.IntOutput {
-	return o.ApplyT(func (v GetSharedImageVersionTargetRegion) int { return v.RegionalReplicaCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetSharedImageVersionTargetRegion) int { return v.RegionalReplicaCount }).(pulumi.IntOutput)
 }
 
 // The storage account type for the image version.
 func (o GetSharedImageVersionTargetRegionOutput) StorageAccountType() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSharedImageVersionTargetRegion) string { return v.StorageAccountType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSharedImageVersionTargetRegion) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
-type GetSharedImageVersionTargetRegionArrayOutput struct { *pulumi.OutputState}
+type GetSharedImageVersionTargetRegionArrayOutput struct{ *pulumi.OutputState }
 
 func (GetSharedImageVersionTargetRegionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetSharedImageVersionTargetRegion)(nil)).Elem()
@@ -13454,15 +14481,15 @@ func (o GetSharedImageVersionTargetRegionArrayOutput) ToGetSharedImageVersionTar
 }
 
 func (o GetSharedImageVersionTargetRegionArrayOutput) Index(i pulumi.IntInput) GetSharedImageVersionTargetRegionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetSharedImageVersionTargetRegion {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSharedImageVersionTargetRegion {
 		return vs[0].([]GetSharedImageVersionTargetRegion)[vs[1].(int)]
 	}).(GetSharedImageVersionTargetRegionOutput)
 }
 
 type GetSnapshotEncryptionSetting struct {
 	DiskEncryptionKeys []GetSnapshotEncryptionSettingDiskEncryptionKey `pulumi:"diskEncryptionKeys"`
-	Enabled bool `pulumi:"enabled"`
-	KeyEncryptionKeys []GetSnapshotEncryptionSettingKeyEncryptionKey `pulumi:"keyEncryptionKeys"`
+	Enabled            bool                                            `pulumi:"enabled"`
+	KeyEncryptionKeys  []GetSnapshotEncryptionSettingKeyEncryptionKey  `pulumi:"keyEncryptionKeys"`
 }
 
 type GetSnapshotEncryptionSettingInput interface {
@@ -13474,8 +14501,8 @@ type GetSnapshotEncryptionSettingInput interface {
 
 type GetSnapshotEncryptionSettingArgs struct {
 	DiskEncryptionKeys GetSnapshotEncryptionSettingDiskEncryptionKeyArrayInput `pulumi:"diskEncryptionKeys"`
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	KeyEncryptionKeys GetSnapshotEncryptionSettingKeyEncryptionKeyArrayInput `pulumi:"keyEncryptionKeys"`
+	Enabled            pulumi.BoolInput                                        `pulumi:"enabled"`
+	KeyEncryptionKeys  GetSnapshotEncryptionSettingKeyEncryptionKeyArrayInput  `pulumi:"keyEncryptionKeys"`
 }
 
 func (GetSnapshotEncryptionSettingArgs) ElementType() reflect.Type {
@@ -13511,7 +14538,7 @@ func (i GetSnapshotEncryptionSettingArray) ToGetSnapshotEncryptionSettingArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotEncryptionSettingArrayOutput)
 }
 
-type GetSnapshotEncryptionSettingOutput struct { *pulumi.OutputState }
+type GetSnapshotEncryptionSettingOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotEncryptionSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetSnapshotEncryptionSetting)(nil)).Elem()
@@ -13526,18 +14553,22 @@ func (o GetSnapshotEncryptionSettingOutput) ToGetSnapshotEncryptionSettingOutput
 }
 
 func (o GetSnapshotEncryptionSettingOutput) DiskEncryptionKeys() GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput {
-	return o.ApplyT(func (v GetSnapshotEncryptionSetting) []GetSnapshotEncryptionSettingDiskEncryptionKey { return v.DiskEncryptionKeys }).(GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput)
+	return o.ApplyT(func(v GetSnapshotEncryptionSetting) []GetSnapshotEncryptionSettingDiskEncryptionKey {
+		return v.DiskEncryptionKeys
+	}).(GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput)
 }
 
 func (o GetSnapshotEncryptionSettingOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetSnapshotEncryptionSetting) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetSnapshotEncryptionSetting) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o GetSnapshotEncryptionSettingOutput) KeyEncryptionKeys() GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput {
-	return o.ApplyT(func (v GetSnapshotEncryptionSetting) []GetSnapshotEncryptionSettingKeyEncryptionKey { return v.KeyEncryptionKeys }).(GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput)
+	return o.ApplyT(func(v GetSnapshotEncryptionSetting) []GetSnapshotEncryptionSettingKeyEncryptionKey {
+		return v.KeyEncryptionKeys
+	}).(GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput)
 }
 
-type GetSnapshotEncryptionSettingArrayOutput struct { *pulumi.OutputState}
+type GetSnapshotEncryptionSettingArrayOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotEncryptionSettingArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetSnapshotEncryptionSetting)(nil)).Elem()
@@ -13552,13 +14583,13 @@ func (o GetSnapshotEncryptionSettingArrayOutput) ToGetSnapshotEncryptionSettingA
 }
 
 func (o GetSnapshotEncryptionSettingArrayOutput) Index(i pulumi.IntInput) GetSnapshotEncryptionSettingOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetSnapshotEncryptionSetting {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSnapshotEncryptionSetting {
 		return vs[0].([]GetSnapshotEncryptionSetting)[vs[1].(int)]
 	}).(GetSnapshotEncryptionSettingOutput)
 }
 
 type GetSnapshotEncryptionSettingDiskEncryptionKey struct {
-	SecretUrl string `pulumi:"secretUrl"`
+	SecretUrl     string `pulumi:"secretUrl"`
 	SourceVaultId string `pulumi:"sourceVaultId"`
 }
 
@@ -13570,7 +14601,7 @@ type GetSnapshotEncryptionSettingDiskEncryptionKeyInput interface {
 }
 
 type GetSnapshotEncryptionSettingDiskEncryptionKeyArgs struct {
-	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	SecretUrl     pulumi.StringInput `pulumi:"secretUrl"`
 	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
 }
 
@@ -13607,7 +14638,7 @@ func (i GetSnapshotEncryptionSettingDiskEncryptionKeyArray) ToGetSnapshotEncrypt
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput)
 }
 
-type GetSnapshotEncryptionSettingDiskEncryptionKeyOutput struct { *pulumi.OutputState }
+type GetSnapshotEncryptionSettingDiskEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotEncryptionSettingDiskEncryptionKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetSnapshotEncryptionSettingDiskEncryptionKey)(nil)).Elem()
@@ -13622,14 +14653,14 @@ func (o GetSnapshotEncryptionSettingDiskEncryptionKeyOutput) ToGetSnapshotEncryp
 }
 
 func (o GetSnapshotEncryptionSettingDiskEncryptionKeyOutput) SecretUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSnapshotEncryptionSettingDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSnapshotEncryptionSettingDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
 }
 
 func (o GetSnapshotEncryptionSettingDiskEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSnapshotEncryptionSettingDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSnapshotEncryptionSettingDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
-type GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput struct { *pulumi.OutputState}
+type GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetSnapshotEncryptionSettingDiskEncryptionKey)(nil)).Elem()
@@ -13644,13 +14675,13 @@ func (o GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput) ToGetSnapshotE
 }
 
 func (o GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput) Index(i pulumi.IntInput) GetSnapshotEncryptionSettingDiskEncryptionKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetSnapshotEncryptionSettingDiskEncryptionKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSnapshotEncryptionSettingDiskEncryptionKey {
 		return vs[0].([]GetSnapshotEncryptionSettingDiskEncryptionKey)[vs[1].(int)]
 	}).(GetSnapshotEncryptionSettingDiskEncryptionKeyOutput)
 }
 
 type GetSnapshotEncryptionSettingKeyEncryptionKey struct {
-	KeyUrl string `pulumi:"keyUrl"`
+	KeyUrl        string `pulumi:"keyUrl"`
 	SourceVaultId string `pulumi:"sourceVaultId"`
 }
 
@@ -13662,7 +14693,7 @@ type GetSnapshotEncryptionSettingKeyEncryptionKeyInput interface {
 }
 
 type GetSnapshotEncryptionSettingKeyEncryptionKeyArgs struct {
-	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	KeyUrl        pulumi.StringInput `pulumi:"keyUrl"`
 	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
 }
 
@@ -13699,7 +14730,7 @@ func (i GetSnapshotEncryptionSettingKeyEncryptionKeyArray) ToGetSnapshotEncrypti
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput)
 }
 
-type GetSnapshotEncryptionSettingKeyEncryptionKeyOutput struct { *pulumi.OutputState }
+type GetSnapshotEncryptionSettingKeyEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotEncryptionSettingKeyEncryptionKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetSnapshotEncryptionSettingKeyEncryptionKey)(nil)).Elem()
@@ -13714,14 +14745,14 @@ func (o GetSnapshotEncryptionSettingKeyEncryptionKeyOutput) ToGetSnapshotEncrypt
 }
 
 func (o GetSnapshotEncryptionSettingKeyEncryptionKeyOutput) KeyUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSnapshotEncryptionSettingKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSnapshotEncryptionSettingKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
 func (o GetSnapshotEncryptionSettingKeyEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSnapshotEncryptionSettingKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSnapshotEncryptionSettingKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
 }
 
-type GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput struct { *pulumi.OutputState}
+type GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetSnapshotEncryptionSettingKeyEncryptionKey)(nil)).Elem()
@@ -13736,7 +14767,7 @@ func (o GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput) ToGetSnapshotEn
 }
 
 func (o GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput) Index(i pulumi.IntInput) GetSnapshotEncryptionSettingKeyEncryptionKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetSnapshotEncryptionSettingKeyEncryptionKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSnapshotEncryptionSettingKeyEncryptionKey {
 		return vs[0].([]GetSnapshotEncryptionSettingKeyEncryptionKey)[vs[1].(int)]
 	}).(GetSnapshotEncryptionSettingKeyEncryptionKeyOutput)
 }

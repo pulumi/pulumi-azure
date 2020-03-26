@@ -32,25 +32,23 @@ type LookupSharedImageVersionArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getSharedImageVersion.
 type LookupSharedImageVersionResult struct {
 	// Is this Image Version excluded from the `latest` filter?
-	ExcludeFromLatest bool `pulumi:"excludeFromLatest"`
-	GalleryName string `pulumi:"galleryName"`
+	ExcludeFromLatest bool   `pulumi:"excludeFromLatest"`
+	GalleryName       string `pulumi:"galleryName"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id        string `pulumi:"id"`
 	ImageName string `pulumi:"imageName"`
 	// The supported Azure location where the Shared Image Gallery exists.
 	Location string `pulumi:"location"`
 	// The ID of the Managed Image which was the source of this Shared Image Version.
 	ManagedImageId string `pulumi:"managedImageId"`
 	// The Azure Region in which this Image Version exists.
-	Name string `pulumi:"name"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
 	// One or more `targetRegion` blocks as documented below.
 	TargetRegions []GetSharedImageVersionTargetRegion `pulumi:"targetRegions"`
 }
-

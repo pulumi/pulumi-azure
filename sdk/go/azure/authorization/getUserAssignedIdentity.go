@@ -28,7 +28,6 @@ type LookupUserAssignedIdentityArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getUserAssignedIdentity.
 type LookupUserAssignedIdentityResult struct {
 	// The Client ID of the User Assigned Identity.
@@ -37,11 +36,10 @@ type LookupUserAssignedIdentityResult struct {
 	Id string `pulumi:"id"`
 	// The Azure location where the User Assigned Identity exists.
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// The Service Principal ID of the User Assigned Identity.
-	PrincipalId string `pulumi:"principalId"`
+	PrincipalId       string `pulumi:"principalId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the User Assigned Identity.
 	Tags map[string]string `pulumi:"tags"`
 }
-

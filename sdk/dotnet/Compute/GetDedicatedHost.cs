@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Compute
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dedicated_host.html.markdown.
         /// </summary>
+        [Obsolete("Use GetDedicatedHost.InvokeAsync() instead")]
         public static Task<GetDedicatedHostResult> GetDedicatedHost(GetDedicatedHostArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure:compute/getDedicatedHost:getDedicatedHost", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetDedicatedHost
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Dedicated Host.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dedicated_host.html.markdown.
+        /// </summary>
+        public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure:compute/getDedicatedHost:getDedicatedHost", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

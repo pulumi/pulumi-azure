@@ -259,20 +259,29 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IotHubDpsLinkedHubsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The weight applied to the IoT Hub. Defaults to 0.
+        /// </summary>
         [Input("allocationWeight")]
         public Input<int>? AllocationWeight { get; set; }
 
         [Input("applyAllocationPolicy")]
         public Input<bool>? ApplyAllocationPolicy { get; set; }
 
+        /// <summary>
+        /// The connection string to connect to the IoT Hub. Changing this forces a new resource.
+        /// </summary>
         [Input("connectionString", required: true)]
         public Input<string> ConnectionString { get; set; } = null!;
 
+        /// <summary>
+        /// The IoT Hub hostname.
+        /// </summary>
         [Input("hostname")]
         public Input<string>? Hostname { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+        /// The location of the IoT hub. Changing this forces a new resource.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
@@ -284,20 +293,29 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IotHubDpsLinkedHubsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The weight applied to the IoT Hub. Defaults to 0.
+        /// </summary>
         [Input("allocationWeight")]
         public Input<int>? AllocationWeight { get; set; }
 
         [Input("applyAllocationPolicy")]
         public Input<bool>? ApplyAllocationPolicy { get; set; }
 
+        /// <summary>
+        /// The connection string to connect to the IoT Hub. Changing this forces a new resource.
+        /// </summary>
         [Input("connectionString", required: true)]
         public Input<string> ConnectionString { get; set; } = null!;
 
+        /// <summary>
+        /// The IoT Hub hostname.
+        /// </summary>
         [Input("hostname")]
         public Input<string>? Hostname { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+        /// The location of the IoT hub. Changing this forces a new resource.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
@@ -309,11 +327,14 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IotHubDpsSkuArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of provisioned IoT Device Provisioning Service units.
+        /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+        /// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -325,11 +346,14 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IotHubDpsSkuGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of provisioned IoT Device Provisioning Service units.
+        /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+        /// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -346,12 +370,21 @@ namespace Pulumi.Azure.Iot
     [OutputType]
     public sealed class IotHubDpsLinkedHubs
     {
+        /// <summary>
+        /// The weight applied to the IoT Hub. Defaults to 0.
+        /// </summary>
         public readonly int? AllocationWeight;
         public readonly bool? ApplyAllocationPolicy;
+        /// <summary>
+        /// The connection string to connect to the IoT Hub. Changing this forces a new resource.
+        /// </summary>
         public readonly string ConnectionString;
+        /// <summary>
+        /// The IoT Hub hostname.
+        /// </summary>
         public readonly string Hostname;
         /// <summary>
-        /// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+        /// The location of the IoT hub. Changing this forces a new resource.
         /// </summary>
         public readonly string Location;
 
@@ -374,9 +407,12 @@ namespace Pulumi.Azure.Iot
     [OutputType]
     public sealed class IotHubDpsSku
     {
+        /// <summary>
+        /// The number of provisioned IoT Device Provisioning Service units.
+        /// </summary>
         public readonly int Capacity;
         /// <summary>
-        /// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+        /// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
         /// </summary>
         public readonly string Name;
 

@@ -196,4 +196,3 @@ type StormClusterArgs struct {
 func (StormClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stormClusterArgs)(nil)).Elem()
 }
-

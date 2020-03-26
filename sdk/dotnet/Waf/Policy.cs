@@ -211,11 +211,18 @@ namespace Pulumi.Azure.Waf
 
     public sealed class PolicyCustomRulesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Type of Actions
+        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
         [Input("matchConditions", required: true)]
         private InputList<PolicyCustomRulesMatchConditionsArgs>? _matchConditions;
+
+        /// <summary>
+        /// One or more `match_condition` block defined below.
+        /// </summary>
         public InputList<PolicyCustomRulesMatchConditionsArgs> MatchConditions
         {
             get => _matchConditions ?? (_matchConditions = new InputList<PolicyCustomRulesMatchConditionsArgs>());
@@ -228,9 +235,15 @@ namespace Pulumi.Azure.Waf
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
+        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
+        /// <summary>
+        /// Describes the type of rule
+        /// </summary>
         [Input("ruleType", required: true)]
         public Input<string> RuleType { get; set; } = null!;
 
@@ -241,11 +254,18 @@ namespace Pulumi.Azure.Waf
 
     public sealed class PolicyCustomRulesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Type of Actions
+        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
         [Input("matchConditions", required: true)]
         private InputList<PolicyCustomRulesMatchConditionsGetArgs>? _matchConditions;
+
+        /// <summary>
+        /// One or more `match_condition` block defined below.
+        /// </summary>
         public InputList<PolicyCustomRulesMatchConditionsGetArgs> MatchConditions
         {
             get => _matchConditions ?? (_matchConditions = new InputList<PolicyCustomRulesMatchConditionsGetArgs>());
@@ -258,9 +278,15 @@ namespace Pulumi.Azure.Waf
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
+        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
+        /// <summary>
+        /// Describes the type of rule
+        /// </summary>
         [Input("ruleType", required: true)]
         public Input<string> RuleType { get; set; } = null!;
 
@@ -273,6 +299,10 @@ namespace Pulumi.Azure.Waf
     {
         [Input("matchValues", required: true)]
         private InputList<string>? _matchValues;
+
+        /// <summary>
+        /// Match value
+        /// </summary>
         public InputList<string> MatchValues
         {
             get => _matchValues ?? (_matchValues = new InputList<string>());
@@ -281,15 +311,25 @@ namespace Pulumi.Azure.Waf
 
         [Input("matchVariables", required: true)]
         private InputList<PolicyCustomRulesMatchConditionsMatchVariablesArgs>? _matchVariables;
+
+        /// <summary>
+        /// One or more `match_variable` block defined below.
+        /// </summary>
         public InputList<PolicyCustomRulesMatchConditionsMatchVariablesArgs> MatchVariables
         {
             get => _matchVariables ?? (_matchVariables = new InputList<PolicyCustomRulesMatchConditionsMatchVariablesArgs>());
             set => _matchVariables = value;
         }
 
+        /// <summary>
+        /// Describes if this is negate condition or not
+        /// </summary>
         [Input("negationCondition")]
         public Input<bool>? NegationCondition { get; set; }
 
+        /// <summary>
+        /// Describes operator to be matched
+        /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
@@ -302,6 +342,10 @@ namespace Pulumi.Azure.Waf
     {
         [Input("matchValues", required: true)]
         private InputList<string>? _matchValues;
+
+        /// <summary>
+        /// Match value
+        /// </summary>
         public InputList<string> MatchValues
         {
             get => _matchValues ?? (_matchValues = new InputList<string>());
@@ -310,15 +354,25 @@ namespace Pulumi.Azure.Waf
 
         [Input("matchVariables", required: true)]
         private InputList<PolicyCustomRulesMatchConditionsMatchVariablesGetArgs>? _matchVariables;
+
+        /// <summary>
+        /// One or more `match_variable` block defined below.
+        /// </summary>
         public InputList<PolicyCustomRulesMatchConditionsMatchVariablesGetArgs> MatchVariables
         {
             get => _matchVariables ?? (_matchVariables = new InputList<PolicyCustomRulesMatchConditionsMatchVariablesGetArgs>());
             set => _matchVariables = value;
         }
 
+        /// <summary>
+        /// Describes if this is negate condition or not
+        /// </summary>
         [Input("negationCondition")]
         public Input<bool>? NegationCondition { get; set; }
 
+        /// <summary>
+        /// Describes operator to be matched
+        /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
@@ -329,9 +383,15 @@ namespace Pulumi.Azure.Waf
 
     public sealed class PolicyCustomRulesMatchConditionsMatchVariablesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes field of the matchVariable collection
+        /// </summary>
         [Input("selector")]
         public Input<string>? Selector { get; set; }
 
+        /// <summary>
+        /// The name of the Match Variable
+        /// </summary>
         [Input("variableName", required: true)]
         public Input<string> VariableName { get; set; } = null!;
 
@@ -342,9 +402,15 @@ namespace Pulumi.Azure.Waf
 
     public sealed class PolicyCustomRulesMatchConditionsMatchVariablesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes field of the matchVariable collection
+        /// </summary>
         [Input("selector")]
         public Input<string>? Selector { get; set; }
 
+        /// <summary>
+        /// The name of the Match Variable
+        /// </summary>
         [Input("variableName", required: true)]
         public Input<string> VariableName { get; set; } = null!;
 
@@ -355,9 +421,15 @@ namespace Pulumi.Azure.Waf
 
     public sealed class PolicyPolicySettingsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
+        /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 
@@ -368,9 +440,15 @@ namespace Pulumi.Azure.Waf
 
     public sealed class PolicyPolicySettingsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
+        /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 
@@ -386,13 +464,25 @@ namespace Pulumi.Azure.Waf
     [OutputType]
     public sealed class PolicyCustomRules
     {
+        /// <summary>
+        /// Type of Actions
+        /// </summary>
         public readonly string Action;
+        /// <summary>
+        /// One or more `match_condition` block defined below.
+        /// </summary>
         public readonly ImmutableArray<PolicyCustomRulesMatchConditions> MatchConditions;
         /// <summary>
         /// The name of the policy. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
+        /// </summary>
         public readonly int Priority;
+        /// <summary>
+        /// Describes the type of rule
+        /// </summary>
         public readonly string RuleType;
 
         [OutputConstructor]
@@ -414,9 +504,21 @@ namespace Pulumi.Azure.Waf
     [OutputType]
     public sealed class PolicyCustomRulesMatchConditions
     {
+        /// <summary>
+        /// Match value
+        /// </summary>
         public readonly ImmutableArray<string> MatchValues;
+        /// <summary>
+        /// One or more `match_variable` block defined below.
+        /// </summary>
         public readonly ImmutableArray<PolicyCustomRulesMatchConditionsMatchVariables> MatchVariables;
+        /// <summary>
+        /// Describes if this is negate condition or not
+        /// </summary>
         public readonly bool? NegationCondition;
+        /// <summary>
+        /// Describes operator to be matched
+        /// </summary>
         public readonly string Operator;
 
         [OutputConstructor]
@@ -436,7 +538,13 @@ namespace Pulumi.Azure.Waf
     [OutputType]
     public sealed class PolicyCustomRulesMatchConditionsMatchVariables
     {
+        /// <summary>
+        /// Describes field of the matchVariable collection
+        /// </summary>
         public readonly string? Selector;
+        /// <summary>
+        /// The name of the Match Variable
+        /// </summary>
         public readonly string VariableName;
 
         [OutputConstructor]
@@ -452,7 +560,13 @@ namespace Pulumi.Azure.Waf
     [OutputType]
     public sealed class PolicyPolicySettings
     {
+        /// <summary>
+        /// Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
+        /// </summary>
         public readonly string? Mode;
 
         [OutputConstructor]

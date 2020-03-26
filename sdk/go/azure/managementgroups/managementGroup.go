@@ -105,4 +105,3 @@ type ManagementGroupArgs struct {
 func (ManagementGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managementGroupArgs)(nil)).Elem()
 }
-

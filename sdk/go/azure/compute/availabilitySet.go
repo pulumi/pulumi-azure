@@ -149,4 +149,3 @@ type AvailabilitySetArgs struct {
 func (AvailabilitySetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*availabilitySetArgs)(nil)).Elem()
 }
-

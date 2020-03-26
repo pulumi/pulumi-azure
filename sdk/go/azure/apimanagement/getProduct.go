@@ -30,7 +30,6 @@ type LookupProductArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getProduct.
 type LookupProductResult struct {
 	ApiManagementName string `pulumi:"apiManagementName"`
@@ -41,10 +40,10 @@ type LookupProductResult struct {
 	// The Display Name for this API Management Product.
 	DisplayName string `pulumi:"displayName"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id        string `pulumi:"id"`
 	ProductId string `pulumi:"productId"`
 	// Is this Product Published?
-	Published bool `pulumi:"published"`
+	Published         bool   `pulumi:"published"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Is a Subscription required to access API's included in this Product?
 	SubscriptionRequired bool `pulumi:"subscriptionRequired"`
@@ -53,4 +52,3 @@ type LookupProductResult struct {
 	// Any Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
 	Terms string `pulumi:"terms"`
 }
-

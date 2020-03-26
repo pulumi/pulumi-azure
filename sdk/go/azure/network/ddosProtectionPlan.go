@@ -117,4 +117,3 @@ type DdosProtectionPlanArgs struct {
 func (DdosProtectionPlanArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ddosProtectionPlanArgs)(nil)).Elem()
 }
-

@@ -16,7 +16,18 @@ namespace Pulumi.Azure.ApiManagement
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_user.html.markdown.
         /// </summary>
+        [Obsolete("Use GetUser.InvokeAsync() instead")]
         public static Task<GetUserResult> GetUser(GetUserArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure:apimanagement/getUser:getUser", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetUser
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing API Management User.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_user.html.markdown.
+        /// </summary>
+        public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure:apimanagement/getUser:getUser", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

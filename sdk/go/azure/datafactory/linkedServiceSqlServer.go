@@ -165,4 +165,3 @@ type LinkedServiceSqlServerArgs struct {
 func (LinkedServiceSqlServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceSqlServerArgs)(nil)).Elem()
 }
-

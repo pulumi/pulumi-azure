@@ -34,15 +34,15 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
     """
     One or more `rule` blocks as defined below.
 
-      * `description` (`str`)
-      * `fqdnTags` (`list`)
-      * `name` (`str`) - Specifies the name of the Application Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
-      * `protocols` (`list`)
-        * `port` (`float`)
-        * `type` (`str`)
+      * `description` (`str`) - Specifies a description for the rule.
+      * `fqdnTags` (`list`) - A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics` and `WindowsUpdate`
+      * `name` (`str`) - Specifies the name of the rule.
+      * `protocols` (`list`) - One or more `protocol` blocks as defined below.
+        * `port` (`float`) - Specify a port for the connection.
+        * `type` (`str`) - Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
 
-      * `sourceAddresses` (`list`)
-      * `targetFqdns` (`list`)
+      * `sourceAddresses` (`list`) - A list of source IP addresses and/or IP ranges.
+      * `targetFqdns` (`list`) - A list of FQDNs.
     """
     def __init__(__self__, resource_name, opts=None, action=None, azure_firewall_name=None, name=None, priority=None, resource_group_name=None, rules=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -61,15 +61,15 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
 
         The **rules** object supports the following:
 
-          * `description` (`pulumi.Input[str]`)
-          * `fqdnTags` (`pulumi.Input[list]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Application Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
-          * `protocols` (`pulumi.Input[list]`)
-            * `port` (`pulumi.Input[float]`)
-            * `type` (`pulumi.Input[str]`)
+          * `description` (`pulumi.Input[str]`) - Specifies a description for the rule.
+          * `fqdnTags` (`pulumi.Input[list]`) - A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics` and `WindowsUpdate`
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the rule.
+          * `protocols` (`pulumi.Input[list]`) - One or more `protocol` blocks as defined below.
+            * `port` (`pulumi.Input[float]`) - Specify a port for the connection.
+            * `type` (`pulumi.Input[str]`) - Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
 
-          * `sourceAddresses` (`pulumi.Input[list]`)
-          * `targetFqdns` (`pulumi.Input[list]`)
+          * `sourceAddresses` (`pulumi.Input[list]`) - A list of source IP addresses and/or IP ranges.
+          * `targetFqdns` (`pulumi.Input[list]`) - A list of FQDNs.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -128,15 +128,15 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
 
         The **rules** object supports the following:
 
-          * `description` (`pulumi.Input[str]`)
-          * `fqdnTags` (`pulumi.Input[list]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Application Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
-          * `protocols` (`pulumi.Input[list]`)
-            * `port` (`pulumi.Input[float]`)
-            * `type` (`pulumi.Input[str]`)
+          * `description` (`pulumi.Input[str]`) - Specifies a description for the rule.
+          * `fqdnTags` (`pulumi.Input[list]`) - A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics` and `WindowsUpdate`
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the rule.
+          * `protocols` (`pulumi.Input[list]`) - One or more `protocol` blocks as defined below.
+            * `port` (`pulumi.Input[float]`) - Specify a port for the connection.
+            * `type` (`pulumi.Input[str]`) - Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
 
-          * `sourceAddresses` (`pulumi.Input[list]`)
-          * `targetFqdns` (`pulumi.Input[list]`)
+          * `sourceAddresses` (`pulumi.Input[list]`) - A list of source IP addresses and/or IP ranges.
+          * `targetFqdns` (`pulumi.Input[list]`) - A list of FQDNs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

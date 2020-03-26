@@ -186,4 +186,3 @@ type ElasticPoolArgs struct {
 func (ElasticPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*elasticPoolArgs)(nil)).Elem()
 }
-

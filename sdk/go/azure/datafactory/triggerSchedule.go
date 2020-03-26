@@ -175,4 +175,3 @@ type TriggerScheduleArgs struct {
 func (TriggerScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerScheduleArgs)(nil)).Elem()
 }
-

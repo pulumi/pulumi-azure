@@ -138,4 +138,3 @@ type AssignmentArgs struct {
 func (AssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*assignmentArgs)(nil)).Elem()
 }
-

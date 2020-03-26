@@ -28,15 +28,14 @@ type GetGatewayConnectionArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getGatewayConnection.
 type GetGatewayConnectionResult struct {
 	// The authorization key associated with the
 	// Express Route Circuit. This field is present only if the type is an
 	// ExpressRoute connection.
-	AuthorizationKey string `pulumi:"authorizationKey"`
-	ConnectionProtocol string `pulumi:"connectionProtocol"`
-	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
+	AuthorizationKey       string `pulumi:"authorizationKey"`
+	ConnectionProtocol     string `pulumi:"connectionProtocol"`
+	EgressBytesTransferred int    `pulumi:"egressBytesTransferred"`
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection.
 	EnableBgp bool `pulumi:"enableBgp"`
@@ -46,25 +45,25 @@ type GetGatewayConnectionResult struct {
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding. This is only valid for ExpressRoute connections.
 	ExpressRouteGatewayBypass bool `pulumi:"expressRouteGatewayBypass"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	IngressBytesTransferred int `pulumi:"ingressBytesTransferred"`
-	IpsecPolicies []GetGatewayConnectionIpsecPolicy `pulumi:"ipsecPolicies"`
+	Id                      string                            `pulumi:"id"`
+	IngressBytesTransferred int                               `pulumi:"ingressBytesTransferred"`
+	IpsecPolicies           []GetGatewayConnectionIpsecPolicy `pulumi:"ipsecPolicies"`
 	// The ID of the local network gateway
 	// when a Site-to-Site connection (i.e. when `type` is `IPsec`).
 	LocalNetworkGatewayId string `pulumi:"localNetworkGatewayId"`
 	// The location/region where the connection is
 	// located.
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// The ID of the peer virtual
 	// network gateway when a VNet-to-VNet connection (i.e. when `type`
 	// is `Vnet2Vnet`).
 	PeerVirtualNetworkGatewayId string `pulumi:"peerVirtualNetworkGatewayId"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	ResourceGuid string `pulumi:"resourceGuid"`
+	ResourceGroupName           string `pulumi:"resourceGroupName"`
+	ResourceGuid                string `pulumi:"resourceGuid"`
 	// The routing weight.
 	RoutingWeight int `pulumi:"routingWeight"`
-	// The shared IPSec key. 
+	// The shared IPSec key.
 	SharedKey string `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -79,4 +78,3 @@ type GetGatewayConnectionResult struct {
 	// in which the connection is created.
 	VirtualNetworkGatewayId string `pulumi:"virtualNetworkGatewayId"`
 }
-

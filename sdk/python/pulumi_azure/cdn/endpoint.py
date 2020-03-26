@@ -18,11 +18,14 @@ class Endpoint(pulumi.CustomResource):
     """
     A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
 
-      * `action` (`str`)
-      * `countryCodes` (`list`)
-      * `relative_path` (`str`)
+      * `action` (`str`) - The Action of the Geo Filter. Possible values include `Allow` and `Block`.
+      * `countryCodes` (`list`) - A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
+      * `relative_path` (`str`) - The relative path applicable to geo filter.
     """
     host_name: pulumi.Output[str]
+    """
+    A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+    """
     is_compression_enabled: pulumi.Output[bool]
     """
     Indicates whether compression is to be enabled. Defaults to false.
@@ -41,7 +44,7 @@ class Endpoint(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+    The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
     """
     optimization_type: pulumi.Output[str]
     """
@@ -59,10 +62,10 @@ class Endpoint(pulumi.CustomResource):
     """
     The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
 
-      * `host_name` (`str`)
-      * `httpPort` (`float`)
-      * `httpsPort` (`float`)
-      * `name` (`str`) - Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+      * `host_name` (`str`) - A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+      * `httpPort` (`float`) - The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
+      * `httpsPort` (`float`) - The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
+      * `name` (`str`) - The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
     """
     probe_path: pulumi.Output[str]
     """
@@ -98,7 +101,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] is_http_allowed: Defaults to `true`.
         :param pulumi.Input[bool] is_https_allowed: Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
         :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
         :param pulumi.Input[str] origin_path: The path used at for origin requests.
@@ -111,16 +114,16 @@ class Endpoint(pulumi.CustomResource):
 
         The **geo_filters** object supports the following:
 
-          * `action` (`pulumi.Input[str]`)
-          * `countryCodes` (`pulumi.Input[list]`)
-          * `relative_path` (`pulumi.Input[str]`)
+          * `action` (`pulumi.Input[str]`) - The Action of the Geo Filter. Possible values include `Allow` and `Block`.
+          * `countryCodes` (`pulumi.Input[list]`) - A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
+          * `relative_path` (`pulumi.Input[str]`) - The relative path applicable to geo filter.
 
         The **origins** object supports the following:
 
-          * `host_name` (`pulumi.Input[str]`)
-          * `httpPort` (`pulumi.Input[float]`)
-          * `httpsPort` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+          * `host_name` (`pulumi.Input[str]`) - A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+          * `httpPort` (`pulumi.Input[float]`) - The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
+          * `httpsPort` (`pulumi.Input[float]`) - The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
+          * `name` (`pulumi.Input[str]`) - The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -179,11 +182,12 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
         :param pulumi.Input[list] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+        :param pulumi.Input[str] host_name: A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] is_compression_enabled: Indicates whether compression is to be enabled. Defaults to false.
         :param pulumi.Input[bool] is_http_allowed: Defaults to `true`.
         :param pulumi.Input[bool] is_https_allowed: Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
         :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
         :param pulumi.Input[str] origin_path: The path used at for origin requests.
@@ -196,16 +200,16 @@ class Endpoint(pulumi.CustomResource):
 
         The **geo_filters** object supports the following:
 
-          * `action` (`pulumi.Input[str]`)
-          * `countryCodes` (`pulumi.Input[list]`)
-          * `relative_path` (`pulumi.Input[str]`)
+          * `action` (`pulumi.Input[str]`) - The Action of the Geo Filter. Possible values include `Allow` and `Block`.
+          * `countryCodes` (`pulumi.Input[list]`) - A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
+          * `relative_path` (`pulumi.Input[str]`) - The relative path applicable to geo filter.
 
         The **origins** object supports the following:
 
-          * `host_name` (`pulumi.Input[str]`)
-          * `httpPort` (`pulumi.Input[float]`)
-          * `httpsPort` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+          * `host_name` (`pulumi.Input[str]`) - A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+          * `httpPort` (`pulumi.Input[float]`) - The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
+          * `httpsPort` (`pulumi.Input[float]`) - The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
+          * `name` (`pulumi.Input[str]`) - The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

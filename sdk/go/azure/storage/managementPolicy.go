@@ -89,4 +89,3 @@ type ManagementPolicyArgs struct {
 func (ManagementPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managementPolicyArgs)(nil)).Elem()
 }
-

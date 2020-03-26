@@ -112,4 +112,3 @@ type SqlDatabaseArgs struct {
 func (SqlDatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlDatabaseArgs)(nil)).Elem()
 }
-

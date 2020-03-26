@@ -289,12 +289,21 @@ namespace Pulumi.Azure.Compute
 
     public sealed class SharedImageIdentifierArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Offer Name for this Shared Image.
+        /// </summary>
         [Input("offer", required: true)]
         public Input<string> Offer { get; set; } = null!;
 
+        /// <summary>
+        /// The Publisher Name for this Gallery Image.
+        /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 
+        /// <summary>
+        /// The Name of the SKU for this Gallery Image.
+        /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
 
@@ -305,12 +314,21 @@ namespace Pulumi.Azure.Compute
 
     public sealed class SharedImageIdentifierGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Offer Name for this Shared Image.
+        /// </summary>
         [Input("offer", required: true)]
         public Input<string> Offer { get; set; } = null!;
 
+        /// <summary>
+        /// The Publisher Name for this Gallery Image.
+        /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 
+        /// <summary>
+        /// The Name of the SKU for this Gallery Image.
+        /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
 
@@ -326,8 +344,17 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class SharedImageIdentifier
     {
+        /// <summary>
+        /// The Offer Name for this Shared Image.
+        /// </summary>
         public readonly string Offer;
+        /// <summary>
+        /// The Publisher Name for this Gallery Image.
+        /// </summary>
         public readonly string Publisher;
+        /// <summary>
+        /// The Name of the SKU for this Gallery Image.
+        /// </summary>
         public readonly string Sku;
 
         [OutputConstructor]

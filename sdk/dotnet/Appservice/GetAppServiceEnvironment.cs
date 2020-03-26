@@ -16,7 +16,18 @@ namespace Pulumi.Azure.AppService
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_environment.html.markdown.
         /// </summary>
+        [Obsolete("Use GetAppServiceEnvironment.InvokeAsync() instead")]
         public static Task<GetAppServiceEnvironmentResult> GetAppServiceEnvironment(GetAppServiceEnvironmentArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentResult>("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetAppServiceEnvironment
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing App Service Environment
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_environment.html.markdown.
+        /// </summary>
+        public static Task<GetAppServiceEnvironmentResult> InvokeAsync(GetAppServiceEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentResult>("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

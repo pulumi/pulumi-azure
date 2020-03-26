@@ -28,7 +28,6 @@ type LookupServerArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getServer.
 type LookupServerResult struct {
 	// The administrator username of the PostgreSQL Server.
@@ -38,12 +37,11 @@ type LookupServerResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The location of the Resource Group in which the PostgreSQL Server exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The version of the PostgreSQL Server.
 	Version string `pulumi:"version"`
 }
-

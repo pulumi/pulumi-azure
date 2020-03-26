@@ -14,17 +14,17 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
     """
     A `catalog_info` block as defined below.
 
-      * `administrator_login` (`str`)
-      * `administratorPassword` (`str`)
-      * `pricing_tier` (`str`)
-      * `serverEndpoint` (`str`)
+      * `administrator_login` (`str`) - Administrator login name for the SQL Server.
+      * `administratorPassword` (`str`) - Administrator login password for the SQL Server.
+      * `pricing_tier` (`str`) - Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+      * `serverEndpoint` (`str`) - The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
     """
     custom_setup_script: pulumi.Output[dict]
     """
     A `custom_setup_script` block as defined below.
 
-      * `blobContainerUri` (`str`)
-      * `sasToken` (`str`)
+      * `blobContainerUri` (`str`) - The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+      * `sasToken` (`str`) - A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
     """
     data_factory_name: pulumi.Output[str]
     """
@@ -67,8 +67,8 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
     """
     A `vnet_integration` block as defined below.
 
-      * `subnetName` (`str`)
-      * `vnetId` (`str`)
+      * `subnetName` (`str`) - Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
+      * `vnetId` (`str`) - ID of the virtual network to which the nodes of the Managed Integration Runtime will be added.
     """
     def __init__(__self__, resource_name, opts=None, catalog_info=None, custom_setup_script=None, data_factory_name=None, description=None, edition=None, license_type=None, location=None, max_parallel_executions_per_node=None, name=None, node_size=None, number_of_nodes=None, resource_group_name=None, vnet_integration=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -93,20 +93,20 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
 
         The **catalog_info** object supports the following:
 
-          * `administrator_login` (`pulumi.Input[str]`)
-          * `administratorPassword` (`pulumi.Input[str]`)
-          * `pricing_tier` (`pulumi.Input[str]`)
-          * `serverEndpoint` (`pulumi.Input[str]`)
+          * `administrator_login` (`pulumi.Input[str]`) - Administrator login name for the SQL Server.
+          * `administratorPassword` (`pulumi.Input[str]`) - Administrator login password for the SQL Server.
+          * `pricing_tier` (`pulumi.Input[str]`) - Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+          * `serverEndpoint` (`pulumi.Input[str]`) - The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
 
         The **custom_setup_script** object supports the following:
 
-          * `blobContainerUri` (`pulumi.Input[str]`)
-          * `sasToken` (`pulumi.Input[str]`)
+          * `blobContainerUri` (`pulumi.Input[str]`) - The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+          * `sasToken` (`pulumi.Input[str]`) - A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 
         The **vnet_integration** object supports the following:
 
-          * `subnetName` (`pulumi.Input[str]`)
-          * `vnetId` (`pulumi.Input[str]`)
+          * `subnetName` (`pulumi.Input[str]`) - Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
+          * `vnetId` (`pulumi.Input[str]`) - ID of the virtual network to which the nodes of the Managed Integration Runtime will be added.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -174,20 +174,20 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
 
         The **catalog_info** object supports the following:
 
-          * `administrator_login` (`pulumi.Input[str]`)
-          * `administratorPassword` (`pulumi.Input[str]`)
-          * `pricing_tier` (`pulumi.Input[str]`)
-          * `serverEndpoint` (`pulumi.Input[str]`)
+          * `administrator_login` (`pulumi.Input[str]`) - Administrator login name for the SQL Server.
+          * `administratorPassword` (`pulumi.Input[str]`) - Administrator login password for the SQL Server.
+          * `pricing_tier` (`pulumi.Input[str]`) - Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+          * `serverEndpoint` (`pulumi.Input[str]`) - The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
 
         The **custom_setup_script** object supports the following:
 
-          * `blobContainerUri` (`pulumi.Input[str]`)
-          * `sasToken` (`pulumi.Input[str]`)
+          * `blobContainerUri` (`pulumi.Input[str]`) - The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+          * `sasToken` (`pulumi.Input[str]`) - A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 
         The **vnet_integration** object supports the following:
 
-          * `subnetName` (`pulumi.Input[str]`)
-          * `vnetId` (`pulumi.Input[str]`)
+          * `subnetName` (`pulumi.Input[str]`) - Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
+          * `vnetId` (`pulumi.Input[str]`) - ID of the virtual network to which the nodes of the Managed Integration Runtime will be added.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

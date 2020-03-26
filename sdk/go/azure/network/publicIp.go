@@ -214,4 +214,3 @@ type PublicIpArgs struct {
 func (PublicIpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicIpArgs)(nil)).Elem()
 }
-

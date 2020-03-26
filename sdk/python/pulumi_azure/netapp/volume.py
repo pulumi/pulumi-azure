@@ -18,14 +18,14 @@ class Volume(pulumi.CustomResource):
     """
     One or more `export_policy_rule` block defined below.
 
-      * `allowedClients` (`list`)
-      * `cifsEnabled` (`bool`)
-      * `nfsv3Enabled` (`bool`)
-      * `nfsv4Enabled` (`bool`)
-      * `protocolsEnabled` (`str`)
-      * `ruleIndex` (`float`)
-      * `unixReadOnly` (`bool`)
-      * `unixReadWrite` (`bool`)
+      * `allowedClients` (`list`) - A list of allowed clients IPv4 addresses.
+      * `cifsEnabled` (`bool`) - Is the CIFS protocol allowed?
+      * `nfsv3Enabled` (`bool`) - Is the NFSv3 protocol allowed?
+      * `nfsv4Enabled` (`bool`) - Is the NFSv4 protocol allowed?
+      * `protocolsEnabled` (`str`) - A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+      * `ruleIndex` (`float`) - The index number of the rule.
+      * `unixReadOnly` (`bool`) - Is the file system on unix read only?
+      * `unixReadWrite` (`bool`) - Is the file system on unix read and write?
     """
     location: pulumi.Output[str]
     """
@@ -90,14 +90,14 @@ class Volume(pulumi.CustomResource):
 
         The **export_policy_rules** object supports the following:
 
-          * `allowedClients` (`pulumi.Input[list]`)
-          * `cifsEnabled` (`pulumi.Input[bool]`)
-          * `nfsv3Enabled` (`pulumi.Input[bool]`)
-          * `nfsv4Enabled` (`pulumi.Input[bool]`)
-          * `protocolsEnabled` (`pulumi.Input[str]`)
-          * `ruleIndex` (`pulumi.Input[float]`)
-          * `unixReadOnly` (`pulumi.Input[bool]`)
-          * `unixReadWrite` (`pulumi.Input[bool]`)
+          * `allowedClients` (`pulumi.Input[list]`) - A list of allowed clients IPv4 addresses.
+          * `cifsEnabled` (`pulumi.Input[bool]`) - Is the CIFS protocol allowed?
+          * `nfsv3Enabled` (`pulumi.Input[bool]`) - Is the NFSv3 protocol allowed?
+          * `nfsv4Enabled` (`pulumi.Input[bool]`) - Is the NFSv4 protocol allowed?
+          * `protocolsEnabled` (`pulumi.Input[str]`) - A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+          * `ruleIndex` (`pulumi.Input[float]`) - The index number of the rule.
+          * `unixReadOnly` (`pulumi.Input[bool]`) - Is the file system on unix read only?
+          * `unixReadWrite` (`pulumi.Input[bool]`) - Is the file system on unix read and write?
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -172,14 +172,14 @@ class Volume(pulumi.CustomResource):
 
         The **export_policy_rules** object supports the following:
 
-          * `allowedClients` (`pulumi.Input[list]`)
-          * `cifsEnabled` (`pulumi.Input[bool]`)
-          * `nfsv3Enabled` (`pulumi.Input[bool]`)
-          * `nfsv4Enabled` (`pulumi.Input[bool]`)
-          * `protocolsEnabled` (`pulumi.Input[str]`)
-          * `ruleIndex` (`pulumi.Input[float]`)
-          * `unixReadOnly` (`pulumi.Input[bool]`)
-          * `unixReadWrite` (`pulumi.Input[bool]`)
+          * `allowedClients` (`pulumi.Input[list]`) - A list of allowed clients IPv4 addresses.
+          * `cifsEnabled` (`pulumi.Input[bool]`) - Is the CIFS protocol allowed?
+          * `nfsv3Enabled` (`pulumi.Input[bool]`) - Is the NFSv3 protocol allowed?
+          * `nfsv4Enabled` (`pulumi.Input[bool]`) - Is the NFSv4 protocol allowed?
+          * `protocolsEnabled` (`pulumi.Input[str]`) - A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+          * `ruleIndex` (`pulumi.Input[float]`) - The index number of the rule.
+          * `unixReadOnly` (`pulumi.Input[bool]`) - Is the file system on unix read only?
+          * `unixReadWrite` (`pulumi.Input[bool]`) - Is the file system on unix read and write?
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

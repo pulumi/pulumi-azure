@@ -181,4 +181,3 @@ type EventhubDataConnectionArgs struct {
 func (EventhubDataConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventhubDataConnectionArgs)(nil)).Elem()
 }
-

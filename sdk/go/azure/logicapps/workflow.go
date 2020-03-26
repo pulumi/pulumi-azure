@@ -169,4 +169,3 @@ type WorkflowArgs struct {
 func (WorkflowArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workflowArgs)(nil)).Elem()
 }
-

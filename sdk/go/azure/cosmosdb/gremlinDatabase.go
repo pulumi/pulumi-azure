@@ -112,4 +112,3 @@ type GremlinDatabaseArgs struct {
 func (GremlinDatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gremlinDatabaseArgs)(nil)).Elem()
 }
-

@@ -112,4 +112,3 @@ type CassandraKeyspaceArgs struct {
 func (CassandraKeyspaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cassandraKeyspaceArgs)(nil)).Elem()
 }
-

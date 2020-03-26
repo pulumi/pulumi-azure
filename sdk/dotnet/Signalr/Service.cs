@@ -339,6 +339,10 @@ namespace Pulumi.Azure.SignalR
     {
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
+
+        /// <summary>
+        /// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        /// </summary>
         public InputList<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
@@ -354,6 +358,10 @@ namespace Pulumi.Azure.SignalR
     {
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
+
+        /// <summary>
+        /// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        /// </summary>
         public InputList<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
@@ -367,9 +375,15 @@ namespace Pulumi.Azure.SignalR
 
     public sealed class ServiceFeaturesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
+        /// </summary>
         [Input("flag", required: true)]
         public Input<string> Flag { get; set; } = null!;
 
+        /// <summary>
+        /// A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -380,9 +394,15 @@ namespace Pulumi.Azure.SignalR
 
     public sealed class ServiceFeaturesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
+        /// </summary>
         [Input("flag", required: true)]
         public Input<string> Flag { get; set; } = null!;
 
+        /// <summary>
+        /// A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -393,11 +413,14 @@ namespace Pulumi.Azure.SignalR
 
     public sealed class ServiceSkuArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+        /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
 
         /// <summary>
-        /// The name of the SignalR service. Changing this forces a new resource to be created.
+        /// Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -409,11 +432,14 @@ namespace Pulumi.Azure.SignalR
 
     public sealed class ServiceSkuGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+        /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
 
         /// <summary>
-        /// The name of the SignalR service. Changing this forces a new resource to be created.
+        /// Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -430,6 +456,9 @@ namespace Pulumi.Azure.SignalR
     [OutputType]
     public sealed class ServiceCors
     {
+        /// <summary>
+        /// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedOrigins;
 
         [OutputConstructor]
@@ -442,7 +471,13 @@ namespace Pulumi.Azure.SignalR
     [OutputType]
     public sealed class ServiceFeatures
     {
+        /// <summary>
+        /// The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
+        /// </summary>
         public readonly string Flag;
+        /// <summary>
+        /// A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]
@@ -458,9 +493,12 @@ namespace Pulumi.Azure.SignalR
     [OutputType]
     public sealed class ServiceSku
     {
+        /// <summary>
+        /// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+        /// </summary>
         public readonly int Capacity;
         /// <summary>
-        /// The name of the SignalR service. Changing this forces a new resource to be created.
+        /// Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
         /// </summary>
         public readonly string Name;
 

@@ -28,17 +28,16 @@ type LookupExpressRouteCircuitArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getExpressRouteCircuit.
 type LookupExpressRouteCircuitResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure location where the ExpressRoute circuit exists
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// A `peerings` block for the ExpressRoute circuit as documented below
-	Peerings []GetExpressRouteCircuitPeeringType `pulumi:"peerings"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Peerings          []GetExpressRouteCircuitPeeringType `pulumi:"peerings"`
+	ResourceGroupName string                              `pulumi:"resourceGroupName"`
 	// The string needed by the service provider to provision the ExpressRoute circuit.
 	ServiceKey string `pulumi:"serviceKey"`
 	// A `serviceProviderProperties` block for the ExpressRoute circuit as documented below
@@ -48,4 +47,3 @@ type LookupExpressRouteCircuitResult struct {
 	// A `sku` block for the ExpressRoute circuit as documented below.
 	Sku GetExpressRouteCircuitSku `pulumi:"sku"`
 }
-

@@ -28,8 +28,8 @@ type Rule struct {
 	// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp pulumi.BoolPtrOutput `pulumi:"enableFloatingIp"`
 	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
-	EnableTcpReset pulumi.BoolPtrOutput `pulumi:"enableTcpReset"`
-	FrontendIpConfigurationId pulumi.StringOutput `pulumi:"frontendIpConfigurationId"`
+	EnableTcpReset            pulumi.BoolPtrOutput `pulumi:"enableTcpReset"`
+	FrontendIpConfigurationId pulumi.StringOutput  `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration to which the rule is associated.
 	FrontendIpConfigurationName pulumi.StringOutput `pulumi:"frontendIpConfigurationName"`
 	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
@@ -105,7 +105,7 @@ type ruleState struct {
 	// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp *bool `pulumi:"enableFloatingIp"`
 	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
-	EnableTcpReset *bool `pulumi:"enableTcpReset"`
+	EnableTcpReset            *bool   `pulumi:"enableTcpReset"`
 	FrontendIpConfigurationId *string `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration to which the rule is associated.
 	FrontendIpConfigurationName *string `pulumi:"frontendIpConfigurationName"`
@@ -137,7 +137,7 @@ type RuleState struct {
 	// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp pulumi.BoolPtrInput
 	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
-	EnableTcpReset pulumi.BoolPtrInput
+	EnableTcpReset            pulumi.BoolPtrInput
 	FrontendIpConfigurationId pulumi.StringPtrInput
 	// The name of the frontend IP configuration to which the rule is associated.
 	FrontendIpConfigurationName pulumi.StringPtrInput
@@ -229,4 +229,3 @@ type RuleArgs struct {
 func (RuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleArgs)(nil)).Elem()
 }
-

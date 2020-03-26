@@ -115,4 +115,3 @@ type ProtectionContainerArgs struct {
 func (ProtectionContainerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectionContainerArgs)(nil)).Elem()
 }
-

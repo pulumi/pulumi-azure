@@ -107,4 +107,3 @@ type ActiveSlotArgs struct {
 func (ActiveSlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*activeSlotArgs)(nil)).Elem()
 }
-

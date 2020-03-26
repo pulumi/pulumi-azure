@@ -202,4 +202,3 @@ type RServerClusterArgs struct {
 func (RServerClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rserverClusterArgs)(nil)).Elem()
 }
-

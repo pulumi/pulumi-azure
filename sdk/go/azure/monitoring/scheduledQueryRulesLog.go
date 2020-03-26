@@ -25,13 +25,13 @@ type ScheduledQueryRulesLog struct {
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether this scheduled query rule is enabled.  Default is `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the dimension.
+	Enabled  pulumi.BoolPtrOutput `pulumi:"enabled"`
+	Location pulumi.StringOutput  `pulumi:"location"`
+	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the scheduled query rule instance.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	ResourceGroupName pulumi.StringOutput    `pulumi:"resourceGroupName"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewScheduledQueryRulesLog registers a new resource with the given unique name, arguments, and options.
@@ -79,13 +79,13 @@ type scheduledQueryRulesLogState struct {
 	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
 	// Whether this scheduled query rule is enabled.  Default is `true`.
-	Enabled *bool `pulumi:"enabled"`
+	Enabled  *bool   `pulumi:"enabled"`
 	Location *string `pulumi:"location"`
-	// Name of the dimension.
+	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the scheduled query rule instance.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	Tags map[string]string `pulumi:"tags"`
+	ResourceGroupName *string           `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 type ScheduledQueryRulesLogState struct {
@@ -97,13 +97,13 @@ type ScheduledQueryRulesLogState struct {
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrInput
 	// Whether this scheduled query rule is enabled.  Default is `true`.
-	Enabled pulumi.BoolPtrInput
+	Enabled  pulumi.BoolPtrInput
 	Location pulumi.StringPtrInput
-	// Name of the dimension.
+	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the scheduled query rule instance.
 	ResourceGroupName pulumi.StringPtrInput
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ScheduledQueryRulesLogState) ElementType() reflect.Type {
@@ -119,13 +119,13 @@ type scheduledQueryRulesLogArgs struct {
 	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
 	// Whether this scheduled query rule is enabled.  Default is `true`.
-	Enabled *bool `pulumi:"enabled"`
+	Enabled  *bool   `pulumi:"enabled"`
 	Location *string `pulumi:"location"`
-	// Name of the dimension.
+	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the scheduled query rule instance.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Tags map[string]string `pulumi:"tags"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ScheduledQueryRulesLog resource.
@@ -138,16 +138,15 @@ type ScheduledQueryRulesLogArgs struct {
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrInput
 	// Whether this scheduled query rule is enabled.  Default is `true`.
-	Enabled pulumi.BoolPtrInput
+	Enabled  pulumi.BoolPtrInput
 	Location pulumi.StringPtrInput
-	// Name of the dimension.
+	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the scheduled query rule instance.
 	ResourceGroupName pulumi.StringInput
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ScheduledQueryRulesLogArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledQueryRulesLogArgs)(nil)).Elem()
 }
-

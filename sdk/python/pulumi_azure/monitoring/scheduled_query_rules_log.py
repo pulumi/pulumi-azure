@@ -37,7 +37,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
     location: pulumi.Output[str]
     name: pulumi.Output[str]
     """
-    Name of the dimension.
+    The name of the scheduled query rule. Changing this forces a new resource to be created.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -56,7 +56,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         :param pulumi.Input[str] data_source_id: The resource uri over which log search query is to be run.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled.  Default is `true`.
-        :param pulumi.Input[str] name: Name of the dimension.
+        :param pulumi.Input[str] name: The name of the scheduled query rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance.
 
         The **criteria** object supports the following:
@@ -119,7 +119,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         :param pulumi.Input[str] data_source_id: The resource uri over which log search query is to be run.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled.  Default is `true`.
-        :param pulumi.Input[str] name: Name of the dimension.
+        :param pulumi.Input[str] name: The name of the scheduled query rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance.
 
         The **criteria** object supports the following:

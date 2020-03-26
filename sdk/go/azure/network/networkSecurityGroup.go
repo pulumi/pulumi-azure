@@ -123,4 +123,3 @@ type NetworkSecurityGroupArgs struct {
 func (NetworkSecurityGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkSecurityGroupArgs)(nil)).Elem()
 }
-

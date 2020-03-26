@@ -122,4 +122,3 @@ type HybridConnectionArgs struct {
 func (HybridConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hybridConnectionArgs)(nil)).Elem()
 }
-

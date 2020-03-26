@@ -144,4 +144,3 @@ type CaaRecordArgs struct {
 func (CaaRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*caaRecordArgs)(nil)).Elem()
 }
-

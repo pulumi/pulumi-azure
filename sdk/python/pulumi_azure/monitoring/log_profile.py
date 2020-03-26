@@ -27,8 +27,8 @@ class LogProfile(pulumi.CustomResource):
     """
     A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
 
-      * `days` (`float`)
-      * `enabled` (`bool`)
+      * `days` (`float`) - The number of days for the retention policy. Defaults to 0.
+      * `enabled` (`bool`) - A boolean value to indicate whether the retention policy is enabled.
     """
     servicebus_rule_id: pulumi.Output[str]
     """
@@ -58,8 +58,8 @@ class LogProfile(pulumi.CustomResource):
 
         The **retention_policy** object supports the following:
 
-          * `days` (`pulumi.Input[float]`)
-          * `enabled` (`pulumi.Input[bool]`)
+          * `days` (`pulumi.Input[float]`) - The number of days for the retention policy. Defaults to 0.
+          * `enabled` (`pulumi.Input[bool]`) - A boolean value to indicate whether the retention policy is enabled.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -115,8 +115,8 @@ class LogProfile(pulumi.CustomResource):
 
         The **retention_policy** object supports the following:
 
-          * `days` (`pulumi.Input[float]`)
-          * `enabled` (`pulumi.Input[bool]`)
+          * `days` (`pulumi.Input[float]`) - The number of days for the retention policy. Defaults to 0.
+          * `enabled` (`pulumi.Input[bool]`) - A boolean value to indicate whether the retention policy is enabled.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

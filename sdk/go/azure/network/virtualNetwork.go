@@ -187,4 +187,3 @@ type VirtualNetworkArgs struct {
 func (VirtualNetworkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkArgs)(nil)).Elem()
 }
-

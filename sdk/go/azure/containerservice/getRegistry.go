@@ -28,7 +28,6 @@ type LookupRegistryArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getRegistry.
 type LookupRegistryResult struct {
 	// Is the Administrator account enabled for this Container Registry.
@@ -42,8 +41,8 @@ type LookupRegistryResult struct {
 	// The Azure Region in which this Container Registry exists.
 	Location string `pulumi:"location"`
 	// The URL that can be used to log into the container registry.
-	LoginServer string `pulumi:"loginServer"`
-	Name string `pulumi:"name"`
+	LoginServer       string `pulumi:"loginServer"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of this Container Registry, such as `Basic`.
 	Sku string `pulumi:"sku"`
@@ -52,4 +51,3 @@ type LookupRegistryResult struct {
 	// A map of tags assigned to the Container Registry.
 	Tags map[string]string `pulumi:"tags"`
 }
-

@@ -229,9 +229,15 @@ namespace Pulumi.Azure.TrafficManager
 
     public sealed class ProfileDnsConfigArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("relativeName", required: true)]
         public Input<string> RelativeName { get; set; } = null!;
 
+        /// <summary>
+        /// The TTL value of the Profile used by Local DNS resolvers and clients.
+        /// </summary>
         [Input("ttl", required: true)]
         public Input<int> Ttl { get; set; } = null!;
 
@@ -242,9 +248,15 @@ namespace Pulumi.Azure.TrafficManager
 
     public sealed class ProfileDnsConfigGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("relativeName", required: true)]
         public Input<string> RelativeName { get; set; } = null!;
 
+        /// <summary>
+        /// The TTL value of the Profile used by Local DNS resolvers and clients.
+        /// </summary>
         [Input("ttl", required: true)]
         public Input<int> Ttl { get; set; } = null!;
 
@@ -257,27 +269,49 @@ namespace Pulumi.Azure.TrafficManager
     {
         [Input("expectedStatusCodeRanges")]
         private InputList<string>? _expectedStatusCodeRanges;
+
+        /// <summary>
+        /// A list of status code ranges in the format of `100-101`.
+        /// </summary>
         public InputList<string> ExpectedStatusCodeRanges
         {
             get => _expectedStatusCodeRanges ?? (_expectedStatusCodeRanges = new InputList<string>());
             set => _expectedStatusCodeRanges = value;
         }
 
+        /// <summary>
+        /// The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
+        /// </summary>
         [Input("intervalInSeconds")]
         public Input<int>? IntervalInSeconds { get; set; }
 
+        /// <summary>
+        /// The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
+        /// <summary>
+        /// The port number used by the monitoring checks.
+        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
+        /// <summary>
+        /// The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
+        /// <summary>
+        /// The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
+        /// </summary>
         [Input("timeoutInSeconds")]
         public Input<int>? TimeoutInSeconds { get; set; }
 
+        /// <summary>
+        /// The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
+        /// </summary>
         [Input("toleratedNumberOfFailures")]
         public Input<int>? ToleratedNumberOfFailures { get; set; }
 
@@ -290,27 +324,49 @@ namespace Pulumi.Azure.TrafficManager
     {
         [Input("expectedStatusCodeRanges")]
         private InputList<string>? _expectedStatusCodeRanges;
+
+        /// <summary>
+        /// A list of status code ranges in the format of `100-101`.
+        /// </summary>
         public InputList<string> ExpectedStatusCodeRanges
         {
             get => _expectedStatusCodeRanges ?? (_expectedStatusCodeRanges = new InputList<string>());
             set => _expectedStatusCodeRanges = value;
         }
 
+        /// <summary>
+        /// The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
+        /// </summary>
         [Input("intervalInSeconds")]
         public Input<int>? IntervalInSeconds { get; set; }
 
+        /// <summary>
+        /// The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
+        /// <summary>
+        /// The port number used by the monitoring checks.
+        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
+        /// <summary>
+        /// The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
+        /// <summary>
+        /// The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
+        /// </summary>
         [Input("timeoutInSeconds")]
         public Input<int>? TimeoutInSeconds { get; set; }
 
+        /// <summary>
+        /// The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
+        /// </summary>
         [Input("toleratedNumberOfFailures")]
         public Input<int>? ToleratedNumberOfFailures { get; set; }
 
@@ -326,7 +382,13 @@ namespace Pulumi.Azure.TrafficManager
     [OutputType]
     public sealed class ProfileDnsConfig
     {
+        /// <summary>
+        /// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string RelativeName;
+        /// <summary>
+        /// The TTL value of the Profile used by Local DNS resolvers and clients.
+        /// </summary>
         public readonly int Ttl;
 
         [OutputConstructor]
@@ -342,12 +404,33 @@ namespace Pulumi.Azure.TrafficManager
     [OutputType]
     public sealed class ProfileMonitorConfig
     {
+        /// <summary>
+        /// A list of status code ranges in the format of `100-101`.
+        /// </summary>
         public readonly ImmutableArray<string> ExpectedStatusCodeRanges;
+        /// <summary>
+        /// The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
+        /// </summary>
         public readonly int? IntervalInSeconds;
+        /// <summary>
+        /// The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
+        /// </summary>
         public readonly string? Path;
+        /// <summary>
+        /// The port number used by the monitoring checks.
+        /// </summary>
         public readonly int Port;
+        /// <summary>
+        /// The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
+        /// </summary>
         public readonly string Protocol;
+        /// <summary>
+        /// The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
+        /// </summary>
         public readonly int? TimeoutInSeconds;
+        /// <summary>
+        /// The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
+        /// </summary>
         public readonly int? ToleratedNumberOfFailures;
 
         [OutputConstructor]

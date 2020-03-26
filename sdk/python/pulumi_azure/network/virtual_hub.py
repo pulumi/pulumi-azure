@@ -30,8 +30,8 @@ class VirtualHub(pulumi.CustomResource):
     """
     One or more `route` blocks as defined below.
 
-      * `addressPrefixes` (`list`)
-      * `nextHopIpAddress` (`str`)
+      * `addressPrefixes` (`list`) - A list of Address Prefixes.
+      * `nextHopIpAddress` (`str`) - The IP Address that Packets should be forwarded to as the Next Hop.
     """
     tags: pulumi.Output[dict]
     """
@@ -59,8 +59,8 @@ class VirtualHub(pulumi.CustomResource):
 
         The **routes** object supports the following:
 
-          * `addressPrefixes` (`pulumi.Input[list]`)
-          * `nextHopIpAddress` (`pulumi.Input[str]`)
+          * `addressPrefixes` (`pulumi.Input[list]`) - A list of Address Prefixes.
+          * `nextHopIpAddress` (`pulumi.Input[str]`) - The IP Address that Packets should be forwarded to as the Next Hop.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -117,8 +117,8 @@ class VirtualHub(pulumi.CustomResource):
 
         The **routes** object supports the following:
 
-          * `addressPrefixes` (`pulumi.Input[list]`)
-          * `nextHopIpAddress` (`pulumi.Input[str]`)
+          * `addressPrefixes` (`pulumi.Input[list]`) - A list of Address Prefixes.
+          * `nextHopIpAddress` (`pulumi.Input[str]`) - The IP Address that Packets should be forwarded to as the Next Hop.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

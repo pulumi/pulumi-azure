@@ -33,7 +33,7 @@ class LoadBalancer(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    Specifies the name of the frontend ip configuration.
+    Specifies the name of the Load Balancer.
     """
     private_ip_address: pulumi.Output[str]
     """
@@ -65,7 +65,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] frontend_ip_configurations: One or multiple `frontend_ip_configuration` blocks as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Load Balancer should be created.
-        :param pulumi.Input[str] name: Specifies the name of the frontend ip configuration.
+        :param pulumi.Input[str] name: Specifies the name of the Load Balancer.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Load Balancer.
         :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
@@ -129,7 +129,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] frontend_ip_configurations: One or multiple `frontend_ip_configuration` blocks as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Load Balancer should be created.
-        :param pulumi.Input[str] name: Specifies the name of the frontend ip configuration.
+        :param pulumi.Input[str] name: Specifies the name of the Load Balancer.
         :param pulumi.Input[str] private_ip_address: Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
         :param pulumi.Input[list] private_ip_addresses: The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Load Balancer.

@@ -205,6 +205,9 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class LoggerApplicationInsightsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The instrumentation key used to push data to Application Insights.
+        /// </summary>
         [Input("instrumentationKey", required: true)]
         public Input<string> InstrumentationKey { get; set; } = null!;
 
@@ -215,6 +218,9 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class LoggerApplicationInsightsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The instrumentation key used to push data to Application Insights.
+        /// </summary>
         [Input("instrumentationKey", required: true)]
         public Input<string> InstrumentationKey { get; set; } = null!;
 
@@ -225,11 +231,14 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class LoggerEventhubArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The connection string of an EventHub Namespace.
+        /// </summary>
         [Input("connectionString", required: true)]
         public Input<string> ConnectionString { get; set; } = null!;
 
         /// <summary>
-        /// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+        /// The name of an EventHub.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -241,11 +250,14 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class LoggerEventhubGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The connection string of an EventHub Namespace.
+        /// </summary>
         [Input("connectionString", required: true)]
         public Input<string> ConnectionString { get; set; } = null!;
 
         /// <summary>
-        /// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+        /// The name of an EventHub.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -262,6 +274,9 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class LoggerApplicationInsights
     {
+        /// <summary>
+        /// The instrumentation key used to push data to Application Insights.
+        /// </summary>
         public readonly string InstrumentationKey;
 
         [OutputConstructor]
@@ -274,9 +289,12 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class LoggerEventhub
     {
+        /// <summary>
+        /// The connection string of an EventHub Namespace.
+        /// </summary>
         public readonly string ConnectionString;
         /// <summary>
-        /// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+        /// The name of an EventHub.
         /// </summary>
         public readonly string Name;
 

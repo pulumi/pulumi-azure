@@ -165,4 +165,3 @@ type StoreArgs struct {
 func (StoreArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storeArgs)(nil)).Elem()
 }
-

@@ -16,7 +16,18 @@ namespace Pulumi.Azure.NetApp
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_volume.html.markdown.
         /// </summary>
+        [Obsolete("Use GetVolume.InvokeAsync() instead")]
         public static Task<GetVolumeResult> GetVolume(GetVolumeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetVolume
+    {
+        /// <summary>
+        /// Uses this data source to access information about an existing NetApp Volume.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_volume.html.markdown.
+        /// </summary>
+        public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

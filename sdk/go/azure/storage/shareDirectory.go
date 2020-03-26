@@ -112,4 +112,3 @@ type ShareDirectoryArgs struct {
 func (ShareDirectoryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*shareDirectoryArgs)(nil)).Elem()
 }
-

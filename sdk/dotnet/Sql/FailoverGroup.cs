@@ -340,7 +340,7 @@ namespace Pulumi.Azure.Sql
         public Input<int>? GraceMinutes { get; set; }
 
         /// <summary>
-        /// Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
+        /// the failover mode. Possible values are `Manual`, `Automatic`
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
@@ -359,7 +359,7 @@ namespace Pulumi.Azure.Sql
         public Input<int>? GraceMinutes { get; set; }
 
         /// <summary>
-        /// Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
+        /// the failover mode. Possible values are `Manual`, `Automatic`
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
@@ -435,7 +435,7 @@ namespace Pulumi.Azure.Sql
         /// </summary>
         public readonly int? GraceMinutes;
         /// <summary>
-        /// Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
+        /// the failover mode. Possible values are `Manual`, `Automatic`
         /// </summary>
         public readonly string Mode;
 

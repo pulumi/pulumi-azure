@@ -11,7 +11,13 @@ namespace Pulumi.Azure.Role
 {
     public static partial class Invokes
     {
+        [Obsolete("Use GetRoleDefinition.InvokeAsync() instead")]
         public static Task<GetRoleDefinitionResult> GetRoleDefinition(GetRoleDefinitionArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetRoleDefinition
+    {
+        public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

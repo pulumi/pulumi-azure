@@ -86,6 +86,7 @@ def get_service(location=None,name=None,resource_group_name=None,opts=None):
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/healthcare_service.html.markdown.
 
 
+    :param str location: The Azure Region where the Service is located.
     :param str name: Specifies the name of the Healthcare Service.
     :param str resource_group_name: The name of the Resource Group in which the Healthcare Service exists.
     """

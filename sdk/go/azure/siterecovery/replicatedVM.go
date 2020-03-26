@@ -20,7 +20,7 @@ type ReplicatedVM struct {
 	// One or more `managedDisk` block.
 	ManagedDisks ReplicatedVMManagedDiskArrayOutput `pulumi:"managedDisks"`
 	// The name of the network mapping.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name                        pulumi.StringOutput `pulumi:"name"`
 	RecoveryReplicationPolicyId pulumi.StringOutput `pulumi:"recoveryReplicationPolicyId"`
 	// The name of the vault that should be updated.
 	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
@@ -100,7 +100,7 @@ type replicatedVMState struct {
 	// One or more `managedDisk` block.
 	ManagedDisks []ReplicatedVMManagedDisk `pulumi:"managedDisks"`
 	// The name of the network mapping.
-	Name *string `pulumi:"name"`
+	Name                        *string `pulumi:"name"`
 	RecoveryReplicationPolicyId *string `pulumi:"recoveryReplicationPolicyId"`
 	// The name of the vault that should be updated.
 	RecoveryVaultName *string `pulumi:"recoveryVaultName"`
@@ -126,7 +126,7 @@ type ReplicatedVMState struct {
 	// One or more `managedDisk` block.
 	ManagedDisks ReplicatedVMManagedDiskArrayInput
 	// The name of the network mapping.
-	Name pulumi.StringPtrInput
+	Name                        pulumi.StringPtrInput
 	RecoveryReplicationPolicyId pulumi.StringPtrInput
 	// The name of the vault that should be updated.
 	RecoveryVaultName pulumi.StringPtrInput
@@ -156,8 +156,8 @@ type replicatedVMArgs struct {
 	// One or more `managedDisk` block.
 	ManagedDisks []ReplicatedVMManagedDisk `pulumi:"managedDisks"`
 	// The name of the network mapping.
-	Name *string `pulumi:"name"`
-	RecoveryReplicationPolicyId string `pulumi:"recoveryReplicationPolicyId"`
+	Name                        *string `pulumi:"name"`
+	RecoveryReplicationPolicyId string  `pulumi:"recoveryReplicationPolicyId"`
 	// The name of the vault that should be updated.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault that should be updated is located.
@@ -183,7 +183,7 @@ type ReplicatedVMArgs struct {
 	// One or more `managedDisk` block.
 	ManagedDisks ReplicatedVMManagedDiskArrayInput
 	// The name of the network mapping.
-	Name pulumi.StringPtrInput
+	Name                        pulumi.StringPtrInput
 	RecoveryReplicationPolicyId pulumi.StringInput
 	// The name of the vault that should be updated.
 	RecoveryVaultName pulumi.StringInput
@@ -208,4 +208,3 @@ type ReplicatedVMArgs struct {
 func (ReplicatedVMArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicatedVMArgs)(nil)).Elem()
 }
-

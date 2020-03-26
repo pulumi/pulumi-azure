@@ -26,7 +26,6 @@ type GetSubscriptionArgs struct {
 	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
-
 // A collection of values returned by getSubscription.
 type GetSubscriptionResult struct {
 	// The subscription display name.
@@ -46,4 +45,3 @@ type GetSubscriptionResult struct {
 	// The subscription tenant ID.
 	TenantId string `pulumi:"tenantId"`
 }
-

@@ -18,9 +18,9 @@ class GremlinGraph(pulumi.CustomResource):
     """
     The conflict resolution policy for the graph. One or more `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
 
-      * `conflictResolutionPath` (`str`)
-      * `conflictResolutionProcedure` (`str`)
-      * `mode` (`str`)
+      * `conflictResolutionPath` (`str`) - The conflict resolution path in the case of LastWriterWins mode.
+      * `conflictResolutionProcedure` (`str`) - The procedure to resolve conflicts in the case of custom mode.
+      * `mode` (`str`) - Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
     """
     database_name: pulumi.Output[str]
     """
@@ -30,10 +30,10 @@ class GremlinGraph(pulumi.CustomResource):
     """
     The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
 
-      * `automatic` (`bool`)
-      * `excludedPaths` (`list`)
-      * `includedPaths` (`list`)
-      * `indexingMode` (`str`)
+      * `automatic` (`bool`) - Indicates if the indexing policy is automatic. Defaults to `true`.
+      * `excludedPaths` (`list`) - List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+      * `includedPaths` (`list`) - List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+      * `indexingMode` (`str`) - Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
     """
     name: pulumi.Output[str]
     """
@@ -55,7 +55,7 @@ class GremlinGraph(pulumi.CustomResource):
     """
     One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
 
-      * `paths` (`list`)
+      * `paths` (`list`) - A list of paths to use for this unique key.
     """
     def __init__(__self__, resource_name, opts=None, account_name=None, conflict_resolution_policies=None, database_name=None, index_policies=None, name=None, partition_key_path=None, resource_group_name=None, throughput=None, unique_keys=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -77,20 +77,20 @@ class GremlinGraph(pulumi.CustomResource):
 
         The **conflict_resolution_policies** object supports the following:
 
-          * `conflictResolutionPath` (`pulumi.Input[str]`)
-          * `conflictResolutionProcedure` (`pulumi.Input[str]`)
-          * `mode` (`pulumi.Input[str]`)
+          * `conflictResolutionPath` (`pulumi.Input[str]`) - The conflict resolution path in the case of LastWriterWins mode.
+          * `conflictResolutionProcedure` (`pulumi.Input[str]`) - The procedure to resolve conflicts in the case of custom mode.
+          * `mode` (`pulumi.Input[str]`) - Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
 
         The **index_policies** object supports the following:
 
-          * `automatic` (`pulumi.Input[bool]`)
-          * `excludedPaths` (`pulumi.Input[list]`)
-          * `includedPaths` (`pulumi.Input[list]`)
-          * `indexingMode` (`pulumi.Input[str]`)
+          * `automatic` (`pulumi.Input[bool]`) - Indicates if the indexing policy is automatic. Defaults to `true`.
+          * `excludedPaths` (`pulumi.Input[list]`) - List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+          * `includedPaths` (`pulumi.Input[list]`) - List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+          * `indexingMode` (`pulumi.Input[str]`) - Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
 
         The **unique_keys** object supports the following:
 
-          * `paths` (`pulumi.Input[list]`)
+          * `paths` (`pulumi.Input[list]`) - A list of paths to use for this unique key.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -155,20 +155,20 @@ class GremlinGraph(pulumi.CustomResource):
 
         The **conflict_resolution_policies** object supports the following:
 
-          * `conflictResolutionPath` (`pulumi.Input[str]`)
-          * `conflictResolutionProcedure` (`pulumi.Input[str]`)
-          * `mode` (`pulumi.Input[str]`)
+          * `conflictResolutionPath` (`pulumi.Input[str]`) - The conflict resolution path in the case of LastWriterWins mode.
+          * `conflictResolutionProcedure` (`pulumi.Input[str]`) - The procedure to resolve conflicts in the case of custom mode.
+          * `mode` (`pulumi.Input[str]`) - Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
 
         The **index_policies** object supports the following:
 
-          * `automatic` (`pulumi.Input[bool]`)
-          * `excludedPaths` (`pulumi.Input[list]`)
-          * `includedPaths` (`pulumi.Input[list]`)
-          * `indexingMode` (`pulumi.Input[str]`)
+          * `automatic` (`pulumi.Input[bool]`) - Indicates if the indexing policy is automatic. Defaults to `true`.
+          * `excludedPaths` (`pulumi.Input[list]`) - List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+          * `includedPaths` (`pulumi.Input[list]`) - List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+          * `indexingMode` (`pulumi.Input[str]`) - Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
 
         The **unique_keys** object supports the following:
 
-          * `paths` (`pulumi.Input[list]`)
+          * `paths` (`pulumi.Input[list]`) - A list of paths to use for this unique key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

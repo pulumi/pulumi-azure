@@ -13,11 +13,11 @@ import (
 
 type LoadBalancerFrontendIpConfiguration struct {
 	// The id of the Frontend IP Configuration.
-	Id *string `pulumi:"id"`
-	InboundNatRules []string `pulumi:"inboundNatRules"`
+	Id                *string  `pulumi:"id"`
+	InboundNatRules   []string `pulumi:"inboundNatRules"`
 	LoadBalancerRules []string `pulumi:"loadBalancerRules"`
 	// Specifies the name of the frontend ip configuration.
-	Name string `pulumi:"name"`
+	Name          string   `pulumi:"name"`
 	OutboundRules []string `pulumi:"outboundRules"`
 	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
@@ -44,11 +44,11 @@ type LoadBalancerFrontendIpConfigurationInput interface {
 
 type LoadBalancerFrontendIpConfigurationArgs struct {
 	// The id of the Frontend IP Configuration.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	InboundNatRules pulumi.StringArrayInput `pulumi:"inboundNatRules"`
+	Id                pulumi.StringPtrInput   `pulumi:"id"`
+	InboundNatRules   pulumi.StringArrayInput `pulumi:"inboundNatRules"`
 	LoadBalancerRules pulumi.StringArrayInput `pulumi:"loadBalancerRules"`
 	// Specifies the name of the frontend ip configuration.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name          pulumi.StringInput      `pulumi:"name"`
 	OutboundRules pulumi.StringArrayInput `pulumi:"outboundRules"`
 	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
@@ -99,7 +99,7 @@ func (i LoadBalancerFrontendIpConfigurationArray) ToLoadBalancerFrontendIpConfig
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIpConfigurationArrayOutput)
 }
 
-type LoadBalancerFrontendIpConfigurationOutput struct { *pulumi.OutputState }
+type LoadBalancerFrontendIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerFrontendIpConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LoadBalancerFrontendIpConfiguration)(nil)).Elem()
@@ -115,62 +115,62 @@ func (o LoadBalancerFrontendIpConfigurationOutput) ToLoadBalancerFrontendIpConfi
 
 // The id of the Frontend IP Configuration.
 func (o LoadBalancerFrontendIpConfigurationOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LoadBalancerFrontendIpConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LoadBalancerFrontendIpConfigurationOutput) InboundNatRules() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v LoadBalancerFrontendIpConfiguration) []string { return v.InboundNatRules }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) []string { return v.InboundNatRules }).(pulumi.StringArrayOutput)
 }
 
 func (o LoadBalancerFrontendIpConfigurationOutput) LoadBalancerRules() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v LoadBalancerFrontendIpConfiguration) []string { return v.LoadBalancerRules }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) []string { return v.LoadBalancerRules }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the name of the frontend ip configuration.
 func (o LoadBalancerFrontendIpConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v LoadBalancerFrontendIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o LoadBalancerFrontendIpConfigurationOutput) OutboundRules() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v LoadBalancerFrontendIpConfiguration) []string { return v.OutboundRules }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) []string { return v.OutboundRules }).(pulumi.StringArrayOutput)
 }
 
 // Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
 func (o LoadBalancerFrontendIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LoadBalancerFrontendIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
 func (o LoadBalancerFrontendIpConfigurationOutput) PrivateIpAddressAllocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LoadBalancerFrontendIpConfiguration) *string { return v.PrivateIpAddressAllocation }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.PrivateIpAddressAllocation }).(pulumi.StringPtrOutput)
 }
 
 // The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
 func (o LoadBalancerFrontendIpConfigurationOutput) PrivateIpAddressVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LoadBalancerFrontendIpConfiguration) *string { return v.PrivateIpAddressVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.PrivateIpAddressVersion }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a Public IP Address which should be associated with the Load Balancer.
 func (o LoadBalancerFrontendIpConfigurationOutput) PublicIpAddressId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LoadBalancerFrontendIpConfiguration) *string { return v.PublicIpAddressId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.PublicIpAddressId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
 func (o LoadBalancerFrontendIpConfigurationOutput) PublicIpPrefixId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LoadBalancerFrontendIpConfiguration) *string { return v.PublicIpPrefixId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.PublicIpPrefixId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Subnet which should be associated with the IP Configuration.
 func (o LoadBalancerFrontendIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LoadBalancerFrontendIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
 func (o LoadBalancerFrontendIpConfigurationOutput) Zones() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LoadBalancerFrontendIpConfiguration) *string { return v.Zones }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.Zones }).(pulumi.StringPtrOutput)
 }
 
-type LoadBalancerFrontendIpConfigurationArrayOutput struct { *pulumi.OutputState}
+type LoadBalancerFrontendIpConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerFrontendIpConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]LoadBalancerFrontendIpConfiguration)(nil)).Elem()
@@ -185,7 +185,7 @@ func (o LoadBalancerFrontendIpConfigurationArrayOutput) ToLoadBalancerFrontendIp
 }
 
 func (o LoadBalancerFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput) LoadBalancerFrontendIpConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) LoadBalancerFrontendIpConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerFrontendIpConfiguration {
 		return vs[0].([]LoadBalancerFrontendIpConfiguration)[vs[1].(int)]
 	}).(LoadBalancerFrontendIpConfigurationOutput)
 }
@@ -193,7 +193,7 @@ func (o LoadBalancerFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput)
 type OutboundRuleFrontendIpConfiguration struct {
 	// The ID of the Load Balancer Outbound Rule.
 	Id *string `pulumi:"id"`
-	// Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+	// The name of the Frontend IP Configuration.
 	Name string `pulumi:"name"`
 }
 
@@ -207,7 +207,7 @@ type OutboundRuleFrontendIpConfigurationInput interface {
 type OutboundRuleFrontendIpConfigurationArgs struct {
 	// The ID of the Load Balancer Outbound Rule.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+	// The name of the Frontend IP Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -244,7 +244,7 @@ func (i OutboundRuleFrontendIpConfigurationArray) ToOutboundRuleFrontendIpConfig
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundRuleFrontendIpConfigurationArrayOutput)
 }
 
-type OutboundRuleFrontendIpConfigurationOutput struct { *pulumi.OutputState }
+type OutboundRuleFrontendIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OutboundRuleFrontendIpConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OutboundRuleFrontendIpConfiguration)(nil)).Elem()
@@ -260,15 +260,15 @@ func (o OutboundRuleFrontendIpConfigurationOutput) ToOutboundRuleFrontendIpConfi
 
 // The ID of the Load Balancer Outbound Rule.
 func (o OutboundRuleFrontendIpConfigurationOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OutboundRuleFrontendIpConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OutboundRuleFrontendIpConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+// The name of the Frontend IP Configuration.
 func (o OutboundRuleFrontendIpConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v OutboundRuleFrontendIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v OutboundRuleFrontendIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type OutboundRuleFrontendIpConfigurationArrayOutput struct { *pulumi.OutputState}
+type OutboundRuleFrontendIpConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (OutboundRuleFrontendIpConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]OutboundRuleFrontendIpConfiguration)(nil)).Elem()
@@ -283,7 +283,7 @@ func (o OutboundRuleFrontendIpConfigurationArrayOutput) ToOutboundRuleFrontendIp
 }
 
 func (o OutboundRuleFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput) OutboundRuleFrontendIpConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) OutboundRuleFrontendIpConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutboundRuleFrontendIpConfiguration {
 		return vs[0].([]OutboundRuleFrontendIpConfiguration)[vs[1].(int)]
 	}).(OutboundRuleFrontendIpConfigurationOutput)
 }
@@ -338,7 +338,7 @@ func (i GetBackendAddressPoolBackendIpConfigurationArray) ToGetBackendAddressPoo
 	return pulumi.ToOutputWithContext(ctx, i).(GetBackendAddressPoolBackendIpConfigurationArrayOutput)
 }
 
-type GetBackendAddressPoolBackendIpConfigurationOutput struct { *pulumi.OutputState }
+type GetBackendAddressPoolBackendIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetBackendAddressPoolBackendIpConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetBackendAddressPoolBackendIpConfiguration)(nil)).Elem()
@@ -354,10 +354,10 @@ func (o GetBackendAddressPoolBackendIpConfigurationOutput) ToGetBackendAddressPo
 
 // The ID of the Backend Address Pool.
 func (o GetBackendAddressPoolBackendIpConfigurationOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetBackendAddressPoolBackendIpConfiguration) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetBackendAddressPoolBackendIpConfiguration) string { return v.Id }).(pulumi.StringOutput)
 }
 
-type GetBackendAddressPoolBackendIpConfigurationArrayOutput struct { *pulumi.OutputState}
+type GetBackendAddressPoolBackendIpConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (GetBackendAddressPoolBackendIpConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetBackendAddressPoolBackendIpConfiguration)(nil)).Elem()
@@ -372,7 +372,7 @@ func (o GetBackendAddressPoolBackendIpConfigurationArrayOutput) ToGetBackendAddr
 }
 
 func (o GetBackendAddressPoolBackendIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetBackendAddressPoolBackendIpConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetBackendAddressPoolBackendIpConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBackendAddressPoolBackendIpConfiguration {
 		return vs[0].([]GetBackendAddressPoolBackendIpConfiguration)[vs[1].(int)]
 	}).(GetBackendAddressPoolBackendIpConfigurationOutput)
 }
@@ -455,7 +455,7 @@ func (i GetLBFrontendIpConfigurationArray) ToGetLBFrontendIpConfigurationArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetLBFrontendIpConfigurationArrayOutput)
 }
 
-type GetLBFrontendIpConfigurationOutput struct { *pulumi.OutputState }
+type GetLBFrontendIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetLBFrontendIpConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetLBFrontendIpConfiguration)(nil)).Elem()
@@ -471,45 +471,45 @@ func (o GetLBFrontendIpConfigurationOutput) ToGetLBFrontendIpConfigurationOutput
 
 // The id of the Frontend IP Configuration.
 func (o GetLBFrontendIpConfigurationOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetLBFrontendIpConfiguration) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetLBFrontendIpConfiguration) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Load Balancer.
 func (o GetLBFrontendIpConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetLBFrontendIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetLBFrontendIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Private IP Address to assign to the Load Balancer.
 func (o GetLBFrontendIpConfigurationOutput) PrivateIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func (v GetLBFrontendIpConfiguration) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetLBFrontendIpConfiguration) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
 
 // The allocation method for the Private IP Address used by this Load Balancer.
 func (o GetLBFrontendIpConfigurationOutput) PrivateIpAddressAllocation() pulumi.StringOutput {
-	return o.ApplyT(func (v GetLBFrontendIpConfiguration) string { return v.PrivateIpAddressAllocation }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetLBFrontendIpConfiguration) string { return v.PrivateIpAddressAllocation }).(pulumi.StringOutput)
 }
 
 // The Private IP Address Version, either `IPv4` or `IPv6`.
 func (o GetLBFrontendIpConfigurationOutput) PrivateIpAddressVersion() pulumi.StringOutput {
-	return o.ApplyT(func (v GetLBFrontendIpConfiguration) string { return v.PrivateIpAddressVersion }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetLBFrontendIpConfiguration) string { return v.PrivateIpAddressVersion }).(pulumi.StringOutput)
 }
 
 // The ID of a  Public IP Address which is associated with this Load Balancer.
 func (o GetLBFrontendIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetLBFrontendIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetLBFrontendIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
 }
 
 // The ID of the Subnet which is associated with the IP Configuration.
 func (o GetLBFrontendIpConfigurationOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetLBFrontendIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetLBFrontendIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
 // A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
 func (o GetLBFrontendIpConfigurationOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetLBFrontendIpConfiguration) []string { return v.Zones }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetLBFrontendIpConfiguration) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
-type GetLBFrontendIpConfigurationArrayOutput struct { *pulumi.OutputState}
+type GetLBFrontendIpConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (GetLBFrontendIpConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetLBFrontendIpConfiguration)(nil)).Elem()
@@ -524,7 +524,7 @@ func (o GetLBFrontendIpConfigurationArrayOutput) ToGetLBFrontendIpConfigurationA
 }
 
 func (o GetLBFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetLBFrontendIpConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetLBFrontendIpConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLBFrontendIpConfiguration {
 		return vs[0].([]GetLBFrontendIpConfiguration)[vs[1].(int)]
 	}).(GetLBFrontendIpConfigurationOutput)
 }

@@ -509,15 +509,25 @@ namespace Pulumi.Azure.AppService
     {
         [Input("allowedAudiences")]
         private InputList<string>? _allowedAudiences;
+
+        /// <summary>
+        /// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        /// </summary>
         public InputList<string> AllowedAudiences
         {
             get => _allowedAudiences ?? (_allowedAudiences = new InputList<string>());
             set => _allowedAudiences = value;
         }
 
+        /// <summary>
+        /// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+        /// </summary>
         [Input("clientSecret")]
         public Input<string>? ClientSecret { get; set; }
 
@@ -530,15 +540,25 @@ namespace Pulumi.Azure.AppService
     {
         [Input("allowedAudiences")]
         private InputList<string>? _allowedAudiences;
+
+        /// <summary>
+        /// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        /// </summary>
         public InputList<string> AllowedAudiences
         {
             get => _allowedAudiences ?? (_allowedAudiences = new InputList<string>());
             set => _allowedAudiences = value;
         }
 
+        /// <summary>
+        /// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+        /// </summary>
         [Input("clientSecret")]
         public Input<string>? ClientSecret { get; set; }
 
@@ -549,11 +569,18 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceAuthSettingsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `active_directory` block as defined below.
+        /// </summary>
         [Input("activeDirectory")]
         public Input<AppServiceAuthSettingsActiveDirectoryArgs>? ActiveDirectory { get; set; }
 
         [Input("additionalLoginParams")]
         private InputMap<string>? _additionalLoginParams;
+
+        /// <summary>
+        /// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+        /// </summary>
         public InputMap<string> AdditionalLoginParams
         {
             get => _additionalLoginParams ?? (_additionalLoginParams = new InputMap<string>());
@@ -562,45 +589,79 @@ namespace Pulumi.Azure.AppService
 
         [Input("allowedExternalRedirectUrls")]
         private InputList<string>? _allowedExternalRedirectUrls;
+
+        /// <summary>
+        /// External URLs that can be redirected to as part of logging in or logging out of the app.
+        /// </summary>
         public InputList<string> AllowedExternalRedirectUrls
         {
             get => _allowedExternalRedirectUrls ?? (_allowedExternalRedirectUrls = new InputList<string>());
             set => _allowedExternalRedirectUrls = value;
         }
 
+        /// <summary>
+        /// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+        /// </summary>
         [Input("defaultProvider")]
         public Input<string>? DefaultProvider { get; set; }
 
         /// <summary>
-        /// Is the App Service Enabled?
+        /// Is Authentication enabled?
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// A `facebook` block as defined below.
+        /// </summary>
         [Input("facebook")]
         public Input<AppServiceAuthSettingsFacebookArgs>? Facebook { get; set; }
 
+        /// <summary>
+        /// A `google` block as defined below.
+        /// </summary>
         [Input("google")]
         public Input<AppServiceAuthSettingsGoogleArgs>? Google { get; set; }
 
+        /// <summary>
+        /// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }
 
+        /// <summary>
+        /// A `microsoft` block as defined below.
+        /// </summary>
         [Input("microsoft")]
         public Input<AppServiceAuthSettingsMicrosoftArgs>? Microsoft { get; set; }
 
+        /// <summary>
+        /// The runtime version of the Authentication/Authorization module.
+        /// </summary>
         [Input("runtimeVersion")]
         public Input<string>? RuntimeVersion { get; set; }
 
+        /// <summary>
+        /// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+        /// </summary>
         [Input("tokenRefreshExtensionHours")]
         public Input<double>? TokenRefreshExtensionHours { get; set; }
 
+        /// <summary>
+        /// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+        /// </summary>
         [Input("tokenStoreEnabled")]
         public Input<bool>? TokenStoreEnabled { get; set; }
 
+        /// <summary>
+        /// A `twitter` block as defined below.
+        /// </summary>
         [Input("twitter")]
         public Input<AppServiceAuthSettingsTwitterArgs>? Twitter { get; set; }
 
+        /// <summary>
+        /// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+        /// </summary>
         [Input("unauthenticatedClientAction")]
         public Input<string>? UnauthenticatedClientAction { get; set; }
 
@@ -611,14 +672,24 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceAuthSettingsFacebookArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The App ID of the Facebook app used for login
+        /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
+        /// <summary>
+        /// The App Secret of the Facebook app used for Facebook Login.
+        /// </summary>
         [Input("appSecret", required: true)]
         public Input<string> AppSecret { get; set; } = null!;
 
         [Input("oauthScopes")]
         private InputList<string>? _oauthScopes;
+
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        /// </summary>
         public InputList<string> OauthScopes
         {
             get => _oauthScopes ?? (_oauthScopes = new InputList<string>());
@@ -632,14 +703,24 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceAuthSettingsFacebookGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The App ID of the Facebook app used for login
+        /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
+        /// <summary>
+        /// The App Secret of the Facebook app used for Facebook Login.
+        /// </summary>
         [Input("appSecret", required: true)]
         public Input<string> AppSecret { get; set; } = null!;
 
         [Input("oauthScopes")]
         private InputList<string>? _oauthScopes;
+
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        /// </summary>
         public InputList<string> OauthScopes
         {
             get => _oauthScopes ?? (_oauthScopes = new InputList<string>());
@@ -653,11 +734,18 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceAuthSettingsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `active_directory` block as defined below.
+        /// </summary>
         [Input("activeDirectory")]
         public Input<AppServiceAuthSettingsActiveDirectoryGetArgs>? ActiveDirectory { get; set; }
 
         [Input("additionalLoginParams")]
         private InputMap<string>? _additionalLoginParams;
+
+        /// <summary>
+        /// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+        /// </summary>
         public InputMap<string> AdditionalLoginParams
         {
             get => _additionalLoginParams ?? (_additionalLoginParams = new InputMap<string>());
@@ -666,45 +754,79 @@ namespace Pulumi.Azure.AppService
 
         [Input("allowedExternalRedirectUrls")]
         private InputList<string>? _allowedExternalRedirectUrls;
+
+        /// <summary>
+        /// External URLs that can be redirected to as part of logging in or logging out of the app.
+        /// </summary>
         public InputList<string> AllowedExternalRedirectUrls
         {
             get => _allowedExternalRedirectUrls ?? (_allowedExternalRedirectUrls = new InputList<string>());
             set => _allowedExternalRedirectUrls = value;
         }
 
+        /// <summary>
+        /// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+        /// </summary>
         [Input("defaultProvider")]
         public Input<string>? DefaultProvider { get; set; }
 
         /// <summary>
-        /// Is the App Service Enabled?
+        /// Is Authentication enabled?
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// A `facebook` block as defined below.
+        /// </summary>
         [Input("facebook")]
         public Input<AppServiceAuthSettingsFacebookGetArgs>? Facebook { get; set; }
 
+        /// <summary>
+        /// A `google` block as defined below.
+        /// </summary>
         [Input("google")]
         public Input<AppServiceAuthSettingsGoogleGetArgs>? Google { get; set; }
 
+        /// <summary>
+        /// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }
 
+        /// <summary>
+        /// A `microsoft` block as defined below.
+        /// </summary>
         [Input("microsoft")]
         public Input<AppServiceAuthSettingsMicrosoftGetArgs>? Microsoft { get; set; }
 
+        /// <summary>
+        /// The runtime version of the Authentication/Authorization module.
+        /// </summary>
         [Input("runtimeVersion")]
         public Input<string>? RuntimeVersion { get; set; }
 
+        /// <summary>
+        /// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+        /// </summary>
         [Input("tokenRefreshExtensionHours")]
         public Input<double>? TokenRefreshExtensionHours { get; set; }
 
+        /// <summary>
+        /// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+        /// </summary>
         [Input("tokenStoreEnabled")]
         public Input<bool>? TokenStoreEnabled { get; set; }
 
+        /// <summary>
+        /// A `twitter` block as defined below.
+        /// </summary>
         [Input("twitter")]
         public Input<AppServiceAuthSettingsTwitterGetArgs>? Twitter { get; set; }
 
+        /// <summary>
+        /// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+        /// </summary>
         [Input("unauthenticatedClientAction")]
         public Input<string>? UnauthenticatedClientAction { get; set; }
 
@@ -715,14 +837,24 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceAuthSettingsGoogleArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The OpenID Connect Client ID for the Google web application.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The client secret associated with the Google web application.
+        /// </summary>
         [Input("clientSecret", required: true)]
         public Input<string> ClientSecret { get; set; } = null!;
 
         [Input("oauthScopes")]
         private InputList<string>? _oauthScopes;
+
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        /// </summary>
         public InputList<string> OauthScopes
         {
             get => _oauthScopes ?? (_oauthScopes = new InputList<string>());
@@ -736,14 +868,24 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceAuthSettingsGoogleGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The OpenID Connect Client ID for the Google web application.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The client secret associated with the Google web application.
+        /// </summary>
         [Input("clientSecret", required: true)]
         public Input<string> ClientSecret { get; set; } = null!;
 
         [Input("oauthScopes")]
         private InputList<string>? _oauthScopes;
+
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        /// </summary>
         public InputList<string> OauthScopes
         {
             get => _oauthScopes ?? (_oauthScopes = new InputList<string>());
@@ -757,14 +899,24 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceAuthSettingsMicrosoftArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The OAuth 2.0 client ID that was created for the app used for authentication.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The OAuth 2.0 client secret that was created for the app used for authentication.
+        /// </summary>
         [Input("clientSecret", required: true)]
         public Input<string> ClientSecret { get; set; } = null!;
 
         [Input("oauthScopes")]
         private InputList<string>? _oauthScopes;
+
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        /// </summary>
         public InputList<string> OauthScopes
         {
             get => _oauthScopes ?? (_oauthScopes = new InputList<string>());
@@ -778,14 +930,24 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceAuthSettingsMicrosoftGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The OAuth 2.0 client ID that was created for the app used for authentication.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The OAuth 2.0 client secret that was created for the app used for authentication.
+        /// </summary>
         [Input("clientSecret", required: true)]
         public Input<string> ClientSecret { get; set; } = null!;
 
         [Input("oauthScopes")]
         private InputList<string>? _oauthScopes;
+
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        /// </summary>
         public InputList<string> OauthScopes
         {
             get => _oauthScopes ?? (_oauthScopes = new InputList<string>());
@@ -826,20 +988,26 @@ namespace Pulumi.Azure.AppService
     public sealed class AppServiceBackupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the App Service Enabled?
+        /// Is this Backup enabled?
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the name of the App Service. Changing this forces a new resource to be created.
+        /// Specifies the name for this Backup.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// A `schedule` block as defined below.
+        /// </summary>
         [Input("schedule", required: true)]
         public Input<AppServiceBackupScheduleArgs> Schedule { get; set; } = null!;
 
+        /// <summary>
+        /// The SAS URL to a Storage Container where Backups should be saved.
+        /// </summary>
         [Input("storageAccountUrl", required: true)]
         public Input<string> StorageAccountUrl { get; set; } = null!;
 
@@ -851,20 +1019,26 @@ namespace Pulumi.Azure.AppService
     public sealed class AppServiceBackupGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the App Service Enabled?
+        /// Is this Backup enabled?
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the name of the App Service. Changing this forces a new resource to be created.
+        /// Specifies the name for this Backup.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// A `schedule` block as defined below.
+        /// </summary>
         [Input("schedule", required: true)]
         public Input<AppServiceBackupScheduleGetArgs> Schedule { get; set; } = null!;
 
+        /// <summary>
+        /// The SAS URL to a Storage Container where Backups should be saved.
+        /// </summary>
         [Input("storageAccountUrl", required: true)]
         public Input<string> StorageAccountUrl { get; set; } = null!;
 
@@ -875,18 +1049,33 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceBackupScheduleArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Sets how often the backup should be executed.
+        /// </summary>
         [Input("frequencyInterval", required: true)]
         public Input<int> FrequencyInterval { get; set; } = null!;
 
+        /// <summary>
+        /// Sets the unit of time for how often the backup should be executed. Possible values are `Day` or `Hour`.
+        /// </summary>
         [Input("frequencyUnit", required: true)]
         public Input<string> FrequencyUnit { get; set; } = null!;
 
+        /// <summary>
+        /// Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is?
+        /// </summary>
         [Input("keepAtLeastOneBackup")]
         public Input<bool>? KeepAtLeastOneBackup { get; set; }
 
+        /// <summary>
+        /// Specifies the number of days after which Backups should be deleted.
+        /// </summary>
         [Input("retentionPeriodInDays")]
         public Input<int>? RetentionPeriodInDays { get; set; }
 
+        /// <summary>
+        /// Sets when the schedule should start working.
+        /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 
@@ -897,18 +1086,33 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceBackupScheduleGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Sets how often the backup should be executed.
+        /// </summary>
         [Input("frequencyInterval", required: true)]
         public Input<int> FrequencyInterval { get; set; } = null!;
 
+        /// <summary>
+        /// Sets the unit of time for how often the backup should be executed. Possible values are `Day` or `Hour`.
+        /// </summary>
         [Input("frequencyUnit", required: true)]
         public Input<string> FrequencyUnit { get; set; } = null!;
 
+        /// <summary>
+        /// Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is?
+        /// </summary>
         [Input("keepAtLeastOneBackup")]
         public Input<bool>? KeepAtLeastOneBackup { get; set; }
 
+        /// <summary>
+        /// Specifies the number of days after which Backups should be deleted.
+        /// </summary>
         [Input("retentionPeriodInDays")]
         public Input<int>? RetentionPeriodInDays { get; set; }
 
+        /// <summary>
+        /// Sets when the schedule should start working.
+        /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 
@@ -920,14 +1124,20 @@ namespace Pulumi.Azure.AppService
     public sealed class AppServiceConnectionStringsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the App Service. Changing this forces a new resource to be created.
+        /// The name of the Connection String.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The value for the Connection String.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -939,14 +1149,20 @@ namespace Pulumi.Azure.AppService
     public sealed class AppServiceConnectionStringsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the App Service. Changing this forces a new resource to be created.
+        /// The name of the Connection String.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The value for the Connection String.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -959,6 +1175,10 @@ namespace Pulumi.Azure.AppService
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        /// </summary>
         public InputList<string> IdentityIds
         {
             get => _identityIds ?? (_identityIds = new InputList<string>());
@@ -977,6 +1197,9 @@ namespace Pulumi.Azure.AppService
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -989,6 +1212,10 @@ namespace Pulumi.Azure.AppService
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        /// </summary>
         public InputList<string> IdentityIds
         {
             get => _identityIds ?? (_identityIds = new InputList<string>());
@@ -1007,6 +1234,9 @@ namespace Pulumi.Azure.AppService
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -1017,6 +1247,9 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceLogsApplicationLogsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `azure_blob_storage` block as defined below.
+        /// </summary>
         [Input("azureBlobStorage")]
         public Input<AppServiceLogsApplicationLogsAzureBlobStorageArgs>? AzureBlobStorage { get; set; }
 
@@ -1027,12 +1260,21 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceLogsApplicationLogsAzureBlobStorageArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        /// </summary>
         [Input("level", required: true)]
         public Input<string> Level { get; set; } = null!;
 
+        /// <summary>
+        /// The number of days to retain logs for.
+        /// </summary>
         [Input("retentionInDays", required: true)]
         public Input<int> RetentionInDays { get; set; } = null!;
 
+        /// <summary>
+        /// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        /// </summary>
         [Input("sasUrl", required: true)]
         public Input<string> SasUrl { get; set; } = null!;
 
@@ -1043,12 +1285,21 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceLogsApplicationLogsAzureBlobStorageGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        /// </summary>
         [Input("level", required: true)]
         public Input<string> Level { get; set; } = null!;
 
+        /// <summary>
+        /// The number of days to retain logs for.
+        /// </summary>
         [Input("retentionInDays", required: true)]
         public Input<int> RetentionInDays { get; set; } = null!;
 
+        /// <summary>
+        /// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        /// </summary>
         [Input("sasUrl", required: true)]
         public Input<string> SasUrl { get; set; } = null!;
 
@@ -1059,6 +1310,9 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceLogsApplicationLogsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `azure_blob_storage` block as defined below.
+        /// </summary>
         [Input("azureBlobStorage")]
         public Input<AppServiceLogsApplicationLogsAzureBlobStorageGetArgs>? AzureBlobStorage { get; set; }
 
@@ -1069,9 +1323,15 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceLogsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `application_logs` block as defined below.
+        /// </summary>
         [Input("applicationLogs")]
         public Input<AppServiceLogsApplicationLogsArgs>? ApplicationLogs { get; set; }
 
+        /// <summary>
+        /// An `http_logs` block as defined below.
+        /// </summary>
         [Input("httpLogs")]
         public Input<AppServiceLogsHttpLogsArgs>? HttpLogs { get; set; }
 
@@ -1082,9 +1342,15 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceLogsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `application_logs` block as defined below.
+        /// </summary>
         [Input("applicationLogs")]
         public Input<AppServiceLogsApplicationLogsGetArgs>? ApplicationLogs { get; set; }
 
+        /// <summary>
+        /// An `http_logs` block as defined below.
+        /// </summary>
         [Input("httpLogs")]
         public Input<AppServiceLogsHttpLogsGetArgs>? HttpLogs { get; set; }
 
@@ -1095,9 +1361,15 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceLogsHttpLogsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `azure_blob_storage` block as defined below.
+        /// </summary>
         [Input("azureBlobStorage")]
         public Input<AppServiceLogsHttpLogsAzureBlobStorageArgs>? AzureBlobStorage { get; set; }
 
+        /// <summary>
+        /// A `file_system` block as defined below.
+        /// </summary>
         [Input("fileSystem")]
         public Input<AppServiceLogsHttpLogsFileSystemArgs>? FileSystem { get; set; }
 
@@ -1108,9 +1380,15 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceLogsHttpLogsAzureBlobStorageArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of days to retain logs for.
+        /// </summary>
         [Input("retentionInDays", required: true)]
         public Input<int> RetentionInDays { get; set; } = null!;
 
+        /// <summary>
+        /// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        /// </summary>
         [Input("sasUrl", required: true)]
         public Input<string> SasUrl { get; set; } = null!;
 
@@ -1121,9 +1399,15 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceLogsHttpLogsAzureBlobStorageGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of days to retain logs for.
+        /// </summary>
         [Input("retentionInDays", required: true)]
         public Input<int> RetentionInDays { get; set; } = null!;
 
+        /// <summary>
+        /// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        /// </summary>
         [Input("sasUrl", required: true)]
         public Input<string> SasUrl { get; set; } = null!;
 
@@ -1134,9 +1418,15 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceLogsHttpLogsFileSystemArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of days to retain logs for.
+        /// </summary>
         [Input("retentionInDays", required: true)]
         public Input<int> RetentionInDays { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum size in megabytes that http log files can use before being removed.
+        /// </summary>
         [Input("retentionInMb", required: true)]
         public Input<int> RetentionInMb { get; set; } = null!;
 
@@ -1147,9 +1437,15 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceLogsHttpLogsFileSystemGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of days to retain logs for.
+        /// </summary>
         [Input("retentionInDays", required: true)]
         public Input<int> RetentionInDays { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum size in megabytes that http log files can use before being removed.
+        /// </summary>
         [Input("retentionInMb", required: true)]
         public Input<int> RetentionInMb { get; set; } = null!;
 
@@ -1160,9 +1456,15 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceLogsHttpLogsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `azure_blob_storage` block as defined below.
+        /// </summary>
         [Input("azureBlobStorage")]
         public Input<AppServiceLogsHttpLogsAzureBlobStorageGetArgs>? AzureBlobStorage { get; set; }
 
+        /// <summary>
+        /// A `file_system` block as defined below.
+        /// </summary>
         [Input("fileSystem")]
         public Input<AppServiceLogsHttpLogsFileSystemGetArgs>? FileSystem { get; set; }
 
@@ -1173,85 +1475,156 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceSiteConfigArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should the app be loaded at all times? Defaults to `false`.
+        /// </summary>
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }
 
+        /// <summary>
+        /// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+        /// </summary>
         [Input("appCommandLine")]
         public Input<string>? AppCommandLine { get; set; }
 
         [Input("autoSwapSlotName")]
         public Input<string>? AutoSwapSlotName { get; set; }
 
+        /// <summary>
+        /// A `cors` block as defined below.
+        /// </summary>
         [Input("cors")]
         public Input<AppServiceSiteConfigCorsArgs>? Cors { get; set; }
 
         [Input("defaultDocuments")]
         private InputList<string>? _defaultDocuments;
+
+        /// <summary>
+        /// The ordering of default documents to load, if an address isn't specified.
+        /// </summary>
         public InputList<string> DefaultDocuments
         {
             get => _defaultDocuments ?? (_defaultDocuments = new InputList<string>());
             set => _defaultDocuments = value;
         }
 
+        /// <summary>
+        /// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        /// </summary>
         [Input("dotnetFrameworkVersion")]
         public Input<string>? DotnetFrameworkVersion { get; set; }
 
+        /// <summary>
+        /// State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+        /// </summary>
         [Input("ftpsState")]
         public Input<string>? FtpsState { get; set; }
 
+        /// <summary>
+        /// Is HTTP2 Enabled on this App Service? Defaults to `false`.
+        /// </summary>
         [Input("http2Enabled")]
         public Input<bool>? Http2Enabled { get; set; }
 
         [Input("ipRestrictions")]
         private InputList<AppServiceSiteConfigIpRestrictionsArgs>? _ipRestrictions;
+
+        /// <summary>
+        /// A list of objects representing ip restrictions as defined below.
+        /// </summary>
         public InputList<AppServiceSiteConfigIpRestrictionsArgs> IpRestrictions
         {
             get => _ipRestrictions ?? (_ipRestrictions = new InputList<AppServiceSiteConfigIpRestrictionsArgs>());
             set => _ipRestrictions = value;
         }
 
+        /// <summary>
+        /// The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+        /// </summary>
         [Input("javaContainer")]
         public Input<string>? JavaContainer { get; set; }
 
+        /// <summary>
+        /// The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+        /// </summary>
         [Input("javaContainerVersion")]
         public Input<string>? JavaContainerVersion { get; set; }
 
+        /// <summary>
+        /// The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+        /// </summary>
         [Input("javaVersion")]
         public Input<string>? JavaVersion { get; set; }
 
+        /// <summary>
+        /// Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|&lt;user/image:tag&gt;`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
+        /// </summary>
         [Input("linuxFxVersion")]
         public Input<string>? LinuxFxVersion { get; set; }
 
+        /// <summary>
+        /// Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+        /// </summary>
         [Input("localMysqlEnabled")]
         public Input<bool>? LocalMysqlEnabled { get; set; }
 
+        /// <summary>
+        /// The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
+        /// </summary>
         [Input("managedPipelineMode")]
         public Input<string>? ManagedPipelineMode { get; set; }
 
+        /// <summary>
+        /// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+        /// </summary>
         [Input("minTlsVersion")]
         public Input<string>? MinTlsVersion { get; set; }
 
+        /// <summary>
+        /// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+        /// </summary>
         [Input("phpVersion")]
         public Input<string>? PhpVersion { get; set; }
 
+        /// <summary>
+        /// The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
+        /// </summary>
         [Input("pythonVersion")]
         public Input<string>? PythonVersion { get; set; }
 
+        /// <summary>
+        /// Is Remote Debugging Enabled? Defaults to `false`.
+        /// </summary>
         [Input("remoteDebuggingEnabled")]
         public Input<bool>? RemoteDebuggingEnabled { get; set; }
 
+        /// <summary>
+        /// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+        /// </summary>
         [Input("remoteDebuggingVersion")]
         public Input<string>? RemoteDebuggingVersion { get; set; }
 
+        /// <summary>
+        /// The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+        /// </summary>
         [Input("scmType")]
         public Input<string>? ScmType { get; set; }
 
+        /// <summary>
+        /// Should the App Service run in 32 bit mode, rather than 64 bit mode?
+        /// </summary>
         [Input("use32BitWorkerProcess")]
         public Input<bool>? Use32BitWorkerProcess { get; set; }
 
+        /// <summary>
+        /// Should WebSockets be enabled?
+        /// </summary>
         [Input("websocketsEnabled")]
         public Input<bool>? WebsocketsEnabled { get; set; }
 
+        /// <summary>
+        /// The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
+        /// </summary>
         [Input("windowsFxVersion")]
         public Input<string>? WindowsFxVersion { get; set; }
 
@@ -1264,12 +1637,19 @@ namespace Pulumi.Azure.AppService
     {
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
+
+        /// <summary>
+        /// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        /// </summary>
         public InputList<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
             set => _allowedOrigins = value;
         }
 
+        /// <summary>
+        /// Are credentials supported?
+        /// </summary>
         [Input("supportCredentials")]
         public Input<bool>? SupportCredentials { get; set; }
 
@@ -1282,12 +1662,19 @@ namespace Pulumi.Azure.AppService
     {
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
+
+        /// <summary>
+        /// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        /// </summary>
         public InputList<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
             set => _allowedOrigins = value;
         }
 
+        /// <summary>
+        /// Are credentials supported?
+        /// </summary>
         [Input("supportCredentials")]
         public Input<bool>? SupportCredentials { get; set; }
 
@@ -1298,85 +1685,156 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceSiteConfigGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should the app be loaded at all times? Defaults to `false`.
+        /// </summary>
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }
 
+        /// <summary>
+        /// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+        /// </summary>
         [Input("appCommandLine")]
         public Input<string>? AppCommandLine { get; set; }
 
         [Input("autoSwapSlotName")]
         public Input<string>? AutoSwapSlotName { get; set; }
 
+        /// <summary>
+        /// A `cors` block as defined below.
+        /// </summary>
         [Input("cors")]
         public Input<AppServiceSiteConfigCorsGetArgs>? Cors { get; set; }
 
         [Input("defaultDocuments")]
         private InputList<string>? _defaultDocuments;
+
+        /// <summary>
+        /// The ordering of default documents to load, if an address isn't specified.
+        /// </summary>
         public InputList<string> DefaultDocuments
         {
             get => _defaultDocuments ?? (_defaultDocuments = new InputList<string>());
             set => _defaultDocuments = value;
         }
 
+        /// <summary>
+        /// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        /// </summary>
         [Input("dotnetFrameworkVersion")]
         public Input<string>? DotnetFrameworkVersion { get; set; }
 
+        /// <summary>
+        /// State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+        /// </summary>
         [Input("ftpsState")]
         public Input<string>? FtpsState { get; set; }
 
+        /// <summary>
+        /// Is HTTP2 Enabled on this App Service? Defaults to `false`.
+        /// </summary>
         [Input("http2Enabled")]
         public Input<bool>? Http2Enabled { get; set; }
 
         [Input("ipRestrictions")]
         private InputList<AppServiceSiteConfigIpRestrictionsGetArgs>? _ipRestrictions;
+
+        /// <summary>
+        /// A list of objects representing ip restrictions as defined below.
+        /// </summary>
         public InputList<AppServiceSiteConfigIpRestrictionsGetArgs> IpRestrictions
         {
             get => _ipRestrictions ?? (_ipRestrictions = new InputList<AppServiceSiteConfigIpRestrictionsGetArgs>());
             set => _ipRestrictions = value;
         }
 
+        /// <summary>
+        /// The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+        /// </summary>
         [Input("javaContainer")]
         public Input<string>? JavaContainer { get; set; }
 
+        /// <summary>
+        /// The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+        /// </summary>
         [Input("javaContainerVersion")]
         public Input<string>? JavaContainerVersion { get; set; }
 
+        /// <summary>
+        /// The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+        /// </summary>
         [Input("javaVersion")]
         public Input<string>? JavaVersion { get; set; }
 
+        /// <summary>
+        /// Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|&lt;user/image:tag&gt;`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
+        /// </summary>
         [Input("linuxFxVersion")]
         public Input<string>? LinuxFxVersion { get; set; }
 
+        /// <summary>
+        /// Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+        /// </summary>
         [Input("localMysqlEnabled")]
         public Input<bool>? LocalMysqlEnabled { get; set; }
 
+        /// <summary>
+        /// The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
+        /// </summary>
         [Input("managedPipelineMode")]
         public Input<string>? ManagedPipelineMode { get; set; }
 
+        /// <summary>
+        /// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+        /// </summary>
         [Input("minTlsVersion")]
         public Input<string>? MinTlsVersion { get; set; }
 
+        /// <summary>
+        /// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+        /// </summary>
         [Input("phpVersion")]
         public Input<string>? PhpVersion { get; set; }
 
+        /// <summary>
+        /// The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
+        /// </summary>
         [Input("pythonVersion")]
         public Input<string>? PythonVersion { get; set; }
 
+        /// <summary>
+        /// Is Remote Debugging Enabled? Defaults to `false`.
+        /// </summary>
         [Input("remoteDebuggingEnabled")]
         public Input<bool>? RemoteDebuggingEnabled { get; set; }
 
+        /// <summary>
+        /// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+        /// </summary>
         [Input("remoteDebuggingVersion")]
         public Input<string>? RemoteDebuggingVersion { get; set; }
 
+        /// <summary>
+        /// The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+        /// </summary>
         [Input("scmType")]
         public Input<string>? ScmType { get; set; }
 
+        /// <summary>
+        /// Should the App Service run in 32 bit mode, rather than 64 bit mode?
+        /// </summary>
         [Input("use32BitWorkerProcess")]
         public Input<bool>? Use32BitWorkerProcess { get; set; }
 
+        /// <summary>
+        /// Should WebSockets be enabled?
+        /// </summary>
         [Input("websocketsEnabled")]
         public Input<bool>? WebsocketsEnabled { get; set; }
 
+        /// <summary>
+        /// The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
+        /// </summary>
         [Input("windowsFxVersion")]
         public Input<string>? WindowsFxVersion { get; set; }
 
@@ -1387,9 +1845,15 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceSiteConfigIpRestrictionsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IP Address used for this IP Restriction in CIDR notation.
+        /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
+        /// <summary>
+        /// The Virtual Network Subnet ID used for this IP Restriction.
+        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
@@ -1400,9 +1864,15 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceSiteConfigIpRestrictionsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IP Address used for this IP Restriction in CIDR notation.
+        /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
+        /// <summary>
+        /// The Virtual Network Subnet ID used for this IP Restriction.
+        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
@@ -1451,24 +1921,39 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceStorageAccountsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The access key for the storage account.
+        /// </summary>
         [Input("accessKey", required: true)]
         public Input<string> AccessKey { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the storage account.
+        /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        /// <summary>
+        /// The path to mount the storage within the site's runtime environment.
+        /// </summary>
         [Input("mountPath")]
         public Input<string>? MountPath { get; set; }
 
         /// <summary>
-        /// Specifies the name of the App Service. Changing this forces a new resource to be created.
+        /// The name of the storage account identifier.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the file share (container name, for Blob storage).
+        /// </summary>
         [Input("shareName", required: true)]
         public Input<string> ShareName { get; set; } = null!;
 
+        /// <summary>
+        /// The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -1479,24 +1964,39 @@ namespace Pulumi.Azure.AppService
 
     public sealed class AppServiceStorageAccountsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The access key for the storage account.
+        /// </summary>
         [Input("accessKey", required: true)]
         public Input<string> AccessKey { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the storage account.
+        /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        /// <summary>
+        /// The path to mount the storage within the site's runtime environment.
+        /// </summary>
         [Input("mountPath")]
         public Input<string>? MountPath { get; set; }
 
         /// <summary>
-        /// Specifies the name of the App Service. Changing this forces a new resource to be created.
+        /// The name of the storage account identifier.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the file share (container name, for Blob storage).
+        /// </summary>
         [Input("shareName", required: true)]
         public Input<string> ShareName { get; set; } = null!;
 
+        /// <summary>
+        /// The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -1512,22 +2012,61 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class AppServiceAuthSettings
     {
+        /// <summary>
+        /// A `active_directory` block as defined below.
+        /// </summary>
         public readonly AppServiceAuthSettingsActiveDirectory? ActiveDirectory;
+        /// <summary>
+        /// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? AdditionalLoginParams;
+        /// <summary>
+        /// External URLs that can be redirected to as part of logging in or logging out of the app.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedExternalRedirectUrls;
+        /// <summary>
+        /// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+        /// </summary>
         public readonly string? DefaultProvider;
         /// <summary>
-        /// Is the App Service Enabled?
+        /// Is Authentication enabled?
         /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// A `facebook` block as defined below.
+        /// </summary>
         public readonly AppServiceAuthSettingsFacebook? Facebook;
+        /// <summary>
+        /// A `google` block as defined below.
+        /// </summary>
         public readonly AppServiceAuthSettingsGoogle? Google;
+        /// <summary>
+        /// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+        /// </summary>
         public readonly string? Issuer;
+        /// <summary>
+        /// A `microsoft` block as defined below.
+        /// </summary>
         public readonly AppServiceAuthSettingsMicrosoft? Microsoft;
+        /// <summary>
+        /// The runtime version of the Authentication/Authorization module.
+        /// </summary>
         public readonly string? RuntimeVersion;
+        /// <summary>
+        /// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+        /// </summary>
         public readonly double? TokenRefreshExtensionHours;
+        /// <summary>
+        /// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+        /// </summary>
         public readonly bool? TokenStoreEnabled;
+        /// <summary>
+        /// A `twitter` block as defined below.
+        /// </summary>
         public readonly AppServiceAuthSettingsTwitter? Twitter;
+        /// <summary>
+        /// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+        /// </summary>
         public readonly string? UnauthenticatedClientAction;
 
         [OutputConstructor]
@@ -1567,8 +2106,17 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class AppServiceAuthSettingsActiveDirectory
     {
+        /// <summary>
+        /// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedAudiences;
+        /// <summary>
+        /// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+        /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+        /// </summary>
         public readonly string? ClientSecret;
 
         [OutputConstructor]
@@ -1586,8 +2134,17 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class AppServiceAuthSettingsFacebook
     {
+        /// <summary>
+        /// The App ID of the Facebook app used for login
+        /// </summary>
         public readonly string AppId;
+        /// <summary>
+        /// The App Secret of the Facebook app used for Facebook Login.
+        /// </summary>
         public readonly string AppSecret;
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        /// </summary>
         public readonly ImmutableArray<string> OauthScopes;
 
         [OutputConstructor]
@@ -1605,8 +2162,17 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class AppServiceAuthSettingsGoogle
     {
+        /// <summary>
+        /// The OpenID Connect Client ID for the Google web application.
+        /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// The client secret associated with the Google web application.
+        /// </summary>
         public readonly string ClientSecret;
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        /// </summary>
         public readonly ImmutableArray<string> OauthScopes;
 
         [OutputConstructor]
@@ -1624,8 +2190,17 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class AppServiceAuthSettingsMicrosoft
     {
+        /// <summary>
+        /// The OAuth 2.0 client ID that was created for the app used for authentication.
+        /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// The OAuth 2.0 client secret that was created for the app used for authentication.
+        /// </summary>
         public readonly string ClientSecret;
+        /// <summary>
+        /// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        /// </summary>
         public readonly ImmutableArray<string> OauthScopes;
 
         [OutputConstructor]
@@ -1660,14 +2235,20 @@ namespace Pulumi.Azure.AppService
     public sealed class AppServiceBackup
     {
         /// <summary>
-        /// Is the App Service Enabled?
+        /// Is this Backup enabled?
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Specifies the name of the App Service. Changing this forces a new resource to be created.
+        /// Specifies the name for this Backup.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A `schedule` block as defined below.
+        /// </summary>
         public readonly AppServiceBackupSchedule Schedule;
+        /// <summary>
+        /// The SAS URL to a Storage Container where Backups should be saved.
+        /// </summary>
         public readonly string StorageAccountUrl;
 
         [OutputConstructor]
@@ -1687,10 +2268,25 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class AppServiceBackupSchedule
     {
+        /// <summary>
+        /// Sets how often the backup should be executed.
+        /// </summary>
         public readonly int FrequencyInterval;
+        /// <summary>
+        /// Sets the unit of time for how often the backup should be executed. Possible values are `Day` or `Hour`.
+        /// </summary>
         public readonly string FrequencyUnit;
+        /// <summary>
+        /// Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is?
+        /// </summary>
         public readonly bool? KeepAtLeastOneBackup;
+        /// <summary>
+        /// Specifies the number of days after which Backups should be deleted.
+        /// </summary>
         public readonly int? RetentionPeriodInDays;
+        /// <summary>
+        /// Sets when the schedule should start working.
+        /// </summary>
         public readonly string? StartTime;
 
         [OutputConstructor]
@@ -1713,10 +2309,16 @@ namespace Pulumi.Azure.AppService
     public sealed class AppServiceConnectionStrings
     {
         /// <summary>
-        /// Specifies the name of the App Service. Changing this forces a new resource to be created.
+        /// The name of the Connection String.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The value for the Connection String.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]
@@ -1734,6 +2336,9 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class AppServiceIdentity
     {
+        /// <summary>
+        /// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
@@ -1743,6 +2348,9 @@ namespace Pulumi.Azure.AppService
         /// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
         /// </summary>
         public readonly string TenantId;
+        /// <summary>
+        /// Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
@@ -1762,7 +2370,13 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class AppServiceLogs
     {
+        /// <summary>
+        /// An `application_logs` block as defined below.
+        /// </summary>
         public readonly AppServiceLogsApplicationLogs ApplicationLogs;
+        /// <summary>
+        /// An `http_logs` block as defined below.
+        /// </summary>
         public readonly AppServiceLogsHttpLogs HttpLogs;
 
         [OutputConstructor]
@@ -1778,6 +2392,9 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class AppServiceLogsApplicationLogs
     {
+        /// <summary>
+        /// An `azure_blob_storage` block as defined below.
+        /// </summary>
         public readonly AppServiceLogsApplicationLogsAzureBlobStorage? AzureBlobStorage;
 
         [OutputConstructor]
@@ -1790,8 +2407,17 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class AppServiceLogsApplicationLogsAzureBlobStorage
     {
+        /// <summary>
+        /// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        /// </summary>
         public readonly string Level;
+        /// <summary>
+        /// The number of days to retain logs for.
+        /// </summary>
         public readonly int RetentionInDays;
+        /// <summary>
+        /// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        /// </summary>
         public readonly string SasUrl;
 
         [OutputConstructor]
@@ -1809,7 +2435,13 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class AppServiceLogsHttpLogs
     {
+        /// <summary>
+        /// An `azure_blob_storage` block as defined below.
+        /// </summary>
         public readonly AppServiceLogsHttpLogsAzureBlobStorage? AzureBlobStorage;
+        /// <summary>
+        /// A `file_system` block as defined below.
+        /// </summary>
         public readonly AppServiceLogsHttpLogsFileSystem? FileSystem;
 
         [OutputConstructor]
@@ -1825,7 +2457,13 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class AppServiceLogsHttpLogsAzureBlobStorage
     {
+        /// <summary>
+        /// The number of days to retain logs for.
+        /// </summary>
         public readonly int RetentionInDays;
+        /// <summary>
+        /// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        /// </summary>
         public readonly string SasUrl;
 
         [OutputConstructor]
@@ -1841,7 +2479,13 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class AppServiceLogsHttpLogsFileSystem
     {
+        /// <summary>
+        /// The number of days to retain logs for.
+        /// </summary>
         public readonly int RetentionInDays;
+        /// <summary>
+        /// The maximum size in megabytes that http log files can use before being removed.
+        /// </summary>
         public readonly int RetentionInMb;
 
         [OutputConstructor]
@@ -1857,29 +2501,98 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class AppServiceSiteConfig
     {
+        /// <summary>
+        /// Should the app be loaded at all times? Defaults to `false`.
+        /// </summary>
         public readonly bool? AlwaysOn;
+        /// <summary>
+        /// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+        /// </summary>
         public readonly string? AppCommandLine;
         public readonly string? AutoSwapSlotName;
+        /// <summary>
+        /// A `cors` block as defined below.
+        /// </summary>
         public readonly AppServiceSiteConfigCors Cors;
+        /// <summary>
+        /// The ordering of default documents to load, if an address isn't specified.
+        /// </summary>
         public readonly ImmutableArray<string> DefaultDocuments;
+        /// <summary>
+        /// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        /// </summary>
         public readonly string? DotnetFrameworkVersion;
+        /// <summary>
+        /// State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+        /// </summary>
         public readonly string FtpsState;
+        /// <summary>
+        /// Is HTTP2 Enabled on this App Service? Defaults to `false`.
+        /// </summary>
         public readonly bool? Http2Enabled;
+        /// <summary>
+        /// A list of objects representing ip restrictions as defined below.
+        /// </summary>
         public readonly ImmutableArray<AppServiceSiteConfigIpRestrictions> IpRestrictions;
+        /// <summary>
+        /// The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+        /// </summary>
         public readonly string? JavaContainer;
+        /// <summary>
+        /// The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+        /// </summary>
         public readonly string? JavaContainerVersion;
+        /// <summary>
+        /// The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+        /// </summary>
         public readonly string? JavaVersion;
+        /// <summary>
+        /// Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|&lt;user/image:tag&gt;`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
+        /// </summary>
         public readonly string LinuxFxVersion;
+        /// <summary>
+        /// Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+        /// </summary>
         public readonly bool LocalMysqlEnabled;
+        /// <summary>
+        /// The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
+        /// </summary>
         public readonly string ManagedPipelineMode;
+        /// <summary>
+        /// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+        /// </summary>
         public readonly string MinTlsVersion;
+        /// <summary>
+        /// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+        /// </summary>
         public readonly string? PhpVersion;
+        /// <summary>
+        /// The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
+        /// </summary>
         public readonly string? PythonVersion;
+        /// <summary>
+        /// Is Remote Debugging Enabled? Defaults to `false`.
+        /// </summary>
         public readonly bool? RemoteDebuggingEnabled;
+        /// <summary>
+        /// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+        /// </summary>
         public readonly string RemoteDebuggingVersion;
+        /// <summary>
+        /// The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+        /// </summary>
         public readonly string? ScmType;
+        /// <summary>
+        /// Should the App Service run in 32 bit mode, rather than 64 bit mode?
+        /// </summary>
         public readonly bool? Use32BitWorkerProcess;
+        /// <summary>
+        /// Should WebSockets be enabled?
+        /// </summary>
         public readonly bool WebsocketsEnabled;
+        /// <summary>
+        /// The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
+        /// </summary>
         public readonly string WindowsFxVersion;
 
         [OutputConstructor]
@@ -1939,7 +2652,13 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class AppServiceSiteConfigCors
     {
+        /// <summary>
+        /// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedOrigins;
+        /// <summary>
+        /// Are credentials supported?
+        /// </summary>
         public readonly bool? SupportCredentials;
 
         [OutputConstructor]
@@ -1955,7 +2674,13 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class AppServiceSiteConfigIpRestrictions
     {
+        /// <summary>
+        /// The IP Address used for this IP Restriction in CIDR notation.
+        /// </summary>
         public readonly string? IpAddress;
+        /// <summary>
+        /// The Virtual Network Subnet ID used for this IP Restriction.
+        /// </summary>
         public readonly string? VirtualNetworkSubnetId;
 
         [OutputConstructor]
@@ -2015,14 +2740,29 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class AppServiceStorageAccounts
     {
+        /// <summary>
+        /// The access key for the storage account.
+        /// </summary>
         public readonly string AccessKey;
+        /// <summary>
+        /// The name of the storage account.
+        /// </summary>
         public readonly string AccountName;
+        /// <summary>
+        /// The path to mount the storage within the site's runtime environment.
+        /// </summary>
         public readonly string? MountPath;
         /// <summary>
-        /// Specifies the name of the App Service. Changing this forces a new resource to be created.
+        /// The name of the storage account identifier.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The name of the file share (container name, for Blob storage).
+        /// </summary>
         public readonly string ShareName;
+        /// <summary>
+        /// The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -52,14 +52,14 @@ class EventHubNamespace(pulumi.CustomResource):
     """
     A `network_rulesets` block as defined below.
 
-      * `default_action` (`str`)
-      * `ip_rules` (`list`)
-        * `action` (`str`)
-        * `ipMask` (`str`)
+      * `default_action` (`str`) - The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+      * `ip_rules` (`list`) - One or more `ip_rule` blocks as defined below.
+        * `action` (`str`) - The action to take when the rule is  matched. Possible values are `Allow`.
+        * `ipMask` (`str`) - The ip mask to match on.
 
-      * `virtual_network_rules` (`list`)
-        * `ignoreMissingVirtualNetworkServiceEndpoint` (`bool`)
-        * `subnet_id` (`str`)
+      * `virtual_network_rules` (`list`) - One or more `virtual_network_rule` blocks as defined below.
+        * `ignoreMissingVirtualNetworkServiceEndpoint` (`bool`) - Are missing virtual network service endpoints ignored? Defaults to `false`.
+        * `subnet_id` (`str`) - The id of the subnet to match on.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -93,14 +93,14 @@ class EventHubNamespace(pulumi.CustomResource):
 
         The **network_rulesets** object supports the following:
 
-          * `default_action` (`pulumi.Input[str]`)
-          * `ip_rules` (`pulumi.Input[list]`)
-            * `action` (`pulumi.Input[str]`)
-            * `ipMask` (`pulumi.Input[str]`)
+          * `default_action` (`pulumi.Input[str]`) - The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+          * `ip_rules` (`pulumi.Input[list]`) - One or more `ip_rule` blocks as defined below.
+            * `action` (`pulumi.Input[str]`) - The action to take when the rule is  matched. Possible values are `Allow`.
+            * `ipMask` (`pulumi.Input[str]`) - The ip mask to match on.
 
-          * `virtual_network_rules` (`pulumi.Input[list]`)
-            * `ignoreMissingVirtualNetworkServiceEndpoint` (`pulumi.Input[bool]`)
-            * `subnet_id` (`pulumi.Input[str]`)
+          * `virtual_network_rules` (`pulumi.Input[list]`) - One or more `virtual_network_rule` blocks as defined below.
+            * `ignoreMissingVirtualNetworkServiceEndpoint` (`pulumi.Input[bool]`) - Are missing virtual network service endpoints ignored? Defaults to `false`.
+            * `subnet_id` (`pulumi.Input[str]`) - The id of the subnet to match on.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -169,14 +169,14 @@ class EventHubNamespace(pulumi.CustomResource):
 
         The **network_rulesets** object supports the following:
 
-          * `default_action` (`pulumi.Input[str]`)
-          * `ip_rules` (`pulumi.Input[list]`)
-            * `action` (`pulumi.Input[str]`)
-            * `ipMask` (`pulumi.Input[str]`)
+          * `default_action` (`pulumi.Input[str]`) - The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+          * `ip_rules` (`pulumi.Input[list]`) - One or more `ip_rule` blocks as defined below.
+            * `action` (`pulumi.Input[str]`) - The action to take when the rule is  matched. Possible values are `Allow`.
+            * `ipMask` (`pulumi.Input[str]`) - The ip mask to match on.
 
-          * `virtual_network_rules` (`pulumi.Input[list]`)
-            * `ignoreMissingVirtualNetworkServiceEndpoint` (`pulumi.Input[bool]`)
-            * `subnet_id` (`pulumi.Input[str]`)
+          * `virtual_network_rules` (`pulumi.Input[list]`) - One or more `virtual_network_rule` blocks as defined below.
+            * `ignoreMissingVirtualNetworkServiceEndpoint` (`pulumi.Input[bool]`) - Are missing virtual network service endpoints ignored? Defaults to `false`.
+            * `subnet_id` (`pulumi.Input[str]`) - The id of the subnet to match on.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

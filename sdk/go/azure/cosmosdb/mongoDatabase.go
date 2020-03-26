@@ -112,4 +112,3 @@ type MongoDatabaseArgs struct {
 func (MongoDatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mongoDatabaseArgs)(nil)).Elem()
 }
-

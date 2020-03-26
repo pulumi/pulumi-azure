@@ -206,4 +206,3 @@ type HBaseClusterArgs struct {
 func (HBaseClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hbaseClusterArgs)(nil)).Elem()
 }
-

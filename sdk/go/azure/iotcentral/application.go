@@ -17,7 +17,7 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
-	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name. 
+	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -69,7 +69,7 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
-	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name. 
+	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
 	DisplayName *string `pulumi:"displayName"`
 	// Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -88,7 +88,7 @@ type applicationState struct {
 }
 
 type ApplicationState struct {
-	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name. 
+	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
 	DisplayName pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -111,7 +111,7 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name. 
+	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
 	DisplayName *string `pulumi:"displayName"`
 	// Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -131,7 +131,7 @@ type applicationArgs struct {
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name. 
+	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
 	DisplayName pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -152,4 +152,3 @@ type ApplicationArgs struct {
 func (ApplicationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationArgs)(nil)).Elem()
 }
-

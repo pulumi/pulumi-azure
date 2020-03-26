@@ -206,4 +206,3 @@ type KafkaClusterArgs struct {
 func (KafkaClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*kafkaClusterArgs)(nil)).Elem()
 }
-

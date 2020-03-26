@@ -380,4 +380,3 @@ type VirtualNetworkGatewayConnectionArgs struct {
 func (VirtualNetworkGatewayConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkGatewayConnectionArgs)(nil)).Elem()
 }
-

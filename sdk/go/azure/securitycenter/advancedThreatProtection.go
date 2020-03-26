@@ -92,4 +92,3 @@ type AdvancedThreatProtectionArgs struct {
 func (AdvancedThreatProtectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*advancedThreatProtectionArgs)(nil)).Elem()
 }
-

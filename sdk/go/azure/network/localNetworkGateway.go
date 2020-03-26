@@ -175,4 +175,3 @@ type LocalNetworkGatewayArgs struct {
 func (LocalNetworkGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*localNetworkGatewayArgs)(nil)).Elem()
 }
-

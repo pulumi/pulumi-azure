@@ -165,4 +165,3 @@ type LinkedServiceMysqlArgs struct {
 func (LinkedServiceMysqlArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServiceMysqlArgs)(nil)).Elem()
 }
-

@@ -92,4 +92,3 @@ type VirtualNetworkSwiftConnectionArgs struct {
 func (VirtualNetworkSwiftConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNetworkSwiftConnectionArgs)(nil)).Elem()
 }
-

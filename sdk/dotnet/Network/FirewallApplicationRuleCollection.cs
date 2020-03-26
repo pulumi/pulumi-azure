@@ -199,11 +199,18 @@ namespace Pulumi.Azure.Network
 
     public sealed class FirewallApplicationRuleCollectionRulesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies a description for the rule.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("fqdnTags")]
         private InputList<string>? _fqdnTags;
+
+        /// <summary>
+        /// A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics` and `WindowsUpdate`
+        /// </summary>
         public InputList<string> FqdnTags
         {
             get => _fqdnTags ?? (_fqdnTags = new InputList<string>());
@@ -211,13 +218,17 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Specifies the name of the Application Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+        /// Specifies the name of the rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("protocols")]
         private InputList<FirewallApplicationRuleCollectionRulesProtocolsArgs>? _protocols;
+
+        /// <summary>
+        /// One or more `protocol` blocks as defined below.
+        /// </summary>
         public InputList<FirewallApplicationRuleCollectionRulesProtocolsArgs> Protocols
         {
             get => _protocols ?? (_protocols = new InputList<FirewallApplicationRuleCollectionRulesProtocolsArgs>());
@@ -226,6 +237,10 @@ namespace Pulumi.Azure.Network
 
         [Input("sourceAddresses", required: true)]
         private InputList<string>? _sourceAddresses;
+
+        /// <summary>
+        /// A list of source IP addresses and/or IP ranges.
+        /// </summary>
         public InputList<string> SourceAddresses
         {
             get => _sourceAddresses ?? (_sourceAddresses = new InputList<string>());
@@ -234,6 +249,10 @@ namespace Pulumi.Azure.Network
 
         [Input("targetFqdns")]
         private InputList<string>? _targetFqdns;
+
+        /// <summary>
+        /// A list of FQDNs.
+        /// </summary>
         public InputList<string> TargetFqdns
         {
             get => _targetFqdns ?? (_targetFqdns = new InputList<string>());
@@ -247,11 +266,18 @@ namespace Pulumi.Azure.Network
 
     public sealed class FirewallApplicationRuleCollectionRulesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies a description for the rule.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("fqdnTags")]
         private InputList<string>? _fqdnTags;
+
+        /// <summary>
+        /// A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics` and `WindowsUpdate`
+        /// </summary>
         public InputList<string> FqdnTags
         {
             get => _fqdnTags ?? (_fqdnTags = new InputList<string>());
@@ -259,13 +285,17 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Specifies the name of the Application Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+        /// Specifies the name of the rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("protocols")]
         private InputList<FirewallApplicationRuleCollectionRulesProtocolsGetArgs>? _protocols;
+
+        /// <summary>
+        /// One or more `protocol` blocks as defined below.
+        /// </summary>
         public InputList<FirewallApplicationRuleCollectionRulesProtocolsGetArgs> Protocols
         {
             get => _protocols ?? (_protocols = new InputList<FirewallApplicationRuleCollectionRulesProtocolsGetArgs>());
@@ -274,6 +304,10 @@ namespace Pulumi.Azure.Network
 
         [Input("sourceAddresses", required: true)]
         private InputList<string>? _sourceAddresses;
+
+        /// <summary>
+        /// A list of source IP addresses and/or IP ranges.
+        /// </summary>
         public InputList<string> SourceAddresses
         {
             get => _sourceAddresses ?? (_sourceAddresses = new InputList<string>());
@@ -282,6 +316,10 @@ namespace Pulumi.Azure.Network
 
         [Input("targetFqdns")]
         private InputList<string>? _targetFqdns;
+
+        /// <summary>
+        /// A list of FQDNs.
+        /// </summary>
         public InputList<string> TargetFqdns
         {
             get => _targetFqdns ?? (_targetFqdns = new InputList<string>());
@@ -295,9 +333,15 @@ namespace Pulumi.Azure.Network
 
     public sealed class FirewallApplicationRuleCollectionRulesProtocolsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specify a port for the connection.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -308,9 +352,15 @@ namespace Pulumi.Azure.Network
 
     public sealed class FirewallApplicationRuleCollectionRulesProtocolsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specify a port for the connection.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -326,14 +376,29 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class FirewallApplicationRuleCollectionRules
     {
+        /// <summary>
+        /// Specifies a description for the rule.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics` and `WindowsUpdate`
+        /// </summary>
         public readonly ImmutableArray<string> FqdnTags;
         /// <summary>
-        /// Specifies the name of the Application Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+        /// Specifies the name of the rule.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// One or more `protocol` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<FirewallApplicationRuleCollectionRulesProtocols> Protocols;
+        /// <summary>
+        /// A list of source IP addresses and/or IP ranges.
+        /// </summary>
         public readonly ImmutableArray<string> SourceAddresses;
+        /// <summary>
+        /// A list of FQDNs.
+        /// </summary>
         public readonly ImmutableArray<string> TargetFqdns;
 
         [OutputConstructor]
@@ -357,7 +422,13 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class FirewallApplicationRuleCollectionRulesProtocols
     {
+        /// <summary>
+        /// Specify a port for the connection.
+        /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

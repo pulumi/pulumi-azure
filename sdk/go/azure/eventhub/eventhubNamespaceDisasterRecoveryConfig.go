@@ -125,4 +125,3 @@ type EventhubNamespaceDisasterRecoveryConfigArgs struct {
 func (EventhubNamespaceDisasterRecoveryConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventhubNamespaceDisasterRecoveryConfigArgs)(nil)).Elem()
 }
-

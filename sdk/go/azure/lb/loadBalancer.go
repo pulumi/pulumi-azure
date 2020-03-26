@@ -21,7 +21,7 @@ type LoadBalancer struct {
 	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationArrayOutput `pulumi:"frontendIpConfigurations"`
 	// Specifies the supported Azure Region where the Load Balancer should be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the frontend ip configuration.
+	// Specifies the name of the Load Balancer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
 	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
@@ -70,7 +70,7 @@ type loadBalancerState struct {
 	FrontendIpConfigurations []LoadBalancerFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
 	// Specifies the supported Azure Region where the Load Balancer should be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the frontend ip configuration.
+	// Specifies the name of the Load Balancer.
 	Name *string `pulumi:"name"`
 	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
@@ -89,7 +89,7 @@ type LoadBalancerState struct {
 	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationArrayInput
 	// Specifies the supported Azure Region where the Load Balancer should be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the frontend ip configuration.
+	// Specifies the name of the Load Balancer.
 	Name pulumi.StringPtrInput
 	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
 	PrivateIpAddress pulumi.StringPtrInput
@@ -112,7 +112,7 @@ type loadBalancerArgs struct {
 	FrontendIpConfigurations []LoadBalancerFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
 	// Specifies the supported Azure Region where the Load Balancer should be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the frontend ip configuration.
+	// Specifies the name of the Load Balancer.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group in which to create the Load Balancer.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -128,7 +128,7 @@ type LoadBalancerArgs struct {
 	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationArrayInput
 	// Specifies the supported Azure Region where the Load Balancer should be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the frontend ip configuration.
+	// Specifies the name of the Load Balancer.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group in which to create the Load Balancer.
 	ResourceGroupName pulumi.StringInput
@@ -141,4 +141,3 @@ type LoadBalancerArgs struct {
 func (LoadBalancerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerArgs)(nil)).Elem()
 }
-

@@ -183,4 +183,3 @@ type ExpressRouteCircuitArgs struct {
 func (ExpressRouteCircuitArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteCircuitArgs)(nil)).Elem()
 }
-

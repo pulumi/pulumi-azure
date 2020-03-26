@@ -173,4 +173,3 @@ type LinkServiceArgs struct {
 func (LinkServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkServiceArgs)(nil)).Elem()
 }
-

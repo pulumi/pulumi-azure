@@ -46,6 +46,9 @@ export class Endpoint extends pulumi.CustomResource {
      * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      */
     public readonly geoFilters!: pulumi.Output<outputs.cdn.EndpointGeoFilter[] | undefined>;
+    /**
+     * A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+     */
     public /*out*/ readonly hostName!: pulumi.Output<string>;
     /**
      * Indicates whether compression is to be enabled. Defaults to false.
@@ -64,7 +67,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+     * The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -185,6 +188,9 @@ export interface EndpointState {
      * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      */
     readonly geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointGeoFilter>[]>;
+    /**
+     * A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+     */
     readonly hostName?: pulumi.Input<string>;
     /**
      * Indicates whether compression is to be enabled. Defaults to false.
@@ -203,7 +209,7 @@ export interface EndpointState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+     * The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -273,7 +279,7 @@ export interface EndpointArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+     * The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

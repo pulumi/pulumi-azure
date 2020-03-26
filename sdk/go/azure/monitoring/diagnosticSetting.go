@@ -159,4 +159,3 @@ type DiagnosticSettingArgs struct {
 func (DiagnosticSettingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*diagnosticSettingArgs)(nil)).Elem()
 }
-

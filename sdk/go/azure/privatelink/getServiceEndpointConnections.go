@@ -30,16 +30,14 @@ type GetServiceEndpointConnectionsArgs struct {
 	ServiceId string `pulumi:"serviceId"`
 }
 
-
 // A collection of values returned by getServiceEndpointConnections.
 type GetServiceEndpointConnectionsResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Location string `pulumi:"location"`
+	Id                         string                                                   `pulumi:"id"`
+	Location                   string                                                   `pulumi:"location"`
 	PrivateEndpointConnections []GetServiceEndpointConnectionsPrivateEndpointConnection `pulumi:"privateEndpointConnections"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	ServiceId string `pulumi:"serviceId"`
+	ResourceGroupName          string                                                   `pulumi:"resourceGroupName"`
+	ServiceId                  string                                                   `pulumi:"serviceId"`
 	// The name of the private link service.
 	ServiceName string `pulumi:"serviceName"`
 }
-

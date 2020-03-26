@@ -132,4 +132,3 @@ type ProfileArgs struct {
 func (ProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileArgs)(nil)).Elem()
 }
-

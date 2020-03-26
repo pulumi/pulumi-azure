@@ -109,4 +109,3 @@ type SpatialAnchorsAccountArgs struct {
 func (SpatialAnchorsAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*spatialAnchorsAccountArgs)(nil)).Elem()
 }
-

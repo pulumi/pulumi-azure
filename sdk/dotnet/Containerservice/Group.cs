@@ -375,32 +375,55 @@ namespace Pulumi.Azure.ContainerService
     {
         [Input("commands")]
         private InputList<string>? _commands;
+
+        /// <summary>
+        /// A list of commands which should be run on the container. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> Commands
         {
             get => _commands ?? (_commands = new InputList<string>());
             set => _commands = value;
         }
 
+        /// <summary>
+        /// The required number of CPU cores of the containers. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("cpu", required: true)]
         public Input<double> Cpu { get; set; } = null!;
 
         [Input("environmentVariables")]
         private InputMap<string>? _environmentVariables;
+
+        /// <summary>
+        /// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+        /// </summary>
         public InputMap<string> EnvironmentVariables
         {
             get => _environmentVariables ?? (_environmentVariables = new InputMap<string>());
             set => _environmentVariables = value;
         }
 
+        /// <summary>
+        /// A `gpu` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("gpu")]
         public Input<GroupContainersGpuArgs>? Gpu { get; set; }
 
+        /// <summary>
+        /// The container image name. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("image", required: true)]
         public Input<string> Image { get; set; } = null!;
 
+        /// <summary>
+        /// The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("livenessProbe")]
         public Input<GroupContainersLivenessProbeArgs>? LivenessProbe { get; set; }
 
+        /// <summary>
+        /// The required memory of the containers in GB. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("memory", required: true)]
         public Input<double> Memory { get; set; } = null!;
 
@@ -412,17 +435,28 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("ports")]
         private InputList<GroupContainersPortsArgs>? _ports;
+
+        /// <summary>
+        /// A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
+        /// </summary>
         public InputList<GroupContainersPortsArgs> Ports
         {
             get => _ports ?? (_ports = new InputList<GroupContainersPortsArgs>());
             set => _ports = value;
         }
 
+        /// <summary>
+        /// The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("readinessProbe")]
         public Input<GroupContainersReadinessProbeArgs>? ReadinessProbe { get; set; }
 
         [Input("secureEnvironmentVariables")]
         private InputMap<string>? _secureEnvironmentVariables;
+
+        /// <summary>
+        /// A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+        /// </summary>
         public InputMap<string> SecureEnvironmentVariables
         {
             get => _secureEnvironmentVariables ?? (_secureEnvironmentVariables = new InputMap<string>());
@@ -431,6 +465,10 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("volumes")]
         private InputList<GroupContainersVolumesArgs>? _volumes;
+
+        /// <summary>
+        /// The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<GroupContainersVolumesArgs> Volumes
         {
             get => _volumes ?? (_volumes = new InputList<GroupContainersVolumesArgs>());
@@ -446,32 +484,55 @@ namespace Pulumi.Azure.ContainerService
     {
         [Input("commands")]
         private InputList<string>? _commands;
+
+        /// <summary>
+        /// A list of commands which should be run on the container. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> Commands
         {
             get => _commands ?? (_commands = new InputList<string>());
             set => _commands = value;
         }
 
+        /// <summary>
+        /// The required number of CPU cores of the containers. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("cpu", required: true)]
         public Input<double> Cpu { get; set; } = null!;
 
         [Input("environmentVariables")]
         private InputMap<string>? _environmentVariables;
+
+        /// <summary>
+        /// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+        /// </summary>
         public InputMap<string> EnvironmentVariables
         {
             get => _environmentVariables ?? (_environmentVariables = new InputMap<string>());
             set => _environmentVariables = value;
         }
 
+        /// <summary>
+        /// A `gpu` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("gpu")]
         public Input<GroupContainersGpuGetArgs>? Gpu { get; set; }
 
+        /// <summary>
+        /// The container image name. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("image", required: true)]
         public Input<string> Image { get; set; } = null!;
 
+        /// <summary>
+        /// The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("livenessProbe")]
         public Input<GroupContainersLivenessProbeGetArgs>? LivenessProbe { get; set; }
 
+        /// <summary>
+        /// The required memory of the containers in GB. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("memory", required: true)]
         public Input<double> Memory { get; set; } = null!;
 
@@ -483,17 +544,28 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("ports")]
         private InputList<GroupContainersPortsGetArgs>? _ports;
+
+        /// <summary>
+        /// A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
+        /// </summary>
         public InputList<GroupContainersPortsGetArgs> Ports
         {
             get => _ports ?? (_ports = new InputList<GroupContainersPortsGetArgs>());
             set => _ports = value;
         }
 
+        /// <summary>
+        /// The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("readinessProbe")]
         public Input<GroupContainersReadinessProbeGetArgs>? ReadinessProbe { get; set; }
 
         [Input("secureEnvironmentVariables")]
         private InputMap<string>? _secureEnvironmentVariables;
+
+        /// <summary>
+        /// A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+        /// </summary>
         public InputMap<string> SecureEnvironmentVariables
         {
             get => _secureEnvironmentVariables ?? (_secureEnvironmentVariables = new InputMap<string>());
@@ -502,6 +574,10 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("volumes")]
         private InputList<GroupContainersVolumesGetArgs>? _volumes;
+
+        /// <summary>
+        /// The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<GroupContainersVolumesGetArgs> Volumes
         {
             get => _volumes ?? (_volumes = new InputList<GroupContainersVolumesGetArgs>());
@@ -515,9 +591,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupContainersGpuArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }
 
+        /// <summary>
+        /// The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
@@ -528,9 +610,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupContainersGpuGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }
 
+        /// <summary>
+        /// The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
@@ -543,32 +631,55 @@ namespace Pulumi.Azure.ContainerService
     {
         [Input("execs")]
         private InputList<string>? _execs;
+
+        /// <summary>
+        /// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> Execs
         {
             get => _execs ?? (_execs = new InputList<string>());
             set => _execs = value;
         }
 
+        /// <summary>
+        /// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("failureThreshold")]
         public Input<int>? FailureThreshold { get; set; }
 
         [Input("httpGets")]
         private InputList<GroupContainersLivenessProbeHttpGetsArgs>? _httpGets;
+
+        /// <summary>
+        /// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<GroupContainersLivenessProbeHttpGetsArgs> HttpGets
         {
             get => _httpGets ?? (_httpGets = new InputList<GroupContainersLivenessProbeHttpGetsArgs>());
             set => _httpGets = value;
         }
 
+        /// <summary>
+        /// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("initialDelaySeconds")]
         public Input<int>? InitialDelaySeconds { get; set; }
 
+        /// <summary>
+        /// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("periodSeconds")]
         public Input<int>? PeriodSeconds { get; set; }
 
+        /// <summary>
+        /// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("successThreshold")]
         public Input<int>? SuccessThreshold { get; set; }
 
+        /// <summary>
+        /// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("timeoutSeconds")]
         public Input<int>? TimeoutSeconds { get; set; }
 
@@ -581,32 +692,55 @@ namespace Pulumi.Azure.ContainerService
     {
         [Input("execs")]
         private InputList<string>? _execs;
+
+        /// <summary>
+        /// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> Execs
         {
             get => _execs ?? (_execs = new InputList<string>());
             set => _execs = value;
         }
 
+        /// <summary>
+        /// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("failureThreshold")]
         public Input<int>? FailureThreshold { get; set; }
 
         [Input("httpGets")]
         private InputList<GroupContainersLivenessProbeHttpGetsGetArgs>? _httpGets;
+
+        /// <summary>
+        /// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<GroupContainersLivenessProbeHttpGetsGetArgs> HttpGets
         {
             get => _httpGets ?? (_httpGets = new InputList<GroupContainersLivenessProbeHttpGetsGetArgs>());
             set => _httpGets = value;
         }
 
+        /// <summary>
+        /// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("initialDelaySeconds")]
         public Input<int>? InitialDelaySeconds { get; set; }
 
+        /// <summary>
+        /// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("periodSeconds")]
         public Input<int>? PeriodSeconds { get; set; }
 
+        /// <summary>
+        /// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("successThreshold")]
         public Input<int>? SuccessThreshold { get; set; }
 
+        /// <summary>
+        /// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("timeoutSeconds")]
         public Input<int>? TimeoutSeconds { get; set; }
 
@@ -617,12 +751,21 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupContainersLivenessProbeHttpGetsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Path to access on the HTTP server. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
+        /// <summary>
+        /// The port number the container will expose. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("scheme")]
         public Input<string>? Scheme { get; set; }
 
@@ -633,12 +776,21 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupContainersLivenessProbeHttpGetsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Path to access on the HTTP server. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
+        /// <summary>
+        /// The port number the container will expose. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("scheme")]
         public Input<string>? Scheme { get; set; }
 
@@ -649,9 +801,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupContainersPortsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The port number the container will expose. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
@@ -662,9 +820,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupContainersPortsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The port number the container will expose. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
@@ -677,32 +841,55 @@ namespace Pulumi.Azure.ContainerService
     {
         [Input("execs")]
         private InputList<string>? _execs;
+
+        /// <summary>
+        /// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> Execs
         {
             get => _execs ?? (_execs = new InputList<string>());
             set => _execs = value;
         }
 
+        /// <summary>
+        /// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("failureThreshold")]
         public Input<int>? FailureThreshold { get; set; }
 
         [Input("httpGets")]
         private InputList<GroupContainersReadinessProbeHttpGetsArgs>? _httpGets;
+
+        /// <summary>
+        /// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<GroupContainersReadinessProbeHttpGetsArgs> HttpGets
         {
             get => _httpGets ?? (_httpGets = new InputList<GroupContainersReadinessProbeHttpGetsArgs>());
             set => _httpGets = value;
         }
 
+        /// <summary>
+        /// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("initialDelaySeconds")]
         public Input<int>? InitialDelaySeconds { get; set; }
 
+        /// <summary>
+        /// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("periodSeconds")]
         public Input<int>? PeriodSeconds { get; set; }
 
+        /// <summary>
+        /// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("successThreshold")]
         public Input<int>? SuccessThreshold { get; set; }
 
+        /// <summary>
+        /// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("timeoutSeconds")]
         public Input<int>? TimeoutSeconds { get; set; }
 
@@ -715,32 +902,55 @@ namespace Pulumi.Azure.ContainerService
     {
         [Input("execs")]
         private InputList<string>? _execs;
+
+        /// <summary>
+        /// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> Execs
         {
             get => _execs ?? (_execs = new InputList<string>());
             set => _execs = value;
         }
 
+        /// <summary>
+        /// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("failureThreshold")]
         public Input<int>? FailureThreshold { get; set; }
 
         [Input("httpGets")]
         private InputList<GroupContainersReadinessProbeHttpGetsGetArgs>? _httpGets;
+
+        /// <summary>
+        /// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<GroupContainersReadinessProbeHttpGetsGetArgs> HttpGets
         {
             get => _httpGets ?? (_httpGets = new InputList<GroupContainersReadinessProbeHttpGetsGetArgs>());
             set => _httpGets = value;
         }
 
+        /// <summary>
+        /// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("initialDelaySeconds")]
         public Input<int>? InitialDelaySeconds { get; set; }
 
+        /// <summary>
+        /// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("periodSeconds")]
         public Input<int>? PeriodSeconds { get; set; }
 
+        /// <summary>
+        /// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("successThreshold")]
         public Input<int>? SuccessThreshold { get; set; }
 
+        /// <summary>
+        /// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("timeoutSeconds")]
         public Input<int>? TimeoutSeconds { get; set; }
 
@@ -751,12 +961,21 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupContainersReadinessProbeHttpGetsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Path to access on the HTTP server. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
+        /// <summary>
+        /// The port number the container will expose. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("scheme")]
         public Input<string>? Scheme { get; set; }
 
@@ -767,12 +986,21 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupContainersReadinessProbeHttpGetsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Path to access on the HTTP server. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
+        /// <summary>
+        /// The port number the container will expose. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("scheme")]
         public Input<string>? Scheme { get; set; }
 
@@ -783,6 +1011,9 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupContainersVolumesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("mountPath", required: true)]
         public Input<string> MountPath { get; set; } = null!;
 
@@ -792,15 +1023,27 @@ namespace Pulumi.Azure.ContainerService
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
+        /// <summary>
+        /// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("shareName", required: true)]
         public Input<string> ShareName { get; set; } = null!;
 
+        /// <summary>
+        /// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("storageAccountKey", required: true)]
         public Input<string> StorageAccountKey { get; set; } = null!;
 
+        /// <summary>
+        /// The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("storageAccountName", required: true)]
         public Input<string> StorageAccountName { get; set; } = null!;
 
@@ -811,6 +1054,9 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupContainersVolumesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("mountPath", required: true)]
         public Input<string> MountPath { get; set; } = null!;
 
@@ -820,15 +1066,27 @@ namespace Pulumi.Azure.ContainerService
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
+        /// <summary>
+        /// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("shareName", required: true)]
         public Input<string> ShareName { get; set; } = null!;
 
+        /// <summary>
+        /// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("storageAccountKey", required: true)]
         public Input<string> StorageAccountKey { get; set; } = null!;
 
+        /// <summary>
+        /// The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("storageAccountName", required: true)]
         public Input<string> StorageAccountName { get; set; } = null!;
 
@@ -839,6 +1097,9 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupDiagnosticsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `log_analytics` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("logAnalytics", required: true)]
         public Input<GroupDiagnosticsLogAnalyticsArgs> LogAnalytics { get; set; } = null!;
 
@@ -849,6 +1110,9 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupDiagnosticsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `log_analytics` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("logAnalytics", required: true)]
         public Input<GroupDiagnosticsLogAnalyticsGetArgs> LogAnalytics { get; set; } = null!;
 
@@ -859,20 +1123,33 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupDiagnosticsLogAnalyticsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The log type which should be used. Possible values are `ContainerInsights` and `ContainerInstanceLogs`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("logType")]
         public Input<string>? LogType { get; set; }
 
         [Input("metadata")]
         private InputMap<string>? _metadata;
+
+        /// <summary>
+        /// Any metadata required for Log Analytics. Changing this forces a new resource to be created.
+        /// </summary>
         public InputMap<string> Metadata
         {
             get => _metadata ?? (_metadata = new InputMap<string>());
             set => _metadata = value;
         }
 
+        /// <summary>
+        /// The Workspace ID of the Log Analytics Workspace. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
 
+        /// <summary>
+        /// The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("workspaceKey", required: true)]
         public Input<string> WorkspaceKey { get; set; } = null!;
 
@@ -883,20 +1160,33 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupDiagnosticsLogAnalyticsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The log type which should be used. Possible values are `ContainerInsights` and `ContainerInstanceLogs`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("logType")]
         public Input<string>? LogType { get; set; }
 
         [Input("metadata")]
         private InputMap<string>? _metadata;
+
+        /// <summary>
+        /// Any metadata required for Log Analytics. Changing this forces a new resource to be created.
+        /// </summary>
         public InputMap<string> Metadata
         {
             get => _metadata ?? (_metadata = new InputMap<string>());
             set => _metadata = value;
         }
 
+        /// <summary>
+        /// The Workspace ID of the Log Analytics Workspace. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
 
+        /// <summary>
+        /// The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("workspaceKey", required: true)]
         public Input<string> WorkspaceKey { get; set; } = null!;
 
@@ -909,6 +1199,10 @@ namespace Pulumi.Azure.ContainerService
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> IdentityIds
         {
             get => _identityIds ?? (_identityIds = new InputList<string>());
@@ -918,6 +1212,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
+        /// <summary>
+        /// The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -930,6 +1227,10 @@ namespace Pulumi.Azure.ContainerService
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> IdentityIds
         {
             get => _identityIds ?? (_identityIds = new InputList<string>());
@@ -939,6 +1240,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
+        /// <summary>
+        /// The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -949,12 +1253,21 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupImageRegistryCredentialsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The password with which to connect to the registry. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
+        /// <summary>
+        /// The address to use to connect to the registry without protocol ("https"/"http"). For example: "myacr.acr.io". Changing this forces a new resource to be created.
+        /// </summary>
         [Input("server", required: true)]
         public Input<string> Server { get; set; } = null!;
 
+        /// <summary>
+        /// The username with which to connect to the registry. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -965,12 +1278,21 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupImageRegistryCredentialsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The password with which to connect to the registry. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
+        /// <summary>
+        /// The address to use to connect to the registry without protocol ("https"/"http"). For example: "myacr.acr.io". Changing this forces a new resource to be created.
+        /// </summary>
         [Input("server", required: true)]
         public Input<string> Server { get; set; } = null!;
 
+        /// <summary>
+        /// The username with which to connect to the registry. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -986,20 +1308,53 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GroupContainers
     {
+        /// <summary>
+        /// A list of commands which should be run on the container. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableArray<string> Commands;
+        /// <summary>
+        /// The required number of CPU cores of the containers. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly double Cpu;
+        /// <summary>
+        /// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
+        /// <summary>
+        /// A `gpu` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly GroupContainersGpu? Gpu;
+        /// <summary>
+        /// The container image name. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Image;
+        /// <summary>
+        /// The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly GroupContainersLivenessProbe? LivenessProbe;
+        /// <summary>
+        /// The required memory of the containers in GB. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly double Memory;
         /// <summary>
         /// Specifies the name of the Container Group. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
+        /// </summary>
         public readonly ImmutableArray<GroupContainersPorts> Ports;
+        /// <summary>
+        /// The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly GroupContainersReadinessProbe? ReadinessProbe;
+        /// <summary>
+        /// A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? SecureEnvironmentVariables;
+        /// <summary>
+        /// The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableArray<GroupContainersVolumes> Volumes;
 
         [OutputConstructor]
@@ -1035,7 +1390,13 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GroupContainersGpu
     {
+        /// <summary>
+        /// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? Count;
+        /// <summary>
+        /// The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Sku;
 
         [OutputConstructor]
@@ -1051,12 +1412,33 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GroupContainersLivenessProbe
     {
+        /// <summary>
+        /// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableArray<string> Execs;
+        /// <summary>
+        /// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? FailureThreshold;
+        /// <summary>
+        /// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableArray<GroupContainersLivenessProbeHttpGets> HttpGets;
+        /// <summary>
+        /// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? InitialDelaySeconds;
+        /// <summary>
+        /// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? PeriodSeconds;
+        /// <summary>
+        /// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? SuccessThreshold;
+        /// <summary>
+        /// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? TimeoutSeconds;
 
         [OutputConstructor]
@@ -1082,8 +1464,17 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GroupContainersLivenessProbeHttpGets
     {
+        /// <summary>
+        /// Path to access on the HTTP server. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Path;
+        /// <summary>
+        /// The port number the container will expose. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Scheme;
 
         [OutputConstructor]
@@ -1101,7 +1492,13 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GroupContainersPorts
     {
+        /// <summary>
+        /// The port number the container will expose. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Protocol;
 
         [OutputConstructor]
@@ -1117,12 +1514,33 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GroupContainersReadinessProbe
     {
+        /// <summary>
+        /// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableArray<string> Execs;
+        /// <summary>
+        /// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? FailureThreshold;
+        /// <summary>
+        /// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableArray<GroupContainersReadinessProbeHttpGets> HttpGets;
+        /// <summary>
+        /// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? InitialDelaySeconds;
+        /// <summary>
+        /// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? PeriodSeconds;
+        /// <summary>
+        /// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? SuccessThreshold;
+        /// <summary>
+        /// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? TimeoutSeconds;
 
         [OutputConstructor]
@@ -1148,8 +1566,17 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GroupContainersReadinessProbeHttpGets
     {
+        /// <summary>
+        /// Path to access on the HTTP server. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Path;
+        /// <summary>
+        /// The port number the container will expose. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Scheme;
 
         [OutputConstructor]
@@ -1167,14 +1594,29 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GroupContainersVolumes
     {
+        /// <summary>
+        /// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string MountPath;
         /// <summary>
         /// Specifies the name of the Container Group. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly bool? ReadOnly;
+        /// <summary>
+        /// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string ShareName;
+        /// <summary>
+        /// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string StorageAccountKey;
+        /// <summary>
+        /// The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string StorageAccountName;
 
         [OutputConstructor]
@@ -1198,6 +1640,9 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GroupDiagnostics
     {
+        /// <summary>
+        /// A `log_analytics` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly GroupDiagnosticsLogAnalytics LogAnalytics;
 
         [OutputConstructor]
@@ -1210,9 +1655,21 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GroupDiagnosticsLogAnalytics
     {
+        /// <summary>
+        /// The log type which should be used. Possible values are `ContainerInsights` and `ContainerInstanceLogs`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? LogType;
+        /// <summary>
+        /// Any metadata required for Log Analytics. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Metadata;
+        /// <summary>
+        /// The Workspace ID of the Log Analytics Workspace. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string WorkspaceId;
+        /// <summary>
+        /// The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string WorkspaceKey;
 
         [OutputConstructor]
@@ -1232,8 +1689,14 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GroupIdentity
     {
+        /// <summary>
+        /// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         public readonly string PrincipalId;
+        /// <summary>
+        /// The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
@@ -1251,8 +1714,17 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GroupImageRegistryCredentials
     {
+        /// <summary>
+        /// The password with which to connect to the registry. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// The address to use to connect to the registry without protocol ("https"/"http"). For example: "myacr.acr.io". Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Server;
+        /// <summary>
+        /// The username with which to connect to the registry. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

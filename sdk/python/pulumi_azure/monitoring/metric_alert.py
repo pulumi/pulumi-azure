@@ -14,8 +14,8 @@ class MetricAlert(pulumi.CustomResource):
     """
     One or more `action` blocks as defined below.
 
-      * `actionGroupId` (`str`)
-      * `webhookProperties` (`dict`)
+      * `actionGroupId` (`str`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
+      * `webhookProperties` (`dict`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
     """
     auto_mitigate: pulumi.Output[bool]
     """
@@ -25,16 +25,16 @@ class MetricAlert(pulumi.CustomResource):
     """
     One or more `criteria` blocks as defined below.
 
-      * `aggregation` (`str`)
-      * `dimensions` (`list`)
-        * `name` (`str`) - The name of the Metric Alert. Changing this forces a new resource to be created.
-        * `operator` (`str`)
-        * `values` (`list`)
+      * `aggregation` (`str`) - The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
+      * `dimensions` (`list`) - One or more `dimension` blocks as defined below.
+        * `name` (`str`) - One of the dimension names.
+        * `operator` (`str`) - The dimension operator. Possible values are `Include` and `Exclude`.
+        * `values` (`list`) - The list of dimension values.
 
-      * `metricName` (`str`)
-      * `metricNamespace` (`str`)
-      * `operator` (`str`)
-      * `threshold` (`float`)
+      * `metricName` (`str`) - One of the metric names to be monitored.
+      * `metricNamespace` (`str`) - One of the metric namespaces to be monitored.
+      * `operator` (`str`) - The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+      * `threshold` (`float`) - The criteria threshold value that activates the alert.
     """
     description: pulumi.Output[str]
     """
@@ -95,21 +95,21 @@ class MetricAlert(pulumi.CustomResource):
 
         The **actions** object supports the following:
 
-          * `actionGroupId` (`pulumi.Input[str]`)
-          * `webhookProperties` (`pulumi.Input[dict]`)
+          * `actionGroupId` (`pulumi.Input[str]`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
+          * `webhookProperties` (`pulumi.Input[dict]`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
 
         The **criterias** object supports the following:
 
-          * `aggregation` (`pulumi.Input[str]`)
-          * `dimensions` (`pulumi.Input[list]`)
-            * `name` (`pulumi.Input[str]`) - The name of the Metric Alert. Changing this forces a new resource to be created.
-            * `operator` (`pulumi.Input[str]`)
-            * `values` (`pulumi.Input[list]`)
+          * `aggregation` (`pulumi.Input[str]`) - The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
+          * `dimensions` (`pulumi.Input[list]`) - One or more `dimension` blocks as defined below.
+            * `name` (`pulumi.Input[str]`) - One of the dimension names.
+            * `operator` (`pulumi.Input[str]`) - The dimension operator. Possible values are `Include` and `Exclude`.
+            * `values` (`pulumi.Input[list]`) - The list of dimension values.
 
-          * `metricName` (`pulumi.Input[str]`)
-          * `metricNamespace` (`pulumi.Input[str]`)
-          * `operator` (`pulumi.Input[str]`)
-          * `threshold` (`pulumi.Input[float]`)
+          * `metricName` (`pulumi.Input[str]`) - One of the metric names to be monitored.
+          * `metricNamespace` (`pulumi.Input[str]`) - One of the metric namespaces to be monitored.
+          * `operator` (`pulumi.Input[str]`) - The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+          * `threshold` (`pulumi.Input[float]`) - The criteria threshold value that activates the alert.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -176,21 +176,21 @@ class MetricAlert(pulumi.CustomResource):
 
         The **actions** object supports the following:
 
-          * `actionGroupId` (`pulumi.Input[str]`)
-          * `webhookProperties` (`pulumi.Input[dict]`)
+          * `actionGroupId` (`pulumi.Input[str]`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
+          * `webhookProperties` (`pulumi.Input[dict]`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
 
         The **criterias** object supports the following:
 
-          * `aggregation` (`pulumi.Input[str]`)
-          * `dimensions` (`pulumi.Input[list]`)
-            * `name` (`pulumi.Input[str]`) - The name of the Metric Alert. Changing this forces a new resource to be created.
-            * `operator` (`pulumi.Input[str]`)
-            * `values` (`pulumi.Input[list]`)
+          * `aggregation` (`pulumi.Input[str]`) - The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
+          * `dimensions` (`pulumi.Input[list]`) - One or more `dimension` blocks as defined below.
+            * `name` (`pulumi.Input[str]`) - One of the dimension names.
+            * `operator` (`pulumi.Input[str]`) - The dimension operator. Possible values are `Include` and `Exclude`.
+            * `values` (`pulumi.Input[list]`) - The list of dimension values.
 
-          * `metricName` (`pulumi.Input[str]`)
-          * `metricNamespace` (`pulumi.Input[str]`)
-          * `operator` (`pulumi.Input[str]`)
-          * `threshold` (`pulumi.Input[float]`)
+          * `metricName` (`pulumi.Input[str]`) - One of the metric names to be monitored.
+          * `metricNamespace` (`pulumi.Input[str]`) - One of the metric namespaces to be monitored.
+          * `operator` (`pulumi.Input[str]`) - The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+          * `threshold` (`pulumi.Input[float]`) - The criteria threshold value that activates the alert.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

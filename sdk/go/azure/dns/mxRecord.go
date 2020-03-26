@@ -144,4 +144,3 @@ type MxRecordArgs struct {
 func (MxRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mxRecordArgs)(nil)).Elem()
 }
-

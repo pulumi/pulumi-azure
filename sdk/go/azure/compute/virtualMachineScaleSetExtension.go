@@ -180,4 +180,3 @@ type VirtualMachineScaleSetExtensionArgs struct {
 func (VirtualMachineScaleSetExtensionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualMachineScaleSetExtensionArgs)(nil)).Elem()
 }
-

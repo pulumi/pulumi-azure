@@ -107,6 +107,7 @@ def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,opts=N
 
     :param str name: Specifies the name of the public IP address.
     :param str resource_group_name: Specifies the name of the resource group.
+    :param dict tags: A mapping of tags to assigned to the resource.
     """
     __args__ = dict()
 

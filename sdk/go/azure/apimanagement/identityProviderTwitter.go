@@ -118,4 +118,3 @@ type IdentityProviderTwitterArgs struct {
 func (IdentityProviderTwitterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityProviderTwitterArgs)(nil)).Elem()
 }
-

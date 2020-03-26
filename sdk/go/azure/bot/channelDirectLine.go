@@ -17,10 +17,10 @@ import (
 type ChannelDirectLine struct {
 	pulumi.CustomResourceState
 
-	BotName pulumi.StringOutput `pulumi:"botName"`
-	Location pulumi.StringOutput `pulumi:"location"`
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	Sites ChannelDirectLineSiteArrayOutput `pulumi:"sites"`
+	BotName           pulumi.StringOutput              `pulumi:"botName"`
+	Location          pulumi.StringOutput              `pulumi:"location"`
+	ResourceGroupName pulumi.StringOutput              `pulumi:"resourceGroupName"`
+	Sites             ChannelDirectLineSiteArrayOutput `pulumi:"sites"`
 }
 
 // NewChannelDirectLine registers a new resource with the given unique name, arguments, and options.
@@ -60,17 +60,17 @@ func GetChannelDirectLine(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ChannelDirectLine resources.
 type channelDirectLineState struct {
-	BotName *string `pulumi:"botName"`
-	Location *string `pulumi:"location"`
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	Sites []ChannelDirectLineSite `pulumi:"sites"`
+	BotName           *string                 `pulumi:"botName"`
+	Location          *string                 `pulumi:"location"`
+	ResourceGroupName *string                 `pulumi:"resourceGroupName"`
+	Sites             []ChannelDirectLineSite `pulumi:"sites"`
 }
 
 type ChannelDirectLineState struct {
-	BotName pulumi.StringPtrInput
-	Location pulumi.StringPtrInput
+	BotName           pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringPtrInput
-	Sites ChannelDirectLineSiteArrayInput
+	Sites             ChannelDirectLineSiteArrayInput
 }
 
 func (ChannelDirectLineState) ElementType() reflect.Type {
@@ -78,21 +78,20 @@ func (ChannelDirectLineState) ElementType() reflect.Type {
 }
 
 type channelDirectLineArgs struct {
-	BotName string `pulumi:"botName"`
-	Location *string `pulumi:"location"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Sites []ChannelDirectLineSite `pulumi:"sites"`
+	BotName           string                  `pulumi:"botName"`
+	Location          *string                 `pulumi:"location"`
+	ResourceGroupName string                  `pulumi:"resourceGroupName"`
+	Sites             []ChannelDirectLineSite `pulumi:"sites"`
 }
 
 // The set of arguments for constructing a ChannelDirectLine resource.
 type ChannelDirectLineArgs struct {
-	BotName pulumi.StringInput
-	Location pulumi.StringPtrInput
+	BotName           pulumi.StringInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	Sites ChannelDirectLineSiteArrayInput
+	Sites             ChannelDirectLineSiteArrayInput
 }
 
 func (ChannelDirectLineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelDirectLineArgs)(nil)).Elem()
 }
-

@@ -185,4 +185,3 @@ type DatasetSqlServerTableArgs struct {
 func (DatasetSqlServerTableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*datasetSqlServerTableArgs)(nil)).Elem()
 }
-

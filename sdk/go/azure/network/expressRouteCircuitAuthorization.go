@@ -124,4 +124,3 @@ type ExpressRouteCircuitAuthorizationArgs struct {
 func (ExpressRouteCircuitAuthorizationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*expressRouteCircuitAuthorizationArgs)(nil)).Elem()
 }
-

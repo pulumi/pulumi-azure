@@ -155,4 +155,3 @@ type AutoscaleSettingArgs struct {
 func (AutoscaleSettingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*autoscaleSettingArgs)(nil)).Elem()
 }
-

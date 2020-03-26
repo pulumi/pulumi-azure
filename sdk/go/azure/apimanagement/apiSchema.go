@@ -144,4 +144,3 @@ type ApiSchemaArgs struct {
 func (ApiSchemaArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiSchemaArgs)(nil)).Elem()
 }
-

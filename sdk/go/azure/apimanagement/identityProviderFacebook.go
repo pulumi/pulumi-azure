@@ -118,4 +118,3 @@ type IdentityProviderFacebookArgs struct {
 func (IdentityProviderFacebookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityProviderFacebookArgs)(nil)).Elem()
 }
-

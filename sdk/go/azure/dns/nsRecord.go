@@ -21,7 +21,7 @@ type NsRecord struct {
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS NS Record.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of values that make up the NS record. 
+	// A list of values that make up the NS record.
 	Records pulumi.StringArrayOutput `pulumi:"records"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -77,7 +77,7 @@ type nsRecordState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS NS Record.
 	Name *string `pulumi:"name"`
-	// A list of values that make up the NS record. 
+	// A list of values that make up the NS record.
 	Records []string `pulumi:"records"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -94,7 +94,7 @@ type NsRecordState struct {
 	Fqdn pulumi.StringPtrInput
 	// The name of the DNS NS Record.
 	Name pulumi.StringPtrInput
-	// A list of values that make up the NS record. 
+	// A list of values that make up the NS record.
 	Records pulumi.StringArrayInput
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -113,7 +113,7 @@ func (NsRecordState) ElementType() reflect.Type {
 type nsRecordArgs struct {
 	// The name of the DNS NS Record.
 	Name *string `pulumi:"name"`
-	// A list of values that make up the NS record. 
+	// A list of values that make up the NS record.
 	Records []string `pulumi:"records"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -129,7 +129,7 @@ type nsRecordArgs struct {
 type NsRecordArgs struct {
 	// The name of the DNS NS Record.
 	Name pulumi.StringPtrInput
-	// A list of values that make up the NS record. 
+	// A list of values that make up the NS record.
 	Records pulumi.StringArrayInput
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -144,4 +144,3 @@ type NsRecordArgs struct {
 func (NsRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*nsRecordArgs)(nil)).Elem()
 }
-

@@ -247,11 +247,18 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class AutoscaleSettingNotificationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `email` block as defined below.
+        /// </summary>
         [Input("email")]
         public Input<AutoscaleSettingNotificationEmailArgs>? Email { get; set; }
 
         [Input("webhooks")]
         private InputList<AutoscaleSettingNotificationWebhooksArgs>? _webhooks;
+
+        /// <summary>
+        /// One or more `webhook` blocks as defined below.
+        /// </summary>
         public InputList<AutoscaleSettingNotificationWebhooksArgs> Webhooks
         {
             get => _webhooks ?? (_webhooks = new InputList<AutoscaleSettingNotificationWebhooksArgs>());
@@ -267,15 +274,25 @@ namespace Pulumi.Azure.Monitoring
     {
         [Input("customEmails")]
         private InputList<string>? _customEmails;
+
+        /// <summary>
+        /// Specifies a list of custom email addresses to which the email notifications will be sent.
+        /// </summary>
         public InputList<string> CustomEmails
         {
             get => _customEmails ?? (_customEmails = new InputList<string>());
             set => _customEmails = value;
         }
 
+        /// <summary>
+        /// Should email notifications be sent to the subscription administrator? Defaults to `false`.
+        /// </summary>
         [Input("sendToSubscriptionAdministrator")]
         public Input<bool>? SendToSubscriptionAdministrator { get; set; }
 
+        /// <summary>
+        /// Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
+        /// </summary>
         [Input("sendToSubscriptionCoAdministrator")]
         public Input<bool>? SendToSubscriptionCoAdministrator { get; set; }
 
@@ -288,15 +305,25 @@ namespace Pulumi.Azure.Monitoring
     {
         [Input("customEmails")]
         private InputList<string>? _customEmails;
+
+        /// <summary>
+        /// Specifies a list of custom email addresses to which the email notifications will be sent.
+        /// </summary>
         public InputList<string> CustomEmails
         {
             get => _customEmails ?? (_customEmails = new InputList<string>());
             set => _customEmails = value;
         }
 
+        /// <summary>
+        /// Should email notifications be sent to the subscription administrator? Defaults to `false`.
+        /// </summary>
         [Input("sendToSubscriptionAdministrator")]
         public Input<bool>? SendToSubscriptionAdministrator { get; set; }
 
+        /// <summary>
+        /// Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
+        /// </summary>
         [Input("sendToSubscriptionCoAdministrator")]
         public Input<bool>? SendToSubscriptionCoAdministrator { get; set; }
 
@@ -307,11 +334,18 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class AutoscaleSettingNotificationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `email` block as defined below.
+        /// </summary>
         [Input("email")]
         public Input<AutoscaleSettingNotificationEmailGetArgs>? Email { get; set; }
 
         [Input("webhooks")]
         private InputList<AutoscaleSettingNotificationWebhooksGetArgs>? _webhooks;
+
+        /// <summary>
+        /// One or more `webhook` blocks as defined below.
+        /// </summary>
         public InputList<AutoscaleSettingNotificationWebhooksGetArgs> Webhooks
         {
             get => _webhooks ?? (_webhooks = new InputList<AutoscaleSettingNotificationWebhooksGetArgs>());
@@ -327,12 +361,19 @@ namespace Pulumi.Azure.Monitoring
     {
         [Input("properties")]
         private InputMap<string>? _properties;
+
+        /// <summary>
+        /// A map of settings.
+        /// </summary>
         public InputMap<string> Properties
         {
             get => _properties ?? (_properties = new InputMap<string>());
             set => _properties = value;
         }
 
+        /// <summary>
+        /// The HTTPS URI which should receive scale notifications.
+        /// </summary>
         [Input("serviceUri", required: true)]
         public Input<string> ServiceUri { get; set; } = null!;
 
@@ -345,12 +386,19 @@ namespace Pulumi.Azure.Monitoring
     {
         [Input("properties")]
         private InputMap<string>? _properties;
+
+        /// <summary>
+        /// A map of settings.
+        /// </summary>
         public InputMap<string> Properties
         {
             get => _properties ?? (_properties = new InputMap<string>());
             set => _properties = value;
         }
 
+        /// <summary>
+        /// The HTTPS URI which should receive scale notifications.
+        /// </summary>
         [Input("serviceUri", required: true)]
         public Input<string> ServiceUri { get; set; } = null!;
 
@@ -361,23 +409,36 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class AutoscaleSettingProfilesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `capacity` block as defined below.
+        /// </summary>
         [Input("capacity", required: true)]
         public Input<AutoscaleSettingProfilesCapacityArgs> Capacity { get; set; } = null!;
 
+        /// <summary>
+        /// A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
+        /// </summary>
         [Input("fixedDate")]
         public Input<AutoscaleSettingProfilesFixedDateArgs>? FixedDate { get; set; }
 
         /// <summary>
-        /// The name of the AutoScale Setting. Changing this forces a new resource to be created.
+        /// Specifies the name of the profile.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
+        /// </summary>
         [Input("recurrence")]
         public Input<AutoscaleSettingProfilesRecurrenceArgs>? Recurrence { get; set; }
 
         [Input("rules")]
         private InputList<AutoscaleSettingProfilesRulesArgs>? _rules;
+
+        /// <summary>
+        /// One or more (up to 10) `rule` blocks as defined below.
+        /// </summary>
         public InputList<AutoscaleSettingProfilesRulesArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<AutoscaleSettingProfilesRulesArgs>());
@@ -391,12 +452,21 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class AutoscaleSettingProfilesCapacityArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
+        /// </summary>
         [Input("default", required: true)]
         public Input<int> Default { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum number of instances for this resource. Valid values are between `0` and `1000`.
+        /// </summary>
         [Input("maximum", required: true)]
         public Input<int> Maximum { get; set; } = null!;
 
+        /// <summary>
+        /// The minimum number of instances for this resource. Valid values are between `0` and `1000`.
+        /// </summary>
         [Input("minimum", required: true)]
         public Input<int> Minimum { get; set; } = null!;
 
@@ -407,12 +477,21 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class AutoscaleSettingProfilesCapacityGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
+        /// </summary>
         [Input("default", required: true)]
         public Input<int> Default { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum number of instances for this resource. Valid values are between `0` and `1000`.
+        /// </summary>
         [Input("maximum", required: true)]
         public Input<int> Maximum { get; set; } = null!;
 
+        /// <summary>
+        /// The minimum number of instances for this resource. Valid values are between `0` and `1000`.
+        /// </summary>
         [Input("minimum", required: true)]
         public Input<int> Minimum { get; set; } = null!;
 
@@ -423,12 +502,21 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class AutoscaleSettingProfilesFixedDateArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the end date for the profile, formatted as an RFC3339 date string.
+        /// </summary>
         [Input("end", required: true)]
         public Input<string> End { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the start date for the profile, formatted as an RFC3339 date string.
+        /// </summary>
         [Input("start", required: true)]
         public Input<string> Start { get; set; } = null!;
 
+        /// <summary>
+        /// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+        /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
 
@@ -439,12 +527,21 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class AutoscaleSettingProfilesFixedDateGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the end date for the profile, formatted as an RFC3339 date string.
+        /// </summary>
         [Input("end", required: true)]
         public Input<string> End { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the start date for the profile, formatted as an RFC3339 date string.
+        /// </summary>
         [Input("start", required: true)]
         public Input<string> Start { get; set; } = null!;
 
+        /// <summary>
+        /// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+        /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
 
@@ -455,23 +552,36 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class AutoscaleSettingProfilesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `capacity` block as defined below.
+        /// </summary>
         [Input("capacity", required: true)]
         public Input<AutoscaleSettingProfilesCapacityGetArgs> Capacity { get; set; } = null!;
 
+        /// <summary>
+        /// A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
+        /// </summary>
         [Input("fixedDate")]
         public Input<AutoscaleSettingProfilesFixedDateGetArgs>? FixedDate { get; set; }
 
         /// <summary>
-        /// The name of the AutoScale Setting. Changing this forces a new resource to be created.
+        /// Specifies the name of the profile.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
+        /// </summary>
         [Input("recurrence")]
         public Input<AutoscaleSettingProfilesRecurrenceGetArgs>? Recurrence { get; set; }
 
         [Input("rules")]
         private InputList<AutoscaleSettingProfilesRulesGetArgs>? _rules;
+
+        /// <summary>
+        /// One or more (up to 10) `rule` blocks as defined below.
+        /// </summary>
         public InputList<AutoscaleSettingProfilesRulesGetArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<AutoscaleSettingProfilesRulesGetArgs>());
@@ -487,18 +597,31 @@ namespace Pulumi.Azure.Monitoring
     {
         [Input("days", required: true)]
         private InputList<string>? _days;
+
+        /// <summary>
+        /// A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+        /// </summary>
         public InputList<string> Days
         {
             get => _days ?? (_days = new InputList<string>());
             set => _days = value;
         }
 
+        /// <summary>
+        /// A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
+        /// </summary>
         [Input("hours", required: true)]
         public Input<int> Hours { get; set; } = null!;
 
+        /// <summary>
+        /// A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+        /// </summary>
         [Input("minutes", required: true)]
         public Input<int> Minutes { get; set; } = null!;
 
+        /// <summary>
+        /// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+        /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
 
@@ -511,18 +634,31 @@ namespace Pulumi.Azure.Monitoring
     {
         [Input("days", required: true)]
         private InputList<string>? _days;
+
+        /// <summary>
+        /// A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+        /// </summary>
         public InputList<string> Days
         {
             get => _days ?? (_days = new InputList<string>());
             set => _days = value;
         }
 
+        /// <summary>
+        /// A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
+        /// </summary>
         [Input("hours", required: true)]
         public Input<int> Hours { get; set; } = null!;
 
+        /// <summary>
+        /// A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+        /// </summary>
         [Input("minutes", required: true)]
         public Input<int> Minutes { get; set; } = null!;
 
+        /// <summary>
+        /// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+        /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
 
@@ -533,9 +669,15 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class AutoscaleSettingProfilesRulesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `metric_trigger` block as defined below.
+        /// </summary>
         [Input("metricTrigger", required: true)]
         public Input<AutoscaleSettingProfilesRulesMetricTriggerArgs> MetricTrigger { get; set; } = null!;
 
+        /// <summary>
+        /// A `scale_action` block as defined below.
+        /// </summary>
         [Input("scaleAction", required: true)]
         public Input<AutoscaleSettingProfilesRulesScaleActionArgs> ScaleAction { get; set; } = null!;
 
@@ -546,9 +688,15 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class AutoscaleSettingProfilesRulesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `metric_trigger` block as defined below.
+        /// </summary>
         [Input("metricTrigger", required: true)]
         public Input<AutoscaleSettingProfilesRulesMetricTriggerGetArgs> MetricTrigger { get; set; } = null!;
 
+        /// <summary>
+        /// A `scale_action` block as defined below.
+        /// </summary>
         [Input("scaleAction", required: true)]
         public Input<AutoscaleSettingProfilesRulesScaleActionGetArgs> ScaleAction { get; set; } = null!;
 
@@ -559,27 +707,51 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class AutoscaleSettingProfilesRulesMetricTriggerArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
+        /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Resource which the Rule monitors.
+        /// </summary>
         [Input("metricResourceId", required: true)]
         public Input<string> MetricResourceId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
+        /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+        /// </summary>
         [Input("statistic", required: true)]
         public Input<string> Statistic { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the threshold of the metric that triggers the scale action.
+        /// </summary>
         [Input("threshold", required: true)]
         public Input<double> Threshold { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+        /// </summary>
         [Input("timeAggregation", required: true)]
         public Input<string> TimeAggregation { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
+        /// </summary>
         [Input("timeGrain", required: true)]
         public Input<string> TimeGrain { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
+        /// </summary>
         [Input("timeWindow", required: true)]
         public Input<string> TimeWindow { get; set; } = null!;
 
@@ -590,27 +762,51 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class AutoscaleSettingProfilesRulesMetricTriggerGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
+        /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Resource which the Rule monitors.
+        /// </summary>
         [Input("metricResourceId", required: true)]
         public Input<string> MetricResourceId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
+        /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+        /// </summary>
         [Input("statistic", required: true)]
         public Input<string> Statistic { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the threshold of the metric that triggers the scale action.
+        /// </summary>
         [Input("threshold", required: true)]
         public Input<double> Threshold { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+        /// </summary>
         [Input("timeAggregation", required: true)]
         public Input<string> TimeAggregation { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
+        /// </summary>
         [Input("timeGrain", required: true)]
         public Input<string> TimeGrain { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
+        /// </summary>
         [Input("timeWindow", required: true)]
         public Input<string> TimeWindow { get; set; } = null!;
 
@@ -621,15 +817,27 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class AutoscaleSettingProfilesRulesScaleActionArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
+        /// </summary>
         [Input("cooldown", required: true)]
         public Input<string> Cooldown { get; set; } = null!;
 
+        /// <summary>
+        /// The scale direction. Possible values are `Increase` and `Decrease`.
+        /// </summary>
         [Input("direction", required: true)]
         public Input<string> Direction { get; set; } = null!;
 
+        /// <summary>
+        /// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The number of instances involved in the scaling action. Defaults to `1`.
+        /// </summary>
         [Input("value", required: true)]
         public Input<int> Value { get; set; } = null!;
 
@@ -640,15 +848,27 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class AutoscaleSettingProfilesRulesScaleActionGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
+        /// </summary>
         [Input("cooldown", required: true)]
         public Input<string> Cooldown { get; set; } = null!;
 
+        /// <summary>
+        /// The scale direction. Possible values are `Increase` and `Decrease`.
+        /// </summary>
         [Input("direction", required: true)]
         public Input<string> Direction { get; set; } = null!;
 
+        /// <summary>
+        /// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The number of instances involved in the scaling action. Defaults to `1`.
+        /// </summary>
         [Input("value", required: true)]
         public Input<int> Value { get; set; } = null!;
 
@@ -664,7 +884,13 @@ namespace Pulumi.Azure.Monitoring
     [OutputType]
     public sealed class AutoscaleSettingNotification
     {
+        /// <summary>
+        /// A `email` block as defined below.
+        /// </summary>
         public readonly AutoscaleSettingNotificationEmail? Email;
+        /// <summary>
+        /// One or more `webhook` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<AutoscaleSettingNotificationWebhooks> Webhooks;
 
         [OutputConstructor]
@@ -680,8 +906,17 @@ namespace Pulumi.Azure.Monitoring
     [OutputType]
     public sealed class AutoscaleSettingNotificationEmail
     {
+        /// <summary>
+        /// Specifies a list of custom email addresses to which the email notifications will be sent.
+        /// </summary>
         public readonly ImmutableArray<string> CustomEmails;
+        /// <summary>
+        /// Should email notifications be sent to the subscription administrator? Defaults to `false`.
+        /// </summary>
         public readonly bool? SendToSubscriptionAdministrator;
+        /// <summary>
+        /// Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
+        /// </summary>
         public readonly bool? SendToSubscriptionCoAdministrator;
 
         [OutputConstructor]
@@ -699,7 +934,13 @@ namespace Pulumi.Azure.Monitoring
     [OutputType]
     public sealed class AutoscaleSettingNotificationWebhooks
     {
+        /// <summary>
+        /// A map of settings.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
+        /// <summary>
+        /// The HTTPS URI which should receive scale notifications.
+        /// </summary>
         public readonly string ServiceUri;
 
         [OutputConstructor]
@@ -715,13 +956,25 @@ namespace Pulumi.Azure.Monitoring
     [OutputType]
     public sealed class AutoscaleSettingProfiles
     {
+        /// <summary>
+        /// A `capacity` block as defined below.
+        /// </summary>
         public readonly AutoscaleSettingProfilesCapacity Capacity;
+        /// <summary>
+        /// A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
+        /// </summary>
         public readonly AutoscaleSettingProfilesFixedDate? FixedDate;
         /// <summary>
-        /// The name of the AutoScale Setting. Changing this forces a new resource to be created.
+        /// Specifies the name of the profile.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
+        /// </summary>
         public readonly AutoscaleSettingProfilesRecurrence? Recurrence;
+        /// <summary>
+        /// One or more (up to 10) `rule` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<AutoscaleSettingProfilesRules> Rules;
 
         [OutputConstructor]
@@ -743,8 +996,17 @@ namespace Pulumi.Azure.Monitoring
     [OutputType]
     public sealed class AutoscaleSettingProfilesCapacity
     {
+        /// <summary>
+        /// The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
+        /// </summary>
         public readonly int Default;
+        /// <summary>
+        /// The maximum number of instances for this resource. Valid values are between `0` and `1000`.
+        /// </summary>
         public readonly int Maximum;
+        /// <summary>
+        /// The minimum number of instances for this resource. Valid values are between `0` and `1000`.
+        /// </summary>
         public readonly int Minimum;
 
         [OutputConstructor]
@@ -762,8 +1024,17 @@ namespace Pulumi.Azure.Monitoring
     [OutputType]
     public sealed class AutoscaleSettingProfilesFixedDate
     {
+        /// <summary>
+        /// Specifies the end date for the profile, formatted as an RFC3339 date string.
+        /// </summary>
         public readonly string End;
+        /// <summary>
+        /// Specifies the start date for the profile, formatted as an RFC3339 date string.
+        /// </summary>
         public readonly string Start;
+        /// <summary>
+        /// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+        /// </summary>
         public readonly string? Timezone;
 
         [OutputConstructor]
@@ -781,9 +1052,21 @@ namespace Pulumi.Azure.Monitoring
     [OutputType]
     public sealed class AutoscaleSettingProfilesRecurrence
     {
+        /// <summary>
+        /// A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+        /// </summary>
         public readonly ImmutableArray<string> Days;
+        /// <summary>
+        /// A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
+        /// </summary>
         public readonly int Hours;
+        /// <summary>
+        /// A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+        /// </summary>
         public readonly int Minutes;
+        /// <summary>
+        /// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+        /// </summary>
         public readonly string? Timezone;
 
         [OutputConstructor]
@@ -803,7 +1086,13 @@ namespace Pulumi.Azure.Monitoring
     [OutputType]
     public sealed class AutoscaleSettingProfilesRules
     {
+        /// <summary>
+        /// A `metric_trigger` block as defined below.
+        /// </summary>
         public readonly AutoscaleSettingProfilesRulesMetricTrigger MetricTrigger;
+        /// <summary>
+        /// A `scale_action` block as defined below.
+        /// </summary>
         public readonly AutoscaleSettingProfilesRulesScaleAction ScaleAction;
 
         [OutputConstructor]
@@ -819,13 +1108,37 @@ namespace Pulumi.Azure.Monitoring
     [OutputType]
     public sealed class AutoscaleSettingProfilesRulesMetricTrigger
     {
+        /// <summary>
+        /// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
+        /// </summary>
         public readonly string MetricName;
+        /// <summary>
+        /// The ID of the Resource which the Rule monitors.
+        /// </summary>
         public readonly string MetricResourceId;
+        /// <summary>
+        /// Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
+        /// </summary>
         public readonly string Operator;
+        /// <summary>
+        /// Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+        /// </summary>
         public readonly string Statistic;
+        /// <summary>
+        /// Specifies the threshold of the metric that triggers the scale action.
+        /// </summary>
         public readonly double Threshold;
+        /// <summary>
+        /// Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+        /// </summary>
         public readonly string TimeAggregation;
+        /// <summary>
+        /// Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
+        /// </summary>
         public readonly string TimeGrain;
+        /// <summary>
+        /// Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
+        /// </summary>
         public readonly string TimeWindow;
 
         [OutputConstructor]
@@ -853,9 +1166,21 @@ namespace Pulumi.Azure.Monitoring
     [OutputType]
     public sealed class AutoscaleSettingProfilesRulesScaleAction
     {
+        /// <summary>
+        /// The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
+        /// </summary>
         public readonly string Cooldown;
+        /// <summary>
+        /// The scale direction. Possible values are `Increase` and `Decrease`.
+        /// </summary>
         public readonly string Direction;
+        /// <summary>
+        /// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The number of instances involved in the scaling action. Defaults to `1`.
+        /// </summary>
         public readonly int Value;
 
         [OutputConstructor]

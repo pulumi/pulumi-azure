@@ -13,8 +13,11 @@ import (
 
 type AnalyticsSolutionPlan struct {
 	Name *string `pulumi:"name"`
+	// The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
 	Product string `pulumi:"product"`
+	// A promotion code to be used with the solution.
 	PromotionCode *string `pulumi:"promotionCode"`
+	// The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
 }
 
@@ -27,8 +30,11 @@ type AnalyticsSolutionPlanInput interface {
 
 type AnalyticsSolutionPlanArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
 	Product pulumi.StringInput `pulumi:"product"`
+	// A promotion code to be used with the solution.
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
+	// The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 }
 
@@ -61,7 +67,8 @@ type AnalyticsSolutionPlanPtrInput interface {
 
 type analyticsSolutionPlanPtrType AnalyticsSolutionPlanArgs
 
-func AnalyticsSolutionPlanPtr(v *AnalyticsSolutionPlanArgs) AnalyticsSolutionPlanPtrInput {	return (*analyticsSolutionPlanPtrType)(v)
+func AnalyticsSolutionPlanPtr(v *AnalyticsSolutionPlanArgs) AnalyticsSolutionPlanPtrInput {
+	return (*analyticsSolutionPlanPtrType)(v)
 }
 
 func (*analyticsSolutionPlanPtrType) ElementType() reflect.Type {
@@ -76,7 +83,7 @@ func (i *analyticsSolutionPlanPtrType) ToAnalyticsSolutionPlanPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionPlanPtrOutput)
 }
 
-type AnalyticsSolutionPlanOutput struct { *pulumi.OutputState }
+type AnalyticsSolutionPlanOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsSolutionPlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AnalyticsSolutionPlan)(nil)).Elem()
@@ -100,22 +107,25 @@ func (o AnalyticsSolutionPlanOutput) ToAnalyticsSolutionPlanPtrOutputWithContext
 	}).(AnalyticsSolutionPlanPtrOutput)
 }
 func (o AnalyticsSolutionPlanOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AnalyticsSolutionPlan) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AnalyticsSolutionPlan) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
 func (o AnalyticsSolutionPlanOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v AnalyticsSolutionPlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AnalyticsSolutionPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
+// A promotion code to be used with the solution.
 func (o AnalyticsSolutionPlanOutput) PromotionCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AnalyticsSolutionPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AnalyticsSolutionPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
+// The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
 func (o AnalyticsSolutionPlanOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v AnalyticsSolutionPlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AnalyticsSolutionPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-type AnalyticsSolutionPlanPtrOutput struct { *pulumi.OutputState}
+type AnalyticsSolutionPlanPtrOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsSolutionPlanPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AnalyticsSolutionPlan)(nil)).Elem()
@@ -130,23 +140,26 @@ func (o AnalyticsSolutionPlanPtrOutput) ToAnalyticsSolutionPlanPtrOutputWithCont
 }
 
 func (o AnalyticsSolutionPlanPtrOutput) Elem() AnalyticsSolutionPlanOutput {
-	return o.ApplyT(func (v *AnalyticsSolutionPlan) AnalyticsSolutionPlan { return *v }).(AnalyticsSolutionPlanOutput)
+	return o.ApplyT(func(v *AnalyticsSolutionPlan) AnalyticsSolutionPlan { return *v }).(AnalyticsSolutionPlanOutput)
 }
 
 func (o AnalyticsSolutionPlanPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AnalyticsSolutionPlan) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AnalyticsSolutionPlan) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
 func (o AnalyticsSolutionPlanPtrOutput) Product() pulumi.StringOutput {
-	return o.ApplyT(func (v AnalyticsSolutionPlan) string { return v.Product }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AnalyticsSolutionPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
+// A promotion code to be used with the solution.
 func (o AnalyticsSolutionPlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AnalyticsSolutionPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AnalyticsSolutionPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
+// The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
 func (o AnalyticsSolutionPlanPtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func (v AnalyticsSolutionPlan) string { return v.Publisher }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AnalyticsSolutionPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -33,7 +33,7 @@ type ActionGroup struct {
 	ItsmReceivers ActionGroupItsmReceiverArrayOutput `pulumi:"itsmReceivers"`
 	// One or more `logicAppReceiver` blocks as defined below.
 	LogicAppReceivers ActionGroupLogicAppReceiverArrayOutput `pulumi:"logicAppReceivers"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the Action Group. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the Action Group instance.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -99,7 +99,7 @@ type actionGroupState struct {
 	ItsmReceivers []ActionGroupItsmReceiver `pulumi:"itsmReceivers"`
 	// One or more `logicAppReceiver` blocks as defined below.
 	LogicAppReceivers []ActionGroupLogicAppReceiver `pulumi:"logicAppReceivers"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the Action Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Action Group instance.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -132,7 +132,7 @@ type ActionGroupState struct {
 	ItsmReceivers ActionGroupItsmReceiverArrayInput
 	// One or more `logicAppReceiver` blocks as defined below.
 	LogicAppReceivers ActionGroupLogicAppReceiverArrayInput
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the Action Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Action Group instance.
 	ResourceGroupName pulumi.StringPtrInput
@@ -169,7 +169,7 @@ type actionGroupArgs struct {
 	ItsmReceivers []ActionGroupItsmReceiver `pulumi:"itsmReceivers"`
 	// One or more `logicAppReceiver` blocks as defined below.
 	LogicAppReceivers []ActionGroupLogicAppReceiver `pulumi:"logicAppReceivers"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the Action Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Action Group instance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -203,7 +203,7 @@ type ActionGroupArgs struct {
 	ItsmReceivers ActionGroupItsmReceiverArrayInput
 	// One or more `logicAppReceiver` blocks as defined below.
 	LogicAppReceivers ActionGroupLogicAppReceiverArrayInput
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the Action Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Action Group instance.
 	ResourceGroupName pulumi.StringInput
@@ -222,4 +222,3 @@ type ActionGroupArgs struct {
 func (ActionGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionGroupArgs)(nil)).Elem()
 }
-

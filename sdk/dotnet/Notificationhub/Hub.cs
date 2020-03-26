@@ -187,18 +187,33 @@ namespace Pulumi.Azure.NotificationHub
 
     public sealed class HubApnsCredentialArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
+        /// </summary>
         [Input("applicationMode", required: true)]
         public Input<string> ApplicationMode { get; set; } = null!;
 
+        /// <summary>
+        /// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
+        /// </summary>
         [Input("bundleId", required: true)]
         public Input<string> BundleId { get; set; } = null!;
 
+        /// <summary>
+        /// The Apple Push Notifications Service (APNS) Key.
+        /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the team the Token.
+        /// </summary>
         [Input("teamId", required: true)]
         public Input<string> TeamId { get; set; } = null!;
 
+        /// <summary>
+        /// The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
+        /// </summary>
         [Input("token", required: true)]
         public Input<string> Token { get; set; } = null!;
 
@@ -209,18 +224,33 @@ namespace Pulumi.Azure.NotificationHub
 
     public sealed class HubApnsCredentialGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
+        /// </summary>
         [Input("applicationMode", required: true)]
         public Input<string> ApplicationMode { get; set; } = null!;
 
+        /// <summary>
+        /// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
+        /// </summary>
         [Input("bundleId", required: true)]
         public Input<string> BundleId { get; set; } = null!;
 
+        /// <summary>
+        /// The Apple Push Notifications Service (APNS) Key.
+        /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the team the Token.
+        /// </summary>
         [Input("teamId", required: true)]
         public Input<string> TeamId { get; set; } = null!;
 
+        /// <summary>
+        /// The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
+        /// </summary>
         [Input("token", required: true)]
         public Input<string> Token { get; set; } = null!;
 
@@ -231,6 +261,9 @@ namespace Pulumi.Azure.NotificationHub
 
     public sealed class HubGcmCredentialArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The API Key associated with the Google Cloud Messaging service.
+        /// </summary>
         [Input("apiKey", required: true)]
         public Input<string> ApiKey { get; set; } = null!;
 
@@ -241,6 +274,9 @@ namespace Pulumi.Azure.NotificationHub
 
     public sealed class HubGcmCredentialGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The API Key associated with the Google Cloud Messaging service.
+        /// </summary>
         [Input("apiKey", required: true)]
         public Input<string> ApiKey { get; set; } = null!;
 
@@ -256,10 +292,25 @@ namespace Pulumi.Azure.NotificationHub
     [OutputType]
     public sealed class HubApnsCredential
     {
+        /// <summary>
+        /// The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
+        /// </summary>
         public readonly string ApplicationMode;
+        /// <summary>
+        /// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
+        /// </summary>
         public readonly string BundleId;
+        /// <summary>
+        /// The Apple Push Notifications Service (APNS) Key.
+        /// </summary>
         public readonly string KeyId;
+        /// <summary>
+        /// The ID of the team the Token.
+        /// </summary>
         public readonly string TeamId;
+        /// <summary>
+        /// The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
+        /// </summary>
         public readonly string Token;
 
         [OutputConstructor]
@@ -281,6 +332,9 @@ namespace Pulumi.Azure.NotificationHub
     [OutputType]
     public sealed class HubGcmCredential
     {
+        /// <summary>
+        /// The API Key associated with the Google Cloud Messaging service.
+        /// </summary>
         public readonly string ApiKey;
 
         [OutputConstructor]

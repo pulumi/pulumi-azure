@@ -268,4 +268,3 @@ type NetworkSecurityRuleArgs struct {
 func (NetworkSecurityRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkSecurityRuleArgs)(nil)).Elem()
 }
-

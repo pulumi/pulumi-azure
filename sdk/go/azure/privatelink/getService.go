@@ -30,7 +30,6 @@ type GetServiceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getService.
 type GetServiceResult struct {
 	// The alias is a globally unique name for your private link service which Azure generates for you. Your can use this alias to request a connection to your private link service.
@@ -49,10 +48,9 @@ type GetServiceResult struct {
 	Name string `pulumi:"name"`
 	// The `natIpConfiguration` block as defined below.
 	NatIpConfigurations []GetServiceNatIpConfiguration `pulumi:"natIpConfigurations"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName   string                         `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The list of subscription(s) globally unique identifiers(GUID) that will be able to see the private link service.
 	VisibilitySubscriptionIds []string `pulumi:"visibilitySubscriptionIds"`
 }
-

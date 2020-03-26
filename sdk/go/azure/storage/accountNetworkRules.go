@@ -141,4 +141,3 @@ type AccountNetworkRulesArgs struct {
 func (AccountNetworkRulesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountNetworkRulesArgs)(nil)).Elem()
 }
-

@@ -59,7 +59,8 @@ type ModuleModuleLinkPtrInput interface {
 
 type moduleModuleLinkPtrType ModuleModuleLinkArgs
 
-func ModuleModuleLinkPtr(v *ModuleModuleLinkArgs) ModuleModuleLinkPtrInput {	return (*moduleModuleLinkPtrType)(v)
+func ModuleModuleLinkPtr(v *ModuleModuleLinkArgs) ModuleModuleLinkPtrInput {
+	return (*moduleModuleLinkPtrType)(v)
 }
 
 func (*moduleModuleLinkPtrType) ElementType() reflect.Type {
@@ -74,7 +75,7 @@ func (i *moduleModuleLinkPtrType) ToModuleModuleLinkPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleModuleLinkPtrOutput)
 }
 
-type ModuleModuleLinkOutput struct { *pulumi.OutputState }
+type ModuleModuleLinkOutput struct{ *pulumi.OutputState }
 
 func (ModuleModuleLinkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ModuleModuleLink)(nil)).Elem()
@@ -98,15 +99,15 @@ func (o ModuleModuleLinkOutput) ToModuleModuleLinkPtrOutputWithContext(ctx conte
 	}).(ModuleModuleLinkPtrOutput)
 }
 func (o ModuleModuleLinkOutput) Hash() ModuleModuleLinkHashPtrOutput {
-	return o.ApplyT(func (v ModuleModuleLink) *ModuleModuleLinkHash { return v.Hash }).(ModuleModuleLinkHashPtrOutput)
+	return o.ApplyT(func(v ModuleModuleLink) *ModuleModuleLinkHash { return v.Hash }).(ModuleModuleLinkHashPtrOutput)
 }
 
 // The uri of the module content (zip or nupkg).
 func (o ModuleModuleLinkOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func (v ModuleModuleLink) string { return v.Uri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ModuleModuleLink) string { return v.Uri }).(pulumi.StringOutput)
 }
 
-type ModuleModuleLinkPtrOutput struct { *pulumi.OutputState}
+type ModuleModuleLinkPtrOutput struct{ *pulumi.OutputState }
 
 func (ModuleModuleLinkPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ModuleModuleLink)(nil)).Elem()
@@ -121,21 +122,21 @@ func (o ModuleModuleLinkPtrOutput) ToModuleModuleLinkPtrOutputWithContext(ctx co
 }
 
 func (o ModuleModuleLinkPtrOutput) Elem() ModuleModuleLinkOutput {
-	return o.ApplyT(func (v *ModuleModuleLink) ModuleModuleLink { return *v }).(ModuleModuleLinkOutput)
+	return o.ApplyT(func(v *ModuleModuleLink) ModuleModuleLink { return *v }).(ModuleModuleLinkOutput)
 }
 
 func (o ModuleModuleLinkPtrOutput) Hash() ModuleModuleLinkHashPtrOutput {
-	return o.ApplyT(func (v ModuleModuleLink) *ModuleModuleLinkHash { return v.Hash }).(ModuleModuleLinkHashPtrOutput)
+	return o.ApplyT(func(v ModuleModuleLink) *ModuleModuleLinkHash { return v.Hash }).(ModuleModuleLinkHashPtrOutput)
 }
 
 // The uri of the module content (zip or nupkg).
 func (o ModuleModuleLinkPtrOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func (v ModuleModuleLink) string { return v.Uri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ModuleModuleLink) string { return v.Uri }).(pulumi.StringOutput)
 }
 
 type ModuleModuleLinkHash struct {
 	Algorithm string `pulumi:"algorithm"`
-	Value string `pulumi:"value"`
+	Value     string `pulumi:"value"`
 }
 
 type ModuleModuleLinkHashInput interface {
@@ -147,7 +148,7 @@ type ModuleModuleLinkHashInput interface {
 
 type ModuleModuleLinkHashArgs struct {
 	Algorithm pulumi.StringInput `pulumi:"algorithm"`
-	Value pulumi.StringInput `pulumi:"value"`
+	Value     pulumi.StringInput `pulumi:"value"`
 }
 
 func (ModuleModuleLinkHashArgs) ElementType() reflect.Type {
@@ -179,7 +180,8 @@ type ModuleModuleLinkHashPtrInput interface {
 
 type moduleModuleLinkHashPtrType ModuleModuleLinkHashArgs
 
-func ModuleModuleLinkHashPtr(v *ModuleModuleLinkHashArgs) ModuleModuleLinkHashPtrInput {	return (*moduleModuleLinkHashPtrType)(v)
+func ModuleModuleLinkHashPtr(v *ModuleModuleLinkHashArgs) ModuleModuleLinkHashPtrInput {
+	return (*moduleModuleLinkHashPtrType)(v)
 }
 
 func (*moduleModuleLinkHashPtrType) ElementType() reflect.Type {
@@ -194,7 +196,7 @@ func (i *moduleModuleLinkHashPtrType) ToModuleModuleLinkHashPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleModuleLinkHashPtrOutput)
 }
 
-type ModuleModuleLinkHashOutput struct { *pulumi.OutputState }
+type ModuleModuleLinkHashOutput struct{ *pulumi.OutputState }
 
 func (ModuleModuleLinkHashOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ModuleModuleLinkHash)(nil)).Elem()
@@ -218,14 +220,14 @@ func (o ModuleModuleLinkHashOutput) ToModuleModuleLinkHashPtrOutputWithContext(c
 	}).(ModuleModuleLinkHashPtrOutput)
 }
 func (o ModuleModuleLinkHashOutput) Algorithm() pulumi.StringOutput {
-	return o.ApplyT(func (v ModuleModuleLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ModuleModuleLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
 }
 
 func (o ModuleModuleLinkHashOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v ModuleModuleLinkHash) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ModuleModuleLinkHash) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type ModuleModuleLinkHashPtrOutput struct { *pulumi.OutputState}
+type ModuleModuleLinkHashPtrOutput struct{ *pulumi.OutputState }
 
 func (ModuleModuleLinkHashPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ModuleModuleLinkHash)(nil)).Elem()
@@ -240,21 +242,21 @@ func (o ModuleModuleLinkHashPtrOutput) ToModuleModuleLinkHashPtrOutputWithContex
 }
 
 func (o ModuleModuleLinkHashPtrOutput) Elem() ModuleModuleLinkHashOutput {
-	return o.ApplyT(func (v *ModuleModuleLinkHash) ModuleModuleLinkHash { return *v }).(ModuleModuleLinkHashOutput)
+	return o.ApplyT(func(v *ModuleModuleLinkHash) ModuleModuleLinkHash { return *v }).(ModuleModuleLinkHashOutput)
 }
 
 func (o ModuleModuleLinkHashPtrOutput) Algorithm() pulumi.StringOutput {
-	return o.ApplyT(func (v ModuleModuleLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ModuleModuleLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
 }
 
 func (o ModuleModuleLinkHashPtrOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v ModuleModuleLinkHash) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ModuleModuleLinkHash) string { return v.Value }).(pulumi.StringOutput)
 }
 
 type RunBookPublishContentLink struct {
 	Hash *RunBookPublishContentLinkHash `pulumi:"hash"`
 	// The uri of the runbook content.
-	Uri string `pulumi:"uri"`
+	Uri     string  `pulumi:"uri"`
 	Version *string `pulumi:"version"`
 }
 
@@ -268,7 +270,7 @@ type RunBookPublishContentLinkInput interface {
 type RunBookPublishContentLinkArgs struct {
 	Hash RunBookPublishContentLinkHashPtrInput `pulumi:"hash"`
 	// The uri of the runbook content.
-	Uri pulumi.StringInput `pulumi:"uri"`
+	Uri     pulumi.StringInput    `pulumi:"uri"`
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -301,7 +303,8 @@ type RunBookPublishContentLinkPtrInput interface {
 
 type runBookPublishContentLinkPtrType RunBookPublishContentLinkArgs
 
-func RunBookPublishContentLinkPtr(v *RunBookPublishContentLinkArgs) RunBookPublishContentLinkPtrInput {	return (*runBookPublishContentLinkPtrType)(v)
+func RunBookPublishContentLinkPtr(v *RunBookPublishContentLinkArgs) RunBookPublishContentLinkPtrInput {
+	return (*runBookPublishContentLinkPtrType)(v)
 }
 
 func (*runBookPublishContentLinkPtrType) ElementType() reflect.Type {
@@ -316,7 +319,7 @@ func (i *runBookPublishContentLinkPtrType) ToRunBookPublishContentLinkPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookPublishContentLinkPtrOutput)
 }
 
-type RunBookPublishContentLinkOutput struct { *pulumi.OutputState }
+type RunBookPublishContentLinkOutput struct{ *pulumi.OutputState }
 
 func (RunBookPublishContentLinkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RunBookPublishContentLink)(nil)).Elem()
@@ -340,19 +343,19 @@ func (o RunBookPublishContentLinkOutput) ToRunBookPublishContentLinkPtrOutputWit
 	}).(RunBookPublishContentLinkPtrOutput)
 }
 func (o RunBookPublishContentLinkOutput) Hash() RunBookPublishContentLinkHashPtrOutput {
-	return o.ApplyT(func (v RunBookPublishContentLink) *RunBookPublishContentLinkHash { return v.Hash }).(RunBookPublishContentLinkHashPtrOutput)
+	return o.ApplyT(func(v RunBookPublishContentLink) *RunBookPublishContentLinkHash { return v.Hash }).(RunBookPublishContentLinkHashPtrOutput)
 }
 
 // The uri of the runbook content.
 func (o RunBookPublishContentLinkOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func (v RunBookPublishContentLink) string { return v.Uri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RunBookPublishContentLink) string { return v.Uri }).(pulumi.StringOutput)
 }
 
 func (o RunBookPublishContentLinkOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RunBookPublishContentLink) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RunBookPublishContentLink) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-type RunBookPublishContentLinkPtrOutput struct { *pulumi.OutputState}
+type RunBookPublishContentLinkPtrOutput struct{ *pulumi.OutputState }
 
 func (RunBookPublishContentLinkPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RunBookPublishContentLink)(nil)).Elem()
@@ -367,25 +370,25 @@ func (o RunBookPublishContentLinkPtrOutput) ToRunBookPublishContentLinkPtrOutput
 }
 
 func (o RunBookPublishContentLinkPtrOutput) Elem() RunBookPublishContentLinkOutput {
-	return o.ApplyT(func (v *RunBookPublishContentLink) RunBookPublishContentLink { return *v }).(RunBookPublishContentLinkOutput)
+	return o.ApplyT(func(v *RunBookPublishContentLink) RunBookPublishContentLink { return *v }).(RunBookPublishContentLinkOutput)
 }
 
 func (o RunBookPublishContentLinkPtrOutput) Hash() RunBookPublishContentLinkHashPtrOutput {
-	return o.ApplyT(func (v RunBookPublishContentLink) *RunBookPublishContentLinkHash { return v.Hash }).(RunBookPublishContentLinkHashPtrOutput)
+	return o.ApplyT(func(v RunBookPublishContentLink) *RunBookPublishContentLinkHash { return v.Hash }).(RunBookPublishContentLinkHashPtrOutput)
 }
 
 // The uri of the runbook content.
 func (o RunBookPublishContentLinkPtrOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func (v RunBookPublishContentLink) string { return v.Uri }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RunBookPublishContentLink) string { return v.Uri }).(pulumi.StringOutput)
 }
 
 func (o RunBookPublishContentLinkPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RunBookPublishContentLink) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RunBookPublishContentLink) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type RunBookPublishContentLinkHash struct {
 	Algorithm string `pulumi:"algorithm"`
-	Value string `pulumi:"value"`
+	Value     string `pulumi:"value"`
 }
 
 type RunBookPublishContentLinkHashInput interface {
@@ -397,7 +400,7 @@ type RunBookPublishContentLinkHashInput interface {
 
 type RunBookPublishContentLinkHashArgs struct {
 	Algorithm pulumi.StringInput `pulumi:"algorithm"`
-	Value pulumi.StringInput `pulumi:"value"`
+	Value     pulumi.StringInput `pulumi:"value"`
 }
 
 func (RunBookPublishContentLinkHashArgs) ElementType() reflect.Type {
@@ -429,7 +432,8 @@ type RunBookPublishContentLinkHashPtrInput interface {
 
 type runBookPublishContentLinkHashPtrType RunBookPublishContentLinkHashArgs
 
-func RunBookPublishContentLinkHashPtr(v *RunBookPublishContentLinkHashArgs) RunBookPublishContentLinkHashPtrInput {	return (*runBookPublishContentLinkHashPtrType)(v)
+func RunBookPublishContentLinkHashPtr(v *RunBookPublishContentLinkHashArgs) RunBookPublishContentLinkHashPtrInput {
+	return (*runBookPublishContentLinkHashPtrType)(v)
 }
 
 func (*runBookPublishContentLinkHashPtrType) ElementType() reflect.Type {
@@ -444,7 +448,7 @@ func (i *runBookPublishContentLinkHashPtrType) ToRunBookPublishContentLinkHashPt
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookPublishContentLinkHashPtrOutput)
 }
 
-type RunBookPublishContentLinkHashOutput struct { *pulumi.OutputState }
+type RunBookPublishContentLinkHashOutput struct{ *pulumi.OutputState }
 
 func (RunBookPublishContentLinkHashOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RunBookPublishContentLinkHash)(nil)).Elem()
@@ -468,14 +472,14 @@ func (o RunBookPublishContentLinkHashOutput) ToRunBookPublishContentLinkHashPtrO
 	}).(RunBookPublishContentLinkHashPtrOutput)
 }
 func (o RunBookPublishContentLinkHashOutput) Algorithm() pulumi.StringOutput {
-	return o.ApplyT(func (v RunBookPublishContentLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RunBookPublishContentLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
 }
 
 func (o RunBookPublishContentLinkHashOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v RunBookPublishContentLinkHash) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RunBookPublishContentLinkHash) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type RunBookPublishContentLinkHashPtrOutput struct { *pulumi.OutputState}
+type RunBookPublishContentLinkHashPtrOutput struct{ *pulumi.OutputState }
 
 func (RunBookPublishContentLinkHashPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RunBookPublishContentLinkHash)(nil)).Elem()
@@ -490,19 +494,21 @@ func (o RunBookPublishContentLinkHashPtrOutput) ToRunBookPublishContentLinkHashP
 }
 
 func (o RunBookPublishContentLinkHashPtrOutput) Elem() RunBookPublishContentLinkHashOutput {
-	return o.ApplyT(func (v *RunBookPublishContentLinkHash) RunBookPublishContentLinkHash { return *v }).(RunBookPublishContentLinkHashOutput)
+	return o.ApplyT(func(v *RunBookPublishContentLinkHash) RunBookPublishContentLinkHash { return *v }).(RunBookPublishContentLinkHashOutput)
 }
 
 func (o RunBookPublishContentLinkHashPtrOutput) Algorithm() pulumi.StringOutput {
-	return o.ApplyT(func (v RunBookPublishContentLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RunBookPublishContentLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
 }
 
 func (o RunBookPublishContentLinkHashPtrOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v RunBookPublishContentLinkHash) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RunBookPublishContentLinkHash) string { return v.Value }).(pulumi.StringOutput)
 }
 
 type ScheduleMonthlyOccurrence struct {
+	// Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
 	Day string `pulumi:"day"`
+	// Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
 	Occurrence int `pulumi:"occurrence"`
 }
 
@@ -514,7 +520,9 @@ type ScheduleMonthlyOccurrenceInput interface {
 }
 
 type ScheduleMonthlyOccurrenceArgs struct {
+	// Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
 	Day pulumi.StringInput `pulumi:"day"`
+	// Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
 	Occurrence pulumi.IntInput `pulumi:"occurrence"`
 }
 
@@ -551,7 +559,7 @@ func (i ScheduleMonthlyOccurrenceArray) ToScheduleMonthlyOccurrenceArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleMonthlyOccurrenceArrayOutput)
 }
 
-type ScheduleMonthlyOccurrenceOutput struct { *pulumi.OutputState }
+type ScheduleMonthlyOccurrenceOutput struct{ *pulumi.OutputState }
 
 func (ScheduleMonthlyOccurrenceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScheduleMonthlyOccurrence)(nil)).Elem()
@@ -565,15 +573,17 @@ func (o ScheduleMonthlyOccurrenceOutput) ToScheduleMonthlyOccurrenceOutputWithCo
 	return o
 }
 
+// Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
 func (o ScheduleMonthlyOccurrenceOutput) Day() pulumi.StringOutput {
-	return o.ApplyT(func (v ScheduleMonthlyOccurrence) string { return v.Day }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ScheduleMonthlyOccurrence) string { return v.Day }).(pulumi.StringOutput)
 }
 
+// Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
 func (o ScheduleMonthlyOccurrenceOutput) Occurrence() pulumi.IntOutput {
-	return o.ApplyT(func (v ScheduleMonthlyOccurrence) int { return v.Occurrence }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ScheduleMonthlyOccurrence) int { return v.Occurrence }).(pulumi.IntOutput)
 }
 
-type ScheduleMonthlyOccurrenceArrayOutput struct { *pulumi.OutputState}
+type ScheduleMonthlyOccurrenceArrayOutput struct{ *pulumi.OutputState }
 
 func (ScheduleMonthlyOccurrenceArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ScheduleMonthlyOccurrence)(nil)).Elem()
@@ -588,7 +598,7 @@ func (o ScheduleMonthlyOccurrenceArrayOutput) ToScheduleMonthlyOccurrenceArrayOu
 }
 
 func (o ScheduleMonthlyOccurrenceArrayOutput) Index(i pulumi.IntInput) ScheduleMonthlyOccurrenceOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ScheduleMonthlyOccurrence {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduleMonthlyOccurrence {
 		return vs[0].([]ScheduleMonthlyOccurrence)[vs[1].(int)]
 	}).(ScheduleMonthlyOccurrenceOutput)
 }

@@ -14,11 +14,11 @@ class ReplicatedVM(pulumi.CustomResource):
     """
     One or more `managed_disk` block.
 
-      * `diskId` (`str`)
-      * `stagingStorageAccountId` (`str`)
-      * `targetDiskType` (`str`)
-      * `targetReplicaDiskType` (`str`)
-      * `target_resource_group_id` (`str`) - Id of resource group where the VM should be created when a failover is done.
+      * `diskId` (`str`) - Id of disk that should be replicated.
+      * `stagingStorageAccountId` (`str`) - Storage account that should be used for caching.
+      * `targetDiskType` (`str`) - What type should the disk be when a failover is done.
+      * `targetReplicaDiskType` (`str`) - What type should the disk be that holds the replication data.
+      * `target_resource_group_id` (`str`) - Resource group disk should belong to when a failover is done.
     """
     name: pulumi.Output[str]
     """
@@ -83,11 +83,11 @@ class ReplicatedVM(pulumi.CustomResource):
 
         The **managed_disks** object supports the following:
 
-          * `diskId` (`pulumi.Input[str]`)
-          * `stagingStorageAccountId` (`pulumi.Input[str]`)
-          * `targetDiskType` (`pulumi.Input[str]`)
-          * `targetReplicaDiskType` (`pulumi.Input[str]`)
-          * `target_resource_group_id` (`pulumi.Input[str]`) - Id of resource group where the VM should be created when a failover is done.
+          * `diskId` (`pulumi.Input[str]`) - Id of disk that should be replicated.
+          * `stagingStorageAccountId` (`pulumi.Input[str]`) - Storage account that should be used for caching.
+          * `targetDiskType` (`pulumi.Input[str]`) - What type should the disk be when a failover is done.
+          * `targetReplicaDiskType` (`pulumi.Input[str]`) - What type should the disk be that holds the replication data.
+          * `target_resource_group_id` (`pulumi.Input[str]`) - Resource group disk should belong to when a failover is done.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -165,11 +165,11 @@ class ReplicatedVM(pulumi.CustomResource):
 
         The **managed_disks** object supports the following:
 
-          * `diskId` (`pulumi.Input[str]`)
-          * `stagingStorageAccountId` (`pulumi.Input[str]`)
-          * `targetDiskType` (`pulumi.Input[str]`)
-          * `targetReplicaDiskType` (`pulumi.Input[str]`)
-          * `target_resource_group_id` (`pulumi.Input[str]`) - Id of resource group where the VM should be created when a failover is done.
+          * `diskId` (`pulumi.Input[str]`) - Id of disk that should be replicated.
+          * `stagingStorageAccountId` (`pulumi.Input[str]`) - Storage account that should be used for caching.
+          * `targetDiskType` (`pulumi.Input[str]`) - What type should the disk be when a failover is done.
+          * `targetReplicaDiskType` (`pulumi.Input[str]`) - What type should the disk be that holds the replication data.
+          * `target_resource_group_id` (`pulumi.Input[str]`) - Resource group disk should belong to when a failover is done.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -199,4 +199,3 @@ type EventSubscriptionArgs struct {
 func (EventSubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventSubscriptionArgs)(nil)).Elem()
 }
-

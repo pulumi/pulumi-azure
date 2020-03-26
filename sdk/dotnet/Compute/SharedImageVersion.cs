@@ -266,14 +266,20 @@ namespace Pulumi.Azure.Compute
     public sealed class SharedImageVersionTargetRegionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
+        /// The Azure Region in which this Image Version should exist.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The number of replicas of the Image Version to be created per region.
+        /// </summary>
         [Input("regionalReplicaCount", required: true)]
         public Input<int> RegionalReplicaCount { get; set; } = null!;
 
+        /// <summary>
+        /// The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+        /// </summary>
         [Input("storageAccountType")]
         public Input<string>? StorageAccountType { get; set; }
 
@@ -285,14 +291,20 @@ namespace Pulumi.Azure.Compute
     public sealed class SharedImageVersionTargetRegionsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
+        /// The Azure Region in which this Image Version should exist.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The number of replicas of the Image Version to be created per region.
+        /// </summary>
         [Input("regionalReplicaCount", required: true)]
         public Input<int> RegionalReplicaCount { get; set; } = null!;
 
+        /// <summary>
+        /// The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+        /// </summary>
         [Input("storageAccountType")]
         public Input<string>? StorageAccountType { get; set; }
 
@@ -309,10 +321,16 @@ namespace Pulumi.Azure.Compute
     public sealed class SharedImageVersionTargetRegions
     {
         /// <summary>
-        /// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
+        /// The Azure Region in which this Image Version should exist.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The number of replicas of the Image Version to be created per region.
+        /// </summary>
         public readonly int RegionalReplicaCount;
+        /// <summary>
+        /// The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+        /// </summary>
         public readonly string StorageAccountType;
 
         [OutputConstructor]

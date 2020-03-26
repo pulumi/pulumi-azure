@@ -45,6 +45,9 @@ export interface GetDatabaseArgs {
      * The name of the SQL Server.
      */
     readonly serverName: string;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
     readonly tags?: {[key: string]: string};
 }
 

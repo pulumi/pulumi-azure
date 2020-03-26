@@ -28,7 +28,6 @@ type GetMariaDbServerArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getMariaDbServer.
 type GetMariaDbServerResult struct {
 	// The Administrator Login for the MariaDB Server.
@@ -40,10 +39,10 @@ type GetMariaDbServerResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure location where the resource exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU Name for this MariaDB Server. 
+	// The SKU Name for this MariaDB Server.
 	SkuName string `pulumi:"skuName"`
 	// The SSL being enforced on connections.
 	SslEnforcement string `pulumi:"sslEnforcement"`
@@ -55,4 +54,3 @@ type GetMariaDbServerResult struct {
 	// The version of MariaDB being used.
 	Version string `pulumi:"version"`
 }
-

@@ -16,7 +16,18 @@ namespace Pulumi.Azure.ServiceBus
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace.html.markdown.
         /// </summary>
+        [Obsolete("Use GetNamespace.InvokeAsync() instead")]
         public static Task<GetNamespaceResult> GetNamespace(GetNamespaceArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:servicebus/getNamespace:getNamespace", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetNamespace
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing ServiceBus Namespace.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace.html.markdown.
+        /// </summary>
+        public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:servicebus/getNamespace:getNamespace", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

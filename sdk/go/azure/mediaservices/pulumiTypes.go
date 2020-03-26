@@ -12,8 +12,9 @@ import (
 )
 
 type AccountStorageAccount struct {
-	// The ID of the Media Services Account.
+	// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
 	Id string `pulumi:"id"`
+	// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
 	IsPrimary *bool `pulumi:"isPrimary"`
 }
 
@@ -25,8 +26,9 @@ type AccountStorageAccountInput interface {
 }
 
 type AccountStorageAccountArgs struct {
-	// The ID of the Media Services Account.
+	// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
 	Id pulumi.StringInput `pulumi:"id"`
+	// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
 	IsPrimary pulumi.BoolPtrInput `pulumi:"isPrimary"`
 }
 
@@ -63,7 +65,7 @@ func (i AccountStorageAccountArray) ToAccountStorageAccountArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AccountStorageAccountArrayOutput)
 }
 
-type AccountStorageAccountOutput struct { *pulumi.OutputState }
+type AccountStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (AccountStorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountStorageAccount)(nil)).Elem()
@@ -77,16 +79,17 @@ func (o AccountStorageAccountOutput) ToAccountStorageAccountOutputWithContext(ct
 	return o
 }
 
-// The ID of the Media Services Account.
+// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
 func (o AccountStorageAccountOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountStorageAccount) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AccountStorageAccount) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
 func (o AccountStorageAccountOutput) IsPrimary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v AccountStorageAccount) *bool { return v.IsPrimary }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v AccountStorageAccount) *bool { return v.IsPrimary }).(pulumi.BoolPtrOutput)
 }
 
-type AccountStorageAccountArrayOutput struct { *pulumi.OutputState}
+type AccountStorageAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (AccountStorageAccountArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]AccountStorageAccount)(nil)).Elem()
@@ -101,7 +104,7 @@ func (o AccountStorageAccountArrayOutput) ToAccountStorageAccountArrayOutputWith
 }
 
 func (o AccountStorageAccountArrayOutput) Index(i pulumi.IntInput) AccountStorageAccountOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AccountStorageAccount {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountStorageAccount {
 		return vs[0].([]AccountStorageAccount)[vs[1].(int)]
 	}).(AccountStorageAccountOutput)
 }

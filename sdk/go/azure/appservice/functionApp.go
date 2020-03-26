@@ -43,9 +43,9 @@ type FunctionApp struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the Connection String.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A string indicating the Operating System type for this function app. 
+	// A string indicating the Operating System type for this function app.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
@@ -128,9 +128,9 @@ type functionAppState struct {
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Connection String.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A string indicating the Operating System type for this function app. 
+	// A string indicating the Operating System type for this function app.
 	OsType *string `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
@@ -177,9 +177,9 @@ type FunctionAppState struct {
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Connection String.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A string indicating the Operating System type for this function app. 
+	// A string indicating the Operating System type for this function app.
 	OsType pulumi.StringPtrInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringPtrInput
@@ -226,9 +226,9 @@ type functionAppArgs struct {
 	Identity *FunctionAppIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Connection String.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A string indicating the Operating System type for this function app. 
+	// A string indicating the Operating System type for this function app.
 	OsType *string `pulumi:"osType"`
 	// The name of the resource group in which to create the Function App.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -266,9 +266,9 @@ type FunctionAppArgs struct {
 	Identity FunctionAppIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Connection String.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A string indicating the Operating System type for this function app. 
+	// A string indicating the Operating System type for this function app.
 	OsType pulumi.StringPtrInput
 	// The name of the resource group in which to create the Function App.
 	ResourceGroupName pulumi.StringInput
@@ -285,4 +285,3 @@ type FunctionAppArgs struct {
 func (FunctionAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionAppArgs)(nil)).Elem()
 }
-

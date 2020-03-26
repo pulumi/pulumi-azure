@@ -16,19 +16,19 @@ import (
 type ZipBlob struct {
 	pulumi.CustomResourceState
 
-	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
-	Content pulumi.ArchiveOutput `pulumi:"content"`
-	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
-	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
-	Name pulumi.StringOutput `pulumi:"name"`
-	Parallelism pulumi.IntPtrOutput `pulumi:"parallelism"`
-	Size pulumi.IntPtrOutput `pulumi:"size"`
-	SourceContent pulumi.StringPtrOutput `pulumi:"sourceContent"`
-	SourceUri pulumi.StringPtrOutput `pulumi:"sourceUri"`
-	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
-	StorageContainerName pulumi.StringOutput `pulumi:"storageContainerName"`
-	Type pulumi.StringOutput `pulumi:"type"`
-	Url pulumi.StringOutput `pulumi:"url"`
+	AccessTier           pulumi.StringOutput    `pulumi:"accessTier"`
+	Content              pulumi.ArchiveOutput   `pulumi:"content"`
+	ContentType          pulumi.StringPtrOutput `pulumi:"contentType"`
+	Metadata             pulumi.StringMapOutput `pulumi:"metadata"`
+	Name                 pulumi.StringOutput    `pulumi:"name"`
+	Parallelism          pulumi.IntPtrOutput    `pulumi:"parallelism"`
+	Size                 pulumi.IntPtrOutput    `pulumi:"size"`
+	SourceContent        pulumi.StringPtrOutput `pulumi:"sourceContent"`
+	SourceUri            pulumi.StringPtrOutput `pulumi:"sourceUri"`
+	StorageAccountName   pulumi.StringOutput    `pulumi:"storageAccountName"`
+	StorageContainerName pulumi.StringOutput    `pulumi:"storageContainerName"`
+	Type                 pulumi.StringOutput    `pulumi:"type"`
+	Url                  pulumi.StringOutput    `pulumi:"url"`
 }
 
 // NewZipBlob registers a new resource with the given unique name, arguments, and options.
@@ -68,35 +68,35 @@ func GetZipBlob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ZipBlob resources.
 type zipBlobState struct {
-	AccessTier *string `pulumi:"accessTier"`
-	Content pulumi.Archive `pulumi:"content"`
-	ContentType *string `pulumi:"contentType"`
-	Metadata map[string]string `pulumi:"metadata"`
-	Name *string `pulumi:"name"`
-	Parallelism *int `pulumi:"parallelism"`
-	Size *int `pulumi:"size"`
-	SourceContent *string `pulumi:"sourceContent"`
-	SourceUri *string `pulumi:"sourceUri"`
-	StorageAccountName *string `pulumi:"storageAccountName"`
-	StorageContainerName *string `pulumi:"storageContainerName"`
-	Type *string `pulumi:"type"`
-	Url *string `pulumi:"url"`
+	AccessTier           *string           `pulumi:"accessTier"`
+	Content              pulumi.Archive    `pulumi:"content"`
+	ContentType          *string           `pulumi:"contentType"`
+	Metadata             map[string]string `pulumi:"metadata"`
+	Name                 *string           `pulumi:"name"`
+	Parallelism          *int              `pulumi:"parallelism"`
+	Size                 *int              `pulumi:"size"`
+	SourceContent        *string           `pulumi:"sourceContent"`
+	SourceUri            *string           `pulumi:"sourceUri"`
+	StorageAccountName   *string           `pulumi:"storageAccountName"`
+	StorageContainerName *string           `pulumi:"storageContainerName"`
+	Type                 *string           `pulumi:"type"`
+	Url                  *string           `pulumi:"url"`
 }
 
 type ZipBlobState struct {
-	AccessTier pulumi.StringPtrInput
-	Content pulumi.ArchiveInput
-	ContentType pulumi.StringPtrInput
-	Metadata pulumi.StringMapInput
-	Name pulumi.StringPtrInput
-	Parallelism pulumi.IntPtrInput
-	Size pulumi.IntPtrInput
-	SourceContent pulumi.StringPtrInput
-	SourceUri pulumi.StringPtrInput
-	StorageAccountName pulumi.StringPtrInput
+	AccessTier           pulumi.StringPtrInput
+	Content              pulumi.ArchiveInput
+	ContentType          pulumi.StringPtrInput
+	Metadata             pulumi.StringMapInput
+	Name                 pulumi.StringPtrInput
+	Parallelism          pulumi.IntPtrInput
+	Size                 pulumi.IntPtrInput
+	SourceContent        pulumi.StringPtrInput
+	SourceUri            pulumi.StringPtrInput
+	StorageAccountName   pulumi.StringPtrInput
 	StorageContainerName pulumi.StringPtrInput
-	Type pulumi.StringPtrInput
-	Url pulumi.StringPtrInput
+	Type                 pulumi.StringPtrInput
+	Url                  pulumi.StringPtrInput
 }
 
 func (ZipBlobState) ElementType() reflect.Type {
@@ -104,37 +104,36 @@ func (ZipBlobState) ElementType() reflect.Type {
 }
 
 type zipBlobArgs struct {
-	AccessTier *string `pulumi:"accessTier"`
-	Content pulumi.Archive `pulumi:"content"`
-	ContentType *string `pulumi:"contentType"`
-	Metadata map[string]string `pulumi:"metadata"`
-	Name *string `pulumi:"name"`
-	Parallelism *int `pulumi:"parallelism"`
-	Size *int `pulumi:"size"`
-	SourceContent *string `pulumi:"sourceContent"`
-	SourceUri *string `pulumi:"sourceUri"`
-	StorageAccountName string `pulumi:"storageAccountName"`
-	StorageContainerName string `pulumi:"storageContainerName"`
-	Type string `pulumi:"type"`
+	AccessTier           *string           `pulumi:"accessTier"`
+	Content              pulumi.Archive    `pulumi:"content"`
+	ContentType          *string           `pulumi:"contentType"`
+	Metadata             map[string]string `pulumi:"metadata"`
+	Name                 *string           `pulumi:"name"`
+	Parallelism          *int              `pulumi:"parallelism"`
+	Size                 *int              `pulumi:"size"`
+	SourceContent        *string           `pulumi:"sourceContent"`
+	SourceUri            *string           `pulumi:"sourceUri"`
+	StorageAccountName   string            `pulumi:"storageAccountName"`
+	StorageContainerName string            `pulumi:"storageContainerName"`
+	Type                 string            `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ZipBlob resource.
 type ZipBlobArgs struct {
-	AccessTier pulumi.StringPtrInput
-	Content pulumi.ArchiveInput
-	ContentType pulumi.StringPtrInput
-	Metadata pulumi.StringMapInput
-	Name pulumi.StringPtrInput
-	Parallelism pulumi.IntPtrInput
-	Size pulumi.IntPtrInput
-	SourceContent pulumi.StringPtrInput
-	SourceUri pulumi.StringPtrInput
-	StorageAccountName pulumi.StringInput
+	AccessTier           pulumi.StringPtrInput
+	Content              pulumi.ArchiveInput
+	ContentType          pulumi.StringPtrInput
+	Metadata             pulumi.StringMapInput
+	Name                 pulumi.StringPtrInput
+	Parallelism          pulumi.IntPtrInput
+	Size                 pulumi.IntPtrInput
+	SourceContent        pulumi.StringPtrInput
+	SourceUri            pulumi.StringPtrInput
+	StorageAccountName   pulumi.StringInput
 	StorageContainerName pulumi.StringInput
-	Type pulumi.StringInput
+	Type                 pulumi.StringInput
 }
 
 func (ZipBlobArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*zipBlobArgs)(nil)).Elem()
 }
-

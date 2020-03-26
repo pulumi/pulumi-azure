@@ -307,6 +307,9 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class StormClusterComponentVersionArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The version of Storm which should be used for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("storm", required: true)]
         public Input<string> Storm { get; set; } = null!;
 
@@ -317,6 +320,9 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class StormClusterComponentVersionGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The version of Storm which should be used for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("storm", required: true)]
         public Input<string> Storm { get; set; } = null!;
 
@@ -327,12 +333,21 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class StormClusterGatewayArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is the Ambari portal enabled? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
+        /// <summary>
+        /// The username used for the Ambari Portal. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -343,12 +358,21 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class StormClusterGatewayGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is the Ambari portal enabled? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
+        /// <summary>
+        /// The username used for the Ambari Portal. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -359,12 +383,21 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class StormClusterRolesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `head_node` block as defined above.
+        /// </summary>
         [Input("headNode", required: true)]
         public Input<StormClusterRolesHeadNodeArgs> HeadNode { get; set; } = null!;
 
+        /// <summary>
+        /// A `worker_node` block as defined below.
+        /// </summary>
         [Input("workerNode", required: true)]
         public Input<StormClusterRolesWorkerNodeArgs> WorkerNode { get; set; } = null!;
 
+        /// <summary>
+        /// A `zookeeper_node` block as defined below.
+        /// </summary>
         [Input("zookeeperNode", required: true)]
         public Input<StormClusterRolesZookeeperNodeArgs> ZookeeperNode { get; set; } = null!;
 
@@ -375,12 +408,21 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class StormClusterRolesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `head_node` block as defined above.
+        /// </summary>
         [Input("headNode", required: true)]
         public Input<StormClusterRolesHeadNodeGetArgs> HeadNode { get; set; } = null!;
 
+        /// <summary>
+        /// A `worker_node` block as defined below.
+        /// </summary>
         [Input("workerNode", required: true)]
         public Input<StormClusterRolesWorkerNodeGetArgs> WorkerNode { get; set; } = null!;
 
+        /// <summary>
+        /// A `zookeeper_node` block as defined below.
+        /// </summary>
         [Input("zookeeperNode", required: true)]
         public Input<StormClusterRolesZookeeperNodeGetArgs> ZookeeperNode { get; set; } = null!;
 
@@ -391,26 +433,45 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class StormClusterRolesHeadNodeArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
+
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());
             set => _sshKeys = value;
         }
 
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        /// <summary>
+        /// The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }
 
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
 
@@ -421,26 +482,45 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class StormClusterRolesHeadNodeGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
+
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());
             set => _sshKeys = value;
         }
 
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        /// <summary>
+        /// The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }
 
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
 
@@ -451,32 +531,57 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class StormClusterRolesWorkerNodeArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("minInstanceCount")]
         public Input<int>? MinInstanceCount { get; set; }
 
+        /// <summary>
+        /// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
+
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());
             set => _sshKeys = value;
         }
 
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        /// <summary>
+        /// The number of instances which should be run for the Worker Nodes.
+        /// </summary>
         [Input("targetInstanceCount", required: true)]
         public Input<int> TargetInstanceCount { get; set; } = null!;
 
+        /// <summary>
+        /// The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }
 
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
 
@@ -487,32 +592,57 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class StormClusterRolesWorkerNodeGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("minInstanceCount")]
         public Input<int>? MinInstanceCount { get; set; }
 
+        /// <summary>
+        /// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
+
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());
             set => _sshKeys = value;
         }
 
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        /// <summary>
+        /// The number of instances which should be run for the Worker Nodes.
+        /// </summary>
         [Input("targetInstanceCount", required: true)]
         public Input<int> TargetInstanceCount { get; set; } = null!;
 
+        /// <summary>
+        /// The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }
 
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
 
@@ -523,26 +653,45 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class StormClusterRolesZookeeperNodeArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
+
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());
             set => _sshKeys = value;
         }
 
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        /// <summary>
+        /// The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }
 
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
 
@@ -553,26 +702,45 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class StormClusterRolesZookeeperNodeGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
+
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public InputList<string> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<string>());
             set => _sshKeys = value;
         }
 
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        /// <summary>
+        /// The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }
 
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
 
@@ -583,12 +751,21 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class StormClusterStorageAccountsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is this the Default Storage Account for the HDInsight Storm Cluster? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("isDefault", required: true)]
         public Input<bool> IsDefault { get; set; } = null!;
 
+        /// <summary>
+        /// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("storageAccountKey", required: true)]
         public Input<string> StorageAccountKey { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Storage Container. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("storageContainerId", required: true)]
         public Input<string> StorageContainerId { get; set; } = null!;
 
@@ -599,12 +776,21 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class StormClusterStorageAccountsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is this the Default Storage Account for the HDInsight Storm Cluster? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("isDefault", required: true)]
         public Input<bool> IsDefault { get; set; } = null!;
 
+        /// <summary>
+        /// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("storageAccountKey", required: true)]
         public Input<string> StorageAccountKey { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Storage Container. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("storageContainerId", required: true)]
         public Input<string> StorageContainerId { get; set; } = null!;
 
@@ -620,6 +806,9 @@ namespace Pulumi.Azure.HDInsight
     [OutputType]
     public sealed class StormClusterComponentVersion
     {
+        /// <summary>
+        /// The version of Storm which should be used for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Storm;
 
         [OutputConstructor]
@@ -632,8 +821,17 @@ namespace Pulumi.Azure.HDInsight
     [OutputType]
     public sealed class StormClusterGateway
     {
+        /// <summary>
+        /// Is the Ambari portal enabled? Changing this forces a new resource to be created.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// The username used for the Ambari Portal. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]
@@ -651,8 +849,17 @@ namespace Pulumi.Azure.HDInsight
     [OutputType]
     public sealed class StormClusterRoles
     {
+        /// <summary>
+        /// A `head_node` block as defined above.
+        /// </summary>
         public readonly StormClusterRolesHeadNode HeadNode;
+        /// <summary>
+        /// A `worker_node` block as defined below.
+        /// </summary>
         public readonly StormClusterRolesWorkerNode WorkerNode;
+        /// <summary>
+        /// A `zookeeper_node` block as defined below.
+        /// </summary>
         public readonly StormClusterRolesZookeeperNode ZookeeperNode;
 
         [OutputConstructor]
@@ -670,11 +877,29 @@ namespace Pulumi.Azure.HDInsight
     [OutputType]
     public sealed class StormClusterRolesHeadNode
     {
+        /// <summary>
+        /// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Password;
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableArray<string> SshKeys;
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? SubnetId;
+        /// <summary>
+        /// The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Username;
+        /// <summary>
+        /// The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? VirtualNetworkId;
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string VmSize;
 
         [OutputConstructor]
@@ -698,13 +923,37 @@ namespace Pulumi.Azure.HDInsight
     [OutputType]
     public sealed class StormClusterRolesWorkerNode
     {
+        /// <summary>
+        /// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? MinInstanceCount;
+        /// <summary>
+        /// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Password;
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableArray<string> SshKeys;
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? SubnetId;
+        /// <summary>
+        /// The number of instances which should be run for the Worker Nodes.
+        /// </summary>
         public readonly int TargetInstanceCount;
+        /// <summary>
+        /// The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Username;
+        /// <summary>
+        /// The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? VirtualNetworkId;
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string VmSize;
 
         [OutputConstructor]
@@ -732,11 +981,29 @@ namespace Pulumi.Azure.HDInsight
     [OutputType]
     public sealed class StormClusterRolesZookeeperNode
     {
+        /// <summary>
+        /// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Password;
+        /// <summary>
+        /// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly ImmutableArray<string> SshKeys;
+        /// <summary>
+        /// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? SubnetId;
+        /// <summary>
+        /// The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Username;
+        /// <summary>
+        /// The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? VirtualNetworkId;
+        /// <summary>
+        /// The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string VmSize;
 
         [OutputConstructor]
@@ -760,8 +1027,17 @@ namespace Pulumi.Azure.HDInsight
     [OutputType]
     public sealed class StormClusterStorageAccounts
     {
+        /// <summary>
+        /// Is this the Default Storage Account for the HDInsight Storm Cluster? Changing this forces a new resource to be created.
+        /// </summary>
         public readonly bool IsDefault;
+        /// <summary>
+        /// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string StorageAccountKey;
+        /// <summary>
+        /// The ID of the Storage Container. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string StorageContainerId;
 
         [OutputConstructor]

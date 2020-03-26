@@ -128,4 +128,3 @@ type ProtectedVMArgs struct {
 func (ProtectedVMArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectedVMArgs)(nil)).Elem()
 }
-

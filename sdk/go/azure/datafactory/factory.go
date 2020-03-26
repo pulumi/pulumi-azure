@@ -139,4 +139,3 @@ type FactoryArgs struct {
 func (FactoryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*factoryArgs)(nil)).Elem()
 }
-

@@ -213,6 +213,10 @@ namespace Pulumi.Azure.Authorization
     {
         [Input("actions")]
         private InputList<string>? _actions;
+
+        /// <summary>
+        /// One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+        /// </summary>
         public InputList<string> Actions
         {
             get => _actions ?? (_actions = new InputList<string>());
@@ -221,6 +225,10 @@ namespace Pulumi.Azure.Authorization
 
         [Input("dataActions")]
         private InputList<string>? _dataActions;
+
+        /// <summary>
+        /// One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+        /// </summary>
         public InputList<string> DataActions
         {
             get => _dataActions ?? (_dataActions = new InputList<string>());
@@ -229,6 +237,10 @@ namespace Pulumi.Azure.Authorization
 
         [Input("notActions")]
         private InputList<string>? _notActions;
+
+        /// <summary>
+        /// One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+        /// </summary>
         public InputList<string> NotActions
         {
             get => _notActions ?? (_notActions = new InputList<string>());
@@ -237,6 +249,10 @@ namespace Pulumi.Azure.Authorization
 
         [Input("notDataActions")]
         private InputList<string>? _notDataActions;
+
+        /// <summary>
+        /// One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+        /// </summary>
         public InputList<string> NotDataActions
         {
             get => _notDataActions ?? (_notDataActions = new InputList<string>());
@@ -252,6 +268,10 @@ namespace Pulumi.Azure.Authorization
     {
         [Input("actions")]
         private InputList<string>? _actions;
+
+        /// <summary>
+        /// One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+        /// </summary>
         public InputList<string> Actions
         {
             get => _actions ?? (_actions = new InputList<string>());
@@ -260,6 +280,10 @@ namespace Pulumi.Azure.Authorization
 
         [Input("dataActions")]
         private InputList<string>? _dataActions;
+
+        /// <summary>
+        /// One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+        /// </summary>
         public InputList<string> DataActions
         {
             get => _dataActions ?? (_dataActions = new InputList<string>());
@@ -268,6 +292,10 @@ namespace Pulumi.Azure.Authorization
 
         [Input("notActions")]
         private InputList<string>? _notActions;
+
+        /// <summary>
+        /// One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+        /// </summary>
         public InputList<string> NotActions
         {
             get => _notActions ?? (_notActions = new InputList<string>());
@@ -276,6 +304,10 @@ namespace Pulumi.Azure.Authorization
 
         [Input("notDataActions")]
         private InputList<string>? _notDataActions;
+
+        /// <summary>
+        /// One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+        /// </summary>
         public InputList<string> NotDataActions
         {
             get => _notDataActions ?? (_notDataActions = new InputList<string>());
@@ -294,9 +326,21 @@ namespace Pulumi.Azure.Authorization
     [OutputType]
     public sealed class RoleDefinitionPermissions
     {
+        /// <summary>
+        /// One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+        /// </summary>
         public readonly ImmutableArray<string> Actions;
+        /// <summary>
+        /// One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+        /// </summary>
         public readonly ImmutableArray<string> DataActions;
+        /// <summary>
+        /// One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+        /// </summary>
         public readonly ImmutableArray<string> NotActions;
+        /// <summary>
+        /// One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+        /// </summary>
         public readonly ImmutableArray<string> NotDataActions;
 
         [OutputConstructor]

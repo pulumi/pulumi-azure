@@ -283,15 +283,27 @@ namespace Pulumi.Azure.MariaDB
 
     public sealed class ServerStorageProfileArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
+        /// </summary>
         [Input("autoGrow")]
         public Input<string>? AutoGrow { get; set; }
 
+        /// <summary>
+        /// Backup retention days for the server, supported values are between `7` and `35` days.
+        /// </summary>
         [Input("backupRetentionDays")]
         public Input<int>? BackupRetentionDays { get; set; }
 
+        /// <summary>
+        /// Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("geoRedundantBackup")]
         public Input<string>? GeoRedundantBackup { get; set; }
 
+        /// <summary>
+        /// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
+        /// </summary>
         [Input("storageMb", required: true)]
         public Input<int> StorageMb { get; set; } = null!;
 
@@ -302,15 +314,27 @@ namespace Pulumi.Azure.MariaDB
 
     public sealed class ServerStorageProfileGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
+        /// </summary>
         [Input("autoGrow")]
         public Input<string>? AutoGrow { get; set; }
 
+        /// <summary>
+        /// Backup retention days for the server, supported values are between `7` and `35` days.
+        /// </summary>
         [Input("backupRetentionDays")]
         public Input<int>? BackupRetentionDays { get; set; }
 
+        /// <summary>
+        /// Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("geoRedundantBackup")]
         public Input<string>? GeoRedundantBackup { get; set; }
 
+        /// <summary>
+        /// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
+        /// </summary>
         [Input("storageMb", required: true)]
         public Input<int> StorageMb { get; set; } = null!;
 
@@ -326,9 +350,21 @@ namespace Pulumi.Azure.MariaDB
     [OutputType]
     public sealed class ServerStorageProfile
     {
+        /// <summary>
+        /// Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
+        /// </summary>
         public readonly string? AutoGrow;
+        /// <summary>
+        /// Backup retention days for the server, supported values are between `7` and `35` days.
+        /// </summary>
         public readonly int? BackupRetentionDays;
+        /// <summary>
+        /// Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? GeoRedundantBackup;
+        /// <summary>
+        /// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
+        /// </summary>
         public readonly int StorageMb;
 
         [OutputConstructor]

@@ -164,11 +164,14 @@ namespace Pulumi.Azure.MediaServices
     public sealed class AccountStorageAccountsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Media Services Account.
+        /// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+        /// </summary>
         [Input("isPrimary")]
         public Input<bool>? IsPrimary { get; set; }
 
@@ -180,11 +183,14 @@ namespace Pulumi.Azure.MediaServices
     public sealed class AccountStorageAccountsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Media Services Account.
+        /// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+        /// </summary>
         [Input("isPrimary")]
         public Input<bool>? IsPrimary { get; set; }
 
@@ -201,9 +207,12 @@ namespace Pulumi.Azure.MediaServices
     public sealed class AccountStorageAccounts
     {
         /// <summary>
-        /// The ID of the Media Services Account.
+        /// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+        /// </summary>
         public readonly bool? IsPrimary;
 
         [OutputConstructor]

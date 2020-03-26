@@ -63,6 +63,12 @@ func NewSubscription(ctx *pulumi.Context,
 	if args == nil {
 		args = &SubscriptionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:eventhub/subscription:Subscription"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Subscription
 	err := ctx.RegisterResource("azure:servicebus/subscription:Subscription", name, args, &resource, opts...)
 	if err != nil {
@@ -208,4 +214,3 @@ type SubscriptionArgs struct {
 func (SubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subscriptionArgs)(nil)).Elem()
 }
-

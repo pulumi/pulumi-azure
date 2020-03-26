@@ -174,4 +174,3 @@ type SqlServerArgs struct {
 func (SqlServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlServerArgs)(nil)).Elem()
 }
-

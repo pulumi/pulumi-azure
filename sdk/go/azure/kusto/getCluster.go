@@ -28,18 +28,16 @@ type LookupClusterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
 	// The Kusto Cluster URI to be used for data ingestion.
 	DataIngestionUri string `pulumi:"dataIngestionUri"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Tags map[string]string `pulumi:"tags"`
+	Id                string            `pulumi:"id"`
+	Location          string            `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 	// The FQDN of the Azure Kusto Cluster.
 	Uri string `pulumi:"uri"`
 }
-

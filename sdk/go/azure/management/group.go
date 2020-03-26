@@ -32,6 +32,12 @@ func NewGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &GroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:managementgroups/managementGroup:ManagementGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Group
 	err := ctx.RegisterResource("azure:management/group:Group", name, args, &resource, opts...)
 	if err != nil {
@@ -105,4 +111,3 @@ type GroupArgs struct {
 func (GroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupArgs)(nil)).Elem()
 }
-

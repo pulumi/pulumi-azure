@@ -85,27 +85,27 @@ def get_account_sas(connection_string=None,expiry=None,https_only=None,permissio
 
     The **permissions** object supports the following:
 
-      * `add` (`bool`)
-      * `create` (`bool`)
-      * `delete` (`bool`)
-      * `list` (`bool`)
-      * `process` (`bool`)
-      * `read` (`bool`)
-      * `update` (`bool`)
-      * `write` (`bool`)
+      * `add` (`bool`) - Should Add permissions be enabled for this SAS?
+      * `create` (`bool`) - Should Create permissions be enabled for this SAS?
+      * `delete` (`bool`) - Should Delete permissions be enabled for this SAS?
+      * `list` (`bool`) - Should List permissions be enabled for this SAS?
+      * `process` (`bool`) - Should Process permissions be enabled for this SAS?
+      * `read` (`bool`) - Should Read permissions be enabled for this SAS?
+      * `update` (`bool`) - Should Update permissions be enabled for this SAS?
+      * `write` (`bool`) - Should Write permissions be enabled for this SAS?
 
     The **resource_types** object supports the following:
 
-      * `container` (`bool`)
-      * `object` (`bool`)
-      * `service` (`bool`)
+      * `container` (`bool`) - Should permission be granted to the container?
+      * `object` (`bool`) - Should permission be granted only to a specific object?
+      * `service` (`bool`) - Should permission be granted to the entire service?
 
     The **services** object supports the following:
 
-      * `blob` (`bool`)
-      * `file` (`bool`)
-      * `queue` (`bool`)
-      * `table` (`bool`)
+      * `blob` (`bool`) - Should permission be granted to `blob` services within this storage account?
+      * `file` (`bool`) - Should permission be granted to `file` services within this storage account?
+      * `queue` (`bool`) - Should permission be granted to `queue` services within this storage account?
+      * `table` (`bool`) - Should permission be granted to `table` services within this storage account?
     """
     __args__ = dict()
 

@@ -34,17 +34,15 @@ type LookupSnapshotArgs struct {
 	VolumeName string `pulumi:"volumeName"`
 }
 
-
 // A collection of values returned by getSnapshot.
 type LookupSnapshotResult struct {
 	AccountName string `pulumi:"accountName"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region where the NetApp Snapshot exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
-	PoolName string `pulumi:"poolName"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
+	PoolName          string `pulumi:"poolName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	VolumeName string `pulumi:"volumeName"`
+	VolumeName        string `pulumi:"volumeName"`
 }
-

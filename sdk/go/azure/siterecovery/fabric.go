@@ -112,4 +112,3 @@ type FabricArgs struct {
 func (FabricArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fabricArgs)(nil)).Elem()
 }
-

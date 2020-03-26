@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_interface.html.markdown.
         /// </summary>
+        [Obsolete("Use GetNetworkInterface.InvokeAsync() instead")]
         public static Task<GetNetworkInterfaceResult> GetNetworkInterface(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure:network/getNetworkInterface:getNetworkInterface", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetNetworkInterface
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Network Interface.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_interface.html.markdown.
+        /// </summary>
+        public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure:network/getNetworkInterface:getNetworkInterface", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -16,7 +16,18 @@ namespace Pulumi.Azure.DataLake
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_lake_store.html.markdown.
         /// </summary>
+        [Obsolete("Use GetStore.InvokeAsync() instead")]
         public static Task<GetStoreResult> GetStore(GetStoreArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStoreResult>("azure:datalake/getStore:getStore", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetStore
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Data Lake Store.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_lake_store.html.markdown.
+        /// </summary>
+        public static Task<GetStoreResult> InvokeAsync(GetStoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStoreResult>("azure:datalake/getStore:getStore", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

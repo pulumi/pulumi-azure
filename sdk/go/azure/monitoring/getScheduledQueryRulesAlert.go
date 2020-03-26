@@ -28,7 +28,6 @@ type LookupScheduledQueryRulesAlertArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getScheduledQueryRulesAlert.
 type LookupScheduledQueryRulesAlertResult struct {
 	// An `action` block as defined below.
@@ -44,16 +43,16 @@ type LookupScheduledQueryRulesAlertResult struct {
 	// Frequency at which rule condition should be evaluated.
 	Frequency int `pulumi:"frequency"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id       string `pulumi:"id"`
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// Log search query.
-	Query string `pulumi:"query"`
-	QueryType string `pulumi:"queryType"`
+	Query             string `pulumi:"query"`
+	QueryType         string `pulumi:"queryType"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Severity of the alert.
-	Severity int `pulumi:"severity"`
-	Tags map[string]string `pulumi:"tags"`
+	Severity int               `pulumi:"severity"`
+	Tags     map[string]string `pulumi:"tags"`
 	// Time for which alerts should be throttled or suppressed.
 	Throttling int `pulumi:"throttling"`
 	// Time window for which data needs to be fetched for query.
@@ -61,4 +60,3 @@ type LookupScheduledQueryRulesAlertResult struct {
 	// A `trigger` block as defined below.
 	Triggers []GetScheduledQueryRulesAlertTrigger `pulumi:"triggers"`
 }
-

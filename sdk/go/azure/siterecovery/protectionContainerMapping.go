@@ -154,4 +154,3 @@ type ProtectionContainerMappingArgs struct {
 func (ProtectionContainerMappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectionContainerMappingArgs)(nil)).Elem()
 }
-

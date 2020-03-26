@@ -30,13 +30,12 @@ type LookupSharedImageArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getSharedImage.
 type LookupSharedImageResult struct {
 	// The description of this Shared Image.
 	Description string `pulumi:"description"`
 	// The End User Licence Agreement for the Shared Image.
-	Eula string `pulumi:"eula"`
+	Eula        string `pulumi:"eula"`
 	GalleryName string `pulumi:"galleryName"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -44,15 +43,14 @@ type LookupSharedImageResult struct {
 	Identifiers []GetSharedImageIdentifier `pulumi:"identifiers"`
 	// The supported Azure location where the Shared Image Gallery exists.
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// The type of Operating System present in this Shared Image.
 	OsType string `pulumi:"osType"`
 	// The URI containing the Privacy Statement for this Shared Image.
 	PrivacyStatementUri string `pulumi:"privacyStatementUri"`
 	// The URI containing the Release Notes for this Shared Image.
-	ReleaseNoteUri string `pulumi:"releaseNoteUri"`
+	ReleaseNoteUri    string `pulumi:"releaseNoteUri"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
 }
-

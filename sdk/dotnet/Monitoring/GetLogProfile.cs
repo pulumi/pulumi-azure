@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Monitoring
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_log_profile.html.markdown.
         /// </summary>
+        [Obsolete("Use GetLogProfile.InvokeAsync() instead")]
         public static Task<GetLogProfileResult> GetLogProfile(GetLogProfileArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure:monitoring/getLogProfile:getLogProfile", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetLogProfile
+    {
+        /// <summary>
+        /// Use this data source to access the properties of a Log Profile.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_log_profile.html.markdown.
+        /// </summary>
+        public static Task<GetLogProfileResult> InvokeAsync(GetLogProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure:monitoring/getLogProfile:getLogProfile", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

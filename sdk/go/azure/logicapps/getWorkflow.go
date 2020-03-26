@@ -28,7 +28,6 @@ type LookupWorkflowArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getWorkflow.
 type LookupWorkflowResult struct {
 	// The Access Endpoint for the Logic App Workflow
@@ -41,10 +40,10 @@ type LookupWorkflowResult struct {
 	Id string `pulumi:"id"`
 	// The Azure location where the Logic App Workflow exists.
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// A map of Key-Value pairs.
-	Parameters map[string]string `pulumi:"parameters"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Parameters        map[string]string `pulumi:"parameters"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The list of access endpoint ip addresses of workflow.
@@ -56,4 +55,3 @@ type LookupWorkflowResult struct {
 	// The version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`.
 	WorkflowVersion string `pulumi:"workflowVersion"`
 }
-

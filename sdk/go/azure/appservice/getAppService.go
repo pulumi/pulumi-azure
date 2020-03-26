@@ -28,7 +28,6 @@ type LookupAppServiceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getAppService.
 type LookupAppServiceResult struct {
 	// The ID of the App Service Plan within which the App Service exists.
@@ -57,12 +56,11 @@ type LookupAppServiceResult struct {
 	OutboundIpAddresses string `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses string `pulumi:"possibleOutboundIpAddresses"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName           string `pulumi:"resourceGroupName"`
 	// A `siteConfig` block as defined below.
-	SiteConfigs []GetAppServiceSiteConfig `pulumi:"siteConfigs"`
+	SiteConfigs     []GetAppServiceSiteConfig     `pulumi:"siteConfigs"`
 	SiteCredentials []GetAppServiceSiteCredential `pulumi:"siteCredentials"`
-	SourceControls []GetAppServiceSourceControl `pulumi:"sourceControls"`
+	SourceControls  []GetAppServiceSourceControl  `pulumi:"sourceControls"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
-

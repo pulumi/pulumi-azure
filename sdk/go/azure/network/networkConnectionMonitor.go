@@ -168,4 +168,3 @@ type NetworkConnectionMonitorArgs struct {
 func (NetworkConnectionMonitorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkConnectionMonitorArgs)(nil)).Elem()
 }
-

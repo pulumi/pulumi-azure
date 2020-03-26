@@ -92,4 +92,3 @@ type SubnetRouteTableAssociationArgs struct {
 func (SubnetRouteTableAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetRouteTableAssociationArgs)(nil)).Elem()
 }
-

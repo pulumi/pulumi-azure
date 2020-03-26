@@ -30,21 +30,19 @@ type LookupCertificateArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getCertificate.
 type LookupCertificateResult struct {
 	AccountName string `pulumi:"accountName"`
 	// The format of the certificate, such as `Cer` or `Pfx`.
 	Format string `pulumi:"format"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The public key of the certificate.
-	PublicData string `pulumi:"publicData"`
+	PublicData        string `pulumi:"publicData"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The thumbprint of the certificate.
 	Thumbprint string `pulumi:"thumbprint"`
 	// The algorithm of the certificate thumbprint.
 	ThumbprintAlgorithm string `pulumi:"thumbprintAlgorithm"`
 }
-

@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Monitoring
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_scheduled_query_rules_log.html.markdown.
         /// </summary>
+        [Obsolete("Use GetScheduledQueryRulesLog.InvokeAsync() instead")]
         public static Task<GetScheduledQueryRulesLogResult> GetScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesLogResult>("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetScheduledQueryRulesLog
+    {
+        /// <summary>
+        /// Use this data source to access the properties of a LogToMetricAction scheduled query rule.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_scheduled_query_rules_log.html.markdown.
+        /// </summary>
+        public static Task<GetScheduledQueryRulesLogResult> InvokeAsync(GetScheduledQueryRulesLogArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesLogResult>("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

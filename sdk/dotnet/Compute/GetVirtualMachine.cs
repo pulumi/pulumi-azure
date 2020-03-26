@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Compute
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_machine.html.markdown.
         /// </summary>
+        [Obsolete("Use GetVirtualMachine.InvokeAsync() instead")]
         public static Task<GetVirtualMachineResult> GetVirtualMachine(GetVirtualMachineArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure:compute/getVirtualMachine:getVirtualMachine", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetVirtualMachine
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Virtual Machine.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_machine.html.markdown.
+        /// </summary>
+        public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure:compute/getVirtualMachine:getVirtualMachine", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

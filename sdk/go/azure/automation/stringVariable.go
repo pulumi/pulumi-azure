@@ -132,4 +132,3 @@ type StringVariableArgs struct {
 func (StringVariableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stringVariableArgs)(nil)).Elem()
 }
-

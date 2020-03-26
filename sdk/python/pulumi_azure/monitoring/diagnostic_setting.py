@@ -30,21 +30,21 @@ class DiagnosticSetting(pulumi.CustomResource):
     """
     One or more `log` blocks as defined below.
 
-      * `category` (`str`)
-      * `enabled` (`bool`)
-      * `retention_policy` (`dict`)
-        * `days` (`float`)
-        * `enabled` (`bool`)
+      * `category` (`str`) - The name of a Diagnostic Log Category for this Resource.
+      * `enabled` (`bool`) - Is this Diagnostic Log enabled? Defaults to `true`.
+      * `retention_policy` (`dict`) - A `retention_policy` block as defined below.
+        * `days` (`float`) - The number of days for which this Retention Policy should apply.
+        * `enabled` (`bool`) - Is this Retention Policy enabled?
     """
     metrics: pulumi.Output[list]
     """
     One or more `metric` blocks as defined below.
 
-      * `category` (`str`)
-      * `enabled` (`bool`)
-      * `retention_policy` (`dict`)
-        * `days` (`float`)
-        * `enabled` (`bool`)
+      * `category` (`str`) - The name of a Diagnostic Metric Category for this Resource.
+      * `enabled` (`bool`) - Is this Diagnostic Metric enabled? Defaults to `true`.
+      * `retention_policy` (`dict`) - A `retention_policy` block as defined below.
+        * `days` (`float`) - The number of days for which this Retention Policy should apply.
+        * `enabled` (`bool`) - Is this Retention Policy enabled?
     """
     name: pulumi.Output[str]
     """
@@ -78,19 +78,19 @@ class DiagnosticSetting(pulumi.CustomResource):
 
         The **logs** object supports the following:
 
-          * `category` (`pulumi.Input[str]`)
-          * `enabled` (`pulumi.Input[bool]`)
-          * `retention_policy` (`pulumi.Input[dict]`)
-            * `days` (`pulumi.Input[float]`)
-            * `enabled` (`pulumi.Input[bool]`)
+          * `category` (`pulumi.Input[str]`) - The name of a Diagnostic Log Category for this Resource.
+          * `enabled` (`pulumi.Input[bool]`) - Is this Diagnostic Log enabled? Defaults to `true`.
+          * `retention_policy` (`pulumi.Input[dict]`) - A `retention_policy` block as defined below.
+            * `days` (`pulumi.Input[float]`) - The number of days for which this Retention Policy should apply.
+            * `enabled` (`pulumi.Input[bool]`) - Is this Retention Policy enabled?
 
         The **metrics** object supports the following:
 
-          * `category` (`pulumi.Input[str]`)
-          * `enabled` (`pulumi.Input[bool]`)
-          * `retention_policy` (`pulumi.Input[dict]`)
-            * `days` (`pulumi.Input[float]`)
-            * `enabled` (`pulumi.Input[bool]`)
+          * `category` (`pulumi.Input[str]`) - The name of a Diagnostic Metric Category for this Resource.
+          * `enabled` (`pulumi.Input[bool]`) - Is this Diagnostic Metric enabled? Defaults to `true`.
+          * `retention_policy` (`pulumi.Input[dict]`) - A `retention_policy` block as defined below.
+            * `days` (`pulumi.Input[float]`) - The number of days for which this Retention Policy should apply.
+            * `enabled` (`pulumi.Input[bool]`) - Is this Retention Policy enabled?
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -147,19 +147,19 @@ class DiagnosticSetting(pulumi.CustomResource):
 
         The **logs** object supports the following:
 
-          * `category` (`pulumi.Input[str]`)
-          * `enabled` (`pulumi.Input[bool]`)
-          * `retention_policy` (`pulumi.Input[dict]`)
-            * `days` (`pulumi.Input[float]`)
-            * `enabled` (`pulumi.Input[bool]`)
+          * `category` (`pulumi.Input[str]`) - The name of a Diagnostic Log Category for this Resource.
+          * `enabled` (`pulumi.Input[bool]`) - Is this Diagnostic Log enabled? Defaults to `true`.
+          * `retention_policy` (`pulumi.Input[dict]`) - A `retention_policy` block as defined below.
+            * `days` (`pulumi.Input[float]`) - The number of days for which this Retention Policy should apply.
+            * `enabled` (`pulumi.Input[bool]`) - Is this Retention Policy enabled?
 
         The **metrics** object supports the following:
 
-          * `category` (`pulumi.Input[str]`)
-          * `enabled` (`pulumi.Input[bool]`)
-          * `retention_policy` (`pulumi.Input[dict]`)
-            * `days` (`pulumi.Input[float]`)
-            * `enabled` (`pulumi.Input[bool]`)
+          * `category` (`pulumi.Input[str]`) - The name of a Diagnostic Metric Category for this Resource.
+          * `enabled` (`pulumi.Input[bool]`) - Is this Diagnostic Metric enabled? Defaults to `true`.
+          * `retention_policy` (`pulumi.Input[dict]`) - A `retention_policy` block as defined below.
+            * `days` (`pulumi.Input[float]`) - The number of days for which this Retention Policy should apply.
+            * `enabled` (`pulumi.Input[bool]`) - Is this Retention Policy enabled?
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

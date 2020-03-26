@@ -28,7 +28,6 @@ type LookupConfigurationStoreArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getConfigurationStore.
 type LookupConfigurationStoreResult struct {
 	// The Endpoint used to access this App Configuration.
@@ -37,12 +36,12 @@ type LookupConfigurationStoreResult struct {
 	Id string `pulumi:"id"`
 	// The Azure Region where the App Configuration exists.
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// A `primaryReadKey` block as defined below containing the primary read access key.
 	PrimaryReadKeys []GetConfigurationStorePrimaryReadKey `pulumi:"primaryReadKeys"`
 	// A `primaryWriteKey` block as defined below containing the primary write access key.
-	PrimaryWriteKeys []GetConfigurationStorePrimaryWriteKey `pulumi:"primaryWriteKeys"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PrimaryWriteKeys  []GetConfigurationStorePrimaryWriteKey `pulumi:"primaryWriteKeys"`
+	ResourceGroupName string                                 `pulumi:"resourceGroupName"`
 	// A `secondaryReadKey` block as defined below containing the secondary read access key.
 	SecondaryReadKeys []GetConfigurationStoreSecondaryReadKey `pulumi:"secondaryReadKeys"`
 	// A `secondaryWriteKey` block as defined below containing the secondary write access key.
@@ -52,4 +51,3 @@ type LookupConfigurationStoreResult struct {
 	// A mapping of tags assigned to the App Configuration.
 	Tags map[string]string `pulumi:"tags"`
 }
-

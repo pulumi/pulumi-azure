@@ -16,7 +16,18 @@ namespace Pulumi.Azure.ApiManagement
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api_version_set.html.markdown.
         /// </summary>
+        [Obsolete("Use GetApiVersionSet.InvokeAsync() instead")]
         public static Task<GetApiVersionSetResult> GetApiVersionSet(GetApiVersionSetArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiVersionSetResult>("azure:apimanagement/getApiVersionSet:getApiVersionSet", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetApiVersionSet
+    {
+        /// <summary>
+        /// Uses this data source to access information about an API Version Set within an API Management Service.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api_version_set.html.markdown.
+        /// </summary>
+        public static Task<GetApiVersionSetResult> InvokeAsync(GetApiVersionSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiVersionSetResult>("azure:apimanagement/getApiVersionSet:getApiVersionSet", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

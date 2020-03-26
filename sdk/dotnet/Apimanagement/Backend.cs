@@ -295,11 +295,18 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class BackendCredentialsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `authorization` block as defined below.
+        /// </summary>
         [Input("authorization")]
         public Input<BackendCredentialsAuthorizationArgs>? Authorization { get; set; }
 
         [Input("certificates")]
         private InputList<string>? _certificates;
+
+        /// <summary>
+        /// A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
+        /// </summary>
         public InputList<string> Certificates
         {
             get => _certificates ?? (_certificates = new InputList<string>());
@@ -308,6 +315,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("header")]
         private InputMap<string>? _header;
+
+        /// <summary>
+        /// A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
+        /// </summary>
         public InputMap<string> Header
         {
             get => _header ?? (_header = new InputMap<string>());
@@ -316,6 +327,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("query")]
         private InputMap<string>? _query;
+
+        /// <summary>
+        /// A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
+        /// </summary>
         public InputMap<string> Query
         {
             get => _query ?? (_query = new InputMap<string>());
@@ -329,9 +344,15 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class BackendCredentialsAuthorizationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The authentication Parameter value.
+        /// </summary>
         [Input("parameter")]
         public Input<string>? Parameter { get; set; }
 
+        /// <summary>
+        /// The authentication Scheme name.
+        /// </summary>
         [Input("scheme")]
         public Input<string>? Scheme { get; set; }
 
@@ -342,9 +363,15 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class BackendCredentialsAuthorizationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The authentication Parameter value.
+        /// </summary>
         [Input("parameter")]
         public Input<string>? Parameter { get; set; }
 
+        /// <summary>
+        /// The authentication Scheme name.
+        /// </summary>
         [Input("scheme")]
         public Input<string>? Scheme { get; set; }
 
@@ -355,11 +382,18 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class BackendCredentialsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `authorization` block as defined below.
+        /// </summary>
         [Input("authorization")]
         public Input<BackendCredentialsAuthorizationGetArgs>? Authorization { get; set; }
 
         [Input("certificates")]
         private InputList<string>? _certificates;
+
+        /// <summary>
+        /// A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
+        /// </summary>
         public InputList<string> Certificates
         {
             get => _certificates ?? (_certificates = new InputList<string>());
@@ -368,6 +402,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("header")]
         private InputMap<string>? _header;
+
+        /// <summary>
+        /// A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
+        /// </summary>
         public InputMap<string> Header
         {
             get => _header ?? (_header = new InputMap<string>());
@@ -376,6 +414,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("query")]
         private InputMap<string>? _query;
+
+        /// <summary>
+        /// A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
+        /// </summary>
         public InputMap<string> Query
         {
             get => _query ?? (_query = new InputMap<string>());
@@ -389,15 +431,21 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class BackendProxyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The password to connect to the proxy server.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// The URL of the backend host.
+        /// The URL of the proxy server.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
+        /// <summary>
+        /// The username to connect to the proxy server.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -408,15 +456,21 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class BackendProxyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The password to connect to the proxy server.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// The URL of the backend host.
+        /// The URL of the proxy server.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
+        /// <summary>
+        /// The username to connect to the proxy server.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -427,22 +481,36 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class BackendServiceFabricClusterArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The client certificate thumbprint for the management endpoint.
+        /// </summary>
         [Input("clientCertificateThumbprint", required: true)]
         public Input<string> ClientCertificateThumbprint { get; set; } = null!;
 
         [Input("managementEndpoints", required: true)]
         private InputList<string>? _managementEndpoints;
+
+        /// <summary>
+        /// A list of cluster management endpoints.
+        /// </summary>
         public InputList<string> ManagementEndpoints
         {
             get => _managementEndpoints ?? (_managementEndpoints = new InputList<string>());
             set => _managementEndpoints = value;
         }
 
+        /// <summary>
+        /// The maximum number of retries when attempting resolve the partition.
+        /// </summary>
         [Input("maxPartitionResolutionRetries", required: true)]
         public Input<int> MaxPartitionResolutionRetries { get; set; } = null!;
 
         [Input("serverCertificateThumbprints")]
         private InputList<string>? _serverCertificateThumbprints;
+
+        /// <summary>
+        /// A list of thumbprints of the server certificates of the Service Fabric cluster.
+        /// </summary>
         public InputList<string> ServerCertificateThumbprints
         {
             get => _serverCertificateThumbprints ?? (_serverCertificateThumbprints = new InputList<string>());
@@ -451,6 +519,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("serverX509Names")]
         private InputList<BackendServiceFabricClusterServerX509NamesArgs>? _serverX509Names;
+
+        /// <summary>
+        /// One or more `server_x509_name` blocks as documented below.
+        /// </summary>
         public InputList<BackendServiceFabricClusterServerX509NamesArgs> ServerX509Names
         {
             get => _serverX509Names ?? (_serverX509Names = new InputList<BackendServiceFabricClusterServerX509NamesArgs>());
@@ -464,22 +536,36 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class BackendServiceFabricClusterGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The client certificate thumbprint for the management endpoint.
+        /// </summary>
         [Input("clientCertificateThumbprint", required: true)]
         public Input<string> ClientCertificateThumbprint { get; set; } = null!;
 
         [Input("managementEndpoints", required: true)]
         private InputList<string>? _managementEndpoints;
+
+        /// <summary>
+        /// A list of cluster management endpoints.
+        /// </summary>
         public InputList<string> ManagementEndpoints
         {
             get => _managementEndpoints ?? (_managementEndpoints = new InputList<string>());
             set => _managementEndpoints = value;
         }
 
+        /// <summary>
+        /// The maximum number of retries when attempting resolve the partition.
+        /// </summary>
         [Input("maxPartitionResolutionRetries", required: true)]
         public Input<int> MaxPartitionResolutionRetries { get; set; } = null!;
 
         [Input("serverCertificateThumbprints")]
         private InputList<string>? _serverCertificateThumbprints;
+
+        /// <summary>
+        /// A list of thumbprints of the server certificates of the Service Fabric cluster.
+        /// </summary>
         public InputList<string> ServerCertificateThumbprints
         {
             get => _serverCertificateThumbprints ?? (_serverCertificateThumbprints = new InputList<string>());
@@ -488,6 +574,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("serverX509Names")]
         private InputList<BackendServiceFabricClusterServerX509NamesGetArgs>? _serverX509Names;
+
+        /// <summary>
+        /// One or more `server_x509_name` blocks as documented below.
+        /// </summary>
         public InputList<BackendServiceFabricClusterServerX509NamesGetArgs> ServerX509Names
         {
             get => _serverX509Names ?? (_serverX509Names = new InputList<BackendServiceFabricClusterServerX509NamesGetArgs>());
@@ -501,6 +591,9 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class BackendServiceFabricClusterServerX509NamesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The thumbprint for the issuer of the certificate.
+        /// </summary>
         [Input("issuerCertificateThumbprint", required: true)]
         public Input<string> IssuerCertificateThumbprint { get; set; } = null!;
 
@@ -517,6 +610,9 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class BackendServiceFabricClusterServerX509NamesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The thumbprint for the issuer of the certificate.
+        /// </summary>
         [Input("issuerCertificateThumbprint", required: true)]
         public Input<string> IssuerCertificateThumbprint { get; set; } = null!;
 
@@ -533,9 +629,15 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class BackendTlsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
+        /// </summary>
         [Input("validateCertificateChain")]
         public Input<bool>? ValidateCertificateChain { get; set; }
 
+        /// <summary>
+        /// Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.
+        /// </summary>
         [Input("validateCertificateName")]
         public Input<bool>? ValidateCertificateName { get; set; }
 
@@ -546,9 +648,15 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class BackendTlsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
+        /// </summary>
         [Input("validateCertificateChain")]
         public Input<bool>? ValidateCertificateChain { get; set; }
 
+        /// <summary>
+        /// Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.
+        /// </summary>
         [Input("validateCertificateName")]
         public Input<bool>? ValidateCertificateName { get; set; }
 
@@ -564,9 +672,21 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class BackendCredentials
     {
+        /// <summary>
+        /// An `authorization` block as defined below.
+        /// </summary>
         public readonly BackendCredentialsAuthorization? Authorization;
+        /// <summary>
+        /// A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
+        /// </summary>
         public readonly ImmutableArray<string> Certificates;
+        /// <summary>
+        /// A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Header;
+        /// <summary>
+        /// A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Query;
 
         [OutputConstructor]
@@ -586,7 +706,13 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class BackendCredentialsAuthorization
     {
+        /// <summary>
+        /// The authentication Parameter value.
+        /// </summary>
         public readonly string? Parameter;
+        /// <summary>
+        /// The authentication Scheme name.
+        /// </summary>
         public readonly string? Scheme;
 
         [OutputConstructor]
@@ -602,11 +728,17 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class BackendProxy
     {
+        /// <summary>
+        /// The password to connect to the proxy server.
+        /// </summary>
         public readonly string? Password;
         /// <summary>
-        /// The URL of the backend host.
+        /// The URL of the proxy server.
         /// </summary>
         public readonly string Url;
+        /// <summary>
+        /// The username to connect to the proxy server.
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]
@@ -624,10 +756,25 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class BackendServiceFabricCluster
     {
+        /// <summary>
+        /// The client certificate thumbprint for the management endpoint.
+        /// </summary>
         public readonly string ClientCertificateThumbprint;
+        /// <summary>
+        /// A list of cluster management endpoints.
+        /// </summary>
         public readonly ImmutableArray<string> ManagementEndpoints;
+        /// <summary>
+        /// The maximum number of retries when attempting resolve the partition.
+        /// </summary>
         public readonly int MaxPartitionResolutionRetries;
+        /// <summary>
+        /// A list of thumbprints of the server certificates of the Service Fabric cluster.
+        /// </summary>
         public readonly ImmutableArray<string> ServerCertificateThumbprints;
+        /// <summary>
+        /// One or more `server_x509_name` blocks as documented below.
+        /// </summary>
         public readonly ImmutableArray<BackendServiceFabricClusterServerX509Names> ServerX509Names;
 
         [OutputConstructor]
@@ -649,6 +796,9 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class BackendServiceFabricClusterServerX509Names
     {
+        /// <summary>
+        /// The thumbprint for the issuer of the certificate.
+        /// </summary>
         public readonly string IssuerCertificateThumbprint;
         /// <summary>
         /// The name of the API Management backend. Changing this forces a new resource to be created.
@@ -668,7 +818,13 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class BackendTls
     {
+        /// <summary>
+        /// Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
+        /// </summary>
         public readonly bool? ValidateCertificateChain;
+        /// <summary>
+        /// Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.
+        /// </summary>
         public readonly bool? ValidateCertificateName;
 
         [OutputConstructor]

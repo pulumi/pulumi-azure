@@ -66,8 +66,8 @@ type WindowsVirtualMachine struct {
 	// A `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDiskOutput `pulumi:"osDisk"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
-	Plan WindowsVirtualMachinePlanPtrOutput `pulumi:"plan"`
-	Priority pulumi.StringPtrOutput `pulumi:"priority"`
+	Plan     WindowsVirtualMachinePlanPtrOutput `pulumi:"plan"`
+	Priority pulumi.StringPtrOutput             `pulumi:"priority"`
 	// The Primary Private IP Address assigned to this Virtual Machine.
 	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
 	// A list of Private IP Addresses assigned to this Virtual Machine.
@@ -187,8 +187,8 @@ type windowsVirtualMachineState struct {
 	// A `osDisk` block as defined below.
 	OsDisk *WindowsVirtualMachineOsDisk `pulumi:"osDisk"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
-	Plan *WindowsVirtualMachinePlan `pulumi:"plan"`
-	Priority *string `pulumi:"priority"`
+	Plan     *WindowsVirtualMachinePlan `pulumi:"plan"`
+	Priority *string                    `pulumi:"priority"`
 	// The Primary Private IP Address assigned to this Virtual Machine.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// A list of Private IP Addresses assigned to this Virtual Machine.
@@ -263,7 +263,7 @@ type WindowsVirtualMachineState struct {
 	// A `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDiskPtrInput
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
-	Plan WindowsVirtualMachinePlanPtrInput
+	Plan     WindowsVirtualMachinePlanPtrInput
 	Priority pulumi.StringPtrInput
 	// The Primary Private IP Address assigned to this Virtual Machine.
 	PrivateIpAddress pulumi.StringPtrInput
@@ -343,8 +343,8 @@ type windowsVirtualMachineArgs struct {
 	// A `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDisk `pulumi:"osDisk"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
-	Plan *WindowsVirtualMachinePlan `pulumi:"plan"`
-	Priority *string `pulumi:"priority"`
+	Plan     *WindowsVirtualMachinePlan `pulumi:"plan"`
+	Priority *string                    `pulumi:"priority"`
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
@@ -410,7 +410,7 @@ type WindowsVirtualMachineArgs struct {
 	// A `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDiskInput
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
-	Plan WindowsVirtualMachinePlanPtrInput
+	Plan     WindowsVirtualMachinePlanPtrInput
 	Priority pulumi.StringPtrInput
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	ProvisionVmAgent pulumi.BoolPtrInput
@@ -439,4 +439,3 @@ type WindowsVirtualMachineArgs struct {
 func (WindowsVirtualMachineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*windowsVirtualMachineArgs)(nil)).Elem()
 }
-

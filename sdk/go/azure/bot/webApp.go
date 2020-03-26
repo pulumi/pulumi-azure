@@ -205,4 +205,3 @@ type WebAppArgs struct {
 func (WebAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webAppArgs)(nil)).Elem()
 }
-

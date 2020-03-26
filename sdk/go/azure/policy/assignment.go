@@ -33,7 +33,7 @@ type Assignment struct {
 	Parameters pulumi.StringPtrOutput `pulumi:"parameters"`
 	// The ID of the Policy Definition to be applied at the specified Scope.
 	PolicyDefinitionId pulumi.StringOutput `pulumi:"policyDefinitionId"`
-	Scope pulumi.StringOutput `pulumi:"scope"`
+	Scope              pulumi.StringOutput `pulumi:"scope"`
 }
 
 // NewAssignment registers a new resource with the given unique name, arguments, and options.
@@ -86,7 +86,7 @@ type assignmentState struct {
 	Parameters *string `pulumi:"parameters"`
 	// The ID of the Policy Definition to be applied at the specified Scope.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
-	Scope *string `pulumi:"scope"`
+	Scope              *string `pulumi:"scope"`
 }
 
 type AssignmentState struct {
@@ -106,7 +106,7 @@ type AssignmentState struct {
 	Parameters pulumi.StringPtrInput
 	// The ID of the Policy Definition to be applied at the specified Scope.
 	PolicyDefinitionId pulumi.StringPtrInput
-	Scope pulumi.StringPtrInput
+	Scope              pulumi.StringPtrInput
 }
 
 func (AssignmentState) ElementType() reflect.Type {
@@ -130,7 +130,7 @@ type assignmentArgs struct {
 	Parameters *string `pulumi:"parameters"`
 	// The ID of the Policy Definition to be applied at the specified Scope.
 	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
-	Scope string `pulumi:"scope"`
+	Scope              string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a Assignment resource.
@@ -151,10 +151,9 @@ type AssignmentArgs struct {
 	Parameters pulumi.StringPtrInput
 	// The ID of the Policy Definition to be applied at the specified Scope.
 	PolicyDefinitionId pulumi.StringInput
-	Scope pulumi.StringInput
+	Scope              pulumi.StringInput
 }
 
 func (AssignmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*assignmentArgs)(nil)).Elem()
 }
-

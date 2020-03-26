@@ -18,10 +18,10 @@ class Subnet(pulumi.CustomResource):
     """
     One or more `delegation` blocks as defined below.
 
-      * `name` (`str`) - The name of the subnet. Changing this forces a new resource to be created.
-      * `serviceDelegation` (`dict`)
-        * `actions` (`list`)
-        * `name` (`str`) - The name of the subnet. Changing this forces a new resource to be created.
+      * `name` (`str`) - A name for this delegation.
+      * `serviceDelegation` (`dict`) - A `service_delegation` block as defined below.
+        * `actions` (`list`) - A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+        * `name` (`str`) - The name of service to delegate to. Possible values include `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.Netapp/volumes`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Web/hostingEnvironments` and `Microsoft.Web/serverFarms`.
     """
     enforce_private_link_endpoint_network_policies: pulumi.Output[bool]
     """
@@ -70,10 +70,10 @@ class Subnet(pulumi.CustomResource):
 
         The **delegations** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The name of the subnet. Changing this forces a new resource to be created.
-          * `serviceDelegation` (`pulumi.Input[dict]`)
-            * `actions` (`pulumi.Input[list]`)
-            * `name` (`pulumi.Input[str]`) - The name of the subnet. Changing this forces a new resource to be created.
+          * `name` (`pulumi.Input[str]`) - A name for this delegation.
+          * `serviceDelegation` (`pulumi.Input[dict]`) - A `service_delegation` block as defined below.
+            * `actions` (`pulumi.Input[list]`) - A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+            * `name` (`pulumi.Input[str]`) - The name of service to delegate to. Possible values include `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.Netapp/volumes`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Web/hostingEnvironments` and `Microsoft.Web/serverFarms`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -132,10 +132,10 @@ class Subnet(pulumi.CustomResource):
 
         The **delegations** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The name of the subnet. Changing this forces a new resource to be created.
-          * `serviceDelegation` (`pulumi.Input[dict]`)
-            * `actions` (`pulumi.Input[list]`)
-            * `name` (`pulumi.Input[str]`) - The name of the subnet. Changing this forces a new resource to be created.
+          * `name` (`pulumi.Input[str]`) - A name for this delegation.
+          * `serviceDelegation` (`pulumi.Input[dict]`) - A `service_delegation` block as defined below.
+            * `actions` (`pulumi.Input[list]`) - A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+            * `name` (`pulumi.Input[str]`) - The name of service to delegate to. Possible values include `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.Netapp/volumes`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Web/hostingEnvironments` and `Microsoft.Web/serverFarms`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

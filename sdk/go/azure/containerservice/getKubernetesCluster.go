@@ -28,7 +28,6 @@ type LookupKubernetesClusterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getKubernetesCluster.
 type LookupKubernetesClusterResult struct {
 	// A `addonProfile` block as documented below.
@@ -63,11 +62,11 @@ type LookupKubernetesClusterResult struct {
 	NetworkProfiles []GetKubernetesClusterNetworkProfile `pulumi:"networkProfiles"`
 	// Auto-generated Resource Group containing AKS Cluster resources.
 	NodeResourceGroup string `pulumi:"nodeResourceGroup"`
-	// The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located                   
+	// The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located
 	PrivateFqdn string `pulumi:"privateFqdn"`
-	// Does this Kubernetes Cluster have the Kubernetes API exposed via Private Link?                           
-	PrivateLinkEnabled bool `pulumi:"privateLinkEnabled"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Does this Kubernetes Cluster have the Kubernetes API exposed via Private Link?
+	PrivateLinkEnabled bool   `pulumi:"privateLinkEnabled"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	// A `roleBasedAccessControl` block as documented below.
 	RoleBasedAccessControls []GetKubernetesClusterRoleBasedAccessControl `pulumi:"roleBasedAccessControls"`
 	// A `servicePrincipal` block as documented below.
@@ -77,4 +76,3 @@ type LookupKubernetesClusterResult struct {
 	// A `windowsProfile` block as documented below.
 	WindowsProfiles []GetKubernetesClusterWindowsProfile `pulumi:"windowsProfiles"`
 }
-

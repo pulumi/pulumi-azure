@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Backup
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/backup_policy_vm.markdown.
         /// </summary>
+        [Obsolete("Use GetPolicyVM.InvokeAsync() instead")]
         public static Task<GetPolicyVMResult> GetPolicyVM(GetPolicyVMArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyVMResult>("azure:backup/getPolicyVM:getPolicyVM", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetPolicyVM
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing VM Backup Policy.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/backup_policy_vm.markdown.
+        /// </summary>
+        public static Task<GetPolicyVMResult> InvokeAsync(GetPolicyVMArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyVMResult>("azure:backup/getPolicyVM:getPolicyVM", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

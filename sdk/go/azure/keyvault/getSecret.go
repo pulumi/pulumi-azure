@@ -22,21 +22,20 @@ func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getSecret.
 type LookupSecretArgs struct {
-	// Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource. 
+	// Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Secret.
 	Name string `pulumi:"name"`
 }
-
 
 // A collection of values returned by getSecret.
 type LookupSecretResult struct {
 	// The content type for the Key Vault Secret.
 	ContentType string `pulumi:"contentType"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id         string `pulumi:"id"`
 	KeyVaultId string `pulumi:"keyVaultId"`
-	Name string `pulumi:"name"`
+	Name       string `pulumi:"name"`
 	// Any tags assigned to this resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The value of the Key Vault Secret.
@@ -44,4 +43,3 @@ type LookupSecretResult struct {
 	// The current version of the Key Vault Secret.
 	Version string `pulumi:"version"`
 }
-

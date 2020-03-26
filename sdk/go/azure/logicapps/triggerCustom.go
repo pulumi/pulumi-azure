@@ -102,4 +102,3 @@ type TriggerCustomArgs struct {
 func (TriggerCustomArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerCustomArgs)(nil)).Elem()
 }
-

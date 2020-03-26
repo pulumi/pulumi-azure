@@ -28,7 +28,6 @@ type LookupScheduledQueryRulesLogArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getScheduledQueryRulesLog.
 type LookupScheduledQueryRulesLogResult struct {
 	AuthorizedResourceIds []string `pulumi:"authorizedResourceIds"`
@@ -41,11 +40,10 @@ type LookupScheduledQueryRulesLogResult struct {
 	// Whether this scheduled query rule is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id       string `pulumi:"id"`
 	Location string `pulumi:"location"`
 	// Name of the dimension.
-	Name string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Tags map[string]string `pulumi:"tags"`
+	Name              string            `pulumi:"name"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
-

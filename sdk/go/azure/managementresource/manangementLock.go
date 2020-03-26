@@ -112,4 +112,3 @@ type ManangementLockArgs struct {
 func (ManangementLockArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*manangementLockArgs)(nil)).Elem()
 }
-

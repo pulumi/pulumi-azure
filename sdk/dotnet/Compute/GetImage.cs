@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Compute
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/image.html.markdown.
         /// </summary>
+        [Obsolete("Use GetImage.InvokeAsync() instead")]
         public static Task<GetImageResult> GetImage(GetImageArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure:compute/getImage:getImage", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetImage
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Image.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/image.html.markdown.
+        /// </summary>
+        public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure:compute/getImage:getImage", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

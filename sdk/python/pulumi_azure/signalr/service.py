@@ -14,14 +14,14 @@ class Service(pulumi.CustomResource):
     """
     A `cors` block as documented below.
 
-      * `allowedOrigins` (`list`)
+      * `allowedOrigins` (`list`) - A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
     """
     features: pulumi.Output[list]
     """
     A `features` block as documented below.
 
-      * `flag` (`str`)
-      * `value` (`str`)
+      * `flag` (`str`) - The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
+      * `value` (`str`) - A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
     """
     hostname: pulumi.Output[str]
     """
@@ -71,8 +71,8 @@ class Service(pulumi.CustomResource):
     """
     A `sku` block as documented below.
 
-      * `capacity` (`float`)
-      * `name` (`str`) - The name of the SignalR service. Changing this forces a new resource to be created.
+      * `capacity` (`float`) - Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+      * `name` (`str`) - Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
     """
     tags: pulumi.Output[dict]
     """
@@ -96,17 +96,17 @@ class Service(pulumi.CustomResource):
 
         The **cors** object supports the following:
 
-          * `allowedOrigins` (`pulumi.Input[list]`)
+          * `allowedOrigins` (`pulumi.Input[list]`) - A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
 
         The **features** object supports the following:
 
-          * `flag` (`pulumi.Input[str]`)
-          * `value` (`pulumi.Input[str]`)
+          * `flag` (`pulumi.Input[str]`) - The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
+          * `value` (`pulumi.Input[str]`) - A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
 
         The **sku** object supports the following:
 
-          * `capacity` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - The name of the SignalR service. Changing this forces a new resource to be created.
+          * `capacity` (`pulumi.Input[float]`) - Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+          * `name` (`pulumi.Input[str]`) - Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -177,17 +177,17 @@ class Service(pulumi.CustomResource):
 
         The **cors** object supports the following:
 
-          * `allowedOrigins` (`pulumi.Input[list]`)
+          * `allowedOrigins` (`pulumi.Input[list]`) - A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
 
         The **features** object supports the following:
 
-          * `flag` (`pulumi.Input[str]`)
-          * `value` (`pulumi.Input[str]`)
+          * `flag` (`pulumi.Input[str]`) - The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
+          * `value` (`pulumi.Input[str]`) - A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
 
         The **sku** object supports the following:
 
-          * `capacity` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - The name of the SignalR service. Changing this forces a new resource to be created.
+          * `capacity` (`pulumi.Input[float]`) - Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+          * `name` (`pulumi.Input[str]`) - Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

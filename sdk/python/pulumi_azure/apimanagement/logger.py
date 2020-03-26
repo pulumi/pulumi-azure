@@ -18,7 +18,7 @@ class Logger(pulumi.CustomResource):
     """
     An `application_insights` block as documented below.
 
-      * `instrumentation_key` (`str`)
+      * `instrumentation_key` (`str`) - The instrumentation key used to push data to Application Insights.
     """
     buffered: pulumi.Output[bool]
     """
@@ -32,8 +32,8 @@ class Logger(pulumi.CustomResource):
     """
     An `eventhub` block as documented below.
 
-      * `connection_string` (`str`)
-      * `name` (`str`) - The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+      * `connection_string` (`str`) - The connection string of an EventHub Namespace.
+      * `name` (`str`) - The name of an EventHub.
     """
     name: pulumi.Output[str]
     """
@@ -61,12 +61,12 @@ class Logger(pulumi.CustomResource):
 
         The **application_insights** object supports the following:
 
-          * `instrumentation_key` (`pulumi.Input[str]`)
+          * `instrumentation_key` (`pulumi.Input[str]`) - The instrumentation key used to push data to Application Insights.
 
         The **eventhub** object supports the following:
 
-          * `connection_string` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+          * `connection_string` (`pulumi.Input[str]`) - The connection string of an EventHub Namespace.
+          * `name` (`pulumi.Input[str]`) - The name of an EventHub.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,12 +121,12 @@ class Logger(pulumi.CustomResource):
 
         The **application_insights** object supports the following:
 
-          * `instrumentation_key` (`pulumi.Input[str]`)
+          * `instrumentation_key` (`pulumi.Input[str]`) - The instrumentation key used to push data to Application Insights.
 
         The **eventhub** object supports the following:
 
-          * `connection_string` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+          * `connection_string` (`pulumi.Input[str]`) - The connection string of an EventHub Namespace.
+          * `name` (`pulumi.Input[str]`) - The name of an EventHub.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

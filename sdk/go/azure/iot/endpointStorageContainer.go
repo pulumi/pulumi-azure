@@ -175,4 +175,3 @@ type EndpointStorageContainerArgs struct {
 func (EndpointStorageContainerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointStorageContainerArgs)(nil)).Elem()
 }
-

@@ -41,8 +41,8 @@ type Slot struct {
 	Identity SlotIdentityOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	Logs SlotLogsOutput `pulumi:"logs"`
-	// The name of the Connection String.
+	Logs     SlotLogsOutput      `pulumi:"logs"`
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the App Service Slot component.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -112,9 +112,9 @@ type slotState struct {
 	// A Managed Service Identity block as defined below.
 	Identity *SlotIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location *string `pulumi:"location"`
-	Logs *SlotLogs `pulumi:"logs"`
-	// The name of the Connection String.
+	Location *string   `pulumi:"location"`
+	Logs     *SlotLogs `pulumi:"logs"`
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the App Service Slot component.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -149,8 +149,8 @@ type SlotState struct {
 	Identity SlotIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	Logs SlotLogsPtrInput
-	// The name of the Connection String.
+	Logs     SlotLogsPtrInput
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the App Service Slot component.
 	ResourceGroupName pulumi.StringPtrInput
@@ -186,9 +186,9 @@ type slotArgs struct {
 	// A Managed Service Identity block as defined below.
 	Identity *SlotIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location *string `pulumi:"location"`
-	Logs *SlotLogs `pulumi:"logs"`
-	// The name of the Connection String.
+	Location *string   `pulumi:"location"`
+	Logs     *SlotLogs `pulumi:"logs"`
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the App Service Slot component.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -220,8 +220,8 @@ type SlotArgs struct {
 	Identity SlotIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	Logs SlotLogsPtrInput
-	// The name of the Connection String.
+	Logs     SlotLogsPtrInput
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the App Service Slot component.
 	ResourceGroupName pulumi.StringInput
@@ -234,4 +234,3 @@ type SlotArgs struct {
 func (SlotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*slotArgs)(nil)).Elem()
 }
-

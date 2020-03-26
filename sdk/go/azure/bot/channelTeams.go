@@ -124,4 +124,3 @@ type ChannelTeamsArgs struct {
 func (ChannelTeamsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelTeamsArgs)(nil)).Elem()
 }
-

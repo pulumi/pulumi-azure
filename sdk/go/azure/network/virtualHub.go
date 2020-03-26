@@ -145,4 +145,3 @@ type VirtualHubArgs struct {
 func (VirtualHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualHubArgs)(nil)).Elem()
 }
-

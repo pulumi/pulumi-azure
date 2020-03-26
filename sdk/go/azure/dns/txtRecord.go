@@ -144,4 +144,3 @@ type TxtRecordArgs struct {
 func (TxtRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*txtRecordArgs)(nil)).Elem()
 }
-

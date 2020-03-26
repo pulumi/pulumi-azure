@@ -30,20 +30,18 @@ type LookupZoneArgs struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getZone.
 type LookupZoneResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Maximum number of Records in the zone.
-	MaxNumberOfRecordSets int `pulumi:"maxNumberOfRecordSets"`
-	Name string `pulumi:"name"`
+	MaxNumberOfRecordSets int    `pulumi:"maxNumberOfRecordSets"`
+	Name                  string `pulumi:"name"`
 	// A list of values that make up the NS record for the zone.
 	NameServers []string `pulumi:"nameServers"`
 	// The number of records already in the zone.
-	NumberOfRecordSets int `pulumi:"numberOfRecordSets"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	NumberOfRecordSets int    `pulumi:"numberOfRecordSets"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the EventHub Namespace.
 	Tags map[string]string `pulumi:"tags"`
 }
-

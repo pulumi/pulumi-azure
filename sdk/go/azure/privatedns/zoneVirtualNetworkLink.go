@@ -135,4 +135,3 @@ type ZoneVirtualNetworkLinkArgs struct {
 func (ZoneVirtualNetworkLinkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*zoneVirtualNetworkLinkArgs)(nil)).Elem()
 }
-

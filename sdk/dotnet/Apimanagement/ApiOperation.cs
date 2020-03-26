@@ -302,13 +302,17 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class ApiOperationRequestArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of the HTTP Request, which may include HTML tags.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("headers")]
         private InputList<ApiOperationRequestHeadersArgs>? _headers;
+
+        /// <summary>
+        /// One or more `header` blocks as defined above.
+        /// </summary>
         public InputList<ApiOperationRequestHeadersArgs> Headers
         {
             get => _headers ?? (_headers = new InputList<ApiOperationRequestHeadersArgs>());
@@ -317,6 +321,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("queryParameters")]
         private InputList<ApiOperationRequestQueryParametersArgs>? _queryParameters;
+
+        /// <summary>
+        /// One or more `query_parameter` blocks as defined above.
+        /// </summary>
         public InputList<ApiOperationRequestQueryParametersArgs> QueryParameters
         {
             get => _queryParameters ?? (_queryParameters = new InputList<ApiOperationRequestQueryParametersArgs>());
@@ -325,6 +333,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("representations")]
         private InputList<ApiOperationRequestRepresentationsArgs>? _representations;
+
+        /// <summary>
+        /// One or more `representation` blocks as defined below.
+        /// </summary>
         public InputList<ApiOperationRequestRepresentationsArgs> Representations
         {
             get => _representations ?? (_representations = new InputList<ApiOperationRequestRepresentationsArgs>());
@@ -339,13 +351,17 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class ApiOperationRequestGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of the HTTP Request, which may include HTML tags.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("headers")]
         private InputList<ApiOperationRequestHeadersGetArgs>? _headers;
+
+        /// <summary>
+        /// One or more `header` blocks as defined above.
+        /// </summary>
         public InputList<ApiOperationRequestHeadersGetArgs> Headers
         {
             get => _headers ?? (_headers = new InputList<ApiOperationRequestHeadersGetArgs>());
@@ -354,6 +370,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("queryParameters")]
         private InputList<ApiOperationRequestQueryParametersGetArgs>? _queryParameters;
+
+        /// <summary>
+        /// One or more `query_parameter` blocks as defined above.
+        /// </summary>
         public InputList<ApiOperationRequestQueryParametersGetArgs> QueryParameters
         {
             get => _queryParameters ?? (_queryParameters = new InputList<ApiOperationRequestQueryParametersGetArgs>());
@@ -362,6 +382,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("representations")]
         private InputList<ApiOperationRequestRepresentationsGetArgs>? _representations;
+
+        /// <summary>
+        /// One or more `representation` blocks as defined below.
+        /// </summary>
         public InputList<ApiOperationRequestRepresentationsGetArgs> Representations
         {
             get => _representations ?? (_representations = new InputList<ApiOperationRequestRepresentationsGetArgs>());
@@ -375,26 +399,42 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiOperationRequestHeadersArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default value for this Header.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Header.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The Name of this Header.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this Header Required?
+        /// </summary>
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of this Header, such as a `string`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// One or more acceptable values for this Header.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
@@ -408,26 +448,42 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiOperationRequestHeadersGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default value for this Header.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Header.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The Name of this Header.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this Header Required?
+        /// </summary>
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of this Header, such as a `string`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// One or more acceptable values for this Header.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
@@ -441,26 +497,42 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiOperationRequestQueryParametersArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default value for this Query Parameter.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Query Parameter.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The Name of this Query Parameter.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this Query Parameter Required?
+        /// </summary>
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of this Query Parameter, such as a `string`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// One or more acceptable values for this Query Parameter.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
@@ -474,26 +546,42 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiOperationRequestQueryParametersGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default value for this Query Parameter.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Query Parameter.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The Name of this Query Parameter.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this Query Parameter Required?
+        /// </summary>
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of this Query Parameter, such as a `string`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// One or more acceptable values for this Query Parameter.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
@@ -507,23 +595,39 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiOperationRequestRepresentationsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Content Type of this representation, such as `application/json`.
+        /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
         [Input("formParameters")]
         private InputList<ApiOperationRequestRepresentationsFormParametersArgs>? _formParameters;
+
+        /// <summary>
+        /// One or more `form_parameter` block as defined above.
+        /// </summary>
         public InputList<ApiOperationRequestRepresentationsFormParametersArgs> FormParameters
         {
             get => _formParameters ?? (_formParameters = new InputList<ApiOperationRequestRepresentationsFormParametersArgs>());
             set => _formParameters = value;
         }
 
+        /// <summary>
+        /// An example of this representation.
+        /// </summary>
         [Input("sample")]
         public Input<string>? Sample { get; set; }
 
+        /// <summary>
+        /// The ID of an API Management Schema which represents this Response.
+        /// </summary>
         [Input("schemaId")]
         public Input<string>? SchemaId { get; set; }
 
+        /// <summary>
+        /// The Type Name defined by the Schema.
+        /// </summary>
         [Input("typeName")]
         public Input<string>? TypeName { get; set; }
 
@@ -534,26 +638,42 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiOperationRequestRepresentationsFormParametersArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default value for this Form Parameter.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Form Parameter.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The Name of this Form Parameter.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this Form Parameter Required?
+        /// </summary>
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of this Form Parameter, such as a `string`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// One or more acceptable values for this Form Parameter.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
@@ -567,26 +687,42 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiOperationRequestRepresentationsFormParametersGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default value for this Form Parameter.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Form Parameter.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The Name of this Form Parameter.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this Form Parameter Required?
+        /// </summary>
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of this Form Parameter, such as a `string`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// One or more acceptable values for this Form Parameter.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
@@ -600,23 +736,39 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiOperationRequestRepresentationsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Content Type of this representation, such as `application/json`.
+        /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
         [Input("formParameters")]
         private InputList<ApiOperationRequestRepresentationsFormParametersGetArgs>? _formParameters;
+
+        /// <summary>
+        /// One or more `form_parameter` block as defined above.
+        /// </summary>
         public InputList<ApiOperationRequestRepresentationsFormParametersGetArgs> FormParameters
         {
             get => _formParameters ?? (_formParameters = new InputList<ApiOperationRequestRepresentationsFormParametersGetArgs>());
             set => _formParameters = value;
         }
 
+        /// <summary>
+        /// An example of this representation.
+        /// </summary>
         [Input("sample")]
         public Input<string>? Sample { get; set; }
 
+        /// <summary>
+        /// The ID of an API Management Schema which represents this Response.
+        /// </summary>
         [Input("schemaId")]
         public Input<string>? SchemaId { get; set; }
 
+        /// <summary>
+        /// The Type Name defined by the Schema.
+        /// </summary>
         [Input("typeName")]
         public Input<string>? TypeName { get; set; }
 
@@ -628,13 +780,17 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class ApiOperationResponsesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of the HTTP Response, which may include HTML tags.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("headers")]
         private InputList<ApiOperationResponsesHeadersArgs>? _headers;
+
+        /// <summary>
+        /// One or more `header` blocks as defined above.
+        /// </summary>
         public InputList<ApiOperationResponsesHeadersArgs> Headers
         {
             get => _headers ?? (_headers = new InputList<ApiOperationResponsesHeadersArgs>());
@@ -643,12 +799,19 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("representations")]
         private InputList<ApiOperationResponsesRepresentationsArgs>? _representations;
+
+        /// <summary>
+        /// One or more `representation` blocks as defined below.
+        /// </summary>
         public InputList<ApiOperationResponsesRepresentationsArgs> Representations
         {
             get => _representations ?? (_representations = new InputList<ApiOperationResponsesRepresentationsArgs>());
             set => _representations = value;
         }
 
+        /// <summary>
+        /// The HTTP Status Code.
+        /// </summary>
         [Input("statusCode", required: true)]
         public Input<int> StatusCode { get; set; } = null!;
 
@@ -660,13 +823,17 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class ApiOperationResponsesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of the HTTP Response, which may include HTML tags.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("headers")]
         private InputList<ApiOperationResponsesHeadersGetArgs>? _headers;
+
+        /// <summary>
+        /// One or more `header` blocks as defined above.
+        /// </summary>
         public InputList<ApiOperationResponsesHeadersGetArgs> Headers
         {
             get => _headers ?? (_headers = new InputList<ApiOperationResponsesHeadersGetArgs>());
@@ -675,12 +842,19 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("representations")]
         private InputList<ApiOperationResponsesRepresentationsGetArgs>? _representations;
+
+        /// <summary>
+        /// One or more `representation` blocks as defined below.
+        /// </summary>
         public InputList<ApiOperationResponsesRepresentationsGetArgs> Representations
         {
             get => _representations ?? (_representations = new InputList<ApiOperationResponsesRepresentationsGetArgs>());
             set => _representations = value;
         }
 
+        /// <summary>
+        /// The HTTP Status Code.
+        /// </summary>
         [Input("statusCode", required: true)]
         public Input<int> StatusCode { get; set; } = null!;
 
@@ -691,26 +865,42 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiOperationResponsesHeadersArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default value for this Header.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Header.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The Name of this Header.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this Header Required?
+        /// </summary>
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of this Header, such as a `string`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// One or more acceptable values for this Header.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
@@ -724,26 +914,42 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiOperationResponsesHeadersGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default value for this Header.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Header.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The Name of this Header.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this Header Required?
+        /// </summary>
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of this Header, such as a `string`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// One or more acceptable values for this Header.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
@@ -757,23 +963,39 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiOperationResponsesRepresentationsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Content Type of this representation, such as `application/json`.
+        /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
         [Input("formParameters")]
         private InputList<ApiOperationResponsesRepresentationsFormParametersArgs>? _formParameters;
+
+        /// <summary>
+        /// One or more `form_parameter` block as defined above.
+        /// </summary>
         public InputList<ApiOperationResponsesRepresentationsFormParametersArgs> FormParameters
         {
             get => _formParameters ?? (_formParameters = new InputList<ApiOperationResponsesRepresentationsFormParametersArgs>());
             set => _formParameters = value;
         }
 
+        /// <summary>
+        /// An example of this representation.
+        /// </summary>
         [Input("sample")]
         public Input<string>? Sample { get; set; }
 
+        /// <summary>
+        /// The ID of an API Management Schema which represents this Response.
+        /// </summary>
         [Input("schemaId")]
         public Input<string>? SchemaId { get; set; }
 
+        /// <summary>
+        /// The Type Name defined by the Schema.
+        /// </summary>
         [Input("typeName")]
         public Input<string>? TypeName { get; set; }
 
@@ -784,26 +1006,42 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiOperationResponsesRepresentationsFormParametersArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default value for this Form Parameter.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Form Parameter.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The Name of this Form Parameter.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this Form Parameter Required?
+        /// </summary>
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of this Form Parameter, such as a `string`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// One or more acceptable values for this Form Parameter.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
@@ -817,26 +1055,42 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiOperationResponsesRepresentationsFormParametersGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default value for this Form Parameter.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Form Parameter.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The Name of this Form Parameter.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this Form Parameter Required?
+        /// </summary>
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of this Form Parameter, such as a `string`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// One or more acceptable values for this Form Parameter.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
@@ -850,23 +1104,39 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiOperationResponsesRepresentationsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Content Type of this representation, such as `application/json`.
+        /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
         [Input("formParameters")]
         private InputList<ApiOperationResponsesRepresentationsFormParametersGetArgs>? _formParameters;
+
+        /// <summary>
+        /// One or more `form_parameter` block as defined above.
+        /// </summary>
         public InputList<ApiOperationResponsesRepresentationsFormParametersGetArgs> FormParameters
         {
             get => _formParameters ?? (_formParameters = new InputList<ApiOperationResponsesRepresentationsFormParametersGetArgs>());
             set => _formParameters = value;
         }
 
+        /// <summary>
+        /// An example of this representation.
+        /// </summary>
         [Input("sample")]
         public Input<string>? Sample { get; set; }
 
+        /// <summary>
+        /// The ID of an API Management Schema which represents this Response.
+        /// </summary>
         [Input("schemaId")]
         public Input<string>? SchemaId { get; set; }
 
+        /// <summary>
+        /// The Type Name defined by the Schema.
+        /// </summary>
         [Input("typeName")]
         public Input<string>? TypeName { get; set; }
 
@@ -877,26 +1147,42 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiOperationTemplateParametersArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default value for this Template Parameter.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Template Parameter.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The Name of this Template Parameter.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this Template Parameter Required?
+        /// </summary>
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of this Template Parameter, such as a `string`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// One or more acceptable values for this Template Parameter.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
@@ -910,26 +1196,42 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiOperationTemplateParametersGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default value for this Template Parameter.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Template Parameter.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The Name of this Template Parameter.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this Template Parameter Required?
+        /// </summary>
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of this Template Parameter, such as a `string`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// One or more acceptable values for this Template Parameter.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
@@ -949,11 +1251,20 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class ApiOperationRequest
     {
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of the HTTP Request, which may include HTML tags.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// One or more `header` blocks as defined above.
+        /// </summary>
         public readonly ImmutableArray<ApiOperationRequestHeaders> Headers;
+        /// <summary>
+        /// One or more `query_parameter` blocks as defined above.
+        /// </summary>
         public readonly ImmutableArray<ApiOperationRequestQueryParameters> QueryParameters;
+        /// <summary>
+        /// One or more `representation` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<ApiOperationRequestRepresentations> Representations;
 
         [OutputConstructor]
@@ -973,14 +1284,29 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ApiOperationRequestHeaders
     {
+        /// <summary>
+        /// The default value for this Header.
+        /// </summary>
         public readonly string? DefaultValue;
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Header.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The Name of this Header.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Is this Header Required?
+        /// </summary>
         public readonly bool Required;
+        /// <summary>
+        /// The Type of this Header, such as a `string`.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// One or more acceptable values for this Header.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
@@ -1004,14 +1330,29 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ApiOperationRequestQueryParameters
     {
+        /// <summary>
+        /// The default value for this Query Parameter.
+        /// </summary>
         public readonly string? DefaultValue;
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Query Parameter.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The Name of this Query Parameter.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Is this Query Parameter Required?
+        /// </summary>
         public readonly bool Required;
+        /// <summary>
+        /// The Type of this Query Parameter, such as a `string`.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// One or more acceptable values for this Query Parameter.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
@@ -1035,10 +1376,25 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ApiOperationRequestRepresentations
     {
+        /// <summary>
+        /// The Content Type of this representation, such as `application/json`.
+        /// </summary>
         public readonly string ContentType;
+        /// <summary>
+        /// One or more `form_parameter` block as defined above.
+        /// </summary>
         public readonly ImmutableArray<ApiOperationRequestRepresentationsFormParameters> FormParameters;
+        /// <summary>
+        /// An example of this representation.
+        /// </summary>
         public readonly string? Sample;
+        /// <summary>
+        /// The ID of an API Management Schema which represents this Response.
+        /// </summary>
         public readonly string? SchemaId;
+        /// <summary>
+        /// The Type Name defined by the Schema.
+        /// </summary>
         public readonly string? TypeName;
 
         [OutputConstructor]
@@ -1060,14 +1416,29 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ApiOperationRequestRepresentationsFormParameters
     {
+        /// <summary>
+        /// The default value for this Form Parameter.
+        /// </summary>
         public readonly string? DefaultValue;
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Form Parameter.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The Name of this Form Parameter.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Is this Form Parameter Required?
+        /// </summary>
         public readonly bool Required;
+        /// <summary>
+        /// The Type of this Form Parameter, such as a `string`.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// One or more acceptable values for this Form Parameter.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
@@ -1092,11 +1463,20 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class ApiOperationResponses
     {
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of the HTTP Response, which may include HTML tags.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// One or more `header` blocks as defined above.
+        /// </summary>
         public readonly ImmutableArray<ApiOperationResponsesHeaders> Headers;
+        /// <summary>
+        /// One or more `representation` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<ApiOperationResponsesRepresentations> Representations;
+        /// <summary>
+        /// The HTTP Status Code.
+        /// </summary>
         public readonly int StatusCode;
 
         [OutputConstructor]
@@ -1116,14 +1496,29 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ApiOperationResponsesHeaders
     {
+        /// <summary>
+        /// The default value for this Header.
+        /// </summary>
         public readonly string? DefaultValue;
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Header.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The Name of this Header.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Is this Header Required?
+        /// </summary>
         public readonly bool Required;
+        /// <summary>
+        /// The Type of this Header, such as a `string`.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// One or more acceptable values for this Header.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
@@ -1147,10 +1542,25 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ApiOperationResponsesRepresentations
     {
+        /// <summary>
+        /// The Content Type of this representation, such as `application/json`.
+        /// </summary>
         public readonly string ContentType;
+        /// <summary>
+        /// One or more `form_parameter` block as defined above.
+        /// </summary>
         public readonly ImmutableArray<ApiOperationResponsesRepresentationsFormParameters> FormParameters;
+        /// <summary>
+        /// An example of this representation.
+        /// </summary>
         public readonly string? Sample;
+        /// <summary>
+        /// The ID of an API Management Schema which represents this Response.
+        /// </summary>
         public readonly string? SchemaId;
+        /// <summary>
+        /// The Type Name defined by the Schema.
+        /// </summary>
         public readonly string? TypeName;
 
         [OutputConstructor]
@@ -1172,14 +1582,29 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ApiOperationResponsesRepresentationsFormParameters
     {
+        /// <summary>
+        /// The default value for this Form Parameter.
+        /// </summary>
         public readonly string? DefaultValue;
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Form Parameter.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The Name of this Form Parameter.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Is this Form Parameter Required?
+        /// </summary>
         public readonly bool Required;
+        /// <summary>
+        /// The Type of this Form Parameter, such as a `string`.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// One or more acceptable values for this Form Parameter.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
@@ -1203,14 +1628,29 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ApiOperationTemplateParameters
     {
+        /// <summary>
+        /// The default value for this Template Parameter.
+        /// </summary>
         public readonly string? DefaultValue;
         /// <summary>
-        /// A description for this API Operation, which may include HTML formatting tags.
+        /// A description of this Template Parameter.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The Name of this Template Parameter.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Is this Template Parameter Required?
+        /// </summary>
         public readonly bool Required;
+        /// <summary>
+        /// The Type of this Template Parameter, such as a `string`.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// One or more acceptable values for this Template Parameter.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

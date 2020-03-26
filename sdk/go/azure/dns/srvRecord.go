@@ -144,4 +144,3 @@ type SrvRecordArgs struct {
 func (SrvRecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*srvRecordArgs)(nil)).Elem()
 }
-

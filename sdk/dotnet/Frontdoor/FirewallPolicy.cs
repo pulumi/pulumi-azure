@@ -325,17 +325,24 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FirewallPolicyCustomRulesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// Is the policy a enabled state or disabled state. Defaults to `true`.
+        /// Is the rule is enabled or disabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("matchConditions")]
         private InputList<FirewallPolicyCustomRulesMatchConditionsArgs>? _matchConditions;
+
+        /// <summary>
+        /// One or more `match_condition` block defined below.
+        /// </summary>
         public InputList<FirewallPolicyCustomRulesMatchConditionsArgs> MatchConditions
         {
             get => _matchConditions ?? (_matchConditions = new InputList<FirewallPolicyCustomRulesMatchConditionsArgs>());
@@ -343,20 +350,32 @@ namespace Pulumi.Azure.FrontDoor
         }
 
         /// <summary>
-        /// The name of the policy. Changing this forces a new resource to be created.
+        /// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
+        /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
+        /// <summary>
+        /// The rate limit duration in minutes. Defaults to `1`.
+        /// </summary>
         [Input("rateLimitDurationInMinutes")]
         public Input<int>? RateLimitDurationInMinutes { get; set; }
 
+        /// <summary>
+        /// The rate limit threshold. Defaults to `10`.
+        /// </summary>
         [Input("rateLimitThreshold")]
         public Input<int>? RateLimitThreshold { get; set; }
 
+        /// <summary>
+        /// The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -367,17 +386,24 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FirewallPolicyCustomRulesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// Is the policy a enabled state or disabled state. Defaults to `true`.
+        /// Is the rule is enabled or disabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("matchConditions")]
         private InputList<FirewallPolicyCustomRulesMatchConditionsGetArgs>? _matchConditions;
+
+        /// <summary>
+        /// One or more `match_condition` block defined below.
+        /// </summary>
         public InputList<FirewallPolicyCustomRulesMatchConditionsGetArgs> MatchConditions
         {
             get => _matchConditions ?? (_matchConditions = new InputList<FirewallPolicyCustomRulesMatchConditionsGetArgs>());
@@ -385,20 +411,32 @@ namespace Pulumi.Azure.FrontDoor
         }
 
         /// <summary>
-        /// The name of the policy. Changing this forces a new resource to be created.
+        /// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
+        /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
+        /// <summary>
+        /// The rate limit duration in minutes. Defaults to `1`.
+        /// </summary>
         [Input("rateLimitDurationInMinutes")]
         public Input<int>? RateLimitDurationInMinutes { get; set; }
 
+        /// <summary>
+        /// The rate limit threshold. Defaults to `10`.
+        /// </summary>
         [Input("rateLimitThreshold")]
         public Input<int>? RateLimitThreshold { get; set; }
 
+        /// <summary>
+        /// The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -411,26 +449,46 @@ namespace Pulumi.Azure.FrontDoor
     {
         [Input("matchValues", required: true)]
         private InputList<string>? _matchValues;
+
+        /// <summary>
+        /// Up to `100` possible values to match.
+        /// </summary>
         public InputList<string> MatchValues
         {
             get => _matchValues ?? (_matchValues = new InputList<string>());
             set => _matchValues = value;
         }
 
+        /// <summary>
+        /// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
+        /// </summary>
         [Input("matchVariable", required: true)]
         public Input<string> MatchVariable { get; set; } = null!;
 
+        /// <summary>
+        /// Should the result of the condition be negated.
+        /// </summary>
         [Input("negationCondition")]
         public Input<bool>? NegationCondition { get; set; }
 
+        /// <summary>
+        /// Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+        /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+        /// </summary>
         [Input("selector")]
         public Input<string>? Selector { get; set; }
 
         [Input("transforms")]
         private InputList<string>? _transforms;
+
+        /// <summary>
+        /// Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or`URLEncode`.
+        /// </summary>
         public InputList<string> Transforms
         {
             get => _transforms ?? (_transforms = new InputList<string>());
@@ -446,26 +504,46 @@ namespace Pulumi.Azure.FrontDoor
     {
         [Input("matchValues", required: true)]
         private InputList<string>? _matchValues;
+
+        /// <summary>
+        /// Up to `100` possible values to match.
+        /// </summary>
         public InputList<string> MatchValues
         {
             get => _matchValues ?? (_matchValues = new InputList<string>());
             set => _matchValues = value;
         }
 
+        /// <summary>
+        /// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
+        /// </summary>
         [Input("matchVariable", required: true)]
         public Input<string> MatchVariable { get; set; } = null!;
 
+        /// <summary>
+        /// Should the result of the condition be negated.
+        /// </summary>
         [Input("negationCondition")]
         public Input<bool>? NegationCondition { get; set; }
 
+        /// <summary>
+        /// Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+        /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+        /// </summary>
         [Input("selector")]
         public Input<string>? Selector { get; set; }
 
         [Input("transforms")]
         private InputList<string>? _transforms;
+
+        /// <summary>
+        /// Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or`URLEncode`.
+        /// </summary>
         public InputList<string> Transforms
         {
             get => _transforms ?? (_transforms = new InputList<string>());
@@ -481,6 +559,10 @@ namespace Pulumi.Azure.FrontDoor
     {
         [Input("exclusions")]
         private InputList<FirewallPolicyManagedRulesExclusionsArgs>? _exclusions;
+
+        /// <summary>
+        /// One or more `exclusion` blocks as defined below.
+        /// </summary>
         public InputList<FirewallPolicyManagedRulesExclusionsArgs> Exclusions
         {
             get => _exclusions ?? (_exclusions = new InputList<FirewallPolicyManagedRulesExclusionsArgs>());
@@ -489,15 +571,25 @@ namespace Pulumi.Azure.FrontDoor
 
         [Input("overrides")]
         private InputList<FirewallPolicyManagedRulesOverridesArgs>? _overrides;
+
+        /// <summary>
+        /// One or more `override` blocks as defined below.
+        /// </summary>
         public InputList<FirewallPolicyManagedRulesOverridesArgs> Overrides
         {
             get => _overrides ?? (_overrides = new InputList<FirewallPolicyManagedRulesOverridesArgs>());
             set => _overrides = value;
         }
 
+        /// <summary>
+        /// The name of the managed rule to use with this resource.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The version on the managed rule to use with this resource.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -508,12 +600,21 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FirewallPolicyManagedRulesExclusionsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        /// </summary>
         [Input("matchVariable", required: true)]
         public Input<string> MatchVariable { get; set; } = null!;
 
+        /// <summary>
+        /// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// Selector for the value in the `match_variable` attribute this exclusion applies to.
+        /// </summary>
         [Input("selector", required: true)]
         public Input<string> Selector { get; set; } = null!;
 
@@ -524,12 +625,21 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FirewallPolicyManagedRulesExclusionsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        /// </summary>
         [Input("matchVariable", required: true)]
         public Input<string> MatchVariable { get; set; } = null!;
 
+        /// <summary>
+        /// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// Selector for the value in the `match_variable` attribute this exclusion applies to.
+        /// </summary>
         [Input("selector", required: true)]
         public Input<string> Selector { get; set; } = null!;
 
@@ -542,6 +652,10 @@ namespace Pulumi.Azure.FrontDoor
     {
         [Input("exclusions")]
         private InputList<FirewallPolicyManagedRulesExclusionsGetArgs>? _exclusions;
+
+        /// <summary>
+        /// One or more `exclusion` blocks as defined below.
+        /// </summary>
         public InputList<FirewallPolicyManagedRulesExclusionsGetArgs> Exclusions
         {
             get => _exclusions ?? (_exclusions = new InputList<FirewallPolicyManagedRulesExclusionsGetArgs>());
@@ -550,15 +664,25 @@ namespace Pulumi.Azure.FrontDoor
 
         [Input("overrides")]
         private InputList<FirewallPolicyManagedRulesOverridesGetArgs>? _overrides;
+
+        /// <summary>
+        /// One or more `override` blocks as defined below.
+        /// </summary>
         public InputList<FirewallPolicyManagedRulesOverridesGetArgs> Overrides
         {
             get => _overrides ?? (_overrides = new InputList<FirewallPolicyManagedRulesOverridesGetArgs>());
             set => _overrides = value;
         }
 
+        /// <summary>
+        /// The name of the managed rule to use with this resource.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The version on the managed rule to use with this resource.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -571,6 +695,10 @@ namespace Pulumi.Azure.FrontDoor
     {
         [Input("exclusions")]
         private InputList<FirewallPolicyManagedRulesOverridesExclusionsArgs>? _exclusions;
+
+        /// <summary>
+        /// One or more `exclusion` blocks as defined below.
+        /// </summary>
         public InputList<FirewallPolicyManagedRulesOverridesExclusionsArgs> Exclusions
         {
             get => _exclusions ?? (_exclusions = new InputList<FirewallPolicyManagedRulesOverridesExclusionsArgs>());
@@ -579,12 +707,19 @@ namespace Pulumi.Azure.FrontDoor
 
         [Input("rules")]
         private InputList<FirewallPolicyManagedRulesOverridesRulesArgs>? _rules;
+
+        /// <summary>
+        /// One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+        /// </summary>
         public InputList<FirewallPolicyManagedRulesOverridesRulesArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<FirewallPolicyManagedRulesOverridesRulesArgs>());
             set => _rules = value;
         }
 
+        /// <summary>
+        /// The managed rule group to override.
+        /// </summary>
         [Input("ruleGroupName", required: true)]
         public Input<string> RuleGroupName { get; set; } = null!;
 
@@ -595,12 +730,21 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FirewallPolicyManagedRulesOverridesExclusionsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        /// </summary>
         [Input("matchVariable", required: true)]
         public Input<string> MatchVariable { get; set; } = null!;
 
+        /// <summary>
+        /// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// Selector for the value in the `match_variable` attribute this exclusion applies to.
+        /// </summary>
         [Input("selector", required: true)]
         public Input<string> Selector { get; set; } = null!;
 
@@ -611,12 +755,21 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FirewallPolicyManagedRulesOverridesExclusionsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        /// </summary>
         [Input("matchVariable", required: true)]
         public Input<string> MatchVariable { get; set; } = null!;
 
+        /// <summary>
+        /// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// Selector for the value in the `match_variable` attribute this exclusion applies to.
+        /// </summary>
         [Input("selector", required: true)]
         public Input<string> Selector { get; set; } = null!;
 
@@ -629,6 +782,10 @@ namespace Pulumi.Azure.FrontDoor
     {
         [Input("exclusions")]
         private InputList<FirewallPolicyManagedRulesOverridesExclusionsGetArgs>? _exclusions;
+
+        /// <summary>
+        /// One or more `exclusion` blocks as defined below.
+        /// </summary>
         public InputList<FirewallPolicyManagedRulesOverridesExclusionsGetArgs> Exclusions
         {
             get => _exclusions ?? (_exclusions = new InputList<FirewallPolicyManagedRulesOverridesExclusionsGetArgs>());
@@ -637,12 +794,19 @@ namespace Pulumi.Azure.FrontDoor
 
         [Input("rules")]
         private InputList<FirewallPolicyManagedRulesOverridesRulesGetArgs>? _rules;
+
+        /// <summary>
+        /// One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+        /// </summary>
         public InputList<FirewallPolicyManagedRulesOverridesRulesGetArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<FirewallPolicyManagedRulesOverridesRulesGetArgs>());
             set => _rules = value;
         }
 
+        /// <summary>
+        /// The managed rule group to override.
+        /// </summary>
         [Input("ruleGroupName", required: true)]
         public Input<string> RuleGroupName { get; set; } = null!;
 
@@ -653,23 +817,33 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FirewallPolicyManagedRulesOverridesRulesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// Is the policy a enabled state or disabled state. Defaults to `true`.
+        /// Is the managed rule override enabled or disabled. Defaults to `false`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("exclusions")]
         private InputList<FirewallPolicyManagedRulesOverridesRulesExclusionsArgs>? _exclusions;
+
+        /// <summary>
+        /// One or more `exclusion` blocks as defined below.
+        /// </summary>
         public InputList<FirewallPolicyManagedRulesOverridesRulesExclusionsArgs> Exclusions
         {
             get => _exclusions ?? (_exclusions = new InputList<FirewallPolicyManagedRulesOverridesRulesExclusionsArgs>());
             set => _exclusions = value;
         }
 
+        /// <summary>
+        /// Identifier for the managed rule.
+        /// </summary>
         [Input("ruleId", required: true)]
         public Input<string> RuleId { get; set; } = null!;
 
@@ -680,12 +854,21 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FirewallPolicyManagedRulesOverridesRulesExclusionsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        /// </summary>
         [Input("matchVariable", required: true)]
         public Input<string> MatchVariable { get; set; } = null!;
 
+        /// <summary>
+        /// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// Selector for the value in the `match_variable` attribute this exclusion applies to.
+        /// </summary>
         [Input("selector", required: true)]
         public Input<string> Selector { get; set; } = null!;
 
@@ -696,12 +879,21 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FirewallPolicyManagedRulesOverridesRulesExclusionsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        /// </summary>
         [Input("matchVariable", required: true)]
         public Input<string> MatchVariable { get; set; } = null!;
 
+        /// <summary>
+        /// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// Selector for the value in the `match_variable` attribute this exclusion applies to.
+        /// </summary>
         [Input("selector", required: true)]
         public Input<string> Selector { get; set; } = null!;
 
@@ -712,23 +904,33 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FirewallPolicyManagedRulesOverridesRulesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// Is the policy a enabled state or disabled state. Defaults to `true`.
+        /// Is the managed rule override enabled or disabled. Defaults to `false`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("exclusions")]
         private InputList<FirewallPolicyManagedRulesOverridesRulesExclusionsGetArgs>? _exclusions;
+
+        /// <summary>
+        /// One or more `exclusion` blocks as defined below.
+        /// </summary>
         public InputList<FirewallPolicyManagedRulesOverridesRulesExclusionsGetArgs> Exclusions
         {
             get => _exclusions ?? (_exclusions = new InputList<FirewallPolicyManagedRulesOverridesRulesExclusionsGetArgs>());
             set => _exclusions = value;
         }
 
+        /// <summary>
+        /// Identifier for the managed rule.
+        /// </summary>
         [Input("ruleId", required: true)]
         public Input<string> RuleId { get; set; } = null!;
 
@@ -744,19 +946,37 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FirewallPolicyCustomRules
     {
+        /// <summary>
+        /// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        /// </summary>
         public readonly string Action;
         /// <summary>
-        /// Is the policy a enabled state or disabled state. Defaults to `true`.
+        /// Is the rule is enabled or disabled? Defaults to `true`.
         /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// One or more `match_condition` block defined below.
+        /// </summary>
         public readonly ImmutableArray<FirewallPolicyCustomRulesMatchConditions> MatchConditions;
         /// <summary>
-        /// The name of the policy. Changing this forces a new resource to be created.
+        /// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
+        /// </summary>
         public readonly int? Priority;
+        /// <summary>
+        /// The rate limit duration in minutes. Defaults to `1`.
+        /// </summary>
         public readonly int? RateLimitDurationInMinutes;
+        /// <summary>
+        /// The rate limit threshold. Defaults to `10`.
+        /// </summary>
         public readonly int? RateLimitThreshold;
+        /// <summary>
+        /// The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
@@ -784,11 +1004,29 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FirewallPolicyCustomRulesMatchConditions
     {
+        /// <summary>
+        /// Up to `100` possible values to match.
+        /// </summary>
         public readonly ImmutableArray<string> MatchValues;
+        /// <summary>
+        /// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
+        /// </summary>
         public readonly string MatchVariable;
+        /// <summary>
+        /// Should the result of the condition be negated.
+        /// </summary>
         public readonly bool? NegationCondition;
+        /// <summary>
+        /// Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+        /// </summary>
         public readonly string Operator;
+        /// <summary>
+        /// Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+        /// </summary>
         public readonly string? Selector;
+        /// <summary>
+        /// Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or`URLEncode`.
+        /// </summary>
         public readonly ImmutableArray<string> Transforms;
 
         [OutputConstructor]
@@ -812,9 +1050,21 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FirewallPolicyManagedRules
     {
+        /// <summary>
+        /// One or more `exclusion` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<FirewallPolicyManagedRulesExclusions> Exclusions;
+        /// <summary>
+        /// One or more `override` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<FirewallPolicyManagedRulesOverrides> Overrides;
+        /// <summary>
+        /// The name of the managed rule to use with this resource.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The version on the managed rule to use with this resource.
+        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]
@@ -834,8 +1084,17 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FirewallPolicyManagedRulesExclusions
     {
+        /// <summary>
+        /// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        /// </summary>
         public readonly string MatchVariable;
+        /// <summary>
+        /// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        /// </summary>
         public readonly string Operator;
+        /// <summary>
+        /// Selector for the value in the `match_variable` attribute this exclusion applies to.
+        /// </summary>
         public readonly string Selector;
 
         [OutputConstructor]
@@ -853,8 +1112,17 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FirewallPolicyManagedRulesOverrides
     {
+        /// <summary>
+        /// One or more `exclusion` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<FirewallPolicyManagedRulesOverridesExclusions> Exclusions;
+        /// <summary>
+        /// One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+        /// </summary>
         public readonly ImmutableArray<FirewallPolicyManagedRulesOverridesRules> Rules;
+        /// <summary>
+        /// The managed rule group to override.
+        /// </summary>
         public readonly string RuleGroupName;
 
         [OutputConstructor]
@@ -872,8 +1140,17 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FirewallPolicyManagedRulesOverridesExclusions
     {
+        /// <summary>
+        /// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        /// </summary>
         public readonly string MatchVariable;
+        /// <summary>
+        /// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        /// </summary>
         public readonly string Operator;
+        /// <summary>
+        /// Selector for the value in the `match_variable` attribute this exclusion applies to.
+        /// </summary>
         public readonly string Selector;
 
         [OutputConstructor]
@@ -891,12 +1168,21 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FirewallPolicyManagedRulesOverridesRules
     {
+        /// <summary>
+        /// The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        /// </summary>
         public readonly string Action;
         /// <summary>
-        /// Is the policy a enabled state or disabled state. Defaults to `true`.
+        /// Is the managed rule override enabled or disabled. Defaults to `false`
         /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// One or more `exclusion` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<FirewallPolicyManagedRulesOverridesRulesExclusions> Exclusions;
+        /// <summary>
+        /// Identifier for the managed rule.
+        /// </summary>
         public readonly string RuleId;
 
         [OutputConstructor]
@@ -916,8 +1202,17 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FirewallPolicyManagedRulesOverridesRulesExclusions
     {
+        /// <summary>
+        /// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        /// </summary>
         public readonly string MatchVariable;
+        /// <summary>
+        /// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        /// </summary>
         public readonly string Operator;
+        /// <summary>
+        /// Selector for the value in the `match_variable` attribute this exclusion applies to.
+        /// </summary>
         public readonly string Selector;
 
         [OutputConstructor]

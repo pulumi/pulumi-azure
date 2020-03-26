@@ -48,11 +48,23 @@ export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getPool.
  */
 export interface GetPoolArgs {
+    /**
+     * The name of the Batch account.
+     */
     readonly accountName: string;
+    /**
+     * One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
+     */
     readonly certificates?: inputs.batch.GetPoolCertificate[];
+    /**
+     * The name of the endpoint.
+     */
     readonly name: string;
     readonly networkConfiguration?: inputs.batch.GetPoolNetworkConfiguration;
     readonly resourceGroupName: string;
+    /**
+     * A `startTask` block that describes the start task settings for the Batch pool.
+     */
     readonly startTask?: inputs.batch.GetPoolStartTask;
 }
 

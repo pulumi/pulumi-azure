@@ -69,7 +69,7 @@ func (i ConfigurationStorePrimaryReadKeyArray) ToConfigurationStorePrimaryReadKe
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStorePrimaryReadKeyArrayOutput)
 }
 
-type ConfigurationStorePrimaryReadKeyOutput struct { *pulumi.OutputState }
+type ConfigurationStorePrimaryReadKeyOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStorePrimaryReadKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationStorePrimaryReadKey)(nil)).Elem()
@@ -85,20 +85,20 @@ func (o ConfigurationStorePrimaryReadKeyOutput) ToConfigurationStorePrimaryReadK
 
 // The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
 func (o ConfigurationStorePrimaryReadKeyOutput) ConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ConfigurationStorePrimaryReadKey) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ConfigurationStorePrimaryReadKey) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Access Key.
 func (o ConfigurationStorePrimaryReadKeyOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ConfigurationStorePrimaryReadKey) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ConfigurationStorePrimaryReadKey) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The Secret of the Access Key.
 func (o ConfigurationStorePrimaryReadKeyOutput) Secret() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ConfigurationStorePrimaryReadKey) *string { return v.Secret }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ConfigurationStorePrimaryReadKey) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
 
-type ConfigurationStorePrimaryReadKeyArrayOutput struct { *pulumi.OutputState}
+type ConfigurationStorePrimaryReadKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStorePrimaryReadKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ConfigurationStorePrimaryReadKey)(nil)).Elem()
@@ -113,7 +113,7 @@ func (o ConfigurationStorePrimaryReadKeyArrayOutput) ToConfigurationStorePrimary
 }
 
 func (o ConfigurationStorePrimaryReadKeyArrayOutput) Index(i pulumi.IntInput) ConfigurationStorePrimaryReadKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ConfigurationStorePrimaryReadKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationStorePrimaryReadKey {
 		return vs[0].([]ConfigurationStorePrimaryReadKey)[vs[1].(int)]
 	}).(ConfigurationStorePrimaryReadKeyOutput)
 }
@@ -176,7 +176,7 @@ func (i ConfigurationStorePrimaryWriteKeyArray) ToConfigurationStorePrimaryWrite
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStorePrimaryWriteKeyArrayOutput)
 }
 
-type ConfigurationStorePrimaryWriteKeyOutput struct { *pulumi.OutputState }
+type ConfigurationStorePrimaryWriteKeyOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStorePrimaryWriteKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationStorePrimaryWriteKey)(nil)).Elem()
@@ -192,20 +192,20 @@ func (o ConfigurationStorePrimaryWriteKeyOutput) ToConfigurationStorePrimaryWrit
 
 // The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
 func (o ConfigurationStorePrimaryWriteKeyOutput) ConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ConfigurationStorePrimaryWriteKey) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ConfigurationStorePrimaryWriteKey) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Access Key.
 func (o ConfigurationStorePrimaryWriteKeyOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ConfigurationStorePrimaryWriteKey) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ConfigurationStorePrimaryWriteKey) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The Secret of the Access Key.
 func (o ConfigurationStorePrimaryWriteKeyOutput) Secret() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ConfigurationStorePrimaryWriteKey) *string { return v.Secret }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ConfigurationStorePrimaryWriteKey) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
 
-type ConfigurationStorePrimaryWriteKeyArrayOutput struct { *pulumi.OutputState}
+type ConfigurationStorePrimaryWriteKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStorePrimaryWriteKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ConfigurationStorePrimaryWriteKey)(nil)).Elem()
@@ -220,7 +220,7 @@ func (o ConfigurationStorePrimaryWriteKeyArrayOutput) ToConfigurationStorePrimar
 }
 
 func (o ConfigurationStorePrimaryWriteKeyArrayOutput) Index(i pulumi.IntInput) ConfigurationStorePrimaryWriteKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ConfigurationStorePrimaryWriteKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationStorePrimaryWriteKey {
 		return vs[0].([]ConfigurationStorePrimaryWriteKey)[vs[1].(int)]
 	}).(ConfigurationStorePrimaryWriteKeyOutput)
 }
@@ -283,7 +283,7 @@ func (i ConfigurationStoreSecondaryReadKeyArray) ToConfigurationStoreSecondaryRe
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreSecondaryReadKeyArrayOutput)
 }
 
-type ConfigurationStoreSecondaryReadKeyOutput struct { *pulumi.OutputState }
+type ConfigurationStoreSecondaryReadKeyOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStoreSecondaryReadKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationStoreSecondaryReadKey)(nil)).Elem()
@@ -299,20 +299,20 @@ func (o ConfigurationStoreSecondaryReadKeyOutput) ToConfigurationStoreSecondaryR
 
 // The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
 func (o ConfigurationStoreSecondaryReadKeyOutput) ConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ConfigurationStoreSecondaryReadKey) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ConfigurationStoreSecondaryReadKey) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Access Key.
 func (o ConfigurationStoreSecondaryReadKeyOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ConfigurationStoreSecondaryReadKey) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ConfigurationStoreSecondaryReadKey) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The Secret of the Access Key.
 func (o ConfigurationStoreSecondaryReadKeyOutput) Secret() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ConfigurationStoreSecondaryReadKey) *string { return v.Secret }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ConfigurationStoreSecondaryReadKey) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
 
-type ConfigurationStoreSecondaryReadKeyArrayOutput struct { *pulumi.OutputState}
+type ConfigurationStoreSecondaryReadKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStoreSecondaryReadKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ConfigurationStoreSecondaryReadKey)(nil)).Elem()
@@ -327,7 +327,7 @@ func (o ConfigurationStoreSecondaryReadKeyArrayOutput) ToConfigurationStoreSecon
 }
 
 func (o ConfigurationStoreSecondaryReadKeyArrayOutput) Index(i pulumi.IntInput) ConfigurationStoreSecondaryReadKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ConfigurationStoreSecondaryReadKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationStoreSecondaryReadKey {
 		return vs[0].([]ConfigurationStoreSecondaryReadKey)[vs[1].(int)]
 	}).(ConfigurationStoreSecondaryReadKeyOutput)
 }
@@ -390,7 +390,7 @@ func (i ConfigurationStoreSecondaryWriteKeyArray) ToConfigurationStoreSecondaryW
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreSecondaryWriteKeyArrayOutput)
 }
 
-type ConfigurationStoreSecondaryWriteKeyOutput struct { *pulumi.OutputState }
+type ConfigurationStoreSecondaryWriteKeyOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStoreSecondaryWriteKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationStoreSecondaryWriteKey)(nil)).Elem()
@@ -406,20 +406,20 @@ func (o ConfigurationStoreSecondaryWriteKeyOutput) ToConfigurationStoreSecondary
 
 // The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
 func (o ConfigurationStoreSecondaryWriteKeyOutput) ConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ConfigurationStoreSecondaryWriteKey) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ConfigurationStoreSecondaryWriteKey) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Access Key.
 func (o ConfigurationStoreSecondaryWriteKeyOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ConfigurationStoreSecondaryWriteKey) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ConfigurationStoreSecondaryWriteKey) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The Secret of the Access Key.
 func (o ConfigurationStoreSecondaryWriteKeyOutput) Secret() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ConfigurationStoreSecondaryWriteKey) *string { return v.Secret }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ConfigurationStoreSecondaryWriteKey) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
 
-type ConfigurationStoreSecondaryWriteKeyArrayOutput struct { *pulumi.OutputState}
+type ConfigurationStoreSecondaryWriteKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStoreSecondaryWriteKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ConfigurationStoreSecondaryWriteKey)(nil)).Elem()
@@ -434,7 +434,7 @@ func (o ConfigurationStoreSecondaryWriteKeyArrayOutput) ToConfigurationStoreSeco
 }
 
 func (o ConfigurationStoreSecondaryWriteKeyArrayOutput) Index(i pulumi.IntInput) ConfigurationStoreSecondaryWriteKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ConfigurationStoreSecondaryWriteKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationStoreSecondaryWriteKey {
 		return vs[0].([]ConfigurationStoreSecondaryWriteKey)[vs[1].(int)]
 	}).(ConfigurationStoreSecondaryWriteKeyOutput)
 }
@@ -497,7 +497,7 @@ func (i GetConfigurationStorePrimaryReadKeyArray) ToGetConfigurationStorePrimary
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStorePrimaryReadKeyArrayOutput)
 }
 
-type GetConfigurationStorePrimaryReadKeyOutput struct { *pulumi.OutputState }
+type GetConfigurationStorePrimaryReadKeyOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationStorePrimaryReadKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetConfigurationStorePrimaryReadKey)(nil)).Elem()
@@ -513,20 +513,20 @@ func (o GetConfigurationStorePrimaryReadKeyOutput) ToGetConfigurationStorePrimar
 
 // The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
 func (o GetConfigurationStorePrimaryReadKeyOutput) ConnectionString() pulumi.StringOutput {
-	return o.ApplyT(func (v GetConfigurationStorePrimaryReadKey) string { return v.ConnectionString }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetConfigurationStorePrimaryReadKey) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
 // The ID of the Access Key.
 func (o GetConfigurationStorePrimaryReadKeyOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetConfigurationStorePrimaryReadKey) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetConfigurationStorePrimaryReadKey) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The Secret of the Access Key.
 func (o GetConfigurationStorePrimaryReadKeyOutput) Secret() pulumi.StringOutput {
-	return o.ApplyT(func (v GetConfigurationStorePrimaryReadKey) string { return v.Secret }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetConfigurationStorePrimaryReadKey) string { return v.Secret }).(pulumi.StringOutput)
 }
 
-type GetConfigurationStorePrimaryReadKeyArrayOutput struct { *pulumi.OutputState}
+type GetConfigurationStorePrimaryReadKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationStorePrimaryReadKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetConfigurationStorePrimaryReadKey)(nil)).Elem()
@@ -541,7 +541,7 @@ func (o GetConfigurationStorePrimaryReadKeyArrayOutput) ToGetConfigurationStoreP
 }
 
 func (o GetConfigurationStorePrimaryReadKeyArrayOutput) Index(i pulumi.IntInput) GetConfigurationStorePrimaryReadKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetConfigurationStorePrimaryReadKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationStorePrimaryReadKey {
 		return vs[0].([]GetConfigurationStorePrimaryReadKey)[vs[1].(int)]
 	}).(GetConfigurationStorePrimaryReadKeyOutput)
 }
@@ -604,7 +604,7 @@ func (i GetConfigurationStorePrimaryWriteKeyArray) ToGetConfigurationStorePrimar
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStorePrimaryWriteKeyArrayOutput)
 }
 
-type GetConfigurationStorePrimaryWriteKeyOutput struct { *pulumi.OutputState }
+type GetConfigurationStorePrimaryWriteKeyOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationStorePrimaryWriteKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetConfigurationStorePrimaryWriteKey)(nil)).Elem()
@@ -620,20 +620,20 @@ func (o GetConfigurationStorePrimaryWriteKeyOutput) ToGetConfigurationStorePrima
 
 // The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
 func (o GetConfigurationStorePrimaryWriteKeyOutput) ConnectionString() pulumi.StringOutput {
-	return o.ApplyT(func (v GetConfigurationStorePrimaryWriteKey) string { return v.ConnectionString }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetConfigurationStorePrimaryWriteKey) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
 // The ID of the Access Key.
 func (o GetConfigurationStorePrimaryWriteKeyOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetConfigurationStorePrimaryWriteKey) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetConfigurationStorePrimaryWriteKey) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The Secret of the Access Key.
 func (o GetConfigurationStorePrimaryWriteKeyOutput) Secret() pulumi.StringOutput {
-	return o.ApplyT(func (v GetConfigurationStorePrimaryWriteKey) string { return v.Secret }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetConfigurationStorePrimaryWriteKey) string { return v.Secret }).(pulumi.StringOutput)
 }
 
-type GetConfigurationStorePrimaryWriteKeyArrayOutput struct { *pulumi.OutputState}
+type GetConfigurationStorePrimaryWriteKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationStorePrimaryWriteKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetConfigurationStorePrimaryWriteKey)(nil)).Elem()
@@ -648,7 +648,7 @@ func (o GetConfigurationStorePrimaryWriteKeyArrayOutput) ToGetConfigurationStore
 }
 
 func (o GetConfigurationStorePrimaryWriteKeyArrayOutput) Index(i pulumi.IntInput) GetConfigurationStorePrimaryWriteKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetConfigurationStorePrimaryWriteKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationStorePrimaryWriteKey {
 		return vs[0].([]GetConfigurationStorePrimaryWriteKey)[vs[1].(int)]
 	}).(GetConfigurationStorePrimaryWriteKeyOutput)
 }
@@ -711,7 +711,7 @@ func (i GetConfigurationStoreSecondaryReadKeyArray) ToGetConfigurationStoreSecon
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreSecondaryReadKeyArrayOutput)
 }
 
-type GetConfigurationStoreSecondaryReadKeyOutput struct { *pulumi.OutputState }
+type GetConfigurationStoreSecondaryReadKeyOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationStoreSecondaryReadKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetConfigurationStoreSecondaryReadKey)(nil)).Elem()
@@ -727,20 +727,20 @@ func (o GetConfigurationStoreSecondaryReadKeyOutput) ToGetConfigurationStoreSeco
 
 // The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
 func (o GetConfigurationStoreSecondaryReadKeyOutput) ConnectionString() pulumi.StringOutput {
-	return o.ApplyT(func (v GetConfigurationStoreSecondaryReadKey) string { return v.ConnectionString }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetConfigurationStoreSecondaryReadKey) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
 // The ID of the Access Key.
 func (o GetConfigurationStoreSecondaryReadKeyOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetConfigurationStoreSecondaryReadKey) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetConfigurationStoreSecondaryReadKey) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The Secret of the Access Key.
 func (o GetConfigurationStoreSecondaryReadKeyOutput) Secret() pulumi.StringOutput {
-	return o.ApplyT(func (v GetConfigurationStoreSecondaryReadKey) string { return v.Secret }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetConfigurationStoreSecondaryReadKey) string { return v.Secret }).(pulumi.StringOutput)
 }
 
-type GetConfigurationStoreSecondaryReadKeyArrayOutput struct { *pulumi.OutputState}
+type GetConfigurationStoreSecondaryReadKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationStoreSecondaryReadKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetConfigurationStoreSecondaryReadKey)(nil)).Elem()
@@ -755,7 +755,7 @@ func (o GetConfigurationStoreSecondaryReadKeyArrayOutput) ToGetConfigurationStor
 }
 
 func (o GetConfigurationStoreSecondaryReadKeyArrayOutput) Index(i pulumi.IntInput) GetConfigurationStoreSecondaryReadKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetConfigurationStoreSecondaryReadKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationStoreSecondaryReadKey {
 		return vs[0].([]GetConfigurationStoreSecondaryReadKey)[vs[1].(int)]
 	}).(GetConfigurationStoreSecondaryReadKeyOutput)
 }
@@ -818,7 +818,7 @@ func (i GetConfigurationStoreSecondaryWriteKeyArray) ToGetConfigurationStoreSeco
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreSecondaryWriteKeyArrayOutput)
 }
 
-type GetConfigurationStoreSecondaryWriteKeyOutput struct { *pulumi.OutputState }
+type GetConfigurationStoreSecondaryWriteKeyOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationStoreSecondaryWriteKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetConfigurationStoreSecondaryWriteKey)(nil)).Elem()
@@ -834,20 +834,20 @@ func (o GetConfigurationStoreSecondaryWriteKeyOutput) ToGetConfigurationStoreSec
 
 // The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
 func (o GetConfigurationStoreSecondaryWriteKeyOutput) ConnectionString() pulumi.StringOutput {
-	return o.ApplyT(func (v GetConfigurationStoreSecondaryWriteKey) string { return v.ConnectionString }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetConfigurationStoreSecondaryWriteKey) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
 // The ID of the Access Key.
 func (o GetConfigurationStoreSecondaryWriteKeyOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetConfigurationStoreSecondaryWriteKey) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetConfigurationStoreSecondaryWriteKey) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The Secret of the Access Key.
 func (o GetConfigurationStoreSecondaryWriteKeyOutput) Secret() pulumi.StringOutput {
-	return o.ApplyT(func (v GetConfigurationStoreSecondaryWriteKey) string { return v.Secret }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetConfigurationStoreSecondaryWriteKey) string { return v.Secret }).(pulumi.StringOutput)
 }
 
-type GetConfigurationStoreSecondaryWriteKeyArrayOutput struct { *pulumi.OutputState}
+type GetConfigurationStoreSecondaryWriteKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationStoreSecondaryWriteKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetConfigurationStoreSecondaryWriteKey)(nil)).Elem()
@@ -862,7 +862,7 @@ func (o GetConfigurationStoreSecondaryWriteKeyArrayOutput) ToGetConfigurationSto
 }
 
 func (o GetConfigurationStoreSecondaryWriteKeyArrayOutput) Index(i pulumi.IntInput) GetConfigurationStoreSecondaryWriteKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetConfigurationStoreSecondaryWriteKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationStoreSecondaryWriteKey {
 		return vs[0].([]GetConfigurationStoreSecondaryWriteKey)[vs[1].(int)]
 	}).(GetConfigurationStoreSecondaryWriteKeyOutput)
 }

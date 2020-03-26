@@ -12,8 +12,11 @@ import (
 )
 
 type ApiImport struct {
+	// The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
 	ContentFormat string `pulumi:"contentFormat"`
+	// The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
 	ContentValue string `pulumi:"contentValue"`
+	// A `wsdlSelector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `contentFormat` is `wsdl` or `wsdl-link`.
 	WsdlSelector *ApiImportWsdlSelector `pulumi:"wsdlSelector"`
 }
 
@@ -25,8 +28,11 @@ type ApiImportInput interface {
 }
 
 type ApiImportArgs struct {
+	// The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
 	ContentFormat pulumi.StringInput `pulumi:"contentFormat"`
+	// The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
 	ContentValue pulumi.StringInput `pulumi:"contentValue"`
+	// A `wsdlSelector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `contentFormat` is `wsdl` or `wsdl-link`.
 	WsdlSelector ApiImportWsdlSelectorPtrInput `pulumi:"wsdlSelector"`
 }
 
@@ -59,7 +65,8 @@ type ApiImportPtrInput interface {
 
 type apiImportPtrType ApiImportArgs
 
-func ApiImportPtr(v *ApiImportArgs) ApiImportPtrInput {	return (*apiImportPtrType)(v)
+func ApiImportPtr(v *ApiImportArgs) ApiImportPtrInput {
+	return (*apiImportPtrType)(v)
 }
 
 func (*apiImportPtrType) ElementType() reflect.Type {
@@ -74,7 +81,7 @@ func (i *apiImportPtrType) ToApiImportPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ApiImportPtrOutput)
 }
 
-type ApiImportOutput struct { *pulumi.OutputState }
+type ApiImportOutput struct{ *pulumi.OutputState }
 
 func (ApiImportOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiImport)(nil)).Elem()
@@ -97,19 +104,23 @@ func (o ApiImportOutput) ToApiImportPtrOutputWithContext(ctx context.Context) Ap
 		return &v
 	}).(ApiImportPtrOutput)
 }
+
+// The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
 func (o ApiImportOutput) ContentFormat() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiImport) string { return v.ContentFormat }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiImport) string { return v.ContentFormat }).(pulumi.StringOutput)
 }
 
+// The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
 func (o ApiImportOutput) ContentValue() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiImport) string { return v.ContentValue }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiImport) string { return v.ContentValue }).(pulumi.StringOutput)
 }
 
+// A `wsdlSelector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `contentFormat` is `wsdl` or `wsdl-link`.
 func (o ApiImportOutput) WsdlSelector() ApiImportWsdlSelectorPtrOutput {
-	return o.ApplyT(func (v ApiImport) *ApiImportWsdlSelector { return v.WsdlSelector }).(ApiImportWsdlSelectorPtrOutput)
+	return o.ApplyT(func(v ApiImport) *ApiImportWsdlSelector { return v.WsdlSelector }).(ApiImportWsdlSelectorPtrOutput)
 }
 
-type ApiImportPtrOutput struct { *pulumi.OutputState}
+type ApiImportPtrOutput struct{ *pulumi.OutputState }
 
 func (ApiImportPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApiImport)(nil)).Elem()
@@ -124,23 +135,28 @@ func (o ApiImportPtrOutput) ToApiImportPtrOutputWithContext(ctx context.Context)
 }
 
 func (o ApiImportPtrOutput) Elem() ApiImportOutput {
-	return o.ApplyT(func (v *ApiImport) ApiImport { return *v }).(ApiImportOutput)
+	return o.ApplyT(func(v *ApiImport) ApiImport { return *v }).(ApiImportOutput)
 }
 
+// The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
 func (o ApiImportPtrOutput) ContentFormat() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiImport) string { return v.ContentFormat }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiImport) string { return v.ContentFormat }).(pulumi.StringOutput)
 }
 
+// The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
 func (o ApiImportPtrOutput) ContentValue() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiImport) string { return v.ContentValue }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiImport) string { return v.ContentValue }).(pulumi.StringOutput)
 }
 
+// A `wsdlSelector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `contentFormat` is `wsdl` or `wsdl-link`.
 func (o ApiImportPtrOutput) WsdlSelector() ApiImportWsdlSelectorPtrOutput {
-	return o.ApplyT(func (v ApiImport) *ApiImportWsdlSelector { return v.WsdlSelector }).(ApiImportWsdlSelectorPtrOutput)
+	return o.ApplyT(func(v ApiImport) *ApiImportWsdlSelector { return v.WsdlSelector }).(ApiImportWsdlSelectorPtrOutput)
 }
 
 type ApiImportWsdlSelector struct {
+	// The name of endpoint (port) to import from WSDL.
 	EndpointName string `pulumi:"endpointName"`
+	// The name of service to import from WSDL.
 	ServiceName string `pulumi:"serviceName"`
 }
 
@@ -152,7 +168,9 @@ type ApiImportWsdlSelectorInput interface {
 }
 
 type ApiImportWsdlSelectorArgs struct {
+	// The name of endpoint (port) to import from WSDL.
 	EndpointName pulumi.StringInput `pulumi:"endpointName"`
+	// The name of service to import from WSDL.
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 }
 
@@ -185,7 +203,8 @@ type ApiImportWsdlSelectorPtrInput interface {
 
 type apiImportWsdlSelectorPtrType ApiImportWsdlSelectorArgs
 
-func ApiImportWsdlSelectorPtr(v *ApiImportWsdlSelectorArgs) ApiImportWsdlSelectorPtrInput {	return (*apiImportWsdlSelectorPtrType)(v)
+func ApiImportWsdlSelectorPtr(v *ApiImportWsdlSelectorArgs) ApiImportWsdlSelectorPtrInput {
+	return (*apiImportWsdlSelectorPtrType)(v)
 }
 
 func (*apiImportWsdlSelectorPtrType) ElementType() reflect.Type {
@@ -200,7 +219,7 @@ func (i *apiImportWsdlSelectorPtrType) ToApiImportWsdlSelectorPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ApiImportWsdlSelectorPtrOutput)
 }
 
-type ApiImportWsdlSelectorOutput struct { *pulumi.OutputState }
+type ApiImportWsdlSelectorOutput struct{ *pulumi.OutputState }
 
 func (ApiImportWsdlSelectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiImportWsdlSelector)(nil)).Elem()
@@ -223,15 +242,18 @@ func (o ApiImportWsdlSelectorOutput) ToApiImportWsdlSelectorPtrOutputWithContext
 		return &v
 	}).(ApiImportWsdlSelectorPtrOutput)
 }
+
+// The name of endpoint (port) to import from WSDL.
 func (o ApiImportWsdlSelectorOutput) EndpointName() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiImportWsdlSelector) string { return v.EndpointName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiImportWsdlSelector) string { return v.EndpointName }).(pulumi.StringOutput)
 }
 
+// The name of service to import from WSDL.
 func (o ApiImportWsdlSelectorOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiImportWsdlSelector) string { return v.ServiceName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiImportWsdlSelector) string { return v.ServiceName }).(pulumi.StringOutput)
 }
 
-type ApiImportWsdlSelectorPtrOutput struct { *pulumi.OutputState}
+type ApiImportWsdlSelectorPtrOutput struct{ *pulumi.OutputState }
 
 func (ApiImportWsdlSelectorPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApiImportWsdlSelector)(nil)).Elem()
@@ -246,22 +268,27 @@ func (o ApiImportWsdlSelectorPtrOutput) ToApiImportWsdlSelectorPtrOutputWithCont
 }
 
 func (o ApiImportWsdlSelectorPtrOutput) Elem() ApiImportWsdlSelectorOutput {
-	return o.ApplyT(func (v *ApiImportWsdlSelector) ApiImportWsdlSelector { return *v }).(ApiImportWsdlSelectorOutput)
+	return o.ApplyT(func(v *ApiImportWsdlSelector) ApiImportWsdlSelector { return *v }).(ApiImportWsdlSelectorOutput)
 }
 
+// The name of endpoint (port) to import from WSDL.
 func (o ApiImportWsdlSelectorPtrOutput) EndpointName() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiImportWsdlSelector) string { return v.EndpointName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiImportWsdlSelector) string { return v.EndpointName }).(pulumi.StringOutput)
 }
 
+// The name of service to import from WSDL.
 func (o ApiImportWsdlSelectorPtrOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiImportWsdlSelector) string { return v.ServiceName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiImportWsdlSelector) string { return v.ServiceName }).(pulumi.StringOutput)
 }
 
 type ApiOperationRequest struct {
-	// A description for this API Operation, which may include HTML formatting tags.
+	// A description of the HTTP Request, which may include HTML tags.
 	Description *string `pulumi:"description"`
+	// One or more `header` blocks as defined above.
 	Headers []ApiOperationRequestHeader `pulumi:"headers"`
+	// One or more `queryParameter` blocks as defined above.
 	QueryParameters []ApiOperationRequestQueryParameter `pulumi:"queryParameters"`
+	// One or more `representation` blocks as defined below.
 	Representations []ApiOperationRequestRepresentation `pulumi:"representations"`
 }
 
@@ -273,10 +300,13 @@ type ApiOperationRequestInput interface {
 }
 
 type ApiOperationRequestArgs struct {
-	// A description for this API Operation, which may include HTML formatting tags.
+	// A description of the HTTP Request, which may include HTML tags.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// One or more `header` blocks as defined above.
 	Headers ApiOperationRequestHeaderArrayInput `pulumi:"headers"`
+	// One or more `queryParameter` blocks as defined above.
 	QueryParameters ApiOperationRequestQueryParameterArrayInput `pulumi:"queryParameters"`
+	// One or more `representation` blocks as defined below.
 	Representations ApiOperationRequestRepresentationArrayInput `pulumi:"representations"`
 }
 
@@ -309,7 +339,8 @@ type ApiOperationRequestPtrInput interface {
 
 type apiOperationRequestPtrType ApiOperationRequestArgs
 
-func ApiOperationRequestPtr(v *ApiOperationRequestArgs) ApiOperationRequestPtrInput {	return (*apiOperationRequestPtrType)(v)
+func ApiOperationRequestPtr(v *ApiOperationRequestArgs) ApiOperationRequestPtrInput {
+	return (*apiOperationRequestPtrType)(v)
 }
 
 func (*apiOperationRequestPtrType) ElementType() reflect.Type {
@@ -324,7 +355,7 @@ func (i *apiOperationRequestPtrType) ToApiOperationRequestPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestPtrOutput)
 }
 
-type ApiOperationRequestOutput struct { *pulumi.OutputState }
+type ApiOperationRequestOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperationRequest)(nil)).Elem()
@@ -347,24 +378,28 @@ func (o ApiOperationRequestOutput) ToApiOperationRequestPtrOutputWithContext(ctx
 		return &v
 	}).(ApiOperationRequestPtrOutput)
 }
-// A description for this API Operation, which may include HTML formatting tags.
+
+// A description of the HTTP Request, which may include HTML tags.
 func (o ApiOperationRequestOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationRequest) *string { return v.Description }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationRequest) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// One or more `header` blocks as defined above.
 func (o ApiOperationRequestOutput) Headers() ApiOperationRequestHeaderArrayOutput {
-	return o.ApplyT(func (v ApiOperationRequest) []ApiOperationRequestHeader { return v.Headers }).(ApiOperationRequestHeaderArrayOutput)
+	return o.ApplyT(func(v ApiOperationRequest) []ApiOperationRequestHeader { return v.Headers }).(ApiOperationRequestHeaderArrayOutput)
 }
 
+// One or more `queryParameter` blocks as defined above.
 func (o ApiOperationRequestOutput) QueryParameters() ApiOperationRequestQueryParameterArrayOutput {
-	return o.ApplyT(func (v ApiOperationRequest) []ApiOperationRequestQueryParameter { return v.QueryParameters }).(ApiOperationRequestQueryParameterArrayOutput)
+	return o.ApplyT(func(v ApiOperationRequest) []ApiOperationRequestQueryParameter { return v.QueryParameters }).(ApiOperationRequestQueryParameterArrayOutput)
 }
 
+// One or more `representation` blocks as defined below.
 func (o ApiOperationRequestOutput) Representations() ApiOperationRequestRepresentationArrayOutput {
-	return o.ApplyT(func (v ApiOperationRequest) []ApiOperationRequestRepresentation { return v.Representations }).(ApiOperationRequestRepresentationArrayOutput)
+	return o.ApplyT(func(v ApiOperationRequest) []ApiOperationRequestRepresentation { return v.Representations }).(ApiOperationRequestRepresentationArrayOutput)
 }
 
-type ApiOperationRequestPtrOutput struct { *pulumi.OutputState}
+type ApiOperationRequestPtrOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApiOperationRequest)(nil)).Elem()
@@ -379,33 +414,41 @@ func (o ApiOperationRequestPtrOutput) ToApiOperationRequestPtrOutputWithContext(
 }
 
 func (o ApiOperationRequestPtrOutput) Elem() ApiOperationRequestOutput {
-	return o.ApplyT(func (v *ApiOperationRequest) ApiOperationRequest { return *v }).(ApiOperationRequestOutput)
+	return o.ApplyT(func(v *ApiOperationRequest) ApiOperationRequest { return *v }).(ApiOperationRequestOutput)
 }
 
-// A description for this API Operation, which may include HTML formatting tags.
+// A description of the HTTP Request, which may include HTML tags.
 func (o ApiOperationRequestPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationRequest) *string { return v.Description }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationRequest) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// One or more `header` blocks as defined above.
 func (o ApiOperationRequestPtrOutput) Headers() ApiOperationRequestHeaderArrayOutput {
-	return o.ApplyT(func (v ApiOperationRequest) []ApiOperationRequestHeader { return v.Headers }).(ApiOperationRequestHeaderArrayOutput)
+	return o.ApplyT(func(v ApiOperationRequest) []ApiOperationRequestHeader { return v.Headers }).(ApiOperationRequestHeaderArrayOutput)
 }
 
+// One or more `queryParameter` blocks as defined above.
 func (o ApiOperationRequestPtrOutput) QueryParameters() ApiOperationRequestQueryParameterArrayOutput {
-	return o.ApplyT(func (v ApiOperationRequest) []ApiOperationRequestQueryParameter { return v.QueryParameters }).(ApiOperationRequestQueryParameterArrayOutput)
+	return o.ApplyT(func(v ApiOperationRequest) []ApiOperationRequestQueryParameter { return v.QueryParameters }).(ApiOperationRequestQueryParameterArrayOutput)
 }
 
+// One or more `representation` blocks as defined below.
 func (o ApiOperationRequestPtrOutput) Representations() ApiOperationRequestRepresentationArrayOutput {
-	return o.ApplyT(func (v ApiOperationRequest) []ApiOperationRequestRepresentation { return v.Representations }).(ApiOperationRequestRepresentationArrayOutput)
+	return o.ApplyT(func(v ApiOperationRequest) []ApiOperationRequestRepresentation { return v.Representations }).(ApiOperationRequestRepresentationArrayOutput)
 }
 
 type ApiOperationRequestHeader struct {
+	// The default value for this Header.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// A description for this API Operation, which may include HTML formatting tags.
+	// A description of this Header.
 	Description *string `pulumi:"description"`
+	// The Name of this Header.
 	Name string `pulumi:"name"`
+	// Is this Header Required?
 	Required bool `pulumi:"required"`
+	// The Type of this Header, such as a `string`.
 	Type string `pulumi:"type"`
+	// One or more acceptable values for this Header.
 	Values []string `pulumi:"values"`
 }
 
@@ -417,12 +460,17 @@ type ApiOperationRequestHeaderInput interface {
 }
 
 type ApiOperationRequestHeaderArgs struct {
+	// The default value for this Header.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// A description for this API Operation, which may include HTML formatting tags.
+	// A description of this Header.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The Name of this Header.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Is this Header Required?
 	Required pulumi.BoolInput `pulumi:"required"`
+	// The Type of this Header, such as a `string`.
 	Type pulumi.StringInput `pulumi:"type"`
+	// One or more acceptable values for this Header.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -459,7 +507,7 @@ func (i ApiOperationRequestHeaderArray) ToApiOperationRequestHeaderArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestHeaderArrayOutput)
 }
 
-type ApiOperationRequestHeaderOutput struct { *pulumi.OutputState }
+type ApiOperationRequestHeaderOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestHeaderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperationRequestHeader)(nil)).Elem()
@@ -473,32 +521,37 @@ func (o ApiOperationRequestHeaderOutput) ToApiOperationRequestHeaderOutputWithCo
 	return o
 }
 
+// The default value for this Header.
 func (o ApiOperationRequestHeaderOutput) DefaultValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationRequestHeader) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationRequestHeader) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// A description for this API Operation, which may include HTML formatting tags.
+// A description of this Header.
 func (o ApiOperationRequestHeaderOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationRequestHeader) *string { return v.Description }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationRequestHeader) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Name of this Header.
 func (o ApiOperationRequestHeaderOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiOperationRequestHeader) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiOperationRequestHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Is this Header Required?
 func (o ApiOperationRequestHeaderOutput) Required() pulumi.BoolOutput {
-	return o.ApplyT(func (v ApiOperationRequestHeader) bool { return v.Required }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ApiOperationRequestHeader) bool { return v.Required }).(pulumi.BoolOutput)
 }
 
+// The Type of this Header, such as a `string`.
 func (o ApiOperationRequestHeaderOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiOperationRequestHeader) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiOperationRequestHeader) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// One or more acceptable values for this Header.
 func (o ApiOperationRequestHeaderOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ApiOperationRequestHeader) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ApiOperationRequestHeader) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type ApiOperationRequestHeaderArrayOutput struct { *pulumi.OutputState}
+type ApiOperationRequestHeaderArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestHeaderArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ApiOperationRequestHeader)(nil)).Elem()
@@ -513,18 +566,23 @@ func (o ApiOperationRequestHeaderArrayOutput) ToApiOperationRequestHeaderArrayOu
 }
 
 func (o ApiOperationRequestHeaderArrayOutput) Index(i pulumi.IntInput) ApiOperationRequestHeaderOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ApiOperationRequestHeader {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationRequestHeader {
 		return vs[0].([]ApiOperationRequestHeader)[vs[1].(int)]
 	}).(ApiOperationRequestHeaderOutput)
 }
 
 type ApiOperationRequestQueryParameter struct {
+	// The default value for this Query Parameter.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// A description for this API Operation, which may include HTML formatting tags.
+	// A description of this Query Parameter.
 	Description *string `pulumi:"description"`
+	// The Name of this Query Parameter.
 	Name string `pulumi:"name"`
+	// Is this Query Parameter Required?
 	Required bool `pulumi:"required"`
+	// The Type of this Query Parameter, such as a `string`.
 	Type string `pulumi:"type"`
+	// One or more acceptable values for this Query Parameter.
 	Values []string `pulumi:"values"`
 }
 
@@ -536,12 +594,17 @@ type ApiOperationRequestQueryParameterInput interface {
 }
 
 type ApiOperationRequestQueryParameterArgs struct {
+	// The default value for this Query Parameter.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// A description for this API Operation, which may include HTML formatting tags.
+	// A description of this Query Parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The Name of this Query Parameter.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Is this Query Parameter Required?
 	Required pulumi.BoolInput `pulumi:"required"`
+	// The Type of this Query Parameter, such as a `string`.
 	Type pulumi.StringInput `pulumi:"type"`
+	// One or more acceptable values for this Query Parameter.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -578,7 +641,7 @@ func (i ApiOperationRequestQueryParameterArray) ToApiOperationRequestQueryParame
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestQueryParameterArrayOutput)
 }
 
-type ApiOperationRequestQueryParameterOutput struct { *pulumi.OutputState }
+type ApiOperationRequestQueryParameterOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestQueryParameterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperationRequestQueryParameter)(nil)).Elem()
@@ -592,32 +655,37 @@ func (o ApiOperationRequestQueryParameterOutput) ToApiOperationRequestQueryParam
 	return o
 }
 
+// The default value for this Query Parameter.
 func (o ApiOperationRequestQueryParameterOutput) DefaultValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationRequestQueryParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationRequestQueryParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// A description for this API Operation, which may include HTML formatting tags.
+// A description of this Query Parameter.
 func (o ApiOperationRequestQueryParameterOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationRequestQueryParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationRequestQueryParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Name of this Query Parameter.
 func (o ApiOperationRequestQueryParameterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiOperationRequestQueryParameter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiOperationRequestQueryParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Is this Query Parameter Required?
 func (o ApiOperationRequestQueryParameterOutput) Required() pulumi.BoolOutput {
-	return o.ApplyT(func (v ApiOperationRequestQueryParameter) bool { return v.Required }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ApiOperationRequestQueryParameter) bool { return v.Required }).(pulumi.BoolOutput)
 }
 
+// The Type of this Query Parameter, such as a `string`.
 func (o ApiOperationRequestQueryParameterOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiOperationRequestQueryParameter) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiOperationRequestQueryParameter) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// One or more acceptable values for this Query Parameter.
 func (o ApiOperationRequestQueryParameterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ApiOperationRequestQueryParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ApiOperationRequestQueryParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type ApiOperationRequestQueryParameterArrayOutput struct { *pulumi.OutputState}
+type ApiOperationRequestQueryParameterArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestQueryParameterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ApiOperationRequestQueryParameter)(nil)).Elem()
@@ -632,16 +700,21 @@ func (o ApiOperationRequestQueryParameterArrayOutput) ToApiOperationRequestQuery
 }
 
 func (o ApiOperationRequestQueryParameterArrayOutput) Index(i pulumi.IntInput) ApiOperationRequestQueryParameterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ApiOperationRequestQueryParameter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationRequestQueryParameter {
 		return vs[0].([]ApiOperationRequestQueryParameter)[vs[1].(int)]
 	}).(ApiOperationRequestQueryParameterOutput)
 }
 
 type ApiOperationRequestRepresentation struct {
+	// The Content Type of this representation, such as `application/json`.
 	ContentType string `pulumi:"contentType"`
+	// One or more `formParameter` block as defined above.
 	FormParameters []ApiOperationRequestRepresentationFormParameter `pulumi:"formParameters"`
+	// An example of this representation.
 	Sample *string `pulumi:"sample"`
+	// The ID of an API Management Schema which represents this Response.
 	SchemaId *string `pulumi:"schemaId"`
+	// The Type Name defined by the Schema.
 	TypeName *string `pulumi:"typeName"`
 }
 
@@ -653,10 +726,15 @@ type ApiOperationRequestRepresentationInput interface {
 }
 
 type ApiOperationRequestRepresentationArgs struct {
+	// The Content Type of this representation, such as `application/json`.
 	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// One or more `formParameter` block as defined above.
 	FormParameters ApiOperationRequestRepresentationFormParameterArrayInput `pulumi:"formParameters"`
+	// An example of this representation.
 	Sample pulumi.StringPtrInput `pulumi:"sample"`
+	// The ID of an API Management Schema which represents this Response.
 	SchemaId pulumi.StringPtrInput `pulumi:"schemaId"`
+	// The Type Name defined by the Schema.
 	TypeName pulumi.StringPtrInput `pulumi:"typeName"`
 }
 
@@ -693,7 +771,7 @@ func (i ApiOperationRequestRepresentationArray) ToApiOperationRequestRepresentat
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestRepresentationArrayOutput)
 }
 
-type ApiOperationRequestRepresentationOutput struct { *pulumi.OutputState }
+type ApiOperationRequestRepresentationOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestRepresentationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperationRequestRepresentation)(nil)).Elem()
@@ -707,27 +785,34 @@ func (o ApiOperationRequestRepresentationOutput) ToApiOperationRequestRepresenta
 	return o
 }
 
+// The Content Type of this representation, such as `application/json`.
 func (o ApiOperationRequestRepresentationOutput) ContentType() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiOperationRequestRepresentation) string { return v.ContentType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiOperationRequestRepresentation) string { return v.ContentType }).(pulumi.StringOutput)
 }
 
+// One or more `formParameter` block as defined above.
 func (o ApiOperationRequestRepresentationOutput) FormParameters() ApiOperationRequestRepresentationFormParameterArrayOutput {
-	return o.ApplyT(func (v ApiOperationRequestRepresentation) []ApiOperationRequestRepresentationFormParameter { return v.FormParameters }).(ApiOperationRequestRepresentationFormParameterArrayOutput)
+	return o.ApplyT(func(v ApiOperationRequestRepresentation) []ApiOperationRequestRepresentationFormParameter {
+		return v.FormParameters
+	}).(ApiOperationRequestRepresentationFormParameterArrayOutput)
 }
 
+// An example of this representation.
 func (o ApiOperationRequestRepresentationOutput) Sample() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationRequestRepresentation) *string { return v.Sample }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationRequestRepresentation) *string { return v.Sample }).(pulumi.StringPtrOutput)
 }
 
+// The ID of an API Management Schema which represents this Response.
 func (o ApiOperationRequestRepresentationOutput) SchemaId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationRequestRepresentation) *string { return v.SchemaId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationRequestRepresentation) *string { return v.SchemaId }).(pulumi.StringPtrOutput)
 }
 
+// The Type Name defined by the Schema.
 func (o ApiOperationRequestRepresentationOutput) TypeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationRequestRepresentation) *string { return v.TypeName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationRequestRepresentation) *string { return v.TypeName }).(pulumi.StringPtrOutput)
 }
 
-type ApiOperationRequestRepresentationArrayOutput struct { *pulumi.OutputState}
+type ApiOperationRequestRepresentationArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestRepresentationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ApiOperationRequestRepresentation)(nil)).Elem()
@@ -742,18 +827,23 @@ func (o ApiOperationRequestRepresentationArrayOutput) ToApiOperationRequestRepre
 }
 
 func (o ApiOperationRequestRepresentationArrayOutput) Index(i pulumi.IntInput) ApiOperationRequestRepresentationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ApiOperationRequestRepresentation {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationRequestRepresentation {
 		return vs[0].([]ApiOperationRequestRepresentation)[vs[1].(int)]
 	}).(ApiOperationRequestRepresentationOutput)
 }
 
 type ApiOperationRequestRepresentationFormParameter struct {
+	// The default value for this Form Parameter.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// A description for this API Operation, which may include HTML formatting tags.
+	// A description of this Form Parameter.
 	Description *string `pulumi:"description"`
+	// The Name of this Form Parameter.
 	Name string `pulumi:"name"`
+	// Is this Form Parameter Required?
 	Required bool `pulumi:"required"`
+	// The Type of this Form Parameter, such as a `string`.
 	Type string `pulumi:"type"`
+	// One or more acceptable values for this Form Parameter.
 	Values []string `pulumi:"values"`
 }
 
@@ -765,12 +855,17 @@ type ApiOperationRequestRepresentationFormParameterInput interface {
 }
 
 type ApiOperationRequestRepresentationFormParameterArgs struct {
+	// The default value for this Form Parameter.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// A description for this API Operation, which may include HTML formatting tags.
+	// A description of this Form Parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The Name of this Form Parameter.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Is this Form Parameter Required?
 	Required pulumi.BoolInput `pulumi:"required"`
+	// The Type of this Form Parameter, such as a `string`.
 	Type pulumi.StringInput `pulumi:"type"`
+	// One or more acceptable values for this Form Parameter.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -807,7 +902,7 @@ func (i ApiOperationRequestRepresentationFormParameterArray) ToApiOperationReque
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestRepresentationFormParameterArrayOutput)
 }
 
-type ApiOperationRequestRepresentationFormParameterOutput struct { *pulumi.OutputState }
+type ApiOperationRequestRepresentationFormParameterOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestRepresentationFormParameterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperationRequestRepresentationFormParameter)(nil)).Elem()
@@ -821,32 +916,37 @@ func (o ApiOperationRequestRepresentationFormParameterOutput) ToApiOperationRequ
 	return o
 }
 
+// The default value for this Form Parameter.
 func (o ApiOperationRequestRepresentationFormParameterOutput) DefaultValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationRequestRepresentationFormParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationRequestRepresentationFormParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// A description for this API Operation, which may include HTML formatting tags.
+// A description of this Form Parameter.
 func (o ApiOperationRequestRepresentationFormParameterOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationRequestRepresentationFormParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationRequestRepresentationFormParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Name of this Form Parameter.
 func (o ApiOperationRequestRepresentationFormParameterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiOperationRequestRepresentationFormParameter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiOperationRequestRepresentationFormParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Is this Form Parameter Required?
 func (o ApiOperationRequestRepresentationFormParameterOutput) Required() pulumi.BoolOutput {
-	return o.ApplyT(func (v ApiOperationRequestRepresentationFormParameter) bool { return v.Required }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ApiOperationRequestRepresentationFormParameter) bool { return v.Required }).(pulumi.BoolOutput)
 }
 
+// The Type of this Form Parameter, such as a `string`.
 func (o ApiOperationRequestRepresentationFormParameterOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiOperationRequestRepresentationFormParameter) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiOperationRequestRepresentationFormParameter) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// One or more acceptable values for this Form Parameter.
 func (o ApiOperationRequestRepresentationFormParameterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ApiOperationRequestRepresentationFormParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ApiOperationRequestRepresentationFormParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type ApiOperationRequestRepresentationFormParameterArrayOutput struct { *pulumi.OutputState}
+type ApiOperationRequestRepresentationFormParameterArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestRepresentationFormParameterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ApiOperationRequestRepresentationFormParameter)(nil)).Elem()
@@ -861,16 +961,19 @@ func (o ApiOperationRequestRepresentationFormParameterArrayOutput) ToApiOperatio
 }
 
 func (o ApiOperationRequestRepresentationFormParameterArrayOutput) Index(i pulumi.IntInput) ApiOperationRequestRepresentationFormParameterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ApiOperationRequestRepresentationFormParameter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationRequestRepresentationFormParameter {
 		return vs[0].([]ApiOperationRequestRepresentationFormParameter)[vs[1].(int)]
 	}).(ApiOperationRequestRepresentationFormParameterOutput)
 }
 
 type ApiOperationResponse struct {
-	// A description for this API Operation, which may include HTML formatting tags.
+	// A description of the HTTP Response, which may include HTML tags.
 	Description *string `pulumi:"description"`
+	// One or more `header` blocks as defined above.
 	Headers []ApiOperationResponseHeader `pulumi:"headers"`
+	// One or more `representation` blocks as defined below.
 	Representations []ApiOperationResponseRepresentation `pulumi:"representations"`
+	// The HTTP Status Code.
 	StatusCode int `pulumi:"statusCode"`
 }
 
@@ -882,10 +985,13 @@ type ApiOperationResponseInput interface {
 }
 
 type ApiOperationResponseArgs struct {
-	// A description for this API Operation, which may include HTML formatting tags.
+	// A description of the HTTP Response, which may include HTML tags.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// One or more `header` blocks as defined above.
 	Headers ApiOperationResponseHeaderArrayInput `pulumi:"headers"`
+	// One or more `representation` blocks as defined below.
 	Representations ApiOperationResponseRepresentationArrayInput `pulumi:"representations"`
+	// The HTTP Status Code.
 	StatusCode pulumi.IntInput `pulumi:"statusCode"`
 }
 
@@ -922,7 +1028,7 @@ func (i ApiOperationResponseArray) ToApiOperationResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseArrayOutput)
 }
 
-type ApiOperationResponseOutput struct { *pulumi.OutputState }
+type ApiOperationResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationResponseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperationResponse)(nil)).Elem()
@@ -936,24 +1042,27 @@ func (o ApiOperationResponseOutput) ToApiOperationResponseOutputWithContext(ctx 
 	return o
 }
 
-// A description for this API Operation, which may include HTML formatting tags.
+// A description of the HTTP Response, which may include HTML tags.
 func (o ApiOperationResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// One or more `header` blocks as defined above.
 func (o ApiOperationResponseOutput) Headers() ApiOperationResponseHeaderArrayOutput {
-	return o.ApplyT(func (v ApiOperationResponse) []ApiOperationResponseHeader { return v.Headers }).(ApiOperationResponseHeaderArrayOutput)
+	return o.ApplyT(func(v ApiOperationResponse) []ApiOperationResponseHeader { return v.Headers }).(ApiOperationResponseHeaderArrayOutput)
 }
 
+// One or more `representation` blocks as defined below.
 func (o ApiOperationResponseOutput) Representations() ApiOperationResponseRepresentationArrayOutput {
-	return o.ApplyT(func (v ApiOperationResponse) []ApiOperationResponseRepresentation { return v.Representations }).(ApiOperationResponseRepresentationArrayOutput)
+	return o.ApplyT(func(v ApiOperationResponse) []ApiOperationResponseRepresentation { return v.Representations }).(ApiOperationResponseRepresentationArrayOutput)
 }
 
+// The HTTP Status Code.
 func (o ApiOperationResponseOutput) StatusCode() pulumi.IntOutput {
-	return o.ApplyT(func (v ApiOperationResponse) int { return v.StatusCode }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ApiOperationResponse) int { return v.StatusCode }).(pulumi.IntOutput)
 }
 
-type ApiOperationResponseArrayOutput struct { *pulumi.OutputState}
+type ApiOperationResponseArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationResponseArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ApiOperationResponse)(nil)).Elem()
@@ -968,18 +1077,23 @@ func (o ApiOperationResponseArrayOutput) ToApiOperationResponseArrayOutputWithCo
 }
 
 func (o ApiOperationResponseArrayOutput) Index(i pulumi.IntInput) ApiOperationResponseOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ApiOperationResponse {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationResponse {
 		return vs[0].([]ApiOperationResponse)[vs[1].(int)]
 	}).(ApiOperationResponseOutput)
 }
 
 type ApiOperationResponseHeader struct {
+	// The default value for this Header.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// A description for this API Operation, which may include HTML formatting tags.
+	// A description of this Header.
 	Description *string `pulumi:"description"`
+	// The Name of this Header.
 	Name string `pulumi:"name"`
+	// Is this Header Required?
 	Required bool `pulumi:"required"`
+	// The Type of this Header, such as a `string`.
 	Type string `pulumi:"type"`
+	// One or more acceptable values for this Header.
 	Values []string `pulumi:"values"`
 }
 
@@ -991,12 +1105,17 @@ type ApiOperationResponseHeaderInput interface {
 }
 
 type ApiOperationResponseHeaderArgs struct {
+	// The default value for this Header.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// A description for this API Operation, which may include HTML formatting tags.
+	// A description of this Header.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The Name of this Header.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Is this Header Required?
 	Required pulumi.BoolInput `pulumi:"required"`
+	// The Type of this Header, such as a `string`.
 	Type pulumi.StringInput `pulumi:"type"`
+	// One or more acceptable values for this Header.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1033,7 +1152,7 @@ func (i ApiOperationResponseHeaderArray) ToApiOperationResponseHeaderArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseHeaderArrayOutput)
 }
 
-type ApiOperationResponseHeaderOutput struct { *pulumi.OutputState }
+type ApiOperationResponseHeaderOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationResponseHeaderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperationResponseHeader)(nil)).Elem()
@@ -1047,32 +1166,37 @@ func (o ApiOperationResponseHeaderOutput) ToApiOperationResponseHeaderOutputWith
 	return o
 }
 
+// The default value for this Header.
 func (o ApiOperationResponseHeaderOutput) DefaultValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationResponseHeader) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationResponseHeader) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// A description for this API Operation, which may include HTML formatting tags.
+// A description of this Header.
 func (o ApiOperationResponseHeaderOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationResponseHeader) *string { return v.Description }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationResponseHeader) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Name of this Header.
 func (o ApiOperationResponseHeaderOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiOperationResponseHeader) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiOperationResponseHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Is this Header Required?
 func (o ApiOperationResponseHeaderOutput) Required() pulumi.BoolOutput {
-	return o.ApplyT(func (v ApiOperationResponseHeader) bool { return v.Required }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ApiOperationResponseHeader) bool { return v.Required }).(pulumi.BoolOutput)
 }
 
+// The Type of this Header, such as a `string`.
 func (o ApiOperationResponseHeaderOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiOperationResponseHeader) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiOperationResponseHeader) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// One or more acceptable values for this Header.
 func (o ApiOperationResponseHeaderOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ApiOperationResponseHeader) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ApiOperationResponseHeader) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type ApiOperationResponseHeaderArrayOutput struct { *pulumi.OutputState}
+type ApiOperationResponseHeaderArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationResponseHeaderArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ApiOperationResponseHeader)(nil)).Elem()
@@ -1087,16 +1211,21 @@ func (o ApiOperationResponseHeaderArrayOutput) ToApiOperationResponseHeaderArray
 }
 
 func (o ApiOperationResponseHeaderArrayOutput) Index(i pulumi.IntInput) ApiOperationResponseHeaderOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ApiOperationResponseHeader {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationResponseHeader {
 		return vs[0].([]ApiOperationResponseHeader)[vs[1].(int)]
 	}).(ApiOperationResponseHeaderOutput)
 }
 
 type ApiOperationResponseRepresentation struct {
+	// The Content Type of this representation, such as `application/json`.
 	ContentType string `pulumi:"contentType"`
+	// One or more `formParameter` block as defined above.
 	FormParameters []ApiOperationResponseRepresentationFormParameter `pulumi:"formParameters"`
+	// An example of this representation.
 	Sample *string `pulumi:"sample"`
+	// The ID of an API Management Schema which represents this Response.
 	SchemaId *string `pulumi:"schemaId"`
+	// The Type Name defined by the Schema.
 	TypeName *string `pulumi:"typeName"`
 }
 
@@ -1108,10 +1237,15 @@ type ApiOperationResponseRepresentationInput interface {
 }
 
 type ApiOperationResponseRepresentationArgs struct {
+	// The Content Type of this representation, such as `application/json`.
 	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// One or more `formParameter` block as defined above.
 	FormParameters ApiOperationResponseRepresentationFormParameterArrayInput `pulumi:"formParameters"`
+	// An example of this representation.
 	Sample pulumi.StringPtrInput `pulumi:"sample"`
+	// The ID of an API Management Schema which represents this Response.
 	SchemaId pulumi.StringPtrInput `pulumi:"schemaId"`
+	// The Type Name defined by the Schema.
 	TypeName pulumi.StringPtrInput `pulumi:"typeName"`
 }
 
@@ -1148,7 +1282,7 @@ func (i ApiOperationResponseRepresentationArray) ToApiOperationResponseRepresent
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseRepresentationArrayOutput)
 }
 
-type ApiOperationResponseRepresentationOutput struct { *pulumi.OutputState }
+type ApiOperationResponseRepresentationOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationResponseRepresentationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperationResponseRepresentation)(nil)).Elem()
@@ -1162,27 +1296,34 @@ func (o ApiOperationResponseRepresentationOutput) ToApiOperationResponseRepresen
 	return o
 }
 
+// The Content Type of this representation, such as `application/json`.
 func (o ApiOperationResponseRepresentationOutput) ContentType() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiOperationResponseRepresentation) string { return v.ContentType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiOperationResponseRepresentation) string { return v.ContentType }).(pulumi.StringOutput)
 }
 
+// One or more `formParameter` block as defined above.
 func (o ApiOperationResponseRepresentationOutput) FormParameters() ApiOperationResponseRepresentationFormParameterArrayOutput {
-	return o.ApplyT(func (v ApiOperationResponseRepresentation) []ApiOperationResponseRepresentationFormParameter { return v.FormParameters }).(ApiOperationResponseRepresentationFormParameterArrayOutput)
+	return o.ApplyT(func(v ApiOperationResponseRepresentation) []ApiOperationResponseRepresentationFormParameter {
+		return v.FormParameters
+	}).(ApiOperationResponseRepresentationFormParameterArrayOutput)
 }
 
+// An example of this representation.
 func (o ApiOperationResponseRepresentationOutput) Sample() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationResponseRepresentation) *string { return v.Sample }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationResponseRepresentation) *string { return v.Sample }).(pulumi.StringPtrOutput)
 }
 
+// The ID of an API Management Schema which represents this Response.
 func (o ApiOperationResponseRepresentationOutput) SchemaId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationResponseRepresentation) *string { return v.SchemaId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationResponseRepresentation) *string { return v.SchemaId }).(pulumi.StringPtrOutput)
 }
 
+// The Type Name defined by the Schema.
 func (o ApiOperationResponseRepresentationOutput) TypeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationResponseRepresentation) *string { return v.TypeName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationResponseRepresentation) *string { return v.TypeName }).(pulumi.StringPtrOutput)
 }
 
-type ApiOperationResponseRepresentationArrayOutput struct { *pulumi.OutputState}
+type ApiOperationResponseRepresentationArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationResponseRepresentationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ApiOperationResponseRepresentation)(nil)).Elem()
@@ -1197,18 +1338,23 @@ func (o ApiOperationResponseRepresentationArrayOutput) ToApiOperationResponseRep
 }
 
 func (o ApiOperationResponseRepresentationArrayOutput) Index(i pulumi.IntInput) ApiOperationResponseRepresentationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ApiOperationResponseRepresentation {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationResponseRepresentation {
 		return vs[0].([]ApiOperationResponseRepresentation)[vs[1].(int)]
 	}).(ApiOperationResponseRepresentationOutput)
 }
 
 type ApiOperationResponseRepresentationFormParameter struct {
+	// The default value for this Form Parameter.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// A description for this API Operation, which may include HTML formatting tags.
+	// A description of this Form Parameter.
 	Description *string `pulumi:"description"`
+	// The Name of this Form Parameter.
 	Name string `pulumi:"name"`
+	// Is this Form Parameter Required?
 	Required bool `pulumi:"required"`
+	// The Type of this Form Parameter, such as a `string`.
 	Type string `pulumi:"type"`
+	// One or more acceptable values for this Form Parameter.
 	Values []string `pulumi:"values"`
 }
 
@@ -1220,12 +1366,17 @@ type ApiOperationResponseRepresentationFormParameterInput interface {
 }
 
 type ApiOperationResponseRepresentationFormParameterArgs struct {
+	// The default value for this Form Parameter.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// A description for this API Operation, which may include HTML formatting tags.
+	// A description of this Form Parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The Name of this Form Parameter.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Is this Form Parameter Required?
 	Required pulumi.BoolInput `pulumi:"required"`
+	// The Type of this Form Parameter, such as a `string`.
 	Type pulumi.StringInput `pulumi:"type"`
+	// One or more acceptable values for this Form Parameter.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1262,7 +1413,7 @@ func (i ApiOperationResponseRepresentationFormParameterArray) ToApiOperationResp
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseRepresentationFormParameterArrayOutput)
 }
 
-type ApiOperationResponseRepresentationFormParameterOutput struct { *pulumi.OutputState }
+type ApiOperationResponseRepresentationFormParameterOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationResponseRepresentationFormParameterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperationResponseRepresentationFormParameter)(nil)).Elem()
@@ -1276,32 +1427,37 @@ func (o ApiOperationResponseRepresentationFormParameterOutput) ToApiOperationRes
 	return o
 }
 
+// The default value for this Form Parameter.
 func (o ApiOperationResponseRepresentationFormParameterOutput) DefaultValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationResponseRepresentationFormParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationResponseRepresentationFormParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// A description for this API Operation, which may include HTML formatting tags.
+// A description of this Form Parameter.
 func (o ApiOperationResponseRepresentationFormParameterOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationResponseRepresentationFormParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationResponseRepresentationFormParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Name of this Form Parameter.
 func (o ApiOperationResponseRepresentationFormParameterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiOperationResponseRepresentationFormParameter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiOperationResponseRepresentationFormParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Is this Form Parameter Required?
 func (o ApiOperationResponseRepresentationFormParameterOutput) Required() pulumi.BoolOutput {
-	return o.ApplyT(func (v ApiOperationResponseRepresentationFormParameter) bool { return v.Required }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ApiOperationResponseRepresentationFormParameter) bool { return v.Required }).(pulumi.BoolOutput)
 }
 
+// The Type of this Form Parameter, such as a `string`.
 func (o ApiOperationResponseRepresentationFormParameterOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiOperationResponseRepresentationFormParameter) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiOperationResponseRepresentationFormParameter) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// One or more acceptable values for this Form Parameter.
 func (o ApiOperationResponseRepresentationFormParameterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ApiOperationResponseRepresentationFormParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ApiOperationResponseRepresentationFormParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type ApiOperationResponseRepresentationFormParameterArrayOutput struct { *pulumi.OutputState}
+type ApiOperationResponseRepresentationFormParameterArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationResponseRepresentationFormParameterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ApiOperationResponseRepresentationFormParameter)(nil)).Elem()
@@ -1316,18 +1472,23 @@ func (o ApiOperationResponseRepresentationFormParameterArrayOutput) ToApiOperati
 }
 
 func (o ApiOperationResponseRepresentationFormParameterArrayOutput) Index(i pulumi.IntInput) ApiOperationResponseRepresentationFormParameterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ApiOperationResponseRepresentationFormParameter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationResponseRepresentationFormParameter {
 		return vs[0].([]ApiOperationResponseRepresentationFormParameter)[vs[1].(int)]
 	}).(ApiOperationResponseRepresentationFormParameterOutput)
 }
 
 type ApiOperationTemplateParameter struct {
+	// The default value for this Template Parameter.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// A description for this API Operation, which may include HTML formatting tags.
+	// A description of this Template Parameter.
 	Description *string `pulumi:"description"`
+	// The Name of this Template Parameter.
 	Name string `pulumi:"name"`
+	// Is this Template Parameter Required?
 	Required bool `pulumi:"required"`
+	// The Type of this Template Parameter, such as a `string`.
 	Type string `pulumi:"type"`
+	// One or more acceptable values for this Template Parameter.
 	Values []string `pulumi:"values"`
 }
 
@@ -1339,12 +1500,17 @@ type ApiOperationTemplateParameterInput interface {
 }
 
 type ApiOperationTemplateParameterArgs struct {
+	// The default value for this Template Parameter.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// A description for this API Operation, which may include HTML formatting tags.
+	// A description of this Template Parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The Name of this Template Parameter.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Is this Template Parameter Required?
 	Required pulumi.BoolInput `pulumi:"required"`
+	// The Type of this Template Parameter, such as a `string`.
 	Type pulumi.StringInput `pulumi:"type"`
+	// One or more acceptable values for this Template Parameter.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1381,7 +1547,7 @@ func (i ApiOperationTemplateParameterArray) ToApiOperationTemplateParameterArray
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationTemplateParameterArrayOutput)
 }
 
-type ApiOperationTemplateParameterOutput struct { *pulumi.OutputState }
+type ApiOperationTemplateParameterOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationTemplateParameterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperationTemplateParameter)(nil)).Elem()
@@ -1395,32 +1561,37 @@ func (o ApiOperationTemplateParameterOutput) ToApiOperationTemplateParameterOutp
 	return o
 }
 
+// The default value for this Template Parameter.
 func (o ApiOperationTemplateParameterOutput) DefaultValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationTemplateParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationTemplateParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// A description for this API Operation, which may include HTML formatting tags.
+// A description of this Template Parameter.
 func (o ApiOperationTemplateParameterOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApiOperationTemplateParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApiOperationTemplateParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Name of this Template Parameter.
 func (o ApiOperationTemplateParameterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiOperationTemplateParameter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiOperationTemplateParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Is this Template Parameter Required?
 func (o ApiOperationTemplateParameterOutput) Required() pulumi.BoolOutput {
-	return o.ApplyT(func (v ApiOperationTemplateParameter) bool { return v.Required }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ApiOperationTemplateParameter) bool { return v.Required }).(pulumi.BoolOutput)
 }
 
+// The Type of this Template Parameter, such as a `string`.
 func (o ApiOperationTemplateParameterOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiOperationTemplateParameter) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiOperationTemplateParameter) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// One or more acceptable values for this Template Parameter.
 func (o ApiOperationTemplateParameterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ApiOperationTemplateParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ApiOperationTemplateParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type ApiOperationTemplateParameterArrayOutput struct { *pulumi.OutputState}
+type ApiOperationTemplateParameterArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationTemplateParameterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ApiOperationTemplateParameter)(nil)).Elem()
@@ -1435,13 +1606,15 @@ func (o ApiOperationTemplateParameterArrayOutput) ToApiOperationTemplateParamete
 }
 
 func (o ApiOperationTemplateParameterArrayOutput) Index(i pulumi.IntInput) ApiOperationTemplateParameterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ApiOperationTemplateParameter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationTemplateParameter {
 		return vs[0].([]ApiOperationTemplateParameter)[vs[1].(int)]
 	}).(ApiOperationTemplateParameterOutput)
 }
 
 type ApiSubscriptionKeyParameterNames struct {
+	// The name of the HTTP Header which should be used for the Subscription Key.
 	Header string `pulumi:"header"`
+	// The name of the QueryString parameter which should be used for the Subscription Key.
 	Query string `pulumi:"query"`
 }
 
@@ -1453,7 +1626,9 @@ type ApiSubscriptionKeyParameterNamesInput interface {
 }
 
 type ApiSubscriptionKeyParameterNamesArgs struct {
+	// The name of the HTTP Header which should be used for the Subscription Key.
 	Header pulumi.StringInput `pulumi:"header"`
+	// The name of the QueryString parameter which should be used for the Subscription Key.
 	Query pulumi.StringInput `pulumi:"query"`
 }
 
@@ -1486,7 +1661,8 @@ type ApiSubscriptionKeyParameterNamesPtrInput interface {
 
 type apiSubscriptionKeyParameterNamesPtrType ApiSubscriptionKeyParameterNamesArgs
 
-func ApiSubscriptionKeyParameterNamesPtr(v *ApiSubscriptionKeyParameterNamesArgs) ApiSubscriptionKeyParameterNamesPtrInput {	return (*apiSubscriptionKeyParameterNamesPtrType)(v)
+func ApiSubscriptionKeyParameterNamesPtr(v *ApiSubscriptionKeyParameterNamesArgs) ApiSubscriptionKeyParameterNamesPtrInput {
+	return (*apiSubscriptionKeyParameterNamesPtrType)(v)
 }
 
 func (*apiSubscriptionKeyParameterNamesPtrType) ElementType() reflect.Type {
@@ -1501,7 +1677,7 @@ func (i *apiSubscriptionKeyParameterNamesPtrType) ToApiSubscriptionKeyParameterN
 	return pulumi.ToOutputWithContext(ctx, i).(ApiSubscriptionKeyParameterNamesPtrOutput)
 }
 
-type ApiSubscriptionKeyParameterNamesOutput struct { *pulumi.OutputState }
+type ApiSubscriptionKeyParameterNamesOutput struct{ *pulumi.OutputState }
 
 func (ApiSubscriptionKeyParameterNamesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiSubscriptionKeyParameterNames)(nil)).Elem()
@@ -1524,15 +1700,18 @@ func (o ApiSubscriptionKeyParameterNamesOutput) ToApiSubscriptionKeyParameterNam
 		return &v
 	}).(ApiSubscriptionKeyParameterNamesPtrOutput)
 }
+
+// The name of the HTTP Header which should be used for the Subscription Key.
 func (o ApiSubscriptionKeyParameterNamesOutput) Header() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiSubscriptionKeyParameterNames) string { return v.Header }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiSubscriptionKeyParameterNames) string { return v.Header }).(pulumi.StringOutput)
 }
 
+// The name of the QueryString parameter which should be used for the Subscription Key.
 func (o ApiSubscriptionKeyParameterNamesOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiSubscriptionKeyParameterNames) string { return v.Query }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiSubscriptionKeyParameterNames) string { return v.Query }).(pulumi.StringOutput)
 }
 
-type ApiSubscriptionKeyParameterNamesPtrOutput struct { *pulumi.OutputState}
+type ApiSubscriptionKeyParameterNamesPtrOutput struct{ *pulumi.OutputState }
 
 func (ApiSubscriptionKeyParameterNamesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApiSubscriptionKeyParameterNames)(nil)).Elem()
@@ -1547,20 +1726,23 @@ func (o ApiSubscriptionKeyParameterNamesPtrOutput) ToApiSubscriptionKeyParameter
 }
 
 func (o ApiSubscriptionKeyParameterNamesPtrOutput) Elem() ApiSubscriptionKeyParameterNamesOutput {
-	return o.ApplyT(func (v *ApiSubscriptionKeyParameterNames) ApiSubscriptionKeyParameterNames { return *v }).(ApiSubscriptionKeyParameterNamesOutput)
+	return o.ApplyT(func(v *ApiSubscriptionKeyParameterNames) ApiSubscriptionKeyParameterNames { return *v }).(ApiSubscriptionKeyParameterNamesOutput)
 }
 
+// The name of the HTTP Header which should be used for the Subscription Key.
 func (o ApiSubscriptionKeyParameterNamesPtrOutput) Header() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiSubscriptionKeyParameterNames) string { return v.Header }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiSubscriptionKeyParameterNames) string { return v.Header }).(pulumi.StringOutput)
 }
 
+// The name of the QueryString parameter which should be used for the Subscription Key.
 func (o ApiSubscriptionKeyParameterNamesPtrOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func (v ApiSubscriptionKeyParameterNames) string { return v.Query }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApiSubscriptionKeyParameterNames) string { return v.Query }).(pulumi.StringOutput)
 }
 
 type AuthorizationServerTokenBodyParameter struct {
-	// The name of this Authorization Server. Changing this forces a new resource to be created.
+	// The Name of the Parameter.
 	Name string `pulumi:"name"`
+	// The Value of the Parameter.
 	Value string `pulumi:"value"`
 }
 
@@ -1572,8 +1754,9 @@ type AuthorizationServerTokenBodyParameterInput interface {
 }
 
 type AuthorizationServerTokenBodyParameterArgs struct {
-	// The name of this Authorization Server. Changing this forces a new resource to be created.
+	// The Name of the Parameter.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The Value of the Parameter.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1610,7 +1793,7 @@ func (i AuthorizationServerTokenBodyParameterArray) ToAuthorizationServerTokenBo
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationServerTokenBodyParameterArrayOutput)
 }
 
-type AuthorizationServerTokenBodyParameterOutput struct { *pulumi.OutputState }
+type AuthorizationServerTokenBodyParameterOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationServerTokenBodyParameterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AuthorizationServerTokenBodyParameter)(nil)).Elem()
@@ -1624,16 +1807,17 @@ func (o AuthorizationServerTokenBodyParameterOutput) ToAuthorizationServerTokenB
 	return o
 }
 
-// The name of this Authorization Server. Changing this forces a new resource to be created.
+// The Name of the Parameter.
 func (o AuthorizationServerTokenBodyParameterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v AuthorizationServerTokenBodyParameter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AuthorizationServerTokenBodyParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The Value of the Parameter.
 func (o AuthorizationServerTokenBodyParameterOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v AuthorizationServerTokenBodyParameter) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AuthorizationServerTokenBodyParameter) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type AuthorizationServerTokenBodyParameterArrayOutput struct { *pulumi.OutputState}
+type AuthorizationServerTokenBodyParameterArrayOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationServerTokenBodyParameterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]AuthorizationServerTokenBodyParameter)(nil)).Elem()
@@ -1648,15 +1832,19 @@ func (o AuthorizationServerTokenBodyParameterArrayOutput) ToAuthorizationServerT
 }
 
 func (o AuthorizationServerTokenBodyParameterArrayOutput) Index(i pulumi.IntInput) AuthorizationServerTokenBodyParameterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AuthorizationServerTokenBodyParameter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthorizationServerTokenBodyParameter {
 		return vs[0].([]AuthorizationServerTokenBodyParameter)[vs[1].(int)]
 	}).(AuthorizationServerTokenBodyParameterOutput)
 }
 
 type BackendCredentials struct {
+	// An `authorization` block as defined below.
 	Authorization *BackendCredentialsAuthorization `pulumi:"authorization"`
+	// A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
 	Certificates []string `pulumi:"certificates"`
+	// A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
 	Header map[string]string `pulumi:"header"`
+	// A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
 	Query map[string]string `pulumi:"query"`
 }
 
@@ -1668,9 +1856,13 @@ type BackendCredentialsInput interface {
 }
 
 type BackendCredentialsArgs struct {
+	// An `authorization` block as defined below.
 	Authorization BackendCredentialsAuthorizationPtrInput `pulumi:"authorization"`
+	// A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
 	Certificates pulumi.StringArrayInput `pulumi:"certificates"`
+	// A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
 	Header pulumi.StringMapInput `pulumi:"header"`
+	// A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
 	Query pulumi.StringMapInput `pulumi:"query"`
 }
 
@@ -1703,7 +1895,8 @@ type BackendCredentialsPtrInput interface {
 
 type backendCredentialsPtrType BackendCredentialsArgs
 
-func BackendCredentialsPtr(v *BackendCredentialsArgs) BackendCredentialsPtrInput {	return (*backendCredentialsPtrType)(v)
+func BackendCredentialsPtr(v *BackendCredentialsArgs) BackendCredentialsPtrInput {
+	return (*backendCredentialsPtrType)(v)
 }
 
 func (*backendCredentialsPtrType) ElementType() reflect.Type {
@@ -1718,7 +1911,7 @@ func (i *backendCredentialsPtrType) ToBackendCredentialsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(BackendCredentialsPtrOutput)
 }
 
-type BackendCredentialsOutput struct { *pulumi.OutputState }
+type BackendCredentialsOutput struct{ *pulumi.OutputState }
 
 func (BackendCredentialsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackendCredentials)(nil)).Elem()
@@ -1741,23 +1934,28 @@ func (o BackendCredentialsOutput) ToBackendCredentialsPtrOutputWithContext(ctx c
 		return &v
 	}).(BackendCredentialsPtrOutput)
 }
+
+// An `authorization` block as defined below.
 func (o BackendCredentialsOutput) Authorization() BackendCredentialsAuthorizationPtrOutput {
-	return o.ApplyT(func (v BackendCredentials) *BackendCredentialsAuthorization { return v.Authorization }).(BackendCredentialsAuthorizationPtrOutput)
+	return o.ApplyT(func(v BackendCredentials) *BackendCredentialsAuthorization { return v.Authorization }).(BackendCredentialsAuthorizationPtrOutput)
 }
 
+// A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
 func (o BackendCredentialsOutput) Certificates() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v BackendCredentials) []string { return v.Certificates }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v BackendCredentials) []string { return v.Certificates }).(pulumi.StringArrayOutput)
 }
 
+// A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
 func (o BackendCredentialsOutput) Header() pulumi.StringMapOutput {
-	return o.ApplyT(func (v BackendCredentials) map[string]string { return v.Header }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v BackendCredentials) map[string]string { return v.Header }).(pulumi.StringMapOutput)
 }
 
+// A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
 func (o BackendCredentialsOutput) Query() pulumi.StringMapOutput {
-	return o.ApplyT(func (v BackendCredentials) map[string]string { return v.Query }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v BackendCredentials) map[string]string { return v.Query }).(pulumi.StringMapOutput)
 }
 
-type BackendCredentialsPtrOutput struct { *pulumi.OutputState}
+type BackendCredentialsPtrOutput struct{ *pulumi.OutputState }
 
 func (BackendCredentialsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BackendCredentials)(nil)).Elem()
@@ -1772,27 +1970,33 @@ func (o BackendCredentialsPtrOutput) ToBackendCredentialsPtrOutputWithContext(ct
 }
 
 func (o BackendCredentialsPtrOutput) Elem() BackendCredentialsOutput {
-	return o.ApplyT(func (v *BackendCredentials) BackendCredentials { return *v }).(BackendCredentialsOutput)
+	return o.ApplyT(func(v *BackendCredentials) BackendCredentials { return *v }).(BackendCredentialsOutput)
 }
 
+// An `authorization` block as defined below.
 func (o BackendCredentialsPtrOutput) Authorization() BackendCredentialsAuthorizationPtrOutput {
-	return o.ApplyT(func (v BackendCredentials) *BackendCredentialsAuthorization { return v.Authorization }).(BackendCredentialsAuthorizationPtrOutput)
+	return o.ApplyT(func(v BackendCredentials) *BackendCredentialsAuthorization { return v.Authorization }).(BackendCredentialsAuthorizationPtrOutput)
 }
 
+// A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
 func (o BackendCredentialsPtrOutput) Certificates() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v BackendCredentials) []string { return v.Certificates }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v BackendCredentials) []string { return v.Certificates }).(pulumi.StringArrayOutput)
 }
 
+// A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
 func (o BackendCredentialsPtrOutput) Header() pulumi.StringMapOutput {
-	return o.ApplyT(func (v BackendCredentials) map[string]string { return v.Header }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v BackendCredentials) map[string]string { return v.Header }).(pulumi.StringMapOutput)
 }
 
+// A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
 func (o BackendCredentialsPtrOutput) Query() pulumi.StringMapOutput {
-	return o.ApplyT(func (v BackendCredentials) map[string]string { return v.Query }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v BackendCredentials) map[string]string { return v.Query }).(pulumi.StringMapOutput)
 }
 
 type BackendCredentialsAuthorization struct {
+	// The authentication Parameter value.
 	Parameter *string `pulumi:"parameter"`
+	// The authentication Scheme name.
 	Scheme *string `pulumi:"scheme"`
 }
 
@@ -1804,7 +2008,9 @@ type BackendCredentialsAuthorizationInput interface {
 }
 
 type BackendCredentialsAuthorizationArgs struct {
+	// The authentication Parameter value.
 	Parameter pulumi.StringPtrInput `pulumi:"parameter"`
+	// The authentication Scheme name.
 	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
 }
 
@@ -1837,7 +2043,8 @@ type BackendCredentialsAuthorizationPtrInput interface {
 
 type backendCredentialsAuthorizationPtrType BackendCredentialsAuthorizationArgs
 
-func BackendCredentialsAuthorizationPtr(v *BackendCredentialsAuthorizationArgs) BackendCredentialsAuthorizationPtrInput {	return (*backendCredentialsAuthorizationPtrType)(v)
+func BackendCredentialsAuthorizationPtr(v *BackendCredentialsAuthorizationArgs) BackendCredentialsAuthorizationPtrInput {
+	return (*backendCredentialsAuthorizationPtrType)(v)
 }
 
 func (*backendCredentialsAuthorizationPtrType) ElementType() reflect.Type {
@@ -1852,7 +2059,7 @@ func (i *backendCredentialsAuthorizationPtrType) ToBackendCredentialsAuthorizati
 	return pulumi.ToOutputWithContext(ctx, i).(BackendCredentialsAuthorizationPtrOutput)
 }
 
-type BackendCredentialsAuthorizationOutput struct { *pulumi.OutputState }
+type BackendCredentialsAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (BackendCredentialsAuthorizationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackendCredentialsAuthorization)(nil)).Elem()
@@ -1875,15 +2082,18 @@ func (o BackendCredentialsAuthorizationOutput) ToBackendCredentialsAuthorization
 		return &v
 	}).(BackendCredentialsAuthorizationPtrOutput)
 }
+
+// The authentication Parameter value.
 func (o BackendCredentialsAuthorizationOutput) Parameter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BackendCredentialsAuthorization) *string { return v.Parameter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BackendCredentialsAuthorization) *string { return v.Parameter }).(pulumi.StringPtrOutput)
 }
 
+// The authentication Scheme name.
 func (o BackendCredentialsAuthorizationOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BackendCredentialsAuthorization) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BackendCredentialsAuthorization) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
 
-type BackendCredentialsAuthorizationPtrOutput struct { *pulumi.OutputState}
+type BackendCredentialsAuthorizationPtrOutput struct{ *pulumi.OutputState }
 
 func (BackendCredentialsAuthorizationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BackendCredentialsAuthorization)(nil)).Elem()
@@ -1898,21 +2108,25 @@ func (o BackendCredentialsAuthorizationPtrOutput) ToBackendCredentialsAuthorizat
 }
 
 func (o BackendCredentialsAuthorizationPtrOutput) Elem() BackendCredentialsAuthorizationOutput {
-	return o.ApplyT(func (v *BackendCredentialsAuthorization) BackendCredentialsAuthorization { return *v }).(BackendCredentialsAuthorizationOutput)
+	return o.ApplyT(func(v *BackendCredentialsAuthorization) BackendCredentialsAuthorization { return *v }).(BackendCredentialsAuthorizationOutput)
 }
 
+// The authentication Parameter value.
 func (o BackendCredentialsAuthorizationPtrOutput) Parameter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BackendCredentialsAuthorization) *string { return v.Parameter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BackendCredentialsAuthorization) *string { return v.Parameter }).(pulumi.StringPtrOutput)
 }
 
+// The authentication Scheme name.
 func (o BackendCredentialsAuthorizationPtrOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BackendCredentialsAuthorization) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BackendCredentialsAuthorization) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
 
 type BackendProxy struct {
+	// The password to connect to the proxy server.
 	Password *string `pulumi:"password"`
-	// The URL of the backend host.
+	// The URL of the proxy server.
 	Url string `pulumi:"url"`
+	// The username to connect to the proxy server.
 	Username string `pulumi:"username"`
 }
 
@@ -1924,9 +2138,11 @@ type BackendProxyInput interface {
 }
 
 type BackendProxyArgs struct {
+	// The password to connect to the proxy server.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The URL of the backend host.
+	// The URL of the proxy server.
 	Url pulumi.StringInput `pulumi:"url"`
+	// The username to connect to the proxy server.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -1959,7 +2175,8 @@ type BackendProxyPtrInput interface {
 
 type backendProxyPtrType BackendProxyArgs
 
-func BackendProxyPtr(v *BackendProxyArgs) BackendProxyPtrInput {	return (*backendProxyPtrType)(v)
+func BackendProxyPtr(v *BackendProxyArgs) BackendProxyPtrInput {
+	return (*backendProxyPtrType)(v)
 }
 
 func (*backendProxyPtrType) ElementType() reflect.Type {
@@ -1974,7 +2191,7 @@ func (i *backendProxyPtrType) ToBackendProxyPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(BackendProxyPtrOutput)
 }
 
-type BackendProxyOutput struct { *pulumi.OutputState }
+type BackendProxyOutput struct{ *pulumi.OutputState }
 
 func (BackendProxyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackendProxy)(nil)).Elem()
@@ -1997,20 +2214,23 @@ func (o BackendProxyOutput) ToBackendProxyPtrOutputWithContext(ctx context.Conte
 		return &v
 	}).(BackendProxyPtrOutput)
 }
+
+// The password to connect to the proxy server.
 func (o BackendProxyOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BackendProxy) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BackendProxy) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The URL of the backend host.
+// The URL of the proxy server.
 func (o BackendProxyOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func (v BackendProxy) string { return v.Url }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BackendProxy) string { return v.Url }).(pulumi.StringOutput)
 }
 
+// The username to connect to the proxy server.
 func (o BackendProxyOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v BackendProxy) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BackendProxy) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type BackendProxyPtrOutput struct { *pulumi.OutputState}
+type BackendProxyPtrOutput struct{ *pulumi.OutputState }
 
 func (BackendProxyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BackendProxy)(nil)).Elem()
@@ -2025,27 +2245,34 @@ func (o BackendProxyPtrOutput) ToBackendProxyPtrOutputWithContext(ctx context.Co
 }
 
 func (o BackendProxyPtrOutput) Elem() BackendProxyOutput {
-	return o.ApplyT(func (v *BackendProxy) BackendProxy { return *v }).(BackendProxyOutput)
+	return o.ApplyT(func(v *BackendProxy) BackendProxy { return *v }).(BackendProxyOutput)
 }
 
+// The password to connect to the proxy server.
 func (o BackendProxyPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BackendProxy) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BackendProxy) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The URL of the backend host.
+// The URL of the proxy server.
 func (o BackendProxyPtrOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func (v BackendProxy) string { return v.Url }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BackendProxy) string { return v.Url }).(pulumi.StringOutput)
 }
 
+// The username to connect to the proxy server.
 func (o BackendProxyPtrOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v BackendProxy) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BackendProxy) string { return v.Username }).(pulumi.StringOutput)
 }
 
 type BackendServiceFabricCluster struct {
+	// The client certificate thumbprint for the management endpoint.
 	ClientCertificateThumbprint string `pulumi:"clientCertificateThumbprint"`
+	// A list of cluster management endpoints.
 	ManagementEndpoints []string `pulumi:"managementEndpoints"`
+	// The maximum number of retries when attempting resolve the partition.
 	MaxPartitionResolutionRetries int `pulumi:"maxPartitionResolutionRetries"`
+	// A list of thumbprints of the server certificates of the Service Fabric cluster.
 	ServerCertificateThumbprints []string `pulumi:"serverCertificateThumbprints"`
+	// One or more `serverX509Name` blocks as documented below.
 	ServerX509Names []BackendServiceFabricClusterServerX509Name `pulumi:"serverX509Names"`
 }
 
@@ -2057,10 +2284,15 @@ type BackendServiceFabricClusterInput interface {
 }
 
 type BackendServiceFabricClusterArgs struct {
+	// The client certificate thumbprint for the management endpoint.
 	ClientCertificateThumbprint pulumi.StringInput `pulumi:"clientCertificateThumbprint"`
+	// A list of cluster management endpoints.
 	ManagementEndpoints pulumi.StringArrayInput `pulumi:"managementEndpoints"`
+	// The maximum number of retries when attempting resolve the partition.
 	MaxPartitionResolutionRetries pulumi.IntInput `pulumi:"maxPartitionResolutionRetries"`
+	// A list of thumbprints of the server certificates of the Service Fabric cluster.
 	ServerCertificateThumbprints pulumi.StringArrayInput `pulumi:"serverCertificateThumbprints"`
+	// One or more `serverX509Name` blocks as documented below.
 	ServerX509Names BackendServiceFabricClusterServerX509NameArrayInput `pulumi:"serverX509Names"`
 }
 
@@ -2093,7 +2325,8 @@ type BackendServiceFabricClusterPtrInput interface {
 
 type backendServiceFabricClusterPtrType BackendServiceFabricClusterArgs
 
-func BackendServiceFabricClusterPtr(v *BackendServiceFabricClusterArgs) BackendServiceFabricClusterPtrInput {	return (*backendServiceFabricClusterPtrType)(v)
+func BackendServiceFabricClusterPtr(v *BackendServiceFabricClusterArgs) BackendServiceFabricClusterPtrInput {
+	return (*backendServiceFabricClusterPtrType)(v)
 }
 
 func (*backendServiceFabricClusterPtrType) ElementType() reflect.Type {
@@ -2108,7 +2341,7 @@ func (i *backendServiceFabricClusterPtrType) ToBackendServiceFabricClusterPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(BackendServiceFabricClusterPtrOutput)
 }
 
-type BackendServiceFabricClusterOutput struct { *pulumi.OutputState }
+type BackendServiceFabricClusterOutput struct{ *pulumi.OutputState }
 
 func (BackendServiceFabricClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackendServiceFabricCluster)(nil)).Elem()
@@ -2131,27 +2364,35 @@ func (o BackendServiceFabricClusterOutput) ToBackendServiceFabricClusterPtrOutpu
 		return &v
 	}).(BackendServiceFabricClusterPtrOutput)
 }
+
+// The client certificate thumbprint for the management endpoint.
 func (o BackendServiceFabricClusterOutput) ClientCertificateThumbprint() pulumi.StringOutput {
-	return o.ApplyT(func (v BackendServiceFabricCluster) string { return v.ClientCertificateThumbprint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BackendServiceFabricCluster) string { return v.ClientCertificateThumbprint }).(pulumi.StringOutput)
 }
 
+// A list of cluster management endpoints.
 func (o BackendServiceFabricClusterOutput) ManagementEndpoints() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v BackendServiceFabricCluster) []string { return v.ManagementEndpoints }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v BackendServiceFabricCluster) []string { return v.ManagementEndpoints }).(pulumi.StringArrayOutput)
 }
 
+// The maximum number of retries when attempting resolve the partition.
 func (o BackendServiceFabricClusterOutput) MaxPartitionResolutionRetries() pulumi.IntOutput {
-	return o.ApplyT(func (v BackendServiceFabricCluster) int { return v.MaxPartitionResolutionRetries }).(pulumi.IntOutput)
+	return o.ApplyT(func(v BackendServiceFabricCluster) int { return v.MaxPartitionResolutionRetries }).(pulumi.IntOutput)
 }
 
+// A list of thumbprints of the server certificates of the Service Fabric cluster.
 func (o BackendServiceFabricClusterOutput) ServerCertificateThumbprints() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v BackendServiceFabricCluster) []string { return v.ServerCertificateThumbprints }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v BackendServiceFabricCluster) []string { return v.ServerCertificateThumbprints }).(pulumi.StringArrayOutput)
 }
 
+// One or more `serverX509Name` blocks as documented below.
 func (o BackendServiceFabricClusterOutput) ServerX509Names() BackendServiceFabricClusterServerX509NameArrayOutput {
-	return o.ApplyT(func (v BackendServiceFabricCluster) []BackendServiceFabricClusterServerX509Name { return v.ServerX509Names }).(BackendServiceFabricClusterServerX509NameArrayOutput)
+	return o.ApplyT(func(v BackendServiceFabricCluster) []BackendServiceFabricClusterServerX509Name {
+		return v.ServerX509Names
+	}).(BackendServiceFabricClusterServerX509NameArrayOutput)
 }
 
-type BackendServiceFabricClusterPtrOutput struct { *pulumi.OutputState}
+type BackendServiceFabricClusterPtrOutput struct{ *pulumi.OutputState }
 
 func (BackendServiceFabricClusterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BackendServiceFabricCluster)(nil)).Elem()
@@ -2166,30 +2407,38 @@ func (o BackendServiceFabricClusterPtrOutput) ToBackendServiceFabricClusterPtrOu
 }
 
 func (o BackendServiceFabricClusterPtrOutput) Elem() BackendServiceFabricClusterOutput {
-	return o.ApplyT(func (v *BackendServiceFabricCluster) BackendServiceFabricCluster { return *v }).(BackendServiceFabricClusterOutput)
+	return o.ApplyT(func(v *BackendServiceFabricCluster) BackendServiceFabricCluster { return *v }).(BackendServiceFabricClusterOutput)
 }
 
+// The client certificate thumbprint for the management endpoint.
 func (o BackendServiceFabricClusterPtrOutput) ClientCertificateThumbprint() pulumi.StringOutput {
-	return o.ApplyT(func (v BackendServiceFabricCluster) string { return v.ClientCertificateThumbprint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BackendServiceFabricCluster) string { return v.ClientCertificateThumbprint }).(pulumi.StringOutput)
 }
 
+// A list of cluster management endpoints.
 func (o BackendServiceFabricClusterPtrOutput) ManagementEndpoints() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v BackendServiceFabricCluster) []string { return v.ManagementEndpoints }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v BackendServiceFabricCluster) []string { return v.ManagementEndpoints }).(pulumi.StringArrayOutput)
 }
 
+// The maximum number of retries when attempting resolve the partition.
 func (o BackendServiceFabricClusterPtrOutput) MaxPartitionResolutionRetries() pulumi.IntOutput {
-	return o.ApplyT(func (v BackendServiceFabricCluster) int { return v.MaxPartitionResolutionRetries }).(pulumi.IntOutput)
+	return o.ApplyT(func(v BackendServiceFabricCluster) int { return v.MaxPartitionResolutionRetries }).(pulumi.IntOutput)
 }
 
+// A list of thumbprints of the server certificates of the Service Fabric cluster.
 func (o BackendServiceFabricClusterPtrOutput) ServerCertificateThumbprints() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v BackendServiceFabricCluster) []string { return v.ServerCertificateThumbprints }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v BackendServiceFabricCluster) []string { return v.ServerCertificateThumbprints }).(pulumi.StringArrayOutput)
 }
 
+// One or more `serverX509Name` blocks as documented below.
 func (o BackendServiceFabricClusterPtrOutput) ServerX509Names() BackendServiceFabricClusterServerX509NameArrayOutput {
-	return o.ApplyT(func (v BackendServiceFabricCluster) []BackendServiceFabricClusterServerX509Name { return v.ServerX509Names }).(BackendServiceFabricClusterServerX509NameArrayOutput)
+	return o.ApplyT(func(v BackendServiceFabricCluster) []BackendServiceFabricClusterServerX509Name {
+		return v.ServerX509Names
+	}).(BackendServiceFabricClusterServerX509NameArrayOutput)
 }
 
 type BackendServiceFabricClusterServerX509Name struct {
+	// The thumbprint for the issuer of the certificate.
 	IssuerCertificateThumbprint string `pulumi:"issuerCertificateThumbprint"`
 	// The name of the API Management backend. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
@@ -2203,6 +2452,7 @@ type BackendServiceFabricClusterServerX509NameInput interface {
 }
 
 type BackendServiceFabricClusterServerX509NameArgs struct {
+	// The thumbprint for the issuer of the certificate.
 	IssuerCertificateThumbprint pulumi.StringInput `pulumi:"issuerCertificateThumbprint"`
 	// The name of the API Management backend. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2241,7 +2491,7 @@ func (i BackendServiceFabricClusterServerX509NameArray) ToBackendServiceFabricCl
 	return pulumi.ToOutputWithContext(ctx, i).(BackendServiceFabricClusterServerX509NameArrayOutput)
 }
 
-type BackendServiceFabricClusterServerX509NameOutput struct { *pulumi.OutputState }
+type BackendServiceFabricClusterServerX509NameOutput struct{ *pulumi.OutputState }
 
 func (BackendServiceFabricClusterServerX509NameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackendServiceFabricClusterServerX509Name)(nil)).Elem()
@@ -2255,16 +2505,17 @@ func (o BackendServiceFabricClusterServerX509NameOutput) ToBackendServiceFabricC
 	return o
 }
 
+// The thumbprint for the issuer of the certificate.
 func (o BackendServiceFabricClusterServerX509NameOutput) IssuerCertificateThumbprint() pulumi.StringOutput {
-	return o.ApplyT(func (v BackendServiceFabricClusterServerX509Name) string { return v.IssuerCertificateThumbprint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BackendServiceFabricClusterServerX509Name) string { return v.IssuerCertificateThumbprint }).(pulumi.StringOutput)
 }
 
 // The name of the API Management backend. Changing this forces a new resource to be created.
 func (o BackendServiceFabricClusterServerX509NameOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v BackendServiceFabricClusterServerX509Name) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BackendServiceFabricClusterServerX509Name) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type BackendServiceFabricClusterServerX509NameArrayOutput struct { *pulumi.OutputState}
+type BackendServiceFabricClusterServerX509NameArrayOutput struct{ *pulumi.OutputState }
 
 func (BackendServiceFabricClusterServerX509NameArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]BackendServiceFabricClusterServerX509Name)(nil)).Elem()
@@ -2279,13 +2530,15 @@ func (o BackendServiceFabricClusterServerX509NameArrayOutput) ToBackendServiceFa
 }
 
 func (o BackendServiceFabricClusterServerX509NameArrayOutput) Index(i pulumi.IntInput) BackendServiceFabricClusterServerX509NameOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) BackendServiceFabricClusterServerX509Name {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackendServiceFabricClusterServerX509Name {
 		return vs[0].([]BackendServiceFabricClusterServerX509Name)[vs[1].(int)]
 	}).(BackendServiceFabricClusterServerX509NameOutput)
 }
 
 type BackendTls struct {
+	// Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
 	ValidateCertificateChain *bool `pulumi:"validateCertificateChain"`
+	// Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.
 	ValidateCertificateName *bool `pulumi:"validateCertificateName"`
 }
 
@@ -2297,7 +2550,9 @@ type BackendTlsInput interface {
 }
 
 type BackendTlsArgs struct {
+	// Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
 	ValidateCertificateChain pulumi.BoolPtrInput `pulumi:"validateCertificateChain"`
+	// Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.
 	ValidateCertificateName pulumi.BoolPtrInput `pulumi:"validateCertificateName"`
 }
 
@@ -2330,7 +2585,8 @@ type BackendTlsPtrInput interface {
 
 type backendTlsPtrType BackendTlsArgs
 
-func BackendTlsPtr(v *BackendTlsArgs) BackendTlsPtrInput {	return (*backendTlsPtrType)(v)
+func BackendTlsPtr(v *BackendTlsArgs) BackendTlsPtrInput {
+	return (*backendTlsPtrType)(v)
 }
 
 func (*backendTlsPtrType) ElementType() reflect.Type {
@@ -2345,7 +2601,7 @@ func (i *backendTlsPtrType) ToBackendTlsPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(BackendTlsPtrOutput)
 }
 
-type BackendTlsOutput struct { *pulumi.OutputState }
+type BackendTlsOutput struct{ *pulumi.OutputState }
 
 func (BackendTlsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackendTls)(nil)).Elem()
@@ -2368,15 +2624,18 @@ func (o BackendTlsOutput) ToBackendTlsPtrOutputWithContext(ctx context.Context) 
 		return &v
 	}).(BackendTlsPtrOutput)
 }
+
+// Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
 func (o BackendTlsOutput) ValidateCertificateChain() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v BackendTls) *bool { return v.ValidateCertificateChain }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v BackendTls) *bool { return v.ValidateCertificateChain }).(pulumi.BoolPtrOutput)
 }
 
+// Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.
 func (o BackendTlsOutput) ValidateCertificateName() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v BackendTls) *bool { return v.ValidateCertificateName }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v BackendTls) *bool { return v.ValidateCertificateName }).(pulumi.BoolPtrOutput)
 }
 
-type BackendTlsPtrOutput struct { *pulumi.OutputState}
+type BackendTlsPtrOutput struct{ *pulumi.OutputState }
 
 func (BackendTlsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BackendTls)(nil)).Elem()
@@ -2391,18 +2650,21 @@ func (o BackendTlsPtrOutput) ToBackendTlsPtrOutputWithContext(ctx context.Contex
 }
 
 func (o BackendTlsPtrOutput) Elem() BackendTlsOutput {
-	return o.ApplyT(func (v *BackendTls) BackendTls { return *v }).(BackendTlsOutput)
+	return o.ApplyT(func(v *BackendTls) BackendTls { return *v }).(BackendTlsOutput)
 }
 
+// Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
 func (o BackendTlsPtrOutput) ValidateCertificateChain() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v BackendTls) *bool { return v.ValidateCertificateChain }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v BackendTls) *bool { return v.ValidateCertificateChain }).(pulumi.BoolPtrOutput)
 }
 
+// Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.
 func (o BackendTlsPtrOutput) ValidateCertificateName() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v BackendTls) *bool { return v.ValidateCertificateName }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v BackendTls) *bool { return v.ValidateCertificateName }).(pulumi.BoolPtrOutput)
 }
 
 type LoggerApplicationInsights struct {
+	// The instrumentation key used to push data to Application Insights.
 	InstrumentationKey string `pulumi:"instrumentationKey"`
 }
 
@@ -2414,6 +2676,7 @@ type LoggerApplicationInsightsInput interface {
 }
 
 type LoggerApplicationInsightsArgs struct {
+	// The instrumentation key used to push data to Application Insights.
 	InstrumentationKey pulumi.StringInput `pulumi:"instrumentationKey"`
 }
 
@@ -2446,7 +2709,8 @@ type LoggerApplicationInsightsPtrInput interface {
 
 type loggerApplicationInsightsPtrType LoggerApplicationInsightsArgs
 
-func LoggerApplicationInsightsPtr(v *LoggerApplicationInsightsArgs) LoggerApplicationInsightsPtrInput {	return (*loggerApplicationInsightsPtrType)(v)
+func LoggerApplicationInsightsPtr(v *LoggerApplicationInsightsArgs) LoggerApplicationInsightsPtrInput {
+	return (*loggerApplicationInsightsPtrType)(v)
 }
 
 func (*loggerApplicationInsightsPtrType) ElementType() reflect.Type {
@@ -2461,7 +2725,7 @@ func (i *loggerApplicationInsightsPtrType) ToLoggerApplicationInsightsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerApplicationInsightsPtrOutput)
 }
 
-type LoggerApplicationInsightsOutput struct { *pulumi.OutputState }
+type LoggerApplicationInsightsOutput struct{ *pulumi.OutputState }
 
 func (LoggerApplicationInsightsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LoggerApplicationInsights)(nil)).Elem()
@@ -2484,11 +2748,13 @@ func (o LoggerApplicationInsightsOutput) ToLoggerApplicationInsightsPtrOutputWit
 		return &v
 	}).(LoggerApplicationInsightsPtrOutput)
 }
+
+// The instrumentation key used to push data to Application Insights.
 func (o LoggerApplicationInsightsOutput) InstrumentationKey() pulumi.StringOutput {
-	return o.ApplyT(func (v LoggerApplicationInsights) string { return v.InstrumentationKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LoggerApplicationInsights) string { return v.InstrumentationKey }).(pulumi.StringOutput)
 }
 
-type LoggerApplicationInsightsPtrOutput struct { *pulumi.OutputState}
+type LoggerApplicationInsightsPtrOutput struct{ *pulumi.OutputState }
 
 func (LoggerApplicationInsightsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LoggerApplicationInsights)(nil)).Elem()
@@ -2503,16 +2769,18 @@ func (o LoggerApplicationInsightsPtrOutput) ToLoggerApplicationInsightsPtrOutput
 }
 
 func (o LoggerApplicationInsightsPtrOutput) Elem() LoggerApplicationInsightsOutput {
-	return o.ApplyT(func (v *LoggerApplicationInsights) LoggerApplicationInsights { return *v }).(LoggerApplicationInsightsOutput)
+	return o.ApplyT(func(v *LoggerApplicationInsights) LoggerApplicationInsights { return *v }).(LoggerApplicationInsightsOutput)
 }
 
+// The instrumentation key used to push data to Application Insights.
 func (o LoggerApplicationInsightsPtrOutput) InstrumentationKey() pulumi.StringOutput {
-	return o.ApplyT(func (v LoggerApplicationInsights) string { return v.InstrumentationKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LoggerApplicationInsights) string { return v.InstrumentationKey }).(pulumi.StringOutput)
 }
 
 type LoggerEventhub struct {
+	// The connection string of an EventHub Namespace.
 	ConnectionString string `pulumi:"connectionString"`
-	// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+	// The name of an EventHub.
 	Name string `pulumi:"name"`
 }
 
@@ -2524,8 +2792,9 @@ type LoggerEventhubInput interface {
 }
 
 type LoggerEventhubArgs struct {
+	// The connection string of an EventHub Namespace.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
-	// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+	// The name of an EventHub.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2558,7 +2827,8 @@ type LoggerEventhubPtrInput interface {
 
 type loggerEventhubPtrType LoggerEventhubArgs
 
-func LoggerEventhubPtr(v *LoggerEventhubArgs) LoggerEventhubPtrInput {	return (*loggerEventhubPtrType)(v)
+func LoggerEventhubPtr(v *LoggerEventhubArgs) LoggerEventhubPtrInput {
+	return (*loggerEventhubPtrType)(v)
 }
 
 func (*loggerEventhubPtrType) ElementType() reflect.Type {
@@ -2573,7 +2843,7 @@ func (i *loggerEventhubPtrType) ToLoggerEventhubPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerEventhubPtrOutput)
 }
 
-type LoggerEventhubOutput struct { *pulumi.OutputState }
+type LoggerEventhubOutput struct{ *pulumi.OutputState }
 
 func (LoggerEventhubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LoggerEventhub)(nil)).Elem()
@@ -2596,16 +2866,18 @@ func (o LoggerEventhubOutput) ToLoggerEventhubPtrOutputWithContext(ctx context.C
 		return &v
 	}).(LoggerEventhubPtrOutput)
 }
+
+// The connection string of an EventHub Namespace.
 func (o LoggerEventhubOutput) ConnectionString() pulumi.StringOutput {
-	return o.ApplyT(func (v LoggerEventhub) string { return v.ConnectionString }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LoggerEventhub) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
-// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+// The name of an EventHub.
 func (o LoggerEventhubOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v LoggerEventhub) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LoggerEventhub) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type LoggerEventhubPtrOutput struct { *pulumi.OutputState}
+type LoggerEventhubPtrOutput struct{ *pulumi.OutputState }
 
 func (LoggerEventhubPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LoggerEventhub)(nil)).Elem()
@@ -2620,22 +2892,23 @@ func (o LoggerEventhubPtrOutput) ToLoggerEventhubPtrOutputWithContext(ctx contex
 }
 
 func (o LoggerEventhubPtrOutput) Elem() LoggerEventhubOutput {
-	return o.ApplyT(func (v *LoggerEventhub) LoggerEventhub { return *v }).(LoggerEventhubOutput)
+	return o.ApplyT(func(v *LoggerEventhub) LoggerEventhub { return *v }).(LoggerEventhubOutput)
 }
 
+// The connection string of an EventHub Namespace.
 func (o LoggerEventhubPtrOutput) ConnectionString() pulumi.StringOutput {
-	return o.ApplyT(func (v LoggerEventhub) string { return v.ConnectionString }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LoggerEventhub) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
-// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+// The name of an EventHub.
 func (o LoggerEventhubPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v LoggerEventhub) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LoggerEventhub) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type ServiceAdditionalLocation struct {
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl *string `pulumi:"gatewayRegionalUrl"`
-	// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+	// The name of the Azure Region in which the API Management Service should be expanded to.
 	Location string `pulumi:"location"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
@@ -2651,7 +2924,7 @@ type ServiceAdditionalLocationInput interface {
 type ServiceAdditionalLocationArgs struct {
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl pulumi.StringPtrInput `pulumi:"gatewayRegionalUrl"`
-	// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+	// The name of the Azure Region in which the API Management Service should be expanded to.
 	Location pulumi.StringInput `pulumi:"location"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
@@ -2690,7 +2963,7 @@ func (i ServiceAdditionalLocationArray) ToServiceAdditionalLocationArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAdditionalLocationArrayOutput)
 }
 
-type ServiceAdditionalLocationOutput struct { *pulumi.OutputState }
+type ServiceAdditionalLocationOutput struct{ *pulumi.OutputState }
 
 func (ServiceAdditionalLocationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceAdditionalLocation)(nil)).Elem()
@@ -2706,20 +2979,20 @@ func (o ServiceAdditionalLocationOutput) ToServiceAdditionalLocationOutputWithCo
 
 // The URL of the Regional Gateway for the API Management Service in the specified region.
 func (o ServiceAdditionalLocationOutput) GatewayRegionalUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceAdditionalLocation) *string { return v.GatewayRegionalUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceAdditionalLocation) *string { return v.GatewayRegionalUrl }).(pulumi.StringPtrOutput)
 }
 
-// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+// The name of the Azure Region in which the API Management Service should be expanded to.
 func (o ServiceAdditionalLocationOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceAdditionalLocation) string { return v.Location }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServiceAdditionalLocation) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 func (o ServiceAdditionalLocationOutput) PublicIpAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ServiceAdditionalLocation) []string { return v.PublicIpAddresses }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ServiceAdditionalLocation) []string { return v.PublicIpAddresses }).(pulumi.StringArrayOutput)
 }
 
-type ServiceAdditionalLocationArrayOutput struct { *pulumi.OutputState}
+type ServiceAdditionalLocationArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceAdditionalLocationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ServiceAdditionalLocation)(nil)).Elem()
@@ -2734,14 +3007,17 @@ func (o ServiceAdditionalLocationArrayOutput) ToServiceAdditionalLocationArrayOu
 }
 
 func (o ServiceAdditionalLocationArrayOutput) Index(i pulumi.IntInput) ServiceAdditionalLocationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ServiceAdditionalLocation {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceAdditionalLocation {
 		return vs[0].([]ServiceAdditionalLocation)[vs[1].(int)]
 	}).(ServiceAdditionalLocationOutput)
 }
 
 type ServiceCertificate struct {
+	// The password for the certificate.
 	CertificatePassword string `pulumi:"certificatePassword"`
+	// The Base64 Encoded PFX Certificate.
 	EncodedCertificate string `pulumi:"encodedCertificate"`
+	// The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
 	StoreName string `pulumi:"storeName"`
 }
 
@@ -2753,8 +3029,11 @@ type ServiceCertificateInput interface {
 }
 
 type ServiceCertificateArgs struct {
+	// The password for the certificate.
 	CertificatePassword pulumi.StringInput `pulumi:"certificatePassword"`
+	// The Base64 Encoded PFX Certificate.
 	EncodedCertificate pulumi.StringInput `pulumi:"encodedCertificate"`
+	// The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
 	StoreName pulumi.StringInput `pulumi:"storeName"`
 }
 
@@ -2791,7 +3070,7 @@ func (i ServiceCertificateArray) ToServiceCertificateArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCertificateArrayOutput)
 }
 
-type ServiceCertificateOutput struct { *pulumi.OutputState }
+type ServiceCertificateOutput struct{ *pulumi.OutputState }
 
 func (ServiceCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceCertificate)(nil)).Elem()
@@ -2805,19 +3084,22 @@ func (o ServiceCertificateOutput) ToServiceCertificateOutputWithContext(ctx cont
 	return o
 }
 
+// The password for the certificate.
 func (o ServiceCertificateOutput) CertificatePassword() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceCertificate) string { return v.CertificatePassword }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServiceCertificate) string { return v.CertificatePassword }).(pulumi.StringOutput)
 }
 
+// The Base64 Encoded PFX Certificate.
 func (o ServiceCertificateOutput) EncodedCertificate() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceCertificate) string { return v.EncodedCertificate }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServiceCertificate) string { return v.EncodedCertificate }).(pulumi.StringOutput)
 }
 
+// The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
 func (o ServiceCertificateOutput) StoreName() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceCertificate) string { return v.StoreName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServiceCertificate) string { return v.StoreName }).(pulumi.StringOutput)
 }
 
-type ServiceCertificateArrayOutput struct { *pulumi.OutputState}
+type ServiceCertificateArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceCertificateArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ServiceCertificate)(nil)).Elem()
@@ -2832,15 +3114,19 @@ func (o ServiceCertificateArrayOutput) ToServiceCertificateArrayOutputWithContex
 }
 
 func (o ServiceCertificateArrayOutput) Index(i pulumi.IntInput) ServiceCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ServiceCertificate {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceCertificate {
 		return vs[0].([]ServiceCertificate)[vs[1].(int)]
 	}).(ServiceCertificateOutput)
 }
 
 type ServiceHostnameConfiguration struct {
+	// One or more `management` blocks as documented below.
 	Managements []ServiceHostnameConfigurationManagement `pulumi:"managements"`
+	// One or more `portal` blocks as documented below.
 	Portals []ServiceHostnameConfigurationPortal `pulumi:"portals"`
+	// One or more `proxy` blocks as documented below.
 	Proxies []ServiceHostnameConfigurationProxy `pulumi:"proxies"`
+	// One or more `scm` blocks as documented below.
 	Scms []ServiceHostnameConfigurationScm `pulumi:"scms"`
 }
 
@@ -2852,9 +3138,13 @@ type ServiceHostnameConfigurationInput interface {
 }
 
 type ServiceHostnameConfigurationArgs struct {
+	// One or more `management` blocks as documented below.
 	Managements ServiceHostnameConfigurationManagementArrayInput `pulumi:"managements"`
+	// One or more `portal` blocks as documented below.
 	Portals ServiceHostnameConfigurationPortalArrayInput `pulumi:"portals"`
+	// One or more `proxy` blocks as documented below.
 	Proxies ServiceHostnameConfigurationProxyArrayInput `pulumi:"proxies"`
+	// One or more `scm` blocks as documented below.
 	Scms ServiceHostnameConfigurationScmArrayInput `pulumi:"scms"`
 }
 
@@ -2887,7 +3177,8 @@ type ServiceHostnameConfigurationPtrInput interface {
 
 type serviceHostnameConfigurationPtrType ServiceHostnameConfigurationArgs
 
-func ServiceHostnameConfigurationPtr(v *ServiceHostnameConfigurationArgs) ServiceHostnameConfigurationPtrInput {	return (*serviceHostnameConfigurationPtrType)(v)
+func ServiceHostnameConfigurationPtr(v *ServiceHostnameConfigurationArgs) ServiceHostnameConfigurationPtrInput {
+	return (*serviceHostnameConfigurationPtrType)(v)
 }
 
 func (*serviceHostnameConfigurationPtrType) ElementType() reflect.Type {
@@ -2902,7 +3193,7 @@ func (i *serviceHostnameConfigurationPtrType) ToServiceHostnameConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationPtrOutput)
 }
 
-type ServiceHostnameConfigurationOutput struct { *pulumi.OutputState }
+type ServiceHostnameConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceHostnameConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceHostnameConfiguration)(nil)).Elem()
@@ -2925,23 +3216,28 @@ func (o ServiceHostnameConfigurationOutput) ToServiceHostnameConfigurationPtrOut
 		return &v
 	}).(ServiceHostnameConfigurationPtrOutput)
 }
+
+// One or more `management` blocks as documented below.
 func (o ServiceHostnameConfigurationOutput) Managements() ServiceHostnameConfigurationManagementArrayOutput {
-	return o.ApplyT(func (v ServiceHostnameConfiguration) []ServiceHostnameConfigurationManagement { return v.Managements }).(ServiceHostnameConfigurationManagementArrayOutput)
+	return o.ApplyT(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationManagement { return v.Managements }).(ServiceHostnameConfigurationManagementArrayOutput)
 }
 
+// One or more `portal` blocks as documented below.
 func (o ServiceHostnameConfigurationOutput) Portals() ServiceHostnameConfigurationPortalArrayOutput {
-	return o.ApplyT(func (v ServiceHostnameConfiguration) []ServiceHostnameConfigurationPortal { return v.Portals }).(ServiceHostnameConfigurationPortalArrayOutput)
+	return o.ApplyT(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationPortal { return v.Portals }).(ServiceHostnameConfigurationPortalArrayOutput)
 }
 
+// One or more `proxy` blocks as documented below.
 func (o ServiceHostnameConfigurationOutput) Proxies() ServiceHostnameConfigurationProxyArrayOutput {
-	return o.ApplyT(func (v ServiceHostnameConfiguration) []ServiceHostnameConfigurationProxy { return v.Proxies }).(ServiceHostnameConfigurationProxyArrayOutput)
+	return o.ApplyT(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationProxy { return v.Proxies }).(ServiceHostnameConfigurationProxyArrayOutput)
 }
 
+// One or more `scm` blocks as documented below.
 func (o ServiceHostnameConfigurationOutput) Scms() ServiceHostnameConfigurationScmArrayOutput {
-	return o.ApplyT(func (v ServiceHostnameConfiguration) []ServiceHostnameConfigurationScm { return v.Scms }).(ServiceHostnameConfigurationScmArrayOutput)
+	return o.ApplyT(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationScm { return v.Scms }).(ServiceHostnameConfigurationScmArrayOutput)
 }
 
-type ServiceHostnameConfigurationPtrOutput struct { *pulumi.OutputState}
+type ServiceHostnameConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceHostnameConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceHostnameConfiguration)(nil)).Elem()
@@ -2956,31 +3252,39 @@ func (o ServiceHostnameConfigurationPtrOutput) ToServiceHostnameConfigurationPtr
 }
 
 func (o ServiceHostnameConfigurationPtrOutput) Elem() ServiceHostnameConfigurationOutput {
-	return o.ApplyT(func (v *ServiceHostnameConfiguration) ServiceHostnameConfiguration { return *v }).(ServiceHostnameConfigurationOutput)
+	return o.ApplyT(func(v *ServiceHostnameConfiguration) ServiceHostnameConfiguration { return *v }).(ServiceHostnameConfigurationOutput)
 }
 
+// One or more `management` blocks as documented below.
 func (o ServiceHostnameConfigurationPtrOutput) Managements() ServiceHostnameConfigurationManagementArrayOutput {
-	return o.ApplyT(func (v ServiceHostnameConfiguration) []ServiceHostnameConfigurationManagement { return v.Managements }).(ServiceHostnameConfigurationManagementArrayOutput)
+	return o.ApplyT(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationManagement { return v.Managements }).(ServiceHostnameConfigurationManagementArrayOutput)
 }
 
+// One or more `portal` blocks as documented below.
 func (o ServiceHostnameConfigurationPtrOutput) Portals() ServiceHostnameConfigurationPortalArrayOutput {
-	return o.ApplyT(func (v ServiceHostnameConfiguration) []ServiceHostnameConfigurationPortal { return v.Portals }).(ServiceHostnameConfigurationPortalArrayOutput)
+	return o.ApplyT(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationPortal { return v.Portals }).(ServiceHostnameConfigurationPortalArrayOutput)
 }
 
+// One or more `proxy` blocks as documented below.
 func (o ServiceHostnameConfigurationPtrOutput) Proxies() ServiceHostnameConfigurationProxyArrayOutput {
-	return o.ApplyT(func (v ServiceHostnameConfiguration) []ServiceHostnameConfigurationProxy { return v.Proxies }).(ServiceHostnameConfigurationProxyArrayOutput)
+	return o.ApplyT(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationProxy { return v.Proxies }).(ServiceHostnameConfigurationProxyArrayOutput)
 }
 
+// One or more `scm` blocks as documented below.
 func (o ServiceHostnameConfigurationPtrOutput) Scms() ServiceHostnameConfigurationScmArrayOutput {
-	return o.ApplyT(func (v ServiceHostnameConfiguration) []ServiceHostnameConfigurationScm { return v.Scms }).(ServiceHostnameConfigurationScmArrayOutput)
+	return o.ApplyT(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationScm { return v.Scms }).(ServiceHostnameConfigurationScmArrayOutput)
 }
 
 type ServiceHostnameConfigurationManagement struct {
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// The Base64 Encoded Certificate.
 	Certificate *string `pulumi:"certificate"`
+	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The Hostname to use for the Management API.
 	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
 }
 
@@ -2992,11 +3296,15 @@ type ServiceHostnameConfigurationManagementInput interface {
 }
 
 type ServiceHostnameConfigurationManagementArgs struct {
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// The Base64 Encoded Certificate.
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The Hostname to use for the Management API.
 	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
 }
 
@@ -3033,7 +3341,7 @@ func (i ServiceHostnameConfigurationManagementArray) ToServiceHostnameConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationManagementArrayOutput)
 }
 
-type ServiceHostnameConfigurationManagementOutput struct { *pulumi.OutputState }
+type ServiceHostnameConfigurationManagementOutput struct{ *pulumi.OutputState }
 
 func (ServiceHostnameConfigurationManagementOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceHostnameConfigurationManagement)(nil)).Elem()
@@ -3047,28 +3355,32 @@ func (o ServiceHostnameConfigurationManagementOutput) ToServiceHostnameConfigura
 	return o
 }
 
-// One or more (up to 10) `certificate` blocks as defined below.
+// The Base64 Encoded Certificate.
 func (o ServiceHostnameConfigurationManagementOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationManagement) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
+// The password associated with the certificate provided above.
 func (o ServiceHostnameConfigurationManagementOutput) CertificatePassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationManagement) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+// The Hostname to use for the Management API.
 func (o ServiceHostnameConfigurationManagementOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationManagement) string { return v.HostName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) string { return v.HostName }).(pulumi.StringOutput)
 }
 
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 func (o ServiceHostnameConfigurationManagementOutput) KeyVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationManagement) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
+// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 func (o ServiceHostnameConfigurationManagementOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationManagement) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
 }
 
-type ServiceHostnameConfigurationManagementArrayOutput struct { *pulumi.OutputState}
+type ServiceHostnameConfigurationManagementArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceHostnameConfigurationManagementArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ServiceHostnameConfigurationManagement)(nil)).Elem()
@@ -3083,7 +3395,7 @@ func (o ServiceHostnameConfigurationManagementArrayOutput) ToServiceHostnameConf
 }
 
 func (o ServiceHostnameConfigurationManagementArrayOutput) Index(i pulumi.IntInput) ServiceHostnameConfigurationManagementOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ServiceHostnameConfigurationManagement {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceHostnameConfigurationManagement {
 		return vs[0].([]ServiceHostnameConfigurationManagement)[vs[1].(int)]
 	}).(ServiceHostnameConfigurationManagementOutput)
 }
@@ -3091,9 +3403,13 @@ func (o ServiceHostnameConfigurationManagementArrayOutput) Index(i pulumi.IntInp
 type ServiceHostnameConfigurationPortal struct {
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificate *string `pulumi:"certificate"`
+	// The password for the certificate.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The Hostname to use for the Management API.
 	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
 }
 
@@ -3107,9 +3423,13 @@ type ServiceHostnameConfigurationPortalInput interface {
 type ServiceHostnameConfigurationPortalArgs struct {
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// The password for the certificate.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The Hostname to use for the Management API.
 	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
 }
 
@@ -3146,7 +3466,7 @@ func (i ServiceHostnameConfigurationPortalArray) ToServiceHostnameConfigurationP
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationPortalArrayOutput)
 }
 
-type ServiceHostnameConfigurationPortalOutput struct { *pulumi.OutputState }
+type ServiceHostnameConfigurationPortalOutput struct{ *pulumi.OutputState }
 
 func (ServiceHostnameConfigurationPortalOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceHostnameConfigurationPortal)(nil)).Elem()
@@ -3162,26 +3482,30 @@ func (o ServiceHostnameConfigurationPortalOutput) ToServiceHostnameConfiguration
 
 // One or more (up to 10) `certificate` blocks as defined below.
 func (o ServiceHostnameConfigurationPortalOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationPortal) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
+// The password for the certificate.
 func (o ServiceHostnameConfigurationPortalOutput) CertificatePassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+// The Hostname to use for the Management API.
 func (o ServiceHostnameConfigurationPortalOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationPortal) string { return v.HostName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) string { return v.HostName }).(pulumi.StringOutput)
 }
 
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 func (o ServiceHostnameConfigurationPortalOutput) KeyVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationPortal) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
+// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 func (o ServiceHostnameConfigurationPortalOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationPortal) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
 }
 
-type ServiceHostnameConfigurationPortalArrayOutput struct { *pulumi.OutputState}
+type ServiceHostnameConfigurationPortalArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceHostnameConfigurationPortalArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ServiceHostnameConfigurationPortal)(nil)).Elem()
@@ -3196,18 +3520,23 @@ func (o ServiceHostnameConfigurationPortalArrayOutput) ToServiceHostnameConfigur
 }
 
 func (o ServiceHostnameConfigurationPortalArrayOutput) Index(i pulumi.IntInput) ServiceHostnameConfigurationPortalOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ServiceHostnameConfigurationPortal {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceHostnameConfigurationPortal {
 		return vs[0].([]ServiceHostnameConfigurationPortal)[vs[1].(int)]
 	}).(ServiceHostnameConfigurationPortalOutput)
 }
 
 type ServiceHostnameConfigurationProxy struct {
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// The Base64 Encoded Certificate.
 	Certificate *string `pulumi:"certificate"`
+	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
 	DefaultSslBinding *bool `pulumi:"defaultSslBinding"`
+	// The Hostname to use for the Management API.
 	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
 }
 
@@ -3219,12 +3548,17 @@ type ServiceHostnameConfigurationProxyInput interface {
 }
 
 type ServiceHostnameConfigurationProxyArgs struct {
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// The Base64 Encoded Certificate.
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
 	DefaultSslBinding pulumi.BoolPtrInput `pulumi:"defaultSslBinding"`
+	// The Hostname to use for the Management API.
 	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
 }
 
@@ -3261,7 +3595,7 @@ func (i ServiceHostnameConfigurationProxyArray) ToServiceHostnameConfigurationPr
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationProxyArrayOutput)
 }
 
-type ServiceHostnameConfigurationProxyOutput struct { *pulumi.OutputState }
+type ServiceHostnameConfigurationProxyOutput struct{ *pulumi.OutputState }
 
 func (ServiceHostnameConfigurationProxyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceHostnameConfigurationProxy)(nil)).Elem()
@@ -3275,32 +3609,37 @@ func (o ServiceHostnameConfigurationProxyOutput) ToServiceHostnameConfigurationP
 	return o
 }
 
-// One or more (up to 10) `certificate` blocks as defined below.
+// The Base64 Encoded Certificate.
 func (o ServiceHostnameConfigurationProxyOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationProxy) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
+// The password associated with the certificate provided above.
 func (o ServiceHostnameConfigurationProxyOutput) CertificatePassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationProxy) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
 func (o ServiceHostnameConfigurationProxyOutput) DefaultSslBinding() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationProxy) *bool { return v.DefaultSslBinding }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *bool { return v.DefaultSslBinding }).(pulumi.BoolPtrOutput)
 }
 
+// The Hostname to use for the Management API.
 func (o ServiceHostnameConfigurationProxyOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationProxy) string { return v.HostName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) string { return v.HostName }).(pulumi.StringOutput)
 }
 
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 func (o ServiceHostnameConfigurationProxyOutput) KeyVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationProxy) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
+// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 func (o ServiceHostnameConfigurationProxyOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationProxy) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
 }
 
-type ServiceHostnameConfigurationProxyArrayOutput struct { *pulumi.OutputState}
+type ServiceHostnameConfigurationProxyArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceHostnameConfigurationProxyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ServiceHostnameConfigurationProxy)(nil)).Elem()
@@ -3315,7 +3654,7 @@ func (o ServiceHostnameConfigurationProxyArrayOutput) ToServiceHostnameConfigura
 }
 
 func (o ServiceHostnameConfigurationProxyArrayOutput) Index(i pulumi.IntInput) ServiceHostnameConfigurationProxyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ServiceHostnameConfigurationProxy {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceHostnameConfigurationProxy {
 		return vs[0].([]ServiceHostnameConfigurationProxy)[vs[1].(int)]
 	}).(ServiceHostnameConfigurationProxyOutput)
 }
@@ -3323,9 +3662,13 @@ func (o ServiceHostnameConfigurationProxyArrayOutput) Index(i pulumi.IntInput) S
 type ServiceHostnameConfigurationScm struct {
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificate *string `pulumi:"certificate"`
+	// The password for the certificate.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The Hostname to use for the Management API.
 	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
 }
 
@@ -3339,9 +3682,13 @@ type ServiceHostnameConfigurationScmInput interface {
 type ServiceHostnameConfigurationScmArgs struct {
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// The password for the certificate.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The Hostname to use for the Management API.
 	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
 }
 
@@ -3378,7 +3725,7 @@ func (i ServiceHostnameConfigurationScmArray) ToServiceHostnameConfigurationScmA
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationScmArrayOutput)
 }
 
-type ServiceHostnameConfigurationScmOutput struct { *pulumi.OutputState }
+type ServiceHostnameConfigurationScmOutput struct{ *pulumi.OutputState }
 
 func (ServiceHostnameConfigurationScmOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceHostnameConfigurationScm)(nil)).Elem()
@@ -3394,26 +3741,30 @@ func (o ServiceHostnameConfigurationScmOutput) ToServiceHostnameConfigurationScm
 
 // One or more (up to 10) `certificate` blocks as defined below.
 func (o ServiceHostnameConfigurationScmOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationScm) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
+// The password for the certificate.
 func (o ServiceHostnameConfigurationScmOutput) CertificatePassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationScm) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+// The Hostname to use for the Management API.
 func (o ServiceHostnameConfigurationScmOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationScm) string { return v.HostName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationScm) string { return v.HostName }).(pulumi.StringOutput)
 }
 
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 func (o ServiceHostnameConfigurationScmOutput) KeyVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationScm) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
+// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 func (o ServiceHostnameConfigurationScmOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceHostnameConfigurationScm) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
 }
 
-type ServiceHostnameConfigurationScmArrayOutput struct { *pulumi.OutputState}
+type ServiceHostnameConfigurationScmArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceHostnameConfigurationScmArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ServiceHostnameConfigurationScm)(nil)).Elem()
@@ -3428,7 +3779,7 @@ func (o ServiceHostnameConfigurationScmArrayOutput) ToServiceHostnameConfigurati
 }
 
 func (o ServiceHostnameConfigurationScmArrayOutput) Index(i pulumi.IntInput) ServiceHostnameConfigurationScmOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ServiceHostnameConfigurationScm {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceHostnameConfigurationScm {
 		return vs[0].([]ServiceHostnameConfigurationScm)[vs[1].(int)]
 	}).(ServiceHostnameConfigurationScmOutput)
 }
@@ -3438,6 +3789,7 @@ type ServiceIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. At this time the only supported value is`SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -3453,6 +3805,7 @@ type ServiceIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. At this time the only supported value is`SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3485,7 +3838,8 @@ type ServiceIdentityPtrInput interface {
 
 type serviceIdentityPtrType ServiceIdentityArgs
 
-func ServiceIdentityPtr(v *ServiceIdentityArgs) ServiceIdentityPtrInput {	return (*serviceIdentityPtrType)(v)
+func ServiceIdentityPtr(v *ServiceIdentityArgs) ServiceIdentityPtrInput {
+	return (*serviceIdentityPtrType)(v)
 }
 
 func (*serviceIdentityPtrType) ElementType() reflect.Type {
@@ -3500,7 +3854,7 @@ func (i *serviceIdentityPtrType) ToServiceIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIdentityPtrOutput)
 }
 
-type ServiceIdentityOutput struct { *pulumi.OutputState }
+type ServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ServiceIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceIdentity)(nil)).Elem()
@@ -3523,21 +3877,23 @@ func (o ServiceIdentityOutput) ToServiceIdentityPtrOutputWithContext(ctx context
 		return &v
 	}).(ServiceIdentityPtrOutput)
 }
+
 // The Principal ID associated with this Managed Service Identity.
 func (o ServiceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The Tenant ID associated with this Managed Service Identity.
 func (o ServiceIdentityOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the type of Managed Service Identity that should be configured on this API Management Service. At this time the only supported value is`SystemAssigned`.
 func (o ServiceIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type ServiceIdentityPtrOutput struct { *pulumi.OutputState}
+type ServiceIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceIdentity)(nil)).Elem()
@@ -3552,25 +3908,28 @@ func (o ServiceIdentityPtrOutput) ToServiceIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o ServiceIdentityPtrOutput) Elem() ServiceIdentityOutput {
-	return o.ApplyT(func (v *ServiceIdentity) ServiceIdentity { return *v }).(ServiceIdentityOutput)
+	return o.ApplyT(func(v *ServiceIdentity) ServiceIdentity { return *v }).(ServiceIdentityOutput)
 }
 
 // The Principal ID associated with this Managed Service Identity.
 func (o ServiceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
 // The Tenant ID associated with this Managed Service Identity.
 func (o ServiceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the type of Managed Service Identity that should be configured on this API Management Service. At this time the only supported value is`SystemAssigned`.
 func (o ServiceIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ServicePolicy struct {
+	// The XML Content for this Policy.
 	XmlContent *string `pulumi:"xmlContent"`
+	// A link to an API Management Policy XML Document, which must be publicly available.
 	XmlLink *string `pulumi:"xmlLink"`
 }
 
@@ -3582,7 +3941,9 @@ type ServicePolicyInput interface {
 }
 
 type ServicePolicyArgs struct {
+	// The XML Content for this Policy.
 	XmlContent pulumi.StringPtrInput `pulumi:"xmlContent"`
+	// A link to an API Management Policy XML Document, which must be publicly available.
 	XmlLink pulumi.StringPtrInput `pulumi:"xmlLink"`
 }
 
@@ -3615,7 +3976,8 @@ type ServicePolicyPtrInput interface {
 
 type servicePolicyPtrType ServicePolicyArgs
 
-func ServicePolicyPtr(v *ServicePolicyArgs) ServicePolicyPtrInput {	return (*servicePolicyPtrType)(v)
+func ServicePolicyPtr(v *ServicePolicyArgs) ServicePolicyPtrInput {
+	return (*servicePolicyPtrType)(v)
 }
 
 func (*servicePolicyPtrType) ElementType() reflect.Type {
@@ -3630,7 +3992,7 @@ func (i *servicePolicyPtrType) ToServicePolicyPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePolicyPtrOutput)
 }
 
-type ServicePolicyOutput struct { *pulumi.OutputState }
+type ServicePolicyOutput struct{ *pulumi.OutputState }
 
 func (ServicePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServicePolicy)(nil)).Elem()
@@ -3653,15 +4015,18 @@ func (o ServicePolicyOutput) ToServicePolicyPtrOutputWithContext(ctx context.Con
 		return &v
 	}).(ServicePolicyPtrOutput)
 }
+
+// The XML Content for this Policy.
 func (o ServicePolicyOutput) XmlContent() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServicePolicy) *string { return v.XmlContent }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServicePolicy) *string { return v.XmlContent }).(pulumi.StringPtrOutput)
 }
 
+// A link to an API Management Policy XML Document, which must be publicly available.
 func (o ServicePolicyOutput) XmlLink() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServicePolicy) *string { return v.XmlLink }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServicePolicy) *string { return v.XmlLink }).(pulumi.StringPtrOutput)
 }
 
-type ServicePolicyPtrOutput struct { *pulumi.OutputState}
+type ServicePolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (ServicePolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServicePolicy)(nil)).Elem()
@@ -3676,18 +4041,21 @@ func (o ServicePolicyPtrOutput) ToServicePolicyPtrOutputWithContext(ctx context.
 }
 
 func (o ServicePolicyPtrOutput) Elem() ServicePolicyOutput {
-	return o.ApplyT(func (v *ServicePolicy) ServicePolicy { return *v }).(ServicePolicyOutput)
+	return o.ApplyT(func(v *ServicePolicy) ServicePolicy { return *v }).(ServicePolicyOutput)
 }
 
+// The XML Content for this Policy.
 func (o ServicePolicyPtrOutput) XmlContent() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServicePolicy) *string { return v.XmlContent }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServicePolicy) *string { return v.XmlContent }).(pulumi.StringPtrOutput)
 }
 
+// A link to an API Management Policy XML Document, which must be publicly available.
 func (o ServicePolicyPtrOutput) XmlLink() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServicePolicy) *string { return v.XmlLink }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServicePolicy) *string { return v.XmlLink }).(pulumi.StringPtrOutput)
 }
 
 type ServiceProtocols struct {
+	// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
 	EnableHttp2 *bool `pulumi:"enableHttp2"`
 }
 
@@ -3699,6 +4067,7 @@ type ServiceProtocolsInput interface {
 }
 
 type ServiceProtocolsArgs struct {
+	// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
 	EnableHttp2 pulumi.BoolPtrInput `pulumi:"enableHttp2"`
 }
 
@@ -3731,7 +4100,8 @@ type ServiceProtocolsPtrInput interface {
 
 type serviceProtocolsPtrType ServiceProtocolsArgs
 
-func ServiceProtocolsPtr(v *ServiceProtocolsArgs) ServiceProtocolsPtrInput {	return (*serviceProtocolsPtrType)(v)
+func ServiceProtocolsPtr(v *ServiceProtocolsArgs) ServiceProtocolsPtrInput {
+	return (*serviceProtocolsPtrType)(v)
 }
 
 func (*serviceProtocolsPtrType) ElementType() reflect.Type {
@@ -3746,7 +4116,7 @@ func (i *serviceProtocolsPtrType) ToServiceProtocolsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceProtocolsPtrOutput)
 }
 
-type ServiceProtocolsOutput struct { *pulumi.OutputState }
+type ServiceProtocolsOutput struct{ *pulumi.OutputState }
 
 func (ServiceProtocolsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceProtocols)(nil)).Elem()
@@ -3769,11 +4139,13 @@ func (o ServiceProtocolsOutput) ToServiceProtocolsPtrOutputWithContext(ctx conte
 		return &v
 	}).(ServiceProtocolsPtrOutput)
 }
+
+// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
 func (o ServiceProtocolsOutput) EnableHttp2() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceProtocols) *bool { return v.EnableHttp2 }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceProtocols) *bool { return v.EnableHttp2 }).(pulumi.BoolPtrOutput)
 }
 
-type ServiceProtocolsPtrOutput struct { *pulumi.OutputState}
+type ServiceProtocolsPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceProtocolsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceProtocols)(nil)).Elem()
@@ -3788,20 +4160,28 @@ func (o ServiceProtocolsPtrOutput) ToServiceProtocolsPtrOutputWithContext(ctx co
 }
 
 func (o ServiceProtocolsPtrOutput) Elem() ServiceProtocolsOutput {
-	return o.ApplyT(func (v *ServiceProtocols) ServiceProtocols { return *v }).(ServiceProtocolsOutput)
+	return o.ApplyT(func(v *ServiceProtocols) ServiceProtocols { return *v }).(ServiceProtocolsOutput)
 }
 
+// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
 func (o ServiceProtocolsPtrOutput) EnableHttp2() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceProtocols) *bool { return v.EnableHttp2 }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceProtocols) *bool { return v.EnableHttp2 }).(pulumi.BoolPtrOutput)
 }
 
 type ServiceSecurity struct {
+	// Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
 	EnableBackendSsl30 *bool `pulumi:"enableBackendSsl30"`
+	// Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
 	EnableBackendTls10 *bool `pulumi:"enableBackendTls10"`
+	// Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
 	EnableBackendTls11 *bool `pulumi:"enableBackendTls11"`
+	// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
 	EnableFrontendSsl30 *bool `pulumi:"enableFrontendSsl30"`
+	// Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
 	EnableFrontendTls10 *bool `pulumi:"enableFrontendTls10"`
+	// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
 	EnableFrontendTls11 *bool `pulumi:"enableFrontendTls11"`
+	// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
 	EnableTripleDesCiphers *bool `pulumi:"enableTripleDesCiphers"`
 }
 
@@ -3813,12 +4193,19 @@ type ServiceSecurityInput interface {
 }
 
 type ServiceSecurityArgs struct {
+	// Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
 	EnableBackendSsl30 pulumi.BoolPtrInput `pulumi:"enableBackendSsl30"`
+	// Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
 	EnableBackendTls10 pulumi.BoolPtrInput `pulumi:"enableBackendTls10"`
+	// Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
 	EnableBackendTls11 pulumi.BoolPtrInput `pulumi:"enableBackendTls11"`
+	// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
 	EnableFrontendSsl30 pulumi.BoolPtrInput `pulumi:"enableFrontendSsl30"`
+	// Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
 	EnableFrontendTls10 pulumi.BoolPtrInput `pulumi:"enableFrontendTls10"`
+	// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
 	EnableFrontendTls11 pulumi.BoolPtrInput `pulumi:"enableFrontendTls11"`
+	// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
 	EnableTripleDesCiphers pulumi.BoolPtrInput `pulumi:"enableTripleDesCiphers"`
 }
 
@@ -3851,7 +4238,8 @@ type ServiceSecurityPtrInput interface {
 
 type serviceSecurityPtrType ServiceSecurityArgs
 
-func ServiceSecurityPtr(v *ServiceSecurityArgs) ServiceSecurityPtrInput {	return (*serviceSecurityPtrType)(v)
+func ServiceSecurityPtr(v *ServiceSecurityArgs) ServiceSecurityPtrInput {
+	return (*serviceSecurityPtrType)(v)
 }
 
 func (*serviceSecurityPtrType) ElementType() reflect.Type {
@@ -3866,7 +4254,7 @@ func (i *serviceSecurityPtrType) ToServiceSecurityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSecurityPtrOutput)
 }
 
-type ServiceSecurityOutput struct { *pulumi.OutputState }
+type ServiceSecurityOutput struct{ *pulumi.OutputState }
 
 func (ServiceSecurityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceSecurity)(nil)).Elem()
@@ -3889,35 +4277,43 @@ func (o ServiceSecurityOutput) ToServiceSecurityPtrOutputWithContext(ctx context
 		return &v
 	}).(ServiceSecurityPtrOutput)
 }
+
+// Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
 func (o ServiceSecurityOutput) EnableBackendSsl30() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.EnableBackendSsl30 }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableBackendSsl30 }).(pulumi.BoolPtrOutput)
 }
 
+// Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
 func (o ServiceSecurityOutput) EnableBackendTls10() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.EnableBackendTls10 }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableBackendTls10 }).(pulumi.BoolPtrOutput)
 }
 
+// Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
 func (o ServiceSecurityOutput) EnableBackendTls11() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.EnableBackendTls11 }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableBackendTls11 }).(pulumi.BoolPtrOutput)
 }
 
+// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
 func (o ServiceSecurityOutput) EnableFrontendSsl30() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.EnableFrontendSsl30 }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableFrontendSsl30 }).(pulumi.BoolPtrOutput)
 }
 
+// Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
 func (o ServiceSecurityOutput) EnableFrontendTls10() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.EnableFrontendTls10 }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableFrontendTls10 }).(pulumi.BoolPtrOutput)
 }
 
+// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
 func (o ServiceSecurityOutput) EnableFrontendTls11() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.EnableFrontendTls11 }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableFrontendTls11 }).(pulumi.BoolPtrOutput)
 }
 
+// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
 func (o ServiceSecurityOutput) EnableTripleDesCiphers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.EnableTripleDesCiphers }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableTripleDesCiphers }).(pulumi.BoolPtrOutput)
 }
 
-type ServiceSecurityPtrOutput struct { *pulumi.OutputState}
+type ServiceSecurityPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceSecurityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceSecurity)(nil)).Elem()
@@ -3932,38 +4328,46 @@ func (o ServiceSecurityPtrOutput) ToServiceSecurityPtrOutputWithContext(ctx cont
 }
 
 func (o ServiceSecurityPtrOutput) Elem() ServiceSecurityOutput {
-	return o.ApplyT(func (v *ServiceSecurity) ServiceSecurity { return *v }).(ServiceSecurityOutput)
+	return o.ApplyT(func(v *ServiceSecurity) ServiceSecurity { return *v }).(ServiceSecurityOutput)
 }
 
+// Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
 func (o ServiceSecurityPtrOutput) EnableBackendSsl30() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.EnableBackendSsl30 }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableBackendSsl30 }).(pulumi.BoolPtrOutput)
 }
 
+// Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
 func (o ServiceSecurityPtrOutput) EnableBackendTls10() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.EnableBackendTls10 }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableBackendTls10 }).(pulumi.BoolPtrOutput)
 }
 
+// Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
 func (o ServiceSecurityPtrOutput) EnableBackendTls11() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.EnableBackendTls11 }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableBackendTls11 }).(pulumi.BoolPtrOutput)
 }
 
+// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
 func (o ServiceSecurityPtrOutput) EnableFrontendSsl30() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.EnableFrontendSsl30 }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableFrontendSsl30 }).(pulumi.BoolPtrOutput)
 }
 
+// Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
 func (o ServiceSecurityPtrOutput) EnableFrontendTls10() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.EnableFrontendTls10 }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableFrontendTls10 }).(pulumi.BoolPtrOutput)
 }
 
+// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
 func (o ServiceSecurityPtrOutput) EnableFrontendTls11() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.EnableFrontendTls11 }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableFrontendTls11 }).(pulumi.BoolPtrOutput)
 }
 
+// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
 func (o ServiceSecurityPtrOutput) EnableTripleDesCiphers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.EnableTripleDesCiphers }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableTripleDesCiphers }).(pulumi.BoolPtrOutput)
 }
 
 type ServiceSignIn struct {
+	// Should anonymous users be redirected to the sign in page?
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -3975,6 +4379,7 @@ type ServiceSignInInput interface {
 }
 
 type ServiceSignInArgs struct {
+	// Should anonymous users be redirected to the sign in page?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -4007,7 +4412,8 @@ type ServiceSignInPtrInput interface {
 
 type serviceSignInPtrType ServiceSignInArgs
 
-func ServiceSignInPtr(v *ServiceSignInArgs) ServiceSignInPtrInput {	return (*serviceSignInPtrType)(v)
+func ServiceSignInPtr(v *ServiceSignInArgs) ServiceSignInPtrInput {
+	return (*serviceSignInPtrType)(v)
 }
 
 func (*serviceSignInPtrType) ElementType() reflect.Type {
@@ -4022,7 +4428,7 @@ func (i *serviceSignInPtrType) ToServiceSignInPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSignInPtrOutput)
 }
 
-type ServiceSignInOutput struct { *pulumi.OutputState }
+type ServiceSignInOutput struct{ *pulumi.OutputState }
 
 func (ServiceSignInOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceSignIn)(nil)).Elem()
@@ -4045,11 +4451,13 @@ func (o ServiceSignInOutput) ToServiceSignInPtrOutputWithContext(ctx context.Con
 		return &v
 	}).(ServiceSignInPtrOutput)
 }
+
+// Should anonymous users be redirected to the sign in page?
 func (o ServiceSignInOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v ServiceSignIn) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ServiceSignIn) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type ServiceSignInPtrOutput struct { *pulumi.OutputState}
+type ServiceSignInPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceSignInPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceSignIn)(nil)).Elem()
@@ -4064,15 +4472,18 @@ func (o ServiceSignInPtrOutput) ToServiceSignInPtrOutputWithContext(ctx context.
 }
 
 func (o ServiceSignInPtrOutput) Elem() ServiceSignInOutput {
-	return o.ApplyT(func (v *ServiceSignIn) ServiceSignIn { return *v }).(ServiceSignInOutput)
+	return o.ApplyT(func(v *ServiceSignIn) ServiceSignIn { return *v }).(ServiceSignInOutput)
 }
 
+// Should anonymous users be redirected to the sign in page?
 func (o ServiceSignInPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v ServiceSignIn) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ServiceSignIn) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 type ServiceSignUp struct {
+	// Can users sign up on the development portal?
 	Enabled bool `pulumi:"enabled"`
+	// A `termsOfService` block as defined below.
 	TermsOfService ServiceSignUpTermsOfService `pulumi:"termsOfService"`
 }
 
@@ -4084,7 +4495,9 @@ type ServiceSignUpInput interface {
 }
 
 type ServiceSignUpArgs struct {
+	// Can users sign up on the development portal?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A `termsOfService` block as defined below.
 	TermsOfService ServiceSignUpTermsOfServiceInput `pulumi:"termsOfService"`
 }
 
@@ -4117,7 +4530,8 @@ type ServiceSignUpPtrInput interface {
 
 type serviceSignUpPtrType ServiceSignUpArgs
 
-func ServiceSignUpPtr(v *ServiceSignUpArgs) ServiceSignUpPtrInput {	return (*serviceSignUpPtrType)(v)
+func ServiceSignUpPtr(v *ServiceSignUpArgs) ServiceSignUpPtrInput {
+	return (*serviceSignUpPtrType)(v)
 }
 
 func (*serviceSignUpPtrType) ElementType() reflect.Type {
@@ -4132,7 +4546,7 @@ func (i *serviceSignUpPtrType) ToServiceSignUpPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSignUpPtrOutput)
 }
 
-type ServiceSignUpOutput struct { *pulumi.OutputState }
+type ServiceSignUpOutput struct{ *pulumi.OutputState }
 
 func (ServiceSignUpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceSignUp)(nil)).Elem()
@@ -4155,15 +4569,18 @@ func (o ServiceSignUpOutput) ToServiceSignUpPtrOutputWithContext(ctx context.Con
 		return &v
 	}).(ServiceSignUpPtrOutput)
 }
+
+// Can users sign up on the development portal?
 func (o ServiceSignUpOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v ServiceSignUp) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ServiceSignUp) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// A `termsOfService` block as defined below.
 func (o ServiceSignUpOutput) TermsOfService() ServiceSignUpTermsOfServiceOutput {
-	return o.ApplyT(func (v ServiceSignUp) ServiceSignUpTermsOfService { return v.TermsOfService }).(ServiceSignUpTermsOfServiceOutput)
+	return o.ApplyT(func(v ServiceSignUp) ServiceSignUpTermsOfService { return v.TermsOfService }).(ServiceSignUpTermsOfServiceOutput)
 }
 
-type ServiceSignUpPtrOutput struct { *pulumi.OutputState}
+type ServiceSignUpPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceSignUpPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceSignUp)(nil)).Elem()
@@ -4178,20 +4595,25 @@ func (o ServiceSignUpPtrOutput) ToServiceSignUpPtrOutputWithContext(ctx context.
 }
 
 func (o ServiceSignUpPtrOutput) Elem() ServiceSignUpOutput {
-	return o.ApplyT(func (v *ServiceSignUp) ServiceSignUp { return *v }).(ServiceSignUpOutput)
+	return o.ApplyT(func(v *ServiceSignUp) ServiceSignUp { return *v }).(ServiceSignUpOutput)
 }
 
+// Can users sign up on the development portal?
 func (o ServiceSignUpPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v ServiceSignUp) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ServiceSignUp) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// A `termsOfService` block as defined below.
 func (o ServiceSignUpPtrOutput) TermsOfService() ServiceSignUpTermsOfServiceOutput {
-	return o.ApplyT(func (v ServiceSignUp) ServiceSignUpTermsOfService { return v.TermsOfService }).(ServiceSignUpTermsOfServiceOutput)
+	return o.ApplyT(func(v ServiceSignUp) ServiceSignUpTermsOfService { return v.TermsOfService }).(ServiceSignUpTermsOfServiceOutput)
 }
 
 type ServiceSignUpTermsOfService struct {
+	// Should the user be asked for consent during sign up?
 	ConsentRequired bool `pulumi:"consentRequired"`
+	// Should Terms of Service be displayed during sign up?.
 	Enabled bool `pulumi:"enabled"`
+	// The Terms of Service which users are required to agree to in order to sign up.
 	Text *string `pulumi:"text"`
 }
 
@@ -4203,8 +4625,11 @@ type ServiceSignUpTermsOfServiceInput interface {
 }
 
 type ServiceSignUpTermsOfServiceArgs struct {
+	// Should the user be asked for consent during sign up?
 	ConsentRequired pulumi.BoolInput `pulumi:"consentRequired"`
+	// Should Terms of Service be displayed during sign up?.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The Terms of Service which users are required to agree to in order to sign up.
 	Text pulumi.StringPtrInput `pulumi:"text"`
 }
 
@@ -4220,7 +4645,7 @@ func (i ServiceSignUpTermsOfServiceArgs) ToServiceSignUpTermsOfServiceOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSignUpTermsOfServiceOutput)
 }
 
-type ServiceSignUpTermsOfServiceOutput struct { *pulumi.OutputState }
+type ServiceSignUpTermsOfServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceSignUpTermsOfServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceSignUpTermsOfService)(nil)).Elem()
@@ -4234,16 +4659,19 @@ func (o ServiceSignUpTermsOfServiceOutput) ToServiceSignUpTermsOfServiceOutputWi
 	return o
 }
 
+// Should the user be asked for consent during sign up?
 func (o ServiceSignUpTermsOfServiceOutput) ConsentRequired() pulumi.BoolOutput {
-	return o.ApplyT(func (v ServiceSignUpTermsOfService) bool { return v.ConsentRequired }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ServiceSignUpTermsOfService) bool { return v.ConsentRequired }).(pulumi.BoolOutput)
 }
 
+// Should Terms of Service be displayed during sign up?.
 func (o ServiceSignUpTermsOfServiceOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v ServiceSignUpTermsOfService) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ServiceSignUpTermsOfService) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// The Terms of Service which users are required to agree to in order to sign up.
 func (o ServiceSignUpTermsOfServiceOutput) Text() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ServiceSignUpTermsOfService) *string { return v.Text }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ServiceSignUpTermsOfService) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
 
 type GetApiSubscriptionKeyParameterName struct {
@@ -4300,7 +4728,7 @@ func (i GetApiSubscriptionKeyParameterNameArray) ToGetApiSubscriptionKeyParamete
 	return pulumi.ToOutputWithContext(ctx, i).(GetApiSubscriptionKeyParameterNameArrayOutput)
 }
 
-type GetApiSubscriptionKeyParameterNameOutput struct { *pulumi.OutputState }
+type GetApiSubscriptionKeyParameterNameOutput struct{ *pulumi.OutputState }
 
 func (GetApiSubscriptionKeyParameterNameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetApiSubscriptionKeyParameterName)(nil)).Elem()
@@ -4316,15 +4744,15 @@ func (o GetApiSubscriptionKeyParameterNameOutput) ToGetApiSubscriptionKeyParamet
 
 // The name of the HTTP Header which should be used for the Subscription Key.
 func (o GetApiSubscriptionKeyParameterNameOutput) Header() pulumi.StringOutput {
-	return o.ApplyT(func (v GetApiSubscriptionKeyParameterName) string { return v.Header }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetApiSubscriptionKeyParameterName) string { return v.Header }).(pulumi.StringOutput)
 }
 
 // The name of the QueryString parameter which should be used for the Subscription Key.
 func (o GetApiSubscriptionKeyParameterNameOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func (v GetApiSubscriptionKeyParameterName) string { return v.Query }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetApiSubscriptionKeyParameterName) string { return v.Query }).(pulumi.StringOutput)
 }
 
-type GetApiSubscriptionKeyParameterNameArrayOutput struct { *pulumi.OutputState}
+type GetApiSubscriptionKeyParameterNameArrayOutput struct{ *pulumi.OutputState }
 
 func (GetApiSubscriptionKeyParameterNameArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetApiSubscriptionKeyParameterName)(nil)).Elem()
@@ -4339,7 +4767,7 @@ func (o GetApiSubscriptionKeyParameterNameArrayOutput) ToGetApiSubscriptionKeyPa
 }
 
 func (o GetApiSubscriptionKeyParameterNameArrayOutput) Index(i pulumi.IntInput) GetApiSubscriptionKeyParameterNameOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetApiSubscriptionKeyParameterName {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApiSubscriptionKeyParameterName {
 		return vs[0].([]GetApiSubscriptionKeyParameterName)[vs[1].(int)]
 	}).(GetApiSubscriptionKeyParameterNameOutput)
 }
@@ -4402,7 +4830,7 @@ func (i GetServiceAdditionalLocationArray) ToGetServiceAdditionalLocationArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceAdditionalLocationArrayOutput)
 }
 
-type GetServiceAdditionalLocationOutput struct { *pulumi.OutputState }
+type GetServiceAdditionalLocationOutput struct{ *pulumi.OutputState }
 
 func (GetServiceAdditionalLocationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetServiceAdditionalLocation)(nil)).Elem()
@@ -4418,20 +4846,20 @@ func (o GetServiceAdditionalLocationOutput) ToGetServiceAdditionalLocationOutput
 
 // Gateway URL of the API Management service in the Region.
 func (o GetServiceAdditionalLocationOutput) GatewayRegionalUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceAdditionalLocation) string { return v.GatewayRegionalUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceAdditionalLocation) string { return v.GatewayRegionalUrl }).(pulumi.StringOutput)
 }
 
 // The location name of the additional region among Azure Data center regions.
 func (o GetServiceAdditionalLocationOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceAdditionalLocation) string { return v.Location }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceAdditionalLocation) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 func (o GetServiceAdditionalLocationOutput) PublicIpAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetServiceAdditionalLocation) []string { return v.PublicIpAddresses }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetServiceAdditionalLocation) []string { return v.PublicIpAddresses }).(pulumi.StringArrayOutput)
 }
 
-type GetServiceAdditionalLocationArrayOutput struct { *pulumi.OutputState}
+type GetServiceAdditionalLocationArrayOutput struct{ *pulumi.OutputState }
 
 func (GetServiceAdditionalLocationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetServiceAdditionalLocation)(nil)).Elem()
@@ -4446,7 +4874,7 @@ func (o GetServiceAdditionalLocationArrayOutput) ToGetServiceAdditionalLocationA
 }
 
 func (o GetServiceAdditionalLocationArrayOutput) Index(i pulumi.IntInput) GetServiceAdditionalLocationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetServiceAdditionalLocation {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceAdditionalLocation {
 		return vs[0].([]GetServiceAdditionalLocation)[vs[1].(int)]
 	}).(GetServiceAdditionalLocationOutput)
 }
@@ -4513,7 +4941,7 @@ func (i GetServiceHostnameConfigurationArray) ToGetServiceHostnameConfigurationA
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationArrayOutput)
 }
 
-type GetServiceHostnameConfigurationOutput struct { *pulumi.OutputState }
+type GetServiceHostnameConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHostnameConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetServiceHostnameConfiguration)(nil)).Elem()
@@ -4529,25 +4957,27 @@ func (o GetServiceHostnameConfigurationOutput) ToGetServiceHostnameConfiguration
 
 // One or more `management` blocks as documented below.
 func (o GetServiceHostnameConfigurationOutput) Managements() GetServiceHostnameConfigurationManagementArrayOutput {
-	return o.ApplyT(func (v GetServiceHostnameConfiguration) []GetServiceHostnameConfigurationManagement { return v.Managements }).(GetServiceHostnameConfigurationManagementArrayOutput)
+	return o.ApplyT(func(v GetServiceHostnameConfiguration) []GetServiceHostnameConfigurationManagement {
+		return v.Managements
+	}).(GetServiceHostnameConfigurationManagementArrayOutput)
 }
 
 // One or more `portal` blocks as documented below.
 func (o GetServiceHostnameConfigurationOutput) Portals() GetServiceHostnameConfigurationPortalArrayOutput {
-	return o.ApplyT(func (v GetServiceHostnameConfiguration) []GetServiceHostnameConfigurationPortal { return v.Portals }).(GetServiceHostnameConfigurationPortalArrayOutput)
+	return o.ApplyT(func(v GetServiceHostnameConfiguration) []GetServiceHostnameConfigurationPortal { return v.Portals }).(GetServiceHostnameConfigurationPortalArrayOutput)
 }
 
 // One or more `proxy` blocks as documented below.
 func (o GetServiceHostnameConfigurationOutput) Proxies() GetServiceHostnameConfigurationProxyArrayOutput {
-	return o.ApplyT(func (v GetServiceHostnameConfiguration) []GetServiceHostnameConfigurationProxy { return v.Proxies }).(GetServiceHostnameConfigurationProxyArrayOutput)
+	return o.ApplyT(func(v GetServiceHostnameConfiguration) []GetServiceHostnameConfigurationProxy { return v.Proxies }).(GetServiceHostnameConfigurationProxyArrayOutput)
 }
 
 // One or more `scm` blocks as documented below.
 func (o GetServiceHostnameConfigurationOutput) Scms() GetServiceHostnameConfigurationScmArrayOutput {
-	return o.ApplyT(func (v GetServiceHostnameConfiguration) []GetServiceHostnameConfigurationScm { return v.Scms }).(GetServiceHostnameConfigurationScmArrayOutput)
+	return o.ApplyT(func(v GetServiceHostnameConfiguration) []GetServiceHostnameConfigurationScm { return v.Scms }).(GetServiceHostnameConfigurationScmArrayOutput)
 }
 
-type GetServiceHostnameConfigurationArrayOutput struct { *pulumi.OutputState}
+type GetServiceHostnameConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHostnameConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetServiceHostnameConfiguration)(nil)).Elem()
@@ -4562,7 +4992,7 @@ func (o GetServiceHostnameConfigurationArrayOutput) ToGetServiceHostnameConfigur
 }
 
 func (o GetServiceHostnameConfigurationArrayOutput) Index(i pulumi.IntInput) GetServiceHostnameConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetServiceHostnameConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceHostnameConfiguration {
 		return vs[0].([]GetServiceHostnameConfiguration)[vs[1].(int)]
 	}).(GetServiceHostnameConfigurationOutput)
 }
@@ -4625,7 +5055,7 @@ func (i GetServiceHostnameConfigurationManagementArray) ToGetServiceHostnameConf
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationManagementArrayOutput)
 }
 
-type GetServiceHostnameConfigurationManagementOutput struct { *pulumi.OutputState }
+type GetServiceHostnameConfigurationManagementOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHostnameConfigurationManagementOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetServiceHostnameConfigurationManagement)(nil)).Elem()
@@ -4641,20 +5071,20 @@ func (o GetServiceHostnameConfigurationManagementOutput) ToGetServiceHostnameCon
 
 // The Hostname used for the SCM URL.
 func (o GetServiceHostnameConfigurationManagementOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceHostnameConfigurationManagement) string { return v.HostName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceHostnameConfigurationManagement) string { return v.HostName }).(pulumi.StringOutput)
 }
 
 // The ID of the Key Vault Secret which contains the SSL Certificate.
 func (o GetServiceHostnameConfigurationManagementOutput) KeyVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceHostnameConfigurationManagement) string { return v.KeyVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceHostnameConfigurationManagement) string { return v.KeyVaultId }).(pulumi.StringOutput)
 }
 
 // Is Client Certificate Negotiation enabled?
 func (o GetServiceHostnameConfigurationManagementOutput) NegotiateClientCertificate() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetServiceHostnameConfigurationManagement) bool { return v.NegotiateClientCertificate }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetServiceHostnameConfigurationManagement) bool { return v.NegotiateClientCertificate }).(pulumi.BoolOutput)
 }
 
-type GetServiceHostnameConfigurationManagementArrayOutput struct { *pulumi.OutputState}
+type GetServiceHostnameConfigurationManagementArrayOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHostnameConfigurationManagementArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetServiceHostnameConfigurationManagement)(nil)).Elem()
@@ -4669,7 +5099,7 @@ func (o GetServiceHostnameConfigurationManagementArrayOutput) ToGetServiceHostna
 }
 
 func (o GetServiceHostnameConfigurationManagementArrayOutput) Index(i pulumi.IntInput) GetServiceHostnameConfigurationManagementOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetServiceHostnameConfigurationManagement {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceHostnameConfigurationManagement {
 		return vs[0].([]GetServiceHostnameConfigurationManagement)[vs[1].(int)]
 	}).(GetServiceHostnameConfigurationManagementOutput)
 }
@@ -4732,7 +5162,7 @@ func (i GetServiceHostnameConfigurationPortalArray) ToGetServiceHostnameConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationPortalArrayOutput)
 }
 
-type GetServiceHostnameConfigurationPortalOutput struct { *pulumi.OutputState }
+type GetServiceHostnameConfigurationPortalOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHostnameConfigurationPortalOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetServiceHostnameConfigurationPortal)(nil)).Elem()
@@ -4748,20 +5178,20 @@ func (o GetServiceHostnameConfigurationPortalOutput) ToGetServiceHostnameConfigu
 
 // The Hostname used for the SCM URL.
 func (o GetServiceHostnameConfigurationPortalOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceHostnameConfigurationPortal) string { return v.HostName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceHostnameConfigurationPortal) string { return v.HostName }).(pulumi.StringOutput)
 }
 
 // The ID of the Key Vault Secret which contains the SSL Certificate.
 func (o GetServiceHostnameConfigurationPortalOutput) KeyVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceHostnameConfigurationPortal) string { return v.KeyVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceHostnameConfigurationPortal) string { return v.KeyVaultId }).(pulumi.StringOutput)
 }
 
 // Is Client Certificate Negotiation enabled?
 func (o GetServiceHostnameConfigurationPortalOutput) NegotiateClientCertificate() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetServiceHostnameConfigurationPortal) bool { return v.NegotiateClientCertificate }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetServiceHostnameConfigurationPortal) bool { return v.NegotiateClientCertificate }).(pulumi.BoolOutput)
 }
 
-type GetServiceHostnameConfigurationPortalArrayOutput struct { *pulumi.OutputState}
+type GetServiceHostnameConfigurationPortalArrayOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHostnameConfigurationPortalArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetServiceHostnameConfigurationPortal)(nil)).Elem()
@@ -4776,7 +5206,7 @@ func (o GetServiceHostnameConfigurationPortalArrayOutput) ToGetServiceHostnameCo
 }
 
 func (o GetServiceHostnameConfigurationPortalArrayOutput) Index(i pulumi.IntInput) GetServiceHostnameConfigurationPortalOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetServiceHostnameConfigurationPortal {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceHostnameConfigurationPortal {
 		return vs[0].([]GetServiceHostnameConfigurationPortal)[vs[1].(int)]
 	}).(GetServiceHostnameConfigurationPortalOutput)
 }
@@ -4843,7 +5273,7 @@ func (i GetServiceHostnameConfigurationProxyArray) ToGetServiceHostnameConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationProxyArrayOutput)
 }
 
-type GetServiceHostnameConfigurationProxyOutput struct { *pulumi.OutputState }
+type GetServiceHostnameConfigurationProxyOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHostnameConfigurationProxyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetServiceHostnameConfigurationProxy)(nil)).Elem()
@@ -4859,25 +5289,25 @@ func (o GetServiceHostnameConfigurationProxyOutput) ToGetServiceHostnameConfigur
 
 // Is this the default SSL Binding?
 func (o GetServiceHostnameConfigurationProxyOutput) DefaultSslBinding() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetServiceHostnameConfigurationProxy) bool { return v.DefaultSslBinding }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetServiceHostnameConfigurationProxy) bool { return v.DefaultSslBinding }).(pulumi.BoolOutput)
 }
 
 // The Hostname used for the SCM URL.
 func (o GetServiceHostnameConfigurationProxyOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceHostnameConfigurationProxy) string { return v.HostName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceHostnameConfigurationProxy) string { return v.HostName }).(pulumi.StringOutput)
 }
 
 // The ID of the Key Vault Secret which contains the SSL Certificate.
 func (o GetServiceHostnameConfigurationProxyOutput) KeyVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceHostnameConfigurationProxy) string { return v.KeyVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceHostnameConfigurationProxy) string { return v.KeyVaultId }).(pulumi.StringOutput)
 }
 
 // Is Client Certificate Negotiation enabled?
 func (o GetServiceHostnameConfigurationProxyOutput) NegotiateClientCertificate() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetServiceHostnameConfigurationProxy) bool { return v.NegotiateClientCertificate }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetServiceHostnameConfigurationProxy) bool { return v.NegotiateClientCertificate }).(pulumi.BoolOutput)
 }
 
-type GetServiceHostnameConfigurationProxyArrayOutput struct { *pulumi.OutputState}
+type GetServiceHostnameConfigurationProxyArrayOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHostnameConfigurationProxyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetServiceHostnameConfigurationProxy)(nil)).Elem()
@@ -4892,7 +5322,7 @@ func (o GetServiceHostnameConfigurationProxyArrayOutput) ToGetServiceHostnameCon
 }
 
 func (o GetServiceHostnameConfigurationProxyArrayOutput) Index(i pulumi.IntInput) GetServiceHostnameConfigurationProxyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetServiceHostnameConfigurationProxy {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceHostnameConfigurationProxy {
 		return vs[0].([]GetServiceHostnameConfigurationProxy)[vs[1].(int)]
 	}).(GetServiceHostnameConfigurationProxyOutput)
 }
@@ -4955,7 +5385,7 @@ func (i GetServiceHostnameConfigurationScmArray) ToGetServiceHostnameConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationScmArrayOutput)
 }
 
-type GetServiceHostnameConfigurationScmOutput struct { *pulumi.OutputState }
+type GetServiceHostnameConfigurationScmOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHostnameConfigurationScmOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetServiceHostnameConfigurationScm)(nil)).Elem()
@@ -4971,20 +5401,20 @@ func (o GetServiceHostnameConfigurationScmOutput) ToGetServiceHostnameConfigurat
 
 // The Hostname used for the SCM URL.
 func (o GetServiceHostnameConfigurationScmOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceHostnameConfigurationScm) string { return v.HostName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceHostnameConfigurationScm) string { return v.HostName }).(pulumi.StringOutput)
 }
 
 // The ID of the Key Vault Secret which contains the SSL Certificate.
 func (o GetServiceHostnameConfigurationScmOutput) KeyVaultId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceHostnameConfigurationScm) string { return v.KeyVaultId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetServiceHostnameConfigurationScm) string { return v.KeyVaultId }).(pulumi.StringOutput)
 }
 
 // Is Client Certificate Negotiation enabled?
 func (o GetServiceHostnameConfigurationScmOutput) NegotiateClientCertificate() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetServiceHostnameConfigurationScm) bool { return v.NegotiateClientCertificate }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetServiceHostnameConfigurationScm) bool { return v.NegotiateClientCertificate }).(pulumi.BoolOutput)
 }
 
-type GetServiceHostnameConfigurationScmArrayOutput struct { *pulumi.OutputState}
+type GetServiceHostnameConfigurationScmArrayOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHostnameConfigurationScmArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetServiceHostnameConfigurationScm)(nil)).Elem()
@@ -4999,7 +5429,7 @@ func (o GetServiceHostnameConfigurationScmArrayOutput) ToGetServiceHostnameConfi
 }
 
 func (o GetServiceHostnameConfigurationScmArrayOutput) Index(i pulumi.IntInput) GetServiceHostnameConfigurationScmOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetServiceHostnameConfigurationScm {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceHostnameConfigurationScm {
 		return vs[0].([]GetServiceHostnameConfigurationScm)[vs[1].(int)]
 	}).(GetServiceHostnameConfigurationScmOutput)
 }

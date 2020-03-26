@@ -28,7 +28,6 @@ type GetAppServicePlanArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getAppServicePlan.
 type GetAppServicePlanResult struct {
 	// The ID of the App Service Environment where the App Service Plan is located.
@@ -44,16 +43,15 @@ type GetAppServicePlanResult struct {
 	// The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
 	MaximumElasticWorkerCount int `pulumi:"maximumElasticWorkerCount"`
 	// The maximum number of workers supported with the App Service Plan's sku.
-	MaximumNumberOfWorkers int `pulumi:"maximumNumberOfWorkers"`
-	Name string `pulumi:"name"`
+	MaximumNumberOfWorkers int    `pulumi:"maximumNumberOfWorkers"`
+	Name                   string `pulumi:"name"`
 	// Can Apps assigned to this App Service Plan be scaled independently?
 	PerSiteScaling bool `pulumi:"perSiteScaling"`
 	// Is this App Service Plan `Reserved`?
-	Reserved bool `pulumi:"reserved"`
+	Reserved          bool   `pulumi:"reserved"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `sku` block as documented below.
 	Sku GetAppServicePlanSku `pulumi:"sku"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
-

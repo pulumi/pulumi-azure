@@ -157,4 +157,3 @@ type AuthorizationRuleArgs struct {
 func (AuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*authorizationRuleArgs)(nil)).Elem()
 }
-

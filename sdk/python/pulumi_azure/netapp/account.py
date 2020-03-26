@@ -14,12 +14,12 @@ class Account(pulumi.CustomResource):
     """
     A `active_directory` block as defined below.
 
-      * `dns_servers` (`list`)
-      * `domain` (`str`)
-      * `organizationalUnit` (`str`)
-      * `password` (`str`)
-      * `smbServerName` (`str`)
-      * `username` (`str`)
+      * `dns_servers` (`list`) - A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
+      * `domain` (`str`) - The name of the Active Directory domain.
+      * `organizationalUnit` (`str`) - The Organizational Unit (OU) within the Active Directory Domain.
+      * `password` (`str`) - The password associated with the `username`.
+      * `smbServerName` (`str`) - The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
+      * `username` (`str`) - The Username of Active Directory Domain Administrator.
     """
     location: pulumi.Output[str]
     """
@@ -55,12 +55,12 @@ class Account(pulumi.CustomResource):
 
         The **active_directory** object supports the following:
 
-          * `dns_servers` (`pulumi.Input[list]`)
-          * `domain` (`pulumi.Input[str]`)
-          * `organizationalUnit` (`pulumi.Input[str]`)
-          * `password` (`pulumi.Input[str]`)
-          * `smbServerName` (`pulumi.Input[str]`)
-          * `username` (`pulumi.Input[str]`)
+          * `dns_servers` (`pulumi.Input[list]`) - A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
+          * `domain` (`pulumi.Input[str]`) - The name of the Active Directory domain.
+          * `organizationalUnit` (`pulumi.Input[str]`) - The Organizational Unit (OU) within the Active Directory Domain.
+          * `password` (`pulumi.Input[str]`) - The password associated with the `username`.
+          * `smbServerName` (`pulumi.Input[str]`) - The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
+          * `username` (`pulumi.Input[str]`) - The Username of Active Directory Domain Administrator.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -109,12 +109,12 @@ class Account(pulumi.CustomResource):
 
         The **active_directory** object supports the following:
 
-          * `dns_servers` (`pulumi.Input[list]`)
-          * `domain` (`pulumi.Input[str]`)
-          * `organizationalUnit` (`pulumi.Input[str]`)
-          * `password` (`pulumi.Input[str]`)
-          * `smbServerName` (`pulumi.Input[str]`)
-          * `username` (`pulumi.Input[str]`)
+          * `dns_servers` (`pulumi.Input[list]`) - A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
+          * `domain` (`pulumi.Input[str]`) - The name of the Active Directory domain.
+          * `organizationalUnit` (`pulumi.Input[str]`) - The Organizational Unit (OU) within the Active Directory Domain.
+          * `password` (`pulumi.Input[str]`) - The password associated with the `username`.
+          * `smbServerName` (`pulumi.Input[str]`) - The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
+          * `username` (`pulumi.Input[str]`) - The Username of Active Directory Domain Administrator.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

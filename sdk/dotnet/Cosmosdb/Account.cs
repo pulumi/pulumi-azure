@@ -77,13 +77,13 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Azure region to host replicated data.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+        /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -255,13 +255,13 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// The name of the Azure region to host replicated data.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+        /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -388,13 +388,13 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// The name of the Azure region to host replicated data.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+        /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -494,7 +494,7 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class AccountCapabilitiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+        /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -507,7 +507,7 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class AccountCapabilitiesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+        /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -663,7 +663,7 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class AccountCapabilities
     {
         /// <summary>
-        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+        /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
 

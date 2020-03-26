@@ -109,4 +109,3 @@ type ApplicationSecurityGroupArgs struct {
 func (ApplicationSecurityGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationSecurityGroupArgs)(nil)).Elem()
 }
-

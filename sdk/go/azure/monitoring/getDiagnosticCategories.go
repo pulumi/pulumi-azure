@@ -26,7 +26,6 @@ type GetDiagnosticCategoriesArgs struct {
 	ResourceId string `pulumi:"resourceId"`
 }
 
-
 // A collection of values returned by getDiagnosticCategories.
 type GetDiagnosticCategoriesResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
@@ -34,7 +33,6 @@ type GetDiagnosticCategoriesResult struct {
 	// A list of the Log Categories supported for this Resource.
 	Logs []string `pulumi:"logs"`
 	// A list of the Metric Categories supported for this Resource.
-	Metrics []string `pulumi:"metrics"`
-	ResourceId string `pulumi:"resourceId"`
+	Metrics    []string `pulumi:"metrics"`
+	ResourceId string   `pulumi:"resourceId"`
 }
-

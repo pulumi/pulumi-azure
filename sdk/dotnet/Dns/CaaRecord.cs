@@ -223,12 +223,21 @@ namespace Pulumi.Azure.Dns
 
     public sealed class CaaRecordRecordsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
+        /// </summary>
         [Input("flags", required: true)]
         public Input<int> Flags { get; set; } = null!;
 
+        /// <summary>
+        /// A property tag, options are issue, issuewild and iodef.
+        /// </summary>
         [Input("tag", required: true)]
         public Input<string> Tag { get; set; } = null!;
 
+        /// <summary>
+        /// A property value such as a registrar domain.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -239,12 +248,21 @@ namespace Pulumi.Azure.Dns
 
     public sealed class CaaRecordRecordsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
+        /// </summary>
         [Input("flags", required: true)]
         public Input<int> Flags { get; set; } = null!;
 
+        /// <summary>
+        /// A property tag, options are issue, issuewild and iodef.
+        /// </summary>
         [Input("tag", required: true)]
         public Input<string> Tag { get; set; } = null!;
 
+        /// <summary>
+        /// A property value such as a registrar domain.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -260,8 +278,17 @@ namespace Pulumi.Azure.Dns
     [OutputType]
     public sealed class CaaRecordRecords
     {
+        /// <summary>
+        /// Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
+        /// </summary>
         public readonly int Flags;
+        /// <summary>
+        /// A property tag, options are issue, issuewild and iodef.
+        /// </summary>
         public readonly string Tag;
+        /// <summary>
+        /// A property value such as a registrar domain.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

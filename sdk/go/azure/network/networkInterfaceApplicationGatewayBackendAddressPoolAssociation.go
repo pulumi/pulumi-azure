@@ -105,4 +105,3 @@ type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs struct 
 func (NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs)(nil)).Elem()
 }
-

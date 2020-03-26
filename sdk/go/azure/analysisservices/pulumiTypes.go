@@ -69,7 +69,7 @@ func (i ServerIpv4FirewallRuleArray) ToServerIpv4FirewallRuleArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ServerIpv4FirewallRuleArrayOutput)
 }
 
-type ServerIpv4FirewallRuleOutput struct { *pulumi.OutputState }
+type ServerIpv4FirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (ServerIpv4FirewallRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerIpv4FirewallRule)(nil)).Elem()
@@ -85,20 +85,20 @@ func (o ServerIpv4FirewallRuleOutput) ToServerIpv4FirewallRuleOutputWithContext(
 
 // Specifies the name of the firewall rule.
 func (o ServerIpv4FirewallRuleOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ServerIpv4FirewallRule) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServerIpv4FirewallRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // End of the firewall rule range as IPv4 address.
 func (o ServerIpv4FirewallRuleOutput) RangeEnd() pulumi.StringOutput {
-	return o.ApplyT(func (v ServerIpv4FirewallRule) string { return v.RangeEnd }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServerIpv4FirewallRule) string { return v.RangeEnd }).(pulumi.StringOutput)
 }
 
 // Start of the firewall rule range as IPv4 address.
 func (o ServerIpv4FirewallRuleOutput) RangeStart() pulumi.StringOutput {
-	return o.ApplyT(func (v ServerIpv4FirewallRule) string { return v.RangeStart }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServerIpv4FirewallRule) string { return v.RangeStart }).(pulumi.StringOutput)
 }
 
-type ServerIpv4FirewallRuleArrayOutput struct { *pulumi.OutputState}
+type ServerIpv4FirewallRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (ServerIpv4FirewallRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ServerIpv4FirewallRule)(nil)).Elem()
@@ -113,7 +113,7 @@ func (o ServerIpv4FirewallRuleArrayOutput) ToServerIpv4FirewallRuleArrayOutputWi
 }
 
 func (o ServerIpv4FirewallRuleArrayOutput) Index(i pulumi.IntInput) ServerIpv4FirewallRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ServerIpv4FirewallRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerIpv4FirewallRule {
 		return vs[0].([]ServerIpv4FirewallRule)[vs[1].(int)]
 	}).(ServerIpv4FirewallRuleOutput)
 }

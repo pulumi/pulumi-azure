@@ -12,25 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package azure
+package provider
 
 import (
 	"fmt"
-	"github.com/pulumi/pulumi/pkg/resource"
 	"os"
 	"strings"
 	"unicode"
+
+	"github.com/pulumi/pulumi/sdk/go/common/resource"
 
 	"github.com/Azure/go-autorest/autorest/azure/cli"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/terraform"
 	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
-	"github.com/pulumi/pulumi/pkg/tokens"
-	"github.com/pulumi/pulumi/pkg/util/contract"
+	"github.com/pulumi/pulumi/sdk/go/common/tokens"
+	"github.com/pulumi/pulumi/sdk/go/common/util/contract"
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm"
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/azure"
 
-	"github.com/pulumi/pulumi-azure/pkg/version"
+	"github.com/pulumi/pulumi-azure/provider/pkg/version"
 )
 
 const (

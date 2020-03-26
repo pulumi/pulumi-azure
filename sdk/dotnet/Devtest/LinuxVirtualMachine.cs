@@ -433,15 +433,27 @@ namespace Pulumi.Azure.DevTest
 
     public sealed class LinuxVirtualMachineGalleryImageReferenceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Offer of the Gallery Image. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("offer", required: true)]
         public Input<string> Offer { get; set; } = null!;
 
+        /// <summary>
+        /// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 
+        /// <summary>
+        /// The SKU of the Gallery Image. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
 
+        /// <summary>
+        /// The Version of the Gallery Image. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -452,15 +464,27 @@ namespace Pulumi.Azure.DevTest
 
     public sealed class LinuxVirtualMachineGalleryImageReferenceGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Offer of the Gallery Image. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("offer", required: true)]
         public Input<string> Offer { get; set; } = null!;
 
+        /// <summary>
+        /// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 
+        /// <summary>
+        /// The SKU of the Gallery Image. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
 
+        /// <summary>
+        /// The Version of the Gallery Image. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -471,6 +495,9 @@ namespace Pulumi.Azure.DevTest
 
     public sealed class LinuxVirtualMachineInboundNatRulesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("backendPort", required: true)]
         public Input<int> BackendPort { get; set; } = null!;
 
@@ -480,6 +507,9 @@ namespace Pulumi.Azure.DevTest
         [Input("frontendPort")]
         public Input<int>? FrontendPort { get; set; }
 
+        /// <summary>
+        /// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
@@ -490,6 +520,9 @@ namespace Pulumi.Azure.DevTest
 
     public sealed class LinuxVirtualMachineInboundNatRulesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("backendPort", required: true)]
         public Input<int> BackendPort { get; set; } = null!;
 
@@ -499,6 +532,9 @@ namespace Pulumi.Azure.DevTest
         [Input("frontendPort")]
         public Input<int>? FrontendPort { get; set; }
 
+        /// <summary>
+        /// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
@@ -514,9 +550,21 @@ namespace Pulumi.Azure.DevTest
     [OutputType]
     public sealed class LinuxVirtualMachineGalleryImageReference
     {
+        /// <summary>
+        /// The Offer of the Gallery Image. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Offer;
+        /// <summary>
+        /// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Publisher;
+        /// <summary>
+        /// The SKU of the Gallery Image. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Sku;
+        /// <summary>
+        /// The Version of the Gallery Image. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]
@@ -536,11 +584,17 @@ namespace Pulumi.Azure.DevTest
     [OutputType]
     public sealed class LinuxVirtualMachineInboundNatRules
     {
+        /// <summary>
+        /// The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int BackendPort;
         /// <summary>
         /// The frontend port associated with this Inbound NAT Rule.
         /// </summary>
         public readonly int FrontendPort;
+        /// <summary>
+        /// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Protocol;
 
         [OutputConstructor]

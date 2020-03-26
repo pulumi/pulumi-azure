@@ -91,7 +91,7 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the Connection String.
+     * Specifies the name of the Function App. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -269,7 +269,7 @@ export interface FunctionAppState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the Connection String.
+     * Specifies the name of the Function App. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -359,7 +359,7 @@ export interface FunctionAppArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the Connection String.
+     * Specifies the name of the Function App. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

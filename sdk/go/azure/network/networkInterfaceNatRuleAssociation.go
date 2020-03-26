@@ -105,4 +105,3 @@ type NetworkInterfaceNatRuleAssociationArgs struct {
 func (NetworkInterfaceNatRuleAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceNatRuleAssociationArgs)(nil)).Elem()
 }
-

@@ -30,7 +30,6 @@ type LookupApiVersionSetArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getApiVersionSet.
 type LookupApiVersionSetResult struct {
 	ApiManagementName string `pulumi:"apiManagementName"`
@@ -39,8 +38,8 @@ type LookupApiVersionSetResult struct {
 	// The display name of this API Version Set.
 	DisplayName string `pulumi:"displayName"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id                string `pulumi:"id"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Header which should be read from Inbound Requests which defines the API Version.
 	VersionHeaderName string `pulumi:"versionHeaderName"`
@@ -48,4 +47,3 @@ type LookupApiVersionSetResult struct {
 	VersionQueryName string `pulumi:"versionQueryName"`
 	VersioningScheme string `pulumi:"versioningScheme"`
 }
-

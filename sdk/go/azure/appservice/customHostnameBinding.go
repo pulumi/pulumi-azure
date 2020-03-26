@@ -131,4 +131,3 @@ type CustomHostnameBindingArgs struct {
 func (CustomHostnameBindingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*customHostnameBindingArgs)(nil)).Elem()
 }
-

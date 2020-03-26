@@ -122,4 +122,3 @@ type TriggerHttpRequestArgs struct {
 func (TriggerHttpRequestArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerHttpRequestArgs)(nil)).Elem()
 }
-

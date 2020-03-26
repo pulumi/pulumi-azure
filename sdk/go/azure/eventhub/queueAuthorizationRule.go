@@ -169,4 +169,3 @@ type QueueAuthorizationRuleArgs struct {
 func (QueueAuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueAuthorizationRuleArgs)(nil)).Elem()
 }
-

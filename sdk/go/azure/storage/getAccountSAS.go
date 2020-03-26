@@ -43,19 +43,17 @@ type GetAccountSASArgs struct {
 	Start string `pulumi:"start"`
 }
 
-
 // A collection of values returned by getAccountSAS.
 type GetAccountSASResult struct {
 	ConnectionString string `pulumi:"connectionString"`
-	Expiry string `pulumi:"expiry"`
-	HttpsOnly *bool `pulumi:"httpsOnly"`
+	Expiry           string `pulumi:"expiry"`
+	HttpsOnly        *bool  `pulumi:"httpsOnly"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Permissions GetAccountSASPermissions `pulumi:"permissions"`
+	Id            string                     `pulumi:"id"`
+	Permissions   GetAccountSASPermissions   `pulumi:"permissions"`
 	ResourceTypes GetAccountSASResourceTypes `pulumi:"resourceTypes"`
 	// The computed Account Shared Access Signature (SAS).
-	Sas string `pulumi:"sas"`
+	Sas      string                `pulumi:"sas"`
 	Services GetAccountSASServices `pulumi:"services"`
-	Start string `pulumi:"start"`
+	Start    string                `pulumi:"start"`
 }
-

@@ -245,4 +245,3 @@ type ManagedDiskArgs struct {
 func (ManagedDiskArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedDiskArgs)(nil)).Elem()
 }
-

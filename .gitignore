@@ -1,5 +1,5 @@
 /pack/
-/vendor/
+**/vendor/
 /bin/
 /node_modules/
 .pulumi
@@ -10,3 +10,4 @@ yarn.lock
 *.iml
 obj/
 bin/
+**/pulumiManifest.go

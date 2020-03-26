@@ -12,15 +12,21 @@ import (
 )
 
 type FirewallPolicyCustomRule struct {
+	// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
 	Action string `pulumi:"action"`
-	// Is the policy a enabled state or disabled state. Defaults to `true`.
+	// Is the rule is enabled or disabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// One or more `matchCondition` block defined below.
 	MatchConditions []FirewallPolicyCustomRuleMatchCondition `pulumi:"matchConditions"`
-	// The name of the policy. Changing this forces a new resource to be created.
+	// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
 	Name string `pulumi:"name"`
+	// The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
 	Priority *int `pulumi:"priority"`
+	// The rate limit duration in minutes. Defaults to `1`.
 	RateLimitDurationInMinutes *int `pulumi:"rateLimitDurationInMinutes"`
+	// The rate limit threshold. Defaults to `10`.
 	RateLimitThreshold *int `pulumi:"rateLimitThreshold"`
+	// The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
 	Type string `pulumi:"type"`
 }
 
@@ -32,15 +38,21 @@ type FirewallPolicyCustomRuleInput interface {
 }
 
 type FirewallPolicyCustomRuleArgs struct {
+	// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
 	Action pulumi.StringInput `pulumi:"action"`
-	// Is the policy a enabled state or disabled state. Defaults to `true`.
+	// Is the rule is enabled or disabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// One or more `matchCondition` block defined below.
 	MatchConditions FirewallPolicyCustomRuleMatchConditionArrayInput `pulumi:"matchConditions"`
-	// The name of the policy. Changing this forces a new resource to be created.
+	// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The rate limit duration in minutes. Defaults to `1`.
 	RateLimitDurationInMinutes pulumi.IntPtrInput `pulumi:"rateLimitDurationInMinutes"`
+	// The rate limit threshold. Defaults to `10`.
 	RateLimitThreshold pulumi.IntPtrInput `pulumi:"rateLimitThreshold"`
+	// The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -77,7 +89,7 @@ func (i FirewallPolicyCustomRuleArray) ToFirewallPolicyCustomRuleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyCustomRuleArrayOutput)
 }
 
-type FirewallPolicyCustomRuleOutput struct { *pulumi.OutputState }
+type FirewallPolicyCustomRuleOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyCustomRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyCustomRule)(nil)).Elem()
@@ -91,41 +103,47 @@ func (o FirewallPolicyCustomRuleOutput) ToFirewallPolicyCustomRuleOutputWithCont
 	return o
 }
 
+// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
 func (o FirewallPolicyCustomRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRule) string { return v.Action }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRule) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// Is the policy a enabled state or disabled state. Defaults to `true`.
+// Is the rule is enabled or disabled? Defaults to `true`.
 func (o FirewallPolicyCustomRuleOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// One or more `matchCondition` block defined below.
 func (o FirewallPolicyCustomRuleOutput) MatchConditions() FirewallPolicyCustomRuleMatchConditionArrayOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRule) []FirewallPolicyCustomRuleMatchCondition { return v.MatchConditions }).(FirewallPolicyCustomRuleMatchConditionArrayOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRule) []FirewallPolicyCustomRuleMatchCondition { return v.MatchConditions }).(FirewallPolicyCustomRuleMatchConditionArrayOutput)
 }
 
-// The name of the policy. Changing this forces a new resource to be created.
+// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
 func (o FirewallPolicyCustomRuleOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRule) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
 func (o FirewallPolicyCustomRuleOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
+// The rate limit duration in minutes. Defaults to `1`.
 func (o FirewallPolicyCustomRuleOutput) RateLimitDurationInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRule) *int { return v.RateLimitDurationInMinutes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRule) *int { return v.RateLimitDurationInMinutes }).(pulumi.IntPtrOutput)
 }
 
+// The rate limit threshold. Defaults to `10`.
 func (o FirewallPolicyCustomRuleOutput) RateLimitThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRule) *int { return v.RateLimitThreshold }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRule) *int { return v.RateLimitThreshold }).(pulumi.IntPtrOutput)
 }
 
+// The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
 func (o FirewallPolicyCustomRuleOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRule) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRule) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type FirewallPolicyCustomRuleArrayOutput struct { *pulumi.OutputState}
+type FirewallPolicyCustomRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyCustomRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FirewallPolicyCustomRule)(nil)).Elem()
@@ -140,17 +158,23 @@ func (o FirewallPolicyCustomRuleArrayOutput) ToFirewallPolicyCustomRuleArrayOutp
 }
 
 func (o FirewallPolicyCustomRuleArrayOutput) Index(i pulumi.IntInput) FirewallPolicyCustomRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FirewallPolicyCustomRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyCustomRule {
 		return vs[0].([]FirewallPolicyCustomRule)[vs[1].(int)]
 	}).(FirewallPolicyCustomRuleOutput)
 }
 
 type FirewallPolicyCustomRuleMatchCondition struct {
+	// Up to `100` possible values to match.
 	MatchValues []string `pulumi:"matchValues"`
+	// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
 	MatchVariable string `pulumi:"matchVariable"`
+	// Should the result of the condition be negated.
 	NegationCondition *bool `pulumi:"negationCondition"`
+	// Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
 	Operator string `pulumi:"operator"`
+	// Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
 	Selector *string `pulumi:"selector"`
+	// Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or`URLEncode`.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -162,11 +186,17 @@ type FirewallPolicyCustomRuleMatchConditionInput interface {
 }
 
 type FirewallPolicyCustomRuleMatchConditionArgs struct {
+	// Up to `100` possible values to match.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	// Should the result of the condition be negated.
 	NegationCondition pulumi.BoolPtrInput `pulumi:"negationCondition"`
+	// Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
 	Operator pulumi.StringInput `pulumi:"operator"`
+	// Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
+	// Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or`URLEncode`.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -203,7 +233,7 @@ func (i FirewallPolicyCustomRuleMatchConditionArray) ToFirewallPolicyCustomRuleM
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyCustomRuleMatchConditionArrayOutput)
 }
 
-type FirewallPolicyCustomRuleMatchConditionOutput struct { *pulumi.OutputState }
+type FirewallPolicyCustomRuleMatchConditionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyCustomRuleMatchConditionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyCustomRuleMatchCondition)(nil)).Elem()
@@ -217,31 +247,37 @@ func (o FirewallPolicyCustomRuleMatchConditionOutput) ToFirewallPolicyCustomRule
 	return o
 }
 
+// Up to `100` possible values to match.
 func (o FirewallPolicyCustomRuleMatchConditionOutput) MatchValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRuleMatchCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRuleMatchCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
 
+// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
 func (o FirewallPolicyCustomRuleMatchConditionOutput) MatchVariable() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRuleMatchCondition) string { return v.MatchVariable }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRuleMatchCondition) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
 
+// Should the result of the condition be negated.
 func (o FirewallPolicyCustomRuleMatchConditionOutput) NegationCondition() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRuleMatchCondition) *bool { return v.NegationCondition }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRuleMatchCondition) *bool { return v.NegationCondition }).(pulumi.BoolPtrOutput)
 }
 
+// Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
 func (o FirewallPolicyCustomRuleMatchConditionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRuleMatchCondition) string { return v.Operator }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRuleMatchCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
 func (o FirewallPolicyCustomRuleMatchConditionOutput) Selector() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRuleMatchCondition) *string { return v.Selector }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRuleMatchCondition) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
 
+// Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or`URLEncode`.
 func (o FirewallPolicyCustomRuleMatchConditionOutput) Transforms() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v FirewallPolicyCustomRuleMatchCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v FirewallPolicyCustomRuleMatchCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
 
-type FirewallPolicyCustomRuleMatchConditionArrayOutput struct { *pulumi.OutputState}
+type FirewallPolicyCustomRuleMatchConditionArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyCustomRuleMatchConditionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FirewallPolicyCustomRuleMatchCondition)(nil)).Elem()
@@ -256,15 +292,19 @@ func (o FirewallPolicyCustomRuleMatchConditionArrayOutput) ToFirewallPolicyCusto
 }
 
 func (o FirewallPolicyCustomRuleMatchConditionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyCustomRuleMatchConditionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FirewallPolicyCustomRuleMatchCondition {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyCustomRuleMatchCondition {
 		return vs[0].([]FirewallPolicyCustomRuleMatchCondition)[vs[1].(int)]
 	}).(FirewallPolicyCustomRuleMatchConditionOutput)
 }
 
 type FirewallPolicyManagedRule struct {
+	// One or more `exclusion` blocks as defined below.
 	Exclusions []FirewallPolicyManagedRuleExclusion `pulumi:"exclusions"`
+	// One or more `override` blocks as defined below.
 	Overrides []FirewallPolicyManagedRuleOverride `pulumi:"overrides"`
+	// The name of the managed rule to use with this resource.
 	Type string `pulumi:"type"`
+	// The version on the managed rule to use with this resource.
 	Version string `pulumi:"version"`
 }
 
@@ -276,9 +316,13 @@ type FirewallPolicyManagedRuleInput interface {
 }
 
 type FirewallPolicyManagedRuleArgs struct {
+	// One or more `exclusion` blocks as defined below.
 	Exclusions FirewallPolicyManagedRuleExclusionArrayInput `pulumi:"exclusions"`
+	// One or more `override` blocks as defined below.
 	Overrides FirewallPolicyManagedRuleOverrideArrayInput `pulumi:"overrides"`
+	// The name of the managed rule to use with this resource.
 	Type pulumi.StringInput `pulumi:"type"`
+	// The version on the managed rule to use with this resource.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -315,7 +359,7 @@ func (i FirewallPolicyManagedRuleArray) ToFirewallPolicyManagedRuleArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleArrayOutput)
 }
 
-type FirewallPolicyManagedRuleOutput struct { *pulumi.OutputState }
+type FirewallPolicyManagedRuleOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyManagedRule)(nil)).Elem()
@@ -329,23 +373,27 @@ func (o FirewallPolicyManagedRuleOutput) ToFirewallPolicyManagedRuleOutputWithCo
 	return o
 }
 
+// One or more `exclusion` blocks as defined below.
 func (o FirewallPolicyManagedRuleOutput) Exclusions() FirewallPolicyManagedRuleExclusionArrayOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRule) []FirewallPolicyManagedRuleExclusion { return v.Exclusions }).(FirewallPolicyManagedRuleExclusionArrayOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRule) []FirewallPolicyManagedRuleExclusion { return v.Exclusions }).(FirewallPolicyManagedRuleExclusionArrayOutput)
 }
 
+// One or more `override` blocks as defined below.
 func (o FirewallPolicyManagedRuleOutput) Overrides() FirewallPolicyManagedRuleOverrideArrayOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRule) []FirewallPolicyManagedRuleOverride { return v.Overrides }).(FirewallPolicyManagedRuleOverrideArrayOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRule) []FirewallPolicyManagedRuleOverride { return v.Overrides }).(FirewallPolicyManagedRuleOverrideArrayOutput)
 }
 
+// The name of the managed rule to use with this resource.
 func (o FirewallPolicyManagedRuleOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRule) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRule) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The version on the managed rule to use with this resource.
 func (o FirewallPolicyManagedRuleOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRule) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRule) string { return v.Version }).(pulumi.StringOutput)
 }
 
-type FirewallPolicyManagedRuleArrayOutput struct { *pulumi.OutputState}
+type FirewallPolicyManagedRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FirewallPolicyManagedRule)(nil)).Elem()
@@ -360,14 +408,17 @@ func (o FirewallPolicyManagedRuleArrayOutput) ToFirewallPolicyManagedRuleArrayOu
 }
 
 func (o FirewallPolicyManagedRuleArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FirewallPolicyManagedRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyManagedRule {
 		return vs[0].([]FirewallPolicyManagedRule)[vs[1].(int)]
 	}).(FirewallPolicyManagedRuleOutput)
 }
 
 type FirewallPolicyManagedRuleExclusion struct {
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
 	MatchVariable string `pulumi:"matchVariable"`
+	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator string `pulumi:"operator"`
+	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
 	Selector string `pulumi:"selector"`
 }
 
@@ -379,8 +430,11 @@ type FirewallPolicyManagedRuleExclusionInput interface {
 }
 
 type FirewallPolicyManagedRuleExclusionArgs struct {
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator pulumi.StringInput `pulumi:"operator"`
+	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
 	Selector pulumi.StringInput `pulumi:"selector"`
 }
 
@@ -417,7 +471,7 @@ func (i FirewallPolicyManagedRuleExclusionArray) ToFirewallPolicyManagedRuleExcl
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleExclusionArrayOutput)
 }
 
-type FirewallPolicyManagedRuleExclusionOutput struct { *pulumi.OutputState }
+type FirewallPolicyManagedRuleExclusionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleExclusionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyManagedRuleExclusion)(nil)).Elem()
@@ -431,19 +485,22 @@ func (o FirewallPolicyManagedRuleExclusionOutput) ToFirewallPolicyManagedRuleExc
 	return o
 }
 
+// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
 func (o FirewallPolicyManagedRuleExclusionOutput) MatchVariable() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
 
+// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 func (o FirewallPolicyManagedRuleExclusionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleExclusion) string { return v.Operator }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleExclusion) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// Selector for the value in the `matchVariable` attribute this exclusion applies to.
 func (o FirewallPolicyManagedRuleExclusionOutput) Selector() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleExclusion) string { return v.Selector }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleExclusion) string { return v.Selector }).(pulumi.StringOutput)
 }
 
-type FirewallPolicyManagedRuleExclusionArrayOutput struct { *pulumi.OutputState}
+type FirewallPolicyManagedRuleExclusionArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleExclusionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FirewallPolicyManagedRuleExclusion)(nil)).Elem()
@@ -458,14 +515,17 @@ func (o FirewallPolicyManagedRuleExclusionArrayOutput) ToFirewallPolicyManagedRu
 }
 
 func (o FirewallPolicyManagedRuleExclusionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleExclusionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FirewallPolicyManagedRuleExclusion {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyManagedRuleExclusion {
 		return vs[0].([]FirewallPolicyManagedRuleExclusion)[vs[1].(int)]
 	}).(FirewallPolicyManagedRuleExclusionOutput)
 }
 
 type FirewallPolicyManagedRuleOverride struct {
+	// One or more `exclusion` blocks as defined below.
 	Exclusions []FirewallPolicyManagedRuleOverrideExclusion `pulumi:"exclusions"`
+	// The managed rule group to override.
 	RuleGroupName string `pulumi:"ruleGroupName"`
+	// One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
 	Rules []FirewallPolicyManagedRuleOverrideRule `pulumi:"rules"`
 }
 
@@ -477,8 +537,11 @@ type FirewallPolicyManagedRuleOverrideInput interface {
 }
 
 type FirewallPolicyManagedRuleOverrideArgs struct {
+	// One or more `exclusion` blocks as defined below.
 	Exclusions FirewallPolicyManagedRuleOverrideExclusionArrayInput `pulumi:"exclusions"`
+	// The managed rule group to override.
 	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
+	// One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
 	Rules FirewallPolicyManagedRuleOverrideRuleArrayInput `pulumi:"rules"`
 }
 
@@ -515,7 +578,7 @@ func (i FirewallPolicyManagedRuleOverrideArray) ToFirewallPolicyManagedRuleOverr
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleOverrideArrayOutput)
 }
 
-type FirewallPolicyManagedRuleOverrideOutput struct { *pulumi.OutputState }
+type FirewallPolicyManagedRuleOverrideOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyManagedRuleOverride)(nil)).Elem()
@@ -529,19 +592,24 @@ func (o FirewallPolicyManagedRuleOverrideOutput) ToFirewallPolicyManagedRuleOver
 	return o
 }
 
+// One or more `exclusion` blocks as defined below.
 func (o FirewallPolicyManagedRuleOverrideOutput) Exclusions() FirewallPolicyManagedRuleOverrideExclusionArrayOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverride) []FirewallPolicyManagedRuleOverrideExclusion { return v.Exclusions }).(FirewallPolicyManagedRuleOverrideExclusionArrayOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverride) []FirewallPolicyManagedRuleOverrideExclusion {
+		return v.Exclusions
+	}).(FirewallPolicyManagedRuleOverrideExclusionArrayOutput)
 }
 
+// The managed rule group to override.
 func (o FirewallPolicyManagedRuleOverrideOutput) RuleGroupName() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverride) string { return v.RuleGroupName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverride) string { return v.RuleGroupName }).(pulumi.StringOutput)
 }
 
+// One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
 func (o FirewallPolicyManagedRuleOverrideOutput) Rules() FirewallPolicyManagedRuleOverrideRuleArrayOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverride) []FirewallPolicyManagedRuleOverrideRule { return v.Rules }).(FirewallPolicyManagedRuleOverrideRuleArrayOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverride) []FirewallPolicyManagedRuleOverrideRule { return v.Rules }).(FirewallPolicyManagedRuleOverrideRuleArrayOutput)
 }
 
-type FirewallPolicyManagedRuleOverrideArrayOutput struct { *pulumi.OutputState}
+type FirewallPolicyManagedRuleOverrideArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FirewallPolicyManagedRuleOverride)(nil)).Elem()
@@ -556,14 +624,17 @@ func (o FirewallPolicyManagedRuleOverrideArrayOutput) ToFirewallPolicyManagedRul
 }
 
 func (o FirewallPolicyManagedRuleOverrideArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleOverrideOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FirewallPolicyManagedRuleOverride {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyManagedRuleOverride {
 		return vs[0].([]FirewallPolicyManagedRuleOverride)[vs[1].(int)]
 	}).(FirewallPolicyManagedRuleOverrideOutput)
 }
 
 type FirewallPolicyManagedRuleOverrideExclusion struct {
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
 	MatchVariable string `pulumi:"matchVariable"`
+	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator string `pulumi:"operator"`
+	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
 	Selector string `pulumi:"selector"`
 }
 
@@ -575,8 +646,11 @@ type FirewallPolicyManagedRuleOverrideExclusionInput interface {
 }
 
 type FirewallPolicyManagedRuleOverrideExclusionArgs struct {
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator pulumi.StringInput `pulumi:"operator"`
+	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
 	Selector pulumi.StringInput `pulumi:"selector"`
 }
 
@@ -613,7 +687,7 @@ func (i FirewallPolicyManagedRuleOverrideExclusionArray) ToFirewallPolicyManaged
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleOverrideExclusionArrayOutput)
 }
 
-type FirewallPolicyManagedRuleOverrideExclusionOutput struct { *pulumi.OutputState }
+type FirewallPolicyManagedRuleOverrideExclusionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideExclusionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyManagedRuleOverrideExclusion)(nil)).Elem()
@@ -627,19 +701,22 @@ func (o FirewallPolicyManagedRuleOverrideExclusionOutput) ToFirewallPolicyManage
 	return o
 }
 
+// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
 func (o FirewallPolicyManagedRuleOverrideExclusionOutput) MatchVariable() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
 
+// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 func (o FirewallPolicyManagedRuleOverrideExclusionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideExclusion) string { return v.Operator }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideExclusion) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// Selector for the value in the `matchVariable` attribute this exclusion applies to.
 func (o FirewallPolicyManagedRuleOverrideExclusionOutput) Selector() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideExclusion) string { return v.Selector }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideExclusion) string { return v.Selector }).(pulumi.StringOutput)
 }
 
-type FirewallPolicyManagedRuleOverrideExclusionArrayOutput struct { *pulumi.OutputState}
+type FirewallPolicyManagedRuleOverrideExclusionArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideExclusionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FirewallPolicyManagedRuleOverrideExclusion)(nil)).Elem()
@@ -654,16 +731,19 @@ func (o FirewallPolicyManagedRuleOverrideExclusionArrayOutput) ToFirewallPolicyM
 }
 
 func (o FirewallPolicyManagedRuleOverrideExclusionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleOverrideExclusionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FirewallPolicyManagedRuleOverrideExclusion {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyManagedRuleOverrideExclusion {
 		return vs[0].([]FirewallPolicyManagedRuleOverrideExclusion)[vs[1].(int)]
 	}).(FirewallPolicyManagedRuleOverrideExclusionOutput)
 }
 
 type FirewallPolicyManagedRuleOverrideRule struct {
+	// The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
 	Action string `pulumi:"action"`
-	// Is the policy a enabled state or disabled state. Defaults to `true`.
+	// Is the managed rule override enabled or disabled. Defaults to `false`
 	Enabled *bool `pulumi:"enabled"`
+	// One or more `exclusion` blocks as defined below.
 	Exclusions []FirewallPolicyManagedRuleOverrideRuleExclusion `pulumi:"exclusions"`
+	// Identifier for the managed rule.
 	RuleId string `pulumi:"ruleId"`
 }
 
@@ -675,10 +755,13 @@ type FirewallPolicyManagedRuleOverrideRuleInput interface {
 }
 
 type FirewallPolicyManagedRuleOverrideRuleArgs struct {
+	// The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
 	Action pulumi.StringInput `pulumi:"action"`
-	// Is the policy a enabled state or disabled state. Defaults to `true`.
+	// Is the managed rule override enabled or disabled. Defaults to `false`
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// One or more `exclusion` blocks as defined below.
 	Exclusions FirewallPolicyManagedRuleOverrideRuleExclusionArrayInput `pulumi:"exclusions"`
+	// Identifier for the managed rule.
 	RuleId pulumi.StringInput `pulumi:"ruleId"`
 }
 
@@ -715,7 +798,7 @@ func (i FirewallPolicyManagedRuleOverrideRuleArray) ToFirewallPolicyManagedRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleOverrideRuleArrayOutput)
 }
 
-type FirewallPolicyManagedRuleOverrideRuleOutput struct { *pulumi.OutputState }
+type FirewallPolicyManagedRuleOverrideRuleOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyManagedRuleOverrideRule)(nil)).Elem()
@@ -729,24 +812,29 @@ func (o FirewallPolicyManagedRuleOverrideRuleOutput) ToFirewallPolicyManagedRule
 	return o
 }
 
+// The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
 func (o FirewallPolicyManagedRuleOverrideRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideRule) string { return v.Action }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideRule) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// Is the policy a enabled state or disabled state. Defaults to `true`.
+// Is the managed rule override enabled or disabled. Defaults to `false`
 func (o FirewallPolicyManagedRuleOverrideRuleOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// One or more `exclusion` blocks as defined below.
 func (o FirewallPolicyManagedRuleOverrideRuleOutput) Exclusions() FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideRule) []FirewallPolicyManagedRuleOverrideRuleExclusion { return v.Exclusions }).(FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideRule) []FirewallPolicyManagedRuleOverrideRuleExclusion {
+		return v.Exclusions
+	}).(FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput)
 }
 
+// Identifier for the managed rule.
 func (o FirewallPolicyManagedRuleOverrideRuleOutput) RuleId() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideRule) string { return v.RuleId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideRule) string { return v.RuleId }).(pulumi.StringOutput)
 }
 
-type FirewallPolicyManagedRuleOverrideRuleArrayOutput struct { *pulumi.OutputState}
+type FirewallPolicyManagedRuleOverrideRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FirewallPolicyManagedRuleOverrideRule)(nil)).Elem()
@@ -761,14 +849,17 @@ func (o FirewallPolicyManagedRuleOverrideRuleArrayOutput) ToFirewallPolicyManage
 }
 
 func (o FirewallPolicyManagedRuleOverrideRuleArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleOverrideRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FirewallPolicyManagedRuleOverrideRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyManagedRuleOverrideRule {
 		return vs[0].([]FirewallPolicyManagedRuleOverrideRule)[vs[1].(int)]
 	}).(FirewallPolicyManagedRuleOverrideRuleOutput)
 }
 
 type FirewallPolicyManagedRuleOverrideRuleExclusion struct {
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
 	MatchVariable string `pulumi:"matchVariable"`
+	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator string `pulumi:"operator"`
+	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
 	Selector string `pulumi:"selector"`
 }
 
@@ -780,8 +871,11 @@ type FirewallPolicyManagedRuleOverrideRuleExclusionInput interface {
 }
 
 type FirewallPolicyManagedRuleOverrideRuleExclusionArgs struct {
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator pulumi.StringInput `pulumi:"operator"`
+	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
 	Selector pulumi.StringInput `pulumi:"selector"`
 }
 
@@ -818,7 +912,7 @@ func (i FirewallPolicyManagedRuleOverrideRuleExclusionArray) ToFirewallPolicyMan
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput)
 }
 
-type FirewallPolicyManagedRuleOverrideRuleExclusionOutput struct { *pulumi.OutputState }
+type FirewallPolicyManagedRuleOverrideRuleExclusionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideRuleExclusionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyManagedRuleOverrideRuleExclusion)(nil)).Elem()
@@ -832,19 +926,22 @@ func (o FirewallPolicyManagedRuleOverrideRuleExclusionOutput) ToFirewallPolicyMa
 	return o
 }
 
+// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
 func (o FirewallPolicyManagedRuleOverrideRuleExclusionOutput) MatchVariable() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
 
+// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 func (o FirewallPolicyManagedRuleOverrideRuleExclusionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.Operator }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// Selector for the value in the `matchVariable` attribute this exclusion applies to.
 func (o FirewallPolicyManagedRuleOverrideRuleExclusionOutput) Selector() pulumi.StringOutput {
-	return o.ApplyT(func (v FirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.Selector }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.Selector }).(pulumi.StringOutput)
 }
 
-type FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput struct { *pulumi.OutputState}
+type FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FirewallPolicyManagedRuleOverrideRuleExclusion)(nil)).Elem()
@@ -859,18 +956,21 @@ func (o FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput) ToFirewallPol
 }
 
 func (o FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleOverrideRuleExclusionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FirewallPolicyManagedRuleOverrideRuleExclusion {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyManagedRuleOverrideRuleExclusion {
 		return vs[0].([]FirewallPolicyManagedRuleOverrideRuleExclusion)[vs[1].(int)]
 	}).(FirewallPolicyManagedRuleOverrideRuleExclusionOutput)
 }
 
 type FrontdoorBackendPool struct {
+	// A `backend` block as defined below.
 	Backends []FrontdoorBackendPoolBackend `pulumi:"backends"`
+	// Specifies the name of the `backendPoolHealthProbe` block whithin this resource to use for this `Backend Pool`.
 	HealthProbeName string `pulumi:"healthProbeName"`
 	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
+	// Specifies the name of the `backendPoolLoadBalancing` block within this resource to use for this `Backend Pool`.
 	LoadBalancingName string `pulumi:"loadBalancingName"`
-	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+	// Specifies the name of the Backend Pool.
 	Name string `pulumi:"name"`
 }
 
@@ -882,12 +982,15 @@ type FrontdoorBackendPoolInput interface {
 }
 
 type FrontdoorBackendPoolArgs struct {
+	// A `backend` block as defined below.
 	Backends FrontdoorBackendPoolBackendArrayInput `pulumi:"backends"`
+	// Specifies the name of the `backendPoolHealthProbe` block whithin this resource to use for this `Backend Pool`.
 	HealthProbeName pulumi.StringInput `pulumi:"healthProbeName"`
 	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Specifies the name of the `backendPoolLoadBalancing` block within this resource to use for this `Backend Pool`.
 	LoadBalancingName pulumi.StringInput `pulumi:"loadBalancingName"`
-	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+	// Specifies the name of the Backend Pool.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -924,7 +1027,7 @@ func (i FrontdoorBackendPoolArray) ToFrontdoorBackendPoolArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolArrayOutput)
 }
 
-type FrontdoorBackendPoolOutput struct { *pulumi.OutputState }
+type FrontdoorBackendPoolOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorBackendPool)(nil)).Elem()
@@ -938,29 +1041,32 @@ func (o FrontdoorBackendPoolOutput) ToFrontdoorBackendPoolOutputWithContext(ctx 
 	return o
 }
 
+// A `backend` block as defined below.
 func (o FrontdoorBackendPoolOutput) Backends() FrontdoorBackendPoolBackendArrayOutput {
-	return o.ApplyT(func (v FrontdoorBackendPool) []FrontdoorBackendPoolBackend { return v.Backends }).(FrontdoorBackendPoolBackendArrayOutput)
+	return o.ApplyT(func(v FrontdoorBackendPool) []FrontdoorBackendPoolBackend { return v.Backends }).(FrontdoorBackendPoolBackendArrayOutput)
 }
 
+// Specifies the name of the `backendPoolHealthProbe` block whithin this resource to use for this `Backend Pool`.
 func (o FrontdoorBackendPoolOutput) HealthProbeName() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorBackendPool) string { return v.HealthProbeName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorBackendPool) string { return v.HealthProbeName }).(pulumi.StringOutput)
 }
 
 // The ID of the FrontDoor.
 func (o FrontdoorBackendPoolOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPool) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPool) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the name of the `backendPoolLoadBalancing` block within this resource to use for this `Backend Pool`.
 func (o FrontdoorBackendPoolOutput) LoadBalancingName() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorBackendPool) string { return v.LoadBalancingName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorBackendPool) string { return v.LoadBalancingName }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+// Specifies the name of the Backend Pool.
 func (o FrontdoorBackendPoolOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorBackendPool) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorBackendPool) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type FrontdoorBackendPoolArrayOutput struct { *pulumi.OutputState}
+type FrontdoorBackendPoolArrayOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FrontdoorBackendPool)(nil)).Elem()
@@ -975,18 +1081,25 @@ func (o FrontdoorBackendPoolArrayOutput) ToFrontdoorBackendPoolArrayOutputWithCo
 }
 
 func (o FrontdoorBackendPoolArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FrontdoorBackendPool {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorBackendPool {
 		return vs[0].([]FrontdoorBackendPool)[vs[1].(int)]
 	}).(FrontdoorBackendPoolOutput)
 }
 
 type FrontdoorBackendPoolBackend struct {
+	// Location of the backend (IP address or FQDN)
 	Address string `pulumi:"address"`
+	// Specifies if the backend is enabled or not. Valid options are `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The value to use as the host header sent to the backend.
 	HostHeader string `pulumi:"hostHeader"`
+	// The HTTP TCP port number. Possible values are between `1` - `65535`.
 	HttpPort int `pulumi:"httpPort"`
+	// The HTTPS TCP port number. Possible values are between `1` - `65535`.
 	HttpsPort int `pulumi:"httpsPort"`
+	// Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to `1`.
 	Priority *int `pulumi:"priority"`
+	// Weight of this endpoint for load balancing purposes. Defaults to `50`.
 	Weight *int `pulumi:"weight"`
 }
 
@@ -998,12 +1111,19 @@ type FrontdoorBackendPoolBackendInput interface {
 }
 
 type FrontdoorBackendPoolBackendArgs struct {
+	// Location of the backend (IP address or FQDN)
 	Address pulumi.StringInput `pulumi:"address"`
+	// Specifies if the backend is enabled or not. Valid options are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The value to use as the host header sent to the backend.
 	HostHeader pulumi.StringInput `pulumi:"hostHeader"`
+	// The HTTP TCP port number. Possible values are between `1` - `65535`.
 	HttpPort pulumi.IntInput `pulumi:"httpPort"`
+	// The HTTPS TCP port number. Possible values are between `1` - `65535`.
 	HttpsPort pulumi.IntInput `pulumi:"httpsPort"`
+	// Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to `1`.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Weight of this endpoint for load balancing purposes. Defaults to `50`.
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
@@ -1040,7 +1160,7 @@ func (i FrontdoorBackendPoolBackendArray) ToFrontdoorBackendPoolBackendArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolBackendArrayOutput)
 }
 
-type FrontdoorBackendPoolBackendOutput struct { *pulumi.OutputState }
+type FrontdoorBackendPoolBackendOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolBackendOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorBackendPoolBackend)(nil)).Elem()
@@ -1054,35 +1174,42 @@ func (o FrontdoorBackendPoolBackendOutput) ToFrontdoorBackendPoolBackendOutputWi
 	return o
 }
 
+// Location of the backend (IP address or FQDN)
 func (o FrontdoorBackendPoolBackendOutput) Address() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolBackend) string { return v.Address }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolBackend) string { return v.Address }).(pulumi.StringOutput)
 }
 
+// Specifies if the backend is enabled or not. Valid options are `true` or `false`. Defaults to `true`.
 func (o FrontdoorBackendPoolBackendOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolBackend) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolBackend) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The value to use as the host header sent to the backend.
 func (o FrontdoorBackendPoolBackendOutput) HostHeader() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolBackend) string { return v.HostHeader }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolBackend) string { return v.HostHeader }).(pulumi.StringOutput)
 }
 
+// The HTTP TCP port number. Possible values are between `1` - `65535`.
 func (o FrontdoorBackendPoolBackendOutput) HttpPort() pulumi.IntOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolBackend) int { return v.HttpPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolBackend) int { return v.HttpPort }).(pulumi.IntOutput)
 }
 
+// The HTTPS TCP port number. Possible values are between `1` - `65535`.
 func (o FrontdoorBackendPoolBackendOutput) HttpsPort() pulumi.IntOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolBackend) int { return v.HttpsPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolBackend) int { return v.HttpsPort }).(pulumi.IntOutput)
 }
 
+// Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to `1`.
 func (o FrontdoorBackendPoolBackendOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolBackend) *int { return v.Priority }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolBackend) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
+// Weight of this endpoint for load balancing purposes. Defaults to `50`.
 func (o FrontdoorBackendPoolBackendOutput) Weight() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolBackend) *int { return v.Weight }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolBackend) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
 
-type FrontdoorBackendPoolBackendArrayOutput struct { *pulumi.OutputState}
+type FrontdoorBackendPoolBackendArrayOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolBackendArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FrontdoorBackendPoolBackend)(nil)).Elem()
@@ -1097,20 +1224,25 @@ func (o FrontdoorBackendPoolBackendArrayOutput) ToFrontdoorBackendPoolBackendArr
 }
 
 func (o FrontdoorBackendPoolBackendArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolBackendOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FrontdoorBackendPoolBackend {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorBackendPoolBackend {
 		return vs[0].([]FrontdoorBackendPoolBackend)[vs[1].(int)]
 	}).(FrontdoorBackendPoolBackendOutput)
 }
 
 type FrontdoorBackendPoolHealthProbe struct {
+	// Is this health probe enabled? Dafaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
+	// The number of seconds between each Health Probe. Defaults to `120`.
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+	// Specifies the name of the Health Probe.
 	Name string `pulumi:"name"`
+	// The path to use for the Health Probe. Default is `/`.
 	Path *string `pulumi:"path"`
+	// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
 	ProbeMethod *string `pulumi:"probeMethod"`
+	// Protocol scheme to use for the Health Probe. Defaults to `Http`.
 	Protocol *string `pulumi:"protocol"`
 }
 
@@ -1122,14 +1254,19 @@ type FrontdoorBackendPoolHealthProbeInput interface {
 }
 
 type FrontdoorBackendPoolHealthProbeArgs struct {
+	// Is this health probe enabled? Dafaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The number of seconds between each Health Probe. Defaults to `120`.
 	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
-	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+	// Specifies the name of the Health Probe.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The path to use for the Health Probe. Default is `/`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
 	ProbeMethod pulumi.StringPtrInput `pulumi:"probeMethod"`
+	// Protocol scheme to use for the Health Probe. Defaults to `Http`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
@@ -1166,7 +1303,7 @@ func (i FrontdoorBackendPoolHealthProbeArray) ToFrontdoorBackendPoolHealthProbeA
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolHealthProbeArrayOutput)
 }
 
-type FrontdoorBackendPoolHealthProbeOutput struct { *pulumi.OutputState }
+type FrontdoorBackendPoolHealthProbeOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolHealthProbeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorBackendPoolHealthProbe)(nil)).Elem()
@@ -1180,37 +1317,42 @@ func (o FrontdoorBackendPoolHealthProbeOutput) ToFrontdoorBackendPoolHealthProbe
 	return o
 }
 
+// Is this health probe enabled? Dafaults to `true`.
 func (o FrontdoorBackendPoolHealthProbeOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolHealthProbe) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of the FrontDoor.
 func (o FrontdoorBackendPoolHealthProbeOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolHealthProbe) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The number of seconds between each Health Probe. Defaults to `120`.
 func (o FrontdoorBackendPoolHealthProbeOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolHealthProbe) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+// Specifies the name of the Health Probe.
 func (o FrontdoorBackendPoolHealthProbeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolHealthProbe) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The path to use for the Health Probe. Default is `/`.
 func (o FrontdoorBackendPoolHealthProbeOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolHealthProbe) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
 func (o FrontdoorBackendPoolHealthProbeOutput) ProbeMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolHealthProbe) *string { return v.ProbeMethod }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *string { return v.ProbeMethod }).(pulumi.StringPtrOutput)
 }
 
+// Protocol scheme to use for the Health Probe. Defaults to `Http`.
 func (o FrontdoorBackendPoolHealthProbeOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolHealthProbe) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-type FrontdoorBackendPoolHealthProbeArrayOutput struct { *pulumi.OutputState}
+type FrontdoorBackendPoolHealthProbeArrayOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolHealthProbeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FrontdoorBackendPoolHealthProbe)(nil)).Elem()
@@ -1225,18 +1367,21 @@ func (o FrontdoorBackendPoolHealthProbeArrayOutput) ToFrontdoorBackendPoolHealth
 }
 
 func (o FrontdoorBackendPoolHealthProbeArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolHealthProbeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FrontdoorBackendPoolHealthProbe {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorBackendPoolHealthProbe {
 		return vs[0].([]FrontdoorBackendPoolHealthProbe)[vs[1].(int)]
 	}).(FrontdoorBackendPoolHealthProbeOutput)
 }
 
 type FrontdoorBackendPoolLoadBalancing struct {
+	// The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
 	AdditionalLatencyMilliseconds *int `pulumi:"additionalLatencyMilliseconds"`
 	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
-	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+	// Specifies the name of the Load Balancer.
 	Name string `pulumi:"name"`
+	// The number of samples to consider for load balancing decisions. Defaults to `4`.
 	SampleSize *int `pulumi:"sampleSize"`
+	// The number of samples within the sample period that must succeed. Defaults to `2`.
 	SuccessfulSamplesRequired *int `pulumi:"successfulSamplesRequired"`
 }
 
@@ -1248,12 +1393,15 @@ type FrontdoorBackendPoolLoadBalancingInput interface {
 }
 
 type FrontdoorBackendPoolLoadBalancingArgs struct {
+	// The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
 	AdditionalLatencyMilliseconds pulumi.IntPtrInput `pulumi:"additionalLatencyMilliseconds"`
 	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+	// Specifies the name of the Load Balancer.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The number of samples to consider for load balancing decisions. Defaults to `4`.
 	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
+	// The number of samples within the sample period that must succeed. Defaults to `2`.
 	SuccessfulSamplesRequired pulumi.IntPtrInput `pulumi:"successfulSamplesRequired"`
 }
 
@@ -1290,7 +1438,7 @@ func (i FrontdoorBackendPoolLoadBalancingArray) ToFrontdoorBackendPoolLoadBalanc
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolLoadBalancingArrayOutput)
 }
 
-type FrontdoorBackendPoolLoadBalancingOutput struct { *pulumi.OutputState }
+type FrontdoorBackendPoolLoadBalancingOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolLoadBalancingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorBackendPoolLoadBalancing)(nil)).Elem()
@@ -1304,29 +1452,32 @@ func (o FrontdoorBackendPoolLoadBalancingOutput) ToFrontdoorBackendPoolLoadBalan
 	return o
 }
 
+// The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
 func (o FrontdoorBackendPoolLoadBalancingOutput) AdditionalLatencyMilliseconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolLoadBalancing) *int { return v.AdditionalLatencyMilliseconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolLoadBalancing) *int { return v.AdditionalLatencyMilliseconds }).(pulumi.IntPtrOutput)
 }
 
 // The ID of the FrontDoor.
 func (o FrontdoorBackendPoolLoadBalancingOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolLoadBalancing) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolLoadBalancing) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+// Specifies the name of the Load Balancer.
 func (o FrontdoorBackendPoolLoadBalancingOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolLoadBalancing) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolLoadBalancing) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The number of samples to consider for load balancing decisions. Defaults to `4`.
 func (o FrontdoorBackendPoolLoadBalancingOutput) SampleSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolLoadBalancing) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolLoadBalancing) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
 }
 
+// The number of samples within the sample period that must succeed. Defaults to `2`.
 func (o FrontdoorBackendPoolLoadBalancingOutput) SuccessfulSamplesRequired() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FrontdoorBackendPoolLoadBalancing) *int { return v.SuccessfulSamplesRequired }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FrontdoorBackendPoolLoadBalancing) *int { return v.SuccessfulSamplesRequired }).(pulumi.IntPtrOutput)
 }
 
-type FrontdoorBackendPoolLoadBalancingArrayOutput struct { *pulumi.OutputState}
+type FrontdoorBackendPoolLoadBalancingArrayOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolLoadBalancingArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FrontdoorBackendPoolLoadBalancing)(nil)).Elem()
@@ -1341,22 +1492,27 @@ func (o FrontdoorBackendPoolLoadBalancingArrayOutput) ToFrontdoorBackendPoolLoad
 }
 
 func (o FrontdoorBackendPoolLoadBalancingArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolLoadBalancingOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FrontdoorBackendPoolLoadBalancing {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorBackendPoolLoadBalancing {
 		return vs[0].([]FrontdoorBackendPoolLoadBalancing)[vs[1].(int)]
 	}).(FrontdoorBackendPoolLoadBalancingOutput)
 }
 
 type FrontdoorFrontendEndpoint struct {
+	// A `customHttpsConfiguration` block as defined below.
 	CustomHttpsConfiguration *FrontdoorFrontendEndpointCustomHttpsConfiguration `pulumi:"customHttpsConfiguration"`
+	// Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
 	CustomHttpsProvisioningEnabled bool `pulumi:"customHttpsProvisioningEnabled"`
+	// Specifies the host name of the `frontendEndpoint`. Must be a domain name.
 	HostName string `pulumi:"hostName"`
 	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
-	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+	// Specifies the name of the `frontendEndpoint`.
 	Name string `pulumi:"name"`
+	// Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
 	SessionAffinityEnabled *bool `pulumi:"sessionAffinityEnabled"`
+	// The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
 	SessionAffinityTtlSeconds *int `pulumi:"sessionAffinityTtlSeconds"`
-	// (Optional) The `id` of the `webApplicationFirewallPolicyLink` to use for this Frontend Endpoint."
+	// Defines the Web Application Firewall policy `ID` for each host.
 	WebApplicationFirewallPolicyLinkId *string `pulumi:"webApplicationFirewallPolicyLinkId"`
 }
 
@@ -1368,16 +1524,21 @@ type FrontdoorFrontendEndpointInput interface {
 }
 
 type FrontdoorFrontendEndpointArgs struct {
+	// A `customHttpsConfiguration` block as defined below.
 	CustomHttpsConfiguration FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput `pulumi:"customHttpsConfiguration"`
+	// Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
 	CustomHttpsProvisioningEnabled pulumi.BoolInput `pulumi:"customHttpsProvisioningEnabled"`
+	// Specifies the host name of the `frontendEndpoint`. Must be a domain name.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+	// Specifies the name of the `frontendEndpoint`.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
 	SessionAffinityEnabled pulumi.BoolPtrInput `pulumi:"sessionAffinityEnabled"`
+	// The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
 	SessionAffinityTtlSeconds pulumi.IntPtrInput `pulumi:"sessionAffinityTtlSeconds"`
-	// (Optional) The `id` of the `webApplicationFirewallPolicyLink` to use for this Frontend Endpoint."
+	// Defines the Web Application Firewall policy `ID` for each host.
 	WebApplicationFirewallPolicyLinkId pulumi.StringPtrInput `pulumi:"webApplicationFirewallPolicyLinkId"`
 }
 
@@ -1414,7 +1575,7 @@ func (i FrontdoorFrontendEndpointArray) ToFrontdoorFrontendEndpointArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFrontendEndpointArrayOutput)
 }
 
-type FrontdoorFrontendEndpointOutput struct { *pulumi.OutputState }
+type FrontdoorFrontendEndpointOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorFrontendEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorFrontendEndpoint)(nil)).Elem()
@@ -1428,42 +1589,49 @@ func (o FrontdoorFrontendEndpointOutput) ToFrontdoorFrontendEndpointOutputWithCo
 	return o
 }
 
+// A `customHttpsConfiguration` block as defined below.
 func (o FrontdoorFrontendEndpointOutput) CustomHttpsConfiguration() FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpoint) *FrontdoorFrontendEndpointCustomHttpsConfiguration { return v.CustomHttpsConfiguration }).(FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpoint) *FrontdoorFrontendEndpointCustomHttpsConfiguration {
+		return v.CustomHttpsConfiguration
+	}).(FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput)
 }
 
+// Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
 func (o FrontdoorFrontendEndpointOutput) CustomHttpsProvisioningEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpoint) bool { return v.CustomHttpsProvisioningEnabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpoint) bool { return v.CustomHttpsProvisioningEnabled }).(pulumi.BoolOutput)
 }
 
+// Specifies the host name of the `frontendEndpoint`. Must be a domain name.
 func (o FrontdoorFrontendEndpointOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpoint) string { return v.HostName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpoint) string { return v.HostName }).(pulumi.StringOutput)
 }
 
 // The ID of the FrontDoor.
 func (o FrontdoorFrontendEndpointOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+// Specifies the name of the `frontendEndpoint`.
 func (o FrontdoorFrontendEndpointOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpoint) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpoint) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
 func (o FrontdoorFrontendEndpointOutput) SessionAffinityEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpoint) *bool { return v.SessionAffinityEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpoint) *bool { return v.SessionAffinityEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
 func (o FrontdoorFrontendEndpointOutput) SessionAffinityTtlSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpoint) *int { return v.SessionAffinityTtlSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpoint) *int { return v.SessionAffinityTtlSeconds }).(pulumi.IntPtrOutput)
 }
 
-// (Optional) The `id` of the `webApplicationFirewallPolicyLink` to use for this Frontend Endpoint."
+// Defines the Web Application Firewall policy `ID` for each host.
 func (o FrontdoorFrontendEndpointOutput) WebApplicationFirewallPolicyLinkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpoint) *string { return v.WebApplicationFirewallPolicyLinkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpoint) *string { return v.WebApplicationFirewallPolicyLinkId }).(pulumi.StringPtrOutput)
 }
 
-type FrontdoorFrontendEndpointArrayOutput struct { *pulumi.OutputState}
+type FrontdoorFrontendEndpointArrayOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorFrontendEndpointArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FrontdoorFrontendEndpoint)(nil)).Elem()
@@ -1478,15 +1646,19 @@ func (o FrontdoorFrontendEndpointArrayOutput) ToFrontdoorFrontendEndpointArrayOu
 }
 
 func (o FrontdoorFrontendEndpointArrayOutput) Index(i pulumi.IntInput) FrontdoorFrontendEndpointOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FrontdoorFrontendEndpoint {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorFrontendEndpoint {
 		return vs[0].([]FrontdoorFrontendEndpoint)[vs[1].(int)]
 	}).(FrontdoorFrontendEndpointOutput)
 }
 
 type FrontdoorFrontendEndpointCustomHttpsConfiguration struct {
+	// The name of the Key Vault secret representing the full certificate PFX.
 	AzureKeyVaultCertificateSecretName *string `pulumi:"azureKeyVaultCertificateSecretName"`
+	// The version of the Key Vault secret representing the full certificate PFX.
 	AzureKeyVaultCertificateSecretVersion *string `pulumi:"azureKeyVaultCertificateSecretVersion"`
+	// The ID of the Key Vault containing the SSL certificate.
 	AzureKeyVaultCertificateVaultId *string `pulumi:"azureKeyVaultCertificateVaultId"`
+	// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
 	CertificateSource *string `pulumi:"certificateSource"`
 	// Minimum client TLS version supported.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
@@ -1504,9 +1676,13 @@ type FrontdoorFrontendEndpointCustomHttpsConfigurationInput interface {
 }
 
 type FrontdoorFrontendEndpointCustomHttpsConfigurationArgs struct {
+	// The name of the Key Vault secret representing the full certificate PFX.
 	AzureKeyVaultCertificateSecretName pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateSecretName"`
+	// The version of the Key Vault secret representing the full certificate PFX.
 	AzureKeyVaultCertificateSecretVersion pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateSecretVersion"`
+	// The ID of the Key Vault containing the SSL certificate.
 	AzureKeyVaultCertificateVaultId pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateVaultId"`
+	// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
 	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
 	// Minimum client TLS version supported.
 	MinimumTlsVersion pulumi.StringPtrInput `pulumi:"minimumTlsVersion"`
@@ -1545,7 +1721,8 @@ type FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput interface {
 
 type frontdoorFrontendEndpointCustomHttpsConfigurationPtrType FrontdoorFrontendEndpointCustomHttpsConfigurationArgs
 
-func FrontdoorFrontendEndpointCustomHttpsConfigurationPtr(v *FrontdoorFrontendEndpointCustomHttpsConfigurationArgs) FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput {	return (*frontdoorFrontendEndpointCustomHttpsConfigurationPtrType)(v)
+func FrontdoorFrontendEndpointCustomHttpsConfigurationPtr(v *FrontdoorFrontendEndpointCustomHttpsConfigurationArgs) FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput {
+	return (*frontdoorFrontendEndpointCustomHttpsConfigurationPtrType)(v)
 }
 
 func (*frontdoorFrontendEndpointCustomHttpsConfigurationPtrType) ElementType() reflect.Type {
@@ -1560,7 +1737,7 @@ func (i *frontdoorFrontendEndpointCustomHttpsConfigurationPtrType) ToFrontdoorFr
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput)
 }
 
-type FrontdoorFrontendEndpointCustomHttpsConfigurationOutput struct { *pulumi.OutputState }
+type FrontdoorFrontendEndpointCustomHttpsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorFrontendEndpointCustomHttpsConfiguration)(nil)).Elem()
@@ -1583,38 +1760,49 @@ func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) ToFrontdoorFron
 		return &v
 	}).(FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput)
 }
+
+// The name of the Key Vault secret representing the full certificate PFX.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) AzureKeyVaultCertificateSecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.AzureKeyVaultCertificateSecretName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		return v.AzureKeyVaultCertificateSecretName
+	}).(pulumi.StringPtrOutput)
 }
 
+// The version of the Key Vault secret representing the full certificate PFX.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) AzureKeyVaultCertificateSecretVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.AzureKeyVaultCertificateSecretVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		return v.AzureKeyVaultCertificateSecretVersion
+	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Key Vault containing the SSL certificate.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) AzureKeyVaultCertificateVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.AzureKeyVaultCertificateVaultId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		return v.AzureKeyVaultCertificateVaultId
+	}).(pulumi.StringPtrOutput)
 }
 
+// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) CertificateSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
 }
 
 // Minimum client TLS version supported.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
 
 // Provisioning state of the Front Door.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 // Provisioning substate of the Front Door
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) ProvisioningSubstate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningSubstate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningSubstate }).(pulumi.StringPtrOutput)
 }
 
-type FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput struct { *pulumi.OutputState}
+type FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FrontdoorFrontendEndpointCustomHttpsConfiguration)(nil)).Elem()
@@ -1629,50 +1817,68 @@ func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) ToFrontdoorF
 }
 
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) Elem() FrontdoorFrontendEndpointCustomHttpsConfigurationOutput {
-	return o.ApplyT(func (v *FrontdoorFrontendEndpointCustomHttpsConfiguration) FrontdoorFrontendEndpointCustomHttpsConfiguration { return *v }).(FrontdoorFrontendEndpointCustomHttpsConfigurationOutput)
+	return o.ApplyT(func(v *FrontdoorFrontendEndpointCustomHttpsConfiguration) FrontdoorFrontendEndpointCustomHttpsConfiguration {
+		return *v
+	}).(FrontdoorFrontendEndpointCustomHttpsConfigurationOutput)
 }
 
+// The name of the Key Vault secret representing the full certificate PFX.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateSecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.AzureKeyVaultCertificateSecretName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		return v.AzureKeyVaultCertificateSecretName
+	}).(pulumi.StringPtrOutput)
 }
 
+// The version of the Key Vault secret representing the full certificate PFX.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateSecretVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.AzureKeyVaultCertificateSecretVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		return v.AzureKeyVaultCertificateSecretVersion
+	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Key Vault containing the SSL certificate.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.AzureKeyVaultCertificateVaultId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		return v.AzureKeyVaultCertificateVaultId
+	}).(pulumi.StringPtrOutput)
 }
 
+// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) CertificateSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
 }
 
 // Minimum client TLS version supported.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
 
 // Provisioning state of the Front Door.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 // Provisioning substate of the Front Door
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) ProvisioningSubstate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningSubstate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningSubstate }).(pulumi.StringPtrOutput)
 }
 
 type FrontdoorRoutingRule struct {
+	// Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
 	AcceptedProtocols []string `pulumi:"acceptedProtocols"`
+	// `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// A `forwardingConfiguration` block as defined below.
 	ForwardingConfiguration *FrontdoorRoutingRuleForwardingConfiguration `pulumi:"forwardingConfiguration"`
+	// The names of the `frontendEndpoint` blocks whithin this resource to associate with this `routingRule`.
 	FrontendEndpoints []string `pulumi:"frontendEndpoints"`
 	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
-	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+	// Specifies the name of the Routing Rule.
 	Name string `pulumi:"name"`
+	// The route patterns for the Backend Routing Rule. Defaults to `/*`.
 	PatternsToMatches []string `pulumi:"patternsToMatches"`
+	// A `redirectConfiguration` block as defined below.
 	RedirectConfiguration *FrontdoorRoutingRuleRedirectConfiguration `pulumi:"redirectConfiguration"`
 }
 
@@ -1684,15 +1890,21 @@ type FrontdoorRoutingRuleInput interface {
 }
 
 type FrontdoorRoutingRuleArgs struct {
+	// Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
 	AcceptedProtocols pulumi.StringArrayInput `pulumi:"acceptedProtocols"`
+	// `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// A `forwardingConfiguration` block as defined below.
 	ForwardingConfiguration FrontdoorRoutingRuleForwardingConfigurationPtrInput `pulumi:"forwardingConfiguration"`
+	// The names of the `frontendEndpoint` blocks whithin this resource to associate with this `routingRule`.
 	FrontendEndpoints pulumi.StringArrayInput `pulumi:"frontendEndpoints"`
 	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+	// Specifies the name of the Routing Rule.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The route patterns for the Backend Routing Rule. Defaults to `/*`.
 	PatternsToMatches pulumi.StringArrayInput `pulumi:"patternsToMatches"`
+	// A `redirectConfiguration` block as defined below.
 	RedirectConfiguration FrontdoorRoutingRuleRedirectConfigurationPtrInput `pulumi:"redirectConfiguration"`
 }
 
@@ -1729,7 +1941,7 @@ func (i FrontdoorRoutingRuleArray) ToFrontdoorRoutingRuleArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRoutingRuleArrayOutput)
 }
 
-type FrontdoorRoutingRuleOutput struct { *pulumi.OutputState }
+type FrontdoorRoutingRuleOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRoutingRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorRoutingRule)(nil)).Elem()
@@ -1743,41 +1955,51 @@ func (o FrontdoorRoutingRuleOutput) ToFrontdoorRoutingRuleOutputWithContext(ctx 
 	return o
 }
 
+// Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
 func (o FrontdoorRoutingRuleOutput) AcceptedProtocols() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRule) []string { return v.AcceptedProtocols }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRule) []string { return v.AcceptedProtocols }).(pulumi.StringArrayOutput)
 }
 
+// `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
 func (o FrontdoorRoutingRuleOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// A `forwardingConfiguration` block as defined below.
 func (o FrontdoorRoutingRuleOutput) ForwardingConfiguration() FrontdoorRoutingRuleForwardingConfigurationPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRule) *FrontdoorRoutingRuleForwardingConfiguration { return v.ForwardingConfiguration }).(FrontdoorRoutingRuleForwardingConfigurationPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRule) *FrontdoorRoutingRuleForwardingConfiguration {
+		return v.ForwardingConfiguration
+	}).(FrontdoorRoutingRuleForwardingConfigurationPtrOutput)
 }
 
+// The names of the `frontendEndpoint` blocks whithin this resource to associate with this `routingRule`.
 func (o FrontdoorRoutingRuleOutput) FrontendEndpoints() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRule) []string { return v.FrontendEndpoints }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRule) []string { return v.FrontendEndpoints }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the FrontDoor.
 func (o FrontdoorRoutingRuleOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRule) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+// Specifies the name of the Routing Rule.
 func (o FrontdoorRoutingRuleOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRule) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The route patterns for the Backend Routing Rule. Defaults to `/*`.
 func (o FrontdoorRoutingRuleOutput) PatternsToMatches() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRule) []string { return v.PatternsToMatches }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRule) []string { return v.PatternsToMatches }).(pulumi.StringArrayOutput)
 }
 
+// A `redirectConfiguration` block as defined below.
 func (o FrontdoorRoutingRuleOutput) RedirectConfiguration() FrontdoorRoutingRuleRedirectConfigurationPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRule) *FrontdoorRoutingRuleRedirectConfiguration { return v.RedirectConfiguration }).(FrontdoorRoutingRuleRedirectConfigurationPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRule) *FrontdoorRoutingRuleRedirectConfiguration {
+		return v.RedirectConfiguration
+	}).(FrontdoorRoutingRuleRedirectConfigurationPtrOutput)
 }
 
-type FrontdoorRoutingRuleArrayOutput struct { *pulumi.OutputState}
+type FrontdoorRoutingRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRoutingRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]FrontdoorRoutingRule)(nil)).Elem()
@@ -1792,17 +2014,23 @@ func (o FrontdoorRoutingRuleArrayOutput) ToFrontdoorRoutingRuleArrayOutputWithCo
 }
 
 func (o FrontdoorRoutingRuleArrayOutput) Index(i pulumi.IntInput) FrontdoorRoutingRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FrontdoorRoutingRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRoutingRule {
 		return vs[0].([]FrontdoorRoutingRule)[vs[1].(int)]
 	}).(FrontdoorRoutingRuleOutput)
 }
 
 type FrontdoorRoutingRuleForwardingConfiguration struct {
+	// Specifies the name of the Backend Pool to forward the incoming traffic to.
 	BackendPoolName string `pulumi:"backendPoolName"`
+	// Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
 	CacheEnabled *bool `pulumi:"cacheEnabled"`
+	// Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
 	CacheQueryParameterStripDirective *string `pulumi:"cacheQueryParameterStripDirective"`
+	// Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
 	CacheUseDynamicCompression *bool `pulumi:"cacheUseDynamicCompression"`
+	// Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
 	CustomForwardingPath *string `pulumi:"customForwardingPath"`
+	// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
 }
 
@@ -1814,11 +2042,17 @@ type FrontdoorRoutingRuleForwardingConfigurationInput interface {
 }
 
 type FrontdoorRoutingRuleForwardingConfigurationArgs struct {
+	// Specifies the name of the Backend Pool to forward the incoming traffic to.
 	BackendPoolName pulumi.StringInput `pulumi:"backendPoolName"`
+	// Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
 	CacheEnabled pulumi.BoolPtrInput `pulumi:"cacheEnabled"`
+	// Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
 	CacheQueryParameterStripDirective pulumi.StringPtrInput `pulumi:"cacheQueryParameterStripDirective"`
+	// Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
 	CacheUseDynamicCompression pulumi.BoolPtrInput `pulumi:"cacheUseDynamicCompression"`
+	// Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
 	CustomForwardingPath pulumi.StringPtrInput `pulumi:"customForwardingPath"`
+	// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
 	ForwardingProtocol pulumi.StringPtrInput `pulumi:"forwardingProtocol"`
 }
 
@@ -1851,7 +2085,8 @@ type FrontdoorRoutingRuleForwardingConfigurationPtrInput interface {
 
 type frontdoorRoutingRuleForwardingConfigurationPtrType FrontdoorRoutingRuleForwardingConfigurationArgs
 
-func FrontdoorRoutingRuleForwardingConfigurationPtr(v *FrontdoorRoutingRuleForwardingConfigurationArgs) FrontdoorRoutingRuleForwardingConfigurationPtrInput {	return (*frontdoorRoutingRuleForwardingConfigurationPtrType)(v)
+func FrontdoorRoutingRuleForwardingConfigurationPtr(v *FrontdoorRoutingRuleForwardingConfigurationArgs) FrontdoorRoutingRuleForwardingConfigurationPtrInput {
+	return (*frontdoorRoutingRuleForwardingConfigurationPtrType)(v)
 }
 
 func (*frontdoorRoutingRuleForwardingConfigurationPtrType) ElementType() reflect.Type {
@@ -1866,7 +2101,7 @@ func (i *frontdoorRoutingRuleForwardingConfigurationPtrType) ToFrontdoorRoutingR
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRoutingRuleForwardingConfigurationPtrOutput)
 }
 
-type FrontdoorRoutingRuleForwardingConfigurationOutput struct { *pulumi.OutputState }
+type FrontdoorRoutingRuleForwardingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRoutingRuleForwardingConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorRoutingRuleForwardingConfiguration)(nil)).Elem()
@@ -1889,31 +2124,40 @@ func (o FrontdoorRoutingRuleForwardingConfigurationOutput) ToFrontdoorRoutingRul
 		return &v
 	}).(FrontdoorRoutingRuleForwardingConfigurationPtrOutput)
 }
+
+// Specifies the name of the Backend Pool to forward the incoming traffic to.
 func (o FrontdoorRoutingRuleForwardingConfigurationOutput) BackendPoolName() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) string { return v.BackendPoolName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) string { return v.BackendPoolName }).(pulumi.StringOutput)
 }
 
+// Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
 func (o FrontdoorRoutingRuleForwardingConfigurationOutput) CacheEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
 func (o FrontdoorRoutingRuleForwardingConfigurationOutput) CacheQueryParameterStripDirective() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.CacheQueryParameterStripDirective }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string {
+		return v.CacheQueryParameterStripDirective
+	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
 func (o FrontdoorRoutingRuleForwardingConfigurationOutput) CacheUseDynamicCompression() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheUseDynamicCompression }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheUseDynamicCompression }).(pulumi.BoolPtrOutput)
 }
 
+// Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
 func (o FrontdoorRoutingRuleForwardingConfigurationOutput) CustomForwardingPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.CustomForwardingPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.CustomForwardingPath }).(pulumi.StringPtrOutput)
 }
 
+// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
 func (o FrontdoorRoutingRuleForwardingConfigurationOutput) ForwardingProtocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
 }
 
-type FrontdoorRoutingRuleForwardingConfigurationPtrOutput struct { *pulumi.OutputState}
+type FrontdoorRoutingRuleForwardingConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRoutingRuleForwardingConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FrontdoorRoutingRuleForwardingConfiguration)(nil)).Elem()
@@ -1928,39 +2172,55 @@ func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) ToFrontdoorRouting
 }
 
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) Elem() FrontdoorRoutingRuleForwardingConfigurationOutput {
-	return o.ApplyT(func (v *FrontdoorRoutingRuleForwardingConfiguration) FrontdoorRoutingRuleForwardingConfiguration { return *v }).(FrontdoorRoutingRuleForwardingConfigurationOutput)
+	return o.ApplyT(func(v *FrontdoorRoutingRuleForwardingConfiguration) FrontdoorRoutingRuleForwardingConfiguration {
+		return *v
+	}).(FrontdoorRoutingRuleForwardingConfigurationOutput)
 }
 
+// Specifies the name of the Backend Pool to forward the incoming traffic to.
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) BackendPoolName() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) string { return v.BackendPoolName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) string { return v.BackendPoolName }).(pulumi.StringOutput)
 }
 
+// Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CacheEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CacheQueryParameterStripDirective() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.CacheQueryParameterStripDirective }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string {
+		return v.CacheQueryParameterStripDirective
+	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CacheUseDynamicCompression() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheUseDynamicCompression }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheUseDynamicCompression }).(pulumi.BoolPtrOutput)
 }
 
+// Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CustomForwardingPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.CustomForwardingPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.CustomForwardingPath }).(pulumi.StringPtrOutput)
 }
 
+// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) ForwardingProtocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
 }
 
 type FrontdoorRoutingRuleRedirectConfiguration struct {
+	// The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
 	CustomFragment *string `pulumi:"customFragment"`
+	// Set this to change the URL for the redirection.
 	CustomHost *string `pulumi:"customHost"`
+	// The path to retain as per the incoming request, or update in the URL for the redirection.
 	CustomPath *string `pulumi:"customPath"`
+	// Replace any existing query string from the incoming request URL.
 	CustomQueryString *string `pulumi:"customQueryString"`
+	// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
 	RedirectProtocol string `pulumi:"redirectProtocol"`
+	// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
 	RedirectType string `pulumi:"redirectType"`
 }
 
@@ -1972,11 +2232,17 @@ type FrontdoorRoutingRuleRedirectConfigurationInput interface {
 }
 
 type FrontdoorRoutingRuleRedirectConfigurationArgs struct {
+	// The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
 	CustomFragment pulumi.StringPtrInput `pulumi:"customFragment"`
+	// Set this to change the URL for the redirection.
 	CustomHost pulumi.StringPtrInput `pulumi:"customHost"`
+	// The path to retain as per the incoming request, or update in the URL for the redirection.
 	CustomPath pulumi.StringPtrInput `pulumi:"customPath"`
+	// Replace any existing query string from the incoming request URL.
 	CustomQueryString pulumi.StringPtrInput `pulumi:"customQueryString"`
+	// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
 	RedirectProtocol pulumi.StringInput `pulumi:"redirectProtocol"`
+	// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
 	RedirectType pulumi.StringInput `pulumi:"redirectType"`
 }
 
@@ -2009,7 +2275,8 @@ type FrontdoorRoutingRuleRedirectConfigurationPtrInput interface {
 
 type frontdoorRoutingRuleRedirectConfigurationPtrType FrontdoorRoutingRuleRedirectConfigurationArgs
 
-func FrontdoorRoutingRuleRedirectConfigurationPtr(v *FrontdoorRoutingRuleRedirectConfigurationArgs) FrontdoorRoutingRuleRedirectConfigurationPtrInput {	return (*frontdoorRoutingRuleRedirectConfigurationPtrType)(v)
+func FrontdoorRoutingRuleRedirectConfigurationPtr(v *FrontdoorRoutingRuleRedirectConfigurationArgs) FrontdoorRoutingRuleRedirectConfigurationPtrInput {
+	return (*frontdoorRoutingRuleRedirectConfigurationPtrType)(v)
 }
 
 func (*frontdoorRoutingRuleRedirectConfigurationPtrType) ElementType() reflect.Type {
@@ -2024,7 +2291,7 @@ func (i *frontdoorRoutingRuleRedirectConfigurationPtrType) ToFrontdoorRoutingRul
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRoutingRuleRedirectConfigurationPtrOutput)
 }
 
-type FrontdoorRoutingRuleRedirectConfigurationOutput struct { *pulumi.OutputState }
+type FrontdoorRoutingRuleRedirectConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRoutingRuleRedirectConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontdoorRoutingRuleRedirectConfiguration)(nil)).Elem()
@@ -2047,31 +2314,38 @@ func (o FrontdoorRoutingRuleRedirectConfigurationOutput) ToFrontdoorRoutingRuleR
 		return &v
 	}).(FrontdoorRoutingRuleRedirectConfigurationPtrOutput)
 }
+
+// The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
 func (o FrontdoorRoutingRuleRedirectConfigurationOutput) CustomFragment() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomFragment }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomFragment }).(pulumi.StringPtrOutput)
 }
 
+// Set this to change the URL for the redirection.
 func (o FrontdoorRoutingRuleRedirectConfigurationOutput) CustomHost() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomHost }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomHost }).(pulumi.StringPtrOutput)
 }
 
+// The path to retain as per the incoming request, or update in the URL for the redirection.
 func (o FrontdoorRoutingRuleRedirectConfigurationOutput) CustomPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomPath }).(pulumi.StringPtrOutput)
 }
 
+// Replace any existing query string from the incoming request URL.
 func (o FrontdoorRoutingRuleRedirectConfigurationOutput) CustomQueryString() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomQueryString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomQueryString }).(pulumi.StringPtrOutput)
 }
 
+// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
 func (o FrontdoorRoutingRuleRedirectConfigurationOutput) RedirectProtocol() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectProtocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectProtocol }).(pulumi.StringOutput)
 }
 
+// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
 func (o FrontdoorRoutingRuleRedirectConfigurationOutput) RedirectType() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectType }).(pulumi.StringOutput)
 }
 
-type FrontdoorRoutingRuleRedirectConfigurationPtrOutput struct { *pulumi.OutputState}
+type FrontdoorRoutingRuleRedirectConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRoutingRuleRedirectConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FrontdoorRoutingRuleRedirectConfiguration)(nil)).Elem()
@@ -2086,31 +2360,39 @@ func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) ToFrontdoorRoutingRu
 }
 
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) Elem() FrontdoorRoutingRuleRedirectConfigurationOutput {
-	return o.ApplyT(func (v *FrontdoorRoutingRuleRedirectConfiguration) FrontdoorRoutingRuleRedirectConfiguration { return *v }).(FrontdoorRoutingRuleRedirectConfigurationOutput)
+	return o.ApplyT(func(v *FrontdoorRoutingRuleRedirectConfiguration) FrontdoorRoutingRuleRedirectConfiguration {
+		return *v
+	}).(FrontdoorRoutingRuleRedirectConfigurationOutput)
 }
 
+// The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) CustomFragment() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomFragment }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomFragment }).(pulumi.StringPtrOutput)
 }
 
+// Set this to change the URL for the redirection.
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) CustomHost() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomHost }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomHost }).(pulumi.StringPtrOutput)
 }
 
+// The path to retain as per the incoming request, or update in the URL for the redirection.
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) CustomPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomPath }).(pulumi.StringPtrOutput)
 }
 
+// Replace any existing query string from the incoming request URL.
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) CustomQueryString() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomQueryString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomQueryString }).(pulumi.StringPtrOutput)
 }
 
+// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) RedirectProtocol() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectProtocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectProtocol }).(pulumi.StringOutput)
 }
 
+// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) RedirectType() pulumi.StringOutput {
-	return o.ApplyT(func (v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectType }).(pulumi.StringOutput)
 }
 
 func init() {

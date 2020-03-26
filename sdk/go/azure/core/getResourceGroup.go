@@ -26,15 +26,13 @@ type LookupResourceGroupArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getResourceGroup.
 type LookupResourceGroupResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region where the Resource Group exists.
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// A mapping of tags assigned to the Resource Group.
 	Tags map[string]string `pulumi:"tags"`
 }
-

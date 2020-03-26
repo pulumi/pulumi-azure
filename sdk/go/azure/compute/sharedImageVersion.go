@@ -171,4 +171,3 @@ type SharedImageVersionArgs struct {
 func (SharedImageVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sharedImageVersionArgs)(nil)).Elem()
 }
-

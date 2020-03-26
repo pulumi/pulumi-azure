@@ -14,7 +14,7 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
     """
     One or more `input` blocks as defined below.
 
-      * `type` (`str`)
+      * `type` (`str`) - The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
     """
     name: pulumi.Output[str]
     """
@@ -24,7 +24,7 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
     """
     An `output` blocks as defined below.
 
-      * `type` (`str`)
+      * `type` (`str`) - The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -55,11 +55,11 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
 
         The **inputs** object supports the following:
 
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
 
         The **output** object supports the following:
 
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -118,11 +118,11 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
 
         The **inputs** object supports the following:
 
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
 
         The **output** object supports the following:
 
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

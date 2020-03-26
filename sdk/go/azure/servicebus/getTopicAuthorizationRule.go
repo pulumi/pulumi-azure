@@ -32,25 +32,23 @@ type LookupTopicAuthorizationRuleArgs struct {
 	TopicName string `pulumi:"topicName"`
 }
 
-
 // A collection of values returned by getTopicAuthorizationRule.
 type LookupTopicAuthorizationRuleResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Listen bool `pulumi:"listen"`
-	Manage bool `pulumi:"manage"`
-	Name string `pulumi:"name"`
+	Id            string `pulumi:"id"`
+	Listen        bool   `pulumi:"listen"`
+	Manage        bool   `pulumi:"manage"`
+	Name          string `pulumi:"name"`
 	NamespaceName string `pulumi:"namespaceName"`
 	// The Primary Connection String for the ServiceBus Topic authorization Rule.
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
 	// The Primary Key for the ServiceBus Topic authorization Rule.
-	PrimaryKey string `pulumi:"primaryKey"`
+	PrimaryKey        string `pulumi:"primaryKey"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Secondary Connection String for the ServiceBus Topic authorization Rule.
 	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
 	// The Secondary Key for the ServiceBus Topic authorization Rule.
 	SecondaryKey string `pulumi:"secondaryKey"`
-	Send bool `pulumi:"send"`
-	TopicName string `pulumi:"topicName"`
+	Send         bool   `pulumi:"send"`
+	TopicName    string `pulumi:"topicName"`
 }
-

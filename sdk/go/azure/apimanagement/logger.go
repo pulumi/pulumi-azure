@@ -142,4 +142,3 @@ type LoggerArgs struct {
 func (LoggerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loggerArgs)(nil)).Elem()
 }
-

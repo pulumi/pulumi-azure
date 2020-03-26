@@ -26,18 +26,18 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     """
     A `gallery_image_reference` block as defined below.
 
-      * `offer` (`str`)
-      * `publisher` (`str`)
-      * `sku` (`str`)
-      * `version` (`str`)
+      * `offer` (`str`) - The Offer of the Gallery Image. Changing this forces a new resource to be created.
+      * `publisher` (`str`) - The Publisher of the Gallery Image. Changing this forces a new resource to be created.
+      * `sku` (`str`) - The SKU of the Gallery Image. Changing this forces a new resource to be created.
+      * `version` (`str`) - The Version of the Gallery Image. Changing this forces a new resource to be created.
     """
     inbound_nat_rules: pulumi.Output[list]
     """
     One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
 
-      * `backend_port` (`float`)
+      * `backend_port` (`float`) - The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
       * `frontend_port` (`float`) - The frontend port associated with this Inbound NAT Rule.
-      * `protocol` (`str`)
+      * `protocol` (`str`) - The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
     """
     lab_name: pulumi.Output[str]
     """
@@ -118,16 +118,16 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
         The **gallery_image_reference** object supports the following:
 
-          * `offer` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
-          * `sku` (`pulumi.Input[str]`)
-          * `version` (`pulumi.Input[str]`)
+          * `offer` (`pulumi.Input[str]`) - The Offer of the Gallery Image. Changing this forces a new resource to be created.
+          * `publisher` (`pulumi.Input[str]`) - The Publisher of the Gallery Image. Changing this forces a new resource to be created.
+          * `sku` (`pulumi.Input[str]`) - The SKU of the Gallery Image. Changing this forces a new resource to be created.
+          * `version` (`pulumi.Input[str]`) - The Version of the Gallery Image. Changing this forces a new resource to be created.
 
         The **inbound_nat_rules** object supports the following:
 
-          * `backend_port` (`pulumi.Input[float]`)
+          * `backend_port` (`pulumi.Input[float]`) - The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
           * `frontend_port` (`pulumi.Input[float]`) - The frontend port associated with this Inbound NAT Rule.
-          * `protocol` (`pulumi.Input[str]`)
+          * `protocol` (`pulumi.Input[str]`) - The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -218,16 +218,16 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
         The **gallery_image_reference** object supports the following:
 
-          * `offer` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
-          * `sku` (`pulumi.Input[str]`)
-          * `version` (`pulumi.Input[str]`)
+          * `offer` (`pulumi.Input[str]`) - The Offer of the Gallery Image. Changing this forces a new resource to be created.
+          * `publisher` (`pulumi.Input[str]`) - The Publisher of the Gallery Image. Changing this forces a new resource to be created.
+          * `sku` (`pulumi.Input[str]`) - The SKU of the Gallery Image. Changing this forces a new resource to be created.
+          * `version` (`pulumi.Input[str]`) - The Version of the Gallery Image. Changing this forces a new resource to be created.
 
         The **inbound_nat_rules** object supports the following:
 
-          * `backend_port` (`pulumi.Input[float]`)
+          * `backend_port` (`pulumi.Input[float]`) - The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
           * `frontend_port` (`pulumi.Input[float]`) - The frontend port associated with this Inbound NAT Rule.
-          * `protocol` (`pulumi.Input[str]`)
+          * `protocol` (`pulumi.Input[str]`) - The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

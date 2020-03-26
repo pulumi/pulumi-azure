@@ -32,16 +32,14 @@ type GetPlatformImageArgs struct {
 	Sku string `pulumi:"sku"`
 }
 
-
 // A collection of values returned by getPlatformImage.
 type GetPlatformImageResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Location string `pulumi:"location"`
-	Offer string `pulumi:"offer"`
+	Id        string `pulumi:"id"`
+	Location  string `pulumi:"location"`
+	Offer     string `pulumi:"offer"`
 	Publisher string `pulumi:"publisher"`
-	Sku string `pulumi:"sku"`
+	Sku       string `pulumi:"sku"`
 	// The latest version of the Platform Image.
 	Version string `pulumi:"version"`
 }
-

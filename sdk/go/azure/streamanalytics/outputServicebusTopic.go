@@ -167,4 +167,3 @@ type OutputServicebusTopicArgs struct {
 func (OutputServicebusTopicArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*outputServicebusTopicArgs)(nil)).Elem()
 }
-

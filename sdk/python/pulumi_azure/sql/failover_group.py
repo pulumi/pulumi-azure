@@ -35,7 +35,7 @@ class FailoverGroup(pulumi.CustomResource):
     A read/write policy as documented below
 
       * `graceMinutes` (`float`) - Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
-      * `mode` (`str`) - Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
+      * `mode` (`str`) - the failover mode. Possible values are `Manual`, `Automatic`
     """
     readonly_endpoint_failover_policy: pulumi.Output[dict]
     """
@@ -85,7 +85,7 @@ class FailoverGroup(pulumi.CustomResource):
         The **read_write_endpoint_failover_policy** object supports the following:
 
           * `graceMinutes` (`pulumi.Input[float]`) - Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
-          * `mode` (`pulumi.Input[str]`) - Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
+          * `mode` (`pulumi.Input[str]`) - the failover mode. Possible values are `Manual`, `Automatic`
 
         The **readonly_endpoint_failover_policy** object supports the following:
 
@@ -161,7 +161,7 @@ class FailoverGroup(pulumi.CustomResource):
         The **read_write_endpoint_failover_policy** object supports the following:
 
           * `graceMinutes` (`pulumi.Input[float]`) - Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
-          * `mode` (`pulumi.Input[str]`) - Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
+          * `mode` (`pulumi.Input[str]`) - the failover mode. Possible values are `Manual`, `Automatic`
 
         The **readonly_endpoint_failover_policy** object supports the following:
 

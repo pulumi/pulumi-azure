@@ -169,4 +169,3 @@ type EventHubAuthorizationRuleArgs struct {
 func (EventHubAuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventHubAuthorizationRuleArgs)(nil)).Elem()
 }
-

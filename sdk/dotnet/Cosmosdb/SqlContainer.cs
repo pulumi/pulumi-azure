@@ -237,6 +237,10 @@ namespace Pulumi.Azure.CosmosDB
     {
         [Input("paths", required: true)]
         private InputList<string>? _paths;
+
+        /// <summary>
+        /// A list of paths to use for this unique key.
+        /// </summary>
         public InputList<string> Paths
         {
             get => _paths ?? (_paths = new InputList<string>());
@@ -252,6 +256,10 @@ namespace Pulumi.Azure.CosmosDB
     {
         [Input("paths", required: true)]
         private InputList<string>? _paths;
+
+        /// <summary>
+        /// A list of paths to use for this unique key.
+        /// </summary>
         public InputList<string> Paths
         {
             get => _paths ?? (_paths = new InputList<string>());
@@ -270,6 +278,9 @@ namespace Pulumi.Azure.CosmosDB
     [OutputType]
     public sealed class SqlContainerUniqueKeys
     {
+        /// <summary>
+        /// A list of paths to use for this unique key.
+        /// </summary>
         public readonly ImmutableArray<string> Paths;
 
         [OutputConstructor]

@@ -337,12 +337,21 @@ namespace Pulumi.Azure.Network
 
     public sealed class VpnServerConfigurationAzureActiveDirectoryAuthenticationsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Audience which should be used for authentication.
+        /// </summary>
         [Input("audience", required: true)]
         public Input<string> Audience { get; set; } = null!;
 
+        /// <summary>
+        /// The Issuer which should be used for authentication.
+        /// </summary>
         [Input("issuer", required: true)]
         public Input<string> Issuer { get; set; } = null!;
 
+        /// <summary>
+        /// The Tenant which should be used for authentication.
+        /// </summary>
         [Input("tenant", required: true)]
         public Input<string> Tenant { get; set; } = null!;
 
@@ -353,12 +362,21 @@ namespace Pulumi.Azure.Network
 
     public sealed class VpnServerConfigurationAzureActiveDirectoryAuthenticationsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Audience which should be used for authentication.
+        /// </summary>
         [Input("audience", required: true)]
         public Input<string> Audience { get; set; } = null!;
 
+        /// <summary>
+        /// The Issuer which should be used for authentication.
+        /// </summary>
         [Input("issuer", required: true)]
         public Input<string> Issuer { get; set; } = null!;
 
+        /// <summary>
+        /// The Tenant which should be used for authentication.
+        /// </summary>
         [Input("tenant", required: true)]
         public Input<string> Tenant { get; set; } = null!;
 
@@ -370,11 +388,14 @@ namespace Pulumi.Azure.Network
     public sealed class VpnServerConfigurationClientRevokedCertificatesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+        /// A name used to uniquely identify this certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Thumbprint of the Certificate.
+        /// </summary>
         [Input("thumbprint", required: true)]
         public Input<string> Thumbprint { get; set; } = null!;
 
@@ -386,11 +407,14 @@ namespace Pulumi.Azure.Network
     public sealed class VpnServerConfigurationClientRevokedCertificatesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+        /// A name used to uniquely identify this certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Thumbprint of the Certificate.
+        /// </summary>
         [Input("thumbprint", required: true)]
         public Input<string> Thumbprint { get; set; } = null!;
 
@@ -402,11 +426,14 @@ namespace Pulumi.Azure.Network
     public sealed class VpnServerConfigurationClientRootCertificatesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+        /// A name used to uniquely identify this certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Public Key Data associated with the Certificate.
+        /// </summary>
         [Input("publicCertData", required: true)]
         public Input<string> PublicCertData { get; set; } = null!;
 
@@ -418,11 +445,14 @@ namespace Pulumi.Azure.Network
     public sealed class VpnServerConfigurationClientRootCertificatesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+        /// A name used to uniquely identify this certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Public Key Data associated with the Certificate.
+        /// </summary>
         [Input("publicCertData", required: true)]
         public Input<string> PublicCertData { get; set; } = null!;
 
@@ -433,27 +463,51 @@ namespace Pulumi.Azure.Network
 
     public sealed class VpnServerConfigurationIpsecPolicyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
+        /// </summary>
         [Input("dhGroup", required: true)]
         public Input<string> DhGroup { get; set; } = null!;
 
+        /// <summary>
+        /// The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
+        /// </summary>
         [Input("ikeEncryption", required: true)]
         public Input<string> IkeEncryption { get; set; } = null!;
 
+        /// <summary>
+        /// The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values include `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
+        /// </summary>
         [Input("ikeIntegrity", required: true)]
         public Input<string> IkeIntegrity { get; set; } = null!;
 
+        /// <summary>
+        /// The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
+        /// </summary>
         [Input("ipsecEncryption", required: true)]
         public Input<string> IpsecEncryption { get; set; } = null!;
 
+        /// <summary>
+        /// The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
+        /// </summary>
         [Input("ipsecIntegrity", required: true)]
         public Input<string> IpsecIntegrity { get; set; } = null!;
 
+        /// <summary>
+        /// The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
+        /// </summary>
         [Input("pfsGroup", required: true)]
         public Input<string> PfsGroup { get; set; } = null!;
 
+        /// <summary>
+        /// The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
+        /// </summary>
         [Input("saDataSizeKilobytes", required: true)]
         public Input<int> SaDataSizeKilobytes { get; set; } = null!;
 
+        /// <summary>
+        /// The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
+        /// </summary>
         [Input("saLifetimeSeconds", required: true)]
         public Input<int> SaLifetimeSeconds { get; set; } = null!;
 
@@ -464,27 +518,51 @@ namespace Pulumi.Azure.Network
 
     public sealed class VpnServerConfigurationIpsecPolicyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
+        /// </summary>
         [Input("dhGroup", required: true)]
         public Input<string> DhGroup { get; set; } = null!;
 
+        /// <summary>
+        /// The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
+        /// </summary>
         [Input("ikeEncryption", required: true)]
         public Input<string> IkeEncryption { get; set; } = null!;
 
+        /// <summary>
+        /// The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values include `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
+        /// </summary>
         [Input("ikeIntegrity", required: true)]
         public Input<string> IkeIntegrity { get; set; } = null!;
 
+        /// <summary>
+        /// The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
+        /// </summary>
         [Input("ipsecEncryption", required: true)]
         public Input<string> IpsecEncryption { get; set; } = null!;
 
+        /// <summary>
+        /// The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
+        /// </summary>
         [Input("ipsecIntegrity", required: true)]
         public Input<string> IpsecIntegrity { get; set; } = null!;
 
+        /// <summary>
+        /// The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
+        /// </summary>
         [Input("pfsGroup", required: true)]
         public Input<string> PfsGroup { get; set; } = null!;
 
+        /// <summary>
+        /// The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
+        /// </summary>
         [Input("saDataSizeKilobytes", required: true)]
         public Input<int> SaDataSizeKilobytes { get; set; } = null!;
 
+        /// <summary>
+        /// The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
+        /// </summary>
         [Input("saLifetimeSeconds", required: true)]
         public Input<int> SaLifetimeSeconds { get; set; } = null!;
 
@@ -495,6 +573,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class VpnServerConfigurationRadiusServerArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Address of the Radius Server.
+        /// </summary>
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;
 
@@ -502,7 +583,7 @@ namespace Pulumi.Azure.Network
         private InputList<VpnServerConfigurationRadiusServerClientRootCertificatesArgs>? _clientRootCertificates;
 
         /// <summary>
-        /// One or more `client_root_certificate` blocks as defined below.
+        /// One or more `client_root_certificate` blocks as defined above.
         /// </summary>
         public InputList<VpnServerConfigurationRadiusServerClientRootCertificatesArgs> ClientRootCertificates
         {
@@ -510,11 +591,18 @@ namespace Pulumi.Azure.Network
             set => _clientRootCertificates = value;
         }
 
+        /// <summary>
+        /// The Secret used to communicate with the Radius Server.
+        /// </summary>
         [Input("secret", required: true)]
         public Input<string> Secret { get; set; } = null!;
 
         [Input("serverRootCertificates", required: true)]
         private InputList<VpnServerConfigurationRadiusServerServerRootCertificatesArgs>? _serverRootCertificates;
+
+        /// <summary>
+        /// One or more `server_root_certificate` blocks as defined below.
+        /// </summary>
         public InputList<VpnServerConfigurationRadiusServerServerRootCertificatesArgs> ServerRootCertificates
         {
             get => _serverRootCertificates ?? (_serverRootCertificates = new InputList<VpnServerConfigurationRadiusServerServerRootCertificatesArgs>());
@@ -529,11 +617,14 @@ namespace Pulumi.Azure.Network
     public sealed class VpnServerConfigurationRadiusServerClientRootCertificatesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+        /// A name used to uniquely identify this certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Thumbprint of the Certificate.
+        /// </summary>
         [Input("thumbprint", required: true)]
         public Input<string> Thumbprint { get; set; } = null!;
 
@@ -545,11 +636,14 @@ namespace Pulumi.Azure.Network
     public sealed class VpnServerConfigurationRadiusServerClientRootCertificatesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+        /// A name used to uniquely identify this certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Thumbprint of the Certificate.
+        /// </summary>
         [Input("thumbprint", required: true)]
         public Input<string> Thumbprint { get; set; } = null!;
 
@@ -560,6 +654,9 @@ namespace Pulumi.Azure.Network
 
     public sealed class VpnServerConfigurationRadiusServerGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Address of the Radius Server.
+        /// </summary>
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;
 
@@ -567,7 +664,7 @@ namespace Pulumi.Azure.Network
         private InputList<VpnServerConfigurationRadiusServerClientRootCertificatesGetArgs>? _clientRootCertificates;
 
         /// <summary>
-        /// One or more `client_root_certificate` blocks as defined below.
+        /// One or more `client_root_certificate` blocks as defined above.
         /// </summary>
         public InputList<VpnServerConfigurationRadiusServerClientRootCertificatesGetArgs> ClientRootCertificates
         {
@@ -575,11 +672,18 @@ namespace Pulumi.Azure.Network
             set => _clientRootCertificates = value;
         }
 
+        /// <summary>
+        /// The Secret used to communicate with the Radius Server.
+        /// </summary>
         [Input("secret", required: true)]
         public Input<string> Secret { get; set; } = null!;
 
         [Input("serverRootCertificates", required: true)]
         private InputList<VpnServerConfigurationRadiusServerServerRootCertificatesGetArgs>? _serverRootCertificates;
+
+        /// <summary>
+        /// One or more `server_root_certificate` blocks as defined below.
+        /// </summary>
         public InputList<VpnServerConfigurationRadiusServerServerRootCertificatesGetArgs> ServerRootCertificates
         {
             get => _serverRootCertificates ?? (_serverRootCertificates = new InputList<VpnServerConfigurationRadiusServerServerRootCertificatesGetArgs>());
@@ -594,11 +698,14 @@ namespace Pulumi.Azure.Network
     public sealed class VpnServerConfigurationRadiusServerServerRootCertificatesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+        /// A name used to uniquely identify this certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Public Key Data associated with the Certificate.
+        /// </summary>
         [Input("publicCertData", required: true)]
         public Input<string> PublicCertData { get; set; } = null!;
 
@@ -610,11 +717,14 @@ namespace Pulumi.Azure.Network
     public sealed class VpnServerConfigurationRadiusServerServerRootCertificatesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+        /// A name used to uniquely identify this certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Public Key Data associated with the Certificate.
+        /// </summary>
         [Input("publicCertData", required: true)]
         public Input<string> PublicCertData { get; set; } = null!;
 
@@ -630,8 +740,17 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class VpnServerConfigurationAzureActiveDirectoryAuthentications
     {
+        /// <summary>
+        /// The Audience which should be used for authentication.
+        /// </summary>
         public readonly string Audience;
+        /// <summary>
+        /// The Issuer which should be used for authentication.
+        /// </summary>
         public readonly string Issuer;
+        /// <summary>
+        /// The Tenant which should be used for authentication.
+        /// </summary>
         public readonly string Tenant;
 
         [OutputConstructor]
@@ -650,9 +769,12 @@ namespace Pulumi.Azure.Network
     public sealed class VpnServerConfigurationClientRevokedCertificates
     {
         /// <summary>
-        /// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+        /// A name used to uniquely identify this certificate.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Thumbprint of the Certificate.
+        /// </summary>
         public readonly string Thumbprint;
 
         [OutputConstructor]
@@ -669,9 +791,12 @@ namespace Pulumi.Azure.Network
     public sealed class VpnServerConfigurationClientRootCertificates
     {
         /// <summary>
-        /// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+        /// A name used to uniquely identify this certificate.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Public Key Data associated with the Certificate.
+        /// </summary>
         public readonly string PublicCertData;
 
         [OutputConstructor]
@@ -687,13 +812,37 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class VpnServerConfigurationIpsecPolicy
     {
+        /// <summary>
+        /// The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
+        /// </summary>
         public readonly string DhGroup;
+        /// <summary>
+        /// The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
+        /// </summary>
         public readonly string IkeEncryption;
+        /// <summary>
+        /// The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values include `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
+        /// </summary>
         public readonly string IkeIntegrity;
+        /// <summary>
+        /// The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
+        /// </summary>
         public readonly string IpsecEncryption;
+        /// <summary>
+        /// The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
+        /// </summary>
         public readonly string IpsecIntegrity;
+        /// <summary>
+        /// The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
+        /// </summary>
         public readonly string PfsGroup;
+        /// <summary>
+        /// The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
+        /// </summary>
         public readonly int SaDataSizeKilobytes;
+        /// <summary>
+        /// The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
+        /// </summary>
         public readonly int SaLifetimeSeconds;
 
         [OutputConstructor]
@@ -721,12 +870,21 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class VpnServerConfigurationRadiusServer
     {
+        /// <summary>
+        /// The Address of the Radius Server.
+        /// </summary>
         public readonly string Address;
         /// <summary>
-        /// One or more `client_root_certificate` blocks as defined below.
+        /// One or more `client_root_certificate` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<VpnServerConfigurationRadiusServerClientRootCertificates> ClientRootCertificates;
+        /// <summary>
+        /// The Secret used to communicate with the Radius Server.
+        /// </summary>
         public readonly string Secret;
+        /// <summary>
+        /// One or more `server_root_certificate` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<VpnServerConfigurationRadiusServerServerRootCertificates> ServerRootCertificates;
 
         [OutputConstructor]
@@ -747,9 +905,12 @@ namespace Pulumi.Azure.Network
     public sealed class VpnServerConfigurationRadiusServerClientRootCertificates
     {
         /// <summary>
-        /// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+        /// A name used to uniquely identify this certificate.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Thumbprint of the Certificate.
+        /// </summary>
         public readonly string Thumbprint;
 
         [OutputConstructor]
@@ -766,9 +927,12 @@ namespace Pulumi.Azure.Network
     public sealed class VpnServerConfigurationRadiusServerServerRootCertificates
     {
         /// <summary>
-        /// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+        /// A name used to uniquely identify this certificate.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Public Key Data associated with the Certificate.
+        /// </summary>
         public readonly string PublicCertData;
 
         [OutputConstructor]

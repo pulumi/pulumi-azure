@@ -367,12 +367,21 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiImportArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
+        /// </summary>
         [Input("contentFormat", required: true)]
         public Input<string> ContentFormat { get; set; } = null!;
 
+        /// <summary>
+        /// The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+        /// </summary>
         [Input("contentValue", required: true)]
         public Input<string> ContentValue { get; set; } = null!;
 
+        /// <summary>
+        /// A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
+        /// </summary>
         [Input("wsdlSelector")]
         public Input<ApiImportWsdlSelectorArgs>? WsdlSelector { get; set; }
 
@@ -383,12 +392,21 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiImportGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
+        /// </summary>
         [Input("contentFormat", required: true)]
         public Input<string> ContentFormat { get; set; } = null!;
 
+        /// <summary>
+        /// The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+        /// </summary>
         [Input("contentValue", required: true)]
         public Input<string> ContentValue { get; set; } = null!;
 
+        /// <summary>
+        /// A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
+        /// </summary>
         [Input("wsdlSelector")]
         public Input<ApiImportWsdlSelectorGetArgs>? WsdlSelector { get; set; }
 
@@ -399,9 +417,15 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiImportWsdlSelectorArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of endpoint (port) to import from WSDL.
+        /// </summary>
         [Input("endpointName", required: true)]
         public Input<string> EndpointName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of service to import from WSDL.
+        /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 
@@ -412,9 +436,15 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiImportWsdlSelectorGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of endpoint (port) to import from WSDL.
+        /// </summary>
         [Input("endpointName", required: true)]
         public Input<string> EndpointName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of service to import from WSDL.
+        /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 
@@ -425,9 +455,15 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiSubscriptionKeyParameterNamesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the HTTP Header which should be used for the Subscription Key.
+        /// </summary>
         [Input("header", required: true)]
         public Input<string> Header { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the QueryString parameter which should be used for the Subscription Key.
+        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
@@ -438,9 +474,15 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ApiSubscriptionKeyParameterNamesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the HTTP Header which should be used for the Subscription Key.
+        /// </summary>
         [Input("header", required: true)]
         public Input<string> Header { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the QueryString parameter which should be used for the Subscription Key.
+        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
@@ -456,8 +498,17 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ApiImport
     {
+        /// <summary>
+        /// The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
+        /// </summary>
         public readonly string ContentFormat;
+        /// <summary>
+        /// The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+        /// </summary>
         public readonly string ContentValue;
+        /// <summary>
+        /// A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
+        /// </summary>
         public readonly ApiImportWsdlSelector? WsdlSelector;
 
         [OutputConstructor]
@@ -475,7 +526,13 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ApiImportWsdlSelector
     {
+        /// <summary>
+        /// The name of endpoint (port) to import from WSDL.
+        /// </summary>
         public readonly string EndpointName;
+        /// <summary>
+        /// The name of service to import from WSDL.
+        /// </summary>
         public readonly string ServiceName;
 
         [OutputConstructor]
@@ -491,7 +548,13 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ApiSubscriptionKeyParameterNames
     {
+        /// <summary>
+        /// The name of the HTTP Header which should be used for the Subscription Key.
+        /// </summary>
         public readonly string Header;
+        /// <summary>
+        /// The name of the QueryString parameter which should be used for the Subscription Key.
+        /// </summary>
         public readonly string Query;
 
         [OutputConstructor]

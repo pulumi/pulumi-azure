@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Storage
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_management_policy.html.markdown.
         /// </summary>
+        [Obsolete("Use GetPolicy.InvokeAsync() instead")]
         public static Task<GetPolicyResult> GetPolicy(GetPolicyArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure:storage/getPolicy:getPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetPolicy
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Storage Management Policy.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_management_policy.html.markdown.
+        /// </summary>
+        public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure:storage/getPolicy:getPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

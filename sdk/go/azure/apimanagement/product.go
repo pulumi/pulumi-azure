@@ -184,4 +184,3 @@ type ProductArgs struct {
 func (ProductArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*productArgs)(nil)).Elem()
 }
-

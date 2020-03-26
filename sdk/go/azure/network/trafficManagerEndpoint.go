@@ -24,7 +24,7 @@ type TrafficManagerEndpoint struct {
 	// if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
 	// For Endpoints of type `azureEndpoints` the value will be taken from the
 	// location of the Azure target resource.
-	EndpointLocation pulumi.StringOutput `pulumi:"endpointLocation"`
+	EndpointLocation      pulumi.StringOutput `pulumi:"endpointLocation"`
 	EndpointMonitorStatus pulumi.StringOutput `pulumi:"endpointMonitorStatus"`
 	// The status of the Endpoint, can be set to
 	// either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -87,6 +87,12 @@ func NewTrafficManagerEndpoint(ctx *pulumi.Context,
 	if args == nil {
 		args = &TrafficManagerEndpointArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:trafficmanager/endpoint:Endpoint"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TrafficManagerEndpoint
 	err := ctx.RegisterResource("azure:network/trafficManagerEndpoint:TrafficManagerEndpoint", name, args, &resource, opts...)
 	if err != nil {
@@ -116,7 +122,7 @@ type trafficManagerEndpointState struct {
 	// if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
 	// For Endpoints of type `azureEndpoints` the value will be taken from the
 	// location of the Azure target resource.
-	EndpointLocation *string `pulumi:"endpointLocation"`
+	EndpointLocation      *string `pulumi:"endpointLocation"`
 	EndpointMonitorStatus *string `pulumi:"endpointMonitorStatus"`
 	// The status of the Endpoint, can be set to
 	// either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -172,7 +178,7 @@ type TrafficManagerEndpointState struct {
 	// if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
 	// For Endpoints of type `azureEndpoints` the value will be taken from the
 	// location of the Azure target resource.
-	EndpointLocation pulumi.StringPtrInput
+	EndpointLocation      pulumi.StringPtrInput
 	EndpointMonitorStatus pulumi.StringPtrInput
 	// The status of the Endpoint, can be set to
 	// either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -338,4 +344,3 @@ type TrafficManagerEndpointArgs struct {
 func (TrafficManagerEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficManagerEndpointArgs)(nil)).Elem()
 }
-

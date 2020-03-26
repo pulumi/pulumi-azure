@@ -135,4 +135,3 @@ type ProtectedFileShareArgs struct {
 func (ProtectedFileShareArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectedFileShareArgs)(nil)).Elem()
 }
-

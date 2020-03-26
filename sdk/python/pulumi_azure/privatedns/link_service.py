@@ -38,11 +38,11 @@ class LinkService(pulumi.CustomResource):
     """
     One or more (up to 8) `nat_ip_configuration` block as defined below.
 
-      * `name` (`str`) - Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
-      * `primary` (`bool`)
-      * `private_ip_address` (`str`)
-      * `privateIpAddressVersion` (`str`)
-      * `subnet_id` (`str`)
+      * `name` (`str`) - Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+      * `primary` (`bool`) - Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+      * `private_ip_address` (`str`) - Specifies a Private Static IP Address for this IP Configuration.
+      * `privateIpAddressVersion` (`str`) - The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
+      * `subnet_id` (`str`) - Specifies the ID of the Subnet which should be used for the Private Link Service.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -78,11 +78,11 @@ class LinkService(pulumi.CustomResource):
 
         The **nat_ip_configurations** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
-          * `primary` (`pulumi.Input[bool]`)
-          * `private_ip_address` (`pulumi.Input[str]`)
-          * `privateIpAddressVersion` (`pulumi.Input[str]`)
-          * `subnet_id` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+          * `primary` (`pulumi.Input[bool]`) - Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+          * `private_ip_address` (`pulumi.Input[str]`) - Specifies a Private Static IP Address for this IP Configuration.
+          * `privateIpAddressVersion` (`pulumi.Input[str]`) - The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
+          * `subnet_id` (`pulumi.Input[str]`) - Specifies the ID of the Subnet which should be used for the Private Link Service.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -145,11 +145,11 @@ class LinkService(pulumi.CustomResource):
 
         The **nat_ip_configurations** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
-          * `primary` (`pulumi.Input[bool]`)
-          * `private_ip_address` (`pulumi.Input[str]`)
-          * `privateIpAddressVersion` (`pulumi.Input[str]`)
-          * `subnet_id` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+          * `primary` (`pulumi.Input[bool]`) - Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+          * `private_ip_address` (`pulumi.Input[str]`) - Specifies a Private Static IP Address for this IP Configuration.
+          * `privateIpAddressVersion` (`pulumi.Input[str]`) - The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
+          * `subnet_id` (`pulumi.Input[str]`) - Specifies the ID of the Subnet which should be used for the Private Link Service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

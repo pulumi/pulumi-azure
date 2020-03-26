@@ -129,4 +129,3 @@ type EventGridTopicArgs struct {
 func (EventGridTopicArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventGridTopicArgs)(nil)).Elem()
 }
-

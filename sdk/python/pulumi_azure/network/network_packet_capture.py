@@ -14,11 +14,11 @@ class NetworkPacketCapture(pulumi.CustomResource):
     """
     One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
 
-      * `localIpAddress` (`str`)
-      * `localPort` (`str`)
-      * `protocol` (`str`)
-      * `remoteIpAddress` (`str`)
-      * `remotePort` (`str`)
+      * `localIpAddress` (`str`) - The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+      * `localPort` (`str`) - The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+      * `protocol` (`str`) - The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
+      * `remoteIpAddress` (`str`) - The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
+      * `remotePort` (`str`) - The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
     """
     maximum_bytes_per_packet: pulumi.Output[float]
     """
@@ -48,8 +48,8 @@ class NetworkPacketCapture(pulumi.CustomResource):
     """
     A `storage_location` block as defined below. Changing this forces a new resource to be created.
 
-      * `filePath` (`str`)
-      * `storage_account_id` (`str`)
+      * `filePath` (`str`) - A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+      * `storage_account_id` (`str`) - The ID of the storage account to save the packet capture session
       * `storagePath` (`str`) - The URI of the storage path to save the packet capture.
     """
     target_resource_id: pulumi.Output[str]
@@ -76,16 +76,16 @@ class NetworkPacketCapture(pulumi.CustomResource):
 
         The **filters** object supports the following:
 
-          * `localIpAddress` (`pulumi.Input[str]`)
-          * `localPort` (`pulumi.Input[str]`)
-          * `protocol` (`pulumi.Input[str]`)
-          * `remoteIpAddress` (`pulumi.Input[str]`)
-          * `remotePort` (`pulumi.Input[str]`)
+          * `localIpAddress` (`pulumi.Input[str]`) - The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+          * `localPort` (`pulumi.Input[str]`) - The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+          * `protocol` (`pulumi.Input[str]`) - The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
+          * `remoteIpAddress` (`pulumi.Input[str]`) - The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
+          * `remotePort` (`pulumi.Input[str]`) - The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
 
         The **storage_location** object supports the following:
 
-          * `filePath` (`pulumi.Input[str]`)
-          * `storage_account_id` (`pulumi.Input[str]`)
+          * `filePath` (`pulumi.Input[str]`) - A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+          * `storage_account_id` (`pulumi.Input[str]`) - The ID of the storage account to save the packet capture session
           * `storagePath` (`pulumi.Input[str]`) - The URI of the storage path to save the packet capture.
         """
         if __name__ is not None:
@@ -149,16 +149,16 @@ class NetworkPacketCapture(pulumi.CustomResource):
 
         The **filters** object supports the following:
 
-          * `localIpAddress` (`pulumi.Input[str]`)
-          * `localPort` (`pulumi.Input[str]`)
-          * `protocol` (`pulumi.Input[str]`)
-          * `remoteIpAddress` (`pulumi.Input[str]`)
-          * `remotePort` (`pulumi.Input[str]`)
+          * `localIpAddress` (`pulumi.Input[str]`) - The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+          * `localPort` (`pulumi.Input[str]`) - The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+          * `protocol` (`pulumi.Input[str]`) - The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
+          * `remoteIpAddress` (`pulumi.Input[str]`) - The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
+          * `remotePort` (`pulumi.Input[str]`) - The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
 
         The **storage_location** object supports the following:
 
-          * `filePath` (`pulumi.Input[str]`)
-          * `storage_account_id` (`pulumi.Input[str]`)
+          * `filePath` (`pulumi.Input[str]`) - A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+          * `storage_account_id` (`pulumi.Input[str]`) - The ID of the storage account to save the packet capture session
           * `storagePath` (`pulumi.Input[str]`) - The URI of the storage path to save the packet capture.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

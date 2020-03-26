@@ -22,13 +22,13 @@ func GetStorageContainer(ctx *pulumi.Context, args *GetStorageContainerArgs, opt
 
 // A collection of arguments for invoking getStorageContainer.
 type GetStorageContainerArgs struct {
+	// A mapping of MetaData for this Container.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Container.
 	Name string `pulumi:"name"`
 	// The name of the Storage Account where the Container was created.
 	StorageAccountName string `pulumi:"storageAccountName"`
 }
-
 
 // A collection of values returned by getStorageContainer.
 type GetStorageContainerResult struct {
@@ -41,8 +41,7 @@ type GetStorageContainerResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A mapping of MetaData for this Container.
-	Metadata map[string]string `pulumi:"metadata"`
-	Name string `pulumi:"name"`
-	StorageAccountName string `pulumi:"storageAccountName"`
+	Metadata           map[string]string `pulumi:"metadata"`
+	Name               string            `pulumi:"name"`
+	StorageAccountName string            `pulumi:"storageAccountName"`
 }
-

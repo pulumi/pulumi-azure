@@ -102,6 +102,8 @@ def get_nat_gateway(name=None,public_ip_address_ids=None,public_ip_prefix_ids=No
 
 
     :param str name: Specifies the Name of the NAT Gateway.
+    :param list public_ip_address_ids: A list of existing Public IP Address resource IDs which the NAT Gateway is using.
+    :param list public_ip_prefix_ids: A list of existing Public IP Prefix resource IDs which the NAT Gateway is using.
     :param str resource_group_name: Specifies the name of the Resource Group where the NAT Gateway exists.
     """
     __args__ = dict()

@@ -223,15 +223,27 @@ namespace Pulumi.Azure.Dns
 
     public sealed class SrvRecordRecordsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Port the service is listening on.
+        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
+        /// <summary>
+        /// Priority of the SRV record.
+        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
+        /// <summary>
+        /// FQDN of the service.
+        /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 
+        /// <summary>
+        /// Weight of the SRV record.
+        /// </summary>
         [Input("weight", required: true)]
         public Input<int> Weight { get; set; } = null!;
 
@@ -242,15 +254,27 @@ namespace Pulumi.Azure.Dns
 
     public sealed class SrvRecordRecordsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Port the service is listening on.
+        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
+        /// <summary>
+        /// Priority of the SRV record.
+        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
+        /// <summary>
+        /// FQDN of the service.
+        /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 
+        /// <summary>
+        /// Weight of the SRV record.
+        /// </summary>
         [Input("weight", required: true)]
         public Input<int> Weight { get; set; } = null!;
 
@@ -266,9 +290,21 @@ namespace Pulumi.Azure.Dns
     [OutputType]
     public sealed class SrvRecordRecords
     {
+        /// <summary>
+        /// Port the service is listening on.
+        /// </summary>
         public readonly int Port;
+        /// <summary>
+        /// Priority of the SRV record.
+        /// </summary>
         public readonly int Priority;
+        /// <summary>
+        /// FQDN of the service.
+        /// </summary>
         public readonly string Target;
+        /// <summary>
+        /// Weight of the SRV record.
+        /// </summary>
         public readonly int Weight;
 
         [OutputConstructor]

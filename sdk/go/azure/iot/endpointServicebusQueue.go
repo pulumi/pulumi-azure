@@ -21,9 +21,9 @@ type EndpointServicebusQueue struct {
 
 	// The connection string for the endpoint.
 	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
-	IothubName pulumi.StringOutput `pulumi:"iothubName"`
+	IothubName       pulumi.StringOutput `pulumi:"iothubName"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name              pulumi.StringOutput `pulumi:"name"`
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
@@ -66,18 +66,18 @@ func GetEndpointServicebusQueue(ctx *pulumi.Context,
 type endpointServicebusQueueState struct {
 	// The connection string for the endpoint.
 	ConnectionString *string `pulumi:"connectionString"`
-	IothubName *string `pulumi:"iothubName"`
+	IothubName       *string `pulumi:"iothubName"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-	Name *string `pulumi:"name"`
+	Name              *string `pulumi:"name"`
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 type EndpointServicebusQueueState struct {
 	// The connection string for the endpoint.
 	ConnectionString pulumi.StringPtrInput
-	IothubName pulumi.StringPtrInput
+	IothubName       pulumi.StringPtrInput
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-	Name pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringPtrInput
 }
 
@@ -88,23 +88,22 @@ func (EndpointServicebusQueueState) ElementType() reflect.Type {
 type endpointServicebusQueueArgs struct {
 	// The connection string for the endpoint.
 	ConnectionString string `pulumi:"connectionString"`
-	IothubName string `pulumi:"iothubName"`
+	IothubName       string `pulumi:"iothubName"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-	Name *string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Name              *string `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a EndpointServicebusQueue resource.
 type EndpointServicebusQueueArgs struct {
 	// The connection string for the endpoint.
 	ConnectionString pulumi.StringInput
-	IothubName pulumi.StringInput
+	IothubName       pulumi.StringInput
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-	Name pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 
 func (EndpointServicebusQueueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointServicebusQueueArgs)(nil)).Elem()
 }
-

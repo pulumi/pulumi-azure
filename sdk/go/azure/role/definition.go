@@ -135,4 +135,3 @@ type DefinitionArgs struct {
 func (DefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*definitionArgs)(nil)).Elem()
 }
-

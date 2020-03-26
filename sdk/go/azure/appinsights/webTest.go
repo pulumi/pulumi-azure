@@ -29,16 +29,16 @@ type WebTest struct {
 	Frequency pulumi.IntPtrOutput `pulumi:"frequency"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations pulumi.StringArrayOutput `pulumi:"geoLocations"`
-	Kind pulumi.StringOutput `pulumi:"kind"`
+	Kind         pulumi.StringOutput      `pulumi:"kind"`
 	// The location of the resource group.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Application Insights WebTest. Changing this forces a
 	// new resource to be created.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name              pulumi.StringOutput `pulumi:"name"`
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Allow for retries should this WebTest fail.
-	RetryEnabled pulumi.BoolPtrOutput `pulumi:"retryEnabled"`
-	SyntheticMonitorId pulumi.StringOutput `pulumi:"syntheticMonitorId"`
+	RetryEnabled       pulumi.BoolPtrOutput `pulumi:"retryEnabled"`
+	SyntheticMonitorId pulumi.StringOutput  `pulumi:"syntheticMonitorId"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Seconds until this WebTest will timeout and fail. Default is `30`.
@@ -100,15 +100,15 @@ type webTestState struct {
 	Frequency *int `pulumi:"frequency"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations []string `pulumi:"geoLocations"`
-	Kind *string `pulumi:"kind"`
+	Kind         *string  `pulumi:"kind"`
 	// The location of the resource group.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Application Insights WebTest. Changing this forces a
 	// new resource to be created.
-	Name *string `pulumi:"name"`
+	Name              *string `pulumi:"name"`
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Allow for retries should this WebTest fail.
-	RetryEnabled *bool `pulumi:"retryEnabled"`
+	RetryEnabled       *bool   `pulumi:"retryEnabled"`
 	SyntheticMonitorId *string `pulumi:"syntheticMonitorId"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -129,15 +129,15 @@ type WebTestState struct {
 	Frequency pulumi.IntPtrInput
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations pulumi.StringArrayInput
-	Kind pulumi.StringPtrInput
+	Kind         pulumi.StringPtrInput
 	// The location of the resource group.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Application Insights WebTest. Changing this forces a
 	// new resource to be created.
-	Name pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringPtrInput
 	// Allow for retries should this WebTest fail.
-	RetryEnabled pulumi.BoolPtrInput
+	RetryEnabled       pulumi.BoolPtrInput
 	SyntheticMonitorId pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
@@ -162,13 +162,13 @@ type webTestArgs struct {
 	Frequency *int `pulumi:"frequency"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations []string `pulumi:"geoLocations"`
-	Kind string `pulumi:"kind"`
+	Kind         string   `pulumi:"kind"`
 	// The location of the resource group.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Application Insights WebTest. Changing this forces a
 	// new resource to be created.
-	Name *string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Name              *string `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 	// Allow for retries should this WebTest fail.
 	RetryEnabled *bool `pulumi:"retryEnabled"`
 	// Resource tags.
@@ -191,12 +191,12 @@ type WebTestArgs struct {
 	Frequency pulumi.IntPtrInput
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations pulumi.StringArrayInput
-	Kind pulumi.StringInput
+	Kind         pulumi.StringInput
 	// The location of the resource group.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Application Insights WebTest. Changing this forces a
 	// new resource to be created.
-	Name pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 	// Allow for retries should this WebTest fail.
 	RetryEnabled pulumi.BoolPtrInput
@@ -209,4 +209,3 @@ type WebTestArgs struct {
 func (WebTestArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webTestArgs)(nil)).Elem()
 }
-

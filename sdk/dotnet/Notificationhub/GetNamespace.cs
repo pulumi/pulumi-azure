@@ -16,7 +16,18 @@ namespace Pulumi.Azure.NotificationHub
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub_namespace.html.markdown.
         /// </summary>
+        [Obsolete("Use GetNamespace.InvokeAsync() instead")]
         public static Task<GetNamespaceResult> GetNamespace(GetNamespaceArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:notificationhub/getNamespace:getNamespace", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetNamespace
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Notification Hub Namespace.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub_namespace.html.markdown.
+        /// </summary>
+        public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:notificationhub/getNamespace:getNamespace", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

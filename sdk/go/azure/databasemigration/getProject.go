@@ -30,16 +30,15 @@ type LookupProjectArgs struct {
 	ServiceName string `pulumi:"serviceName"`
 }
 
-
 // A collection of values returned by getProject.
 type LookupProjectResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Azure location where the resource exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 	// The platform type of the migration source.
 	SourcePlatform string `pulumi:"sourcePlatform"`
 	// A mapping of tags to assigned to the resource.
@@ -47,4 +46,3 @@ type LookupProjectResult struct {
 	// The platform type of the migration target.
 	TargetPlatform string `pulumi:"targetPlatform"`
 }
-

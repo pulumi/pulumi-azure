@@ -165,4 +165,3 @@ type LinkedServicePostgresqlArgs struct {
 func (LinkedServicePostgresqlArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkedServicePostgresqlArgs)(nil)).Elem()
 }
-

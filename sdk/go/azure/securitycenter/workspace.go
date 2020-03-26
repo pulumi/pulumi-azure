@@ -96,4 +96,3 @@ type WorkspaceArgs struct {
 func (WorkspaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workspaceArgs)(nil)).Elem()
 }
-

@@ -162,4 +162,3 @@ type OutputMssqlArgs struct {
 func (OutputMssqlArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*outputMssqlArgs)(nil)).Elem()
 }
-

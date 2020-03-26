@@ -156,4 +156,3 @@ type AnalyticsWorkspaceArgs struct {
 func (AnalyticsWorkspaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyticsWorkspaceArgs)(nil)).Elem()
 }
-

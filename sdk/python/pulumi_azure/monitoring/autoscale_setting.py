@@ -26,52 +26,52 @@ class AutoscaleSetting(pulumi.CustomResource):
     """
     Specifies a `notification` block as defined below.
 
-      * `email` (`dict`)
-        * `customEmails` (`list`)
-        * `sendToSubscriptionAdministrator` (`bool`)
-        * `sendToSubscriptionCoAdministrator` (`bool`)
+      * `email` (`dict`) - A `email` block as defined below.
+        * `customEmails` (`list`) - Specifies a list of custom email addresses to which the email notifications will be sent.
+        * `sendToSubscriptionAdministrator` (`bool`) - Should email notifications be sent to the subscription administrator? Defaults to `false`.
+        * `sendToSubscriptionCoAdministrator` (`bool`) - Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
 
-      * `webhooks` (`list`)
-        * `properties` (`dict`)
-        * `service_uri` (`str`)
+      * `webhooks` (`list`) - One or more `webhook` blocks as defined below.
+        * `properties` (`dict`) - A map of settings.
+        * `service_uri` (`str`) - The HTTPS URI which should receive scale notifications.
     """
     profiles: pulumi.Output[list]
     """
     Specifies one or more (up to 20) `profile` blocks as defined below.
 
-      * `capacity` (`dict`)
-        * `default` (`float`)
-        * `maximum` (`float`)
-        * `minimum` (`float`)
+      * `capacity` (`dict`) - A `capacity` block as defined below.
+        * `default` (`float`) - The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
+        * `maximum` (`float`) - The maximum number of instances for this resource. Valid values are between `0` and `1000`.
+        * `minimum` (`float`) - The minimum number of instances for this resource. Valid values are between `0` and `1000`.
 
-      * `fixedDate` (`dict`)
-        * `end` (`str`)
-        * `start` (`str`)
-        * `timezone` (`str`)
+      * `fixedDate` (`dict`) - A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
+        * `end` (`str`) - Specifies the end date for the profile, formatted as an RFC3339 date string.
+        * `start` (`str`) - Specifies the start date for the profile, formatted as an RFC3339 date string.
+        * `timezone` (`str`) - The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
 
-      * `name` (`str`) - The name of the AutoScale Setting. Changing this forces a new resource to be created.
-      * `recurrence` (`dict`)
-        * `days` (`list`)
-        * `hours` (`float`)
-        * `minutes` (`float`)
-        * `timezone` (`str`)
+      * `name` (`str`) - Specifies the name of the profile.
+      * `recurrence` (`dict`) - A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
+        * `days` (`list`) - A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+        * `hours` (`float`) - A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
+        * `minutes` (`float`) - A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+        * `timezone` (`str`) - The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
 
-      * `rules` (`list`)
-        * `metricTrigger` (`dict`)
-          * `metricName` (`str`)
-          * `metricResourceId` (`str`)
-          * `operator` (`str`)
-          * `statistic` (`str`)
-          * `threshold` (`float`)
-          * `timeAggregation` (`str`)
-          * `timeGrain` (`str`)
-          * `time_window` (`str`)
+      * `rules` (`list`) - One or more (up to 10) `rule` blocks as defined below.
+        * `metricTrigger` (`dict`) - A `metric_trigger` block as defined below.
+          * `metricName` (`str`) - The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
+          * `metricResourceId` (`str`) - The ID of the Resource which the Rule monitors.
+          * `operator` (`str`) - Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
+          * `statistic` (`str`) - Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+          * `threshold` (`float`) - Specifies the threshold of the metric that triggers the scale action.
+          * `timeAggregation` (`str`) - Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+          * `timeGrain` (`str`) - Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
+          * `time_window` (`str`) - Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
 
-        * `scaleAction` (`dict`)
-          * `cooldown` (`str`)
-          * `direction` (`str`)
-          * `type` (`str`)
-          * `value` (`float`)
+        * `scaleAction` (`dict`) - A `scale_action` block as defined below.
+          * `cooldown` (`str`) - The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
+          * `direction` (`str`) - The scale direction. Possible values are `Increase` and `Decrease`.
+          * `type` (`str`) - The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+          * `value` (`float`) - The number of instances involved in the scaling action. Defaults to `1`.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -104,50 +104,50 @@ class AutoscaleSetting(pulumi.CustomResource):
 
         The **notification** object supports the following:
 
-          * `email` (`pulumi.Input[dict]`)
-            * `customEmails` (`pulumi.Input[list]`)
-            * `sendToSubscriptionAdministrator` (`pulumi.Input[bool]`)
-            * `sendToSubscriptionCoAdministrator` (`pulumi.Input[bool]`)
+          * `email` (`pulumi.Input[dict]`) - A `email` block as defined below.
+            * `customEmails` (`pulumi.Input[list]`) - Specifies a list of custom email addresses to which the email notifications will be sent.
+            * `sendToSubscriptionAdministrator` (`pulumi.Input[bool]`) - Should email notifications be sent to the subscription administrator? Defaults to `false`.
+            * `sendToSubscriptionCoAdministrator` (`pulumi.Input[bool]`) - Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
 
-          * `webhooks` (`pulumi.Input[list]`)
-            * `properties` (`pulumi.Input[dict]`)
-            * `service_uri` (`pulumi.Input[str]`)
+          * `webhooks` (`pulumi.Input[list]`) - One or more `webhook` blocks as defined below.
+            * `properties` (`pulumi.Input[dict]`) - A map of settings.
+            * `service_uri` (`pulumi.Input[str]`) - The HTTPS URI which should receive scale notifications.
 
         The **profiles** object supports the following:
 
-          * `capacity` (`pulumi.Input[dict]`)
-            * `default` (`pulumi.Input[float]`)
-            * `maximum` (`pulumi.Input[float]`)
-            * `minimum` (`pulumi.Input[float]`)
+          * `capacity` (`pulumi.Input[dict]`) - A `capacity` block as defined below.
+            * `default` (`pulumi.Input[float]`) - The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
+            * `maximum` (`pulumi.Input[float]`) - The maximum number of instances for this resource. Valid values are between `0` and `1000`.
+            * `minimum` (`pulumi.Input[float]`) - The minimum number of instances for this resource. Valid values are between `0` and `1000`.
 
-          * `fixedDate` (`pulumi.Input[dict]`)
-            * `end` (`pulumi.Input[str]`)
-            * `start` (`pulumi.Input[str]`)
-            * `timezone` (`pulumi.Input[str]`)
+          * `fixedDate` (`pulumi.Input[dict]`) - A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
+            * `end` (`pulumi.Input[str]`) - Specifies the end date for the profile, formatted as an RFC3339 date string.
+            * `start` (`pulumi.Input[str]`) - Specifies the start date for the profile, formatted as an RFC3339 date string.
+            * `timezone` (`pulumi.Input[str]`) - The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
 
-          * `name` (`pulumi.Input[str]`) - The name of the AutoScale Setting. Changing this forces a new resource to be created.
-          * `recurrence` (`pulumi.Input[dict]`)
-            * `days` (`pulumi.Input[list]`)
-            * `hours` (`pulumi.Input[float]`)
-            * `minutes` (`pulumi.Input[float]`)
-            * `timezone` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the profile.
+          * `recurrence` (`pulumi.Input[dict]`) - A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
+            * `days` (`pulumi.Input[list]`) - A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+            * `hours` (`pulumi.Input[float]`) - A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
+            * `minutes` (`pulumi.Input[float]`) - A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+            * `timezone` (`pulumi.Input[str]`) - The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
 
-          * `rules` (`pulumi.Input[list]`)
-            * `metricTrigger` (`pulumi.Input[dict]`)
-              * `metricName` (`pulumi.Input[str]`)
-              * `metricResourceId` (`pulumi.Input[str]`)
-              * `operator` (`pulumi.Input[str]`)
-              * `statistic` (`pulumi.Input[str]`)
-              * `threshold` (`pulumi.Input[float]`)
-              * `timeAggregation` (`pulumi.Input[str]`)
-              * `timeGrain` (`pulumi.Input[str]`)
-              * `time_window` (`pulumi.Input[str]`)
+          * `rules` (`pulumi.Input[list]`) - One or more (up to 10) `rule` blocks as defined below.
+            * `metricTrigger` (`pulumi.Input[dict]`) - A `metric_trigger` block as defined below.
+              * `metricName` (`pulumi.Input[str]`) - The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
+              * `metricResourceId` (`pulumi.Input[str]`) - The ID of the Resource which the Rule monitors.
+              * `operator` (`pulumi.Input[str]`) - Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
+              * `statistic` (`pulumi.Input[str]`) - Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+              * `threshold` (`pulumi.Input[float]`) - Specifies the threshold of the metric that triggers the scale action.
+              * `timeAggregation` (`pulumi.Input[str]`) - Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+              * `timeGrain` (`pulumi.Input[str]`) - Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
+              * `time_window` (`pulumi.Input[str]`) - Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
 
-            * `scaleAction` (`pulumi.Input[dict]`)
-              * `cooldown` (`pulumi.Input[str]`)
-              * `direction` (`pulumi.Input[str]`)
-              * `type` (`pulumi.Input[str]`)
-              * `value` (`pulumi.Input[float]`)
+            * `scaleAction` (`pulumi.Input[dict]`) - A `scale_action` block as defined below.
+              * `cooldown` (`pulumi.Input[str]`) - The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
+              * `direction` (`pulumi.Input[str]`) - The scale direction. Possible values are `Increase` and `Decrease`.
+              * `type` (`pulumi.Input[str]`) - The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+              * `value` (`pulumi.Input[float]`) - The number of instances involved in the scaling action. Defaults to `1`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -206,50 +206,50 @@ class AutoscaleSetting(pulumi.CustomResource):
 
         The **notification** object supports the following:
 
-          * `email` (`pulumi.Input[dict]`)
-            * `customEmails` (`pulumi.Input[list]`)
-            * `sendToSubscriptionAdministrator` (`pulumi.Input[bool]`)
-            * `sendToSubscriptionCoAdministrator` (`pulumi.Input[bool]`)
+          * `email` (`pulumi.Input[dict]`) - A `email` block as defined below.
+            * `customEmails` (`pulumi.Input[list]`) - Specifies a list of custom email addresses to which the email notifications will be sent.
+            * `sendToSubscriptionAdministrator` (`pulumi.Input[bool]`) - Should email notifications be sent to the subscription administrator? Defaults to `false`.
+            * `sendToSubscriptionCoAdministrator` (`pulumi.Input[bool]`) - Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
 
-          * `webhooks` (`pulumi.Input[list]`)
-            * `properties` (`pulumi.Input[dict]`)
-            * `service_uri` (`pulumi.Input[str]`)
+          * `webhooks` (`pulumi.Input[list]`) - One or more `webhook` blocks as defined below.
+            * `properties` (`pulumi.Input[dict]`) - A map of settings.
+            * `service_uri` (`pulumi.Input[str]`) - The HTTPS URI which should receive scale notifications.
 
         The **profiles** object supports the following:
 
-          * `capacity` (`pulumi.Input[dict]`)
-            * `default` (`pulumi.Input[float]`)
-            * `maximum` (`pulumi.Input[float]`)
-            * `minimum` (`pulumi.Input[float]`)
+          * `capacity` (`pulumi.Input[dict]`) - A `capacity` block as defined below.
+            * `default` (`pulumi.Input[float]`) - The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
+            * `maximum` (`pulumi.Input[float]`) - The maximum number of instances for this resource. Valid values are between `0` and `1000`.
+            * `minimum` (`pulumi.Input[float]`) - The minimum number of instances for this resource. Valid values are between `0` and `1000`.
 
-          * `fixedDate` (`pulumi.Input[dict]`)
-            * `end` (`pulumi.Input[str]`)
-            * `start` (`pulumi.Input[str]`)
-            * `timezone` (`pulumi.Input[str]`)
+          * `fixedDate` (`pulumi.Input[dict]`) - A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
+            * `end` (`pulumi.Input[str]`) - Specifies the end date for the profile, formatted as an RFC3339 date string.
+            * `start` (`pulumi.Input[str]`) - Specifies the start date for the profile, formatted as an RFC3339 date string.
+            * `timezone` (`pulumi.Input[str]`) - The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
 
-          * `name` (`pulumi.Input[str]`) - The name of the AutoScale Setting. Changing this forces a new resource to be created.
-          * `recurrence` (`pulumi.Input[dict]`)
-            * `days` (`pulumi.Input[list]`)
-            * `hours` (`pulumi.Input[float]`)
-            * `minutes` (`pulumi.Input[float]`)
-            * `timezone` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the profile.
+          * `recurrence` (`pulumi.Input[dict]`) - A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
+            * `days` (`pulumi.Input[list]`) - A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+            * `hours` (`pulumi.Input[float]`) - A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
+            * `minutes` (`pulumi.Input[float]`) - A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+            * `timezone` (`pulumi.Input[str]`) - The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
 
-          * `rules` (`pulumi.Input[list]`)
-            * `metricTrigger` (`pulumi.Input[dict]`)
-              * `metricName` (`pulumi.Input[str]`)
-              * `metricResourceId` (`pulumi.Input[str]`)
-              * `operator` (`pulumi.Input[str]`)
-              * `statistic` (`pulumi.Input[str]`)
-              * `threshold` (`pulumi.Input[float]`)
-              * `timeAggregation` (`pulumi.Input[str]`)
-              * `timeGrain` (`pulumi.Input[str]`)
-              * `time_window` (`pulumi.Input[str]`)
+          * `rules` (`pulumi.Input[list]`) - One or more (up to 10) `rule` blocks as defined below.
+            * `metricTrigger` (`pulumi.Input[dict]`) - A `metric_trigger` block as defined below.
+              * `metricName` (`pulumi.Input[str]`) - The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
+              * `metricResourceId` (`pulumi.Input[str]`) - The ID of the Resource which the Rule monitors.
+              * `operator` (`pulumi.Input[str]`) - Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
+              * `statistic` (`pulumi.Input[str]`) - Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+              * `threshold` (`pulumi.Input[float]`) - Specifies the threshold of the metric that triggers the scale action.
+              * `timeAggregation` (`pulumi.Input[str]`) - Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+              * `timeGrain` (`pulumi.Input[str]`) - Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
+              * `time_window` (`pulumi.Input[str]`) - Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
 
-            * `scaleAction` (`pulumi.Input[dict]`)
-              * `cooldown` (`pulumi.Input[str]`)
-              * `direction` (`pulumi.Input[str]`)
-              * `type` (`pulumi.Input[str]`)
-              * `value` (`pulumi.Input[float]`)
+            * `scaleAction` (`pulumi.Input[dict]`) - A `scale_action` block as defined below.
+              * `cooldown` (`pulumi.Input[str]`) - The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
+              * `direction` (`pulumi.Input[str]`) - The scale direction. Possible values are `Increase` and `Decrease`.
+              * `type` (`pulumi.Input[str]`) - The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+              * `value` (`pulumi.Input[float]`) - The number of instances involved in the scaling action. Defaults to `1`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

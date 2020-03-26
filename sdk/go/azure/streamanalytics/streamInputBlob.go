@@ -193,4 +193,3 @@ type StreamInputBlobArgs struct {
 func (StreamInputBlobArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamInputBlobArgs)(nil)).Elem()
 }
-

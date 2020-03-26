@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Core
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resource_group.html.markdown.
         /// </summary>
+        [Obsolete("Use GetResourceGroup.InvokeAsync() instead")]
         public static Task<GetResourceGroupResult> GetResourceGroup(GetResourceGroupArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure:core/getResourceGroup:getResourceGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetResourceGroup
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Resource Group.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resource_group.html.markdown.
+        /// </summary>
+        public static Task<GetResourceGroupResult> InvokeAsync(GetResourceGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure:core/getResourceGroup:getResourceGroup", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -50,7 +50,7 @@ type AuthorizationServer struct {
 	// The username associated with the Resource Owner.
 	ResourceOwnerUsername pulumi.StringPtrOutput `pulumi:"resourceOwnerUsername"`
 	// Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
-	SupportState pulumi.BoolPtrOutput `pulumi:"supportState"`
+	SupportState        pulumi.BoolPtrOutput                             `pulumi:"supportState"`
 	TokenBodyParameters AuthorizationServerTokenBodyParameterArrayOutput `pulumi:"tokenBodyParameters"`
 	// The OAUTH Token Endpoint.
 	TokenEndpoint pulumi.StringPtrOutput `pulumi:"tokenEndpoint"`
@@ -141,7 +141,7 @@ type authorizationServerState struct {
 	// The username associated with the Resource Owner.
 	ResourceOwnerUsername *string `pulumi:"resourceOwnerUsername"`
 	// Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
-	SupportState *bool `pulumi:"supportState"`
+	SupportState        *bool                                   `pulumi:"supportState"`
 	TokenBodyParameters []AuthorizationServerTokenBodyParameter `pulumi:"tokenBodyParameters"`
 	// The OAUTH Token Endpoint.
 	TokenEndpoint *string `pulumi:"tokenEndpoint"`
@@ -181,7 +181,7 @@ type AuthorizationServerState struct {
 	// The username associated with the Resource Owner.
 	ResourceOwnerUsername pulumi.StringPtrInput
 	// Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
-	SupportState pulumi.BoolPtrInput
+	SupportState        pulumi.BoolPtrInput
 	TokenBodyParameters AuthorizationServerTokenBodyParameterArrayInput
 	// The OAUTH Token Endpoint.
 	TokenEndpoint pulumi.StringPtrInput
@@ -225,7 +225,7 @@ type authorizationServerArgs struct {
 	// The username associated with the Resource Owner.
 	ResourceOwnerUsername *string `pulumi:"resourceOwnerUsername"`
 	// Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
-	SupportState *bool `pulumi:"supportState"`
+	SupportState        *bool                                   `pulumi:"supportState"`
 	TokenBodyParameters []AuthorizationServerTokenBodyParameter `pulumi:"tokenBodyParameters"`
 	// The OAUTH Token Endpoint.
 	TokenEndpoint *string `pulumi:"tokenEndpoint"`
@@ -266,7 +266,7 @@ type AuthorizationServerArgs struct {
 	// The username associated with the Resource Owner.
 	ResourceOwnerUsername pulumi.StringPtrInput
 	// Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
-	SupportState pulumi.BoolPtrInput
+	SupportState        pulumi.BoolPtrInput
 	TokenBodyParameters AuthorizationServerTokenBodyParameterArrayInput
 	// The OAUTH Token Endpoint.
 	TokenEndpoint pulumi.StringPtrInput
@@ -275,4 +275,3 @@ type AuthorizationServerArgs struct {
 func (AuthorizationServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*authorizationServerArgs)(nil)).Elem()
 }
-

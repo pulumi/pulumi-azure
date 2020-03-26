@@ -202,4 +202,3 @@ type MLServicesClusterArgs struct {
 func (MLServicesClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*mlservicesClusterArgs)(nil)).Elem()
 }
-

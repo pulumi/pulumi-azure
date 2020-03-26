@@ -28,14 +28,13 @@ type LookupServiceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getService.
 type LookupServiceResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Azure location where the resource exists.
-	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku name of database migration service.
 	SkuName string `pulumi:"skuName"`
@@ -44,4 +43,3 @@ type LookupServiceResult struct {
 	// A mapping of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
-

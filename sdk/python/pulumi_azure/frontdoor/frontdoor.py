@@ -14,41 +14,41 @@ class Frontdoor(pulumi.CustomResource):
     """
     A `backend_pool_health_probe` block as defined below.
 
-      * `enabled` (`bool`)
+      * `enabled` (`bool`) - Is this health probe enabled? Dafaults to `true`.
       * `id` (`str`) - The ID of the FrontDoor.
-      * `interval_in_seconds` (`float`)
-      * `name` (`str`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-      * `path` (`str`)
-      * `probeMethod` (`str`)
-      * `protocol` (`str`)
+      * `interval_in_seconds` (`float`) - The number of seconds between each Health Probe. Defaults to `120`.
+      * `name` (`str`) - Specifies the name of the Health Probe.
+      * `path` (`str`) - The path to use for the Health Probe. Default is `/`.
+      * `probeMethod` (`str`) - Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+      * `protocol` (`str`) - Protocol scheme to use for the Health Probe. Defaults to `Http`.
     """
     backend_pool_load_balancings: pulumi.Output[list]
     """
     A `backend_pool_load_balancing` block as defined below.
 
-      * `additionalLatencyMilliseconds` (`float`)
+      * `additionalLatencyMilliseconds` (`float`) - The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
       * `id` (`str`) - The ID of the FrontDoor.
-      * `name` (`str`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-      * `sampleSize` (`float`)
-      * `successfulSamplesRequired` (`float`)
+      * `name` (`str`) - Specifies the name of the Load Balancer.
+      * `sampleSize` (`float`) - The number of samples to consider for load balancing decisions. Defaults to `4`.
+      * `successfulSamplesRequired` (`float`) - The number of samples within the sample period that must succeed. Defaults to `2`.
     """
     backend_pools: pulumi.Output[list]
     """
     A `backend_pool` block as defined below.
 
-      * `backends` (`list`)
-        * `address` (`str`)
-        * `enabled` (`bool`)
-        * `hostHeader` (`str`)
-        * `httpPort` (`float`)
-        * `httpsPort` (`float`)
-        * `priority` (`float`)
-        * `weight` (`float`)
+      * `backends` (`list`) - A `backend` block as defined below.
+        * `address` (`str`) - Location of the backend (IP address or FQDN)
+        * `enabled` (`bool`) - Specifies if the backend is enabled or not. Valid options are `true` or `false`. Defaults to `true`.
+        * `hostHeader` (`str`) - The value to use as the host header sent to the backend.
+        * `httpPort` (`float`) - The HTTP TCP port number. Possible values are between `1` - `65535`.
+        * `httpsPort` (`float`) - The HTTPS TCP port number. Possible values are between `1` - `65535`.
+        * `priority` (`float`) - Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to `1`.
+        * `weight` (`float`) - Weight of this endpoint for load balancing purposes. Defaults to `50`.
 
-      * `healthProbeName` (`str`)
+      * `healthProbeName` (`str`) - Specifies the name of the `backend_pool_health_probe` block whithin this resource to use for this `Backend Pool`.
       * `id` (`str`) - The ID of the FrontDoor.
-      * `loadBalancingName` (`str`)
-      * `name` (`str`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+      * `loadBalancingName` (`str`) - Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
+      * `name` (`str`) - Specifies the name of the Backend Pool.
     """
     cname: pulumi.Output[str]
     """
@@ -66,22 +66,22 @@ class Frontdoor(pulumi.CustomResource):
     """
     A `frontend_endpoint` block as defined below.
 
-      * `customHttpsConfiguration` (`dict`)
-        * `azureKeyVaultCertificateSecretName` (`str`)
-        * `azureKeyVaultCertificateSecretVersion` (`str`)
-        * `azureKeyVaultCertificateVaultId` (`str`)
-        * `certificateSource` (`str`)
+      * `customHttpsConfiguration` (`dict`) - A `custom_https_configuration` block as defined below.
+        * `azureKeyVaultCertificateSecretName` (`str`) - The name of the Key Vault secret representing the full certificate PFX.
+        * `azureKeyVaultCertificateSecretVersion` (`str`) - The version of the Key Vault secret representing the full certificate PFX.
+        * `azureKeyVaultCertificateVaultId` (`str`) - The ID of the Key Vault containing the SSL certificate.
+        * `certificateSource` (`str`) - Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
         * `minimum_tls_version` (`str`) - Minimum client TLS version supported.
         * `provisioningState` (`str`) - Provisioning state of the Front Door.
         * `provisioningSubstate` (`str`) - Provisioning substate of the Front Door
 
-      * `customHttpsProvisioningEnabled` (`bool`)
-      * `host_name` (`str`)
+      * `customHttpsProvisioningEnabled` (`bool`) - Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
+      * `host_name` (`str`) - Specifies the host name of the `frontend_endpoint`. Must be a domain name.
       * `id` (`str`) - The ID of the FrontDoor.
-      * `name` (`str`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-      * `sessionAffinityEnabled` (`bool`)
-      * `sessionAffinityTtlSeconds` (`float`)
-      * `webApplicationFirewallPolicyLinkId` (`str`) - (Optional) The `id` of the `web_application_firewall_policy_link` to use for this Frontend Endpoint."
+      * `name` (`str`) - Specifies the name of the `frontend_endpoint`.
+      * `sessionAffinityEnabled` (`bool`) - Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
+      * `sessionAffinityTtlSeconds` (`float`) - The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
+      * `webApplicationFirewallPolicyLinkId` (`str`) - Defines the Web Application Firewall policy `ID` for each host.
     """
     load_balancer_enabled: pulumi.Output[bool]
     """
@@ -100,27 +100,27 @@ class Frontdoor(pulumi.CustomResource):
     """
     A `routing_rule` block as defined below.
 
-      * `acceptedProtocols` (`list`)
-      * `enabled` (`bool`)
-      * `forwardingConfiguration` (`dict`)
-        * `backendPoolName` (`str`)
-        * `cacheEnabled` (`bool`)
-        * `cacheQueryParameterStripDirective` (`str`)
-        * `cacheUseDynamicCompression` (`bool`)
-        * `customForwardingPath` (`str`)
-        * `forwardingProtocol` (`str`)
+      * `acceptedProtocols` (`list`) - Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+      * `enabled` (`bool`) - `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
+      * `forwardingConfiguration` (`dict`) - A `forwarding_configuration` block as defined below.
+        * `backendPoolName` (`str`) - Specifies the name of the Backend Pool to forward the incoming traffic to.
+        * `cacheEnabled` (`bool`) - Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
+        * `cacheQueryParameterStripDirective` (`str`) - Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+        * `cacheUseDynamicCompression` (`bool`) - Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
+        * `customForwardingPath` (`str`) - Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
+        * `forwardingProtocol` (`str`) - Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
 
-      * `frontend_endpoints` (`list`)
+      * `frontend_endpoints` (`list`) - The names of the `frontend_endpoint` blocks whithin this resource to associate with this `routing_rule`.
       * `id` (`str`) - The ID of the FrontDoor.
-      * `name` (`str`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-      * `patternsToMatches` (`list`)
-      * `redirectConfiguration` (`dict`)
-        * `customFragment` (`str`)
-        * `customHost` (`str`)
-        * `customPath` (`str`)
-        * `customQueryString` (`str`)
-        * `redirectProtocol` (`str`)
-        * `redirectType` (`str`)
+      * `name` (`str`) - Specifies the name of the Routing Rule.
+      * `patternsToMatches` (`list`) - The route patterns for the Backend Routing Rule. Defaults to `/*`.
+      * `redirectConfiguration` (`dict`) - A `redirect_configuration` block as defined below.
+        * `customFragment` (`str`) - The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
+        * `customHost` (`str`) - Set this to change the URL for the redirection.
+        * `customPath` (`str`) - The path to retain as per the incoming request, or update in the URL for the redirection.
+        * `customQueryString` (`str`) - Replace any existing query string from the incoming request URL.
+        * `redirectProtocol` (`str`) - Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+        * `redirectType` (`str`) - Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
     """
     tags: pulumi.Output[dict]
     """
@@ -155,80 +155,80 @@ class Frontdoor(pulumi.CustomResource):
 
         The **backend_pool_health_probes** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is this health probe enabled? Dafaults to `true`.
           * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
-          * `interval_in_seconds` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-          * `path` (`pulumi.Input[str]`)
-          * `probeMethod` (`pulumi.Input[str]`)
-          * `protocol` (`pulumi.Input[str]`)
+          * `interval_in_seconds` (`pulumi.Input[float]`) - The number of seconds between each Health Probe. Defaults to `120`.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Health Probe.
+          * `path` (`pulumi.Input[str]`) - The path to use for the Health Probe. Default is `/`.
+          * `probeMethod` (`pulumi.Input[str]`) - Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+          * `protocol` (`pulumi.Input[str]`) - Protocol scheme to use for the Health Probe. Defaults to `Http`.
 
         The **backend_pool_load_balancings** object supports the following:
 
-          * `additionalLatencyMilliseconds` (`pulumi.Input[float]`)
+          * `additionalLatencyMilliseconds` (`pulumi.Input[float]`) - The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
           * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-          * `sampleSize` (`pulumi.Input[float]`)
-          * `successfulSamplesRequired` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Load Balancer.
+          * `sampleSize` (`pulumi.Input[float]`) - The number of samples to consider for load balancing decisions. Defaults to `4`.
+          * `successfulSamplesRequired` (`pulumi.Input[float]`) - The number of samples within the sample period that must succeed. Defaults to `2`.
 
         The **backend_pools** object supports the following:
 
-          * `backends` (`pulumi.Input[list]`)
-            * `address` (`pulumi.Input[str]`)
-            * `enabled` (`pulumi.Input[bool]`)
-            * `hostHeader` (`pulumi.Input[str]`)
-            * `httpPort` (`pulumi.Input[float]`)
-            * `httpsPort` (`pulumi.Input[float]`)
-            * `priority` (`pulumi.Input[float]`)
-            * `weight` (`pulumi.Input[float]`)
+          * `backends` (`pulumi.Input[list]`) - A `backend` block as defined below.
+            * `address` (`pulumi.Input[str]`) - Location of the backend (IP address or FQDN)
+            * `enabled` (`pulumi.Input[bool]`) - Specifies if the backend is enabled or not. Valid options are `true` or `false`. Defaults to `true`.
+            * `hostHeader` (`pulumi.Input[str]`) - The value to use as the host header sent to the backend.
+            * `httpPort` (`pulumi.Input[float]`) - The HTTP TCP port number. Possible values are between `1` - `65535`.
+            * `httpsPort` (`pulumi.Input[float]`) - The HTTPS TCP port number. Possible values are between `1` - `65535`.
+            * `priority` (`pulumi.Input[float]`) - Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to `1`.
+            * `weight` (`pulumi.Input[float]`) - Weight of this endpoint for load balancing purposes. Defaults to `50`.
 
-          * `healthProbeName` (`pulumi.Input[str]`)
+          * `healthProbeName` (`pulumi.Input[str]`) - Specifies the name of the `backend_pool_health_probe` block whithin this resource to use for this `Backend Pool`.
           * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
-          * `loadBalancingName` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+          * `loadBalancingName` (`pulumi.Input[str]`) - Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Backend Pool.
 
         The **frontend_endpoints** object supports the following:
 
-          * `customHttpsConfiguration` (`pulumi.Input[dict]`)
-            * `azureKeyVaultCertificateSecretName` (`pulumi.Input[str]`)
-            * `azureKeyVaultCertificateSecretVersion` (`pulumi.Input[str]`)
-            * `azureKeyVaultCertificateVaultId` (`pulumi.Input[str]`)
-            * `certificateSource` (`pulumi.Input[str]`)
+          * `customHttpsConfiguration` (`pulumi.Input[dict]`) - A `custom_https_configuration` block as defined below.
+            * `azureKeyVaultCertificateSecretName` (`pulumi.Input[str]`) - The name of the Key Vault secret representing the full certificate PFX.
+            * `azureKeyVaultCertificateSecretVersion` (`pulumi.Input[str]`) - The version of the Key Vault secret representing the full certificate PFX.
+            * `azureKeyVaultCertificateVaultId` (`pulumi.Input[str]`) - The ID of the Key Vault containing the SSL certificate.
+            * `certificateSource` (`pulumi.Input[str]`) - Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
             * `minimum_tls_version` (`pulumi.Input[str]`) - Minimum client TLS version supported.
             * `provisioningState` (`pulumi.Input[str]`) - Provisioning state of the Front Door.
             * `provisioningSubstate` (`pulumi.Input[str]`) - Provisioning substate of the Front Door
 
-          * `customHttpsProvisioningEnabled` (`pulumi.Input[bool]`)
-          * `host_name` (`pulumi.Input[str]`)
+          * `customHttpsProvisioningEnabled` (`pulumi.Input[bool]`) - Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
+          * `host_name` (`pulumi.Input[str]`) - Specifies the host name of the `frontend_endpoint`. Must be a domain name.
           * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-          * `sessionAffinityEnabled` (`pulumi.Input[bool]`)
-          * `sessionAffinityTtlSeconds` (`pulumi.Input[float]`)
-          * `webApplicationFirewallPolicyLinkId` (`pulumi.Input[str]`) - (Optional) The `id` of the `web_application_firewall_policy_link` to use for this Frontend Endpoint."
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the `frontend_endpoint`.
+          * `sessionAffinityEnabled` (`pulumi.Input[bool]`) - Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
+          * `sessionAffinityTtlSeconds` (`pulumi.Input[float]`) - The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
+          * `webApplicationFirewallPolicyLinkId` (`pulumi.Input[str]`) - Defines the Web Application Firewall policy `ID` for each host.
 
         The **routing_rules** object supports the following:
 
-          * `acceptedProtocols` (`pulumi.Input[list]`)
-          * `enabled` (`pulumi.Input[bool]`)
-          * `forwardingConfiguration` (`pulumi.Input[dict]`)
-            * `backendPoolName` (`pulumi.Input[str]`)
-            * `cacheEnabled` (`pulumi.Input[bool]`)
-            * `cacheQueryParameterStripDirective` (`pulumi.Input[str]`)
-            * `cacheUseDynamicCompression` (`pulumi.Input[bool]`)
-            * `customForwardingPath` (`pulumi.Input[str]`)
-            * `forwardingProtocol` (`pulumi.Input[str]`)
+          * `acceptedProtocols` (`pulumi.Input[list]`) - Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+          * `enabled` (`pulumi.Input[bool]`) - `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
+          * `forwardingConfiguration` (`pulumi.Input[dict]`) - A `forwarding_configuration` block as defined below.
+            * `backendPoolName` (`pulumi.Input[str]`) - Specifies the name of the Backend Pool to forward the incoming traffic to.
+            * `cacheEnabled` (`pulumi.Input[bool]`) - Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
+            * `cacheQueryParameterStripDirective` (`pulumi.Input[str]`) - Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+            * `cacheUseDynamicCompression` (`pulumi.Input[bool]`) - Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
+            * `customForwardingPath` (`pulumi.Input[str]`) - Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
+            * `forwardingProtocol` (`pulumi.Input[str]`) - Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
 
-          * `frontend_endpoints` (`pulumi.Input[list]`)
+          * `frontend_endpoints` (`pulumi.Input[list]`) - The names of the `frontend_endpoint` blocks whithin this resource to associate with this `routing_rule`.
           * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-          * `patternsToMatches` (`pulumi.Input[list]`)
-          * `redirectConfiguration` (`pulumi.Input[dict]`)
-            * `customFragment` (`pulumi.Input[str]`)
-            * `customHost` (`pulumi.Input[str]`)
-            * `customPath` (`pulumi.Input[str]`)
-            * `customQueryString` (`pulumi.Input[str]`)
-            * `redirectProtocol` (`pulumi.Input[str]`)
-            * `redirectType` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Routing Rule.
+          * `patternsToMatches` (`pulumi.Input[list]`) - The route patterns for the Backend Routing Rule. Defaults to `/*`.
+          * `redirectConfiguration` (`pulumi.Input[dict]`) - A `redirect_configuration` block as defined below.
+            * `customFragment` (`pulumi.Input[str]`) - The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
+            * `customHost` (`pulumi.Input[str]`) - Set this to change the URL for the redirection.
+            * `customPath` (`pulumi.Input[str]`) - The path to retain as per the incoming request, or update in the URL for the redirection.
+            * `customQueryString` (`pulumi.Input[str]`) - Replace any existing query string from the incoming request URL.
+            * `redirectProtocol` (`pulumi.Input[str]`) - Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+            * `redirectType` (`pulumi.Input[str]`) - Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -304,80 +304,80 @@ class Frontdoor(pulumi.CustomResource):
 
         The **backend_pool_health_probes** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is this health probe enabled? Dafaults to `true`.
           * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
-          * `interval_in_seconds` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-          * `path` (`pulumi.Input[str]`)
-          * `probeMethod` (`pulumi.Input[str]`)
-          * `protocol` (`pulumi.Input[str]`)
+          * `interval_in_seconds` (`pulumi.Input[float]`) - The number of seconds between each Health Probe. Defaults to `120`.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Health Probe.
+          * `path` (`pulumi.Input[str]`) - The path to use for the Health Probe. Default is `/`.
+          * `probeMethod` (`pulumi.Input[str]`) - Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+          * `protocol` (`pulumi.Input[str]`) - Protocol scheme to use for the Health Probe. Defaults to `Http`.
 
         The **backend_pool_load_balancings** object supports the following:
 
-          * `additionalLatencyMilliseconds` (`pulumi.Input[float]`)
+          * `additionalLatencyMilliseconds` (`pulumi.Input[float]`) - The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
           * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-          * `sampleSize` (`pulumi.Input[float]`)
-          * `successfulSamplesRequired` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Load Balancer.
+          * `sampleSize` (`pulumi.Input[float]`) - The number of samples to consider for load balancing decisions. Defaults to `4`.
+          * `successfulSamplesRequired` (`pulumi.Input[float]`) - The number of samples within the sample period that must succeed. Defaults to `2`.
 
         The **backend_pools** object supports the following:
 
-          * `backends` (`pulumi.Input[list]`)
-            * `address` (`pulumi.Input[str]`)
-            * `enabled` (`pulumi.Input[bool]`)
-            * `hostHeader` (`pulumi.Input[str]`)
-            * `httpPort` (`pulumi.Input[float]`)
-            * `httpsPort` (`pulumi.Input[float]`)
-            * `priority` (`pulumi.Input[float]`)
-            * `weight` (`pulumi.Input[float]`)
+          * `backends` (`pulumi.Input[list]`) - A `backend` block as defined below.
+            * `address` (`pulumi.Input[str]`) - Location of the backend (IP address or FQDN)
+            * `enabled` (`pulumi.Input[bool]`) - Specifies if the backend is enabled or not. Valid options are `true` or `false`. Defaults to `true`.
+            * `hostHeader` (`pulumi.Input[str]`) - The value to use as the host header sent to the backend.
+            * `httpPort` (`pulumi.Input[float]`) - The HTTP TCP port number. Possible values are between `1` - `65535`.
+            * `httpsPort` (`pulumi.Input[float]`) - The HTTPS TCP port number. Possible values are between `1` - `65535`.
+            * `priority` (`pulumi.Input[float]`) - Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to `1`.
+            * `weight` (`pulumi.Input[float]`) - Weight of this endpoint for load balancing purposes. Defaults to `50`.
 
-          * `healthProbeName` (`pulumi.Input[str]`)
+          * `healthProbeName` (`pulumi.Input[str]`) - Specifies the name of the `backend_pool_health_probe` block whithin this resource to use for this `Backend Pool`.
           * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
-          * `loadBalancingName` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+          * `loadBalancingName` (`pulumi.Input[str]`) - Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Backend Pool.
 
         The **frontend_endpoints** object supports the following:
 
-          * `customHttpsConfiguration` (`pulumi.Input[dict]`)
-            * `azureKeyVaultCertificateSecretName` (`pulumi.Input[str]`)
-            * `azureKeyVaultCertificateSecretVersion` (`pulumi.Input[str]`)
-            * `azureKeyVaultCertificateVaultId` (`pulumi.Input[str]`)
-            * `certificateSource` (`pulumi.Input[str]`)
+          * `customHttpsConfiguration` (`pulumi.Input[dict]`) - A `custom_https_configuration` block as defined below.
+            * `azureKeyVaultCertificateSecretName` (`pulumi.Input[str]`) - The name of the Key Vault secret representing the full certificate PFX.
+            * `azureKeyVaultCertificateSecretVersion` (`pulumi.Input[str]`) - The version of the Key Vault secret representing the full certificate PFX.
+            * `azureKeyVaultCertificateVaultId` (`pulumi.Input[str]`) - The ID of the Key Vault containing the SSL certificate.
+            * `certificateSource` (`pulumi.Input[str]`) - Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
             * `minimum_tls_version` (`pulumi.Input[str]`) - Minimum client TLS version supported.
             * `provisioningState` (`pulumi.Input[str]`) - Provisioning state of the Front Door.
             * `provisioningSubstate` (`pulumi.Input[str]`) - Provisioning substate of the Front Door
 
-          * `customHttpsProvisioningEnabled` (`pulumi.Input[bool]`)
-          * `host_name` (`pulumi.Input[str]`)
+          * `customHttpsProvisioningEnabled` (`pulumi.Input[bool]`) - Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
+          * `host_name` (`pulumi.Input[str]`) - Specifies the host name of the `frontend_endpoint`. Must be a domain name.
           * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-          * `sessionAffinityEnabled` (`pulumi.Input[bool]`)
-          * `sessionAffinityTtlSeconds` (`pulumi.Input[float]`)
-          * `webApplicationFirewallPolicyLinkId` (`pulumi.Input[str]`) - (Optional) The `id` of the `web_application_firewall_policy_link` to use for this Frontend Endpoint."
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the `frontend_endpoint`.
+          * `sessionAffinityEnabled` (`pulumi.Input[bool]`) - Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
+          * `sessionAffinityTtlSeconds` (`pulumi.Input[float]`) - The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
+          * `webApplicationFirewallPolicyLinkId` (`pulumi.Input[str]`) - Defines the Web Application Firewall policy `ID` for each host.
 
         The **routing_rules** object supports the following:
 
-          * `acceptedProtocols` (`pulumi.Input[list]`)
-          * `enabled` (`pulumi.Input[bool]`)
-          * `forwardingConfiguration` (`pulumi.Input[dict]`)
-            * `backendPoolName` (`pulumi.Input[str]`)
-            * `cacheEnabled` (`pulumi.Input[bool]`)
-            * `cacheQueryParameterStripDirective` (`pulumi.Input[str]`)
-            * `cacheUseDynamicCompression` (`pulumi.Input[bool]`)
-            * `customForwardingPath` (`pulumi.Input[str]`)
-            * `forwardingProtocol` (`pulumi.Input[str]`)
+          * `acceptedProtocols` (`pulumi.Input[list]`) - Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+          * `enabled` (`pulumi.Input[bool]`) - `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
+          * `forwardingConfiguration` (`pulumi.Input[dict]`) - A `forwarding_configuration` block as defined below.
+            * `backendPoolName` (`pulumi.Input[str]`) - Specifies the name of the Backend Pool to forward the incoming traffic to.
+            * `cacheEnabled` (`pulumi.Input[bool]`) - Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
+            * `cacheQueryParameterStripDirective` (`pulumi.Input[str]`) - Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+            * `cacheUseDynamicCompression` (`pulumi.Input[bool]`) - Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
+            * `customForwardingPath` (`pulumi.Input[str]`) - Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
+            * `forwardingProtocol` (`pulumi.Input[str]`) - Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
 
-          * `frontend_endpoints` (`pulumi.Input[list]`)
+          * `frontend_endpoints` (`pulumi.Input[list]`) - The names of the `frontend_endpoint` blocks whithin this resource to associate with this `routing_rule`.
           * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
-          * `patternsToMatches` (`pulumi.Input[list]`)
-          * `redirectConfiguration` (`pulumi.Input[dict]`)
-            * `customFragment` (`pulumi.Input[str]`)
-            * `customHost` (`pulumi.Input[str]`)
-            * `customPath` (`pulumi.Input[str]`)
-            * `customQueryString` (`pulumi.Input[str]`)
-            * `redirectProtocol` (`pulumi.Input[str]`)
-            * `redirectType` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Routing Rule.
+          * `patternsToMatches` (`pulumi.Input[list]`) - The route patterns for the Backend Routing Rule. Defaults to `/*`.
+          * `redirectConfiguration` (`pulumi.Input[dict]`) - A `redirect_configuration` block as defined below.
+            * `customFragment` (`pulumi.Input[str]`) - The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
+            * `customHost` (`pulumi.Input[str]`) - Set this to change the URL for the redirection.
+            * `customPath` (`pulumi.Input[str]`) - The path to retain as per the incoming request, or update in the URL for the redirection.
+            * `customQueryString` (`pulumi.Input[str]`) - Replace any existing query string from the incoming request URL.
+            * `redirectProtocol` (`pulumi.Input[str]`) - Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+            * `redirectType` (`pulumi.Input[str]`) - Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

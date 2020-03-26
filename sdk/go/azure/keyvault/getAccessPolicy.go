@@ -28,7 +28,6 @@ type LookupAccessPolicyArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getAccessPolicy.
 type LookupAccessPolicyResult struct {
 	// the certificate permissions for the access policy
@@ -37,8 +36,7 @@ type LookupAccessPolicyResult struct {
 	Id string `pulumi:"id"`
 	// the key permissions for the access policy
 	KeyPermissions []string `pulumi:"keyPermissions"`
-	Name string `pulumi:"name"`
+	Name           string   `pulumi:"name"`
 	// the secret permissions for the access policy
 	SecretPermissions []string `pulumi:"secretPermissions"`
 }
-

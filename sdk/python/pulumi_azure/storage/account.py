@@ -30,22 +30,23 @@ class Account(pulumi.CustomResource):
     """
     A `blob_properties` block as defined below.
 
-      * `corsRules` (`list`)
-        * `allowedHeaders` (`list`)
-        * `allowedMethods` (`list`)
-        * `allowedOrigins` (`list`)
-        * `exposedHeaders` (`list`)
-        * `maxAgeInSeconds` (`float`)
+      * `corsRules` (`list`) - A `cors_rule` block as defined below.
+        * `allowedHeaders` (`list`) - A list of headers that are allowed to be a part of the cross-origin request.
+        * `allowedMethods` (`list`) - A list of http headers that are allowed to be executed by the origin. Valid options are
+          `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+        * `allowedOrigins` (`list`) - A list of origin domains that will be allowed by CORS.
+        * `exposedHeaders` (`list`) - A list of response headers that are exposed to CORS clients.
+        * `maxAgeInSeconds` (`float`) - The number of seconds the client should cache a preflight response.
 
-      * `deleteRetentionPolicy` (`dict`)
-        * `days` (`float`)
+      * `deleteRetentionPolicy` (`dict`) - A `delete_retention_policy` block as defined below.
+        * `days` (`float`) - Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
     """
     custom_domain: pulumi.Output[dict]
     """
     A `custom_domain` block as documented below.
 
-      * `name` (`str`) - Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-      * `useSubdomain` (`bool`)
+      * `name` (`str`) - The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
+      * `useSubdomain` (`bool`) - Should the Custom Domain Name be validated by using indirect CNAME validation?
     """
     enable_https_traffic_only: pulumi.Output[bool]
     """
@@ -58,7 +59,7 @@ class Account(pulumi.CustomResource):
 
       * `principal_id` (`str`) - The Principal ID for the Service Principal associated with the Identity of this Storage Account.
       * `tenant_id` (`str`) - The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
-      * `type` (`str`)
+      * `type` (`str`) - Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
     """
     is_hns_enabled: pulumi.Output[bool]
     """
@@ -76,10 +77,11 @@ class Account(pulumi.CustomResource):
     """
     A `network_rules` block as documented below.
 
-      * `bypasses` (`list`)
-      * `default_action` (`str`)
-      * `ip_rules` (`list`)
-      * `virtual_network_subnet_ids` (`list`)
+      * `bypasses` (`list`) - Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
+        any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+      * `default_action` (`str`) - Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
+      * `ip_rules` (`list`) - List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+      * `virtual_network_subnet_ids` (`list`) - A list of resource ids for subnets.
     """
     primary_access_key: pulumi.Output[str]
     """
@@ -149,31 +151,32 @@ class Account(pulumi.CustomResource):
     """
     A `queue_properties` block as defined below.
 
-      * `corsRules` (`list`)
-        * `allowedHeaders` (`list`)
-        * `allowedMethods` (`list`)
-        * `allowedOrigins` (`list`)
-        * `exposedHeaders` (`list`)
-        * `maxAgeInSeconds` (`float`)
+      * `corsRules` (`list`) - A `cors_rule` block as defined above.
+        * `allowedHeaders` (`list`) - A list of headers that are allowed to be a part of the cross-origin request.
+        * `allowedMethods` (`list`) - A list of http headers that are allowed to be executed by the origin. Valid options are
+          `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+        * `allowedOrigins` (`list`) - A list of origin domains that will be allowed by CORS.
+        * `exposedHeaders` (`list`) - A list of response headers that are exposed to CORS clients.
+        * `maxAgeInSeconds` (`float`) - The number of seconds the client should cache a preflight response.
 
-      * `hourMetrics` (`dict`)
-        * `enabled` (`bool`)
-        * `includeApis` (`bool`)
-        * `retentionPolicyDays` (`float`)
-        * `version` (`str`)
+      * `hourMetrics` (`dict`) - A `hour_metrics` block as defined below.
+        * `enabled` (`bool`) - Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+        * `includeApis` (`bool`) - Indicates whether metrics should generate summary statistics for called API operations.
+        * `retentionPolicyDays` (`float`) - Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        * `version` (`str`) - The version of storage analytics to configure. Changing this forces a new resource.
 
-      * `logging` (`dict`)
-        * `delete` (`bool`)
-        * `read` (`bool`)
-        * `retentionPolicyDays` (`float`)
-        * `version` (`str`)
-        * `write` (`bool`)
+      * `logging` (`dict`) - A `logging` block as defined below.
+        * `delete` (`bool`) - Indicates whether all delete requests should be logged. Changing this forces a new resource.
+        * `read` (`bool`) - Indicates whether all read requests should be logged. Changing this forces a new resource.
+        * `retentionPolicyDays` (`float`) - Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        * `version` (`str`) - The version of storage analytics to configure. Changing this forces a new resource.
+        * `write` (`bool`) - Indicates whether all write requests should be logged. Changing this forces a new resource.
 
-      * `minuteMetrics` (`dict`)
-        * `enabled` (`bool`)
-        * `includeApis` (`bool`)
-        * `retentionPolicyDays` (`float`)
-        * `version` (`str`)
+      * `minuteMetrics` (`dict`) - A `minute_metrics` block as defined below.
+        * `enabled` (`bool`) - Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+        * `includeApis` (`bool`) - Indicates whether metrics should generate summary statistics for called API operations.
+        * `retentionPolicyDays` (`float`) - Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        * `version` (`str`) - The version of storage analytics to configure. Changing this forces a new resource.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -247,8 +250,8 @@ class Account(pulumi.CustomResource):
     """
     A `static_website` block as defined below.
 
-      * `error404Document` (`str`)
-      * `indexDocument` (`str`)
+      * `error404Document` (`str`) - The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
+      * `indexDocument` (`str`) - The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
     """
     tags: pulumi.Output[dict]
     """
@@ -282,66 +285,69 @@ class Account(pulumi.CustomResource):
 
         The **blob_properties** object supports the following:
 
-          * `corsRules` (`pulumi.Input[list]`)
-            * `allowedHeaders` (`pulumi.Input[list]`)
-            * `allowedMethods` (`pulumi.Input[list]`)
-            * `allowedOrigins` (`pulumi.Input[list]`)
-            * `exposedHeaders` (`pulumi.Input[list]`)
-            * `maxAgeInSeconds` (`pulumi.Input[float]`)
+          * `corsRules` (`pulumi.Input[list]`) - A `cors_rule` block as defined below.
+            * `allowedHeaders` (`pulumi.Input[list]`) - A list of headers that are allowed to be a part of the cross-origin request.
+            * `allowedMethods` (`pulumi.Input[list]`) - A list of http headers that are allowed to be executed by the origin. Valid options are
+              `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+            * `allowedOrigins` (`pulumi.Input[list]`) - A list of origin domains that will be allowed by CORS.
+            * `exposedHeaders` (`pulumi.Input[list]`) - A list of response headers that are exposed to CORS clients.
+            * `maxAgeInSeconds` (`pulumi.Input[float]`) - The number of seconds the client should cache a preflight response.
 
-          * `deleteRetentionPolicy` (`pulumi.Input[dict]`)
-            * `days` (`pulumi.Input[float]`)
+          * `deleteRetentionPolicy` (`pulumi.Input[dict]`) - A `delete_retention_policy` block as defined below.
+            * `days` (`pulumi.Input[float]`) - Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
 
         The **custom_domain** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-          * `useSubdomain` (`pulumi.Input[bool]`)
+          * `name` (`pulumi.Input[str]`) - The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
+          * `useSubdomain` (`pulumi.Input[bool]`) - Should the Custom Domain Name be validated by using indirect CNAME validation?
 
         The **identity** object supports the following:
 
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this Storage Account.
           * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
 
         The **network_rules** object supports the following:
 
-          * `bypasses` (`pulumi.Input[list]`)
-          * `default_action` (`pulumi.Input[str]`)
-          * `ip_rules` (`pulumi.Input[list]`)
-          * `virtual_network_subnet_ids` (`pulumi.Input[list]`)
+          * `bypasses` (`pulumi.Input[list]`) - Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
+            any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+          * `default_action` (`pulumi.Input[str]`) - Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
+          * `ip_rules` (`pulumi.Input[list]`) - List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+          * `virtual_network_subnet_ids` (`pulumi.Input[list]`) - A list of resource ids for subnets.
 
         The **queue_properties** object supports the following:
 
-          * `corsRules` (`pulumi.Input[list]`)
-            * `allowedHeaders` (`pulumi.Input[list]`)
-            * `allowedMethods` (`pulumi.Input[list]`)
-            * `allowedOrigins` (`pulumi.Input[list]`)
-            * `exposedHeaders` (`pulumi.Input[list]`)
-            * `maxAgeInSeconds` (`pulumi.Input[float]`)
+          * `corsRules` (`pulumi.Input[list]`) - A `cors_rule` block as defined above.
+            * `allowedHeaders` (`pulumi.Input[list]`) - A list of headers that are allowed to be a part of the cross-origin request.
+            * `allowedMethods` (`pulumi.Input[list]`) - A list of http headers that are allowed to be executed by the origin. Valid options are
+              `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+            * `allowedOrigins` (`pulumi.Input[list]`) - A list of origin domains that will be allowed by CORS.
+            * `exposedHeaders` (`pulumi.Input[list]`) - A list of response headers that are exposed to CORS clients.
+            * `maxAgeInSeconds` (`pulumi.Input[float]`) - The number of seconds the client should cache a preflight response.
 
-          * `hourMetrics` (`pulumi.Input[dict]`)
-            * `enabled` (`pulumi.Input[bool]`)
-            * `includeApis` (`pulumi.Input[bool]`)
-            * `retentionPolicyDays` (`pulumi.Input[float]`)
-            * `version` (`pulumi.Input[str]`)
+          * `hourMetrics` (`pulumi.Input[dict]`) - A `hour_metrics` block as defined below.
+            * `enabled` (`pulumi.Input[bool]`) - Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+            * `includeApis` (`pulumi.Input[bool]`) - Indicates whether metrics should generate summary statistics for called API operations.
+            * `retentionPolicyDays` (`pulumi.Input[float]`) - Specifies the number of days that logs will be retained. Changing this forces a new resource.
+            * `version` (`pulumi.Input[str]`) - The version of storage analytics to configure. Changing this forces a new resource.
 
-          * `logging` (`pulumi.Input[dict]`)
-            * `delete` (`pulumi.Input[bool]`)
-            * `read` (`pulumi.Input[bool]`)
-            * `retentionPolicyDays` (`pulumi.Input[float]`)
-            * `version` (`pulumi.Input[str]`)
-            * `write` (`pulumi.Input[bool]`)
+          * `logging` (`pulumi.Input[dict]`) - A `logging` block as defined below.
+            * `delete` (`pulumi.Input[bool]`) - Indicates whether all delete requests should be logged. Changing this forces a new resource.
+            * `read` (`pulumi.Input[bool]`) - Indicates whether all read requests should be logged. Changing this forces a new resource.
+            * `retentionPolicyDays` (`pulumi.Input[float]`) - Specifies the number of days that logs will be retained. Changing this forces a new resource.
+            * `version` (`pulumi.Input[str]`) - The version of storage analytics to configure. Changing this forces a new resource.
+            * `write` (`pulumi.Input[bool]`) - Indicates whether all write requests should be logged. Changing this forces a new resource.
 
-          * `minuteMetrics` (`pulumi.Input[dict]`)
-            * `enabled` (`pulumi.Input[bool]`)
-            * `includeApis` (`pulumi.Input[bool]`)
-            * `retentionPolicyDays` (`pulumi.Input[float]`)
-            * `version` (`pulumi.Input[str]`)
+          * `minuteMetrics` (`pulumi.Input[dict]`) - A `minute_metrics` block as defined below.
+            * `enabled` (`pulumi.Input[bool]`) - Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+            * `includeApis` (`pulumi.Input[bool]`) - Indicates whether metrics should generate summary statistics for called API operations.
+            * `retentionPolicyDays` (`pulumi.Input[float]`) - Specifies the number of days that logs will be retained. Changing this forces a new resource.
+            * `version` (`pulumi.Input[str]`) - The version of storage analytics to configure. Changing this forces a new resource.
 
         The **static_website** object supports the following:
 
-          * `error404Document` (`pulumi.Input[str]`)
-          * `indexDocument` (`pulumi.Input[str]`)
+          * `error404Document` (`pulumi.Input[str]`) - The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
+          * `indexDocument` (`pulumi.Input[str]`) - The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -481,66 +487,69 @@ class Account(pulumi.CustomResource):
 
         The **blob_properties** object supports the following:
 
-          * `corsRules` (`pulumi.Input[list]`)
-            * `allowedHeaders` (`pulumi.Input[list]`)
-            * `allowedMethods` (`pulumi.Input[list]`)
-            * `allowedOrigins` (`pulumi.Input[list]`)
-            * `exposedHeaders` (`pulumi.Input[list]`)
-            * `maxAgeInSeconds` (`pulumi.Input[float]`)
+          * `corsRules` (`pulumi.Input[list]`) - A `cors_rule` block as defined below.
+            * `allowedHeaders` (`pulumi.Input[list]`) - A list of headers that are allowed to be a part of the cross-origin request.
+            * `allowedMethods` (`pulumi.Input[list]`) - A list of http headers that are allowed to be executed by the origin. Valid options are
+              `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+            * `allowedOrigins` (`pulumi.Input[list]`) - A list of origin domains that will be allowed by CORS.
+            * `exposedHeaders` (`pulumi.Input[list]`) - A list of response headers that are exposed to CORS clients.
+            * `maxAgeInSeconds` (`pulumi.Input[float]`) - The number of seconds the client should cache a preflight response.
 
-          * `deleteRetentionPolicy` (`pulumi.Input[dict]`)
-            * `days` (`pulumi.Input[float]`)
+          * `deleteRetentionPolicy` (`pulumi.Input[dict]`) - A `delete_retention_policy` block as defined below.
+            * `days` (`pulumi.Input[float]`) - Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
 
         The **custom_domain** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-          * `useSubdomain` (`pulumi.Input[bool]`)
+          * `name` (`pulumi.Input[str]`) - The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
+          * `useSubdomain` (`pulumi.Input[bool]`) - Should the Custom Domain Name be validated by using indirect CNAME validation?
 
         The **identity** object supports the following:
 
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this Storage Account.
           * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
 
         The **network_rules** object supports the following:
 
-          * `bypasses` (`pulumi.Input[list]`)
-          * `default_action` (`pulumi.Input[str]`)
-          * `ip_rules` (`pulumi.Input[list]`)
-          * `virtual_network_subnet_ids` (`pulumi.Input[list]`)
+          * `bypasses` (`pulumi.Input[list]`) - Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
+            any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+          * `default_action` (`pulumi.Input[str]`) - Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
+          * `ip_rules` (`pulumi.Input[list]`) - List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+          * `virtual_network_subnet_ids` (`pulumi.Input[list]`) - A list of resource ids for subnets.
 
         The **queue_properties** object supports the following:
 
-          * `corsRules` (`pulumi.Input[list]`)
-            * `allowedHeaders` (`pulumi.Input[list]`)
-            * `allowedMethods` (`pulumi.Input[list]`)
-            * `allowedOrigins` (`pulumi.Input[list]`)
-            * `exposedHeaders` (`pulumi.Input[list]`)
-            * `maxAgeInSeconds` (`pulumi.Input[float]`)
+          * `corsRules` (`pulumi.Input[list]`) - A `cors_rule` block as defined above.
+            * `allowedHeaders` (`pulumi.Input[list]`) - A list of headers that are allowed to be a part of the cross-origin request.
+            * `allowedMethods` (`pulumi.Input[list]`) - A list of http headers that are allowed to be executed by the origin. Valid options are
+              `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+            * `allowedOrigins` (`pulumi.Input[list]`) - A list of origin domains that will be allowed by CORS.
+            * `exposedHeaders` (`pulumi.Input[list]`) - A list of response headers that are exposed to CORS clients.
+            * `maxAgeInSeconds` (`pulumi.Input[float]`) - The number of seconds the client should cache a preflight response.
 
-          * `hourMetrics` (`pulumi.Input[dict]`)
-            * `enabled` (`pulumi.Input[bool]`)
-            * `includeApis` (`pulumi.Input[bool]`)
-            * `retentionPolicyDays` (`pulumi.Input[float]`)
-            * `version` (`pulumi.Input[str]`)
+          * `hourMetrics` (`pulumi.Input[dict]`) - A `hour_metrics` block as defined below.
+            * `enabled` (`pulumi.Input[bool]`) - Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+            * `includeApis` (`pulumi.Input[bool]`) - Indicates whether metrics should generate summary statistics for called API operations.
+            * `retentionPolicyDays` (`pulumi.Input[float]`) - Specifies the number of days that logs will be retained. Changing this forces a new resource.
+            * `version` (`pulumi.Input[str]`) - The version of storage analytics to configure. Changing this forces a new resource.
 
-          * `logging` (`pulumi.Input[dict]`)
-            * `delete` (`pulumi.Input[bool]`)
-            * `read` (`pulumi.Input[bool]`)
-            * `retentionPolicyDays` (`pulumi.Input[float]`)
-            * `version` (`pulumi.Input[str]`)
-            * `write` (`pulumi.Input[bool]`)
+          * `logging` (`pulumi.Input[dict]`) - A `logging` block as defined below.
+            * `delete` (`pulumi.Input[bool]`) - Indicates whether all delete requests should be logged. Changing this forces a new resource.
+            * `read` (`pulumi.Input[bool]`) - Indicates whether all read requests should be logged. Changing this forces a new resource.
+            * `retentionPolicyDays` (`pulumi.Input[float]`) - Specifies the number of days that logs will be retained. Changing this forces a new resource.
+            * `version` (`pulumi.Input[str]`) - The version of storage analytics to configure. Changing this forces a new resource.
+            * `write` (`pulumi.Input[bool]`) - Indicates whether all write requests should be logged. Changing this forces a new resource.
 
-          * `minuteMetrics` (`pulumi.Input[dict]`)
-            * `enabled` (`pulumi.Input[bool]`)
-            * `includeApis` (`pulumi.Input[bool]`)
-            * `retentionPolicyDays` (`pulumi.Input[float]`)
-            * `version` (`pulumi.Input[str]`)
+          * `minuteMetrics` (`pulumi.Input[dict]`) - A `minute_metrics` block as defined below.
+            * `enabled` (`pulumi.Input[bool]`) - Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+            * `includeApis` (`pulumi.Input[bool]`) - Indicates whether metrics should generate summary statistics for called API operations.
+            * `retentionPolicyDays` (`pulumi.Input[float]`) - Specifies the number of days that logs will be retained. Changing this forces a new resource.
+            * `version` (`pulumi.Input[str]`) - The version of storage analytics to configure. Changing this forces a new resource.
 
         The **static_website** object supports the following:
 
-          * `error404Document` (`pulumi.Input[str]`)
-          * `indexDocument` (`pulumi.Input[str]`)
+          * `error404Document` (`pulumi.Input[str]`) - The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
+          * `indexDocument` (`pulumi.Input[str]`) - The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

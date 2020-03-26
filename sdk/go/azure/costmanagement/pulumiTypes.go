@@ -12,8 +12,11 @@ import (
 )
 
 type ResourceGroupExportDeliveryInfo struct {
+	// The name of the container where exports will be uploaded.
 	ContainerName string `pulumi:"containerName"`
+	// The path of the directory where exports will be uploaded.
 	RootFolderPath string `pulumi:"rootFolderPath"`
+	// The storage account id where exports will be delivered.
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
@@ -25,8 +28,11 @@ type ResourceGroupExportDeliveryInfoInput interface {
 }
 
 type ResourceGroupExportDeliveryInfoArgs struct {
+	// The name of the container where exports will be uploaded.
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// The path of the directory where exports will be uploaded.
 	RootFolderPath pulumi.StringInput `pulumi:"rootFolderPath"`
+	// The storage account id where exports will be delivered.
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
@@ -59,7 +65,8 @@ type ResourceGroupExportDeliveryInfoPtrInput interface {
 
 type resourceGroupExportDeliveryInfoPtrType ResourceGroupExportDeliveryInfoArgs
 
-func ResourceGroupExportDeliveryInfoPtr(v *ResourceGroupExportDeliveryInfoArgs) ResourceGroupExportDeliveryInfoPtrInput {	return (*resourceGroupExportDeliveryInfoPtrType)(v)
+func ResourceGroupExportDeliveryInfoPtr(v *ResourceGroupExportDeliveryInfoArgs) ResourceGroupExportDeliveryInfoPtrInput {
+	return (*resourceGroupExportDeliveryInfoPtrType)(v)
 }
 
 func (*resourceGroupExportDeliveryInfoPtrType) ElementType() reflect.Type {
@@ -74,7 +81,7 @@ func (i *resourceGroupExportDeliveryInfoPtrType) ToResourceGroupExportDeliveryIn
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupExportDeliveryInfoPtrOutput)
 }
 
-type ResourceGroupExportDeliveryInfoOutput struct { *pulumi.OutputState }
+type ResourceGroupExportDeliveryInfoOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupExportDeliveryInfoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceGroupExportDeliveryInfo)(nil)).Elem()
@@ -97,19 +104,23 @@ func (o ResourceGroupExportDeliveryInfoOutput) ToResourceGroupExportDeliveryInfo
 		return &v
 	}).(ResourceGroupExportDeliveryInfoPtrOutput)
 }
+
+// The name of the container where exports will be uploaded.
 func (o ResourceGroupExportDeliveryInfoOutput) ContainerName() pulumi.StringOutput {
-	return o.ApplyT(func (v ResourceGroupExportDeliveryInfo) string { return v.ContainerName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ResourceGroupExportDeliveryInfo) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
+// The path of the directory where exports will be uploaded.
 func (o ResourceGroupExportDeliveryInfoOutput) RootFolderPath() pulumi.StringOutput {
-	return o.ApplyT(func (v ResourceGroupExportDeliveryInfo) string { return v.RootFolderPath }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ResourceGroupExportDeliveryInfo) string { return v.RootFolderPath }).(pulumi.StringOutput)
 }
 
+// The storage account id where exports will be delivered.
 func (o ResourceGroupExportDeliveryInfoOutput) StorageAccountId() pulumi.StringOutput {
-	return o.ApplyT(func (v ResourceGroupExportDeliveryInfo) string { return v.StorageAccountId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ResourceGroupExportDeliveryInfo) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
-type ResourceGroupExportDeliveryInfoPtrOutput struct { *pulumi.OutputState}
+type ResourceGroupExportDeliveryInfoPtrOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupExportDeliveryInfoPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ResourceGroupExportDeliveryInfo)(nil)).Elem()
@@ -124,23 +135,28 @@ func (o ResourceGroupExportDeliveryInfoPtrOutput) ToResourceGroupExportDeliveryI
 }
 
 func (o ResourceGroupExportDeliveryInfoPtrOutput) Elem() ResourceGroupExportDeliveryInfoOutput {
-	return o.ApplyT(func (v *ResourceGroupExportDeliveryInfo) ResourceGroupExportDeliveryInfo { return *v }).(ResourceGroupExportDeliveryInfoOutput)
+	return o.ApplyT(func(v *ResourceGroupExportDeliveryInfo) ResourceGroupExportDeliveryInfo { return *v }).(ResourceGroupExportDeliveryInfoOutput)
 }
 
+// The name of the container where exports will be uploaded.
 func (o ResourceGroupExportDeliveryInfoPtrOutput) ContainerName() pulumi.StringOutput {
-	return o.ApplyT(func (v ResourceGroupExportDeliveryInfo) string { return v.ContainerName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ResourceGroupExportDeliveryInfo) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
+// The path of the directory where exports will be uploaded.
 func (o ResourceGroupExportDeliveryInfoPtrOutput) RootFolderPath() pulumi.StringOutput {
-	return o.ApplyT(func (v ResourceGroupExportDeliveryInfo) string { return v.RootFolderPath }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ResourceGroupExportDeliveryInfo) string { return v.RootFolderPath }).(pulumi.StringOutput)
 }
 
+// The storage account id where exports will be delivered.
 func (o ResourceGroupExportDeliveryInfoPtrOutput) StorageAccountId() pulumi.StringOutput {
-	return o.ApplyT(func (v ResourceGroupExportDeliveryInfo) string { return v.StorageAccountId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ResourceGroupExportDeliveryInfo) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
 type ResourceGroupExportQuery struct {
+	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
 	TimeFrame string `pulumi:"timeFrame"`
+	// The type of the query.
 	Type string `pulumi:"type"`
 }
 
@@ -152,7 +168,9 @@ type ResourceGroupExportQueryInput interface {
 }
 
 type ResourceGroupExportQueryArgs struct {
+	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
 	TimeFrame pulumi.StringInput `pulumi:"timeFrame"`
+	// The type of the query.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -185,7 +203,8 @@ type ResourceGroupExportQueryPtrInput interface {
 
 type resourceGroupExportQueryPtrType ResourceGroupExportQueryArgs
 
-func ResourceGroupExportQueryPtr(v *ResourceGroupExportQueryArgs) ResourceGroupExportQueryPtrInput {	return (*resourceGroupExportQueryPtrType)(v)
+func ResourceGroupExportQueryPtr(v *ResourceGroupExportQueryArgs) ResourceGroupExportQueryPtrInput {
+	return (*resourceGroupExportQueryPtrType)(v)
 }
 
 func (*resourceGroupExportQueryPtrType) ElementType() reflect.Type {
@@ -200,7 +219,7 @@ func (i *resourceGroupExportQueryPtrType) ToResourceGroupExportQueryPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupExportQueryPtrOutput)
 }
 
-type ResourceGroupExportQueryOutput struct { *pulumi.OutputState }
+type ResourceGroupExportQueryOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupExportQueryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceGroupExportQuery)(nil)).Elem()
@@ -223,15 +242,18 @@ func (o ResourceGroupExportQueryOutput) ToResourceGroupExportQueryPtrOutputWithC
 		return &v
 	}).(ResourceGroupExportQueryPtrOutput)
 }
+
+// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
 func (o ResourceGroupExportQueryOutput) TimeFrame() pulumi.StringOutput {
-	return o.ApplyT(func (v ResourceGroupExportQuery) string { return v.TimeFrame }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ResourceGroupExportQuery) string { return v.TimeFrame }).(pulumi.StringOutput)
 }
 
+// The type of the query.
 func (o ResourceGroupExportQueryOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ResourceGroupExportQuery) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ResourceGroupExportQuery) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type ResourceGroupExportQueryPtrOutput struct { *pulumi.OutputState}
+type ResourceGroupExportQueryPtrOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupExportQueryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ResourceGroupExportQuery)(nil)).Elem()
@@ -246,15 +268,17 @@ func (o ResourceGroupExportQueryPtrOutput) ToResourceGroupExportQueryPtrOutputWi
 }
 
 func (o ResourceGroupExportQueryPtrOutput) Elem() ResourceGroupExportQueryOutput {
-	return o.ApplyT(func (v *ResourceGroupExportQuery) ResourceGroupExportQuery { return *v }).(ResourceGroupExportQueryOutput)
+	return o.ApplyT(func(v *ResourceGroupExportQuery) ResourceGroupExportQuery { return *v }).(ResourceGroupExportQueryOutput)
 }
 
+// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
 func (o ResourceGroupExportQueryPtrOutput) TimeFrame() pulumi.StringOutput {
-	return o.ApplyT(func (v ResourceGroupExportQuery) string { return v.TimeFrame }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ResourceGroupExportQuery) string { return v.TimeFrame }).(pulumi.StringOutput)
 }
 
+// The type of the query.
 func (o ResourceGroupExportQueryPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ResourceGroupExportQuery) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ResourceGroupExportQuery) string { return v.Type }).(pulumi.StringOutput)
 }
 
 func init() {

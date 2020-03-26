@@ -16,7 +16,18 @@ namespace Pulumi.Azure.EventHub
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace_authorization_rule.html.markdown.
         /// </summary>
+        [Obsolete("Use GetNamespaceAuthorizationRule.InvokeAsync() instead")]
         public static Task<GetNamespaceAuthorizationRuleResult> GetNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetNamespaceAuthorizationRule
+    {
+        /// <summary>
+        /// Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace_authorization_rule.html.markdown.
+        /// </summary>
+        public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -28,6 +39,9 @@ namespace Pulumi.Azure.EventHub
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the EventHub Namespace. 
+        /// </summary>
         [Input("namespaceName", required: true)]
         public string NamespaceName { get; set; } = null!;
 

@@ -28,7 +28,6 @@ type LookupNetworkInterfaceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getNetworkInterface.
 type LookupNetworkInterfaceResult struct {
 	// List of DNS servers applied to the specified Network Interface.
@@ -57,10 +56,9 @@ type LookupNetworkInterfaceResult struct {
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
 	// The list of private ip addresses associates to the specified Network Interface.
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName  string   `pulumi:"resourceGroupName"`
 	// List the tags associated to the specified Network Interface.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the virtual machine that the specified Network Interface is attached to.
 	VirtualMachineId string `pulumi:"virtualMachineId"`
 }
-

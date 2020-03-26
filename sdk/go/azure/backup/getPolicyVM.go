@@ -30,15 +30,13 @@ type LookupPolicyVMArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-
 // A collection of values returned by getPolicyVM.
 type LookupPolicyVMResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id                string `pulumi:"id"`
+	Name              string `pulumi:"name"`
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
-

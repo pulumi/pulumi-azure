@@ -24,7 +24,7 @@ type Endpoint struct {
 	// if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
 	// For Endpoints of type `azureEndpoints` the value will be taken from the
 	// location of the Azure target resource.
-	EndpointLocation pulumi.StringOutput `pulumi:"endpointLocation"`
+	EndpointLocation      pulumi.StringOutput `pulumi:"endpointLocation"`
 	EndpointMonitorStatus pulumi.StringOutput `pulumi:"endpointMonitorStatus"`
 	// The status of the Endpoint, can be set to
 	// either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -116,7 +116,7 @@ type endpointState struct {
 	// if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
 	// For Endpoints of type `azureEndpoints` the value will be taken from the
 	// location of the Azure target resource.
-	EndpointLocation *string `pulumi:"endpointLocation"`
+	EndpointLocation      *string `pulumi:"endpointLocation"`
 	EndpointMonitorStatus *string `pulumi:"endpointMonitorStatus"`
 	// The status of the Endpoint, can be set to
 	// either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -172,7 +172,7 @@ type EndpointState struct {
 	// if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
 	// For Endpoints of type `azureEndpoints` the value will be taken from the
 	// location of the Azure target resource.
-	EndpointLocation pulumi.StringPtrInput
+	EndpointLocation      pulumi.StringPtrInput
 	EndpointMonitorStatus pulumi.StringPtrInput
 	// The status of the Endpoint, can be set to
 	// either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -338,4 +338,3 @@ type EndpointArgs struct {
 func (EndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointArgs)(nil)).Elem()
 }
-

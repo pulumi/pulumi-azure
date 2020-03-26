@@ -180,4 +180,3 @@ type StreamInputEventHubArgs struct {
 func (StreamInputEventHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamInputEventHubArgs)(nil)).Elem()
 }
-

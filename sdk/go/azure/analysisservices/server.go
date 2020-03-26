@@ -36,7 +36,7 @@ type Server struct {
 	// The full name of the Analysis Services Server.
 	ServerFullName pulumi.StringOutput `pulumi:"serverFullName"`
 	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
-	Sku pulumi.StringOutput `pulumi:"sku"`
+	Sku  pulumi.StringOutput    `pulumi:"sku"`
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -93,7 +93,7 @@ type serverState struct {
 	// The full name of the Analysis Services Server.
 	ServerFullName *string `pulumi:"serverFullName"`
 	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
-	Sku *string `pulumi:"sku"`
+	Sku  *string           `pulumi:"sku"`
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -117,7 +117,7 @@ type ServerState struct {
 	// The full name of the Analysis Services Server.
 	ServerFullName pulumi.StringPtrInput
 	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
-	Sku pulumi.StringPtrInput
+	Sku  pulumi.StringPtrInput
 	Tags pulumi.StringMapInput
 }
 
@@ -143,7 +143,7 @@ type serverArgs struct {
 	// The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
-	Sku string `pulumi:"sku"`
+	Sku  string            `pulumi:"sku"`
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -166,11 +166,10 @@ type ServerArgs struct {
 	// The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
-	Sku pulumi.StringInput
+	Sku  pulumi.StringInput
 	Tags pulumi.StringMapInput
 }
 
 func (ServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverArgs)(nil)).Elem()
 }
-

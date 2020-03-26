@@ -12,9 +12,13 @@ import (
 )
 
 type DefinitionPermission struct {
+	// One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 	Actions []string `pulumi:"actions"`
+	// One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 	DataActions []string `pulumi:"dataActions"`
+	// One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 	NotActions []string `pulumi:"notActions"`
+	// One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 	NotDataActions []string `pulumi:"notDataActions"`
 }
 
@@ -26,9 +30,13 @@ type DefinitionPermissionInput interface {
 }
 
 type DefinitionPermissionArgs struct {
+	// One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
+	// One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
+	// One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
 }
 
@@ -65,7 +73,7 @@ func (i DefinitionPermissionArray) ToDefinitionPermissionArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionPermissionArrayOutput)
 }
 
-type DefinitionPermissionOutput struct { *pulumi.OutputState }
+type DefinitionPermissionOutput struct{ *pulumi.OutputState }
 
 func (DefinitionPermissionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DefinitionPermission)(nil)).Elem()
@@ -79,23 +87,27 @@ func (o DefinitionPermissionOutput) ToDefinitionPermissionOutputWithContext(ctx 
 	return o
 }
 
+// One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 func (o DefinitionPermissionOutput) Actions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DefinitionPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DefinitionPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
+// One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 func (o DefinitionPermissionOutput) DataActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DefinitionPermission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DefinitionPermission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
 }
 
+// One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 func (o DefinitionPermissionOutput) NotActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DefinitionPermission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DefinitionPermission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
 }
 
+// One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 func (o DefinitionPermissionOutput) NotDataActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DefinitionPermission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DefinitionPermission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
 }
 
-type DefinitionPermissionArrayOutput struct { *pulumi.OutputState}
+type DefinitionPermissionArrayOutput struct{ *pulumi.OutputState }
 
 func (DefinitionPermissionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DefinitionPermission)(nil)).Elem()
@@ -110,15 +122,15 @@ func (o DefinitionPermissionArrayOutput) ToDefinitionPermissionArrayOutputWithCo
 }
 
 func (o DefinitionPermissionArrayOutput) Index(i pulumi.IntInput) DefinitionPermissionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DefinitionPermission {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DefinitionPermission {
 		return vs[0].([]DefinitionPermission)[vs[1].(int)]
 	}).(DefinitionPermissionOutput)
 }
 
 type GetRoleDefinitionPermission struct {
-	Actions []string `pulumi:"actions"`
-	DataActions []string `pulumi:"dataActions"`
-	NotActions []string `pulumi:"notActions"`
+	Actions        []string `pulumi:"actions"`
+	DataActions    []string `pulumi:"dataActions"`
+	NotActions     []string `pulumi:"notActions"`
 	NotDataActions []string `pulumi:"notDataActions"`
 }
 
@@ -130,9 +142,9 @@ type GetRoleDefinitionPermissionInput interface {
 }
 
 type GetRoleDefinitionPermissionArgs struct {
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
-	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
+	Actions        pulumi.StringArrayInput `pulumi:"actions"`
+	DataActions    pulumi.StringArrayInput `pulumi:"dataActions"`
+	NotActions     pulumi.StringArrayInput `pulumi:"notActions"`
 	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
 }
 
@@ -169,7 +181,7 @@ func (i GetRoleDefinitionPermissionArray) ToGetRoleDefinitionPermissionArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetRoleDefinitionPermissionArrayOutput)
 }
 
-type GetRoleDefinitionPermissionOutput struct { *pulumi.OutputState }
+type GetRoleDefinitionPermissionOutput struct{ *pulumi.OutputState }
 
 func (GetRoleDefinitionPermissionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetRoleDefinitionPermission)(nil)).Elem()
@@ -184,22 +196,22 @@ func (o GetRoleDefinitionPermissionOutput) ToGetRoleDefinitionPermissionOutputWi
 }
 
 func (o GetRoleDefinitionPermissionOutput) Actions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetRoleDefinitionPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetRoleDefinitionPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
 func (o GetRoleDefinitionPermissionOutput) DataActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetRoleDefinitionPermission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetRoleDefinitionPermission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
 }
 
 func (o GetRoleDefinitionPermissionOutput) NotActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetRoleDefinitionPermission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetRoleDefinitionPermission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
 }
 
 func (o GetRoleDefinitionPermissionOutput) NotDataActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetRoleDefinitionPermission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetRoleDefinitionPermission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
 }
 
-type GetRoleDefinitionPermissionArrayOutput struct { *pulumi.OutputState}
+type GetRoleDefinitionPermissionArrayOutput struct{ *pulumi.OutputState }
 
 func (GetRoleDefinitionPermissionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetRoleDefinitionPermission)(nil)).Elem()
@@ -214,7 +226,7 @@ func (o GetRoleDefinitionPermissionArrayOutput) ToGetRoleDefinitionPermissionArr
 }
 
 func (o GetRoleDefinitionPermissionArrayOutput) Index(i pulumi.IntInput) GetRoleDefinitionPermissionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetRoleDefinitionPermission {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleDefinitionPermission {
 		return vs[0].([]GetRoleDefinitionPermission)[vs[1].(int)]
 	}).(GetRoleDefinitionPermissionOutput)
 }

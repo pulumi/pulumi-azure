@@ -12,11 +12,15 @@ import (
 )
 
 type LinkServiceNatIpConfiguration struct {
-	// Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
+	// Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
+	// Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
 	Primary bool `pulumi:"primary"`
+	// Specifies a Private Static IP Address for this IP Configuration.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
 	PrivateIpAddressVersion *string `pulumi:"privateIpAddressVersion"`
+	// Specifies the ID of the Subnet which should be used for the Private Link Service.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -28,11 +32,15 @@ type LinkServiceNatIpConfigurationInput interface {
 }
 
 type LinkServiceNatIpConfigurationArgs struct {
-	// Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
+	// Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
 	Primary pulumi.BoolInput `pulumi:"primary"`
+	// Specifies a Private Static IP Address for this IP Configuration.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
 	PrivateIpAddressVersion pulumi.StringPtrInput `pulumi:"privateIpAddressVersion"`
+	// Specifies the ID of the Subnet which should be used for the Private Link Service.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -69,7 +77,7 @@ func (i LinkServiceNatIpConfigurationArray) ToLinkServiceNatIpConfigurationArray
 	return pulumi.ToOutputWithContext(ctx, i).(LinkServiceNatIpConfigurationArrayOutput)
 }
 
-type LinkServiceNatIpConfigurationOutput struct { *pulumi.OutputState }
+type LinkServiceNatIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LinkServiceNatIpConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkServiceNatIpConfiguration)(nil)).Elem()
@@ -83,28 +91,32 @@ func (o LinkServiceNatIpConfigurationOutput) ToLinkServiceNatIpConfigurationOutp
 	return o
 }
 
-// Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
+// Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
 func (o LinkServiceNatIpConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v LinkServiceNatIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinkServiceNatIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
 func (o LinkServiceNatIpConfigurationOutput) Primary() pulumi.BoolOutput {
-	return o.ApplyT(func (v LinkServiceNatIpConfiguration) bool { return v.Primary }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v LinkServiceNatIpConfiguration) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
+// Specifies a Private Static IP Address for this IP Configuration.
 func (o LinkServiceNatIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinkServiceNatIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinkServiceNatIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
+// The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
 func (o LinkServiceNatIpConfigurationOutput) PrivateIpAddressVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v LinkServiceNatIpConfiguration) *string { return v.PrivateIpAddressVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v LinkServiceNatIpConfiguration) *string { return v.PrivateIpAddressVersion }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the ID of the Subnet which should be used for the Private Link Service.
 func (o LinkServiceNatIpConfigurationOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func (v LinkServiceNatIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v LinkServiceNatIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-type LinkServiceNatIpConfigurationArrayOutput struct { *pulumi.OutputState}
+type LinkServiceNatIpConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkServiceNatIpConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]LinkServiceNatIpConfiguration)(nil)).Elem()
@@ -119,13 +131,15 @@ func (o LinkServiceNatIpConfigurationArrayOutput) ToLinkServiceNatIpConfiguratio
 }
 
 func (o LinkServiceNatIpConfigurationArrayOutput) Index(i pulumi.IntInput) LinkServiceNatIpConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) LinkServiceNatIpConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkServiceNatIpConfiguration {
 		return vs[0].([]LinkServiceNatIpConfiguration)[vs[1].(int)]
 	}).(LinkServiceNatIpConfigurationOutput)
 }
 
 type MxRecordRecord struct {
+	// The FQDN of the exchange to MX record points to.
 	Exchange string `pulumi:"exchange"`
+	// The preference of the MX record.
 	Preference int `pulumi:"preference"`
 }
 
@@ -137,7 +151,9 @@ type MxRecordRecordInput interface {
 }
 
 type MxRecordRecordArgs struct {
+	// The FQDN of the exchange to MX record points to.
 	Exchange pulumi.StringInput `pulumi:"exchange"`
+	// The preference of the MX record.
 	Preference pulumi.IntInput `pulumi:"preference"`
 }
 
@@ -174,7 +190,7 @@ func (i MxRecordRecordArray) ToMxRecordRecordArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(MxRecordRecordArrayOutput)
 }
 
-type MxRecordRecordOutput struct { *pulumi.OutputState }
+type MxRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (MxRecordRecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MxRecordRecord)(nil)).Elem()
@@ -188,15 +204,17 @@ func (o MxRecordRecordOutput) ToMxRecordRecordOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The FQDN of the exchange to MX record points to.
 func (o MxRecordRecordOutput) Exchange() pulumi.StringOutput {
-	return o.ApplyT(func (v MxRecordRecord) string { return v.Exchange }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MxRecordRecord) string { return v.Exchange }).(pulumi.StringOutput)
 }
 
+// The preference of the MX record.
 func (o MxRecordRecordOutput) Preference() pulumi.IntOutput {
-	return o.ApplyT(func (v MxRecordRecord) int { return v.Preference }).(pulumi.IntOutput)
+	return o.ApplyT(func(v MxRecordRecord) int { return v.Preference }).(pulumi.IntOutput)
 }
 
-type MxRecordRecordArrayOutput struct { *pulumi.OutputState}
+type MxRecordRecordArrayOutput struct{ *pulumi.OutputState }
 
 func (MxRecordRecordArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]MxRecordRecord)(nil)).Elem()
@@ -211,15 +229,19 @@ func (o MxRecordRecordArrayOutput) ToMxRecordRecordArrayOutputWithContext(ctx co
 }
 
 func (o MxRecordRecordArrayOutput) Index(i pulumi.IntInput) MxRecordRecordOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) MxRecordRecord {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MxRecordRecord {
 		return vs[0].([]MxRecordRecord)[vs[1].(int)]
 	}).(MxRecordRecordOutput)
 }
 
 type SRVRecordRecord struct {
+	// The Port the service is listening on.
 	Port int `pulumi:"port"`
+	// The priority of the SRV record.
 	Priority int `pulumi:"priority"`
+	// The FQDN of the service.
 	Target string `pulumi:"target"`
+	// The Weight of the SRV record.
 	Weight int `pulumi:"weight"`
 }
 
@@ -231,9 +253,13 @@ type SRVRecordRecordInput interface {
 }
 
 type SRVRecordRecordArgs struct {
+	// The Port the service is listening on.
 	Port pulumi.IntInput `pulumi:"port"`
+	// The priority of the SRV record.
 	Priority pulumi.IntInput `pulumi:"priority"`
+	// The FQDN of the service.
 	Target pulumi.StringInput `pulumi:"target"`
+	// The Weight of the SRV record.
 	Weight pulumi.IntInput `pulumi:"weight"`
 }
 
@@ -270,7 +296,7 @@ func (i SRVRecordRecordArray) ToSRVRecordRecordArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SRVRecordRecordArrayOutput)
 }
 
-type SRVRecordRecordOutput struct { *pulumi.OutputState }
+type SRVRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (SRVRecordRecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SRVRecordRecord)(nil)).Elem()
@@ -284,23 +310,27 @@ func (o SRVRecordRecordOutput) ToSRVRecordRecordOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Port the service is listening on.
 func (o SRVRecordRecordOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func (v SRVRecordRecord) int { return v.Port }).(pulumi.IntOutput)
+	return o.ApplyT(func(v SRVRecordRecord) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The priority of the SRV record.
 func (o SRVRecordRecordOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func (v SRVRecordRecord) int { return v.Priority }).(pulumi.IntOutput)
+	return o.ApplyT(func(v SRVRecordRecord) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The FQDN of the service.
 func (o SRVRecordRecordOutput) Target() pulumi.StringOutput {
-	return o.ApplyT(func (v SRVRecordRecord) string { return v.Target }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SRVRecordRecord) string { return v.Target }).(pulumi.StringOutput)
 }
 
+// The Weight of the SRV record.
 func (o SRVRecordRecordOutput) Weight() pulumi.IntOutput {
-	return o.ApplyT(func (v SRVRecordRecord) int { return v.Weight }).(pulumi.IntOutput)
+	return o.ApplyT(func(v SRVRecordRecord) int { return v.Weight }).(pulumi.IntOutput)
 }
 
-type SRVRecordRecordArrayOutput struct { *pulumi.OutputState}
+type SRVRecordRecordArrayOutput struct{ *pulumi.OutputState }
 
 func (SRVRecordRecordArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SRVRecordRecord)(nil)).Elem()
@@ -315,7 +345,7 @@ func (o SRVRecordRecordArrayOutput) ToSRVRecordRecordArrayOutputWithContext(ctx 
 }
 
 func (o SRVRecordRecordArrayOutput) Index(i pulumi.IntInput) SRVRecordRecordOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SRVRecordRecord {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SRVRecordRecord {
 		return vs[0].([]SRVRecordRecord)[vs[1].(int)]
 	}).(SRVRecordRecordOutput)
 }

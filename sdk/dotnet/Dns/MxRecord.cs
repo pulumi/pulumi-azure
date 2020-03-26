@@ -223,9 +223,15 @@ namespace Pulumi.Azure.Dns
 
     public sealed class MxRecordRecordsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The mail server responsible for the domain covered by the MX record.
+        /// </summary>
         [Input("exchange", required: true)]
         public Input<string> Exchange { get; set; } = null!;
 
+        /// <summary>
+        /// String representing the "preference” value of the MX records. Records with lower preference value take priority.
+        /// </summary>
         [Input("preference", required: true)]
         public Input<string> Preference { get; set; } = null!;
 
@@ -236,9 +242,15 @@ namespace Pulumi.Azure.Dns
 
     public sealed class MxRecordRecordsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The mail server responsible for the domain covered by the MX record.
+        /// </summary>
         [Input("exchange", required: true)]
         public Input<string> Exchange { get; set; } = null!;
 
+        /// <summary>
+        /// String representing the "preference” value of the MX records. Records with lower preference value take priority.
+        /// </summary>
         [Input("preference", required: true)]
         public Input<string> Preference { get; set; } = null!;
 
@@ -254,7 +266,13 @@ namespace Pulumi.Azure.Dns
     [OutputType]
     public sealed class MxRecordRecords
     {
+        /// <summary>
+        /// The mail server responsible for the domain covered by the MX record.
+        /// </summary>
         public readonly string Exchange;
+        /// <summary>
+        /// String representing the "preference” value of the MX records. Records with lower preference value take priority.
+        /// </summary>
         public readonly string Preference;
 
         [OutputConstructor]

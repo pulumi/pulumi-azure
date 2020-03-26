@@ -28,13 +28,13 @@ type LookupDatabaseArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the SQL Server.
 	ServerName string `pulumi:"serverName"`
+	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
-
 // A collection of values returned by getDatabase.
 type LookupDatabaseResult struct {
-	// The name of the collation. 
+	// The name of the collation.
 	Collation string `pulumi:"collation"`
 	// The default secondary location of the SQL Database.
 	DefaultSecondaryLocation string `pulumi:"defaultSecondaryLocation"`
@@ -59,4 +59,3 @@ type LookupDatabaseResult struct {
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
-

@@ -51,6 +51,12 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &NamespaceAuthorizationRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NamespaceAuthorizationRule
 	err := ctx.RegisterResource("azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {
@@ -156,4 +162,3 @@ type NamespaceAuthorizationRuleArgs struct {
 func (NamespaceAuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*namespaceAuthorizationRuleArgs)(nil)).Elem()
 }
-

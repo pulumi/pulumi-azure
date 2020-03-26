@@ -56,6 +56,12 @@ func NewTopicAuthorizationRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &TopicAuthorizationRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TopicAuthorizationRule
 	err := ctx.RegisterResource("azure:servicebus/topicAuthorizationRule:TopicAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {
@@ -169,4 +175,3 @@ type TopicAuthorizationRuleArgs struct {
 func (TopicAuthorizationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicAuthorizationRuleArgs)(nil)).Elem()
 }
-

@@ -141,4 +141,3 @@ type FirewallNetworkRuleCollectionArgs struct {
 func (FirewallNetworkRuleCollectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallNetworkRuleCollectionArgs)(nil)).Elem()
 }
-

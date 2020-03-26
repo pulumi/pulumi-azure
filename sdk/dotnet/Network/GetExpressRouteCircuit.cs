@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/express_route_circuit.html.markdown.
         /// </summary>
+        [Obsolete("Use GetExpressRouteCircuit.InvokeAsync() instead")]
         public static Task<GetExpressRouteCircuitResult> GetExpressRouteCircuit(GetExpressRouteCircuitArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetExpressRouteCircuit
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing ExpressRoute circuit.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/express_route_circuit.html.markdown.
+        /// </summary>
+        public static Task<GetExpressRouteCircuitResult> InvokeAsync(GetExpressRouteCircuitArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

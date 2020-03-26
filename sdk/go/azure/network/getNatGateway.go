@@ -26,12 +26,13 @@ func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...p
 type LookupNatGatewayArgs struct {
 	// Specifies the Name of the NAT Gateway.
 	Name string `pulumi:"name"`
+	// A list of existing Public IP Address resource IDs which the NAT Gateway is using.
 	PublicIpAddressIds []string `pulumi:"publicIpAddressIds"`
+	// A list of existing Public IP Prefix resource IDs which the NAT Gateway is using.
 	PublicIpPrefixIds []string `pulumi:"publicIpPrefixIds"`
 	// Specifies the name of the Resource Group where the NAT Gateway exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
-
 
 // A collection of values returned by getNatGateway.
 type LookupNatGatewayResult struct {
@@ -41,12 +42,12 @@ type LookupNatGatewayResult struct {
 	IdleTimeoutInMinutes int `pulumi:"idleTimeoutInMinutes"`
 	// The location where the NAT Gateway exists.
 	Location string `pulumi:"location"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// A list of existing Public IP Address resource IDs which the NAT Gateway is using.
 	PublicIpAddressIds []string `pulumi:"publicIpAddressIds"`
 	// A list of existing Public IP Prefix resource IDs which the NAT Gateway is using.
 	PublicIpPrefixIds []string `pulumi:"publicIpPrefixIds"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
 	// The Resource GUID of the NAT Gateway.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// The SKU used by the NAT Gateway.
@@ -56,4 +57,3 @@ type LookupNatGatewayResult struct {
 	// A list of Availability Zones which the NAT Gateway exists in.
 	Zones []string `pulumi:"zones"`
 }
-

@@ -265,4 +265,3 @@ type WindowsVirtualMachineArgs struct {
 func (WindowsVirtualMachineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*windowsVirtualMachineArgs)(nil)).Elem()
 }
-

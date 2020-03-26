@@ -128,4 +128,3 @@ type StoreFirewallRuleArgs struct {
 func (StoreFirewallRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*storeFirewallRuleArgs)(nil)).Elem()
 }
-
