@@ -995,7 +995,8 @@ func (o IoTHubSkuPtrOutput) Name() pulumi.StringOutput {
 
 type IotHubDpsLinkedHub struct {
 	// The weight applied to the IoT Hub. Defaults to 0.
-	AllocationWeight      *int  `pulumi:"allocationWeight"`
+	AllocationWeight *int `pulumi:"allocationWeight"`
+	// Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
 	ApplyAllocationPolicy *bool `pulumi:"applyAllocationPolicy"`
 	// The connection string to connect to the IoT Hub. Changing this forces a new resource.
 	ConnectionString string `pulumi:"connectionString"`
@@ -1014,7 +1015,8 @@ type IotHubDpsLinkedHubInput interface {
 
 type IotHubDpsLinkedHubArgs struct {
 	// The weight applied to the IoT Hub. Defaults to 0.
-	AllocationWeight      pulumi.IntPtrInput  `pulumi:"allocationWeight"`
+	AllocationWeight pulumi.IntPtrInput `pulumi:"allocationWeight"`
+	// Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
 	ApplyAllocationPolicy pulumi.BoolPtrInput `pulumi:"applyAllocationPolicy"`
 	// The connection string to connect to the IoT Hub. Changing this forces a new resource.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
@@ -1076,6 +1078,7 @@ func (o IotHubDpsLinkedHubOutput) AllocationWeight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IotHubDpsLinkedHub) *int { return v.AllocationWeight }).(pulumi.IntPtrOutput)
 }
 
+// Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
 func (o IotHubDpsLinkedHubOutput) ApplyAllocationPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IotHubDpsLinkedHub) *bool { return v.ApplyAllocationPolicy }).(pulumi.BoolPtrOutput)
 }

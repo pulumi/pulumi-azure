@@ -23,6 +23,8 @@ type Cache struct {
 	CacheSizeInGb pulumi.IntOutput `pulumi:"cacheSizeInGb"`
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// A list of IP Addresses where the HPC Cache can be mounted.
+	MountAddresses pulumi.StringArrayOutput `pulumi:"mountAddresses"`
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
@@ -77,6 +79,8 @@ type cacheState struct {
 	CacheSizeInGb *int `pulumi:"cacheSizeInGb"`
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A list of IP Addresses where the HPC Cache can be mounted.
+	MountAddresses []string `pulumi:"mountAddresses"`
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
@@ -92,6 +96,8 @@ type CacheState struct {
 	CacheSizeInGb pulumi.IntPtrInput
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A list of IP Addresses where the HPC Cache can be mounted.
+	MountAddresses pulumi.StringArrayInput
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.

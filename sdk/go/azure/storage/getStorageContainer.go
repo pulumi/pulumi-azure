@@ -26,7 +26,7 @@ type GetStorageContainerArgs struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Container.
 	Name string `pulumi:"name"`
-	// The name of the Storage Account where the Container was created.
+	// The name of the Storage Account where the Container exists.
 	StorageAccountName string `pulumi:"storageAccountName"`
 }
 
@@ -41,7 +41,9 @@ type GetStorageContainerResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A mapping of MetaData for this Container.
-	Metadata           map[string]string `pulumi:"metadata"`
-	Name               string            `pulumi:"name"`
-	StorageAccountName string            `pulumi:"storageAccountName"`
+	Metadata map[string]string `pulumi:"metadata"`
+	Name     string            `pulumi:"name"`
+	// The Resource Manager ID of this Storage Container.
+	ResourceManagerId  string `pulumi:"resourceManagerId"`
+	StorageAccountName string `pulumi:"storageAccountName"`
 }

@@ -47,6 +47,12 @@ namespace Pulumi.Azure.Storage
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The Resource Manager ID of this Storage Container.
+        /// </summary>
+        [Output("resourceManagerId")]
+        public Output<string> ResourceManagerId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Storage Account where the Container should be created.
         /// </summary>
         [Output("storageAccountName")]
@@ -170,6 +176,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The Resource Manager ID of this Storage Container.
+        /// </summary>
+        [Input("resourceManagerId")]
+        public Input<string>? ResourceManagerId { get; set; }
 
         /// <summary>
         /// The name of the Storage Account where the Container should be created.

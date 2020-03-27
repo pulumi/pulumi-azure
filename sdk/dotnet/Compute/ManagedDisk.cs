@@ -23,7 +23,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> CreateOption { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
         /// </summary>
         [Output("diskEncryptionSetId")]
         public Output<string?> DiskEncryptionSetId { get; private set; } = null!;
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Compute
         public Output<int> DiskMbpsReadWrite { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+        /// Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         /// </summary>
         [Output("diskSizeGb")]
         public Output<int> DiskSizeGb { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> CreateOption { get; set; } = null!;
 
         /// <summary>
-        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.Compute
         public Input<int>? DiskMbpsReadWrite { get; set; }
 
         /// <summary>
-        /// Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+        /// Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? CreateOption { get; set; }
 
         /// <summary>
-        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.Compute
         public Input<int>? DiskMbpsReadWrite { get; set; }
 
         /// <summary>
-        /// Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+        /// Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }

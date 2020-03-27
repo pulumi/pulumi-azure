@@ -6,3 +6,4 @@ export * from "./assignment";
 export * from "./definition";
 export * from "./getPolicyDefintion";
 export * from "./policySetDefinition";
+export * from "./remediation";

@@ -55,7 +55,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly certificateCommonNames!: pulumi.Output<outputs.servicefabric.ClusterCertificateCommonNames | undefined>;
     /**
-     * One or two `clientCertificateThumbprint` blocks as defined below.
+     * A `clientCertificateCommonName` block as defined below. 
+     */
+    public readonly clientCertificateCommonNames!: pulumi.Output<outputs.servicefabric.ClusterClientCertificateCommonName[] | undefined>;
+    /**
+     * One or two `clientCertificateThumbprint` blocks as defined below. 
      */
     public readonly clientCertificateThumbprints!: pulumi.Output<outputs.servicefabric.ClusterClientCertificateThumbprint[] | undefined>;
     /**
@@ -131,6 +135,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["azureActiveDirectory"] = state ? state.azureActiveDirectory : undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
             inputs["certificateCommonNames"] = state ? state.certificateCommonNames : undefined;
+            inputs["clientCertificateCommonNames"] = state ? state.clientCertificateCommonNames : undefined;
             inputs["clientCertificateThumbprints"] = state ? state.clientCertificateThumbprints : undefined;
             inputs["clusterCodeVersion"] = state ? state.clusterCodeVersion : undefined;
             inputs["clusterEndpoint"] = state ? state.clusterEndpoint : undefined;
@@ -170,6 +175,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
             inputs["certificate"] = args ? args.certificate : undefined;
             inputs["certificateCommonNames"] = args ? args.certificateCommonNames : undefined;
+            inputs["clientCertificateCommonNames"] = args ? args.clientCertificateCommonNames : undefined;
             inputs["clientCertificateThumbprints"] = args ? args.clientCertificateThumbprints : undefined;
             inputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
             inputs["diagnosticsConfig"] = args ? args.diagnosticsConfig : undefined;
@@ -218,7 +224,11 @@ export interface ClusterState {
      */
     readonly certificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterCertificateCommonNames>;
     /**
-     * One or two `clientCertificateThumbprint` blocks as defined below.
+     * A `clientCertificateCommonName` block as defined below. 
+     */
+    readonly clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateCommonName>[]>;
+    /**
+     * One or two `clientCertificateThumbprint` blocks as defined below. 
      */
     readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateThumbprint>[]>;
     /**
@@ -300,7 +310,11 @@ export interface ClusterArgs {
      */
     readonly certificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterCertificateCommonNames>;
     /**
-     * One or two `clientCertificateThumbprint` blocks as defined below.
+     * A `clientCertificateCommonName` block as defined below. 
+     */
+    readonly clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateCommonName>[]>;
+    /**
+     * One or two `clientCertificateThumbprint` blocks as defined below. 
      */
     readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateThumbprint>[]>;
     /**

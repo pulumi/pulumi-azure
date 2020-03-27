@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Storage
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Storage Account where the Container was created.
+        /// The name of the Storage Account where the Container exists.
         /// </summary>
         [Input("storageAccountName", required: true)]
         public string StorageAccountName { get; set; } = null!;
@@ -82,6 +82,10 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly ImmutableDictionary<string, string> Metadata;
         public readonly string Name;
+        /// <summary>
+        /// The Resource Manager ID of this Storage Container.
+        /// </summary>
+        public readonly string ResourceManagerId;
         public readonly string StorageAccountName;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
@@ -95,6 +99,7 @@ namespace Pulumi.Azure.Storage
             bool hasLegalHold,
             ImmutableDictionary<string, string> metadata,
             string name,
+            string resourceManagerId,
             string storageAccountName,
             string id)
         {
@@ -103,6 +108,7 @@ namespace Pulumi.Azure.Storage
             HasLegalHold = hasLegalHold;
             Metadata = metadata;
             Name = name;
+            ResourceManagerId = resourceManagerId;
             StorageAccountName = storageAccountName;
             Id = id;
         }

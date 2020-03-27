@@ -27,6 +27,8 @@ type Account struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A primary access key which can be used to connect to the Cognitive Service Account.
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
+	// A URL to link a QnAMaker cognitive account to a QnA runtime.
+	QnaRuntimeEndpoint pulumi.StringPtrOutput `pulumi:"qnaRuntimeEndpoint"`
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The secondary access key which can be used to connect to the Cognitive Service Account.
@@ -84,6 +86,8 @@ type accountState struct {
 	Name *string `pulumi:"name"`
 	// A primary access key which can be used to connect to the Cognitive Service Account.
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
+	// A URL to link a QnAMaker cognitive account to a QnA runtime.
+	QnaRuntimeEndpoint *string `pulumi:"qnaRuntimeEndpoint"`
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The secondary access key which can be used to connect to the Cognitive Service Account.
@@ -105,6 +109,8 @@ type AccountState struct {
 	Name pulumi.StringPtrInput
 	// A primary access key which can be used to connect to the Cognitive Service Account.
 	PrimaryAccessKey pulumi.StringPtrInput
+	// A URL to link a QnAMaker cognitive account to a QnA runtime.
+	QnaRuntimeEndpoint pulumi.StringPtrInput
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The secondary access key which can be used to connect to the Cognitive Service Account.
@@ -126,6 +132,8 @@ type accountArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A URL to link a QnAMaker cognitive account to a QnA runtime.
+	QnaRuntimeEndpoint *string `pulumi:"qnaRuntimeEndpoint"`
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
@@ -142,6 +150,8 @@ type AccountArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A URL to link a QnAMaker cognitive account to a QnA runtime.
+	QnaRuntimeEndpoint pulumi.StringPtrInput
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.

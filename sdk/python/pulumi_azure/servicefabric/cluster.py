@@ -40,9 +40,17 @@ class Cluster(pulumi.CustomResource):
 
       * `x509StoreName` (`str`) - The X509 Store where the Certificate Exists, such as `My`.
     """
+    client_certificate_common_names: pulumi.Output[list]
+    """
+    A `client_certificate_common_name` block as defined below. 
+
+      * `commonName` (`str`)
+      * `isAdmin` (`bool`) - Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
+      * `issuerThumbprint` (`str`)
+    """
     client_certificate_thumbprints: pulumi.Output[list]
     """
-    One or two `client_certificate_thumbprint` blocks as defined below.
+    One or two `client_certificate_thumbprint` blocks as defined below. 
 
       * `isAdmin` (`bool`) - Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
       * `thumbprint` (`str`) - The Thumbprint associated with the Client Certificate.
@@ -134,7 +142,7 @@ class Cluster(pulumi.CustomResource):
     """
     Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, add_on_features=None, azure_active_directory=None, certificate=None, certificate_common_names=None, client_certificate_thumbprints=None, cluster_code_version=None, diagnostics_config=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, reliability_level=None, resource_group_name=None, reverse_proxy_certificate=None, tags=None, upgrade_mode=None, vm_image=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, add_on_features=None, azure_active_directory=None, certificate=None, certificate_common_names=None, client_certificate_common_names=None, client_certificate_thumbprints=None, cluster_code_version=None, diagnostics_config=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, reliability_level=None, resource_group_name=None, reverse_proxy_certificate=None, tags=None, upgrade_mode=None, vm_image=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Service Fabric Cluster.
 
@@ -146,7 +154,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] azure_active_directory: An `azure_active_directory` block as defined below.
         :param pulumi.Input[dict] certificate: A `certificate` block as defined below. Conflicts with `certificate_common_names`.
         :param pulumi.Input[dict] certificate_common_names: A `certificate_common_names` block as defined below. Conflicts with `certificate`.
-        :param pulumi.Input[list] client_certificate_thumbprints: One or two `client_certificate_thumbprint` blocks as defined below.
+        :param pulumi.Input[list] client_certificate_common_names: A `client_certificate_common_name` block as defined below. 
+        :param pulumi.Input[list] client_certificate_thumbprints: One or two `client_certificate_thumbprint` blocks as defined below. 
         :param pulumi.Input[str] cluster_code_version: Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
         :param pulumi.Input[dict] diagnostics_config: A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[list] fabric_settings: One or more `fabric_settings` blocks as defined below.
@@ -180,6 +189,12 @@ class Cluster(pulumi.CustomResource):
             * `certificateIssuerThumbprint` (`pulumi.Input[str]`) - The Issuer Thumbprint of the Certificate.
 
           * `x509StoreName` (`pulumi.Input[str]`) - The X509 Store where the Certificate Exists, such as `My`.
+
+        The **client_certificate_common_names** object supports the following:
+
+          * `commonName` (`pulumi.Input[str]`)
+          * `isAdmin` (`pulumi.Input[bool]`) - Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
+          * `issuerThumbprint` (`pulumi.Input[str]`)
 
         The **client_certificate_thumbprints** object supports the following:
 
@@ -246,6 +261,7 @@ class Cluster(pulumi.CustomResource):
             __props__['azure_active_directory'] = azure_active_directory
             __props__['certificate'] = certificate
             __props__['certificate_common_names'] = certificate_common_names
+            __props__['client_certificate_common_names'] = client_certificate_common_names
             __props__['client_certificate_thumbprints'] = client_certificate_thumbprints
             __props__['cluster_code_version'] = cluster_code_version
             __props__['diagnostics_config'] = diagnostics_config
@@ -280,7 +296,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, add_on_features=None, azure_active_directory=None, certificate=None, certificate_common_names=None, client_certificate_thumbprints=None, cluster_code_version=None, cluster_endpoint=None, diagnostics_config=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, reliability_level=None, resource_group_name=None, reverse_proxy_certificate=None, tags=None, upgrade_mode=None, vm_image=None):
+    def get(resource_name, id, opts=None, add_on_features=None, azure_active_directory=None, certificate=None, certificate_common_names=None, client_certificate_common_names=None, client_certificate_thumbprints=None, cluster_code_version=None, cluster_endpoint=None, diagnostics_config=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, reliability_level=None, resource_group_name=None, reverse_proxy_certificate=None, tags=None, upgrade_mode=None, vm_image=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -292,7 +308,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] azure_active_directory: An `azure_active_directory` block as defined below.
         :param pulumi.Input[dict] certificate: A `certificate` block as defined below. Conflicts with `certificate_common_names`.
         :param pulumi.Input[dict] certificate_common_names: A `certificate_common_names` block as defined below. Conflicts with `certificate`.
-        :param pulumi.Input[list] client_certificate_thumbprints: One or two `client_certificate_thumbprint` blocks as defined below.
+        :param pulumi.Input[list] client_certificate_common_names: A `client_certificate_common_name` block as defined below. 
+        :param pulumi.Input[list] client_certificate_thumbprints: One or two `client_certificate_thumbprint` blocks as defined below. 
         :param pulumi.Input[str] cluster_code_version: Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
         :param pulumi.Input[str] cluster_endpoint: The Cluster Endpoint for this Service Fabric Cluster.
         :param pulumi.Input[dict] diagnostics_config: A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
@@ -327,6 +344,12 @@ class Cluster(pulumi.CustomResource):
             * `certificateIssuerThumbprint` (`pulumi.Input[str]`) - The Issuer Thumbprint of the Certificate.
 
           * `x509StoreName` (`pulumi.Input[str]`) - The X509 Store where the Certificate Exists, such as `My`.
+
+        The **client_certificate_common_names** object supports the following:
+
+          * `commonName` (`pulumi.Input[str]`)
+          * `isAdmin` (`pulumi.Input[bool]`) - Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
+          * `issuerThumbprint` (`pulumi.Input[str]`)
 
         The **client_certificate_thumbprints** object supports the following:
 
@@ -380,6 +403,7 @@ class Cluster(pulumi.CustomResource):
         __props__["azure_active_directory"] = azure_active_directory
         __props__["certificate"] = certificate
         __props__["certificate_common_names"] = certificate_common_names
+        __props__["client_certificate_common_names"] = client_certificate_common_names
         __props__["client_certificate_thumbprints"] = client_certificate_thumbprints
         __props__["cluster_code_version"] = cluster_code_version
         __props__["cluster_endpoint"] = cluster_endpoint

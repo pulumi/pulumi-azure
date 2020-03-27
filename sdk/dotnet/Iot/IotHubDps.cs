@@ -265,6 +265,9 @@ namespace Pulumi.Azure.Iot
         [Input("allocationWeight")]
         public Input<int>? AllocationWeight { get; set; }
 
+        /// <summary>
+        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
+        /// </summary>
         [Input("applyAllocationPolicy")]
         public Input<bool>? ApplyAllocationPolicy { get; set; }
 
@@ -299,6 +302,9 @@ namespace Pulumi.Azure.Iot
         [Input("allocationWeight")]
         public Input<int>? AllocationWeight { get; set; }
 
+        /// <summary>
+        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
+        /// </summary>
         [Input("applyAllocationPolicy")]
         public Input<bool>? ApplyAllocationPolicy { get; set; }
 
@@ -374,6 +380,9 @@ namespace Pulumi.Azure.Iot
         /// The weight applied to the IoT Hub. Defaults to 0.
         /// </summary>
         public readonly int? AllocationWeight;
+        /// <summary>
+        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
+        /// </summary>
         public readonly bool? ApplyAllocationPolicy;
         /// <summary>
         /// The connection string to connect to the IoT Hub. Changing this forces a new resource.
