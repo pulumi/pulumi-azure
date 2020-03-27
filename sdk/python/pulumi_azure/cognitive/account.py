@@ -30,6 +30,10 @@ class Account(pulumi.CustomResource):
     """
     A primary access key which can be used to connect to the Cognitive Service Account.
     """
+    qna_runtime_endpoint: pulumi.Output[str]
+    """
+    A URL to link a QnAMaker cognitive account to a QnA runtime.
+    """
     resource_group_name: pulumi.Output[str]
     """
     The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
@@ -46,7 +50,7 @@ class Account(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, resource_group_name=None, sku_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, qna_runtime_endpoint=None, resource_group_name=None, sku_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Cognitive Services Account.
 
@@ -57,6 +61,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] qna_runtime_endpoint: A URL to link a QnAMaker cognitive account to a QnA runtime.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
@@ -83,6 +88,7 @@ class Account(pulumi.CustomResource):
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['name'] = name
+            __props__['qna_runtime_endpoint'] = qna_runtime_endpoint
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -100,7 +106,7 @@ class Account(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, endpoint=None, kind=None, location=None, name=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, sku_name=None, tags=None):
+    def get(resource_name, id, opts=None, endpoint=None, kind=None, location=None, name=None, primary_access_key=None, qna_runtime_endpoint=None, resource_group_name=None, secondary_access_key=None, sku_name=None, tags=None):
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -113,6 +119,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: A primary access key which can be used to connect to the Cognitive Service Account.
+        :param pulumi.Input[str] qna_runtime_endpoint: A URL to link a QnAMaker cognitive account to a QnA runtime.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The secondary access key which can be used to connect to the Cognitive Service Account.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
@@ -127,6 +134,7 @@ class Account(pulumi.CustomResource):
         __props__["location"] = location
         __props__["name"] = name
         __props__["primary_access_key"] = primary_access_key
+        __props__["qna_runtime_endpoint"] = qna_runtime_endpoint
         __props__["resource_group_name"] = resource_group_name
         __props__["secondary_access_key"] = secondary_access_key
         __props__["sku_name"] = sku_name

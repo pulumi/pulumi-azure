@@ -25,6 +25,10 @@ class Profile(pulumi.CustomResource):
     """
     This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
 
+      * `custom_headers` (`list`) - One or more `custom_header` blocks as defined below.
+        * `name` (`str`) - The name of the custom header.
+        * `value` (`str`) - The value of custom header. Applicable for Http and Https protocol.
+
       * `expectedStatusCodeRanges` (`list`) - A list of status code ranges in the format of `100-101`.
       * `interval_in_seconds` (`float`) - The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
       * `path` (`str`) - The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
@@ -75,6 +79,10 @@ class Profile(pulumi.CustomResource):
           * `ttl` (`pulumi.Input[float]`) - The TTL value of the Profile used by Local DNS resolvers and clients.
 
         The **monitor_config** object supports the following:
+
+          * `custom_headers` (`pulumi.Input[list]`) - One or more `custom_header` blocks as defined below.
+            * `name` (`pulumi.Input[str]`) - The name of the custom header.
+            * `value` (`pulumi.Input[str]`) - The value of custom header. Applicable for Http and Https protocol.
 
           * `expectedStatusCodeRanges` (`pulumi.Input[list]`) - A list of status code ranges in the format of `100-101`.
           * `interval_in_seconds` (`pulumi.Input[float]`) - The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
@@ -147,6 +155,10 @@ class Profile(pulumi.CustomResource):
           * `ttl` (`pulumi.Input[float]`) - The TTL value of the Profile used by Local DNS resolvers and clients.
 
         The **monitor_config** object supports the following:
+
+          * `custom_headers` (`pulumi.Input[list]`) - One or more `custom_header` blocks as defined below.
+            * `name` (`pulumi.Input[str]`) - The name of the custom header.
+            * `value` (`pulumi.Input[str]`) - The value of custom header. Applicable for Http and Https protocol.
 
           * `expectedStatusCodeRanges` (`pulumi.Input[list]`) - A list of status code ranges in the format of `100-101`.
           * `interval_in_seconds` (`pulumi.Input[float]`) - The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.

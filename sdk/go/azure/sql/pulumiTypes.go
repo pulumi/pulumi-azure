@@ -12,13 +12,11 @@ import (
 )
 
 type DatabaseExtendedAuditingPolicy struct {
-	// Specifies the number of days to retain logs for in the storage account.
 	RetentionInDays *int `pulumi:"retentionInDays"`
-	// Specifies the access key to use for the auditing storage account.
-	StorageAccountAccessKey string `pulumi:"storageAccountAccessKey"`
-	// Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+	StorageAccountAccessKey            string `pulumi:"storageAccountAccessKey"`
+	StorageAccountAccessKeyIsSecondary *bool  `pulumi:"storageAccountAccessKeyIsSecondary"`
+	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 	StorageEndpoint string `pulumi:"storageEndpoint"`
 }
 
@@ -30,13 +28,11 @@ type DatabaseExtendedAuditingPolicyInput interface {
 }
 
 type DatabaseExtendedAuditingPolicyArgs struct {
-	// Specifies the number of days to retain logs for in the storage account.
 	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
-	// Specifies the access key to use for the auditing storage account.
-	StorageAccountAccessKey pulumi.StringInput `pulumi:"storageAccountAccessKey"`
-	// Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+	StorageAccountAccessKey            pulumi.StringInput  `pulumi:"storageAccountAccessKey"`
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 	StorageEndpoint pulumi.StringInput `pulumi:"storageEndpoint"`
 }
 
@@ -108,23 +104,20 @@ func (o DatabaseExtendedAuditingPolicyOutput) ToDatabaseExtendedAuditingPolicyPt
 		return &v
 	}).(DatabaseExtendedAuditingPolicyPtrOutput)
 }
-
-// Specifies the number of days to retain logs for in the storage account.
 func (o DatabaseExtendedAuditingPolicyOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the access key to use for the auditing storage account.
+// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 func (o DatabaseExtendedAuditingPolicyOutput) StorageAccountAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) string { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
 }
 
-// Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
 func (o DatabaseExtendedAuditingPolicyOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 func (o DatabaseExtendedAuditingPolicyOutput) StorageEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) string { return v.StorageEndpoint }).(pulumi.StringOutput)
 }
@@ -147,22 +140,20 @@ func (o DatabaseExtendedAuditingPolicyPtrOutput) Elem() DatabaseExtendedAuditing
 	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) DatabaseExtendedAuditingPolicy { return *v }).(DatabaseExtendedAuditingPolicyOutput)
 }
 
-// Specifies the number of days to retain logs for in the storage account.
 func (o DatabaseExtendedAuditingPolicyPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the access key to use for the auditing storage account.
+// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 func (o DatabaseExtendedAuditingPolicyPtrOutput) StorageAccountAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) string { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
 }
 
-// Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
 func (o DatabaseExtendedAuditingPolicyPtrOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 func (o DatabaseExtendedAuditingPolicyPtrOutput) StorageEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) string { return v.StorageEndpoint }).(pulumi.StringOutput)
 }

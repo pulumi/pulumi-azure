@@ -59,6 +59,10 @@ export class Container extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The Resource Manager ID of this Storage Container.
+     */
+    public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
+    /**
      * The name of the Storage Account where the Container should be created.
      */
     public readonly storageAccountName!: pulumi.Output<string>;
@@ -80,6 +84,7 @@ export class Container extends pulumi.CustomResource {
             inputs["hasLegalHold"] = state ? state.hasLegalHold : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
         } else {
             const args = argsOrState as ContainerArgs | undefined;
@@ -92,6 +97,7 @@ export class Container extends pulumi.CustomResource {
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["hasImmutabilityPolicy"] = undefined /*out*/;
             inputs["hasLegalHold"] = undefined /*out*/;
+            inputs["resourceManagerId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -128,6 +134,10 @@ export interface ContainerState {
      * The name of the Container which should be created within the Storage Account.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The Resource Manager ID of this Storage Container.
+     */
+    readonly resourceManagerId?: pulumi.Input<string>;
     /**
      * The name of the Storage Account where the Container should be created.
      */

@@ -13,7 +13,7 @@ class GetStorageContainerResult:
     """
     A collection of values returned by getStorageContainer.
     """
-    def __init__(__self__, container_access_type=None, has_immutability_policy=None, has_legal_hold=None, id=None, metadata=None, name=None, storage_account_name=None):
+    def __init__(__self__, container_access_type=None, has_immutability_policy=None, has_legal_hold=None, id=None, metadata=None, name=None, resource_manager_id=None, storage_account_name=None):
         if container_access_type and not isinstance(container_access_type, str):
             raise TypeError("Expected argument 'container_access_type' to be a str")
         __self__.container_access_type = container_access_type
@@ -47,6 +47,12 @@ class GetStorageContainerResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
+        if resource_manager_id and not isinstance(resource_manager_id, str):
+            raise TypeError("Expected argument 'resource_manager_id' to be a str")
+        __self__.resource_manager_id = resource_manager_id
+        """
+        The Resource Manager ID of this Storage Container.
+        """
         if storage_account_name and not isinstance(storage_account_name, str):
             raise TypeError("Expected argument 'storage_account_name' to be a str")
         __self__.storage_account_name = storage_account_name
@@ -62,6 +68,7 @@ class AwaitableGetStorageContainerResult(GetStorageContainerResult):
             id=self.id,
             metadata=self.metadata,
             name=self.name,
+            resource_manager_id=self.resource_manager_id,
             storage_account_name=self.storage_account_name)
 
 def get_storage_container(metadata=None,name=None,storage_account_name=None,opts=None):
@@ -73,7 +80,7 @@ def get_storage_container(metadata=None,name=None,storage_account_name=None,opts
 
     :param dict metadata: A mapping of MetaData for this Container.
     :param str name: The name of the Container.
-    :param str storage_account_name: The name of the Storage Account where the Container was created.
+    :param str storage_account_name: The name of the Storage Account where the Container exists.
     """
     __args__ = dict()
 
@@ -94,4 +101,5 @@ def get_storage_container(metadata=None,name=None,storage_account_name=None,opts
         id=__ret__.get('id'),
         metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
+        resource_manager_id=__ret__.get('resourceManagerId'),
         storage_account_name=__ret__.get('storageAccountName'))

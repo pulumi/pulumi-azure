@@ -30,6 +30,10 @@ class Container(pulumi.CustomResource):
     """
     The name of the Container which should be created within the Storage Account.
     """
+    resource_manager_id: pulumi.Output[str]
+    """
+    The Resource Manager ID of this Storage Container.
+    """
     storage_account_name: pulumi.Output[str]
     """
     The name of the Storage Account where the Container should be created.
@@ -72,6 +76,7 @@ class Container(pulumi.CustomResource):
             __props__['storage_account_name'] = storage_account_name
             __props__['has_immutability_policy'] = None
             __props__['has_legal_hold'] = None
+            __props__['resource_manager_id'] = None
         super(Container, __self__).__init__(
             'azure:storage/container:Container',
             resource_name,
@@ -79,7 +84,7 @@ class Container(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, container_access_type=None, has_immutability_policy=None, has_legal_hold=None, metadata=None, name=None, storage_account_name=None):
+    def get(resource_name, id, opts=None, container_access_type=None, has_immutability_policy=None, has_legal_hold=None, metadata=None, name=None, resource_manager_id=None, storage_account_name=None):
         """
         Get an existing Container resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -92,6 +97,7 @@ class Container(pulumi.CustomResource):
         :param pulumi.Input[bool] has_legal_hold: Is there a Legal Hold configured on this Storage Container?
         :param pulumi.Input[dict] metadata: A mapping of MetaData for this Container.
         :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account.
+        :param pulumi.Input[str] resource_manager_id: The Resource Manager ID of this Storage Container.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -103,6 +109,7 @@ class Container(pulumi.CustomResource):
         __props__["has_legal_hold"] = has_legal_hold
         __props__["metadata"] = metadata
         __props__["name"] = name
+        __props__["resource_manager_id"] = resource_manager_id
         __props__["storage_account_name"] = storage_account_name
         return Container(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

@@ -31,6 +31,12 @@ namespace Pulumi.Azure.Hpc
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// A list of IP Addresses where the HPC Cache can be mounted.
+        /// </summary>
+        [Output("mountAddresses")]
+        public Output<ImmutableArray<string>> MountAddresses { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the HPC Cache. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -154,6 +160,18 @@ namespace Pulumi.Azure.Hpc
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        [Input("mountAddresses")]
+        private InputList<string>? _mountAddresses;
+
+        /// <summary>
+        /// A list of IP Addresses where the HPC Cache can be mounted.
+        /// </summary>
+        public InputList<string> MountAddresses
+        {
+            get => _mountAddresses ?? (_mountAddresses = new InputList<string>());
+            set => _mountAddresses = value;
+        }
 
         /// <summary>
         /// The name of the HPC Cache. Changing this forces a new resource to be created.

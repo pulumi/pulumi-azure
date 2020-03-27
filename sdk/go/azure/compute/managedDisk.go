@@ -19,13 +19,13 @@ type ManagedDisk struct {
 
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption pulumi.StringOutput `pulumi:"createOption"`
-	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"diskEncryptionSetId"`
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite pulumi.IntOutput `pulumi:"diskIopsReadWrite"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntOutput `pulumi:"diskMbpsReadWrite"`
-	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb pulumi.IntOutput `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrOutput `pulumi:"encryptionSettings"`
@@ -92,13 +92,13 @@ func GetManagedDisk(ctx *pulumi.Context,
 type managedDiskState struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption *string `pulumi:"createOption"`
-	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite *int `pulumi:"diskIopsReadWrite"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
-	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings *ManagedDiskEncryptionSettings `pulumi:"encryptionSettings"`
@@ -129,13 +129,13 @@ type managedDiskState struct {
 type ManagedDiskState struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption pulumi.StringPtrInput
-	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite pulumi.IntPtrInput
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntPtrInput
-	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb pulumi.IntPtrInput
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrInput
@@ -170,13 +170,13 @@ func (ManagedDiskState) ElementType() reflect.Type {
 type managedDiskArgs struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption string `pulumi:"createOption"`
-	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite *int `pulumi:"diskIopsReadWrite"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
-	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings *ManagedDiskEncryptionSettings `pulumi:"encryptionSettings"`
@@ -208,13 +208,13 @@ type managedDiskArgs struct {
 type ManagedDiskArgs struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption pulumi.StringInput
-	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite pulumi.IntPtrInput
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntPtrInput
-	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb pulumi.IntPtrInput
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrInput

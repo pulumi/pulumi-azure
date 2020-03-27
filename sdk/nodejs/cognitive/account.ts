@@ -57,6 +57,10 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
     /**
+     * A URL to link a QnAMaker cognitive account to a QnA runtime.
+     */
+    public readonly qnaRuntimeEndpoint!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -90,6 +94,7 @@ export class Account extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
+            inputs["qnaRuntimeEndpoint"] = state ? state.qnaRuntimeEndpoint : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
@@ -108,6 +113,7 @@ export class Account extends pulumi.CustomResource {
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["qnaRuntimeEndpoint"] = args ? args.qnaRuntimeEndpoint : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -151,6 +157,10 @@ export interface AccountState {
      */
     readonly primaryAccessKey?: pulumi.Input<string>;
     /**
+     * A URL to link a QnAMaker cognitive account to a QnA runtime.
+     */
+    readonly qnaRuntimeEndpoint?: pulumi.Input<string>;
+    /**
      * The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
@@ -184,6 +194,10 @@ export interface AccountArgs {
      * Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A URL to link a QnAMaker cognitive account to a QnA runtime.
+     */
+    readonly qnaRuntimeEndpoint?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
      */

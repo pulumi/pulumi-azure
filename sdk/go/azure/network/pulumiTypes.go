@@ -7743,6 +7743,8 @@ func (o TrafficManagerProfileDnsConfigPtrOutput) Ttl() pulumi.IntOutput {
 }
 
 type TrafficManagerProfileMonitorConfig struct {
+	// One or more `customHeader` blocks as defined below.
+	CustomHeaders []TrafficManagerProfileMonitorConfigCustomHeader `pulumi:"customHeaders"`
 	// A list of status code ranges in the format of `100-101`.
 	ExpectedStatusCodeRanges []string `pulumi:"expectedStatusCodeRanges"`
 	// The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
@@ -7767,6 +7769,8 @@ type TrafficManagerProfileMonitorConfigInput interface {
 }
 
 type TrafficManagerProfileMonitorConfigArgs struct {
+	// One or more `customHeader` blocks as defined below.
+	CustomHeaders TrafficManagerProfileMonitorConfigCustomHeaderArrayInput `pulumi:"customHeaders"`
 	// A list of status code ranges in the format of `100-101`.
 	ExpectedStatusCodeRanges pulumi.StringArrayInput `pulumi:"expectedStatusCodeRanges"`
 	// The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
@@ -7852,6 +7856,13 @@ func (o TrafficManagerProfileMonitorConfigOutput) ToTrafficManagerProfileMonitor
 	}).(TrafficManagerProfileMonitorConfigPtrOutput)
 }
 
+// One or more `customHeader` blocks as defined below.
+func (o TrafficManagerProfileMonitorConfigOutput) CustomHeaders() TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput {
+	return o.ApplyT(func(v TrafficManagerProfileMonitorConfig) []TrafficManagerProfileMonitorConfigCustomHeader {
+		return v.CustomHeaders
+	}).(TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput)
+}
+
 // A list of status code ranges in the format of `100-101`.
 func (o TrafficManagerProfileMonitorConfigOutput) ExpectedStatusCodeRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TrafficManagerProfileMonitorConfig) []string { return v.ExpectedStatusCodeRanges }).(pulumi.StringArrayOutput)
@@ -7905,6 +7916,13 @@ func (o TrafficManagerProfileMonitorConfigPtrOutput) Elem() TrafficManagerProfil
 	return o.ApplyT(func(v *TrafficManagerProfileMonitorConfig) TrafficManagerProfileMonitorConfig { return *v }).(TrafficManagerProfileMonitorConfigOutput)
 }
 
+// One or more `customHeader` blocks as defined below.
+func (o TrafficManagerProfileMonitorConfigPtrOutput) CustomHeaders() TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput {
+	return o.ApplyT(func(v TrafficManagerProfileMonitorConfig) []TrafficManagerProfileMonitorConfigCustomHeader {
+		return v.CustomHeaders
+	}).(TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput)
+}
+
 // A list of status code ranges in the format of `100-101`.
 func (o TrafficManagerProfileMonitorConfigPtrOutput) ExpectedStatusCodeRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TrafficManagerProfileMonitorConfig) []string { return v.ExpectedStatusCodeRanges }).(pulumi.StringArrayOutput)
@@ -7938,6 +7956,104 @@ func (o TrafficManagerProfileMonitorConfigPtrOutput) TimeoutInSeconds() pulumi.I
 // The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
 func (o TrafficManagerProfileMonitorConfigPtrOutput) ToleratedNumberOfFailures() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TrafficManagerProfileMonitorConfig) *int { return v.ToleratedNumberOfFailures }).(pulumi.IntPtrOutput)
+}
+
+type TrafficManagerProfileMonitorConfigCustomHeader struct {
+	// The name of the custom header.
+	Name string `pulumi:"name"`
+	// The value of custom header. Applicable for Http and Https protocol.
+	Value string `pulumi:"value"`
+}
+
+type TrafficManagerProfileMonitorConfigCustomHeaderInput interface {
+	pulumi.Input
+
+	ToTrafficManagerProfileMonitorConfigCustomHeaderOutput() TrafficManagerProfileMonitorConfigCustomHeaderOutput
+	ToTrafficManagerProfileMonitorConfigCustomHeaderOutputWithContext(context.Context) TrafficManagerProfileMonitorConfigCustomHeaderOutput
+}
+
+type TrafficManagerProfileMonitorConfigCustomHeaderArgs struct {
+	// The name of the custom header.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of custom header. Applicable for Http and Https protocol.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TrafficManagerProfileMonitorConfigCustomHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerProfileMonitorConfigCustomHeader)(nil)).Elem()
+}
+
+func (i TrafficManagerProfileMonitorConfigCustomHeaderArgs) ToTrafficManagerProfileMonitorConfigCustomHeaderOutput() TrafficManagerProfileMonitorConfigCustomHeaderOutput {
+	return i.ToTrafficManagerProfileMonitorConfigCustomHeaderOutputWithContext(context.Background())
+}
+
+func (i TrafficManagerProfileMonitorConfigCustomHeaderArgs) ToTrafficManagerProfileMonitorConfigCustomHeaderOutputWithContext(ctx context.Context) TrafficManagerProfileMonitorConfigCustomHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerProfileMonitorConfigCustomHeaderOutput)
+}
+
+type TrafficManagerProfileMonitorConfigCustomHeaderArrayInput interface {
+	pulumi.Input
+
+	ToTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput() TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput
+	ToTrafficManagerProfileMonitorConfigCustomHeaderArrayOutputWithContext(context.Context) TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput
+}
+
+type TrafficManagerProfileMonitorConfigCustomHeaderArray []TrafficManagerProfileMonitorConfigCustomHeaderInput
+
+func (TrafficManagerProfileMonitorConfigCustomHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficManagerProfileMonitorConfigCustomHeader)(nil)).Elem()
+}
+
+func (i TrafficManagerProfileMonitorConfigCustomHeaderArray) ToTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput() TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput {
+	return i.ToTrafficManagerProfileMonitorConfigCustomHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i TrafficManagerProfileMonitorConfigCustomHeaderArray) ToTrafficManagerProfileMonitorConfigCustomHeaderArrayOutputWithContext(ctx context.Context) TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput)
+}
+
+type TrafficManagerProfileMonitorConfigCustomHeaderOutput struct{ *pulumi.OutputState }
+
+func (TrafficManagerProfileMonitorConfigCustomHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficManagerProfileMonitorConfigCustomHeader)(nil)).Elem()
+}
+
+func (o TrafficManagerProfileMonitorConfigCustomHeaderOutput) ToTrafficManagerProfileMonitorConfigCustomHeaderOutput() TrafficManagerProfileMonitorConfigCustomHeaderOutput {
+	return o
+}
+
+func (o TrafficManagerProfileMonitorConfigCustomHeaderOutput) ToTrafficManagerProfileMonitorConfigCustomHeaderOutputWithContext(ctx context.Context) TrafficManagerProfileMonitorConfigCustomHeaderOutput {
+	return o
+}
+
+// The name of the custom header.
+func (o TrafficManagerProfileMonitorConfigCustomHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficManagerProfileMonitorConfigCustomHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of custom header. Applicable for Http and Https protocol.
+func (o TrafficManagerProfileMonitorConfigCustomHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficManagerProfileMonitorConfigCustomHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficManagerProfileMonitorConfigCustomHeader)(nil)).Elem()
+}
+
+func (o TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput) ToTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput() TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput {
+	return o
+}
+
+func (o TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput) ToTrafficManagerProfileMonitorConfigCustomHeaderArrayOutputWithContext(ctx context.Context) TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput {
+	return o
+}
+
+func (o TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput) Index(i pulumi.IntInput) TrafficManagerProfileMonitorConfigCustomHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficManagerProfileMonitorConfigCustomHeader {
+		return vs[0].([]TrafficManagerProfileMonitorConfigCustomHeader)[vs[1].(int)]
+	}).(TrafficManagerProfileMonitorConfigCustomHeaderOutput)
 }
 
 type VirtualHubRoute struct {
@@ -10956,9 +11072,7 @@ func (o GetNetworkInterfaceIpConfigurationOutput) ToGetNetworkInterfaceIpConfigu
 
 // A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
 func (o GetNetworkInterfaceIpConfigurationOutput) ApplicationGatewayBackendAddressPoolsIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetNetworkInterfaceIpConfiguration) []string {
-		return v.ApplicationGatewayBackendAddressPoolsIds
-	}).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetNetworkInterfaceIpConfiguration) []string { return v.ApplicationGatewayBackendAddressPoolsIds }).(pulumi.StringArrayOutput)
 }
 
 func (o GetNetworkInterfaceIpConfigurationOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
@@ -12206,6 +12320,8 @@ func init() {
 	pulumi.RegisterOutputType(TrafficManagerProfileDnsConfigPtrOutput{})
 	pulumi.RegisterOutputType(TrafficManagerProfileMonitorConfigOutput{})
 	pulumi.RegisterOutputType(TrafficManagerProfileMonitorConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrafficManagerProfileMonitorConfigCustomHeaderOutput{})
+	pulumi.RegisterOutputType(TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput{})
 	pulumi.RegisterOutputType(VirtualHubRouteOutput{})
 	pulumi.RegisterOutputType(VirtualHubRouteArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkDdosProtectionPlanOutput{})

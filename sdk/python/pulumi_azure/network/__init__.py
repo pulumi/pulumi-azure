@@ -27,6 +27,7 @@ from .get_public_i_ps import *
 from .get_public_ip import *
 from .get_public_ip_prefix import *
 from .get_route_table import *
+from .get_service_tags import *
 from .get_subnet import *
 from .get_traffic_manager import *
 from .get_virtual_hub import *

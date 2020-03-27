@@ -55,6 +55,10 @@ export class Share extends pulumi.CustomResource {
      */
     public readonly quota!: pulumi.Output<number | undefined>;
     /**
+     * The Resource Manager ID of this File Share.
+     */
+    public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
+    /**
      * Specifies the storage account in which to create the share.
      * Changing this forces a new resource to be created.
      */
@@ -80,6 +84,7 @@ export class Share extends pulumi.CustomResource {
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["quota"] = state ? state.quota : undefined;
+            inputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
             inputs["url"] = state ? state.url : undefined;
         } else {
@@ -92,6 +97,7 @@ export class Share extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["quota"] = args ? args.quota : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            inputs["resourceManagerId"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         }
         if (!opts) {
@@ -125,6 +131,10 @@ export interface ShareState {
      * The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
      */
     readonly quota?: pulumi.Input<number>;
+    /**
+     * The Resource Manager ID of this File Share.
+     */
+    readonly resourceManagerId?: pulumi.Input<string>;
     /**
      * Specifies the storage account in which to create the share.
      * Changing this forces a new resource to be created.
