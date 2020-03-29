@@ -458,6 +458,8 @@ github.com/pulumi/pulumi/pkg v0.0.0-20200325225746-80f1989600a3/go.mod h1:iX8/aP
 github.com/pulumi/pulumi/sdk v0.0.0-20200321193742-f095e64d0f8e/go.mod h1:ZCVEM4V8vr5IogqUhSu28+FEEn3bIjGYpEOSHRureO0=
 github.com/pulumi/pulumi/sdk v0.0.0-20200325225746-80f1989600a3 h1:O7Kt01GMn4lP61yHLg97TIl2D7l8BoBp4eawjqwefxY=
 github.com/pulumi/pulumi/sdk v0.0.0-20200325225746-80f1989600a3/go.mod h1:0jjygtqEwLnjNEL3zIn3ynjT/37ZJ42DZE6k2+2NAUM=
+github.com/pulumi/pulumi/sdk v1.13.1 h1:BX0ttL/g5ofKxkK2VY/gp8SdBxJi4eIyIG34JRn9ENU=
+github.com/pulumi/pulumi/sdk v1.13.1/go.mod h1:0jjygtqEwLnjNEL3zIn3ynjT/37ZJ42DZE6k2+2NAUM=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200327162321-6f32325d9570 h1:ycZPEOX1/qzLJfvIGeMPXhjqC+ffuUk/aIuiOPdFHRs=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200327162321-6f32325d9570/go.mod h1:70RIV2TiLcKkRGe4v2Qb+IEM/Cn3uRLoRETV+g01B9I=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=

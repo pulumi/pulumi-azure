@@ -1980,7 +1980,9 @@ func (o ManagementPolicyRuleActionsBaseBlobOutput) ToManagementPolicyRuleActions
 
 // The age in days after last modification to delete the blob. Must be at least 0.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) DeleteAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int { return v.DeleteAfterDaysSinceModificationGreaterThan }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
+		return v.DeleteAfterDaysSinceModificationGreaterThan
+	}).(pulumi.IntPtrOutput)
 }
 
 // The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
@@ -2017,7 +2019,9 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) Elem() ManagementPolicyRul
 
 // The age in days after last modification to delete the blob. Must be at least 0.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) DeleteAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int { return v.DeleteAfterDaysSinceModificationGreaterThan }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
+		return v.DeleteAfterDaysSinceModificationGreaterThan
+	}).(pulumi.IntPtrOutput)
 }
 
 // The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
