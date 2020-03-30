@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Bump consumable git modules to v2 as per [go documentation](https://github.com/golang/go/wiki/Modules#releasing-modules-v2-or-higher)
+_(none)_
 
 ---
+
+## 2.3.1 (2020-03-30)
+* Bump consumable git modules to v2 as per [go documentation](https://github.com/golang/go/wiki/Modules#releasing-modules-v2-or-higher)
 
 ## 2.3.0 (2020-03-30)
 * Upgrade to v2.3.0 of the AzureRM Terraform Provider
