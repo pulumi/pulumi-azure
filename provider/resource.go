@@ -20,18 +20,16 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/pulumi/pulumi/sdk/go/common/resource"
-
 	"github.com/Azure/go-autorest/autorest/azure/cli"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/pulumi/pulumi-azure/provider/v2/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
+	"github.com/pulumi/pulumi/sdk/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/go/common/util/contract"
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm"
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/azure"
-
-	"github.com/pulumi/pulumi-azure/provider/pkg/version"
 )
 
 const (

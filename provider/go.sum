@@ -456,7 +456,6 @@ github.com/pulumi/pulumi-terraform-bridge v1.8.4/go.mod h1:EGMJtAh9rdqiqO0B5P458
 github.com/pulumi/pulumi/pkg v0.0.0-20200325225746-80f1989600a3 h1:CUswHMz3r5GBJHeGL5p4NtAGwqoelFyv54KW1A1XQfk=
 github.com/pulumi/pulumi/pkg v0.0.0-20200325225746-80f1989600a3/go.mod h1:iX8/aPGtI3VhJnIUqHoT2iy3/0wQJySIRMs9y2TBILw=
 github.com/pulumi/pulumi/sdk v0.0.0-20200321193742-f095e64d0f8e/go.mod h1:ZCVEM4V8vr5IogqUhSu28+FEEn3bIjGYpEOSHRureO0=
-github.com/pulumi/pulumi/sdk v0.0.0-20200325225746-80f1989600a3 h1:O7Kt01GMn4lP61yHLg97TIl2D7l8BoBp4eawjqwefxY=
 github.com/pulumi/pulumi/sdk v0.0.0-20200325225746-80f1989600a3/go.mod h1:0jjygtqEwLnjNEL3zIn3ynjT/37ZJ42DZE6k2+2NAUM=
 github.com/pulumi/pulumi/sdk v1.13.1 h1:BX0ttL/g5ofKxkK2VY/gp8SdBxJi4eIyIG34JRn9ENU=
 github.com/pulumi/pulumi/sdk v1.13.1/go.mod h1:0jjygtqEwLnjNEL3zIn3ynjT/37ZJ42DZE6k2+2NAUM=
