@@ -11,6 +11,300 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+type CustomProviderAction struct {
+	// Specifies the endpoint of the action.
+	Endpoint string `pulumi:"endpoint"`
+	// Specifies the name of the action.
+	Name string `pulumi:"name"`
+}
+
+type CustomProviderActionInput interface {
+	pulumi.Input
+
+	ToCustomProviderActionOutput() CustomProviderActionOutput
+	ToCustomProviderActionOutputWithContext(context.Context) CustomProviderActionOutput
+}
+
+type CustomProviderActionArgs struct {
+	// Specifies the endpoint of the action.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// Specifies the name of the action.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (CustomProviderActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomProviderAction)(nil)).Elem()
+}
+
+func (i CustomProviderActionArgs) ToCustomProviderActionOutput() CustomProviderActionOutput {
+	return i.ToCustomProviderActionOutputWithContext(context.Background())
+}
+
+func (i CustomProviderActionArgs) ToCustomProviderActionOutputWithContext(ctx context.Context) CustomProviderActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderActionOutput)
+}
+
+type CustomProviderActionArrayInput interface {
+	pulumi.Input
+
+	ToCustomProviderActionArrayOutput() CustomProviderActionArrayOutput
+	ToCustomProviderActionArrayOutputWithContext(context.Context) CustomProviderActionArrayOutput
+}
+
+type CustomProviderActionArray []CustomProviderActionInput
+
+func (CustomProviderActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomProviderAction)(nil)).Elem()
+}
+
+func (i CustomProviderActionArray) ToCustomProviderActionArrayOutput() CustomProviderActionArrayOutput {
+	return i.ToCustomProviderActionArrayOutputWithContext(context.Background())
+}
+
+func (i CustomProviderActionArray) ToCustomProviderActionArrayOutputWithContext(ctx context.Context) CustomProviderActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderActionArrayOutput)
+}
+
+type CustomProviderActionOutput struct{ *pulumi.OutputState }
+
+func (CustomProviderActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomProviderAction)(nil)).Elem()
+}
+
+func (o CustomProviderActionOutput) ToCustomProviderActionOutput() CustomProviderActionOutput {
+	return o
+}
+
+func (o CustomProviderActionOutput) ToCustomProviderActionOutputWithContext(ctx context.Context) CustomProviderActionOutput {
+	return o
+}
+
+// Specifies the endpoint of the action.
+func (o CustomProviderActionOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomProviderAction) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the action.
+func (o CustomProviderActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomProviderAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type CustomProviderActionArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomProviderActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomProviderAction)(nil)).Elem()
+}
+
+func (o CustomProviderActionArrayOutput) ToCustomProviderActionArrayOutput() CustomProviderActionArrayOutput {
+	return o
+}
+
+func (o CustomProviderActionArrayOutput) ToCustomProviderActionArrayOutputWithContext(ctx context.Context) CustomProviderActionArrayOutput {
+	return o
+}
+
+func (o CustomProviderActionArrayOutput) Index(i pulumi.IntInput) CustomProviderActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomProviderAction {
+		return vs[0].([]CustomProviderAction)[vs[1].(int)]
+	}).(CustomProviderActionOutput)
+}
+
+type CustomProviderResourceType struct {
+	// Specifies the endpoint of the route definition.
+	Endpoint string `pulumi:"endpoint"`
+	// Specifies the name of the route definition.
+	Name string `pulumi:"name"`
+	// The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`.
+	RoutingType *string `pulumi:"routingType"`
+}
+
+type CustomProviderResourceTypeInput interface {
+	pulumi.Input
+
+	ToCustomProviderResourceTypeOutput() CustomProviderResourceTypeOutput
+	ToCustomProviderResourceTypeOutputWithContext(context.Context) CustomProviderResourceTypeOutput
+}
+
+type CustomProviderResourceTypeArgs struct {
+	// Specifies the endpoint of the route definition.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// Specifies the name of the route definition.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`.
+	RoutingType pulumi.StringPtrInput `pulumi:"routingType"`
+}
+
+func (CustomProviderResourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomProviderResourceType)(nil)).Elem()
+}
+
+func (i CustomProviderResourceTypeArgs) ToCustomProviderResourceTypeOutput() CustomProviderResourceTypeOutput {
+	return i.ToCustomProviderResourceTypeOutputWithContext(context.Background())
+}
+
+func (i CustomProviderResourceTypeArgs) ToCustomProviderResourceTypeOutputWithContext(ctx context.Context) CustomProviderResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderResourceTypeOutput)
+}
+
+type CustomProviderResourceTypeArrayInput interface {
+	pulumi.Input
+
+	ToCustomProviderResourceTypeArrayOutput() CustomProviderResourceTypeArrayOutput
+	ToCustomProviderResourceTypeArrayOutputWithContext(context.Context) CustomProviderResourceTypeArrayOutput
+}
+
+type CustomProviderResourceTypeArray []CustomProviderResourceTypeInput
+
+func (CustomProviderResourceTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomProviderResourceType)(nil)).Elem()
+}
+
+func (i CustomProviderResourceTypeArray) ToCustomProviderResourceTypeArrayOutput() CustomProviderResourceTypeArrayOutput {
+	return i.ToCustomProviderResourceTypeArrayOutputWithContext(context.Background())
+}
+
+func (i CustomProviderResourceTypeArray) ToCustomProviderResourceTypeArrayOutputWithContext(ctx context.Context) CustomProviderResourceTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderResourceTypeArrayOutput)
+}
+
+type CustomProviderResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (CustomProviderResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomProviderResourceType)(nil)).Elem()
+}
+
+func (o CustomProviderResourceTypeOutput) ToCustomProviderResourceTypeOutput() CustomProviderResourceTypeOutput {
+	return o
+}
+
+func (o CustomProviderResourceTypeOutput) ToCustomProviderResourceTypeOutputWithContext(ctx context.Context) CustomProviderResourceTypeOutput {
+	return o
+}
+
+// Specifies the endpoint of the route definition.
+func (o CustomProviderResourceTypeOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomProviderResourceType) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the route definition.
+func (o CustomProviderResourceTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomProviderResourceType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`.
+func (o CustomProviderResourceTypeOutput) RoutingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomProviderResourceType) *string { return v.RoutingType }).(pulumi.StringPtrOutput)
+}
+
+type CustomProviderResourceTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomProviderResourceTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomProviderResourceType)(nil)).Elem()
+}
+
+func (o CustomProviderResourceTypeArrayOutput) ToCustomProviderResourceTypeArrayOutput() CustomProviderResourceTypeArrayOutput {
+	return o
+}
+
+func (o CustomProviderResourceTypeArrayOutput) ToCustomProviderResourceTypeArrayOutputWithContext(ctx context.Context) CustomProviderResourceTypeArrayOutput {
+	return o
+}
+
+func (o CustomProviderResourceTypeArrayOutput) Index(i pulumi.IntInput) CustomProviderResourceTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomProviderResourceType {
+		return vs[0].([]CustomProviderResourceType)[vs[1].(int)]
+	}).(CustomProviderResourceTypeOutput)
+}
+
+type CustomProviderValidation struct {
+	// The endpoint where the validation specification is located.
+	Specification string `pulumi:"specification"`
+}
+
+type CustomProviderValidationInput interface {
+	pulumi.Input
+
+	ToCustomProviderValidationOutput() CustomProviderValidationOutput
+	ToCustomProviderValidationOutputWithContext(context.Context) CustomProviderValidationOutput
+}
+
+type CustomProviderValidationArgs struct {
+	// The endpoint where the validation specification is located.
+	Specification pulumi.StringInput `pulumi:"specification"`
+}
+
+func (CustomProviderValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomProviderValidation)(nil)).Elem()
+}
+
+func (i CustomProviderValidationArgs) ToCustomProviderValidationOutput() CustomProviderValidationOutput {
+	return i.ToCustomProviderValidationOutputWithContext(context.Background())
+}
+
+func (i CustomProviderValidationArgs) ToCustomProviderValidationOutputWithContext(ctx context.Context) CustomProviderValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderValidationOutput)
+}
+
+type CustomProviderValidationArrayInput interface {
+	pulumi.Input
+
+	ToCustomProviderValidationArrayOutput() CustomProviderValidationArrayOutput
+	ToCustomProviderValidationArrayOutputWithContext(context.Context) CustomProviderValidationArrayOutput
+}
+
+type CustomProviderValidationArray []CustomProviderValidationInput
+
+func (CustomProviderValidationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomProviderValidation)(nil)).Elem()
+}
+
+func (i CustomProviderValidationArray) ToCustomProviderValidationArrayOutput() CustomProviderValidationArrayOutput {
+	return i.ToCustomProviderValidationArrayOutputWithContext(context.Background())
+}
+
+func (i CustomProviderValidationArray) ToCustomProviderValidationArrayOutputWithContext(ctx context.Context) CustomProviderValidationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderValidationArrayOutput)
+}
+
+type CustomProviderValidationOutput struct{ *pulumi.OutputState }
+
+func (CustomProviderValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomProviderValidation)(nil)).Elem()
+}
+
+func (o CustomProviderValidationOutput) ToCustomProviderValidationOutput() CustomProviderValidationOutput {
+	return o
+}
+
+func (o CustomProviderValidationOutput) ToCustomProviderValidationOutputWithContext(ctx context.Context) CustomProviderValidationOutput {
+	return o
+}
+
+// The endpoint where the validation specification is located.
+func (o CustomProviderValidationOutput) Specification() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomProviderValidation) string { return v.Specification }).(pulumi.StringOutput)
+}
+
+type CustomProviderValidationArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomProviderValidationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomProviderValidation)(nil)).Elem()
+}
+
+func (o CustomProviderValidationArrayOutput) ToCustomProviderValidationArrayOutput() CustomProviderValidationArrayOutput {
+	return o
+}
+
+func (o CustomProviderValidationArrayOutput) ToCustomProviderValidationArrayOutputWithContext(ctx context.Context) CustomProviderValidationArrayOutput {
+	return o
+}
+
+func (o CustomProviderValidationArrayOutput) Index(i pulumi.IntInput) CustomProviderValidationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomProviderValidation {
+		return vs[0].([]CustomProviderValidation)[vs[1].(int)]
+	}).(CustomProviderValidationOutput)
+}
+
 type GetResourcesResource struct {
 	// The ID of this Resource.
 	Id string `pulumi:"id"`
@@ -280,6 +574,12 @@ func (o GetSubscriptionsSubscriptionArrayOutput) Index(i pulumi.IntInput) GetSub
 }
 
 func init() {
+	pulumi.RegisterOutputType(CustomProviderActionOutput{})
+	pulumi.RegisterOutputType(CustomProviderActionArrayOutput{})
+	pulumi.RegisterOutputType(CustomProviderResourceTypeOutput{})
+	pulumi.RegisterOutputType(CustomProviderResourceTypeArrayOutput{})
+	pulumi.RegisterOutputType(CustomProviderValidationOutput{})
+	pulumi.RegisterOutputType(CustomProviderValidationArrayOutput{})
 	pulumi.RegisterOutputType(GetResourcesResourceOutput{})
 	pulumi.RegisterOutputType(GetResourcesResourceArrayOutput{})
 	pulumi.RegisterOutputType(GetSubscriptionsSubscriptionOutput{})

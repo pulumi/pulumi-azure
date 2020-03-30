@@ -47,6 +47,12 @@ namespace Pulumi.Azure.Cognitive
         public Output<string> PrimaryAccessKey { get; private set; } = null!;
 
         /// <summary>
+        /// A URL to link a QnAMaker cognitive account to a QnA runtime.
+        /// </summary>
+        [Output("qnaRuntimeEndpoint")]
+        public Output<string?> QnaRuntimeEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -135,6 +141,12 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// A URL to link a QnAMaker cognitive account to a QnA runtime.
+        /// </summary>
+        [Input("qnaRuntimeEndpoint")]
+        public Input<string>? QnaRuntimeEndpoint { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -194,6 +206,12 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         [Input("primaryAccessKey")]
         public Input<string>? PrimaryAccessKey { get; set; }
+
+        /// <summary>
+        /// A URL to link a QnAMaker cognitive account to a QnA runtime.
+        /// </summary>
+        [Input("qnaRuntimeEndpoint")]
+        public Input<string>? QnaRuntimeEndpoint { get; set; }
 
         /// <summary>
         /// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.

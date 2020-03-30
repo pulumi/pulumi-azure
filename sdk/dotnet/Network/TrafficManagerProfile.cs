@@ -267,6 +267,18 @@ namespace Pulumi.Azure.Network
 
     public sealed class TrafficManagerProfileMonitorConfigArgs : Pulumi.ResourceArgs
     {
+        [Input("customHeaders")]
+        private InputList<TrafficManagerProfileMonitorConfigCustomHeadersArgs>? _customHeaders;
+
+        /// <summary>
+        /// One or more `custom_header` blocks as defined below.
+        /// </summary>
+        public InputList<TrafficManagerProfileMonitorConfigCustomHeadersArgs> CustomHeaders
+        {
+            get => _customHeaders ?? (_customHeaders = new InputList<TrafficManagerProfileMonitorConfigCustomHeadersArgs>());
+            set => _customHeaders = value;
+        }
+
         [Input("expectedStatusCodeRanges")]
         private InputList<string>? _expectedStatusCodeRanges;
 
@@ -320,8 +332,58 @@ namespace Pulumi.Azure.Network
         }
     }
 
+    public sealed class TrafficManagerProfileMonitorConfigCustomHeadersArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The name of the custom header.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The value of custom header. Applicable for Http and Https protocol.
+        /// </summary>
+        [Input("value", required: true)]
+        public Input<string> Value { get; set; } = null!;
+
+        public TrafficManagerProfileMonitorConfigCustomHeadersArgs()
+        {
+        }
+    }
+
+    public sealed class TrafficManagerProfileMonitorConfigCustomHeadersGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The name of the custom header.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The value of custom header. Applicable for Http and Https protocol.
+        /// </summary>
+        [Input("value", required: true)]
+        public Input<string> Value { get; set; } = null!;
+
+        public TrafficManagerProfileMonitorConfigCustomHeadersGetArgs()
+        {
+        }
+    }
+
     public sealed class TrafficManagerProfileMonitorConfigGetArgs : Pulumi.ResourceArgs
     {
+        [Input("customHeaders")]
+        private InputList<TrafficManagerProfileMonitorConfigCustomHeadersGetArgs>? _customHeaders;
+
+        /// <summary>
+        /// One or more `custom_header` blocks as defined below.
+        /// </summary>
+        public InputList<TrafficManagerProfileMonitorConfigCustomHeadersGetArgs> CustomHeaders
+        {
+            get => _customHeaders ?? (_customHeaders = new InputList<TrafficManagerProfileMonitorConfigCustomHeadersGetArgs>());
+            set => _customHeaders = value;
+        }
+
         [Input("expectedStatusCodeRanges")]
         private InputList<string>? _expectedStatusCodeRanges;
 
@@ -405,6 +467,10 @@ namespace Pulumi.Azure.Network
     public sealed class TrafficManagerProfileMonitorConfig
     {
         /// <summary>
+        /// One or more `custom_header` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<TrafficManagerProfileMonitorConfigCustomHeaders> CustomHeaders;
+        /// <summary>
         /// A list of status code ranges in the format of `100-101`.
         /// </summary>
         public readonly ImmutableArray<string> ExpectedStatusCodeRanges;
@@ -435,6 +501,7 @@ namespace Pulumi.Azure.Network
 
         [OutputConstructor]
         private TrafficManagerProfileMonitorConfig(
+            ImmutableArray<TrafficManagerProfileMonitorConfigCustomHeaders> customHeaders,
             ImmutableArray<string> expectedStatusCodeRanges,
             int? intervalInSeconds,
             string? path,
@@ -443,6 +510,7 @@ namespace Pulumi.Azure.Network
             int? timeoutInSeconds,
             int? toleratedNumberOfFailures)
         {
+            CustomHeaders = customHeaders;
             ExpectedStatusCodeRanges = expectedStatusCodeRanges;
             IntervalInSeconds = intervalInSeconds;
             Path = path;
@@ -450,6 +518,28 @@ namespace Pulumi.Azure.Network
             Protocol = protocol;
             TimeoutInSeconds = timeoutInSeconds;
             ToleratedNumberOfFailures = toleratedNumberOfFailures;
+        }
+    }
+
+    [OutputType]
+    public sealed class TrafficManagerProfileMonitorConfigCustomHeaders
+    {
+        /// <summary>
+        /// The name of the custom header.
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
+        /// The value of custom header. Applicable for Http and Https protocol.
+        /// </summary>
+        public readonly string Value;
+
+        [OutputConstructor]
+        private TrafficManagerProfileMonitorConfigCustomHeaders(
+            string name,
+            string value)
+        {
+            Name = name;
+            Value = value;
         }
     }
     }

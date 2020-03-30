@@ -528,6 +528,304 @@ func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) Enabled() pulumi.B
 	return o.ApplyT(func(v ServerVulnerabilityAssessmentRecurringScans) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+type VirtualMachineAutoPatching struct {
+	// The day of week to apply the patch on.
+	DayOfWeek string `pulumi:"dayOfWeek"`
+	// The size of the Maintenance Window in minutes.
+	MaintenanceWindowDurationInMinutes int `pulumi:"maintenanceWindowDurationInMinutes"`
+	// The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
+	MaintenanceWindowStartingHour int `pulumi:"maintenanceWindowStartingHour"`
+}
+
+type VirtualMachineAutoPatchingInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAutoPatchingOutput() VirtualMachineAutoPatchingOutput
+	ToVirtualMachineAutoPatchingOutputWithContext(context.Context) VirtualMachineAutoPatchingOutput
+}
+
+type VirtualMachineAutoPatchingArgs struct {
+	// The day of week to apply the patch on.
+	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
+	// The size of the Maintenance Window in minutes.
+	MaintenanceWindowDurationInMinutes pulumi.IntInput `pulumi:"maintenanceWindowDurationInMinutes"`
+	// The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
+	MaintenanceWindowStartingHour pulumi.IntInput `pulumi:"maintenanceWindowStartingHour"`
+}
+
+func (VirtualMachineAutoPatchingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAutoPatching)(nil)).Elem()
+}
+
+func (i VirtualMachineAutoPatchingArgs) ToVirtualMachineAutoPatchingOutput() VirtualMachineAutoPatchingOutput {
+	return i.ToVirtualMachineAutoPatchingOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAutoPatchingArgs) ToVirtualMachineAutoPatchingOutputWithContext(ctx context.Context) VirtualMachineAutoPatchingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAutoPatchingOutput)
+}
+
+func (i VirtualMachineAutoPatchingArgs) ToVirtualMachineAutoPatchingPtrOutput() VirtualMachineAutoPatchingPtrOutput {
+	return i.ToVirtualMachineAutoPatchingPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineAutoPatchingArgs) ToVirtualMachineAutoPatchingPtrOutputWithContext(ctx context.Context) VirtualMachineAutoPatchingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAutoPatchingOutput).ToVirtualMachineAutoPatchingPtrOutputWithContext(ctx)
+}
+
+type VirtualMachineAutoPatchingPtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAutoPatchingPtrOutput() VirtualMachineAutoPatchingPtrOutput
+	ToVirtualMachineAutoPatchingPtrOutputWithContext(context.Context) VirtualMachineAutoPatchingPtrOutput
+}
+
+type virtualMachineAutoPatchingPtrType VirtualMachineAutoPatchingArgs
+
+func VirtualMachineAutoPatchingPtr(v *VirtualMachineAutoPatchingArgs) VirtualMachineAutoPatchingPtrInput {
+	return (*virtualMachineAutoPatchingPtrType)(v)
+}
+
+func (*virtualMachineAutoPatchingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineAutoPatching)(nil)).Elem()
+}
+
+func (i *virtualMachineAutoPatchingPtrType) ToVirtualMachineAutoPatchingPtrOutput() VirtualMachineAutoPatchingPtrOutput {
+	return i.ToVirtualMachineAutoPatchingPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineAutoPatchingPtrType) ToVirtualMachineAutoPatchingPtrOutputWithContext(ctx context.Context) VirtualMachineAutoPatchingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAutoPatchingPtrOutput)
+}
+
+type VirtualMachineAutoPatchingOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAutoPatchingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineAutoPatching)(nil)).Elem()
+}
+
+func (o VirtualMachineAutoPatchingOutput) ToVirtualMachineAutoPatchingOutput() VirtualMachineAutoPatchingOutput {
+	return o
+}
+
+func (o VirtualMachineAutoPatchingOutput) ToVirtualMachineAutoPatchingOutputWithContext(ctx context.Context) VirtualMachineAutoPatchingOutput {
+	return o
+}
+
+func (o VirtualMachineAutoPatchingOutput) ToVirtualMachineAutoPatchingPtrOutput() VirtualMachineAutoPatchingPtrOutput {
+	return o.ToVirtualMachineAutoPatchingPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineAutoPatchingOutput) ToVirtualMachineAutoPatchingPtrOutputWithContext(ctx context.Context) VirtualMachineAutoPatchingPtrOutput {
+	return o.ApplyT(func(v VirtualMachineAutoPatching) *VirtualMachineAutoPatching {
+		return &v
+	}).(VirtualMachineAutoPatchingPtrOutput)
+}
+
+// The day of week to apply the patch on.
+func (o VirtualMachineAutoPatchingOutput) DayOfWeek() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAutoPatching) string { return v.DayOfWeek }).(pulumi.StringOutput)
+}
+
+// The size of the Maintenance Window in minutes.
+func (o VirtualMachineAutoPatchingOutput) MaintenanceWindowDurationInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualMachineAutoPatching) int { return v.MaintenanceWindowDurationInMinutes }).(pulumi.IntOutput)
+}
+
+// The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
+func (o VirtualMachineAutoPatchingOutput) MaintenanceWindowStartingHour() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualMachineAutoPatching) int { return v.MaintenanceWindowStartingHour }).(pulumi.IntOutput)
+}
+
+type VirtualMachineAutoPatchingPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineAutoPatchingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineAutoPatching)(nil)).Elem()
+}
+
+func (o VirtualMachineAutoPatchingPtrOutput) ToVirtualMachineAutoPatchingPtrOutput() VirtualMachineAutoPatchingPtrOutput {
+	return o
+}
+
+func (o VirtualMachineAutoPatchingPtrOutput) ToVirtualMachineAutoPatchingPtrOutputWithContext(ctx context.Context) VirtualMachineAutoPatchingPtrOutput {
+	return o
+}
+
+func (o VirtualMachineAutoPatchingPtrOutput) Elem() VirtualMachineAutoPatchingOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoPatching) VirtualMachineAutoPatching { return *v }).(VirtualMachineAutoPatchingOutput)
+}
+
+// The day of week to apply the patch on.
+func (o VirtualMachineAutoPatchingPtrOutput) DayOfWeek() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineAutoPatching) string { return v.DayOfWeek }).(pulumi.StringOutput)
+}
+
+// The size of the Maintenance Window in minutes.
+func (o VirtualMachineAutoPatchingPtrOutput) MaintenanceWindowDurationInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualMachineAutoPatching) int { return v.MaintenanceWindowDurationInMinutes }).(pulumi.IntOutput)
+}
+
+// The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
+func (o VirtualMachineAutoPatchingPtrOutput) MaintenanceWindowStartingHour() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualMachineAutoPatching) int { return v.MaintenanceWindowStartingHour }).(pulumi.IntOutput)
+}
+
+type VirtualMachineKeyVaultCredential struct {
+	// The azure Key Vault url. Changing this forces a new resource to be created.
+	KeyVaultUrl string `pulumi:"keyVaultUrl"`
+	// The credential name.
+	Name string `pulumi:"name"`
+	// The service principal name to access key vault. Changing this forces a new resource to be created.
+	ServicePrincipalName string `pulumi:"servicePrincipalName"`
+	// The service principal name secret to access key vault. Changing this forces a new resource to be created.
+	ServicePrincipalSecret string `pulumi:"servicePrincipalSecret"`
+}
+
+type VirtualMachineKeyVaultCredentialInput interface {
+	pulumi.Input
+
+	ToVirtualMachineKeyVaultCredentialOutput() VirtualMachineKeyVaultCredentialOutput
+	ToVirtualMachineKeyVaultCredentialOutputWithContext(context.Context) VirtualMachineKeyVaultCredentialOutput
+}
+
+type VirtualMachineKeyVaultCredentialArgs struct {
+	// The azure Key Vault url. Changing this forces a new resource to be created.
+	KeyVaultUrl pulumi.StringInput `pulumi:"keyVaultUrl"`
+	// The credential name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The service principal name to access key vault. Changing this forces a new resource to be created.
+	ServicePrincipalName pulumi.StringInput `pulumi:"servicePrincipalName"`
+	// The service principal name secret to access key vault. Changing this forces a new resource to be created.
+	ServicePrincipalSecret pulumi.StringInput `pulumi:"servicePrincipalSecret"`
+}
+
+func (VirtualMachineKeyVaultCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineKeyVaultCredential)(nil)).Elem()
+}
+
+func (i VirtualMachineKeyVaultCredentialArgs) ToVirtualMachineKeyVaultCredentialOutput() VirtualMachineKeyVaultCredentialOutput {
+	return i.ToVirtualMachineKeyVaultCredentialOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineKeyVaultCredentialArgs) ToVirtualMachineKeyVaultCredentialOutputWithContext(ctx context.Context) VirtualMachineKeyVaultCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineKeyVaultCredentialOutput)
+}
+
+func (i VirtualMachineKeyVaultCredentialArgs) ToVirtualMachineKeyVaultCredentialPtrOutput() VirtualMachineKeyVaultCredentialPtrOutput {
+	return i.ToVirtualMachineKeyVaultCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineKeyVaultCredentialArgs) ToVirtualMachineKeyVaultCredentialPtrOutputWithContext(ctx context.Context) VirtualMachineKeyVaultCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineKeyVaultCredentialOutput).ToVirtualMachineKeyVaultCredentialPtrOutputWithContext(ctx)
+}
+
+type VirtualMachineKeyVaultCredentialPtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineKeyVaultCredentialPtrOutput() VirtualMachineKeyVaultCredentialPtrOutput
+	ToVirtualMachineKeyVaultCredentialPtrOutputWithContext(context.Context) VirtualMachineKeyVaultCredentialPtrOutput
+}
+
+type virtualMachineKeyVaultCredentialPtrType VirtualMachineKeyVaultCredentialArgs
+
+func VirtualMachineKeyVaultCredentialPtr(v *VirtualMachineKeyVaultCredentialArgs) VirtualMachineKeyVaultCredentialPtrInput {
+	return (*virtualMachineKeyVaultCredentialPtrType)(v)
+}
+
+func (*virtualMachineKeyVaultCredentialPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineKeyVaultCredential)(nil)).Elem()
+}
+
+func (i *virtualMachineKeyVaultCredentialPtrType) ToVirtualMachineKeyVaultCredentialPtrOutput() VirtualMachineKeyVaultCredentialPtrOutput {
+	return i.ToVirtualMachineKeyVaultCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineKeyVaultCredentialPtrType) ToVirtualMachineKeyVaultCredentialPtrOutputWithContext(ctx context.Context) VirtualMachineKeyVaultCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineKeyVaultCredentialPtrOutput)
+}
+
+type VirtualMachineKeyVaultCredentialOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineKeyVaultCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineKeyVaultCredential)(nil)).Elem()
+}
+
+func (o VirtualMachineKeyVaultCredentialOutput) ToVirtualMachineKeyVaultCredentialOutput() VirtualMachineKeyVaultCredentialOutput {
+	return o
+}
+
+func (o VirtualMachineKeyVaultCredentialOutput) ToVirtualMachineKeyVaultCredentialOutputWithContext(ctx context.Context) VirtualMachineKeyVaultCredentialOutput {
+	return o
+}
+
+func (o VirtualMachineKeyVaultCredentialOutput) ToVirtualMachineKeyVaultCredentialPtrOutput() VirtualMachineKeyVaultCredentialPtrOutput {
+	return o.ToVirtualMachineKeyVaultCredentialPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineKeyVaultCredentialOutput) ToVirtualMachineKeyVaultCredentialPtrOutputWithContext(ctx context.Context) VirtualMachineKeyVaultCredentialPtrOutput {
+	return o.ApplyT(func(v VirtualMachineKeyVaultCredential) *VirtualMachineKeyVaultCredential {
+		return &v
+	}).(VirtualMachineKeyVaultCredentialPtrOutput)
+}
+
+// The azure Key Vault url. Changing this forces a new resource to be created.
+func (o VirtualMachineKeyVaultCredentialOutput) KeyVaultUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineKeyVaultCredential) string { return v.KeyVaultUrl }).(pulumi.StringOutput)
+}
+
+// The credential name.
+func (o VirtualMachineKeyVaultCredentialOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineKeyVaultCredential) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The service principal name to access key vault. Changing this forces a new resource to be created.
+func (o VirtualMachineKeyVaultCredentialOutput) ServicePrincipalName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineKeyVaultCredential) string { return v.ServicePrincipalName }).(pulumi.StringOutput)
+}
+
+// The service principal name secret to access key vault. Changing this forces a new resource to be created.
+func (o VirtualMachineKeyVaultCredentialOutput) ServicePrincipalSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineKeyVaultCredential) string { return v.ServicePrincipalSecret }).(pulumi.StringOutput)
+}
+
+type VirtualMachineKeyVaultCredentialPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineKeyVaultCredentialPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineKeyVaultCredential)(nil)).Elem()
+}
+
+func (o VirtualMachineKeyVaultCredentialPtrOutput) ToVirtualMachineKeyVaultCredentialPtrOutput() VirtualMachineKeyVaultCredentialPtrOutput {
+	return o
+}
+
+func (o VirtualMachineKeyVaultCredentialPtrOutput) ToVirtualMachineKeyVaultCredentialPtrOutputWithContext(ctx context.Context) VirtualMachineKeyVaultCredentialPtrOutput {
+	return o
+}
+
+func (o VirtualMachineKeyVaultCredentialPtrOutput) Elem() VirtualMachineKeyVaultCredentialOutput {
+	return o.ApplyT(func(v *VirtualMachineKeyVaultCredential) VirtualMachineKeyVaultCredential { return *v }).(VirtualMachineKeyVaultCredentialOutput)
+}
+
+// The azure Key Vault url. Changing this forces a new resource to be created.
+func (o VirtualMachineKeyVaultCredentialPtrOutput) KeyVaultUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineKeyVaultCredential) string { return v.KeyVaultUrl }).(pulumi.StringOutput)
+}
+
+// The credential name.
+func (o VirtualMachineKeyVaultCredentialPtrOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineKeyVaultCredential) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The service principal name to access key vault. Changing this forces a new resource to be created.
+func (o VirtualMachineKeyVaultCredentialPtrOutput) ServicePrincipalName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineKeyVaultCredential) string { return v.ServicePrincipalName }).(pulumi.StringOutput)
+}
+
+// The service principal name secret to access key vault. Changing this forces a new resource to be created.
+func (o VirtualMachineKeyVaultCredentialPtrOutput) ServicePrincipalSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineKeyVaultCredential) string { return v.ServicePrincipalSecret }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput{})
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput{})
@@ -537,4 +835,8 @@ func init() {
 	pulumi.RegisterOutputType(ElasticPoolSkuPtrOutput{})
 	pulumi.RegisterOutputType(ServerVulnerabilityAssessmentRecurringScansOutput{})
 	pulumi.RegisterOutputType(ServerVulnerabilityAssessmentRecurringScansPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAutoPatchingOutput{})
+	pulumi.RegisterOutputType(VirtualMachineAutoPatchingPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineKeyVaultCredentialOutput{})
+	pulumi.RegisterOutputType(VirtualMachineKeyVaultCredentialPtrOutput{})
 }

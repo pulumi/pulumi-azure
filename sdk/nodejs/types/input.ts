@@ -4619,6 +4619,38 @@ export namespace containerservice {
 }
 
 export namespace core {
+    export interface CustomProviderAction {
+        /**
+         * Specifies the endpoint of the action. 
+         */
+        endpoint: pulumi.Input<string>;
+        /**
+         * Specifies the name of the action. 
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface CustomProviderResourceType {
+        /**
+         * Specifies the endpoint of the route definition. 
+         */
+        endpoint: pulumi.Input<string>;
+        /**
+         * Specifies the name of the route definition. 
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`. 
+         */
+        routingType?: pulumi.Input<string>;
+    }
+
+    export interface CustomProviderValidation {
+        /**
+         * The endpoint where the validation specification is located. 
+         */
+        specification: pulumi.Input<string>;
+    }
 }
 
 export namespace cosmosdb {
@@ -7370,6 +7402,9 @@ export namespace iot {
          * The weight applied to the IoT Hub. Defaults to 0.
          */
         allocationWeight?: pulumi.Input<number>;
+        /**
+         * Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
+         */
         applyAllocationPolicy?: pulumi.Input<boolean>;
         /**
          * The connection string to connect to the IoT Hub. Changing this forces a new resource.
@@ -7782,6 +7817,23 @@ export namespace lb {
          * The name of the Frontend IP Configuration.
          */
         name: pulumi.Input<string>;
+    }
+}
+
+export namespace machinelearning {
+    export interface WorkspaceIdentity {
+        /**
+         * The (Client) ID of the Service Principal.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The ID of the Tenant the Service Principal is assigned in.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+         */
+        type: pulumi.Input<string>;
     }
 }
 
@@ -8461,6 +8513,40 @@ export namespace mssql {
          * Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
          */
         enabled?: pulumi.Input<boolean>;
+    }
+
+    export interface VirtualMachineAutoPatching {
+        /**
+         * The day of week to apply the patch on.
+         */
+        dayOfWeek: pulumi.Input<string>;
+        /**
+         * The size of the Maintenance Window in minutes.
+         */
+        maintenanceWindowDurationInMinutes: pulumi.Input<number>;
+        /**
+         * The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
+         */
+        maintenanceWindowStartingHour: pulumi.Input<number>;
+    }
+
+    export interface VirtualMachineKeyVaultCredential {
+        /**
+         * The azure Key Vault url. Changing this forces a new resource to be created.
+         */
+        keyVaultUrl: pulumi.Input<string>;
+        /**
+         * The credential name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The service principal name to access key vault. Changing this forces a new resource to be created.
+         */
+        servicePrincipalName: pulumi.Input<string>;
+        /**
+         * The service principal name secret to access key vault. Changing this forces a new resource to be created.
+         */
+        servicePrincipalSecret: pulumi.Input<string>;
     }
 }
 
@@ -9806,6 +9892,10 @@ export namespace network {
 
     export interface TrafficManagerProfileMonitorConfig {
         /**
+         * One or more `customHeader` blocks as defined below.
+         */
+        customHeaders?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerProfileMonitorConfigCustomHeader>[]>;
+        /**
          * A list of status code ranges in the format of `100-101`.
          */
         expectedStatusCodeRanges?: pulumi.Input<pulumi.Input<string>[]>;
@@ -9833,6 +9923,17 @@ export namespace network {
          * The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
          */
         toleratedNumberOfFailures?: pulumi.Input<number>;
+    }
+
+    export interface TrafficManagerProfileMonitorConfigCustomHeader {
+        /**
+         * The name of the custom header.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of custom header. Applicable for Http and Https protocol.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface VirtualHubRoute {
@@ -10506,6 +10607,15 @@ export namespace servicefabric {
         certificateIssuerThumbprint?: pulumi.Input<string>;
     }
 
+    export interface ClusterClientCertificateCommonName {
+        commonName: pulumi.Input<string>;
+        /**
+         * Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
+         */
+        isAdmin: pulumi.Input<boolean>;
+        issuerThumbprint?: pulumi.Input<string>;
+    }
+
     export interface ClusterClientCertificateThumbprint {
         /**
          * Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
@@ -10694,20 +10804,14 @@ export namespace siterecovery {
 
 export namespace sql {
     export interface DatabaseExtendedAuditingPolicy {
-        /**
-         * Specifies the number of days to retain logs for in the storage account.
-         */
         retentionInDays?: pulumi.Input<number>;
         /**
-         * Specifies the access key to use for the auditing storage account.
+         * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
          */
         storageAccountAccessKey: pulumi.Input<string>;
-        /**
-         * Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-         */
         storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
         /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint: pulumi.Input<string>;
     }
@@ -11454,6 +11558,10 @@ export namespace trafficmanager {
 
     export interface ProfileMonitorConfig {
         /**
+         * One or more `customHeader` blocks as defined below.
+         */
+        customHeaders?: pulumi.Input<pulumi.Input<inputs.trafficmanager.ProfileMonitorConfigCustomHeader>[]>;
+        /**
          * A list of status code ranges in the format of `100-101`.
          */
         expectedStatusCodeRanges?: pulumi.Input<pulumi.Input<string>[]>;
@@ -11481,6 +11589,17 @@ export namespace trafficmanager {
          * The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
          */
         toleratedNumberOfFailures?: pulumi.Input<number>;
+    }
+
+    export interface ProfileMonitorConfigCustomHeader {
+        /**
+         * The name of the custom header.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of custom header. Applicable for Http and Https protocol.
+         */
+        value: pulumi.Input<string>;
     }
 }
 

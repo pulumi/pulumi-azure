@@ -26,6 +26,7 @@ export * from "./getPublicIP";
 export * from "./getPublicIPs";
 export * from "./getPublicIpPrefix";
 export * from "./getRouteTable";
+export * from "./getServiceTags";
 export * from "./getSubnet";
 export * from "./getTrafficManager";
 export * from "./getVirtualHub";

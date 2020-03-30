@@ -47,6 +47,10 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * A list of IP Addresses where the HPC Cache can be mounted.
+     */
+    public /*out*/ readonly mountAddresses!: pulumi.Output<string[]>;
+    /**
      * The name of the HPC Cache. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -77,6 +81,7 @@ export class Cache extends pulumi.CustomResource {
             const state = argsOrState as CacheState | undefined;
             inputs["cacheSizeInGb"] = state ? state.cacheSizeInGb : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["mountAddresses"] = state ? state.mountAddresses : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
@@ -101,6 +106,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
+            inputs["mountAddresses"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -125,6 +131,10 @@ export interface CacheState {
      * Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * A list of IP Addresses where the HPC Cache can be mounted.
+     */
+    readonly mountAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the HPC Cache. Changing this forces a new resource to be created.
      */

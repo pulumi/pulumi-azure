@@ -41,7 +41,13 @@ namespace Pulumi.Azure.ServiceFabric
         public Output<Outputs.ClusterCertificateCommonNames?> CertificateCommonNames { get; private set; } = null!;
 
         /// <summary>
-        /// One or two `client_certificate_thumbprint` blocks as defined below.
+        /// A `client_certificate_common_name` block as defined below. 
+        /// </summary>
+        [Output("clientCertificateCommonNames")]
+        public Output<ImmutableArray<Outputs.ClusterClientCertificateCommonNames>> ClientCertificateCommonNames { get; private set; } = null!;
+
+        /// <summary>
+        /// One or two `client_certificate_thumbprint` blocks as defined below. 
         /// </summary>
         [Output("clientCertificateThumbprints")]
         public Output<ImmutableArray<Outputs.ClusterClientCertificateThumbprints>> ClientCertificateThumbprints { get; private set; } = null!;
@@ -206,11 +212,23 @@ namespace Pulumi.Azure.ServiceFabric
         [Input("certificateCommonNames")]
         public Input<Inputs.ClusterCertificateCommonNamesArgs>? CertificateCommonNames { get; set; }
 
+        [Input("clientCertificateCommonNames")]
+        private InputList<Inputs.ClusterClientCertificateCommonNamesArgs>? _clientCertificateCommonNames;
+
+        /// <summary>
+        /// A `client_certificate_common_name` block as defined below. 
+        /// </summary>
+        public InputList<Inputs.ClusterClientCertificateCommonNamesArgs> ClientCertificateCommonNames
+        {
+            get => _clientCertificateCommonNames ?? (_clientCertificateCommonNames = new InputList<Inputs.ClusterClientCertificateCommonNamesArgs>());
+            set => _clientCertificateCommonNames = value;
+        }
+
         [Input("clientCertificateThumbprints")]
         private InputList<Inputs.ClusterClientCertificateThumbprintsArgs>? _clientCertificateThumbprints;
 
         /// <summary>
-        /// One or two `client_certificate_thumbprint` blocks as defined below.
+        /// One or two `client_certificate_thumbprint` blocks as defined below. 
         /// </summary>
         public InputList<Inputs.ClusterClientCertificateThumbprintsArgs> ClientCertificateThumbprints
         {
@@ -351,11 +369,23 @@ namespace Pulumi.Azure.ServiceFabric
         [Input("certificateCommonNames")]
         public Input<Inputs.ClusterCertificateCommonNamesGetArgs>? CertificateCommonNames { get; set; }
 
+        [Input("clientCertificateCommonNames")]
+        private InputList<Inputs.ClusterClientCertificateCommonNamesGetArgs>? _clientCertificateCommonNames;
+
+        /// <summary>
+        /// A `client_certificate_common_name` block as defined below. 
+        /// </summary>
+        public InputList<Inputs.ClusterClientCertificateCommonNamesGetArgs> ClientCertificateCommonNames
+        {
+            get => _clientCertificateCommonNames ?? (_clientCertificateCommonNames = new InputList<Inputs.ClusterClientCertificateCommonNamesGetArgs>());
+            set => _clientCertificateCommonNames = value;
+        }
+
         [Input("clientCertificateThumbprints")]
         private InputList<Inputs.ClusterClientCertificateThumbprintsGetArgs>? _clientCertificateThumbprints;
 
         /// <summary>
-        /// One or two `client_certificate_thumbprint` blocks as defined below.
+        /// One or two `client_certificate_thumbprint` blocks as defined below. 
         /// </summary>
         public InputList<Inputs.ClusterClientCertificateThumbprintsGetArgs> ClientCertificateThumbprints
         {
@@ -657,6 +687,44 @@ namespace Pulumi.Azure.ServiceFabric
         public Input<string> X509StoreName { get; set; } = null!;
 
         public ClusterCertificateGetArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterClientCertificateCommonNamesArgs : Pulumi.ResourceArgs
+    {
+        [Input("commonName", required: true)]
+        public Input<string> CommonName { get; set; } = null!;
+
+        /// <summary>
+        /// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
+        /// </summary>
+        [Input("isAdmin", required: true)]
+        public Input<bool> IsAdmin { get; set; } = null!;
+
+        [Input("issuerThumbprint")]
+        public Input<string>? IssuerThumbprint { get; set; }
+
+        public ClusterClientCertificateCommonNamesArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterClientCertificateCommonNamesGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("commonName", required: true)]
+        public Input<string> CommonName { get; set; } = null!;
+
+        /// <summary>
+        /// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
+        /// </summary>
+        [Input("isAdmin", required: true)]
+        public Input<bool> IsAdmin { get; set; } = null!;
+
+        [Input("issuerThumbprint")]
+        public Input<string>? IssuerThumbprint { get; set; }
+
+        public ClusterClientCertificateCommonNamesGetArgs()
         {
         }
     }
@@ -1220,6 +1288,28 @@ namespace Pulumi.Azure.ServiceFabric
         {
             CertificateCommonName = certificateCommonName;
             CertificateIssuerThumbprint = certificateIssuerThumbprint;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterClientCertificateCommonNames
+    {
+        public readonly string CommonName;
+        /// <summary>
+        /// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
+        /// </summary>
+        public readonly bool IsAdmin;
+        public readonly string? IssuerThumbprint;
+
+        [OutputConstructor]
+        private ClusterClientCertificateCommonNames(
+            string commonName,
+            bool isAdmin,
+            string? issuerThumbprint)
+        {
+            CommonName = commonName;
+            IsAdmin = isAdmin;
+            IssuerThumbprint = issuerThumbprint;
         }
     }
 

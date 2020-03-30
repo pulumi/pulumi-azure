@@ -345,6 +345,8 @@ func (o ProfileDnsConfigPtrOutput) Ttl() pulumi.IntOutput {
 }
 
 type ProfileMonitorConfig struct {
+	// One or more `customHeader` blocks as defined below.
+	CustomHeaders []ProfileMonitorConfigCustomHeader `pulumi:"customHeaders"`
 	// A list of status code ranges in the format of `100-101`.
 	ExpectedStatusCodeRanges []string `pulumi:"expectedStatusCodeRanges"`
 	// The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
@@ -369,6 +371,8 @@ type ProfileMonitorConfigInput interface {
 }
 
 type ProfileMonitorConfigArgs struct {
+	// One or more `customHeader` blocks as defined below.
+	CustomHeaders ProfileMonitorConfigCustomHeaderArrayInput `pulumi:"customHeaders"`
 	// A list of status code ranges in the format of `100-101`.
 	ExpectedStatusCodeRanges pulumi.StringArrayInput `pulumi:"expectedStatusCodeRanges"`
 	// The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
@@ -454,6 +458,11 @@ func (o ProfileMonitorConfigOutput) ToProfileMonitorConfigPtrOutputWithContext(c
 	}).(ProfileMonitorConfigPtrOutput)
 }
 
+// One or more `customHeader` blocks as defined below.
+func (o ProfileMonitorConfigOutput) CustomHeaders() ProfileMonitorConfigCustomHeaderArrayOutput {
+	return o.ApplyT(func(v ProfileMonitorConfig) []ProfileMonitorConfigCustomHeader { return v.CustomHeaders }).(ProfileMonitorConfigCustomHeaderArrayOutput)
+}
+
 // A list of status code ranges in the format of `100-101`.
 func (o ProfileMonitorConfigOutput) ExpectedStatusCodeRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProfileMonitorConfig) []string { return v.ExpectedStatusCodeRanges }).(pulumi.StringArrayOutput)
@@ -507,6 +516,11 @@ func (o ProfileMonitorConfigPtrOutput) Elem() ProfileMonitorConfigOutput {
 	return o.ApplyT(func(v *ProfileMonitorConfig) ProfileMonitorConfig { return *v }).(ProfileMonitorConfigOutput)
 }
 
+// One or more `customHeader` blocks as defined below.
+func (o ProfileMonitorConfigPtrOutput) CustomHeaders() ProfileMonitorConfigCustomHeaderArrayOutput {
+	return o.ApplyT(func(v ProfileMonitorConfig) []ProfileMonitorConfigCustomHeader { return v.CustomHeaders }).(ProfileMonitorConfigCustomHeaderArrayOutput)
+}
+
 // A list of status code ranges in the format of `100-101`.
 func (o ProfileMonitorConfigPtrOutput) ExpectedStatusCodeRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProfileMonitorConfig) []string { return v.ExpectedStatusCodeRanges }).(pulumi.StringArrayOutput)
@@ -542,6 +556,104 @@ func (o ProfileMonitorConfigPtrOutput) ToleratedNumberOfFailures() pulumi.IntPtr
 	return o.ApplyT(func(v ProfileMonitorConfig) *int { return v.ToleratedNumberOfFailures }).(pulumi.IntPtrOutput)
 }
 
+type ProfileMonitorConfigCustomHeader struct {
+	// The name of the custom header.
+	Name string `pulumi:"name"`
+	// The value of custom header. Applicable for Http and Https protocol.
+	Value string `pulumi:"value"`
+}
+
+type ProfileMonitorConfigCustomHeaderInput interface {
+	pulumi.Input
+
+	ToProfileMonitorConfigCustomHeaderOutput() ProfileMonitorConfigCustomHeaderOutput
+	ToProfileMonitorConfigCustomHeaderOutputWithContext(context.Context) ProfileMonitorConfigCustomHeaderOutput
+}
+
+type ProfileMonitorConfigCustomHeaderArgs struct {
+	// The name of the custom header.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of custom header. Applicable for Http and Https protocol.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ProfileMonitorConfigCustomHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileMonitorConfigCustomHeader)(nil)).Elem()
+}
+
+func (i ProfileMonitorConfigCustomHeaderArgs) ToProfileMonitorConfigCustomHeaderOutput() ProfileMonitorConfigCustomHeaderOutput {
+	return i.ToProfileMonitorConfigCustomHeaderOutputWithContext(context.Background())
+}
+
+func (i ProfileMonitorConfigCustomHeaderArgs) ToProfileMonitorConfigCustomHeaderOutputWithContext(ctx context.Context) ProfileMonitorConfigCustomHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileMonitorConfigCustomHeaderOutput)
+}
+
+type ProfileMonitorConfigCustomHeaderArrayInput interface {
+	pulumi.Input
+
+	ToProfileMonitorConfigCustomHeaderArrayOutput() ProfileMonitorConfigCustomHeaderArrayOutput
+	ToProfileMonitorConfigCustomHeaderArrayOutputWithContext(context.Context) ProfileMonitorConfigCustomHeaderArrayOutput
+}
+
+type ProfileMonitorConfigCustomHeaderArray []ProfileMonitorConfigCustomHeaderInput
+
+func (ProfileMonitorConfigCustomHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileMonitorConfigCustomHeader)(nil)).Elem()
+}
+
+func (i ProfileMonitorConfigCustomHeaderArray) ToProfileMonitorConfigCustomHeaderArrayOutput() ProfileMonitorConfigCustomHeaderArrayOutput {
+	return i.ToProfileMonitorConfigCustomHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i ProfileMonitorConfigCustomHeaderArray) ToProfileMonitorConfigCustomHeaderArrayOutputWithContext(ctx context.Context) ProfileMonitorConfigCustomHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileMonitorConfigCustomHeaderArrayOutput)
+}
+
+type ProfileMonitorConfigCustomHeaderOutput struct{ *pulumi.OutputState }
+
+func (ProfileMonitorConfigCustomHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileMonitorConfigCustomHeader)(nil)).Elem()
+}
+
+func (o ProfileMonitorConfigCustomHeaderOutput) ToProfileMonitorConfigCustomHeaderOutput() ProfileMonitorConfigCustomHeaderOutput {
+	return o
+}
+
+func (o ProfileMonitorConfigCustomHeaderOutput) ToProfileMonitorConfigCustomHeaderOutputWithContext(ctx context.Context) ProfileMonitorConfigCustomHeaderOutput {
+	return o
+}
+
+// The name of the custom header.
+func (o ProfileMonitorConfigCustomHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfileMonitorConfigCustomHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of custom header. Applicable for Http and Https protocol.
+func (o ProfileMonitorConfigCustomHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfileMonitorConfigCustomHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ProfileMonitorConfigCustomHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (ProfileMonitorConfigCustomHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileMonitorConfigCustomHeader)(nil)).Elem()
+}
+
+func (o ProfileMonitorConfigCustomHeaderArrayOutput) ToProfileMonitorConfigCustomHeaderArrayOutput() ProfileMonitorConfigCustomHeaderArrayOutput {
+	return o
+}
+
+func (o ProfileMonitorConfigCustomHeaderArrayOutput) ToProfileMonitorConfigCustomHeaderArrayOutputWithContext(ctx context.Context) ProfileMonitorConfigCustomHeaderArrayOutput {
+	return o
+}
+
+func (o ProfileMonitorConfigCustomHeaderArrayOutput) Index(i pulumi.IntInput) ProfileMonitorConfigCustomHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileMonitorConfigCustomHeader {
+		return vs[0].([]ProfileMonitorConfigCustomHeader)[vs[1].(int)]
+	}).(ProfileMonitorConfigCustomHeaderOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EndpointCustomHeaderOutput{})
 	pulumi.RegisterOutputType(EndpointCustomHeaderArrayOutput{})
@@ -551,4 +663,6 @@ func init() {
 	pulumi.RegisterOutputType(ProfileDnsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProfileMonitorConfigOutput{})
 	pulumi.RegisterOutputType(ProfileMonitorConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProfileMonitorConfigCustomHeaderOutput{})
+	pulumi.RegisterOutputType(ProfileMonitorConfigCustomHeaderArrayOutput{})
 }

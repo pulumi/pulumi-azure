@@ -94,7 +94,7 @@ class MLServicesCluster(pulumi.CustomResource):
 
       * `isDefault` (`bool`) - Is this the Default Storage Account for the HDInsight ML Services Cluster? Changing this forces a new resource to be created.
       * `storage_account_key` (`str`) - The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-      * `storageContainerId` (`str`) - The ID of the Storage Container. Changing this forces a new resource to be created.
+      * `storage_container_id` (`str`) - The ID of the Storage Container. Changing this forces a new resource to be created.
     """
     tags: pulumi.Output[dict]
     """
@@ -169,7 +169,7 @@ class MLServicesCluster(pulumi.CustomResource):
 
           * `isDefault` (`pulumi.Input[bool]`) - Is this the Default Storage Account for the HDInsight ML Services Cluster? Changing this forces a new resource to be created.
           * `storage_account_key` (`pulumi.Input[str]`) - The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-          * `storageContainerId` (`pulumi.Input[str]`) - The ID of the Storage Container. Changing this forces a new resource to be created.
+          * `storage_container_id` (`pulumi.Input[str]`) - The ID of the Storage Container. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -288,7 +288,7 @@ class MLServicesCluster(pulumi.CustomResource):
 
           * `isDefault` (`pulumi.Input[bool]`) - Is this the Default Storage Account for the HDInsight ML Services Cluster? Changing this forces a new resource to be created.
           * `storage_account_key` (`pulumi.Input[str]`) - The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-          * `storageContainerId` (`pulumi.Input[str]`) - The ID of the Storage Container. Changing this forces a new resource to be created.
+          * `storage_container_id` (`pulumi.Input[str]`) - The ID of the Storage Container. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

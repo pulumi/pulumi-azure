@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .custom_provider import *
 from .get_client_config import *
 from .get_resource_group import *
 from .get_resources import *

@@ -31,7 +31,7 @@ class ElasticPool(pulumi.CustomResource):
     A `per_database_settings` block as defined below.
 
       * `maxCapacity` (`float`) - The maximum capacity any one database can consume.
-      * `minCapacity` (`float`) - The minimum capacity all databases are guaranteed.
+      * `min_capacity` (`float`) - The minimum capacity all databases are guaranteed.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -80,7 +80,7 @@ class ElasticPool(pulumi.CustomResource):
         The **per_database_settings** object supports the following:
 
           * `maxCapacity` (`pulumi.Input[float]`) - The maximum capacity any one database can consume.
-          * `minCapacity` (`pulumi.Input[float]`) - The minimum capacity all databases are guaranteed.
+          * `min_capacity` (`pulumi.Input[float]`) - The minimum capacity all databases are guaranteed.
 
         The **sku** object supports the following:
 
@@ -153,7 +153,7 @@ class ElasticPool(pulumi.CustomResource):
         The **per_database_settings** object supports the following:
 
           * `maxCapacity` (`pulumi.Input[float]`) - The maximum capacity any one database can consume.
-          * `minCapacity` (`pulumi.Input[float]`) - The minimum capacity all databases are guaranteed.
+          * `min_capacity` (`pulumi.Input[float]`) - The minimum capacity all databases are guaranteed.
 
         The **sku** object supports the following:
 

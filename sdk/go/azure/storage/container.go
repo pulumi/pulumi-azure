@@ -27,6 +27,8 @@ type Container struct {
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The name of the Container which should be created within the Storage Account.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The Resource Manager ID of this Storage Container.
+	ResourceManagerId pulumi.StringOutput `pulumi:"resourceManagerId"`
 	// The name of the Storage Account where the Container should be created.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 }
@@ -72,6 +74,8 @@ type containerState struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Container which should be created within the Storage Account.
 	Name *string `pulumi:"name"`
+	// The Resource Manager ID of this Storage Container.
+	ResourceManagerId *string `pulumi:"resourceManagerId"`
 	// The name of the Storage Account where the Container should be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
 }
@@ -87,6 +91,8 @@ type ContainerState struct {
 	Metadata pulumi.StringMapInput
 	// The name of the Container which should be created within the Storage Account.
 	Name pulumi.StringPtrInput
+	// The Resource Manager ID of this Storage Container.
+	ResourceManagerId pulumi.StringPtrInput
 	// The name of the Storage Account where the Container should be created.
 	StorageAccountName pulumi.StringPtrInput
 }

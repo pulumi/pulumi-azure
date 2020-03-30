@@ -521,6 +521,107 @@ func (o ClusterCertificateCommonNamesCommonNameArrayOutput) Index(i pulumi.IntIn
 	}).(ClusterCertificateCommonNamesCommonNameOutput)
 }
 
+type ClusterClientCertificateCommonName struct {
+	CommonName string `pulumi:"commonName"`
+	// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
+	IsAdmin          bool    `pulumi:"isAdmin"`
+	IssuerThumbprint *string `pulumi:"issuerThumbprint"`
+}
+
+type ClusterClientCertificateCommonNameInput interface {
+	pulumi.Input
+
+	ToClusterClientCertificateCommonNameOutput() ClusterClientCertificateCommonNameOutput
+	ToClusterClientCertificateCommonNameOutputWithContext(context.Context) ClusterClientCertificateCommonNameOutput
+}
+
+type ClusterClientCertificateCommonNameArgs struct {
+	CommonName pulumi.StringInput `pulumi:"commonName"`
+	// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
+	IsAdmin          pulumi.BoolInput      `pulumi:"isAdmin"`
+	IssuerThumbprint pulumi.StringPtrInput `pulumi:"issuerThumbprint"`
+}
+
+func (ClusterClientCertificateCommonNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterClientCertificateCommonName)(nil)).Elem()
+}
+
+func (i ClusterClientCertificateCommonNameArgs) ToClusterClientCertificateCommonNameOutput() ClusterClientCertificateCommonNameOutput {
+	return i.ToClusterClientCertificateCommonNameOutputWithContext(context.Background())
+}
+
+func (i ClusterClientCertificateCommonNameArgs) ToClusterClientCertificateCommonNameOutputWithContext(ctx context.Context) ClusterClientCertificateCommonNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientCertificateCommonNameOutput)
+}
+
+type ClusterClientCertificateCommonNameArrayInput interface {
+	pulumi.Input
+
+	ToClusterClientCertificateCommonNameArrayOutput() ClusterClientCertificateCommonNameArrayOutput
+	ToClusterClientCertificateCommonNameArrayOutputWithContext(context.Context) ClusterClientCertificateCommonNameArrayOutput
+}
+
+type ClusterClientCertificateCommonNameArray []ClusterClientCertificateCommonNameInput
+
+func (ClusterClientCertificateCommonNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterClientCertificateCommonName)(nil)).Elem()
+}
+
+func (i ClusterClientCertificateCommonNameArray) ToClusterClientCertificateCommonNameArrayOutput() ClusterClientCertificateCommonNameArrayOutput {
+	return i.ToClusterClientCertificateCommonNameArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterClientCertificateCommonNameArray) ToClusterClientCertificateCommonNameArrayOutputWithContext(ctx context.Context) ClusterClientCertificateCommonNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientCertificateCommonNameArrayOutput)
+}
+
+type ClusterClientCertificateCommonNameOutput struct{ *pulumi.OutputState }
+
+func (ClusterClientCertificateCommonNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterClientCertificateCommonName)(nil)).Elem()
+}
+
+func (o ClusterClientCertificateCommonNameOutput) ToClusterClientCertificateCommonNameOutput() ClusterClientCertificateCommonNameOutput {
+	return o
+}
+
+func (o ClusterClientCertificateCommonNameOutput) ToClusterClientCertificateCommonNameOutputWithContext(ctx context.Context) ClusterClientCertificateCommonNameOutput {
+	return o
+}
+
+func (o ClusterClientCertificateCommonNameOutput) CommonName() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterClientCertificateCommonName) string { return v.CommonName }).(pulumi.StringOutput)
+}
+
+// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
+func (o ClusterClientCertificateCommonNameOutput) IsAdmin() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClusterClientCertificateCommonName) bool { return v.IsAdmin }).(pulumi.BoolOutput)
+}
+
+func (o ClusterClientCertificateCommonNameOutput) IssuerThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterClientCertificateCommonName) *string { return v.IssuerThumbprint }).(pulumi.StringPtrOutput)
+}
+
+type ClusterClientCertificateCommonNameArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterClientCertificateCommonNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterClientCertificateCommonName)(nil)).Elem()
+}
+
+func (o ClusterClientCertificateCommonNameArrayOutput) ToClusterClientCertificateCommonNameArrayOutput() ClusterClientCertificateCommonNameArrayOutput {
+	return o
+}
+
+func (o ClusterClientCertificateCommonNameArrayOutput) ToClusterClientCertificateCommonNameArrayOutputWithContext(ctx context.Context) ClusterClientCertificateCommonNameArrayOutput {
+	return o
+}
+
+func (o ClusterClientCertificateCommonNameArrayOutput) Index(i pulumi.IntInput) ClusterClientCertificateCommonNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterClientCertificateCommonName {
+		return vs[0].([]ClusterClientCertificateCommonName)[vs[1].(int)]
+	}).(ClusterClientCertificateCommonNameOutput)
+}
+
 type ClusterClientCertificateThumbprint struct {
 	// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
 	IsAdmin bool `pulumi:"isAdmin"`
@@ -1473,6 +1574,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterCertificateCommonNamesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCertificateCommonNamesCommonNameOutput{})
 	pulumi.RegisterOutputType(ClusterCertificateCommonNamesCommonNameArrayOutput{})
+	pulumi.RegisterOutputType(ClusterClientCertificateCommonNameOutput{})
+	pulumi.RegisterOutputType(ClusterClientCertificateCommonNameArrayOutput{})
 	pulumi.RegisterOutputType(ClusterClientCertificateThumbprintOutput{})
 	pulumi.RegisterOutputType(ClusterClientCertificateThumbprintArrayOutput{})
 	pulumi.RegisterOutputType(ClusterDiagnosticsConfigOutput{})
